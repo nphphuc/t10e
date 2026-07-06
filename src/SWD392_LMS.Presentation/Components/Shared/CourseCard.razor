@@ -1,0 +1,89 @@
+@using SWD392_LMS.Application.DTOs
+
+<div class="course-card card border-0 shadow-sm h-100" @onclick="NavigateToCourse" role="button" tabindex="0"
+     @onkeydown="HandleKeyDown">
+    <div class="course-card-header" style="background-color: @(Course.ColorHex ?? "#6366F1")">
+        <div class="course-icon-wrapper">
+            <i class="bi @(Course.IconName ?? "bi-laptop") course-icon"></i>
+        </div>
+    </div>
+    <div class="card-body d-flex flex-column">
+        <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-opacity-10" style="background-color: @(Course.ColorHex ?? "#6366F1")20; color: @(Course.ColorHex ?? "#6366F1")">
+                @Course.Level
+            </span>
+            <span class="badge bg-secondary bg-opacity-10 text-secondary">
+                @Course.ChapterCount ch.
+            </span>
+            @if (Course.TotalEstimatedMinutes > 0)
+            {
+                <span class="badge bg-secondary bg-opacity-10 text-secondary">
+                    @Course.TotalEstimatedMinutes min
+                </span>
+            }
+        </div>
+        <h5 class="card-title fw-bold mb-2">@Course.Title</h5>
+        @if (!string.IsNullOrEmpty(Course.Subtitle))
+        {
+            <p class="card-text text-muted small mb-2">@Course.Subtitle</p>
+        }
+        <p class="card-text text-muted small mb-3 flex-grow-1">@Truncate(Course.Description, 120)</p>
+
+        @if (Course.UserProgressPercent > 0)
+        {
+            <div class="mt-auto">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <small class="text-muted">Progress</small>
+                    <small class="fw-semibold" style="color: @(Course.ColorHex ?? "#6366F1")">
+                        @Math.Round(Course.UserProgressPercent)%
+                    </small>
+                </div>
+                <div class="progress" style="height: 6px;">
+                    <div class="progress-bar" role="progressbar"
+                         style="width: @Course.UserProgressPercent%; background-color: @(Course.ColorHex ?? "#6366F1")"
+                         aria-valuenow="@Course.UserProgressPercent" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                </div>
+                @if (Course.IsUserCompleted)
+                {
+                    <span class="badge bg-success mt-2">
+                        <i class="bi bi-check-circle"></i> Completed
+                    </span>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="mt-auto">
+                <span class="btn btn-sm w-100" style="background-color: @(Course.ColorHex ?? "#6366F1"); color: white;">
+                    Start Learning
+                </span>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    [Parameter] public CourseDto Course { get; set; } = new();
+
+    private void NavigateToCourse()
+    {
+        Navigation.NavigateTo($"/courses/{Course.Id}");
+    }
+
+    private void HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" || e.Key == " ")
+        {
+            NavigateToCourse();
+        }
+    }
+
+    private string Truncate(string text, int maxLength)
+    {
+        if (string.IsNullOrEmpty(text)) return "";
+        return text.Length <= maxLength ? text : text[..maxLength] + "...";
+    }
+
+    [Inject] private NavigationManager Navigation { get; set; } = null!;
+}

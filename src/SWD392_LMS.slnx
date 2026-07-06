@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="SWD392_LMS.Application/SWD392_LMS.Application.csproj" />
+  <Project Path="SWD392_LMS.Domain/SWD392_LMS.Domain.csproj" />
+  <Project Path="SWD392_LMS.Infrastructure/SWD392_LMS.Infrastructure.csproj" />
+  <Project Path="SWD392_LMS.Presentation/SWD392_LMS.Presentation.csproj" />
+  <Project Path="SWD392_LMS.Shared/SWD392_LMS.Shared.csproj" />
+</Solution>

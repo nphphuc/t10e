@@ -1,0 +1,180 @@
+@page "/dashboard"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject IUserService UserService
+@inject NavigationManager Navigation
+
+<PageTitle>Dashboard — SWD392 LMS</PageTitle>
+
+@if (dashboard is null)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <section class="dashboard-page py-4">
+        <div class="container">
+            <!-- Welcome -->
+            <div class="d-flex justify-content-between align-items-start mb-4">
+                <div>
+                    <h1 class="fw-bold mb-1">
+                        Welcome back, @(dashboard.Profile.FullName ?? dashboard.Profile.Email)!
+                    </h1>
+                    <p class="text-muted mb-0">Here's your learning progress overview.</p>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-md-3">
+                    <div class="stat-card card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="stat-icon mb-2" style="color: #6366F1">
+                                <i class="bi bi-book fs-3"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0">@dashboard.TotalCourses</h3>
+                            <small class="text-muted">Total Courses</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="stat-icon mb-2" style="color: #10B981">
+                                <i class="bi bi-check-circle fs-3"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0">@dashboard.CompletedCourses</h3>
+                            <small class="text-muted">Completed</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="stat-icon mb-2" style="color: #F59E0B">
+                                <i class="bi bi-play-circle fs-3"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0">@dashboard.OngoingCourses</h3>
+                            <small class="text-muted">In Progress</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-card card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="stat-icon mb-2" style="color: #EC4899">
+                                <i class="bi bi-trophy fs-3"></i>
+                            </div>
+                            <h3 class="fw-bold mb-0">@dashboard.Profile.TotalQuizAttempts</h3>
+                            <small class="text-muted">Quiz Attempts</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile & Progress -->
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body text-center">
+                            <div class="avatar-placeholder mb-3 mx-auto"
+                                 style="width: 80px; height: 80px; background: #6366F120; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-person-circle fs-1" style="color: #6366F1"></i>
+                            </div>
+                            <h5 class="fw-bold mb-1">@dashboard.Profile.FullName</h5>
+                            <p class="text-muted small mb-2">@dashboard.Profile.Email</p>
+                            @if (!string.IsNullOrEmpty(dashboard.Profile.Bio))
+                            {
+                                <p class="small mb-3">@dashboard.Profile.Bio</p>
+                            }
+                            <div class="d-flex justify-content-center gap-3 mb-3">
+                                <div>
+                                    <small class="text-muted d-block">Avg. Quiz Score</small>
+                                    <strong>@dashboard.Profile.AverageQuizScore%</strong>
+                                </div>
+                                <div>
+                                    <small class="text-muted d-block">Member Since</small>
+                                    <strong>@dashboard.Profile.CreatedAt.ToString("MMM yyyy")</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Recent Courses -->
+                    <h5 class="fw-bold mb-3">
+                        <i class="bi bi-clock-history"></i> Recent Activity
+                    </h5>
+                    
+                    @if (!dashboard.RecentCourses.Any())
+                    {
+                        <div class="text-center py-4">
+                            <i class="bi bi-book text-muted" style="font-size: 2rem;"></i>
+                            <p class="text-muted mt-2">You haven't started any courses yet.</p>
+                            <a href="/courses" class="btn btn-primary">Browse Courses</a>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var progress in dashboard.RecentCourses)
+                        {
+                            <div class="course-progress-card card border-0 shadow-sm mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="progress-icon d-flex align-items-center justify-content-center"
+                                             style="width: 48px; height: 48px; background: @(progress.CourseColorHex ?? "#6366F1")20; border-radius: 12px; min-width: 48px;">
+                                            <i class="bi @(progress.CourseIconName ?? "bi-laptop")" style="color: @(progress.CourseColorHex ?? "#6366F1")"></i>
+                                        </div>
+                                        <div class="flex-grow-1 min-w-0">
+                                            <a href="/courses/@progress.CourseId" class="text-decoration-none">
+                                                <h6 class="fw-bold mb-1 text-truncate">@progress.CourseTitle</h6>
+                                            </a>
+                                            <ProgressBar Percent="progress.ProgressPercent" 
+                                                         Color="@(progress.CourseColorHex ?? "#6366F1")" 
+                                                         Height="6" 
+                                                         ShowLabel="true" />
+                                            <small class="text-muted mt-1 d-block">
+                                                @progress.CompletedLessons / @progress.TotalLessons lessons
+                                                @if (progress.IsCompleted)
+                                                {
+                                                    <span class="badge bg-success ms-2">Completed</span>
+                                                }
+                                            </small>
+                                        </div>
+                                        <a href="/courses/@progress.CourseId" class="btn btn-ghost btn-sm">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    private DashboardDto? dashboard;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get current user
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        
+        if (userId != null)
+        {
+            dashboard = await UserService.GetDashboardAsync(userId);
+        }
+    }
+
+    [Inject] private AuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
+}

@@ -1,0 +1,175 @@
+@page "/"
+@using Microsoft.AspNetCore.Authorization
+@attribute [AllowAnonymous]
+@inject ICourseService CourseService
+@inject NavigationManager Navigation
+
+<PageTitle>SWD392 LMS — Interactive Software Engineering Learning</PageTitle>
+
+<!-- Hero Section -->
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <h1 class="hero-title display-4 fw-bold mb-3">
+                    Master <span class="gradient-text">Software Engineering</span>
+                </h1>
+                <p class="hero-subtitle lead text-muted mb-4">
+                    Learn software design, architecture, and development through interactive lessons and quizzes.
+                    Built for FPT University's SWD392 course.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/courses" class="btn btn-primary btn-lg px-4">
+                        <i class="bi bi-book"></i> Browse Courses
+                    </a>
+                    <AuthorizeView>
+                        <Authorized>
+                            <a href="/dashboard" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-speedometer2"></i> My Dashboard
+                            </a>
+                        </Authorized>
+                        <NotAuthorized>
+                            <a href="/Identity/Account/Register" class="btn btn-outline-secondary btn-lg px-4">
+                                <i class="bi bi-person-plus"></i> Get Started Free
+                            </a>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                </div>
+                <div class="hero-stats d-flex gap-4 mt-4 pt-3">
+                    <div>
+                        <h3 class="fw-bold mb-0">@totalCourses</h3>
+                        <small class="text-muted">Courses</small>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0">@totalChapters</h3>
+                        <small class="text-muted">Chapters</small>
+                    </div>
+                    <div>
+                        <h3 class="fw-bold mb-0">@totalQuestions</h3>
+                        <small class="text-muted">Quiz Questions</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-illustration text-center">
+                    <div class="hero-card-grid">
+                        <div class="hero-card" style="background: #6366F1">
+                            <i class="bi bi-diagram-3 fs-2"></i>
+                            <span>UML</span>
+                        </div>
+                        <div class="hero-card" style="background: #EC4899">
+                            <i class="bi bi-puzzle fs-2"></i>
+                            <span>Design</span>
+                        </div>
+                        <div class="hero-card" style="background: #10B981">
+                            <i class="bi bi-layers fs-2"></i>
+                            <span>Architecture</span>
+                        </div>
+                        <div class="hero-card" style="background: #F59E0B">
+                            <i class="bi bi-collection fs-2"></i>
+                            <span>Patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Courses -->
+<section class="featured-section py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h2 class="fw-bold mb-1">Explore Courses</h2>
+                <p class="text-muted mb-0">Interactive software engineering curriculum based on SWD392</p>
+            </div>
+            <a href="/courses" class="btn btn-outline-primary d-none d-md-flex">
+                View All <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+
+        @if (courses is null)
+        {
+            <div class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var course in courses.Take(6))
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <CourseCard Course="course" />
+                    </div>
+                }
+            </div>
+
+            @if (courses.Count > 6)
+            {
+                <div class="text-center mt-4">
+                    <a href="/courses" class="btn btn-outline-primary">
+                        View All @courses.Count Courses <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold mb-2">Why Learn with SWD392 LMS?</h2>
+            <p class="text-muted">Interactive learning experience designed for software engineering students</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3" style="background: #6366F120; color: #6366F1">
+                        <i class="bi bi-play-circle fs-3"></i>
+                    </div>
+                    <h5>Interactive Lessons</h5>
+                    <p class="text-muted small">Learn through carefully crafted lessons with code examples and real-world scenarios.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3" style="background: #10B98120; color: #10B981">
+                        <i class="bi bi-question-circle fs-3"></i>
+                    </div>
+                    <h5>Quiz-Based Learning</h5>
+                    <p class="text-muted small">Reinforce your knowledge with interactive quizzes after each chapter.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature-card text-center p-4">
+                    <div class="feature-icon mb-3" style="background: #F59E0B20; color: #F59E0B">
+                        <i class="bi bi-graph-up-arrow fs-3"></i>
+                    </div>
+                    <h5>Track Progress</h5>
+                    <p class="text-muted small">Monitor your learning journey with detailed progress tracking and achievements.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private List<CourseDto>? courses;
+    private int totalCourses;
+    private int totalChapters;
+    private int totalQuestions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await CourseService.GetAllCoursesAsync();
+        totalCourses = courses.Count;
+        totalChapters = courses.Sum(c => c.ChapterCount);
+        totalQuestions = totalChapters * 2; // approximate
+    }
+}

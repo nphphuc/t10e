@@ -1,0 +1,87 @@
+@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+<div class="min-h-screen d-flex flex-column">
+    <header class="app-header">
+        <nav class="container d-flex align-items-center justify-content-between py-2">
+            <div class="d-flex align-items-center gap-4">
+                <a href="/" class="brand-link text-decoration-none d-flex align-items-center gap-2">
+                    <span class="brand-icon">SWD</span>
+                    <span class="brand-text">392 LMS</span>
+                </a>
+                <div class="nav-links d-none d-md-flex gap-3">
+                    <NavLink class="nav-link" href="/courses" Match="NavLinkMatch.Prefix">
+                        <i class="bi bi-book"></i> Courses
+                    </NavLink>
+                    <NavLink class="nav-link" href="/dashboard">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </NavLink>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <AuthorizeView>
+                    <Authorized>
+                        <a href="/dashboard" class="btn btn-ghost btn-sm">
+                            <i class="bi bi-person-circle"></i>
+                            <span class="d-none d-md-inline ms-1">Profile</span>
+                        </a>
+                        <a href="/Identity/Account/Logout" class="btn btn-outline-light btn-sm">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span class="d-none d-md-inline ms-1">Logout</span>
+                        </a>
+                    </Authorized>
+                    <NotAuthorized>
+                        <a href="/Identity/Account/Register" class="btn btn-ghost btn-sm">Register</a>
+                        <a href="/Identity/Account/Login" class="btn btn-primary btn-sm">Sign In</a>
+                    </NotAuthorized>
+                </AuthorizeView>
+                <button class="btn btn-ghost btn-sm d-md-none" @onclick="ToggleMobileMenu">
+                    <i class="bi bi-list fs-5"></i>
+                </button>
+            </div>
+        </nav>
+        @if (showMobileMenu)
+        {
+            <div class="mobile-menu d-md-none">
+                <div class="container py-3 d-flex flex-column gap-2">
+                    <NavLink class="nav-link mobile-nav-link" href="/courses" Match="NavLinkMatch.Prefix" @onclick="ToggleMobileMenu">
+                        <i class="bi bi-book"></i> Courses
+                    </NavLink>
+                    <NavLink class="nav-link mobile-nav-link" href="/dashboard" @onclick="ToggleMobileMenu">
+                        <i class="bi bi-speedometer2"></i> Dashboard
+                    </NavLink>
+                </div>
+            </div>
+        }
+    </header>
+
+    <main class="flex-grow-1">
+        @Body
+    </main>
+
+    <footer class="app-footer py-4 mt-auto">
+        <div class="container text-center">
+            <p class="mb-1 text-muted small">
+                SWD392 Learning Management System &mdash; FPT University
+            </p>
+            <p class="mb-0 text-muted small">
+                Built with ASP.NET Core Blazor &middot; N-Layer Architecture
+            </p>
+        </div>
+    </footer>
+</div>
+
+<div id="blazor-error-ui" class="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    private bool showMobileMenu;
+
+    private void ToggleMobileMenu()
+    {
+        showMobileMenu = !showMobileMenu;
+    }
+}
