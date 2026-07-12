@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Microsoft.AspNetCore.Cryptography.Internal/10.0.9": {
@@ -1097,23 +1097,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Users\\lehai\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj",
+      "projectUniqueName": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj",
       "projectName": "SWD392_LMS.Application",
-      "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Application\\obj\\",
+      "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj",
+      "packagesPath": "C:\\Users\\lehai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lehai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1126,13 +1126,14 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Domain\\SWD392_LMS.Domain.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Domain\\SWD392_LMS.Domain.csproj"
+            "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Domain\\SWD392_LMS.Domain.csproj": {
+              "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Domain\\SWD392_LMS.Domain.csproj"
             },
-            "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj"
+            "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj": {
+              "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj"
             }
           }
         }
@@ -1147,10 +1148,11 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
@@ -1174,7 +1176,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net10.0": {
       "Azure.Core/1.47.1": {
@@ -38,7 +38,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.8": {
+      "Microsoft.AspNetCore.App.Internal.Assets/10.0.9": {
         "type": "package",
         "build": {
           "build/Microsoft.AspNetCore.App.Internal.Assets.props": {},
@@ -644,10 +644,10 @@
         "lib/netstandard2.0/Azure.Identity.xml"
       ]
     },
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.8": {
-      "sha512": "v6KocthydFtUHBIRI29YsOHKOgsqcQubkNywVOxiYr4GSDSv+XO/AeyMJywlX+1tGUTGdydu/X7V+Tzeq4SsoA==",
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.9": {
+      "sha512": "E9Wp/LPKAYkGOVBv4lt5U5TnUA/7pov7QZAwF3eI64kK8AAXqkPDwuadEOwpL1WXEfgecYm0fccluvABp32D8g==",
       "type": "package",
-      "path": "microsoft.aspnetcore.app.internal.assets/10.0.8",
+      "path": "microsoft.aspnetcore.app.internal.assets/10.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -663,7 +663,7 @@
         "build/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildMultiTargeting/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildTransitive/Microsoft.AspNetCore.App.Internal.Assets.targets",
-        "microsoft.aspnetcore.app.internal.assets.10.0.8.nupkg.sha512",
+        "microsoft.aspnetcore.app.internal.assets.10.0.9.nupkg.sha512",
         "microsoft.aspnetcore.app.internal.assets.nuspec"
       ]
     },
@@ -1433,7 +1433,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.8",
+      "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.9",
       "Microsoft.AspNetCore.Identity.UI >= 10.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.9",
       "SWD392_LMS.Application >= 1.0.0",
@@ -1442,23 +1442,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HP\\.nuget\\packages\\": {},
+    "C:\\Users\\lehai\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+      "projectUniqueName": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
       "projectName": "SWD392_LMS.Presentation",
-      "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
-      "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Presentation\\obj\\",
+      "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+      "packagesPath": "C:\\Users\\lehai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Presentation\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\lehai\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1471,16 +1471,17 @@
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj"
+            "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj": {
+              "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Application\\SWD392_LMS.Application.csproj"
             },
-            "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Infrastructure\\SWD392_LMS.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Infrastructure\\SWD392_LMS.Infrastructure.csproj"
+            "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Infrastructure\\SWD392_LMS.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Infrastructure\\SWD392_LMS.Infrastructure.csproj"
             },
-            "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj": {
-              "projectPath": "C:\\Users\\HP\\Desktop\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj"
+            "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj": {
+              "projectPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Shared\\SWD392_LMS.Shared.csproj"
             }
           }
         }
@@ -1495,16 +1496,17 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.300"
     },
     "frameworks": {
       "net10.0": {
+        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Microsoft.AspNetCore.App.Internal.Assets": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.8, )",
+            "version": "[10.0.9, )",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.Identity.UI": {
@@ -1535,7 +1537,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.204/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.AspNetCore": "(,10.0.32767]",
           "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

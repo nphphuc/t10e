@@ -8,92 +8,97 @@ build_property.ProjectTypeGuids =
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SWD392_LMS.Presentation
 build_property.RootNamespace = SWD392_LMS.Presentation
-build_property.ProjectDir = C:\Users\HP\Desktop\t10e\src\SWD392_LMS.Presentation\
+build_property.ProjectDir = C:\Users\lehai\OneDrive\Documents\GitHub\t10e\src\SWD392_LMS.Presentation\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
-build_property.RazorLangVersion = 9.0
+build_property.RazorLangVersion = 10.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\t10e\src\SWD392_LMS.Presentation
+build_property.MSBuildProjectDirectory = C:\Users\lehai\OneDrive\Documents\GitHub\t10e\src\SWD392_LMS.Presentation
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/App.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/ChapterView.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/ChapterView.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDaGFwdGVyVmlldy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Counter.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/CourseDetail.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/CourseDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3Vyc2VEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Courses.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Courses.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3Vyc2VzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Dashboard.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Dashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xEYXNoYm9hcmQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Error.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Home.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/NotFound.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/NotFound.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOb3RGb3VuZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Quiz.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Quiz.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xRdWl6LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Pages/Weather.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Routes.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Shared/CourseCard.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Shared/CourseCard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcQ291cnNlQ2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Shared/ProgressBar.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Shared/ProgressBar.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcUHJvZ3Jlc3NCYXIucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Shared/RedirectToLogin.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Shared/RedirectToLogin.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xTaGFyZWRcUmVkaXJlY3RUb0xvZ2luLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/_Imports.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Layout/MainLayout.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-78hv0a1zhl
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Layout/NavMenu.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-jfsw5y1q3u
 
-[C:/Users/HP/Desktop/t10e/src/SWD392_LMS.Presentation/Components/Layout/ReconnectModal.razor]
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Components/Layout/ReconnectModal.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcUmVjb25uZWN0TW9kYWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-2y4yo7vvcn
+
+[C:/Users/lehai/OneDrive/Documents/GitHub/t10e/src/SWD392_LMS.Presentation/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

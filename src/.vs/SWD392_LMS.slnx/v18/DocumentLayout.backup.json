@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BF54CC10-FC4A-2B7D-0315-9B9EAE36D05B}|SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj|c:\\users\\lehai\\onedrive\\documents\\github\\t10e\\src\\swd392_lms.presentation\\swd392_lms.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{BF54CC10-FC4A-2B7D-0315-9B9EAE36D05B}|SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj|solutionrelative:swd392_lms.presentation\\swd392_lms.presentation.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SWD392_LMS.Presentation.csproj",
+              "DocumentMoniker": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+              "RelativeDocumentMoniker": "SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+              "ToolTip": "C:\\Users\\lehai\\OneDrive\\Documents\\GitHub\\t10e\\src\\SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+              "RelativeToolTip": "SWD392_LMS.Presentation\\SWD392_LMS.Presentation.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-07-12T10:42:53.737Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
