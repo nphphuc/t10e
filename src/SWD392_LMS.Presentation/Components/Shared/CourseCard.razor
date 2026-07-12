@@ -1,7 +1,6 @@
 @using SWD392_LMS.Application.DTOs
 
-<div class="course-card card border-0 shadow-sm h-100" @onclick="NavigateToCourse" role="button" tabindex="0"
-     @onkeydown="HandleKeyDown">
+<a class="course-card card border-0 shadow-sm h-100 text-decoration-none text-reset" href="/courses/@Course.Id">
     <div class="course-card-header" style="background-color: @(Course.ColorHex ?? "#6366F1")">
         <div class="course-icon-wrapper">
             <i class="bi @(Course.IconName ?? "bi-laptop") course-icon"></i>
@@ -61,29 +60,14 @@
             </div>
         }
     </div>
-</div>
+</a>
 
 @code {
     [Parameter] public CourseDto Course { get; set; } = new();
-
-    private void NavigateToCourse()
-    {
-        Navigation.NavigateTo($"/courses/{Course.Id}");
-    }
-
-    private void HandleKeyDown(KeyboardEventArgs e)
-    {
-        if (e.Key == "Enter" || e.Key == " ")
-        {
-            NavigateToCourse();
-        }
-    }
 
     private string Truncate(string text, int maxLength)
     {
         if (string.IsNullOrEmpty(text)) return "";
         return text.Length <= maxLength ? text : text[..maxLength] + "...";
     }
-
-    [Inject] private NavigationManager Navigation { get; set; } = null!;
 }

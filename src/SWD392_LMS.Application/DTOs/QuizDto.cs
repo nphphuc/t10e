@@ -39,6 +39,8 @@ public class QuizResultDto
     public string ChapterTitle { get; set; } = string.Empty;
     public int TotalQuestions { get; set; }
     public int CorrectAnswers { get; set; }
+    public int EarnedPoints { get; set; }
+    public int TotalPoints { get; set; }
     public double ScorePercent { get; set; }
     public bool IsPassed { get; set; }
     public int AttemptId { get; set; }
@@ -50,6 +52,8 @@ public class QuestionResultDto
     public int QuestionId { get; set; }
     public string QuestionText { get; set; } = string.Empty;
     public bool IsCorrect { get; set; }
+    public int Points { get; set; }
+    public int EarnedPoints { get; set; }
     public string? Explanation { get; set; }
     public List<int> SelectedOptionIds { get; set; } = new();
     public List<int> CorrectOptionIds { get; set; } = new();

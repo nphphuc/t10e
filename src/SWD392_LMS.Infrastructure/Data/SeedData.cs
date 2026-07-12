@@ -24,36 +24,23 @@ public static class SeedData
         if (!await roleManager.RoleExistsAsync("User"))
             await roleManager.CreateAsync(new IdentityRole("User"));
 
-        // Seed Admin User
-        if (await userManager.FindByEmailAsync("admin@swd392.com") == null)
-        {
-            var admin = new ApplicationUser
-            {
-                UserName = "admin",
-                Email = "admin@swd392.com",
-                FullName = "Admin",
-                CreatedAt = DateTime.UtcNow
-            };
-            var result = await userManager.CreateAsync(admin, "Admin@123");
-            if (result.Succeeded)
-                await userManager.AddToRoleAsync(admin, "Admin");
-        }
+        // Seed users
+        await EnsureSeedUserAsync(
+            userManager,
+            email: "admin@swd392.com",
+            userName: "admin@swd392.com",
+            password: "Admin@123",
+            role: "Admin",
+            fullName: "Admin");
 
-        // Seed Demo User
-        if (await userManager.FindByEmailAsync("demo@swd392.com") == null)
-        {
-            var demoUser = new ApplicationUser
-            {
-                UserName = "demo",
-                Email = "demo@swd392.com",
-                FullName = "Demo Learner",
-                Bio = "Software Engineering student exploring software design and architecture.",
-                CreatedAt = DateTime.UtcNow
-            };
-            var result = await userManager.CreateAsync(demoUser, "Demo@123");
-            if (result.Succeeded)
-                await userManager.AddToRoleAsync(demoUser, "User");
-        }
+        await EnsureSeedUserAsync(
+            userManager,
+            email: "demo@swd392.com",
+            userName: "demo@swd392.com",
+            password: "Demo@123",
+            role: "User",
+            fullName: "Demo Learner",
+            bio: "Software Engineering student exploring software design and architecture.");
 
         // Seed Courses if empty
         if (!await context.Courses.AnyAsync())
@@ -62,6 +49,263 @@ public static class SeedData
             context.Courses.AddRange(courses);
             await context.SaveChangesAsync();
         }
+
+        await EnsureChapterQuizQuestionCountsAsync(context);
+    }
+
+    private static async Task EnsureSeedUserAsync(
+        UserManager<ApplicationUser> userManager,
+        string email,
+        string userName,
+        string password,
+        string role,
+        string fullName,
+        string? bio = null)
+    {
+        var user = await userManager.FindByEmailAsync(email);
+        if (user == null)
+        {
+            user = new ApplicationUser
+            {
+                UserName = userName,
+                Email = email,
+                EmailConfirmed = true,
+                FullName = fullName,
+                Bio = bio,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            var createResult = await userManager.CreateAsync(user, password);
+            ThrowIfFailed(createResult, $"create seed user {email}");
+        }
+        else
+        {
+            user.UserName = userName;
+            user.Email = email;
+            user.EmailConfirmed = true;
+            user.FullName = fullName;
+            user.Bio = bio ?? user.Bio;
+            user.LockoutEnd = null;
+            user.AccessFailedCount = 0;
+
+            var updateResult = await userManager.UpdateAsync(user);
+            ThrowIfFailed(updateResult, $"update seed user {email}");
+
+            if (!await userManager.CheckPasswordAsync(user, password))
+            {
+                if (await userManager.HasPasswordAsync(user))
+                {
+                    var removeResult = await userManager.RemovePasswordAsync(user);
+                    ThrowIfFailed(removeResult, $"remove old seed password for {email}");
+                }
+
+                var addPasswordResult = await userManager.AddPasswordAsync(user, password);
+                ThrowIfFailed(addPasswordResult, $"reset seed password for {email}");
+            }
+        }
+
+        if (!await userManager.IsInRoleAsync(user, role))
+        {
+            var roleResult = await userManager.AddToRoleAsync(user, role);
+            ThrowIfFailed(roleResult, $"assign {role} role to {email}");
+        }
+    }
+
+    private static void ThrowIfFailed(IdentityResult result, string action)
+    {
+        if (result.Succeeded) return;
+
+        var errors = string.Join("; ", result.Errors.Select(error => error.Description));
+        throw new InvalidOperationException($"Failed to {action}: {errors}");
+    }
+
+    private static async Task EnsureChapterQuizQuestionCountsAsync(AppDbContext context)
+    {
+        const int targetQuestionCount = 10;
+
+        var chapters = await context.Chapters
+            .Include(ch => ch.Course)
+            .Include(ch => ch.Lessons)
+            .Include(ch => ch.QuizQuestions)
+            .ToListAsync();
+
+        foreach (var chapter in chapters)
+        {
+            var existingCount = chapter.QuizQuestions.Count;
+            if (existingCount >= targetQuestionCount)
+            {
+                continue;
+            }
+
+            var nextOrderIndex = chapter.QuizQuestions.Any()
+                ? chapter.QuizQuestions.Max(q => q.OrderIndex) + 1
+                : 1;
+
+            var supplementalQuestions = BuildSupplementalQuizQuestions(chapter);
+            foreach (var question in supplementalQuestions.Take(targetQuestionCount - existingCount))
+            {
+                question.ChapterId = chapter.Id;
+                question.OrderIndex = nextOrderIndex++;
+                context.QuizQuestions.Add(question);
+            }
+        }
+
+        await context.SaveChangesAsync();
+    }
+
+    private static List<QuizQuestion> BuildSupplementalQuizQuestions(Chapter chapter)
+    {
+        var courseTitle = CleanQuizText(chapter.Course.Title);
+        var chapterTitle = CleanQuizText(chapter.Title);
+        var chapterDescription = CleanQuizText(chapter.Description ?? $"core ideas in {chapterTitle}");
+        var lessonTitles = chapter.Lessons
+            .OrderBy(l => l.OrderIndex)
+            .Select(l => CleanQuizText(l.Title))
+            .Where(title => !string.IsNullOrWhiteSpace(title))
+            .Take(4)
+            .ToList();
+
+        var firstLesson = lessonTitles.ElementAtOrDefault(0) ?? chapterTitle;
+        var secondLesson = lessonTitles.ElementAtOrDefault(1) ?? "supporting concepts";
+        var thirdLesson = lessonTitles.ElementAtOrDefault(2) ?? "practical application";
+        var fourthLesson = lessonTitles.ElementAtOrDefault(3) ?? "review and assessment";
+
+        return new List<QuizQuestion>
+        {
+            CreateMultipleChoiceQuestion(
+                $"What is the main focus of the chapter '{chapterTitle}'?",
+                $"The chapter focuses on {chapterDescription}.",
+                $"Understanding {chapterDescription}",
+                "Memorizing unrelated implementation details",
+                "Ignoring the course context",
+                "Replacing software design with deployment only",
+                QuizDifficulty.Easy,
+                1),
+
+            CreateMultipleChoiceQuestion(
+                $"Which course does the chapter '{chapterTitle}' belong to?",
+                $"'{chapterTitle}' is part of the course '{courseTitle}'.",
+                courseTitle,
+                "Database Administration",
+                "Computer Graphics Rendering",
+                "Network Cabling Fundamentals",
+                QuizDifficulty.Easy,
+                1),
+
+            CreateMultipleChoiceQuestion(
+                $"Which lesson topic should be reviewed first in '{chapterTitle}'?",
+                $"The first listed lesson is '{firstLesson}', making it a natural starting point.",
+                firstLesson,
+                secondLesson,
+                thirdLesson,
+                fourthLesson,
+                QuizDifficulty.Easy,
+                1),
+
+            CreateMultipleChoiceQuestion(
+                $"Why are quiz questions included after studying '{chapterTitle}'?",
+                "The quiz checks whether the learner can recall, distinguish, and apply the chapter concepts.",
+                "To verify understanding of the chapter concepts",
+                "To skip all lesson content",
+                "To replace reading with random guessing",
+                "To hide the learner's progress",
+                QuizDifficulty.Easy,
+                1),
+
+            CreateMultipleChoiceQuestion(
+                $"In '{chapterTitle}', what is the best way to approach a design concept?",
+                "Design concepts should be connected to requirements, structure, behavior, and trade-offs.",
+                "Relate it to requirements, structure, behavior, and trade-offs",
+                "Treat it as a fixed rule with no context",
+                "Only memorize the term spelling",
+                "Avoid comparing alternatives",
+                QuizDifficulty.Medium,
+                2),
+
+            CreateMultipleChoiceQuestion(
+                $"Which activity best supports learning '{chapterTitle}'?",
+                "Reviewing lesson examples and checking them against the quiz feedback reinforces understanding.",
+                "Review examples and compare them with quiz feedback",
+                "Close the lesson before reading it",
+                "Select answers without reading the options",
+                "Ignore explanations after submission",
+                QuizDifficulty.Medium,
+                2),
+
+            CreateMultipleChoiceQuestion(
+                $"What should a learner do after missing a question in '{chapterTitle}'?",
+                "The answer review explains the correct choice and points learners back to the relevant concept.",
+                "Use the answer review to revisit the concept",
+                "Assume the score cannot improve",
+                "Skip the rest of the course",
+                "Delete previous progress",
+                QuizDifficulty.Easy,
+                1),
+
+            CreateMultipleChoiceQuestion(
+                $"Which topic is most directly connected to this chapter's learning path?",
+                $"The chapter lessons include '{firstLesson}', '{secondLesson}', and related topics.",
+                secondLesson,
+                "Unrelated hardware assembly",
+                "Personal finance budgeting",
+                "Image color correction",
+                QuizDifficulty.Medium,
+                2),
+
+            CreateMultipleChoiceQuestion(
+                $"What does a passing quiz score indicate for '{chapterTitle}'?",
+                "A passing score indicates enough understanding to mark progress for the chapter.",
+                "The learner has demonstrated enough understanding to progress",
+                "The course content has been removed",
+                "The learner no longer needs any future review",
+                "All other chapters are automatically completed",
+                QuizDifficulty.Medium,
+                2),
+
+            CreateMultipleChoiceQuestion(
+                $"How should the score and answer review be used after completing '{chapterTitle}'?",
+                "The score summarizes performance, while the review shows correct and incorrect selections.",
+                "Use the score for performance and the review for correction",
+                "Only look at the score and ignore explanations",
+                "Use the review before answering any question",
+                "Treat incorrect answers as already correct",
+                QuizDifficulty.Easy,
+                1)
+        };
+    }
+
+    private static QuizQuestion CreateMultipleChoiceQuestion(
+        string questionText,
+        string explanation,
+        string correctOption,
+        string optionTwo,
+        string optionThree,
+        string optionFour,
+        QuizDifficulty difficulty,
+        int points)
+    {
+        return new QuizQuestion
+        {
+            QuestionText = questionText,
+            Explanation = explanation,
+            Type = QuestionType.MultipleChoice,
+            Difficulty = difficulty,
+            Points = points,
+            Options = new List<QuizOption>
+            {
+                new() { OptionText = correctOption, IsCorrect = true, OrderIndex = 1 },
+                new() { OptionText = optionTwo, IsCorrect = false, OrderIndex = 2 },
+                new() { OptionText = optionThree, IsCorrect = false, OrderIndex = 3 },
+                new() { OptionText = optionFour, IsCorrect = false, OrderIndex = 4 }
+            }
+        };
+    }
+
+    private static string CleanQuizText(string text)
+    {
+        return string.IsNullOrWhiteSpace(text)
+            ? "the current topic"
+            : text.Replace("\"", "'").Trim();
     }
 
     private static List<Course> GetSeedCourses()

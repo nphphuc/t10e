@@ -54,30 +54,48 @@ public class QuizService : IQuizService
             .FirstOrDefaultAsync(c => c.Id == submit.ChapterId);
 
         var totalQuestions = questions.Count;
+        var totalPoints = questions.Sum(q => Math.Max(q.Points, 0));
         var correctCount = 0;
+        var earnedPoints = 0;
         var questionResults = new List<QuestionResultDto>();
 
         foreach (var question in questions)
         {
             var answer = submit.Answers.FirstOrDefault(a => a.QuestionId == question.Id);
-            var selectedIds = answer?.SelectedOptionIds ?? new List<int>();
-            var correctIds = question.Options.Where(o => o.IsCorrect).Select(o => o.Id).ToList();
+            var optionIds = question.Options.Select(o => o.Id).ToHashSet();
+            var selectedIds = (answer?.SelectedOptionIds ?? new List<int>())
+                .Where(optionIds.Contains)
+                .Distinct()
+                .OrderBy(id => id)
+                .ToList();
+            var correctIds = question.Options
+                .Where(o => o.IsCorrect)
+                .Select(o => o.Id)
+                .OrderBy(id => id)
+                .ToList();
 
-            var isCorrect = selectedIds.Count == correctIds.Count && !selectedIds.Except(correctIds).Any();
-            if (isCorrect) correctCount++;
+            var isCorrect = correctIds.Any() && selectedIds.SequenceEqual(correctIds);
+            var awardedPoints = isCorrect ? Math.Max(question.Points, 0) : 0;
+            if (isCorrect)
+            {
+                correctCount++;
+                earnedPoints += awardedPoints;
+            }
 
             questionResults.Add(new QuestionResultDto
             {
                 QuestionId = question.Id,
                 QuestionText = question.QuestionText,
                 IsCorrect = isCorrect,
+                Points = Math.Max(question.Points, 0),
+                EarnedPoints = awardedPoints,
                 Explanation = question.Explanation,
                 SelectedOptionIds = selectedIds,
                 CorrectOptionIds = correctIds
             });
         }
 
-        var scorePercent = totalQuestions > 0 ? (double)correctCount / totalQuestions * 100 : 0;
+        var scorePercent = totalPoints > 0 ? (double)earnedPoints / totalPoints * 100 : 0;
         var isPassed = scorePercent >= 70;
 
         // Save attempt
@@ -99,18 +117,38 @@ public class QuizService : IQuizService
         var userProgress = await _context.UserProgresses
             .FirstOrDefaultAsync(up => up.UserId == userId && up.CourseId == courseId);
 
-        if (userProgress != null)
+        if (courseId > 0)
         {
-            userProgress.LastAccessedAt = DateTime.UtcNow;
             var chapters = await _context.Chapters
                 .Where(ch => ch.CourseId == courseId)
                 .ToListAsync();
-            var completedChapters = await _context.UserQuizAttempts
-                .Where(qa => qa.UserId == userId && qa.IsPassed && chapters.Select(c => c.Id).Contains(qa.ChapterId))
+            var chapterIds = chapters.Select(c => c.Id).ToList();
+            var completedChapterIds = await _context.UserQuizAttempts
+                .Where(qa => qa.UserId == userId && qa.IsPassed && chapterIds.Contains(qa.ChapterId))
                 .Select(qa => qa.ChapterId)
                 .Distinct()
-                .CountAsync();
+                .ToListAsync();
 
+            if (isPassed)
+            {
+                completedChapterIds.Add(submit.ChapterId);
+            }
+
+            var completedChapters = completedChapterIds.Distinct().Count();
+
+            if (userProgress == null)
+            {
+                userProgress = new UserProgress
+                {
+                    UserId = userId,
+                    CourseId = courseId,
+                    StartedAt = DateTime.UtcNow
+                };
+                _context.UserProgresses.Add(userProgress);
+            }
+
+            userProgress.LastAccessedAt = DateTime.UtcNow;
+            userProgress.CurrentChapterId = submit.ChapterId;
             userProgress.ProgressPercent = chapters.Count > 0 ? (double)completedChapters / chapters.Count * 100 : 0;
             userProgress.CompletedLessons = completedChapters;
             userProgress.TotalLessons = chapters.Count;
@@ -129,6 +167,8 @@ public class QuizService : IQuizService
             ChapterTitle = chapter?.Title ?? "",
             TotalQuestions = totalQuestions,
             CorrectAnswers = correctCount,
+            EarnedPoints = earnedPoints,
+            TotalPoints = totalPoints,
             ScorePercent = scorePercent,
             IsPassed = isPassed,
             AttemptId = attempt.Id,

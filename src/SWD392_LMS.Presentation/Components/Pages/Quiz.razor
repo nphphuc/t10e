@@ -66,6 +66,10 @@ else if (isSubmitted)
                                     <h3 class="fw-bold mb-0">@result.TotalQuestions</h3>
                                     <small class="text-muted">Total</small>
                                 </div>
+                                <div>
+                                    <h3 class="fw-bold mb-0">@result.EarnedPoints/@result.TotalPoints</h3>
+                                    <small class="text-muted">Points</small>
+                                </div>
                             </div>
 
                             <div class="d-flex gap-3 justify-content-center">
@@ -78,6 +82,48 @@ else if (isSubmitted)
                             </div>
                         </div>
                     </div>
+
+                    @if (result.QuestionResults.Any())
+                    {
+                        <div class="card border-0 shadow-sm mt-4">
+                            <div class="card-body p-4">
+                                <h5 class="fw-bold mb-3">Answer Review</h5>
+                                <div class="d-flex flex-column gap-3">
+                                    @foreach (var questionResult in result.QuestionResults)
+                                    {
+                                        <div class="p-3 rounded border @(questionResult.IsCorrect ? "border-success" : "border-danger")">
+                                            <div class="d-flex justify-content-between gap-3 mb-2">
+                                                <h6 class="fw-bold mb-0">@questionResult.QuestionText</h6>
+                                                <span class="badge @(questionResult.IsCorrect ? "bg-success" : "bg-danger")">
+                                                    @questionResult.EarnedPoints/@questionResult.Points pts
+                                                </span>
+                                            </div>
+                                            <div class="d-flex flex-column gap-2 mb-2">
+                                                @foreach (var option in GetQuestionOptions(questionResult.QuestionId))
+                                                {
+                                                    <div class="result-option @GetResultOptionClass(questionResult, option.Id)">
+                                                        <span>@option.OptionText</span>
+                                                        @if (questionResult.CorrectOptionIds.Contains(option.Id))
+                                                        {
+                                                            <i class="bi bi-check-circle-fill text-success"></i>
+                                                        }
+                                                        else if (questionResult.SelectedOptionIds.Contains(option.Id))
+                                                        {
+                                                            <i class="bi bi-x-circle-fill text-danger"></i>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                            @if (!string.IsNullOrWhiteSpace(questionResult.Explanation))
+                                            {
+                                                <p class="small text-muted mb-0">@questionResult.Explanation</p>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -133,7 +179,7 @@ else if (questions is not null && questions.Any())
                                             <div class="option-radio @(IsSelected(option.Id) ? "selected" : "")">
                                                 @if (IsSelected(option.Id))
                                                 {
-                                                    <i class="bi bi-check-circle-fill"></i>
+                                                    <i class="@GetSelectedIconClass(currentQuestion)"></i>
                                                 }
                                             </div>
                                             <span class="flex-grow-1">@option.OptionText</span>
@@ -220,6 +266,7 @@ else if (questions is not null && !questions.Any())
         currentIndex = 1;
         answers = new();
         result = null;
+        canSubmit = false;
         
         questions = await QuizService.GetQuizQuestionsAsync(ChapterId);
         isLoading = false;
@@ -247,10 +294,14 @@ else if (questions is not null && !questions.Any())
         if (selected.Contains(optionId))
         {
             selected.Remove(optionId);
+            if (!selected.Any())
+            {
+                answers.Remove(currentQuestion.Id);
+            }
         }
         else
         {
-            if (currentQuestion.Type == "MultipleChoice" || currentQuestion.Type == "TrueFalse")
+            if (!AllowsMultipleAnswers(currentQuestion))
             {
                 selected.Clear();
             }
@@ -262,7 +313,39 @@ else if (questions is not null && !questions.Any())
 
     private void CheckCanSubmit()
     {
-        canSubmit = answers.Count == questions?.Count;
+        canSubmit = questions?.All(q => answers.TryGetValue(q.Id, out var selected) && selected.Any()) == true;
+    }
+
+    private static bool AllowsMultipleAnswers(QuizQuestionDto question)
+    {
+        return question.Type == "MultipleAnswer";
+    }
+
+    private static string GetSelectedIconClass(QuizQuestionDto question)
+    {
+        return AllowsMultipleAnswers(question) ? "bi bi-check-square-fill" : "bi bi-check-circle-fill";
+    }
+
+    private IEnumerable<QuizOptionDto> GetQuestionOptions(int questionId)
+    {
+        return questions?
+            .FirstOrDefault(q => q.Id == questionId)?
+            .Options
+            .OrderBy(o => o.OrderIndex) ?? Enumerable.Empty<QuizOptionDto>();
+    }
+
+    private static string GetResultOptionClass(QuestionResultDto questionResult, int optionId)
+    {
+        var isCorrect = questionResult.CorrectOptionIds.Contains(optionId);
+        var isSelected = questionResult.SelectedOptionIds.Contains(optionId);
+
+        return (isCorrect, isSelected) switch
+        {
+            (true, true) => "result-correct-selected",
+            (true, false) => "result-correct",
+            (false, true) => "result-incorrect-selected",
+            _ => ""
+        };
     }
 
     private void NextQuestion()

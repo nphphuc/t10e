@@ -190,6 +190,38 @@ html, body {
     border-color: #6366F1;
     background: #6366F110;
 }
+.option-radio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #CBD5E1;
+    border-radius: 50%;
+    color: #6366F1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 24px;
+}
+.option-radio.selected {
+    border-color: #6366F1;
+}
+.result-option {
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+}
+.result-option.result-correct,
+.result-option.result-correct-selected {
+    border-color: #10B981;
+    background: #10B98112;
+}
+.result-option.result-incorrect-selected {
+    border-color: #EF4444;
+    background: #EF444412;
+}
 .question-dot {
     width: 32px; height: 32px;
     border-radius: 50%;
