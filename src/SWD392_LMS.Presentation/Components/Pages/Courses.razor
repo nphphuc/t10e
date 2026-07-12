@@ -1,0 +1,119 @@
+@page "/courses"
+@using Microsoft.AspNetCore.Authorization
+@attribute [AllowAnonymous]
+@inject ICourseService CourseService
+@inject NavigationManager Navigation
+
+<PageTitle>Courses — SWD392 LMS</PageTitle>
+
+<section class="courses-page py-4">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-start mb-4">
+            <div>
+                <h1 class="fw-bold mb-1">All Courses</h1>
+                <p class="text-muted mb-0">@courses?.Count ?? 0 courses in the SWD392 curriculum</p>
+            </div>
+        </div>
+
+        <!-- Search and Filter -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0">
+                        <i class="bi bi-search text-muted"></i>
+                    </span>
+                    <input type="text" class="form-control border-start-0 ps-0" 
+                           placeholder="Search courses..." 
+                           value="@searchTerm" 
+                           @oninput="HandleSearchInput" />
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-2">
+                <select class="form-select" value="@selectedLevel" @onchange="HandleLevelChange">
+                    <option value="">All Levels</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                </select>
+            </div>
+        </div>
+
+        @if (courses is null)
+        {
+            <div class="text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        }
+        else if (!filteredCourses.Any())
+        {
+            <div class="text-center py-5">
+                <i class="bi bi-search text-muted" style="font-size: 3rem;"></i>
+                <h4 class="mt-3">No courses found</h4>
+                <p class="text-muted">Try adjusting your search or filter criteria.</p>
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var course in filteredCourses)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <CourseCard Course="course" />
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+    private List<CourseDto>? courses;
+    private List<CourseDto> filteredCourses = new();
+    private string searchTerm = "";
+    private string selectedLevel = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        courses = await CourseService.GetAllCoursesAsync();
+        filteredCourses = new List<CourseDto>(courses);
+    }
+
+    private async Task HandleSearchInput(ChangeEventArgs e)
+    {
+        searchTerm = e.Value?.ToString() ?? "";
+        FilterCourses();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task HandleLevelChange(ChangeEventArgs e)
+    {
+        selectedLevel = e.Value?.ToString() ?? "";
+        FilterCourses();
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private void FilterCourses()
+    {
+        if (courses == null) return;
+        
+        var query = courses.AsEnumerable();
+
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            var term = searchTerm.ToLower();
+            query = query.Where(c => 
+                c.Title.ToLower().Contains(term) || 
+                (c.Subtitle?.ToLower().Contains(term) ?? false) ||
+                c.Description.ToLower().Contains(term));
+        }
+
+        if (!string.IsNullOrEmpty(selectedLevel))
+        {
+            query = query.Where(c => c.Level == selectedLevel);
+        }
+
+        filteredCourses = query.ToList();
+    }
+}

@@ -1,0 +1,120 @@
+@page "/courses/{CourseId:int}"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject ICourseService CourseService
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>@(course?.Title ?? "Loading...") — SWD392 LMS</PageTitle>
+
+@if (course is null)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Course Header -->
+    <section class="course-header py-4" style="background: linear-gradient(135deg, @(course.ColorHex ?? "#6366F1")15, @(course.ColorHex ?? "#6366F1")05)">
+        <div class="container">
+            <a href="/courses" class="btn btn-ghost btn-sm mb-3">
+                <i class="bi bi-arrow-left"></i> Back to Courses
+            </a>
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <span class="badge" style="background-color: @(course.ColorHex ?? "#6366F1"); color: white;">@course.Level</span>
+                        <span class="badge bg-secondary bg-opacity-10 text-secondary">@course.Chapters.Count chapters</span>
+                    </div>
+                    <h1 class="fw-bold mb-2">@course.Title</h1>
+                    @if (!string.IsNullOrEmpty(course.Subtitle))
+                    {
+                        <p class="lead mb-2">@course.Subtitle</p>
+                    }
+                    <p class="text-muted mb-3">@course.Description</p>
+                    @if (course.UserProgressPercent > 0)
+                    {
+                        <ProgressBar Percent="course.UserProgressPercent" Color="@(course.ColorHex ?? "#6366F1")" />
+                    }
+                </div>
+                <div class="col-lg-4 text-center">
+                    <div class="course-header-icon" style="background-color: @(course.ColorHex ?? "#6366F1")20">
+                        <i class="bi @(course.IconName ?? "bi-laptop")" style="font-size: 3rem; color: @(course.ColorHex ?? "#6366F1")"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters -->
+    <section class="chapters-section py-4">
+        <div class="container">
+            <h3 class="fw-bold mb-4">Course Content</h3>
+            <div class="row g-3">
+                @foreach (var chapter in course.Chapters.OrderBy(c => c.OrderIndex))
+                {
+                    <div class="col-12">
+                        <div class="chapter-card card border-0 shadow-sm @(chapter.IsCompleted ? "border-success border-start border-3" : "")">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex align-items-center gap-2 mb-2">
+                                            <span class="chapter-number badge rounded-pill" style="background-color: @(course.ColorHex ?? "#6366F1")">
+                                                @chapter.OrderIndex
+                                            </span>
+                                            <h5 class="card-title mb-0">@chapter.Title</h5>
+                                            @if (chapter.IsCompleted)
+                                            {
+                                                <span class="badge bg-success">
+                                                    <i class="bi bi-check-circle"></i> Done
+                                                </span>
+                                            }
+                                        </div>
+                                        @if (!string.IsNullOrEmpty(chapter.Description))
+                                        {
+                                            <p class="card-text text-muted small mb-2">@chapter.Description</p>
+                                        }
+                                        <div class="d-flex align-items-center gap-3 text-muted small">
+                                            <span><i class="bi bi-file-text"></i> @chapter.LessonCount lessons</span>
+                                            <span><i class="bi bi-clock"></i> @chapter.EstimatedMinutes min</span>
+                                            @if (chapter.QuizQuestionCount > 0)
+                                            {
+                                                <span><i class="bi bi-question-circle"></i> @chapter.QuizQuestionCount questions</span>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="d-flex gap-2 ms-3">
+                                        <a href="/courses/@CourseId/chapters/@chapter.Id" class="btn btn-outline-primary btn-sm">
+                                            <i class="bi bi-play-fill"></i> Start
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter] public int CourseId { get; set; }
+
+    private CourseDetailDto? course;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        course = await CourseService.GetCourseByIdAsync(CourseId, userId);
+        
+        if (course == null)
+        {
+            Navigation.NavigateTo("/courses");
+        }
+    }
+}

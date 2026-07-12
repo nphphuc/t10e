@@ -1,0 +1,24 @@
+<div class="d-flex align-items-center gap-2">
+    <div class="progress flex-grow-1" style="height: @(Height)px;">
+        <div class="progress-bar @(Striped ? "progress-bar-striped" : "") @(Animated ? "progress-bar-animated" : "")"
+             role="progressbar"
+             style="width: @Percent%; background-color: @Color;"
+             aria-valuenow="@Percent" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div>
+    @if (ShowLabel)
+    {
+        <small class="fw-semibold" style="color: @Color; min-width: 40px;">
+            @Math.Round(Percent)%
+        </small>
+    }
+</div>
+
+@code {
+    [Parameter] public double Percent { get; set; }
+    [Parameter] public string Color { get; set; } = "#6366F1";
+    [Parameter] public int Height { get; set; } = 8;
+    [Parameter] public bool ShowLabel { get; set; } = true;
+    [Parameter] public bool Striped { get; set; }
+    [Parameter] public bool Animated { get; set; }
+}

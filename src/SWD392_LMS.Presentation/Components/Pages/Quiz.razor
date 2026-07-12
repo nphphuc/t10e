@@ -1,0 +1,311 @@
+@page "/courses/{CourseId:int}/chapters/{ChapterId:int}/quiz"
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject IQuizService QuizService
+@inject ICourseService CourseService
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>Quiz — SWD392 LMS</PageTitle>
+
+@if (isLoading)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else if (isSubmitted)
+{
+    <!-- Quiz Results -->
+    <section class="quiz-result py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body text-center py-5">
+                            @if (result!.IsPassed)
+                            {
+                                <div class="result-icon mb-3" style="color: #10B981">
+                                    <i class="bi bi-trophy-fill" style="font-size: 4rem;"></i>
+                                </div>
+                                <h2 class="fw-bold mb-2">Congratulations!</h2>
+                                <p class="text-muted mb-3">You passed the quiz for <strong>@result.ChapterTitle</strong></p>
+                            }
+                            else
+                            {
+                                <div class="result-icon mb-3" style="color: #EF4444">
+                                    <i class="bi bi-emoji-frown-fill" style="font-size: 4rem;"></i>
+                                </div>
+                                <h2 class="fw-bold mb-2">Keep Learning!</h2>
+                                <p class="text-muted mb-3">Review the chapter and try again for <strong>@result.ChapterTitle</strong></p>
+                            }
+
+                            <div class="score-circle mb-4 mx-auto" style="width: 120px; height: 120px;">
+                                <div class="score-circle-inner d-flex flex-column align-items-center justify-content-center h-100"
+                                     style="border: 4px solid @(result.IsPassed ? "#10B981" : "#EF4444"); border-radius: 50%;">
+                                    <span class="fs-2 fw-bold" style="color: @(result.IsPassed ? "#10B981" : "#EF4444")">
+                                        @Math.Round(result.ScorePercent)%
+                                    </span>
+                                    <small class="text-muted">Score</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center gap-4 mb-4">
+                                <div>
+                                    <h3 class="fw-bold text-success mb-0">@result.CorrectAnswers</h3>
+                                    <small class="text-muted">Correct</small>
+                                </div>
+                                <div>
+                                    <h3 class="fw-bold text-danger mb-0">@(result.TotalQuestions - result.CorrectAnswers)</h3>
+                                    <small class="text-muted">Incorrect</small>
+                                </div>
+                                <div>
+                                    <h3 class="fw-bold mb-0">@result.TotalQuestions</h3>
+                                    <small class="text-muted">Total</small>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-3 justify-content-center">
+                                <a href="/courses/@CourseId/chapters/@ChapterId" class="btn btn-outline-primary">
+                                    <i class="bi bi-arrow-left"></i> Back to Chapter
+                                </a>
+                                <button class="btn btn-primary" @onclick="LoadQuiz">
+                                    <i class="bi bi-arrow-repeat"></i> Retry
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else if (questions is not null && questions.Any())
+{
+    <!-- Quiz Taking -->
+    <section class="quiz-page py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <a href="/courses/@CourseId/chapters/@ChapterId" class="btn btn-ghost btn-sm mb-1">
+                                <i class="bi bi-arrow-left"></i> Back
+                            </a>
+                            <h4 class="fw-bold mb-0">Chapter Quiz</h4>
+                        </div>
+                        <div class="text-end">
+                            <div class="fw-bold fs-5" style="color: #6366F1">
+                                @currentIndex / @questions.Count
+                            </div>
+                            <small class="text-muted">Question</small>
+                        </div>
+                    </div>
+
+                    <!-- Question Card -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start gap-3 mb-4">
+                                <span class="badge bg-primary rounded-pill fs-6 px-3 py-2">@(currentIndex)</span>
+                                <div>
+                                    <h5 class="card-title mb-2">@currentQuestion.QuestionText</h5>
+                                    <div class="d-flex gap-2">
+                                        <span class="badge bg-opacity-10" style="background: #F59E0B20; color: #F59E0B">
+                                            @currentQuestion.Difficulty
+                                        </span>
+                                        <span class="badge bg-opacity-10" style="background: #6366F120; color: #6366F1">
+                                            @currentQuestion.Points pt(s)
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="options-list d-flex flex-column gap-2">
+                                @foreach (var option in currentQuestion.Options.OrderBy(o => o.OrderIndex))
+                                {
+                                    <div class="option-item @(GetSelectedClass(option.Id))"
+                                         @onclick="() => ToggleOption(option.Id)"
+                                         role="button" tabindex="0">
+                                        <div class="d-flex align-items-center gap-3 p-3">
+                                            <div class="option-radio @(IsSelected(option.Id) ? "selected" : "")">
+                                                @if (IsSelected(option.Id))
+                                                {
+                                                    <i class="bi bi-check-circle-fill"></i>
+                                                }
+                                            </div>
+                                            <span class="flex-grow-1">@option.OptionText</span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" @onclick="PreviousQuestion" disabled="@(currentIndex <= 1)">
+                            <i class="bi bi-chevron-left"></i> Previous
+                        </button>
+                        @if (currentIndex < questions.Count)
+                        {
+                            <button class="btn btn-outline-primary" @onclick="NextQuestion">
+                                Next <i class="bi bi-chevron-right"></i>
+                            </button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-success btn-lg" @onclick="SubmitQuiz" disabled="@(!canSubmit)">
+                                <i class="bi bi-check-lg"></i> Submit Answers
+                            </button>
+                        }
+                    </div>
+
+                    <!-- Question Progress -->
+                    <div class="d-flex gap-1 mt-4 justify-content-center flex-wrap">
+                        @for (int i = 0; i < questions.Count; i++)
+                        {
+                            var index = i + 1;
+                            var isAnswered = answers.ContainsKey(questions[i].Id) && answers[questions[i].Id].Any();
+                            <span class="question-dot @(isAnswered ? "answered" : "") @(currentIndex == index ? "active" : "")"
+                                  style="width: 32px; height: 32px;"
+                                  @onclick="() => GoToQuestion(index)">
+                                @index
+                            </span>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+else if (questions is not null && !questions.Any())
+{
+    <div class="text-center py-5">
+        <i class="bi bi-question-circle text-muted" style="font-size: 3rem;"></i>
+        <h4 class="mt-3">No Quiz Available</h4>
+        <p class="text-muted">This chapter doesn't have any quiz questions yet.</p>
+        <a href="/courses/@CourseId/chapters/@ChapterId" class="btn btn-primary">Back to Chapter</a>
+    </div>
+}
+
+@code {
+    [Parameter] public int CourseId { get; set; }
+    [Parameter] public int ChapterId { get; set; }
+
+    private List<QuizQuestionDto>? questions;
+    private QuizResultDto? result;
+    private int currentIndex = 1;
+    private Dictionary<int, List<int>> answers = new();
+    private bool isLoading = true;
+    private bool isSubmitted = false;
+    private bool canSubmit = false;
+
+    private QuizQuestionDto currentQuestion => questions![currentIndex - 1];
+    private string userId = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        userId = authState.User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "";
+        await LoadQuiz();
+    }
+
+    private async Task LoadQuiz()
+    {
+        isLoading = true;
+        isSubmitted = false;
+        currentIndex = 1;
+        answers = new();
+        result = null;
+        
+        questions = await QuizService.GetQuizQuestionsAsync(ChapterId);
+        isLoading = false;
+    }
+
+    private bool IsSelected(int optionId)
+    {
+        if (!answers.ContainsKey(currentQuestion.Id)) return false;
+        return answers[currentQuestion.Id].Contains(optionId);
+    }
+
+    private string GetSelectedClass(int optionId)
+    {
+        return IsSelected(optionId) ? "option-selected" : "";
+    }
+
+    private void ToggleOption(int optionId)
+    {
+        if (!answers.ContainsKey(currentQuestion.Id))
+        {
+            answers[currentQuestion.Id] = new List<int>();
+        }
+
+        var selected = answers[currentQuestion.Id];
+        if (selected.Contains(optionId))
+        {
+            selected.Remove(optionId);
+        }
+        else
+        {
+            if (currentQuestion.Type == "MultipleChoice" || currentQuestion.Type == "TrueFalse")
+            {
+                selected.Clear();
+            }
+            selected.Add(optionId);
+        }
+
+        CheckCanSubmit();
+    }
+
+    private void CheckCanSubmit()
+    {
+        canSubmit = answers.Count == questions?.Count;
+    }
+
+    private void NextQuestion()
+    {
+        if (currentIndex < questions?.Count)
+        {
+            currentIndex++;
+        }
+    }
+
+    private void PreviousQuestion()
+    {
+        if (currentIndex > 1)
+        {
+            currentIndex--;
+        }
+    }
+
+    private void GoToQuestion(int index)
+    {
+        if (index >= 1 && index <= questions?.Count)
+        {
+            currentIndex = index;
+        }
+    }
+
+    private async Task SubmitQuiz()
+    {
+        if (!canSubmit || questions == null) return;
+
+        isLoading = true;
+        var submit = new QuizSubmitDto
+        {
+            ChapterId = ChapterId,
+            Answers = questions.Select(q => new QuestionAnswerDto
+            {
+                QuestionId = q.Id,
+                SelectedOptionIds = answers.ContainsKey(q.Id) ? answers[q.Id] : new List<int>()
+            }).ToList()
+        };
+
+        result = await QuizService.SubmitQuizAsync(userId, submit);
+        isSubmitted = true;
+        isLoading = false;
+    }
+}

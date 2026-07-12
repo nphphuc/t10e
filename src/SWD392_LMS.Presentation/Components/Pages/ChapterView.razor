@@ -1,0 +1,162 @@
+@page "/courses/{CourseId:int}/chapters/{ChapterId:int}"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@inject ICourseService CourseService
+@inject NavigationManager Navigation
+@inject AuthenticationStateProvider AuthStateProvider
+
+<PageTitle>@(chapter?.Title ?? "Loading...") — SWD392 LMS</PageTitle>
+
+@if (chapter is null)
+{
+    <div class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Chapter Header -->
+    <section class="chapter-header py-3 bg-light">
+        <div class="container">
+            <a href="/courses/@CourseId" class="btn btn-ghost btn-sm mb-2">
+                <i class="bi bi-arrow-left"></i> Back to Course
+            </a>
+            <div class="d-flex align-items-center gap-2 mb-1">
+                <span class="badge bg-primary">Chapter @chapter.OrderIndex</span>
+                @if (chapter.IsCompleted)
+                {
+                    <span class="badge bg-success"><i class="bi bi-check-circle"></i> Completed</span>
+                }
+                <span class="text-muted small"><i class="bi bi-clock"></i> @chapter.EstimatedMinutes min</span>
+            </div>
+            <h2 class="fw-bold mb-0">@chapter.Title</h2>
+            @if (!string.IsNullOrEmpty(chapter.Description))
+            {
+                <p class="text-muted mt-1 mb-0">@chapter.Description</p>
+            }
+        </div>
+    </section>
+
+    <!-- Lessons -->
+    <section class="lessons-section py-4">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    @if (!chapter.Lessons.Any())
+                    {
+                        <div class="text-center py-5">
+                            <i class="bi bi-file-text text-muted" style="font-size: 2rem;"></i>
+                            <p class="text-muted mt-2">No lessons available yet.</p>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var lesson in chapter.Lessons.OrderBy(l => l.OrderIndex))
+                        {
+                            <div class="lesson-card card border-0 shadow-sm mb-3">
+                                <div class="card-body">
+                                    <div class="d-flex align-items-center gap-2 mb-3">
+                                        <span class="badge bg-secondary rounded-pill">@lesson.OrderIndex</span>
+                                        <h5 class="card-title mb-0">@lesson.Title</h5>
+                                        @if (lesson.EstimatedMinutes > 0)
+                                        {
+                                            <small class="text-muted ms-auto"><i class="bi bi-clock"></i> @lesson.EstimatedMinutes min</small>
+                                        }
+                                    </div>
+                                    @if (!string.IsNullOrEmpty(lesson.ContentHtml))
+                                    {
+                                        <div class="lesson-content">
+                                            @((MarkupString)lesson.ContentHtml)
+                                        </div>
+                                    }
+                                    @if (!string.IsNullOrEmpty(lesson.CodeExample))
+                                    {
+                                        <div class="code-block mt-3">
+                                            <div class="code-header d-flex justify-content-between align-items-center px-3 py-2">
+                                                <small class="text-muted">@(lesson.CodeLanguage ?? "code")</small>
+                                                <button class="btn btn-sm btn-ghost text-muted" @onclick="() => CopyCode(lesson.CodeExample)">
+                                                    <i class="bi bi-clipboard"></i> Copy
+                                                </button>
+                                            </div>
+                                            <pre class="mb-0 p-3"><code>@lesson.CodeExample</code></pre>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm sticky-top" style="top: 20px;">
+                        <div class="card-body">
+                            <h6 class="fw-bold mb-3"><i class="bi bi-list-check"></i> Chapter Progress</h6>
+                            
+                            <div class="mb-3">
+                                <div class="d-flex justify-content-between mb-1">
+                                    <small class="text-muted">Lessons</small>
+                                    <small class="fw-semibold">@chapter.Lessons.Count</small>
+                                </div>
+                            </div>
+
+                            @if (chapter.QuizQuestions.Any())
+                            {
+                                <hr />
+                                <h6 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> Chapter Quiz</h6>
+                                <p class="small text-muted mb-3">
+                                    Test your knowledge with @chapter.QuizQuestions.Count questions.
+                                </p>
+                                @if (chapter.IsCompleted)
+                                {
+                                    <a href="/courses/@CourseId/chapters/@ChapterId/quiz" class="btn btn-outline-primary w-100">
+                                        <i class="bi bi-arrow-repeat"></i> Retake Quiz
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="/courses/@CourseId/chapters/@ChapterId/quiz" class="btn btn-primary w-100">
+                                        <i class="bi bi-play-fill"></i> Take Quiz
+                                    </a>
+                                }
+                            }
+                            else
+                            {
+                                <div class="alert alert-info py-2 mb-0">
+                                    <small><i class="bi bi-info-circle"></i> No quiz for this chapter.</small>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    [Parameter] public int CourseId { get; set; }
+    [Parameter] public int ChapterId { get; set; }
+
+    private ChapterDto? chapter;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var userId = authState.User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        chapter = await CourseService.GetChapterByIdAsync(ChapterId, userId);
+        
+        if (chapter == null)
+        {
+            Navigation.NavigateTo($"/courses/{CourseId}");
+        }
+    }
+
+    private async Task CopyCode(string code)
+    {
+        // In a real app, this would use JavaScript interop
+        await Task.CompletedTask;
+    }
+}
