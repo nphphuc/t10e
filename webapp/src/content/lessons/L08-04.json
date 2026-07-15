@@ -1,0 +1,78 @@
+{
+  "id": "L08-04",
+  "title": "Từ entity model đến relational design",
+  "minutes": 13,
+  "xp": 130,
+  "objective": "Ánh xạ từ static class model sang relational database: primary keys, foreign keys, association classes.",
+  "misconceptions": ["multiplicity-fk", "relationship-data"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Class diagram có Customer (customerId) và Account (accountNumber). Một Customer có nhiều Account. Foreign key đặt ở đâu?",
+      "options": [
+        "Thêm customerId vào Account (many side)",
+        "Thêm accountNumber vào Customer (one side)",
+        "Tạo bảng thứ ba"
+      ],
+      "correct": 0,
+      "explanation": "One-to-many: foreign key ở many side (Account). customerId là FK trong Account relation.",
+      "distractorTags": {"1": "multiplicity-fk", "2": "multiplicity-fk"},
+      "hints": ["FK ở 'nhiều' bên.", "Xem slide 29-30."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép quan hệ static model với cách mapping RDD:",
+      "pairs": {
+        "Mỗi entity class": "Mapped thành một relation (table)",
+        "One-to-many association": "Foreign key ở many side",
+        "Many-to-many association": "Tạo associative relation với concatenated key",
+        "Association class": "Mapped thành associative relation"
+      },
+      "explanation": "RDD mapping: entity → table, 1-* → FK, *-* → associative table.",
+      "hints": ["Entity → Table.", "Many-to-many → associative table.", "Xem slide 23-33."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Student - Course là many-to-many. Tạo associative relation Enrollment (studentId, courseId, grade). Primary key là:",
+      "options": [
+        "studentId",
+        "courseId",
+        "Concatenated key (studentId, courseId)"
+      ],
+      "correct": 2,
+      "explanation": "Associative relation dùng concatenated primary key từ cả hai bảng tham gia.",
+      "hints": ["Cần unique cho mỗi cặp Student-Course.", "Xem slide 31-33."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Generalization: Account → CheckingAccount, SavingsAccount. Cách mapping nào dùng một bảng superclass và hai bảng subclass?",
+      "options": [
+        "Superclass only mapped",
+        "Subclasses only mapped",
+        "Superclass & subclasses mapped to relations"
+      ],
+      "correct": 2,
+      "explanation": "Cách 1: superclass + 2 subclass tables. Account (accountNumber, type, balance), CheckingAccount (accountNumber, lastDeposit), SavingsAccount (accountNumber, interest).",
+      "hints": ["Shared primary key.", "Discriminator.", "Xem slide 36-40."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "RDD mapping: Entity class → Table. 1-* → FK ở many side. *-* → Associative table. Generalization → 3 cách mapping (super+sub, sub only, super only). Association class → associative relation.",
+      "exitTicket": "Ánh xạ class diagram của FOS (Customer, Order, Product, OrderItem) sang relational schema."
+    }
+  ]
+}

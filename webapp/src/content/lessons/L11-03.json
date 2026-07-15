@@ -1,0 +1,63 @@
+{
+  "id": "L11-03",
+  "title": "Emergency Monitoring: component và group message",
+  "minutes": 13,
+  "xp": 150,
+  "objective": "Áp dụng component-based architecture và group communication patterns vào Emergency Monitoring System.",
+  "misconceptions": ["architecture-style-confusion"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Emergency Monitoring: một alarm xảy ra → cần thông báo đến tất cả operators đang trực. Pattern nào?",
+      "options": [
+        "Broadcast hoặc Subscription/Notification",
+        "Client/Server request/reply",
+        "Singleton"
+      ],
+      "correct": 0,
+      "explanation": "Group communication: broadcast (gửi tất cả) hoặc subscription/notification (gửi nhóm đã đăng ký).",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Một gửi, nhiều nhận.", "Broadcast hoặc multicast.", "Xem Ch17, Ch23."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép thành phần Emergency Monitoring với vai trò:",
+      "pairs": {
+        "MonitoringSensorComponent": "Input component — đọc dữ liệu sensor",
+        "AlarmService": "Xử lý và lưu alarm data",
+        "OperatorPresentation": "Hiển thị alarm cho operator",
+        "Subscription/Notification": "Cơ chế notify operators khi có alarm mới"
+      },
+      "explanation": "Emergency Monitoring: các components chuyên biệt, giao tiếp qua group messages.",
+      "hints": ["Sensor = input.", "Presentation = output.", "AlarmService = xử lý."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Khi alarm mới xuất hiện, AlarmService gửi notification. Operators chỉ nhận nếu đã subscribe. Pattern?",
+      "options": [
+        "Broadcast (gửi tất cả)",
+        "Subscription/Notification (chỉ gửi cho subscribers)",
+        "Client/Server (request/reply)"
+      ],
+      "correct": 1,
+      "explanation": "Subscription/Notification: component subscribe để nhận messages. Multicast selective.",
+      "hints": ["Chỉ gửi cho subscriber.", "Xem Ch17 slide 18-20."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Emergency Monitoring: sensor + alarm service + presentation components. Group communication: broadcast (tất cả) và subscription/notification (subscribers). Components có thể deploy trên nodes riêng.",
+      "exitTicket": "Vẽ component diagram cho Emergency Monitoring System."
+    }
+  ]
+}

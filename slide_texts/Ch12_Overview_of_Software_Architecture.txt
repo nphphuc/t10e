@@ -1,0 +1,151 @@
+=== FILE: Ch12_Overview of Software Architecture.pptx ===
+
+Total slides: 19
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch12 - Overview of Software Architecture
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Software Architecture Overview
+Component-Based Software Architecture
+Multiple Views of a Software Architecture
+Software Architectural Patterns
+Documenting Software Architectural Patterns
+Interface Design
+Designing Software Architectures
+
+--- Slide 3 ---
+Layout: Title and Content
+Software Architecture Overview
+The software architecture of a program or computing system is the structure or structures of the system, which comprise
+software elements,
+the externally visible properties of those elements,
+and the relationships among them.
+The software architecture separates the overall structure of the system, in terms of subsystems and their interfaces, from the internal details of the individual subsystems.
+A software architecture is structured into subsystems
+Each subsystem should be relatively independent of other subsystems.
+Software architecture is also referred to as a high-level design
+
+--- Slide 4 ---
+Layout: Title and Content
+Component-Based Software Architecture
+A structural perspective on software architecture is given by the widely held concept of component-based software architecture
+A component-based software architecture consists of multiple components in which
+Each component is self-contained and encapsulates certain information
+A component is either a composite object composed of other objects or a simple object
+A component provides an interface through which it communicates with other components
+All information that is needed by one component to communicate with another component is contained in the interface, which is separate from the implementation.
+
+--- Slide 5 ---
+Layout: Title and Content
+Multiple Views of a Software ArchitectureStructural View of a Software Architecture
+The structural view of a software architecture is a static view.
+At the highest level, subsystems are depicted on a class diagram where it highlight the static structural relationship between the subsystems, which are represented as composite or aggregate classes, and multiplicity of associations among them.
+
+--- Slide 6 ---
+Layout: Title and Content
+Multiple Views of a Software ArchitectureDynamic View of a Software Architecture
+The dynamic view of an architecture is a behavioural view, represented by a communication diagram.
+This diagram shows the subsystems and the message communication between them. Furthermore, it must depicts all possible interactions.
+
+--- Slide 7 ---
+Layout: Title and Content
+Multiple Views of a Software ArchitectureDeployment View of a Software Architecture
+The deployment view of the software architecture depicts the physical conﬁguration of the software architecture, in particular how the subsystems of the architecture are allocated to physical nodes in a distributed conﬁguration.
+
+--- Slide 8 ---
+Layout: Title and Content
+Software Architectural Patterns
+Software architectural patterns provide the skeleton or template for the overall software architecture or high-level design of an application.
+Software architectural patterns can be grouped into two main categories:
+Architectural structure patterns, which address the static structure of the architecture,
+Architectural communication patterns, which address the dynamic communication among distributed components of the architecture.
+
+--- Slide 9 ---
+Layout: Title and Content
+Software Architectural PatternsLayers of Abstraction Architectural Pattern
+The Layers of Abstraction pattern (Hierarchical Layers or Levels of Abstraction pattern) is a common architectural pattern that is applied in many different software domains. If software is designed in the form of layers, it can be extended by the addition of upper layers that use services provided by lower layers and contracted by the removal of upper layers
+
+--- Slide 10 ---
+Layout: Title and Content
+Software Architectural PatternsCall/Return Pattern
+This is the simplest form of communication between objects. A calling operation in the calling object invokes a called operation in the called object. Control is passed from the calling operation to the called operation at the time of operation invocation.
+Any input parameters are passed from the calling operation to the called operation at the same time that control is passed. When the called operation ﬁnishes executing, it returns control and any output parameters to the calling operation
+
+--- Slide 11 ---
+Layout: Title and Content
+Software Architectural PatternsAsynchronous Message Communication Pattern 1/2
+With the Asynchronous (Loosely Coupled) Message Communication pattern, the producer component sends a message to the consumer component and does not wait for a reply.
+The producer continues because it either does not need a response or has other functions to perform before receiving a response.
+The consumer receives the message; if the consumer is busy when the message arrives, the message is queued.
+Because the producer and consumer components proceed asynchronously (i.e., at different speeds), a ﬁrst-in, ﬁrst-out (FIFO) message queue can build up between producer and consumer.
+If no message is available when the consumer requests one, the consumer is suspended. The consumer is then reawakened when a message arrives.
+
+--- Slide 12 ---
+Layout: Title and Content
+Software Architectural PatternsAsynchronous Message Communication Pattern 2/2
+An example of the Asynchronous Message Communication pattern in a distributed environment is given on the generic communication diagram depicted below for the Automated Guided Vehicle System
+It is also possible to have peer-to-peer communication between two components, which send asynchronous messages to each other. This kind of communication is referred to as bidirectional asynchronous communication
+
+--- Slide 13 ---
+Layout: Title and Content
+Software Architectural PatternsSynchronous Message Communication with Reply Pattern
+With the Synchronous (Tightly Coupled) Message Communication with Reply pattern, the client component sends a message to the service component and then waits for a reply from the service.
+When the message arrives, the service accepts it, processes it, generates a reply, and then sends the reply. The client and service then both continue.
+The service is suspended if no message is available. Although there might only be one client and one service, it is more likely that synchronous message communication involves multiple clients and one service.
+
+--- Slide 14 ---
+Layout: Title and Content
+Documenting Software Architectural Patterns
+It is very useful to have a standard way of describing and documenting a pattern so that it can be easily referenced, compared with other patterns, and reused.
+Important aspects of a pattern: context, problem, and solution.
+A typical template looks like this:
+Pattern name
+Aliases. Other names by which this pattern is known.
+Context. The situation that gives rise to this problem.
+Problem. Brief description of the problem.
+Summary of solution. Brief description of the solution.
+Strengths of solution
+Weaknesses of solution
+Applicability. When you can use the pattern.
+Related patterns
+Reference. Where you can find more information about the pattern.
+
+--- Slide 15 ---
+Layout: Title and Content
+Documenting Software Architectural PatternsSample - for the Layered Pattern
+
+--- Slide 16 ---
+Layout: Title and Content
+Interface Design
+An important goal of both object-oriented design and component-based software architecture is the separation of the interface from the implementation
+An interface speciﬁes the externally visible operations of a class, service, or component without revealing the internal structure (implementation) of the operations
+The interface can be considered a contract between the designer of the external view of the class and the implementer of the class internals.
+It is also a contract between a class that requires (uses) the interface (i.e., invokes the operations provided by the interface) and the class that provides the interface.
+
+--- Slide 17 ---
+Layout: Title and Content
+Interface DesignDepict Interfaces
+Because the same interface can be implemented in different ways, it is useful to depict the design of the interface separately from the component that realizes (i.e., implements) the interface.
+Interfaces can be realized in wider contexts than classes. Thus, interfaces for subsystems, distributed components, and passive classes can all be depicted using the same interface notation.
+
+--- Slide 18 ---
+Layout: Title and Content
+Designing Software Architectures
+During software design modeling, design decisions are made relating to the characteristics of the software architecture.
+The following chapters describe the design of different kinds of software architectures:
+Object-oriented software architectures. Ch14
+Client/server software architectures. Ch15
+Service-oriented architectures. Ch16
+Distributed component-based software architectures. Ch17
+Concurrent and real-time software architectures. Ch18
+Software product line architectures. Ch19
+Ch20 describes the quality attributes of software architectures that address nonfunctional requirements of software, which can have a profound effect on the quality of a software product.
+
+--- Slide 19 ---
+Layout: Title Only

@@ -1,0 +1,63 @@
+{
+  "id": "L10-04",
+  "title": "Thêm trách nhiệm và kiểm soát truy cập",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Hiểu Decorator và Proxy patterns để thêm trách nhiệm động và kiểm soát truy cập.",
+  "misconceptions": ["wrapper-intent"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS có class Notifier gửi email. Sau đó cần thêm SMS và Slack notification. Cách nào không phá vỡ code cũ?",
+      "options": [
+        "Sửa Notifier để thêm if-else",
+        "Decorator pattern: wrap Notifier với SMSSender, SlackSender",
+        "Viết lại từ đầu"
+      ],
+      "correct": 1,
+      "explanation": "Decorator: wrap object với các decorators. Mỗi decorator thêm chức năng mới mà không sửa class gốc.",
+      "distractorTags": {"0": "wrapper-intent", "2": null},
+      "hints": ["Decorator = wrapper thêm chức năng.", "Open for extension, closed for modification.", "Xem Decorator pattern."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với mục đích:",
+      "pairs": {
+        "Decorator": "Thêm behavior động vào object mà không sửa class",
+        "Proxy": "Cung cấp placeholder kiểm soát truy cập",
+        "Facade": "Interface đơn giản cho hệ thống phức tạp"
+      },
+      "explanation": "Ba structural patterns: Decorator (thêm), Proxy (kiểm soát), Facade (đơn giản hóa).",
+      "hints": ["Decorator = thêm.", "Proxy = kiểm soát.", "Facade = đơn giản hóa."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS có PaymentService thật. Cần kiểm tra quyền trước khi gọi. Pattern nào?",
+      "options": [
+        "Decorator — thêm behavior",
+        "Proxy — ProtectionProxy kiểm soát truy cập trước",
+        "Singleton — chỉ một instance"
+      ],
+      "correct": 1,
+      "explanation": "Protection Proxy kiểm soát truy cập: kiểm tra quyền → nếu OK mới gọi real service.",
+      "distractorTags": {"0": "wrapper-intent", "2": null},
+      "hints": ["Proxy = placeholder kiểm soát.", "Access control = Protection Proxy.", "Xem Proxy pattern."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Decorator: thêm behavior động (VD: thêm SMS notification). Proxy: kiểm soát truy cập (VD: Protection Proxy). Facade: đơn giản hóa interface phức tạp.",
+      "exitTicket": "Trong FOS, dùng Proxy ở đâu? Dùng Decorator ở đâu?"
+    }
+  ]
+}

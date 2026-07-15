@@ -1,0 +1,63 @@
+{
+  "id": "L07-01",
+  "title": "Architecture gồm những gì?",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Hiểu định nghĩa software architecture: components, interfaces, relationships, và views.",
+  "misconceptions": ["architecture-is-code"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Một developer nói: 'Architecture chỉ là chuyện lý thuyết, code mới quan trọng. Cứ code trước, architecture tự nhiên hình thành.' Nhận xét?",
+      "options": [
+        "Đúng, code quyết định tất cả",
+        "Sai — architecture là cấu trúc nền tảng, được thiết kế trước để đảm bảo hệ thống đáp ứng yêu cầu chất lượng",
+        "Code và architecture giống nhau"
+      ],
+      "correct": 1,
+      "explanation": "Architecture quyết định cấu trúc tổng thể (components, interfaces, relationships). Code là implementation chi tiết.",
+      "distractorTags": {"0": "architecture-is-code", "2": null},
+      "hints": ["Architecture = high-level design.", "Code = implementation details.", "Xem định nghĩa slide 3."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "multi",
+      "prompt": "Software architecture bao gồm những gì? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Các software elements (components, subsystems)",
+        "Externally visible properties của các elements",
+        "Relationships giữa các elements",
+        "Chi tiết implementation của từng hàm"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Architecture = elements + properties + relationships. Implementation detail thuộc về low-level design.",
+      "hints": ["Architecture = bức tranh tổng thể.", "Chi tiết code không thuộc architecture.", "Xem slide 3."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép khái niệm architecture với định nghĩa:",
+      "pairs": {
+        "Component": "Self-contained unit, cung cấp interface",
+        "Interface": "Contract giữa component và client",
+        "Subsystem": "Phân hệ độc lập tương đối",
+        "Connector": "Cơ chế giao tiếp giữa components"
+      },
+      "explanation": "Component = đơn vị tự trị. Interface = contract. Subsystem = phân hệ. Connector = kết nối.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Software architecture = structure(s) of system: components, externally visible properties, and relationships. Đây là high-level design, không phải code chi tiết.",
+      "exitTicket": "Mô tả architecture của hệ thống em đang làm (hoặc FOS) với 3 components chính."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "id": "L07-02",
+  "title": "Structural, dynamic và deployment view",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Phân biệt 3 views của software architecture: structural (tĩnh), dynamic (hành vi), deployment (vật lý).",
+  "misconceptions": ["view-purpose"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Khách hàng muốn xem hệ thống FOS gồm những server nào, cài đặt ở đâu, và kết nối mạng ra sao. View nào phù hợp?",
+      "options": [
+        "Structural view — class diagram",
+        "Dynamic view — communication diagram",
+        "Deployment view — biểu diễn các node vật lý và phân bổ"
+      ],
+      "correct": 2,
+      "explanation": "Deployment view mô tả cấu hình vật lý: nodes, kết nối mạng, phân bổ components.",
+      "distractorTags": {"0": "view-purpose", "1": "view-purpose"},
+      "hints": ["Deployment = physical.", "Structural = static class.", "Dynamic = behavioral messaging.", "Xem slide 5-7."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép view với diagram tương ứng:",
+      "pairs": {
+        "Structural view": "Class diagram (static relationships)",
+        "Dynamic view": "Communication diagram (message sequences)",
+        "Deployment view": "Deployment diagram (physical nodes)"
+      },
+      "explanation": "Structural = static structure. Dynamic = behavioral messaging. Deployment = physical configuration.",
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Bạn cần thiết kế cấu trúc các class trong FOS: Customer, Order, Product. View nào cần dùng?",
+      "options": [
+        "Structural view — để vẽ class diagram với associations",
+        "Dynamic view — để vẽ message sequence",
+        "Deployment view — để vẽ server nodes"
+      ],
+      "correct": 0,
+      "explanation": "Cấu trúc class là static → structural view.",
+      "distractorTags": {"1": "view-purpose", "2": "view-purpose"},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Ba views chính: Structural (cấu trúc tĩnh - class diagram), Dynamic (hành vi - communication diagram), Deployment (vật lý - deployment diagram). Mỗi view trả lời một câu hỏi khác nhau.",
+      "exitTicket": "Ba tình huống khác nhau cần ba views khác nhau — cho ví dụ."
+    }
+  ]
+}

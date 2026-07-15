@@ -1,0 +1,80 @@
+{
+  "id": "L11-06",
+  "title": "AI-assisted Capstone và Design Defense",
+  "minutes": 25,
+  "xp": 500,
+  "objective": "Tổng hợp toàn bộ quy trình COMET, bảo vệ thiết kế và sử dụng AI hỗ trợ.",
+  "misconceptions": ["ai-output-is-design", "distribution-is-free", "pattern-by-shape"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "AI có thể sinh ra class diagram và sequence diagram. Có thể dùng kết quả đó làm thiết kế cuối cùng không?",
+      "options": [
+        "Có, AI sinh ra là đủ",
+        "Không — AI output phải được review, validate với requirements và trade-offs",
+        "AI thay thế hoàn toàn designer"
+      ],
+      "correct": 1,
+      "explanation": "AI hỗ trợ tạo nhanh diagram, nhưng designer phải review, validate, và đảm bảo traceability.",
+      "distractorTags": {"0": "ai-output-is-design", "2": null},
+      "hints": ["AI = tool, không phải thay thế.", "Validate với requirements.", "Xem hướng dẫn capstone."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp quy trình capstone design defense:",
+      "options": [
+        "Design decisions và trade-offs",
+        "Requirements model (use cases)",
+        "Architecture (subsystems, patterns)",
+        "Analysis model (interaction diagrams)"
+      ],
+      "correctOrder": [
+        "Requirements model (use cases)",
+        "Analysis model (interaction diagrams)",
+        "Design decisions và trade-offs",
+        "Architecture (subsystems, patterns)"
+      ],
+      "explanation": "Trình tự bảo vệ: Requirements → Analysis → Design Decisions → Architecture.",
+      "hints": ["Bắt đầu với requirements.", "Kết thúc với architecture."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Trong design defense, cần trình bày những gì? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Use cases và actors",
+        "Interaction diagrams",
+        "Architecture patterns và lý do chọn",
+        "Trade-offs giữa các quality attributes",
+        "Mã nguồn chi tiết từng dòng"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Design defense: requirements, analysis, architecture patterns, trade-offs. Code chi tiết không cần.",
+      "distractorTags": {"4": null},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "retrieve",
+      "type": "fill",
+      "prompt": "COMET là viết tắt của: Concurrent Object Modeling and _____ Method.",
+      "accepted": ["architectural design", "Architectural Design", "Architectural", "Architectural Design Method"],
+      "explanation": "COMET = Concurrent Object Modeling and Architectural Design Method.",
+      "weight": 1
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Capstone: tổng hợp COMET (Requirements → Analysis → Design → Architecture). Trình bày use cases, interaction diagrams, architecture patterns, và trade-offs. AI hỗ trợ nhưng không thay thế quyết định thiết kế.",
+      "exitTicket": "Chuẩn bị outline cho design defense của bạn."
+    }
+  ]
+}

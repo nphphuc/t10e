@@ -1,0 +1,74 @@
+{
+  "id": "L10-02",
+  "title": "Tạo object mà không khóa concrete type",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Hiểu Factory Method, Abstract Factory, Singleton và khi nào dùng chúng.",
+  "misconceptions": ["singleton-global-default"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS: tạo Payment object. Có thể là CreditCardPayment, BankTransferPayment, hoặc VNPayPayment. Code 'if-else' khắp nơi để quyết định loại. Pattern nào?",
+      "options": [
+        "Factory Method — để việc tạo object cho subclass quyết định",
+        "Singleton — chỉ một Payment object",
+        "Observer"
+      ],
+      "correct": 0,
+      "explanation": "Factory Method: định nghĩa interface tạo object, để subclass quyết định concrete class nào được instantiate.",
+      "distractorTags": {"1": "singleton-global-default", "2": null},
+      "hints": ["Factory = tạo object.", "Subclass decides which class.", "Xem slide 29-31."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép creational pattern với mô tả:",
+      "pairs": {
+        "Factory Method": "Subclass quyết định class được tạo",
+        "Abstract Factory": "Tạo families of related objects",
+        "Singleton": "Đảm bảo class chỉ có một instance",
+        "Builder": "Tách construction khỏi representation",
+        "Prototype": "Clone object từ prototype instance"
+      },
+      "explanation": "Năm creational patterns — mỗi pattern giải quyết vấn đề tạo object khác nhau.",
+      "hints": ["Factory = tạo.", "Singleton = một instance.", "Builder = xây dựng phức tạp.", "Prototype = clone.", "Xem slide 9, 18-33."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS: PrinterSpooler — chỉ một spooler duy nhất cho toàn hệ thống. Pattern nào?",
+      "options": [
+        "Factory Method",
+        "Singleton — đảm bảo class chỉ có một instance",
+        "Prototype"
+      ],
+      "correct": 1,
+      "explanation": "Singleton: ensure a class has only one instance. Printer spooler, file system, window manager là các ví dụ kinh điển.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Chỉ một instance.", "Global point of access.", "Xem slide 26-28."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Singleton có thể dùng làm global variable thay thế cho tất cả dependencies.",
+      "correct": false,
+      "explanation": "Singleton không phải global variable thay thế. Nó tạo coupling ẩn và khó test. Dùng Singleton đúng lúc, đúng chỗ.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Factory Method: tạo object linh hoạt. Abstract Factory: family of objects. Singleton: một instance toàn cục. Builder: xây dựng phức tạp. Prototype: clone. Chọn pattern dựa trên pressure thiết kế.",
+      "exitTicket": "Trong FOS, dùng Factory nào? Dùng Singleton ở đâu (nếu cần)?"
+    }
+  ]
+}

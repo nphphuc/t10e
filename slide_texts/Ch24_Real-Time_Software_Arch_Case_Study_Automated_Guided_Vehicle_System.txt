@@ -1,0 +1,104 @@
+=== FILE: Ch24_Real-Time Software Arch_Case Study Automated Guided Vehicle System.pptx ===
+
+Total slides: 21
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch14 - Real-Time Software Architecture Case Study: Automated Guided Vehicle System
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Problem Description
+Use Case Modeling
+Static Modeling
+Dynamic Modeling
+Design Modeling
+
+--- Slide 3 ---
+Layout: Title and Content
+Problem Description
+An AGV System has the following characteristics:
+A computer-based AGV can move along a track in the factory in a clockwise direction, and start and stop at factory stations.
+The AGV system receives Move commands from an external Supervisory System. It sends vehicle Acknowledgements (Acks) to the Supervisory System
+indicating that is has started moving, passed a station, or stopped at a station. The AGV system also sends vehicle status to an external Display System every 30 seconds.
+It is given that the arrival sensor is an event-driven input device and that the motor and arm are passive I/O devices. It is also given that the AGV system communicates with the Supervisory System and Display System by means of messages.
+
+--- Slide 4 ---
+Layout: Title and Content
+Use Case Modeling
+
+--- Slide 5 ---
+Layout: Title and Content
+Static Modeling
+
+--- Slide 6 ---
+Layout: Title and Content
+Static ModelingSoftware System Context Modeling
+
+--- Slide 7 ---
+Layout: Title and Content
+Static ModelingObject and Class Structuring
+
+--- Slide 8 ---
+Layout: Title and Content
+Dynamic ModelingDynamic State Machine Modeling
+
+--- Slide 9 ---
+Layout: Title and Content
+Dynamic ModelingDynamic Interaction Modeling
+
+--- Slide 10 ---
+Layout: Title and Content
+Dynamic ModelingDynamic Interaction Modeling
+
+--- Slide 11 ---
+Layout: Title and Content
+Design ModelingIntegrated Communication Diagram
+
+--- Slide 12 ---
+Layout: Title and Content
+Design ModelingFactory Automation System 1/3
+
+--- Slide 13 ---
+Layout: Title and Content
+Design ModelingFactory Automation System 2/3
+
+--- Slide 14 ---
+Layout: Title and Content
+Design ModelingFactory Automation System 3/3
+
+--- Slide 15 ---
+Layout: Title and Content
+Design ModelingConcurrent Software Architecture
+
+--- Slide 16 ---
+Layout: Title and Content
+Design ModelingArchitectural Communication Patterns
+To handle the variety of communication between the tasks in the AGV System, four communication patterns are applied
+Asynchronous Message Communication
+Bidirectional Asynchronous Communication
+Synchronous Message Communication without Reply
+Call/Return
+
+--- Slide 17 ---
+Layout: Title and Content
+Design ModelingComponent-Based Software Architecture
+The Automated Guided Vehicle System component is designed as a composite component that contains eight simple part components; seven of these are concurrent components (Supervisory System Proxy, Arrival Sensor Component, Vehicle Control, Vehicle Timer, Arm Component, Motor Component, and Display Proxy), and the other is a passive data abstraction object (Vehicle Status).
+
+--- Slide 18 ---
+Layout: Title and Content
+Design ModelingDesign of Component Interfaces 1/3
+
+--- Slide 19 ---
+Layout: Title and Content
+Design ModelingDesign of Component Interfaces 2/3
+
+--- Slide 20 ---
+Layout: Title and Content
+Design ModelingDesign of Component Interfaces 3/3
+
+--- Slide 21 ---
+Layout: Title Only

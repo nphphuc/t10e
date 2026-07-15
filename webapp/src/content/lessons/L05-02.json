@@ -1,0 +1,65 @@
+{
+  "id": "L05-02",
+  "title": "Khi nào cần control object?",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Nhận biết khi nào cần control object để điều phối use case phức tạp.",
+  "misconceptions": ["control-always"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Use case View Alarms: Monitoring Operator request xem alarms → AlarmService trả về danh sách. Đây là use case đơn giản. Có cần control object không?",
+      "options": [
+        "Có, mọi use case đều cần control object",
+        "Không — use case đơn giản chỉ cần boundary giao tiếp trực tiếp với service object",
+        "Cần control object để bảo mật"
+      ],
+      "correct": 1,
+      "explanation": "Use case đơn giản không cần control. Control object chỉ cần cho use case phức tạp có nhiều object tham gia.",
+      "distractorTags": {"0": "control-always", "2": null},
+      "hints": ["Control object giống nhạc trưởng (conductor).", "Dàn nhạc nhỏ không cần nhạc trưởng.", "Xem slide 9 về control objects."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "choice",
+      "prompt": "Khi nào cần state-dependent control object?",
+      "options": [
+        "Luôn luôn, không có ngoại lệ",
+        "Khi object behavior thay đổi tùy theo trạng thái hiện tại — cần statechart",
+        "Khi có nhiều hơn 2 entity classes"
+      ],
+      "correct": 1,
+      "explanation": "State-dependent control object: behavior thay đổi theo state. VD: ATM Control có các state: WaitingCard, ValidatingPIN, SelectingTransaction.",
+      "distractorTags": {"0": "control-always", "2": null},
+      "hints": ["Nếu object phản hồi khác nhau ở mỗi state → state-dependent.", "Xem slide 11 về state-dependent control."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS Checkout gồm: CustomerForm → CheckoutController → OrderService → PaymentService → EmailService. Cần control object không?",
+      "options": [
+        "Không, vì các service có thể tự giao tiếp",
+        "Có, vì nhiều service tham gia và cần phối hợp thứ tự → CheckoutController là control object",
+        "Chỉ cần boundary và entity là đủ"
+      ],
+      "correct": 1,
+      "explanation": "Checkout phức tạp với nhiều services → cần control object để điều phối.",
+      "distractorTags": {"0": "control-always", "2": null},
+      "hints": ["Giống dàn nhạc lớn cần nhạc trưởng.", "Control phối hợp thứ tự gọi services.", "Xem slide 9-10."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Control object điều phối các object tham gia use case. Chỉ cần khi use case phức tạp, có nhiều object tương tác. State-dependent control dùng khi behavior thay đổi theo trạng thái.",
+      "exitTicket": "Mô tả một tình huống cần và không cần control object."
+    }
+  ]
+}

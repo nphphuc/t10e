@@ -1,0 +1,64 @@
+{
+  "id": "L11-04",
+  "title": "AGV: deadline thay đổi thiết kế",
+  "minutes": 14,
+  "xp": 170,
+  "objective": "Áp dụng concurrent và real-time architecture vào Automated Guided Vehicle System.",
+  "misconceptions": ["task-activation", "async-is-faster"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "AGV: xe tự hành phải phản hồi lệnh dừng trong < 50ms nếu có chướng ngại vật. Đây là:",
+      "options": [
+        "Soft real-time (có thể trễ nhẹ)",
+        "Hard real-time (deadline bắt buộc — nguy hiểm nếu trễ)",
+        "Batch processing"
+      ],
+      "correct": 1,
+      "explanation": "AGV an toàn: stop command có hard deadline. Trễ = nguy hiểm.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Deadline bắt buộc = hard real-time.", "Xem Ch24."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép AGV component với vai trò:",
+      "pairs": {
+        "AGV Controller": "State-dependent control — điều khiển xe",
+        "Sensor Interface": "Event-driven I/O — đọc sensor",
+        "Motor Interface": "Output — điều khiển motor",
+        "Supervisory System": "Cấp trên gửi lệnh cho AGV"
+      },
+      "explanation": "AGV: controller (centralized) + sensor I/O + motor I/O + external supervisory system.",
+      "hints": ["Controller = brain.", "Sensor = input.", "Motor = output.", "Xem Ch24."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "AGV Controller cần gửi tín hiệu đến Motor mỗi 20ms. Task type?",
+      "options": [
+        "Periodic I/O task (timer kích hoạt)",
+        "Event-driven task (interrupt)",
+        "Demand-driven task"
+      ],
+      "correct": 0,
+      "explanation": "Periodic: timer kích hoạt mỗi 20ms để gửi tín hiệu đến motor.",
+      "distractorTags": {"1": "task-activation", "2": null},
+      "hints": ["Định kỳ = periodic.", "Timer activation.", "Xem Ch18, Ch24."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "AGV: real-time embedded system. Centralized controller (state-dependent), periodic I/O tasks, event-driven sensors. Hard deadline cho an toàn. Hierarchical control pattern.",
+      "exitTicket": "Mô tả task architecture của AGV (các tasks và cách giao tiếp)."
+    }
+  ]
+}

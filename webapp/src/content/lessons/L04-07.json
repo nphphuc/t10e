@@ -1,0 +1,75 @@
+{
+  "id": "L04-07",
+  "title": "Level 4 Review: Data Model Clinic",
+  "questions": [
+    {
+      "id": "R04-01",
+      "type": "choice",
+      "prompt": "Association khác Link như thế nào?",
+      "options": [
+        "Association là quan hệ giữa các Class, Link là instance của association giữa các Object",
+        "Association và Link là hai tên gọi khác nhau của cùng một khái niệm",
+        "Association là giữa các Object, Link là giữa các Class"
+      ],
+      "correct": 0,
+      "explanation": "Association ở mức class (VD: Employee-Department). Link ở mức object instance (VD: Jane-Manufacturing)."
+    },
+    {
+      "id": "R04-02",
+      "type": "choice",
+      "prompt": "Quan hệ giữa House và Room khi Room không thể tồn tại nếu House bị phá hủy là:",
+      "options": [
+        "Aggregation",
+        "Composition",
+        "Generalization",
+        "Association"
+      ],
+      "correct": 1,
+      "explanation": "Room sống/chết cùng House → Composition (filled diamond). Aggregation: part có thể tồn tại độc lập."
+    },
+    {
+      "id": "R04-03",
+      "type": "match",
+      "prompt": "Ghép quan hệ với ký hiệu UML:",
+      "pairs": {
+        "Association": "Đường thẳng nối hai class",
+        "Aggregation": "Hình thoi rỗng (hollow diamond)",
+        "Composition": "Hình thoi đặc (filled diamond)",
+        "Generalization": "Mũi tên tam giác rỗng"
+      },
+      "explanation": "Các ký hiệu UML khác nhau cho từng loại quan hệ."
+    },
+    {
+      "id": "R04-04",
+      "type": "choice",
+      "prompt": "Student - Course là many-to-many. Cần lưu thêm grade. Giải pháp đúng là gì?",
+      "options": [
+        "Thêm grade attribute vào Student",
+        "Thêm grade attribute vào Course",
+        "Tạo association class Enrollment với grade attribute"
+      ],
+      "correct": 2,
+      "explanation": "Grade thuộc về cặp (Student, Course) → association class Enrollment.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "1": "relationship-data"
+      }
+    },
+    {
+      "id": "R04-05",
+      "type": "multi",
+      "prompt": "Những nguyên tắc nào đúng khi thiết kế generalization? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Subclass phải có quan hệ IS-A với superclass",
+        "Có thể dùng generalization chỉ để tái sử dụng code",
+        "Abstract class không thể tạo instance",
+        "Subclass kế thừa tất cả attributes và operations từ superclass"
+      ],
+      "correctSet": [0, 2, 3],
+      "explanation": "Generalization cần Is-A thực sự. Abstract class không có instance. Subclass kế thừa từ superclass.",
+      "distractorTags": {
+        "1": "inheritance-for-reuse-only"
+      }
+    }
+  ]
+}

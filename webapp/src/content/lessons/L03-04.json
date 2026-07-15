@@ -1,0 +1,114 @@
+{
+  "id": "L03-04",
+  "title": "Tìm use case có giá trị",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Xác định use case dựa trên mục tiêu có giá trị của actor, tránh functional decomposition.",
+  "misconceptions": ["usecase-is-click"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Một thành viên team FOS đề xuất các use case sau: 'Click Add Button', 'Click Save', 'Click Delete'. Các tên này có vấn đề gì?",
+      "options": [
+        "Không có vấn đề, đó là các thao tác giao diện",
+        "Đây là functional decomposition — mô tả thao tác UI chứ không phải mục tiêu có giá trị cho actor. Nên đặt là 'Add Product', 'Update Product', 'Delete Product'",
+        "Các tên này quá dài"
+      ],
+      "correct": 1,
+      "explanation": "Use case mô tả mục tiêu mang giá trị trọn vẹn cho actor. Click button là thao tác UI chi tiết, không phải use case.",
+      "distractorTags": {
+        "0": "usecase-is-click",
+        "2": null
+      },
+      "hints": [
+        "Hãy hỏi: Mục tiêu mà actor đạt được sau use case này là gì?",
+        "Use case = verb + noun tạo giá trị (VD: Add Product).",
+        "Không phải mọi click chuột đều là use case."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "choice",
+      "prompt": "Khi phát hiện use case, câu hỏi nào dưới đây KHÔNG phù hợp?",
+      "options": [
+        "Actor sẽ dùng hệ thống để làm gì?",
+        "Actor có tạo, lưu, thay đổi, xóa hay đọc dữ liệu không?",
+        "Bảng database nào cần tạo?"
+      ],
+      "correct": 2,
+      "explanation": "'Bảng database nào?' là câu hỏi thiết kế (design), không phải câu hỏi tìm use case. Use case mô tả tương tác và giá trị từ góc nhìn actor.",
+      "distractorTags": {
+        "0": null,
+        "1": null
+      },
+      "hints": [
+        "Use case tập trung vào tương tác giữa Actor và Hệ thống.",
+        "Database là thiết kế nội bộ.",
+        "Xem danh sách câu hỏi trong slide 15."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép actor với use case phù hợp trong hệ thống FOS:",
+      "pairs": {
+        "Customer": "Place Order",
+        "Warehouse Staff": "Process Shipment",
+        "Admin": "Manage Product Catalog",
+        "Payment System": "Authorize Payment"
+      },
+      "explanation": "Mỗi use case là một mục tiêu (goal) có giá trị từ góc nhìn actor. Tên use case luôn bắt đầu bằng động từ.",
+      "hints": [
+        "Place Order mang lại giá trị gì cho Customer?",
+        "Process Shipment giúp Warehouse Staff hoàn thành việc gì?",
+        "Authorize Payment là chức năng from external system."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "ATM có ba chức năng: Rút tiền, Tra cứu số dư, Chuyển khoản. Nên mô hình hóa các chức năng này như thế nào?",
+      "options": [
+        "Gộp thành một use case duy nhất 'Giao dịch ATM' vì tất cả đều từ cùng một actor",
+        "Tách thành ba use case riêng: Withdraw Funds, Query Account, Transfer Funds — vì mỗi cái là một mục tiêu khác nhau",
+        "Chỉ cần một use case 'Withdraw Funds' vì là chức năng chính"
+      ],
+      "correct": 1,
+      "explanation": "Ba chức năng là ba mục tiêu khác nhau. Mỗi use case riêng biệt giúp traceability và thiết kế rõ ràng hơn.",
+      "distractorTags": {
+        "0": "usecase-is-click",
+        "2": null
+      },
+      "hints": [
+        "Mỗi use case nên là một mục tiêu trọn vẹn.",
+        "Rút tiền và Tra cứu có cùng kết quả không?",
+        "Xem ví dụ Banking trong slide 16."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "fill",
+      "prompt": "Tên use case được viết dưới dạng: _____ + object. (điền loại từ còn thiếu)",
+      "accepted": ["verb", "động từ", "Verb", "Động từ"],
+      "explanation": "Quy tắc đặt tên use case: Verb (động từ) + Object (đối tượng) để thể hiện mục tiêu có giá trị.",
+      "weight": 1
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Use case mô tả một mục tiêu giá trị trọn vẹn mà Actor đạt được qua tương tác với hệ thống. Đặt tên theo dạng Verb + Object (VD: Place Order). Tránh functional decomposition (VD: ClickButton, EnterData).",
+      "exitTicket": "Với FOS, hãy liệt kê ít nhất 3 use case cho Customer actor."
+    }
+  ]
+}

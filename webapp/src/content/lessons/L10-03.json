@@ -1,0 +1,79 @@
+{
+  "id": "L10-03",
+  "title": "Kết nối interface và hierarchy",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Hiểu Adapter, Bridge, Composite patterns để kết nối interfaces không tương thích và tổ chức tree structures.",
+  "misconceptions": ["pattern-by-shape"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS dùng thư viện PDF bên thứ ba có interface khác với interface FOS mong đợi. Pattern nào?",
+      "options": [
+        "Adapter — chuyển đổi interface không tương thích",
+        "Singleton",
+        "Observer"
+      ],
+      "correct": 0,
+      "explanation": "Adapter convert interface của class thành interface client mong đợi.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Interface không tương thích → Adapter.", "Wrapper.", "Xem slide 35-40."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với mục đích:",
+      "pairs": {
+        "Adapter": "Convert interface — các class không tương thích làm việc cùng nhau",
+        "Bridge": "Tách abstraction khỏi implementation — cả hai thay đổi độc lập",
+        "Composite": "Tree structure — client xử lý individual và composition đồng nhất"
+      },
+      "explanation": "Ba structural patterns giải quyết vấn đề interface và hierarchy.",
+      "hints": ["Adapter = interface conversion.", "Bridge = abstraction vs implementation.", "Composite = part-whole tree."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS: vẽ sản phẩm dưới dạng tree: Category → SubCategory → Product. Cần xử lý đồng nhất cả category lẫn product. Pattern nào?",
+      "options": [
+        "Composite — treat individual và composition uniformly",
+        "Adapter — chuyển đổi interface",
+        "Bridge"
+      ],
+      "correct": 0,
+      "explanation": "Composite: client xử lý Leaf (Product) và Composite (Category) đồng nhất qua cùng interface Component.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Tree structure.", "Uniform treatment.", "Xem slide 44-46."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS chạy trên Windows và Linux. Cần Window abstraction mà implementation platform-specific. Pattern nào?",
+      "options": [
+        "Adapter",
+        "Bridge — tách Window abstraction khỏi WindowImpl platform",
+        "Composite"
+      ],
+      "correct": 1,
+      "explanation": "Bridge decouple abstraction (Window) khỏi implementation (WindowImpl cho Windows/Linux).",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Abstraction + Implementation.", "Hai hierarchies.", "Xem slide 41-43."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Adapter: convert interface. Bridge: tách abstraction-implementation. Composite: tree structure với uniform treatment. Ba patterns giúp kết nối interface và tổ chức hierarchy.",
+      "exitTicket": "Trong FOS, dùng Adapter ở đâu? Dùng Composite ở đâu?"
+    }
+  ]
+}

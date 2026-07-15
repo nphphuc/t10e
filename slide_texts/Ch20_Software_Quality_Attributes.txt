@@ -1,0 +1,123 @@
+=== FILE: Ch20_Software Quality Attributes.pptx ===
+
+Total slides: 18
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch20 Software Quality Attributes
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Software quality attributes
+Exploring quality attributes
+Implementing quality attribute requirements
+
+--- Slide 3 ---
+Layout: Title and Content
+Software quality attributes
+Some software quality attributes
+
+--- Slide 4 ---
+Layout: Title and Content
+Software quality attributesMaintainability
+Maintainability is the extent to which software is capable of being changed after deployment
+Software may need to be modified for the following reasons:
+Fix remaining errors: These are errors that were not detected during testing of the software prior to deployment.
+Address performance issues: Performance problems may not become apparent until after the software application has been deployed and is operational in the field.
+Changes in software requirements: The biggest reason for software change is changes in software requirements.
+
+--- Slide 5 ---
+Layout: Title and Content
+Software quality attributes Modifiability
+Modifiability is the extent to which software is capable of being modified during and after initial development. A modular design consisting of modules with well-defined
+Decisions such as encapsulating:
+Each finite state machine within a separate state machine class
+Each interface to a separate external device, system, or user within a separate boundary class
+Each separate data structure within a separate data abstraction class, assist with modifiability
+
+--- Slide 6 ---
+Layout: Title and Content
+Software quality attributes Testability 1/2
+Testability is the extent to which software is capable of being tested. It is important to develop a software test plan early in the software life cycle and to plan on developing test cases in parallel with software development.
+Engineers can assess the testability of a system by using various techniques such as encapsulation, interfaces, patterns, low coupling, and more.
+During detailed design and coding, in which the internal algorithms for each component are developed, white box test cases can be developed that test the component internals using well-known coverage criteria such as executing every line of code and the outcome of every decision.
+
+--- Slide 7 ---
+Layout: Title and Content
+Software quality attributes Testability 2/2
+
+--- Slide 8 ---
+Layout: Title and Content
+Software quality attributes Traceability 1/2
+Traceability is the extent to which products of each phase can be traced back to products of previous phases. Requirements traceability is used to ensure that each software requirement has been designed and implemented.
+It is possible to build traceability into the software development method, as is the case with the COMET method. COMET is a use case–based development approach that starts with use cases and then determines the objects required to realize each use case.
+Each use case described in the software requirements is elaborated into a use case–based interaction diagram, which describes the sequence of object communication resulting from an external input, as described in the use case, through to system output.
+
+--- Slide 9 ---
+Layout: Title and Content
+Software quality attributes Traceability 2/2
+
+--- Slide 10 ---
+Layout: Title and Content
+Software quality attributes Scalability
+Scalability is the extent to which the system is capable of growing after its initial deployment.
+There are system and software factors to consider in scalability. From a system perspective, there are issues of adding hardware to increase the capacity of the system
+In a centralized system, the scope for scalability is limited, such as adding more memory, disk, or an additional CPU.
+A distributed system offers much more scope for scalability, by adding more nodes to the configuration.
+
+--- Slide 11 ---
+Layout: Title and Content
+Software quality attributes Reusability
+Software reusability is the extent to which software is capable of being reused. In traditional software reuse, a library of reusable code components is developed – for example, a statistical subroutine library.
+Instead of reusing an individual component, it is much more advantageous to reuse a whole design or subsystem that consists of the components and their interconnections.
+Architecture reuse has much greater potential than component reuse because it is large grained reuse, which focuses on reuse of requirements and design.
+
+--- Slide 12 ---
+Layout: Title and Content
+Software quality attributes Performance
+Performance is also an important consideration in many systems. Performance modeling of a system at design time is important to determine whether the system will meet its performance goals, such as throughput and response times
+Real-time scheduling is an approach that is particularly appropriate for hard real-time systems that have deadlines that must be met (Gomaa 2000)
+A second approach for analyzing the performance of a design is to use event sequence analysis and to integrate this with the real-time scheduling theory.
+
+--- Slide 13 ---
+Layout: Title and Content
+Software quality attributes Security
+Security is an important consideration in many systems. There are many potential threats to distributed application systems, such as electronic commerce and banking systems.
+Some of the potential threats are as follows:
+System penetration
+Authorization violation
+Confidentiality disclosure.
+Integrity compromise
+Repudiation
+Denial of service
+
+--- Slide 14 ---
+Layout: Title and Content
+Software quality attributes Availability
+Availability addresses system failure and its impact on users or other systems. There are times when the system is not available to users for scheduled system maintenance.
+
+--- Slide 15 ---
+Layout: Title and Content
+Exploring quality attributes
+Step 1: Start with a broad taxonomy
+Step 2: Reduce the list
+Step 3: Prioritize the attributes
+Step 4: Elicit specific expectations for each attribute
+Step 5: Specify well-structured quality requirements
+
+--- Slide 16 ---
+Layout: Title and Content
+Implementing quality attribute requirements
+Quality attribute trade-offs
+
+--- Slide 17 ---
+Layout: Title and Content
+Implementing quality attribute requirements
+Designers and programmers will have to determine the best way to satisfy each quality requirement.
+Although these are nonfunctional requirements, they can lead to derived functional requirements, design guidelines, or other types of technical information that will produce the desired product characteristics.
+
+--- Slide 18 ---
+Layout: Title Only

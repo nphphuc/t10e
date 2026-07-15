@@ -1,0 +1,63 @@
+{
+  "id": "L10-05",
+  "title": "Phân phối request và notification",
+  "minutes": 13,
+  "xp": 130,
+  "objective": "Hiểu Observer, Mediator, Chain of Responsibility patterns để phân phối request/notification.",
+  "misconceptions": ["pattern-by-shape"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS: khi Order được tạo, cần gửi email, cập nhật kho, và log. Nếu cứ thêm code vào Order, nó sẽ phình to. Pattern nào?",
+      "options": [
+        "Observer — Order là subject, các listeners đăng ký nhận notification",
+        "Singleton — chỉ một Order được tạo",
+        "Factory — tạo Order bằng factory"
+      ],
+      "correct": 0,
+      "explanation": "Observer: Subject (Order) notify observers (EmailService, Inventory, Logger) khi state thay đổi.",
+      "distractorTags": {"1": "pattern-by-shape", "2": null},
+      "hints": ["Publish/subscribe.", "Observers đăng ký nhận event.", "Xem Observer pattern."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với mục đích:",
+      "pairs": {
+        "Observer": "Subject notify observers khi state thay đổi",
+        "Mediator": "Giảm coupling giữa các objects — Mediator điều phối",
+        "Chain of Responsibility": "Request đi qua chain handlers đến khi xử lý"
+      },
+      "explanation": "Ba behavioral patterns phân phối request/notification.",
+      "hints": ["Observer = pub/sub.", "Mediator = trung gian điều phối.", "Chain = chuỗi xử lý."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS có nhiều components: OrderForm, OrderController, InventoryService, EmailService. Mediator pattern giúp gì?",
+      "options": [
+        "Các components giao tiếp trực tiếp với nhau",
+        "Mediator điều phối, giảm coupling — các component không cần biết nhau",
+        "Không cần pattern"
+      ],
+      "correct": 1,
+      "explanation": "Mediator đứng giữa điều phối — các component chỉ biết Mediator, không biết nhau.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Giảm many-to-many → one-to-many.", "Xem Mediator pattern."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Observer: subject notify observers (1-n). Mediator: điều phối giữa các objects (n-1-n). Chain of Responsibility: request qua chain. Cả ba giúp giảm coupling.",
+      "exitTicket": "Trong FOS, dùng Observer cho sự kiện 'OrderCreated' — liệt kê các observers."
+    }
+  ]
+}

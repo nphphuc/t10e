@@ -1,0 +1,63 @@
+{
+  "id": "L11-01",
+  "title": "Banking: từ ATM use case đến client/server",
+  "minutes": 16,
+  "xp": 180,
+  "objective": "Trace use case đến architecture trong Banking System case study.",
+  "misconceptions": ["traceability", "case-driver"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "ATM Banking: use case Withdraw Funds. Actor là Customer. Các steps: insert card → enter PIN → enter amount → receive cash. Kiến trúc phù hợp?",
+      "options": [
+        "Client/Server — ATM Client request Bank Service",
+        "Peer-to-peer",
+        "Standalone"
+      ],
+      "correct": 0,
+      "explanation": "ATM là client của Bank Service. Multiple clients (ATMs) kết nối đến một Bank Service.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["ATM = client.", "Bank = service.", "Xem Ch21."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép use case với service tương ứng:",
+      "pairs": {
+        "Withdraw Funds": "Bank Service (debit account, dispense cash)",
+        "Query Account": "Bank Service (get balance)",
+        "Transfer Funds": "Bank Service (debit A, credit B)"
+      },
+      "explanation": "Tất cả banking use cases đều dùng Bank Service.",
+      "hints": ["Các use case đều gọi Bank Service.", "Xem Ch21."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Mapping class→table trong Banking System? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Customer → Customer table (PK: customerId)",
+        "Account → Account table (PK: accountNumber, FK: customerId)",
+        "DebitCard → DebitCard table (PK: cardId, FK: customerId)",
+        "Transaction → tự động sinh bảng"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Customer, Account, DebitCard đều có tables riêng. Transaction là associative.",
+      "hints": ["Entity → table.", "FK for associations.", "Xem RDD mapping Ch21."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Banking System: ATM Client + Bank Service (client/server). Use cases: Withdraw, Query, Transfer. Entity mapping: Customer, Account, DebitCard → relational tables.",
+      "exitTicket": "Vẽ kiến trúc tổng thể của Banking System."
+    }
+  ]
+}

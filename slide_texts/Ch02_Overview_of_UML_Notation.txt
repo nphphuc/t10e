@@ -1,0 +1,79 @@
+=== FILE: Ch02_Overview of UML Notation.pptx ===
+
+Total slides: 15
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch02 – Overview of THE uml notation
+
+--- Slide 2 ---
+Layout: Title and Content
+UML Diagrams
+
+--- Slide 3 ---
+Layout: Title and Content
+Use Case Diagrams
+An actor initiates a use case.
+A use case defines a sequence of interactions between the actor and the system.
+
+--- Slide 4 ---
+Layout: Title and Content
+Classes & Objects
+To distinguish between a class (the type) and an object (an instance of the type), an object name is shown underlined.
+An object can be depicted in full with the object name separated by a colon from the class name
+
+--- Slide 5 ---
+Layout: Title and Content
+Class DiagramsRelationship Hierarchies
+An association is a static, structural relationship between two or more classes.The multiplicity of an association specifies how many instances of one class     may relate to a single instance of another classA generalization/specialization hierarchy is an inheritance relationship Aggregation and composition hierarchies are whole/part relationships
+
+--- Slide 6 ---
+Layout: Title and Content
+Class DiagramsVisibility
+Public visibility, denoted with a + symbol, means that the element is visible from outside the class.
+Private visibility, denoted with a – symbol, means that the element is visible only from within the class that defines it and is thus hidden from other classes.
+Protected visibility, denoted with a # symbol, means that the element is visible from within the class that defines it and within all subclasses of the class.
+
+--- Slide 7 ---
+Layout: Title and Content
+Interaction DiagramsCommunication Diagram
+UML has two main kinds of interaction diagrams, which depict how objects interact: the communication diagram and the sequence diagram
+Communication Diagram
+
+--- Slide 8 ---
+Layout: Title and Content
+Interaction DiagramsSequence Diagram
+Sequence Diagram
+
+--- Slide 9 ---
+Layout: Title and Content
+State Machine Diagrams
+
+--- Slide 10 ---
+Layout: Title and Content
+Package Diagrams
+
+--- Slide 11 ---
+Layout: Title and Content
+Concurrent Communication Diagrams
+
+--- Slide 12 ---
+Layout: Title and Content
+Deployment Diagrams
+
+--- Slide 13 ---
+Layout: Title and Content
+UML Extension Mechanisms 1/2
+UML provides three mechanisms to allow the language to be extended (Booch, Rumbaugh, and Jacobson 2005; Rumbaugh, Booch, and Jacobson 2005)
+A tagged value extends the properties of a UML building block, thereby adding new information. A tagged value is enclosed in braces in the form {tag = value}. Commas separate additional tagged values
+A constraint specifies a condition that must be true. In UML, a constraint is an extension of the semantics of a UML element to allow the addition of new rules or modifications to existing rules
+
+--- Slide 14 ---
+Layout: Title and Content
+UML Extension Mechanisms 2/2
+A stereotype defines a new building block that is derived from an existing UML modeling element but tailored to the modeler’s problem. Stereotypes are indicated by guillemets (« »)
+
+--- Slide 15 ---
+Layout: Title Only

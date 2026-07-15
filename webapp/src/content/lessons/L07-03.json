@@ -1,0 +1,63 @@
+{
+  "id": "L07-03",
+  "title": "Component, interface và connector",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Phân biệt component, provided/required interface, và connector trong component-based architecture.",
+  "misconceptions": ["interface-is-implementation"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "FOS có component 'InventoryService'. Các client giao tiếp qua interface. Interface khác implementation thế nào?",
+      "options": [
+        "Interface và implementation là một",
+        "Interface là contract (operation signatures); implementation là code bên trong component",
+        "Implementation là contract, interface là code"
+      ],
+      "correct": 1,
+      "explanation": "Interface định nghĩa contract (tên operation, params). Implementation là code nội bộ được ẩn đi.",
+      "distractorTags": {"0": "interface-is-implementation", "2": null},
+      "hints": ["Interface = contract.", "Implementation = hidden details.", "Xem slide 16."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép khái niệm với ý nghĩa:",
+      "pairs": {
+        "Component": "Self-contained unit có interface",
+        "Provided interface": "Dịch vụ component cung cấp cho bên ngoài",
+        "Required interface": "Dịch vụ component cần từ bên ngoài",
+        "Connector": "Kết nối giữa required và provided interface"
+      },
+      "explanation": "Component = black box với provided/required interfaces. Connector = kết nối giữa các interface.",
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Đặc điểm của một component tốt? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Self-contained (tự trị)",
+        "Encapsulates information (che giấu thông tin)",
+        "Có interface rõ ràng",
+        "Phụ thuộc vào implementation cụ thể của component khác"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Component self-contained, encapsulation, interface rõ ràng. Không phụ thuộc implementation cụ thể.",
+      "distractorTags": {"3": "interface-is-implementation"},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Component: self-contained unit với provided/required interfaces. Interface: contract tách biệt implementation. Connector: kết nối interfaces.",
+      "exitTicket": "Trong FOS, 'PaymentService' có provided interface gì? Cần required interface gì?"
+    }
+  ]
+}

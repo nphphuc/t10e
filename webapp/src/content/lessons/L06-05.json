@@ -1,0 +1,78 @@
+{
+  "id": "L06-05",
+  "title": "Alternative flow không phải ghi chú phụ",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Xác định và mô hình hóa alternative flows trong use case realization.",
+  "misconceptions": ["ignore-alternative"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Make Order Request: credit card bị từ chối. Team bạn nói: 'Xác suất thấp, không cần vẽ alternative flow.' Nhận xét?",
+      "options": [
+        "Đúng, tiết kiệm thời gian vẽ",
+        "Sai! Alternative flow là phần quan trọng của use case — credit card denied là tình huống thực tế phải xử lý",
+        "Chỉ cần ghi chú trong code comment"
+      ],
+      "correct": 1,
+      "explanation": "Alternative sequences là phần bắt buộc của UC spec. Chúng mô tả các tình huống ngoại lệ thực tế.",
+      "distractorTags": {"0": "ignore-alternative", "2": "ignore-alternative"},
+      "hints": ["Không phải mọi UC đều chạy main flow.", "Alternative = xử lý ngoại lệ.", "Xem slide 16."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "choice",
+      "prompt": "Make Order Request: Step 2 — nếu customer chưa có account thì tạo mới. Step 3 — nếu credit card bị từ chối thì cho nhập thẻ khác. Đây là:",
+      "options": [
+        "Main sequence mở rộng",
+        "Alternative sequences cho các tình huống ngoại lệ",
+        "Postcondition"
+      ],
+      "correct": 1,
+      "explanation": "Cả hai tình huống đều là alternative: customer không có account (ngoại lệ) và credit card denied (ngoại lệ).",
+      "hints": ["Không phải mọi bước đều thuộc main flow.", "Tình huống 'nếu...thì' là alternative.", "Xem slide 16."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS Place Order: sau khi đặt hàng, nếu kho không đủ hàng → thông báo và hủy đơn. Alternative flow này nên được:",
+      "options": [
+        "Bỏ qua vì ít xảy ra",
+        "Vẽ communication diagram riêng cho alternative scenario này",
+        "Ghi chú vào code"
+      ],
+      "correct": 1,
+      "explanation": "Mỗi alternative scenario nên có interaction diagram riêng để mô tả luồng xử lý cụ thể.",
+      "distractorTags": {"0": "ignore-alternative", "2": "ignore-alternative"},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Alternative sequences nên được mô hình hóa khi nào? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Khi có lỗi hệ thống (VD: database down)",
+        "Khi actor nhập dữ liệu không hợp lệ",
+        "Khi có sự kiện ngoài dự kiến (VD: timeout)",
+        "Khi người dùng chọn hủy bỏ giữa chừng"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Tất cả các tình huống trên đều là alternative sequences cần được mô hình hóa.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Alternative sequences không phải ghi chú phụ. Mỗi tình huống ngoại lệ cần được mô tả trong UC spec và vẽ interaction diagram riêng (nếu cần).",
+      "exitTicket": "Liệt kê 2 alternative sequences cho use case 'Place Order' của FOS."
+    }
+  ]
+}

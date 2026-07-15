@@ -1,0 +1,59 @@
+{
+  "id": "L08-09",
+  "title": "Level 8 Review: Architecture Decision Arena",
+  "questions": [
+    {
+      "id": "R08-01",
+      "type": "choice",
+      "prompt": "Polymorphism cho phép gì?",
+      "options": [
+        "Class thay đổi tên",
+        "Các class khác nhau có cùng operation name nhưng implementation khác",
+        "Tạo object từ class"
+      ],
+      "correct": 1,
+      "explanation": "Polymorphism: cùng operation name, khác implementation."
+    },
+    {
+      "id": "R08-02",
+      "type": "match",
+      "prompt": "Ghép kiến trúc với mô tả:",
+      "pairs": {
+        "Client/Server": "Client request service",
+        "SOA": "Autonomous services với broker discovery",
+        "Component-Based": "Components với provided/required interfaces",
+        "Concurrent/Real-Time": "Tasks với timing constraints"
+      },
+      "explanation": "Bốn kiến trúc chính trong môn học."
+    },
+    {
+      "id": "R08-03",
+      "type": "choice",
+      "prompt": "FOS cần location transparency cho Inventory Service. Service có thể đổi server. Pattern nào?",
+      "options": ["Client/Server", "SOA với Broker", "Component-Based"],
+      "correct": 1,
+      "explanation": "SOA broker cung cấp location transparency.",
+      "distractorTags": {"0": null, "2": null}
+    },
+    {
+      "id": "R08-04",
+      "type": "choice",
+      "prompt": "Transfer funds giữa hai bank cần atomicity. Pattern nào?",
+      "options": ["Single service", "Two-Phase Commit", "Broadcast"],
+      "correct": 1,
+      "explanation": "Two-Phase Commit đảm bảo atomic distributed transaction."
+    },
+    {
+      "id": "R08-05",
+      "type": "choice",
+      "prompt": "Foreign key trong RDD:",
+      "options": [
+        "Luôn tạo bảng riêng",
+        "Primary key của table này embedded trong table khác",
+        "Không cần thiết"
+      ],
+      "correct": 1,
+      "explanation": "FK: primary key của một table được embedded trong table khác. FK ở many side cho 1-*."
+    }
+  ]
+}

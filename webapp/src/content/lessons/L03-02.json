@@ -1,0 +1,113 @@
+{
+  "id": "L03-02",
+  "title": "Functional hay quality requirement?",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Phân biệt functional requirements (FR) và nonfunctional requirements (NFR), đồng thời viết NFR có thể kiểm thử được.",
+  "misconceptions": ["nfr-is-vague"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Khách hàng FOS yêu cầu: 'Hệ thống phải phản hồi nhanh'. Đây là yêu cầu gì?",
+      "options": [
+        "Functional requirement — vì nó mô tả chức năng hệ thống",
+        "Nonfunctional requirement — nhưng chưa có chỉ số đo lường cụ thể (non-verifiable)",
+        "Yêu cầu này không cần thiết"
+      ],
+      "correct": 1,
+      "explanation": "Đây là NFR về performance, nhưng mơ hồ vì không có số đo. Một NFR tốt cần measurable: '95% requests được phản hồi trong < 2s'.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": null
+      },
+      "hints": [
+        "Hãy tự hỏi: Làm sao kiểm tra 'phản hồi nhanh' là đúng hay sai?",
+        "Yêu cầu phi chức năng cần đi kèm chỉ số.",
+        "Xem slide 5-6 về requirements specification."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các câu mô tả với loại yêu cầu tương ứng:",
+      "pairs": {
+        "Hệ thống gửi email xác nhận đơn hàng": "Functional requirement",
+        "95% page load < 3s với 500 users đồng thời": "Nonfunctional requirement (verifiable)",
+        "Giao diện phải hiện đại và dễ nhìn": "Nonfunctional requirement (vague)",
+        "Hệ thống cho phép tra cứu sản phẩm theo tên": "Functional requirement"
+      },
+      "explanation": "FR mô tả chức năng cụ thể (send email, search). NFR cần measurable và testable nhưng nhiều khi bị viết mơ hồ (vague).",
+      "hints": [
+        "FR trả lời: hệ thống LÀM gì?",
+        "NFR trả lời: hệ thống LÀM TỐT đến đâu?",
+        "Verifiable NFR có số đo cụ thể."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Khách hàng FOS nói: 'Tôi muốn hệ thống đáng tin cậy, không được sập'. Bạn cần viết lại thành yêu cầu NFR verifiable. Câu nào dưới đây là phù hợp nhất?",
+      "options": [
+        "Hệ thống không bao giờ sập",
+        "Hệ thống có uptime ≥ 99.9% trong 30 ngày và tự động failover trong < 60s khi xảy ra sự cố",
+        "Hệ thống có server mạnh"
+      ],
+      "correct": 1,
+      "explanation": "Một NFR tốt có stimulus, condition, metric rõ ràng. Uptime 99.9% và tự động failover là verifiable.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague"
+      },
+      "hints": [
+        "Làm sao để đo 'đáng tin cậy'?",
+        "Chỉ số uptime, failover time là gì?",
+        "Xem QoS attributes và measurable criteria."
+      ],
+      "feedbackWrongByItem": {
+        "Hệ thống không bao giờ sập": "Không thể đảm bảo 100% uptime. Cần một SLA cụ thể."
+      },
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "fill",
+      "prompt": "Điền từ còn thiếu: 'A nonfunctional requirement describes a _____ attribute or quality-of-service goal that the system must fulfill.'",
+      "accepted": ["quality", "chất lượng", "quality-of-service", "quality of service"],
+      "explanation": "Nonfunctional requirements mô tả các thuộc tính chất lượng (quality attributes) như performance, security, availability, maintainability.",
+      "weight": 1
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Đâu là các đặc tính của một SRS (Software Requirements Specification) tốt? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Correct (đúng với nhu cầu)",
+        "Unambiguous (không mơ hồ)",
+        "Viết bằng ngôn ngữ kỹ thuật phức tạp",
+        "Verifiable (có thể kiểm thử)",
+        "Traceable (có thể truy vết được)"
+      ],
+      "correctSet": [0, 1, 3, 4],
+      "explanation": "SRS tốt cần correct, complete, unambiguous, consistent, verifiable, modifiable và traceable. Không yêu cầu ngôn ngữ phức tạp.",
+      "distractorTags": {
+        "2": null
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Functional requirement: hệ thống LÀM gì (chức năng cụ thể). Nonfunctional requirement: hệ thống LÀM TỐT đến đâu (chất lượng). NFR cần được viết có thể kiểm thử được (verifiable) với chỉ số rõ ràng.",
+      "exitTicket": "Viết một NFR cho FOS về bảo mật (security) có thể kiểm thử được."
+    }
+  ]
+}

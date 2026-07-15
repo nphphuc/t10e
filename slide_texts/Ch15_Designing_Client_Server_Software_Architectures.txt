@@ -1,0 +1,422 @@
+=== FILE: Ch15_Designing Client Server Software Architectures.pptx ===
+
+Total slides: 43
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch15 - Designing Client Server Software Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Overview
+Multiple Client/Single Service Architectural Pattern
+Multiple Client/Multiple Service Architectural Pattern
+Architectural Communication Patterns for Client/Server Architectures
+Middleware in Client/Server Systems
+Design of Service Subsystems
+Design of Wrapper Classes
+From Static Models to Relational Database Design
+
+--- Slide 3 ---
+Layout: Title and Content
+Overview
+In client/server systems
+a client is a requester of services
+a server is a provider
+of services
+Typical servers are
+file servers,
+database servers,
+line printer servers
+
+--- Slide 4 ---
+Layout: Title and Content
+Multiple Client/Single Service Architectural Pattern 1/3
+Multiple Client/Single Service architectural pattern
+
+--- Slide 5 ---
+Layout: Title and Content
+Multiple Client/Single Service Architectural Pattern 2/3
+Example of Multiple Client/Single Service architectural pattern: Banking System
+
+--- Slide 6 ---
+Layout: Title and Content
+Multiple Client/Single Service Architectural Pattern 3/3
+Consists of several clients that request a service & a service that fulfills client requests
+The simplest and most common client/server architecture has one service and many clients.
+Multiple Client/Single Service architectural pattern is also known as the Client/Server or Client/Service pattern
+
+--- Slide 7 ---
+Layout: Title and Content
+Multiple Client/Multiple Service Architectural Pattern 1/3
+More complex client/server systems might support multiple services
+In addition to clients requesting a service, a client might communicate with several services, and services might communicate with each other.
+A client could communicate with each service sequentially or could communicate with multiple services concurrently.
+
+--- Slide 8 ---
+Layout: Title and Content
+Multiple Client/Multiple Service Architectural Pattern 2/3
+Multiple Client/Multiple Service architectural pattern
+
+--- Slide 9 ---
+Layout: Title and Content
+Multi-tier Client/Service Architectural Pattern
+The Multi-tier Client/Service pattern has an intermediate tier (i.e., layer) that provides both a client and a service role.
+An intermediate tier is a client of its service tier and also provides a service for its clients.
+It is possible to have more than one intermediate tier. When viewed as a layered architecture, the client is considered to be at a higher layer than the service because the client depends on and uses the service.
+
+--- Slide 10 ---
+Layout: Title and Content
+Architectural Communication Patterns for Client/Server Architectures 1/3
+In client/server communication, there is usually a request from a client to a service, and a response from the service.
+In some cases, there might not be a service response, for example, when data are being updated instead of requested.
+The nature of the communication between the client and service affects the communication patterns used.
+
+--- Slide 11 ---
+Layout: Title and Content
+Architectural Communication Patterns for Client/Server Architectures 2/3
+Synchronous Message Communication with Reply Pattern
+Examples of the Synchronous Message Communication with Reply pattern: Banking application
+
+--- Slide 12 ---
+Layout: Title and Content
+Architectural Communication Patterns for Client/Server Architectures 3/3
+Asynchronous Message Communication with Callback Pattern
+Used between a client and a service when the client sends a request to the service and can continue executing without needing to wait for the service response; however, it does need the service response later.
+The callback is an asynchronous response to a client request message sent previously. This pattern allows the client to execute asynchronously but still follows the client/service paradigm in which a client sends only one message at a time to the service and receives a response from the service.
+With the callback pattern, the client sends a remote reference or handle, which is then used by the service to respond to the client.
+A variation on the callback pattern is for the service to delegate the response to another component by forwarding to it the callback handle.
+
+--- Slide 13 ---
+Layout: Title and Content
+Middleware in Client/Server Systems
+Middleware is a layer of software that sits above the heterogeneous operating system to provide a uniform platform above which distributed applications, such as client/server systems, can run
+
+--- Slide 14 ---
+Layout: Title and Content
+Design of Service Subsystems
+A service subsystem provides a service for multiple clients
+It is very common for services to need access to a database in which persistent data are stored
+A simple service does not initiate any requests for services but responds to requests from clients.
+There are two kinds of service components: sequential and concurrent.
+
+--- Slide 15 ---
+Layout: Title and Content
+Design of Service SubsystemsSequential Service Design 1/2
+A sequential service is designed as one concurrent object (thread of control) that processes client requests sequentially; that is, it completes one request before it starts servicing the next.
+The service typically has a message queue of incoming service requests.
+There is one message type for each operation provided by the service.
+The service coordinator unpacks the client’s message and, depending on the message type, invokes the appropriate operation provided by a service object.
+The parameters of the message are used as the parameters of the operation.
+The service object processes the client’s request and returns the appropriate response to the service coordinator, which then prepares a service response message and sends it to the client.
+
+--- Slide 16 ---
+Layout: Title and Content
+Design of Service SubsystemsSequential Service Design 2/2
+Banking Service services the transaction, invokes the service operation, returns a bankResponse message to the client, and then services the next transaction
+
+--- Slide 17 ---
+Layout: Title and Content
+Design of Service SubsystemsConcurrent Service Design 1/2
+The service functionality is shared among several concurrent objects. If the client demand for services is high enough that the sequential service could potentially become a bottleneck in the system, an alternative approach is for the services to be provided by a concurrent service consisting of several concurrent objects.
+This approach assumes that improved throughput can be obtained by objects providing concurrent access to the data – for example, if the data are stored on secondary storage
+
+--- Slide 18 ---
+Layout: Title and Content
+Design of Service SubsystemsConcurrent Service Design 2/2
+The Bank Transaction Coordinator and each transaction manager is designed as a separate concurrent object
+The clients communicate with the service by using the Asynchronous Message Communication with Callback pattern
+
+--- Slide 19 ---
+Layout: Title and Content
+Design of Wrapper Classes
+In the analysis model, an entity class is designed that encapsulates data.
+During design, a decision has to be made whether the encapsulated data are to be managed directly by the entity class or whether the data are actually to be stored in a database.
+The former case is handled by data abstraction classes, which encapsulate data structures
+The latter case is handled by database wrapper classes, which hide how the data are accessed if stored in a database
+
+--- Slide 20 ---
+Layout: Title and Content
+Design of Wrapper ClassesDatabase Wrapper Classes 1/2
+Data abstraction classes are more likely to be designed on the client side, but they might also be needed on the server side.
+Database wrapper classes are much more likely to be designed on the server side, because that is where the database support is provided
+Most databases in use today are relational databases, so the database wrapper class provides an object-oriented interface to the database
+The attributes of the analysis model entity class are mapped to a database relational table
+The operations to access the attributes are mapped to a database wrapper class.
+The database wrapper class hides the details of how to access the data maintained in the relational table, so it hides all the SQL statements.
+
+--- Slide 21 ---
+Layout: Title and Content
+Design of Wrapper ClassesDatabase Wrapper Classes 2/2
+In the Banking System example, all persistent data are stored in a relational database. Hence, each entity class maintained at the bank server is mapped to both a database relational table and a database wrapper class
+
+--- Slide 22 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational database design (RDD) models information and data into a set of tables with rows and columns. Each row of a relation/table represents a record, and each column represents an attribute of data. The Structured Query Language (SQL) is used to manipulate relational databases
+Steps in Using COMET/UML
+Develop Software Requirements Model
+Develop Software Analysis Mode
+Develop Software Design Model
+Design Overall Software Architecture (Chapter 12, 13)
+Design Distributed Component-based Subsystems (Chapter 12-13,15)
+Structure Subsystems into Concurrent Tasks (Chapter 18)
+Design Information Hiding Classes (Chapter 14)
+Design relational database (Chapter 15)
+
+--- Slide 23 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design
+1. Objective: Map static model to relational database
+2. Each entity class from static model that needs to be stored in relational database:
+Entity class maps to one (or more) relation(s) (table)
+Attributes mapped to columns of table
+Each object instance maps to a row of table
+3. Relational Database Design:
+Primary keys
+Foreign keys for associations
+Association classes
+Aggregation/Composition Hierarchy
+Generalization/Specialization hierarchy
+
+--- Slide 24 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Entity Classes and Relational Tables
+Account entity class
+Account relational table
+
+--- Slide 25 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Primary Keys
+1. Each relation must have a primary key
+2. Primary Key:
+Combination of one or more attributes
+Uniquely locates a row in relation
+E.g., Account Number is primary key of Account relation
+Account (Account number, Balance) – (underline = primary key)
+
+--- Slide 26 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Foreign Keys
+1. Associations in relational databases:
+Many-to-many association in static model
+Maps to a relation
+One-to-one and one-to-many associations
+Use Foreign keys
+2. Foreign key:
+Primary key of one table that is embedded in another table
+Represents mapping of association between relations into a table
+Allows navigation between tables
+
+--- Slide 27 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+One-to-one or Zero-or-one Association 1/2
+One-to-one association maps to:
+Foreign key in one of relations
+Zero-or-one association maps to:
+Foreign key in optional relation
+E.g., Customer Owns Debit Card
+Static model:
+Customer (Customer Name, Customer Id, Customer Address)
+Debit Card (Card Id, PIN, Expiration date, Status, Limit, Total)
+
+--- Slide 28 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+One-to-one or Zero-or-one Association 2/2
+1. Relational Database Design:
+Customer Id chosen as primary key of Customer
+Customer (Customer Name, Customer Id, Customer Address)
+Card id chosen as primary key of Debit Card relation
+2. Customer Id chosen as foreign key in Debit Card
+3. Represents association between Customer and Debit Card relations
+4. Debit Card (Card Id, PIN, Expiration date, Status, Customer Id)
+(underline = primary key, italic = foreign key)
+
+--- Slide 29 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+One-to-Many Association 1/2
+One-to-many association maps to:
+Foreign key in “many” relations
+E.g., Customer Owns Account
+Static model:
+Customer (Customer Name, Customer Id, Customer Address)
+Account (Account number, Balance)
+Relational Database Design:
+Primary key of “one” relation (Customer) is chosen as foreign key in “many” relation (Account)
+
+--- Slide 30 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+One-to-Many Association 2/2
+Relational Database Design:
+Customer Id chosen as primary key of Customer relation
+Customer (Customer Name, Customer Id, Customer Address)
+Account Number is chosen as primary key of Account relation
+Customer Id is foreign key in Account relation
+Account (Account Number, Balance, Customer Id)
+
+--- Slide 31 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Static Model Association Class 1/2
+An association class models association between two or more classes  and is typically used to represent a many-to-many association
+Association class is mapped to associative relation
+Associative relation
+Relation to represent association between two or more relations
+Primary key of associative relation
+Concatenated key
+Formed from primary key of each relation that participates in association
+
+--- Slide 32 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Static Model Association Class 2/2
+E.g., Hours association class:
+Represents association between Project and Employee classes
+Mapped to Associative relation Hours
+Static model:
+Project (Project id, Project name)
+Employee (Employee id, Employee name, Employee address)
+Hours (Hours Worked)
+Hours Worked is attribute of association
+
+--- Slide 33 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Associative Relation
+Relational Database Design
+Project (Project id, Project name)
+Employee (Employee id, Employee name, Employee address)
+Project id and Employee id
+Form concatenated primary key of Hours relation
+Also foreign keys
+Hours (Project id, Employee id, Hours worked)
+
+--- Slide 34 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Static Model Aggregation/Composition Hierarchy
+Whole/part relationship
+Aggregate/Composite (whole) class is mapped to relation
+Each part class is mapped to relation
+Primary key of aggregate/composite relation
+All of primary key of component relation
+1-1 aggregation
+Part of primary key of component relation
+1-n aggregation
+Foreign key
+If not needed to uniquely identify component relation
+
+--- Slide 35 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Aggregation / Composition Hierarchy
+E.g., Static Model:
+Department IS PART OF College
+Admin Office IS PART OF College
+College (College name)
+Admin Office (Location)
+Department (Department name,
+Location)
+Relational Database Design:
+Primary key of aggregate relation = College name
+College (College name)
+Admin Office (College name, Location)
+Department (Department name, College name, Location)
+
+--- Slide 36 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Static Model Generalization / Specialization Hierarchy
+Three alternative mappings from Generalization / Specialization Hierarchy to relational database
+Superclass & subclasses mapped to relations
+Subclasses only mapped to relations
+Superclass only mapped to relation
+
+--- Slide 37 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Generalization / Specialization Hierarchy 1/4
+Superclass & subclasses mapped to relations
+Superclass mapped to table
+Discriminator is attribute of superclass table
+Each subclass mapped to table
+Shared id for primary key
+Same primary key in superclass and subclass tables
+Clean and extensible
+However, superclass / subclass navigation may be slow
+
+--- Slide 38 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Generalization / Specialization Hierarchy 2/4
+Superclass & subclasses mapped to relations
+E.g.: Account Generalization / Specialization Hierarchy
+Static Model
+Superclass: Account (Account number, Balance)
+Subclass: Checking Account (Last Deposit Amount)
+Subclass: Savings Account (Interest)
+Relational Database Design
+Account (Account number, Account Type, Balance)
+Checking Account (Account Number, Last Deposit Amount)
+Savings Account (Account Number, Interest)
+
+--- Slide 39 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Generalization / Specialization Hierarchy 3/4
+1. Superclass only mapped to relations
+Map each subclass to relation
+No superclass relation
+Superclass attributes replicated for each subclass table
+2. Can use if
+Subclass has many attributes
+Superclass has few attributes
+Application knows what subclass to search
+
+--- Slide 40 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Relational Database Design Generalization / Specialization Hierarchy 4/4
+1. Superclass only mapped to relations
+2. All subclass attributes brought up to superclass table
+Discriminator is attribute of superclass table
+Each record in superclass table uses attributes relevant to one subclass
+Other attribute values are null
+3. Can use if
+Superclass has many attributes
+Subclass has few attributes
+Only two or three subclasses
+
+--- Slide 41 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Example of Relational Database Design 1/2
+
+--- Slide 42 ---
+Layout: Title and Content
+From Static Models to Relational Database Design
+Example of Relational Database Design 2/2
+Banking System static mode
+Bank Information (underline = primary key, italic = foreign key):
+Bank (bankName, Bank Address, bankId)
+ATM Info (bankId, ATMId, ATM Location, ATM Address)
+Customer (customerName, customerId, customerAddress)
+Debit Card (cardId, PIN, startDate, expirationDate, status, limit, total, customerId)
+Checking Account (accountNumber, accountType, balance, lastDepositAmount)
+Savings Account (accountNumber, accountType, balance, interest) Card Account (cardId, accountNumber)
+Customer Account (customerId, accountNumber)
+Assumption: Account type is determined from account number
+
+--- Slide 43 ---
+Layout: Title Only

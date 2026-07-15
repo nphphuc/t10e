@@ -1,0 +1,68 @@
+{
+  "id": "L07-07",
+  "title": "Level 7 Review: Message & Subsystem Studio",
+  "questions": [
+    {
+      "id": "R07-01",
+      "type": "choice",
+      "prompt": "Software architecture là:",
+      "options": [
+        "Chi tiết code của từng class",
+        "Components + interfaces + relationships",
+        "Giao diện người dùng"
+      ],
+      "correct": 1,
+      "explanation": "Architecture = components, properties, relationships."
+    },
+    {
+      "id": "R07-02",
+      "type": "match",
+      "prompt": "Ghép view với mục đích:",
+      "pairs": {
+        "Structural view": "Cấu trúc tĩnh (class diagram)",
+        "Dynamic view": "Hành vi (communication diagram)",
+        "Deployment view": "Cấu hình vật lý (deployment diagram)"
+      },
+      "explanation": "Ba views của software architecture."
+    },
+    {
+      "id": "R07-03",
+      "type": "choice",
+      "prompt": "Producer gửi message, consumer xử lý sau — pattern này gọi là:",
+      "options": [
+        "Synchronous with Reply",
+        "Asynchronous Message Communication",
+        "Call/Return"
+      ],
+      "correct": 1,
+      "explanation": "Asynchronous: producer không chờ consumer."
+    },
+    {
+      "id": "R07-04",
+      "type": "choice",
+      "prompt": "Khi tích hợp communication diagrams, nếu sơ đồ quá phức tạp, nên:",
+      "options": [
+        "Bỏ bớt use cases",
+        "Aggregate messages và chia theo subsystem",
+        "Chỉ vẽ class diagram"
+      ],
+      "correct": 1,
+      "explanation": "Aggregate messages và chia thành subsystem-level diagrams.",
+      "distractorTags": {"0": null, "2": null}
+    },
+    {
+      "id": "R07-05",
+      "type": "multi",
+      "prompt": "Những yếu tố nào quyết định tách subsystem? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Geographical location",
+        "Client/service separation",
+        "Scope of control",
+        "Cùng một màu sắc"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Location, client/service, control scope là các criteria chính.",
+      "distractorTags": {"3": null}
+    }
+  ]
+}

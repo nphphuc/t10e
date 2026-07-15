@@ -1,0 +1,180 @@
+=== FILE: Ch13_Software Subsystem Architectural Design.pptx ===
+
+Total slides: 26
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch13 - Software Subsystem Architectural Design
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+General Introduction
+Issues in Software Architectural Design
+Integrated Communication Diagrams
+Separation of Concerns in Subsystem Design
+Subsystem Structuring Criteria
+Decisions about Message Communication between Subsystems
+
+--- Slide 3 ---
+Layout: Title and Content
+General Introduction
+During analysis modeling, the problem is analyzed by breaking it down and studying it on a UC–by–UC basis
+During design modeling, the solution is synthesized by designing a software architecture that deﬁnes the structural & behavioral properties of the software system
+To successfully manage the inherent complexity of a large-scale software system, it is necessary to provide an approach for decomposing the system into subsystems and developing the overall software architecture of the system. After performing this decomposition, each subsystem can then be designed independently
+
+--- Slide 4 ---
+Layout: Title and Content
+General Introduction
+To design the software architecture, it is necessary to start with the analysis model. Several decisions need to be made in designing the software architecture:
+Integrate the use case–based interaction models into an initial software architecture.
+Determine the subsystems using separation of concerns and subsystem structuring criteria
+Determine the precise type of message communication among the subsystems
+
+--- Slide 5 ---
+Layout: Title and Content
+Issues in Software Architectural Design
+In the analysis of the problem domain and structuring a system into subsystems, the emphasis is on functional decomposition, such that each subsystem addresses a distinctly separate part of the system.
+The design goal is for each subsystem to perform a major function that is relatively independent of the functionality provided by other subsystems.
+A subsystem can be structured further into smaller subsystems, consisting of a subset of the functionality provided by the parent subsystem.
+After the interface between subsystems has been deﬁned, subsystem design can proceed independently.
+
+--- Slide 6 ---
+Layout: Title and Content
+Issues in Software Architectural Design
+Some subsystems can be determined relatively easily because of geographical distribution or server responsibility (client, service)
+In other applications, it is not so obvious how to structure the system into subsystems. Because one of the goals of subsystem structuring is to have objects that are functionally related and highly coupled in the same subsystem, a good place to start is with the use cases. Objects that participate in the same use case are candidates to be grouped into the same subsystem
+Because of this, subsystem structuring is often done after the interaction among the constituent objects of each use case has been determined during dynamic modeling
+
+--- Slide 7 ---
+Layout: Title and Content
+Integrated Communication Diagrams
+Why? To transition from analysis to design and to determine the subsystems, it is necessary to synthesize an initial software design from the analysis carried out so far.
+How? By integrating the UC–based interaction diagrams developed as part of the dynamic model.
+What? In the analysis model, at least one communication diagram is developed for each use case. The integrated communication diagram is a synthesis of all the communication diagrams developed to support the use cases.
+
+--- Slide 8 ---
+Layout: Title and Content
+Integrated Communication Diagrams
+
+--- Slide 9 ---
+Layout: Title and Content
+Integrated Communication Diagrams
+The integrated communication diagram can get very complicated for a large system; therefore, it is necessary to have ways to reduce the amount of information
+One way to reduce the amount of information on the diagram is to aggregate the messages
+Furthermore, showing all the objects on one diagram might not be practical. A solution to this problem is to develop integrated communication diagrams for each subsystem and develop a higher-level subsystem communication diagram to show the interaction between the subsystems,
+
+--- Slide 10 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignComposite Object
+A composite object is typically composed of a group of related objects that work together in a coordinated fashion
+Objects that are part of the same composite object should be in the same subsystem and separate from objects that are not part of the same composite object.
+The composite object (the whole) and its constituent objects (the parts) are created together, live together, and die together.
+ATM is the composite object, others are constituent objects
+
+--- Slide 11 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignGeographical Location
+If two objects could potentially be physically separated in different geographical locations, they should be in different subsystems.
+In the example, the service layer is divided because the 2 services don’t related by any mean.
+
+--- Slide 12 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignClients and Services
+Clients and services should be in separate subsystems. This guideline can be viewed as a special case of the geographical location rule because clients and services are usually at different locations
+
+--- Slide 13 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignUser Interaction
+Users often use their own PCs as part of a larger distributed conﬁguration, so the most ﬂexible option is to keep user interaction objects in separate subsystems.
+As user interaction objects are usually clients, this guideline can be viewed as a special case of the client/service guideline.
+Furthermore, a user interaction object may be a composite graphical user interaction object composed of several simpler user interaction objects.
+
+--- Slide 14 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignInterface to External Objects
+A subsystem deals with a subset of the actors shown in the use case model and a subset of the external real-world objects shown on the context diagram. An external real-world object should interface to only one subsystem.
+
+--- Slide 15 ---
+Layout: Title and Content
+Separation of Concerns in Subsystem DesignScope of Control
+A control object and all the entity and I/O objects it directly controls should all be part of one subsystem and not split among subsystems.
+
+--- Slide 16 ---
+Layout: Title and Content
+Subsystem Structuring Criteria
+The design considerations described in the previous section can be formalized as subsystem structuring criteria, which help ensure that subsystems are designed effectively.
+Subsystems are generally depicted with the stereotype «subsystem». For certain software architectures consisting of distributed component-based subsystems, the stereotype «component» is used for such a subsystem, and in service-oriented architecture consisting of service subsystems, the stereotype «service» is used for a service subsystem.
+
+--- Slide 17 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaClient Subsystem
+A client subsystem is a requester of one or more services.
+Client subsystems include user interaction subsystems, control subsystems, and I/O subsystems. (will be detailed later)
+A client subsystem may combines more than one role.
+In this example, The Monitoring Sensor Component, Remote System Proxy, and Operator Presentation components are clients of Alarm Service and Monitoring Data Service
+
+--- Slide 18 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaUser Interaction Subsystem
+A user interaction subsystem provides the user interface and performs the role of a client in a client/server system, providing user access to services. There may be more than one user interaction subsystem – one for each type of user.
+A user interaction subsystem is usually a composite object that is composed of several simpler user interaction objects.
+May contain entity objects for local storage and caching, and control objects for overall sequencing of user input and output.
+In this example, the Operator actor interacts with the system through two Windows of UI Subsystem
+
+--- Slide 19 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaService Subsystem
+A service subsystem provides a service for client subsystems. It responds to requests from client subsystems, although it does not initiate any requests.
+Include entity objects, coordinator objects that service client requests and determine what object should be assigned to handle them, and business logic objects that encapsulate application logic.
+Usually associated with a set of related data repositories to access database or I/O devices.
+In this example, Alarm Service and Monitoring Data Service belong to Service Subsystem
+
+--- Slide 20 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaControl Subsystem
+A control subsystem controls a given part of the system. The subsystem receives its inputs from the external environment and generates outputs to the external environment.
+A control subsystem is often state-dependent, in which case it includes at least one state-dependent control object.
+In this example, AutomatedGuidedVehicleSystem will control the physical motor component after receiving signal from SupervisorySystem.
+
+--- Slide 21 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaCoordinator Subsystem
+Coordinator subsystems coordinate the execution of other subsystems, such as control subsystems or service subsystems.
+This is a mandatory subsystem when to coordinating tasks are relatively complex such as deciding workflow for control subsystems or coordinating services in service-oriented architectures.
+In this example, CustomerCoordinator has to communicate with multiple services to serve different kinds of request from Customer
+
+--- Slide 22 ---
+Layout: Title and Content
+Subsystem Structuring CriteriaInput/Output Subsystem
+An input, output, or input/output subsystem is a subsystem that performs input and/or output operations on behalf of other subsystems.
+Can be designed to be relatively autonomous.
+In this example, the MonitoringSensorComponent is an input subsystem which receiving data from multiple sensors.
+
+--- Slide 23 ---
+Layout: Title and Content
+Decisions about Message Communication between Subsystems
+In the transition from the analysis model to the design model, one of the most important decisions relates to what type of message communication is needed between the subsystems.
+A second related decision is to determine more precisely the name and parameters of each message.
+In design modeling, a decision has to be made about the precise semantics of message communication, such as whether message communication will be synchronous or asynchronous.
+The aforementioned decisions concerning asynchronous and synchronous communication are formalized into architectural communication patterns.
+
+--- Slide 24 ---
+Layout: Title and Content
+Decisions about Message Communication between Subsystems
+Message communication between two subsystems can be unidirectional or bidirectional
+
+--- Slide 25 ---
+Layout: Title and Content
+Decisions about Message Communication between Subsystems
+Figure below shows the result of two design decisions.
+First, the four analysis model objects are designed as concurrent
+Second, the design decision is made about the type of message communication between the subsystems.
+asynchronous message communication between the producer & consumer,
+synchronous message communication between the client and service
+the precise name and parameters of each message are determined.
+
+--- Slide 26 ---
+Layout: Title Only

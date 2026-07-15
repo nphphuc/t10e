@@ -1,0 +1,80 @@
+{
+  "id": "L09-03",
+  "title": "Scale, reuse, performance, security, availability",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Hiểu scalability, reusability, performance, security, availability và trade-offs giữa chúng.",
+  "misconceptions": ["nfr-one-tactic"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS từ 100 users tăng lên 10,000 users. Cần mở rộng hệ thống. Quality attribute nào?",
+      "options": [
+        "Maintainability",
+        "Scalability",
+        "Security"
+      ],
+      "correct": 1,
+      "explanation": "Scalability: khả năng mở rộng khi tải tăng. Distributed system scalability tốt hơn centralized.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Scalability = khả năng mở rộng.", "Xem slide 10."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép quality attribute với định nghĩa:",
+      "pairs": {
+        "Scalability": "Khả năng mở rộng sau triển khai",
+        "Reusability": "Khả năng tái sử dụng component",
+        "Performance": "Throughput và response time",
+        "Security": "Chống truy cập trái phép",
+        "Availability": "Uptime và fault tolerance"
+      },
+      "explanation": "Năm quality attributes quan trọng trong kiến trúc phần mềm.",
+      "hints": ["Scale = mở rộng.", "Reuse = tái sử dụng.", "Xem slide 10-14."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS muốn vừa performance cao vừa security tối đa. Mỗi request đều phải mã hóa và kiểm tra nhiều lớp. Nhận xét?",
+      "options": [
+        "Cả hai đều đạt được dễ dàng",
+        "Trade-off: security overhead (encryption, auth) làm giảm performance",
+        "Chỉ cần chọn một"
+      ],
+      "correct": 1,
+      "explanation": "Quality attributes thường trade-off với nhau. Security (encryption, auth) tăng latency → giảm performance.",
+      "distractorTags": {"0": "nfr-one-tactic", "2": null},
+      "hints": ["Security + Performance = trade-off.", "Xem slide 16 về trade-offs."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Để cải thiện performance, cách nào tốt nhất?",
+      "options": [
+        "Thêm nhiều tính năng",
+        "Performance modeling và real-time scheduling analysis",
+        "Giảm bảo mật"
+      ],
+      "correct": 1,
+      "explanation": "Performance modeling và scheduling analysis giúp đảm bảo performance goals.",
+      "hints": ["Model trước → measure sau.", "Xem slide 12."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Scalability, Reusability, Performance, Security, Availability — năm quality attributes. Luôn có trade-offs: security vs performance, scalability vs consistency, reusability vs performance.",
+      "exitTicket": "Mô tả một trade-off giữa hai quality attributes trong FOS."
+    }
+  ]
+}

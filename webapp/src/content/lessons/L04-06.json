@@ -1,0 +1,113 @@
+{
+  "id": "L04-06",
+  "title": "Vẽ đúng biên và đúng stereotype",
+  "minutes": 11,
+  "xp": 120,
+  "objective": "Áp dụng context modeling và stereotype của UML để phân biệt external/internal classes.",
+  "misconceptions": ["actor-is-internal"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "visual",
+      "prompt": "FOS cần xác định biên hệ thống. Kéo các thành phần ra/vào system boundary đúng scope của phần mềm FOS:",
+      "visual": {
+        "variant": "boundary-sort",
+        "items": [
+          "Customer",
+          "Payment Gateway",
+          "Product Database",
+          "Warehouse Staff",
+          "SMS Notification Service",
+          "OrderController"
+        ],
+        "correctOutside": [
+          "Customer",
+          "Payment Gateway",
+          "Warehouse Staff",
+          "SMS Notification Service"
+        ]
+      },
+      "hints": [
+        "Hỏi: Thành phần này có nằm trong code của FOS không?",
+        "Payment Gateway và SMS Notification là external systems.",
+        "OrderController là internal software object."
+      ],
+      "solution": "Customer, Payment Gateway, Warehouse Staff, SMS Notification Service là actors bên ngoài. Product Database và OrderController là thành phần nội bộ.",
+      "feedbackCorrect": "Ba actor bên ngoài tương tác với FOS qua biên giới hệ thống.",
+      "feedbackWrongByItem": {
+        "Product Database": "Trong scope này, Product DB là thành phần nội bộ của FOS.",
+        "OrderController": "Controller là internal object, không phải actor."
+      },
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép stereotype UML với loại class tương ứng:",
+      "pairs": {
+        "«entity»": "Class lưu trữ dữ liệu bền vững (persistent data)",
+        "«boundary»": "Class giao tiếp với môi trường bên ngoài",
+        "«control»": "Class điều phối luồng xử lý use case",
+        "«external system»": "Hệ thống bên ngoài tương tác với phần mềm"
+      },
+      "explanation": "Stereotypes trong UML giúp phân loại class theo vai trò. Entity lưu data, Boundary giao tiếp ngoại vi, Control điều phối.",
+      "hints": [
+        "Entity = data storage.",
+        "Boundary = giao diện với bên ngoài.",
+        "Control = điều khiển luồng (orchestrator)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Trong software context diagram, class 'ATMCardReader' hiện thực hóa I/O device actor. Stereotype phù hợp là gì?",
+      "options": [
+        "«entity» — vì nó đọc dữ liệu thẻ",
+        "«boundary» — vì nó là I/O device interface với bên ngoài",
+        "«control» — vì nó kiểm soát việc đọc thẻ"
+      ],
+      "correct": 1,
+      "explanation": "ATMCardReader là external I/O device class → boundary class. Nó nằm ở biên giới giữa phần mềm và hardware bên ngoài.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Boundary class giao tiếp với external environment.",
+        "I/O device nằm ở biên hệ thống.",
+        "Xem slide 21-22 về external classes."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "multi",
+      "prompt": "Những loại nào sau đây có thể là actor/external class? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Human user role (Customer)",
+        "External system (Payment Gateway)",
+        "External I/O device (Card Reader)",
+        "Timer tạo event định kỳ",
+        "Internal Controller object"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Actor có thể là human role, external system, I/O device, hoặc timer. Internal object không phải là actor.",
+      "distractorTags": {
+        "4": "actor-is-internal"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Software context diagram xác định biên hệ thống và các external classes. UML stereotypes «entity», «boundary», «control» giúp phân loại class theo vai trò. Actor luôn ở ngoài system boundary.",
+      "exitTicket": "Vẽ software context diagram cho FOS với ít nhất 3 actors và stereotype phù hợp."
+    }
+  ]
+}

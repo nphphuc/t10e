@@ -1,0 +1,102 @@
+{
+  "id": "L04-04",
+  "title": "Composition hay aggregation?",
+  "minutes": 9,
+  "xp": 100,
+  "objective": "Phân biệt composition (sở hữu mạnh — part sống/chết cùng whole) và aggregation (sở hữu yếu — part có thể tồn tại độc lập).",
+  "misconceptions": ["aggregation-equals-composition"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Trong FOS, một Order gồm nhiều OrderItem. Nếu Order bị xóa, các OrderItem cũng bị xóa theo. Đây là quan hệ gì?",
+      "options": [
+        "Aggregation — vì Order gom (aggregate) các OrderItem",
+        "Composition — vì OrderItem không thể tồn tại độc lập nếu Order bị hủy (part live/die with whole)",
+        "Generalization — Order là cha của OrderItem"
+      ],
+      "correct": 1,
+      "explanation": "Composition: part objects (OrderItem) được tạo, sống và chết cùng whole (Order). Đây là sở hữu độc quyền.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "2": null
+      },
+      "hints": [
+        "Nếu xóa whole, các part có còn tồn tại không?",
+        "Composition = part sống/chết cùng whole.",
+        "Aggregation = part có thể tồn tại độc lập."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các đặc trưng với loại quan hệ whole-part tương ứng:",
+      "pairs": {
+        "Part thuộc về duy nhất một whole": "Composition",
+        "Part có thể thuộc về nhiều whole": "Aggregation",
+        "Part sống/chết cùng whole": "Composition",
+        "Part có thể tồn tại độc lập": "Aggregation",
+        "Ký hiệu hình thoi đặc (filled diamond)": "Composition",
+        "Ký hiệu hình thoi rỗng (hollow diamond)": "Aggregation"
+      },
+      "explanation": "Composition: filled diamond, độc quyền, part phụ thuộc vòng đời. Aggregation: hollow diamond, lỏng lẻo hơn, part độc lập.",
+      "hints": [
+        "Đặc (filled) = mạnh, rỗng (hollow) = yếu.",
+        "Xem ký hiệu UML trong slide 13-14.",
+        "Aggregation thường cho conceptual classes."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Một Library có nhiều Book. Book có thể tồn tại độc lập khi Library bị giải tán (VD: chuyển sang thư viện khác). Đây là:",
+      "options": [
+        "Composition — Library chứa Book",
+        "Aggregation — Library aggregate Book (vì Book không phụ thuộc vòng đời vào Library)",
+        "Không phải whole-part"
+      ],
+      "correct": 1,
+      "explanation": "Book có thể tồn tại không cần Library → aggregation (hollow diamond). Library ~ aggregate, Book ~ part độc lập.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "2": null
+      },
+      "hints": [
+        "Book có còn tồn tại khi Library đóng cửa không?",
+        "Nếu có thể → aggregation.",
+        "Xem slide 14 về aggregation hierarchy."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Pizza gồm nhiều Topping. Khi Pizza bị xóa khỏi menu, các Topping vẫn có thể dùng cho Pizza khác. Đây là:",
+      "options": [
+        "Composition — Pizza có Topping",
+        "Aggregation — vì Topping có thể dùng lại",
+        "Association thông thường"
+      ],
+      "correct": 1,
+      "explanation": "Topping có thể tồn tại độc lập và thuộc nhiều Pizza → aggregation.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "2": null
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Composition (filled diamond): part sống/chết cùng whole, độc quyền. Aggregation (hollow diamond): part độc lập, có thể chia sẻ. Hãy kiểm tra lifetime dependency để quyết định.",
+      "exitTicket": "Trong FOS, quan hệ giữa ShoppingCart và CartItem là composition hay aggregation? Giải thích."
+    }
+  ]
+}

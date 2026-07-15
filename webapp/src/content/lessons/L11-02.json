@@ -1,0 +1,70 @@
+{
+  "id": "L11-02",
+  "title": "Online Shopping: phối hợp nhiều service",
+  "minutes": 14,
+  "xp": 160,
+  "objective": "Áp dụng SOA và coordinator pattern vào Online Shopping System case study.",
+  "misconceptions": ["soa-is-microservices"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Online Shopping: Customer thực hiện Make Order Request. Các services tham gia: CustomerAccount, CreditCard, DeliveryOrder, Email. Cần coordinator không?",
+      "options": [
+        "Không — services tự giao tiếp",
+        "Có — CustomerCoordinator điều phối các services theo thứ tự",
+        "Chỉ cần customer interaction"
+      ],
+      "correct": 1,
+      "explanation": "CustomerCoordinator điều phối: lấy account → authorize credit card → tạo delivery order → gửi email.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Nhiều services cần coordinator.", "Xem Ch22 slides."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp message sequence cho Make Order Request:",
+      "options": [
+        "CustomerCoordinator gửi createOrder đến DeliveryOrderService",
+        "CustomerInteraction gửi makeOrderRequest",
+        "CustomerCoordinator gửi authorizeCreditCard đến CreditCardService",
+        "CustomerCoordinator gửi getAccountInfo đến CustomerAccountService"
+      ],
+      "correctOrder": [
+        "CustomerInteraction gửi makeOrderRequest",
+        "CustomerCoordinator gửi getAccountInfo đến CustomerAccountService",
+        "CustomerCoordinator gửi authorizeCreditCard đến CreditCardService",
+        "CustomerCoordinator gửi createOrder đến DeliveryOrderService"
+      ],
+      "explanation": "Interaction → getAccount → authorizeCreditCard → createOrder.",
+      "hints": ["Bắt đầu từ actor.", "Xem sequence diagram Ch22."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Services có thể tái sử dụng trong Online Shopping? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "CreditCardService (dùng cho nhiều apps)",
+        "EmailService (dùng cho notification)",
+        "ShoppingCartForm (chỉ dùng cho web)",
+        "DeliveryOrderService"
+      ],
+      "correctSet": [0, 1, 3],
+      "explanation": "CreditCard, Email, DeliveryOrder services có thể tái sử dụng. UI form là specific.",
+      "hints": ["Service = reusable.", "UI = specific.", "Xem Ch22."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Online Shopping System: nhiều autonomous services (CustomerAccount, CreditCard, DeliveryOrder, Email) được coordinator điều phối. Services có thể tái sử dụng.",
+      "exitTicket": "Mô tả flow Make Order Request của Online Shopping."
+    }
+  ]
+}

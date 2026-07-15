@@ -1,0 +1,138 @@
+=== FILE: Ch23_Component-Based Software Arch_Case Study Emergency Monitoring System.pptx ===
+
+Total slides: 22
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch23 - Component-Based Software Architecture Case Study
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Problem Description
+Use Case Modeling
+Static Modeling
+Dynamic Modeling
+Design Modeling
+Software Component Deployment
+
+--- Slide 3 ---
+Layout: Title and Content
+Problem Description
+The Emergency Monitoring System
+An Emergency Monitoring System consists of several remote monitoring systems and monitoring sensors that provide sensor input to the system.
+The status of the external environment is monitored with a variety of sensors. Some of these sensors are attached to remote monitoring systems, which send regular status input that is stored at a monitoring service.
+In addition, from the sensor information, alarms are generated concerning undesirable situations in the external environment that require human intervention.
+Monitoring operators view the status of the different sensors and view and update alarm conditions.
+
+--- Slide 4 ---
+Layout: Title and Content
+Use Case Modeling
+Emergency Monitoring System use cases and actors
+Actors: Monitoring Operator, Monitoring Sensor & Remote System
+Monitoring Sensor & Remote System behave in a similar way. This similar behavior can be modeled by a generalized actor, Remote Sensor.
+Use cases overview:
+View Alarms: views outstanding alarms and acknowledges the cause.
+View Monitoring Data: view the current status of one or more sensors.
+Generate Monitoring Data: monitoring data are generated
+Generate Alarm: an alarm is generated if an alarm condition is detected
+
+--- Slide 5 ---
+Layout: Title and Content
+Use Case Modeling
+View Monitoring Data use case description
+
+--- Slide 6 ---
+Layout: Title and Content
+Use Case Modeling
+View Alarms use case description
+
+--- Slide 7 ---
+Layout: Title and Content
+Use Case Modeling
+Generate Monitoring Data use case description
+
+--- Slide 8 ---
+Layout: Title and Content
+Use Case Modeling
+Generate Alarm use case description
+
+--- Slide 9 ---
+Layout: Title and Content
+Static Modeling
+Browse Catalog
+For the Emergency Monitoring System, the external classes consist of one external user Monitoring Operator, one external system Remote System, and one external input device, Monitoring Sensor.
+Since there are multiple instances of each external class, each of the external classes has a one-to-many association with the Emergency Monitoring System.
+The common behavior of Remote System and Monitoring Sensor is captured by means of a generalized external class, Remote Sensor.
+
+--- Slide 10 ---
+Layout: Title and Content
+Dynamic Modeling
+Class structuring for Emergency Monitoring System
+
+--- Slide 11 ---
+Layout: Title and Content
+Dynamic Modeling
+Communication diagram for the View Alarms use case
+Communication diagram for the View Monitoring Data use case
+
+--- Slide 12 ---
+Layout: Title and Content
+Dynamic Modeling
+Communication diagram for the Generate Alarm use case
+Communication diagram for the Generate Monitoring
+Status use case
+
+--- Slide 13 ---
+Layout: Title and Content
+Design Modeling
+Integrated Communication diagram for Emergency Monitoring System
+
+--- Slide 14 ---
+Layout: Title and Content
+Design Modeling
+Layered architecture of the Emergency Monitoring System
+Layer 1: Service Layer. This layer consists of the services Alarm Service and Monitoring Data Service.
+Layer 2: Monitoring Layer. This layer consists of the Remote System Proxy and Monitoring Sensor Component. The components require the two services at the Service Layer.
+Layer 3: User Layer. This layer consists of the user interaction component Operator Presentation and the components it contains.
+If two layers do not depend on each other, such as layers 2 and 3 in the preceding list, the choice of which layer should be higher is a design decision.
+
+--- Slide 15 ---
+Layout: Title and Content
+Design Modeling
+Concurrent communication diagram for the Emergency Monitoring System
+
+--- Slide 16 ---
+Layout: Title and Content
+Design Modeling
+Distributed component-based software architecture for Emergency Monitoring System
+
+--- Slide 17 ---
+Layout: Title and Content
+Design Modeling
+Component interfaces of Alarm Service
+
+--- Slide 18 ---
+Layout: Title and Content
+Design Modeling
+Component interfaces of Monitoring Data Service
+
+--- Slide 19 ---
+Layout: Title and Content
+Design Modeling
+Component interfaces of client components
+
+--- Slide 20 ---
+Layout: Title and Content
+Design Modeling
+Component interfaces of user interaction components
+
+--- Slide 21 ---
+Layout: Title and Content
+Software Component Deployment
+Deployment diagram for an Emergency Monitoring System
+
+--- Slide 22 ---
+Layout: Title Only

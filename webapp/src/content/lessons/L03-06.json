@@ -1,0 +1,136 @@
+{
+  "id": "L03-06",
+  "title": "Include, extend và activity flow",
+  "minutes": 11,
+  "xp": 120,
+  "objective": "Phân biệt quan hệ include (bắt buộc) và extend (tùy chọn) giữa các use case, và đọc activity diagram.",
+  "misconceptions": ["include-vs-extend"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Mỗi lần Place Order, FOS luôn phải gọi Authenticate User để xác thực. Quan hệ giữa Place Order và Authenticate User là gì?",
+      "options": [
+        "Place Order extends Authenticate User",
+        "Place Order includes Authenticate User",
+        "Authenticate User generalizes Place Order"
+      ],
+      "correct": 1,
+      "explanation": "Include = bắt buộc. Place Order luôn phải xác thực, nên nó include Authenticate User.",
+      "distractorTags": {
+        "0": "include-vs-extend",
+        "2": null
+      },
+      "hints": [
+        "Include: hành vi bắt buộc luôn xảy ra.",
+        "Extend: hành vi mở rộng có điều kiện.",
+        "Xem slide 18 về use case relationships."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các quan hệ use case với ý nghĩa tương ứng:",
+      "pairs": {
+        "Include": "Hành vi bắt buộc — UC nguồn luôn gọi UC đích",
+        "Extend": "Hành vi mở rộng có điều kiện — UC đích mở rộng UC nguồn",
+        "Generalization": "UC con kế thừa hành vi từ UC cha"
+      },
+      "explanation": "Include là dependency bắt buộc. Extend là optional extension tại extension point. Generalization giống kế thừa trong OOP.",
+      "hints": [
+        "Include giống hàm gọi hàm bắt buộc.",
+        "Extend chỉ xảy ra khi condition đúng.",
+        "Generalization dùng cho các use case tương tự."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS có use case Place Order. Khi đơn hàng > 1 triệu VND, FOS sẽ Apply Discount. Quan hệ đúng là gì?",
+      "options": [
+        "Place Order includes Apply Discount (vì discount là chức năng riêng)",
+        "Apply Discount extends Place Order (vì discount chỉ xảy ra khi có điều kiện)",
+        "Apply Discount generalizes Place Order"
+      ],
+      "correct": 1,
+      "explanation": "Apply Discount là extension point của Place Order. Nó chỉ xảy ra khi thỏa mãn điều kiện [order total > 1,000,000].",
+      "distractorTags": {
+        "0": "include-vs-extend",
+        "2": null
+      },
+      "hints": [
+        "Có phải lúc nào Place Order cũng giảm giá không?",
+        "Extend dùng cho hành vi có điều kiện.",
+        "Xem điều kiện guard: [order total > 1,000,000]."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "model-vs-code",
+        "options": [
+          "Activity diagram vẽ một use case duy nhất mà không có rẽ nhánh",
+          "Activity diagram biểu diễn main flow và alternative flows với decision nodes và merge nodes",
+          "Activity diagram chỉ dùng cho kiến trúc tổng thể"
+        ]
+      },
+      "prompt": "Activity diagram có thể dùng để biểu diễn các bước của use case. Đặc điểm quan trọng nhất của activity diagram là gì?",
+      "correct": 1,
+      "explanation": "Activity diagram cho phép biểu diễn flow of control với decision nodes, merge, fork/join — rất phù hợp để mô tả UC flow và alternative paths.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Activity diagram có thể biểu diễn những yếu tố nào? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Main sequence của use case",
+        "Alternative sequences (decision nodes)",
+        "Concurrent activities (fork/join)",
+        "Chi tiết code của từng hàm",
+        "Loop và iteration"
+      ],
+      "correctSet": [0, 1, 2, 4],
+      "explanation": "Activity diagram biểu diễn control flow với decision, fork/join, loops. Không dùng để mô tả code chi tiết.",
+      "distractorTags": {
+        "3": null
+      },
+      "hints": [
+        "Activity diagram là behavioral diagram.",
+        "Có thể biểu diễn song song (fork/join) không?",
+        "Xem slide 19-20 về activity diagrams."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s6",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Mối quan hệ include cho phép use case đích (target) quyết định điều kiện chạy hay không chạy.",
+      "correct": false,
+      "explanation": "Include là bắt buộc — UC nguồn luôn gọi UC đích. Chỉ có extend mới là tùy chọn (optional).",
+      "weight": 2
+    },
+    {
+      "id": "s7",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Include: use case A bắt buộc gọi use case B (VD: Place Order → Authenticate User). Extend: use case B mở rộng use case A có điều kiện (VD: Apply Discount extends Place Order khi total > 1M). Activity diagram mô tả flow với decision nodes và concurrent activities.",
+      "exitTicket": "Cho ví dụ về một cặp include và một cặp extend trong hệ thống của bạn."
+    }
+  ]
+}

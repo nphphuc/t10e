@@ -1,0 +1,62 @@
+{
+  "id": "L09-02",
+  "title": "Khả năng thay đổi và kiểm thử",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Hiểu maintainability, modifiability, testability và cách thiết kế để đạt được chúng.",
+  "misconceptions": ["quality-confusion"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS cần thay đổi luật thuế. Nếu thiết kế tốt, tác động tối thiểu đến các modules khác. Quality attribute nào?",
+      "options": [
+        "Performance",
+        "Modifiability (khả năng sửa đổi)",
+        "Availability"
+      ],
+      "correct": 1,
+      "explanation": "Modifiability: khả năng sửa đổi với tác động tối thiểu. Encapsulation, low coupling giúp modifiability.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Thay đổi ít ảnh hưởng → modifiability.", "Xem slide 5."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép quality attribute với tactic thiết kế:",
+      "pairs": {
+        "Maintainability": "Modular design, well-defined interfaces",
+        "Modifiability": "Encapsulation, low coupling",
+        "Testability": "Encapsulation, interfaces, patterns, low coupling"
+      },
+      "explanation": "Các attribute đạt được nhờ design tactics.",
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Cách cải thiện testability? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Encapsulation (che giấu thông tin)",
+        "Well-defined interfaces",
+        "Low coupling",
+        "Hard-code mọi thứ"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Encapsulation, interfaces, low coupling giúp dễ test. Hard-code làm giảm testability.",
+      "distractorTags": {"3": null},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Maintainability = dễ thay đổi sau triển khai. Modifiability = dễ sửa đổi trong quá trình phát triển. Testability = dễ kiểm thử. Cả ba đều cần modular design, encapsulation, low coupling.",
+      "exitTicket": "FOS cần cải thiện testability — đề xuất 2 cách."
+    }
+  ]
+}

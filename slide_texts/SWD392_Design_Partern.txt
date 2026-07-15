@@ -1,0 +1,727 @@
+=== FILE: SWD392_Design Partern.pptx ===
+
+Total slides: 89
+
+
+--- Slide 1 ---
+Layout: Title Slide with Picture
+Introduction to Design Patterns
+
+--- Slide 2 ---
+Layout: Title and Content
+Content
+What are Design Patterns?
+Why use Design Patterns?
+Elements of a Design Pattern
+Design Patterns Classification
+
+--- Slide 3 ---
+Layout: Title and Content
+What Are Design Patterns?
+Wikipedia definition
+“a design pattern is a general repeatable solution to a commonly occurring problem in software design”
+Quote from Christopher Alexander
+“Each pattern describes a problem which occurs over and over again in our environment, and then describes the core of the solution to that problem, in such a way that you can use this solution a million times over, without ever doing it the same way twice” (GoF,1995)
+
+--- Slide 4 ---
+Layout: Title and Content
+Why use Design Patterns?
+
+--- Slide 5 ---
+Layout: Title and Content
+Why use Design Patterns?
+Design Objectives
+Good Design (the “ilities”)
+High readability and maintainability
+High extensibility
+High scalability
+High testability
+High reusability
+Why use Design Patterns?
+Promote reusability and flexibility
+Facilitate better communication within development teams
+Capture best practices from experienced designers
+Provide a common vocabulary for design
+
+--- Slide 6 ---
+Layout: Title and Content
+Elements of a Design Pattern
+A pattern has four essential elements (GoF)
+Name
+Describes the pattern
+Adds to common terminology for facilitating communication (i.e. not just sentence enhancers)
+Problem
+Describes when to apply the pattern
+Answers - What is the pattern trying to solve?
+Solution
+Describes elements, relationships, responsibilities, and collaborations which make up the design
+Consequences
+Results of applying the pattern
+Benefits and Costs
+Subjective depending on concrete scenarios
+
+--- Slide 7 ---
+Layout: Title and Content
+Pros/Cons of Design Patterns
+Pros
+Add consistency to designs by solving similar problems the same way, independent of language
+Add clarity to design and design communication by enabling a common vocabulary
+Improve time to solution by providing templates which serve as foundations for good design
+Improve reuse through composition
+Cons
+Some patterns come with negative consequences (i.e. object proliferation, performance hits, additional layers)
+Consequences are subjective depending on concrete scenarios
+Patterns are subject to different interpretations, misinterpretations, and philosophies
+Patterns can be overused and abused  Anti-Patterns
+
+--- Slide 8 ---
+Layout: Title and Content
+Design Patterns Classification
+A Pattern can be classified as
+Creational: deals with object creation
+Structural: deals with compositions of objects and classes
+Behavioral: are used to distribute responsibility between classes and objects
+
+--- Slide 9 ---
+Layout: Title and Content
+Creational patterns
+Abstract factory groups object factories that have a common theme.
+Builder constructs complex objects by separating construction and representation.
+Factory method creates objects without specifying the exact class to create.
+Prototype creates objects by cloning an existing object.
+Singleton restricts object creation for a class to only one instance.
+9
+
+--- Slide 10 ---
+Layout: Title and Content
+Structural patterns
+Adapter allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.
+Bridge decouples an abstraction from its implementation so that the two can vary independently.
+Composite composes zero-or-more similar objects so that they can be manipulated as one object.
+Decorator dynamically adds/overrides behaviour in an existing method of an object.
+Facade provides a simplified interface to a large body of code.
+Flyweight reduces the cost of creating and manipulating a large number of similar objects.
+Proxy provides a placeholder for another object to control access, reduce cost, and reduce complexity.
+10
+
+--- Slide 11 ---
+Layout: Title and Content
+Behavioral patterns
+Chain of responsibility delegates commands to a chain of processing objects.
+Command creates objects which encapsulate actions and parameters.
+Interpreter implements a specialized language.
+Iterator accesses the elements of an object sequentially without exposing its underlying representation.
+Mediator allows loose coupling between classes by being the only class that has detailed knowledge of their methods.
+Memento provides the ability to restore an object to its previous state (undo).
+11
+
+--- Slide 12 ---
+Layout: Title and Content
+Behavioral patterns
+Observer is a publish/subscribe pattern which allows a number of observer objects to see an event.
+State allows an object to alter its behavior when its internal state changes.
+Strategy allows one of a family of algorithms to be selected on-the-fly at runtime.
+Template method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.
+Visitor separates an algorithm from an object structure by moving the hierarchy of methods into one object.
+12
+
+--- Slide 13 ---
+Layout: Title and Content
+Design pattern space
+
+--- Slide 14 ---
+Layout: Title and Content
+How to Select a Design Pattern
+Consider howdesign patterns solve design problems.
+Scan Intent sections
+Study how patterns interrelate
+Study patterns of like purpose
+Examine a cause of redesign
+Consider what should be variable in your design
+
+--- Slide 15 ---
+Layout: Title and Content
+Pattern Structure Template
+Each pattern follows a standard structure:
+Pattern Name & Type
+Intent – What does it do?
+Motivation – Why is it needed?
+Structure – UML class/object diagram
+Participants – Key classes/objects
+Collaborations – How they interact
+Consequences – Pros & cons
+Sample Code – In C++ or Smalltalk
+Known Uses – Real-world examples
+
+--- Slide 16 ---
+Layout: Title Slide
+Design Pattern Catalog
+
+--- Slide 17 ---
+Layout: Title Slide
+Creational patterns
+
+--- Slide 18 ---
+Layout: Title and Content
+ABSTRACT FACTORY
+IntentProvide an interface for creating families of related or dependent objects without specifying their concrete classes.
+Motivation
+To support multiple look-and-feel standards without hard-coding UI components, the Abstract Factory pattern provides an interface for creating families of related widgets, allowing applications to remain independent of their concrete implementations.
+
+--- Slide 19 ---
+Layout: Title and Content
+ABSTRACT FACTORY
+Structure
+
+--- Slide 20 ---
+Layout: Title and Content
+ABSTRACT FACTORY
+
+--- Slide 21 ---
+Layout: Title and Content
+ABSTRACT FACTORY
+
+--- Slide 22 ---
+Layout: Title and Content
+BUILDER
+Intent
+Separate the construction of a complex object from its representation so that thesame construction process can create different representations
+Motivation
+A complex object that has multiple pluggable components of different types. A builder will provide a simple flexible way to build such object.
+
+--- Slide 23 ---
+Layout: Title and Content
+BUILDER
+EX: To support multiple output formats, an RTFReader should be able to convert RTF documents into various representations like ASCII, TeX, or editable text widgets without changing its parsing logic. By applying the Builder pattern, the RTFReader (director) delegates the construction of the output to a TextConverter (builder), making it easy to extend with new formats through subclassing.
+
+--- Slide 24 ---
+Layout: Title and Content
+BUILDER
+Solution
+24
+
+--- Slide 25 ---
+Layout: Title and Content
+BUILDER
+Builder: specifies an abstract interface for creating parts of a Product object
+Concrete Builder: constructs and assembles parts of the product by implementing the Builder interface. Defines and keeps track of the representation it creates.
+Director: constructs an object using the Builder interface.
+Product: represents the complex object under construction. ConcreteBuilder builds the product's internal representation and defines the process by which it's assembled.
+25
+
+--- Slide 26 ---
+Layout: Title and Content
+Singleton
+Intent: Ensure a class only has one instance, and provide a global point of access to it.
+Motivation:
+It's important for some classes to have exactly one instance. Although there can be many printers in a system, there should be only one printer spooler. There should be only one file system and one window manager.
+How do we ensure that a class has only one instance and that the instance is easily accessible? A global variable makes an object accessible, but it doesn't keep you from instantiating multiple objects.
+26
+
+--- Slide 27 ---
+Layout: Title and Content
+Singleton
+Solution
+27
+
+--- Slide 28 ---
+Layout: Title and Content
+Singleton
+Code example
+Advanced Programming
+28
+
+--- Slide 29 ---
+Layout: Title and Content
+FACTORY METHOD
+Intent
+Define an interface for creating an object, but let subclasses decide which class to instantiate. Factory Method lets a class defer instantiation to subclasses.
+Motivation:
+Frameworks often rely on abstract classes to manage object relationships and creation, but they cannot instantiate these abstract classes directly. In applications like document editors, the framework knows when to create a document but not which specific subclass to instantiate. The Factory Method pattern solves this by deferring the instantiation to subclasses, allowing them to specify the exact product to create.
+We call CreateDocument a factory method because it's responsible for "manufacturing" an object
+
+--- Slide 30 ---
+Layout: Title and Content
+FACTORY METHOD
+Solution
+
+--- Slide 31 ---
+Layout: Title and Content
+FACTORY METHOD
+Product (Document):
+defines the interface of objects the factory method creates.
+ConcreteProduct (MyDocument):
+implements theProduct interface.
+Creator (Application)
+declares the factory method, which returns an object oftype Product. Creator may also define a default implementation of the factory method that returns a default ConcreteProduct object.
+may call the factory method to create a Product object.
+ConcreteCreator (MyApplication)
+overrides the factory method to return an instance of a ConcreteProduct
+
+--- Slide 32 ---
+Layout: Title and Content
+PROTOTYPE
+Intent
+Specify the kinds of objects to create using a prototypical instance, and create newobjects by copying this prototype.
+Motivation
+The Prototype Pattern allows a framework to create new objects by cloning existing prototypes instead of instantiating subclasses directly. This reduces the number of subclasses and increases flexibility when adding new objects, such as in a music editing application.
+
+--- Slide 33 ---
+Layout: Title and Content
+PROTOTYPE
+Solution
+Prototype (Graphic)
+declares an interface for cloning itself.
+ConcretePrototype (Staff, WholeNote, HalfNote)
+implements an operation for cloning itself.
+Client (GraphicTool)
+creates a new object by asking a prototype to clone itself
+
+--- Slide 34 ---
+Layout: Title Slide
+Structural Patterns
+
+--- Slide 35 ---
+Layout: Title and Content
+Adapter
+Intent: Convert the interface of a class into another interface clients expect. Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+Example: Integer is a class to adapt int type
+Motivation: Sometimes a toolkit class that's designed for reuse isn't reusable only because its interface doesn't match the domain-specific interface an application requires.
+Advanced Programming
+35
+
+--- Slide 36 ---
+Layout: Title and Content
+Adapter
+Solution 1: multiple inheritance
+Current class: Target, Old class: Adaptee
+Client can work with Target, not Adaptee
+-> Adapter will adapt Adaptee to work with Client
+Advanced Programming
+36
+
+--- Slide 37 ---
+Layout: Title and Content
+Adapter
+Solution 2: using object of adaptee inside an adapter
+Current class: Target, Old class: Adaptee
+Client can work with Target, not Adaptee
+-> Adapter uses Adaptee object to work with Client
+Advanced Programming
+37
+
+--- Slide 38 ---
+Layout: Title and Content
+Adapter
+Example: Consider for example a drawing editor that lets users draw and arrange graphical elements (lines, polygons, text, etc.) into pictures and diagrams. The drawing editor's key abstraction is the graphical object, which has an editable shape and can draw itself. The interface for graphical objects is defined by an abstract class called Shape. The editor defines a subclass of Shape for each kind of graphical object: a LineShape class for lines, a PolygonShape class for polygons, and so forth.
+Advanced Programming
+38
+
+--- Slide 39 ---
+Layout: Title and Content
+Adapter
+Example (continued): Meanwhile, an off-the-shelf user interface toolkit might already provide a sophisticated TextView class for displaying and editing text. Ideally we'd like to reuse TextView to implement TextShape, but the toolkit wasn't designed with Shape classes in mind. So we can't use TextView and Shape objects interchangeably.
+Advanced Programming
+39
+
+--- Slide 40 ---
+Layout: Title and Content
+Adapter
+Solution 1 for example problem
+Advanced Programming
+40
+
+--- Slide 41 ---
+Layout: Title and Content
+BRIDGE
+Intent
+Decouple an abstraction from its implementation so that the two can vary independently.
+Motivation
+The Bridge Pattern separates an object's abstraction from its implementation into two independent class hierarchies, allowing them to vary independently. This solves the problem of tight coupling caused by inheritance and increases flexibility when extending to multiple platforms or object types.
+
+--- Slide 42 ---
+Layout: Title and Content
+BRIDGE
+All operations on Window subclasses are implemented in terms of abstract operations from the Windowlmp interface. This decouples the window abstractionsfrom the various platform-specific implementations. We refer to the relationship between Window and Windowlmp as a bridge,because it bridges the abstraction and its implementation, letting them vary independently.
+
+--- Slide 43 ---
+Layout: Title and Content
+BRIDGE
+Solution
+
+--- Slide 44 ---
+Layout: Title and Content
+COMPOSITE
+IntentCompose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions of objects uniformly
+Motivation The Composite Pattern allows individual objects and groups of objects to be treated uniformly by organizing them into a recursive tree structure. This eliminates the need for clients to distinguish between primitives and composites, simplifying the design and increasing system flexibility.
+
+--- Slide 45 ---
+Layout: Title and Content
+COMPOSITE
+
+--- Slide 46 ---
+Layout: Title and Content
+COMPOSITE
+Participants
+Component (Graphic)
+declares the interface for objects in the composition.
+implements default behavior for the interface common to all classes, as appropriate.
+declares an interfacefor accessing and managing its child components.
+(optional) defines an interface for accessing a component's parent in the recursive structure, and implements it if that's appropriate.
+Leaf (Rectangle, Line, Text,etc.)
+represents leaf objects in the composition.A leaf has no children.
+defines behavior for primitive objects in thecomposition.
+Composite (Picture)
+defines behavior for components having children.
+stores child components.
+implements child-related operations in theComponent interface.
+Client
+manipulates objectsin thecomposition through theComponent interface.
+
+--- Slide 47 ---
+Layout: Title and Content
+DECORATOR
+Intent
+Attach additional responsibilities to an object dynamically. Decorators provide aflexible alternative to subclassing for extending functionality
+Motivation
+Decorator Pattern allows adding responsibilities to individual objects dynamically by wrapping them in decorator classes without modifying the original class. Decorators follow the same interface as the original object, support recursive composition, and remain transparent to the client.
+
+--- Slide 48 ---
+Layout: Title and Content
+DECORATOR
+
+--- Slide 49 ---
+Layout: Title and Content
+DECORATOR
+Participants
+Component (VisualComponent)
+defines the interface for objects that can have responsibilities added to themdynamically.
+ConcreteComponent (TextView)
+defines an object to which additional responsibilities canbe attached.
+Decorator
+maintains a reference to a Component object and defines an interface that conforms to Component's interface.
+ConcreteDecorator (BorderDecorator, ScrollDecorator)
+adds responsibilities to thecomponent.
+
+--- Slide 50 ---
+Layout: Title and Content
+FACADE
+Intent
+Provide a unified interface to a set of interfaces in a subsystem. Facade defines ahigher-level interface that makes the subsystem easier to use.
+Motivation
+Structuring a system into subsystems helps reduce complexity.A common designgoal is to minimize the communication and dependencies between subsystems.One way to achieve this goal is to introduce a facade object that provides a single,simplified interface to the more general facilities of a subsystem.
+
+--- Slide 51 ---
+Layout: Title and Content
+FACADE
+
+--- Slide 52 ---
+Layout: Title and Content
+FACADE
+Participants
+Facade (Compiler)
+knows which subsystem classes areresponsible for a request.
+delegates client requests to appropriate subsystem objects.
+subsystem classes (Scanner, Parser, ProgramNode, etc.)
+implement subsystem functionality.
+handle work assigned by theFacade object.
+have no knowledge ofthe facade; that is, they keep no references to it.
+
+--- Slide 53 ---
+Layout: Title and Content
+FLYWEIGHT
+Intent
+Use sharing to support large numbers of fine-grained objects efficiently.
+Motivation
+Flyweight Pattern reduces memory usage by sharing common objects across multiple contexts, which is especially useful when dealing with large numbers of similar objects. It separates intrinsic state (shared) from extrinsic state (context-dependent) to optimize resource usage. For example, identical characters in a text editor can share the same flyweight to improve performance.
+
+--- Slide 54 ---
+Layout: Title and Content
+FLYWEIGHT
+
+--- Slide 55 ---
+Layout: Title and Content
+FLYWEIGHT
+Participants
+Flyweight (Glyph)
+declares an interface through which flyweights can receive and act on extrinsic state.
+ConcreteFlyweight (Character)
+implements the Flyweight interface and adds storage for intrinsic state, if any. A ConcreteFlyweight object must be sharable. Any state it stores must be intrinsic; that is, it must be independent of the ConcreteFlyweight object's context.
+UnsharedConcreteFlyweight (Row, Column)
+not all Flyweight subclasses need to be shared. The Flyweight interface enables sharing; it doesn't enforce it. It's common for UnsharedConcreteFlyweight objects to have ConcreteFlyweight objects as children at somelevel in the flyweight object structure (as the Row and Column classes have).
+FlyweightFactory
+creates andmanages flyweight objects.
+ensures that flyweights are shared properly. When a client requests aflyweight,the FlyweightFactory objectsupplies an existing instance or creates one, if none exists.
+Client
+maintains a reference to flyweight(s).
+computes or stores the extrinsic state of flyweight(s)
+
+--- Slide 56 ---
+Layout: Title and Content
+PROXY
+Intent
+Provide a surrogate or placeholder for another object to control access to it
+Motivation
+Proxy Pattern allows delaying the creation and initialization of expensive objects until they are actually needed, optimizing performance. The proxy acts as a stand-in for the real object and handles requests, such as creating an image only when it's time to draw it. This pattern hides the creation logic from the client, keeping the code clean and efficient.
+
+--- Slide 57 ---
+Layout: Title and Content
+PROXY
+
+--- Slide 58 ---
+Layout: Title and Content
+PROXY
+Participants
+Proxy (ImageProxy)
+maintains a reference that lets the proxy access thereal subject. Proxymay refer to a Subject if the RealSubject and Subject interfaces are the same.
+provides an interface identical to Subject's so that a proxy can by substituted for the real subject.
+controls access to the real subject and may be responsible for creating and deleting it.
+other responsibilities depend on the kind ofproxy:
+remote proxies are responsible for encoding a request and its arguments and for sending the encoded request to the real subject in a different address space.
+virtual proxies may cache additional information about the real subject so that they can postpone accessing it. For example, the ImageProxy from the Motivation caches the real image's extent.
+protection proxies check that the caller has the access permissions required to perform a request.
+Subject (Graphic)
+defines the common interface for RealSubject and Proxy so that a Proxy can be used anywhere a RealSubject is expected.
+RealSubject (Image)
+defines the real object that the proxy represents
+
+--- Slide 59 ---
+Layout: Title Slide
+Behavioral Patterns
+
+--- Slide 60 ---
+Layout: Title and Content
+CHAIN OF RESPONSIBILITY
+IntentAvoid coupling the sender of a request to its receiver by giving more than oneobject a chance to handle the request. Chain the receiving objects and pass therequest along the chain until an object handles it.
+Motivation:In a GUI with context-sensitive help, a help request triggered by a user (e.g., clicking a button) should be handled by the most specific component available. If none exists, the request should move up to a more general context (e.g., the dialog box).
+To achieve this without tightly coupling components, the Chain of Responsibility pattern passes the request along a chain of handlers until one handles it, decoupling senders and receivers.
+
+--- Slide 61 ---
+Layout: Title and Content
+CHAIN OF RESPONSIBILITY
+
+--- Slide 62 ---
+Layout: Title and Content
+CHAIN OF RESPONSIBILITY
+
+--- Slide 63 ---
+Layout: Title and Content
+CHAIN OF RESPONSIBILITY
+
+--- Slide 64 ---
+Layout: Title and Content
+OBSERVER
+Intent: Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.
+Motivation:
+A common side-effect of partitioning a system into a collection of cooperating classes is the need to maintain consistency between related objects.
+When a change to one object requires changing others, and you don't know how many objects need to be changed.
+When an object should be able to notify other objects without making assumptions about who these objects are. In other words, you don't want these objects tightly coupled.
+
+--- Slide 65 ---
+Layout: Title and Content
+OBSERVER
+
+--- Slide 66 ---
+Layout: Title and Content
+OBSERVER
+
+--- Slide 67 ---
+Layout: Title and Content
+OBSERVER
+
+--- Slide 68 ---
+Layout: Title and Content
+ITERATOR
+Intent
+Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+Motivation:
+A list should allow access to its elements without exposing its internal structure and support multiple traversal methods without complicating its interface.
+The Iterator design pattern addresses this by separating the responsibility of accessing and traversing the list into a dedicated iterator object
+
+--- Slide 69 ---
+Layout: Title and Content
+ITERATOR
+For example, a List class would call for a Listlterator with the following relationship between them:
+
+--- Slide 70 ---
+Layout: Title and Content
+ITERATOR
+Use the Iterator pattern
+to access an aggregate object's contents without exposing its internal representation.
+to support multiple traversals of aggregateobjects.
+to provide a uniform interface for traversing different aggregate structures(that is, to support polymorphic iteration).
+
+--- Slide 71 ---
+Layout: Title and Content
+ITERATOR
+
+--- Slide 72 ---
+Layout: Title and Content
+ITERATOR
+
+--- Slide 73 ---
+Layout: Title and Content
+MEDIATOR
+Intent
+Define an object that encapsulateshow a set of objects interact. Mediator promotesloose coupling by keeping objects from referring to each other explicitly, and itlets you vary their interaction independently
+Motivation
+In object-oriented design, tight coupling between objects can lead to complex, hard-to-maintain systems as behavior is distributed across many classes. Customizing such behavior often requires creating numerous subclasses. The Mediator design pattern addresses this by encapsulating object coordination in a separate mediator object, reducing interdependencies and increasing flexibility.
+
+--- Slide 74 ---
+Layout: Title and Content
+MEDIATOR
+EX:
+
+--- Slide 75 ---
+Layout: Title and Content
+MEDIATOR
+Participants
+Mediator (DialogDirector)
+defines an interface for communicating with Colleague objects.
+ConcreteMediator (FontDialogDirector)
+implements cooperative behavior bycoordinating Colleague objects.
+knows andmaintains itscolleagues.
+Colleague classes (ListBox, EntryField)
+each Colleague class knows itsMediator object.
+each colleague communicates with its mediator whenever it would have otherwise communicated with another colleague.
+
+--- Slide 76 ---
+Layout: Title and Content
+MEMENTO
+Intent
+Without violating encapsulation, capture and externalize an object's internal stateso that the object can be restored to this state later.
+Motivation
+Sometimes an object’s internal state needs to be saved and restored, such as when implementing undo functionality. However, exposing internal state directly would violate encapsulation. The Memento pattern solves this by allowing an object (the originator) to create a snapshot of its state (a memento) that can be used later to restore the state without exposing the object’s internal details to other parts of the system.
+
+--- Slide 77 ---
+Layout: Title and Content
+MEMENTO
+Participants
+Memento (SolverState)
+stores internal state of the Originator object. The memento may store as much or as little of the originator's internal state as necessary at its originator's discretion.
+protects against access by objects other than the originator. Mementos have effectively two interfaces. Caretaker sees a narrow interface to the Memento—it can only pass the memento to other objects. Originator, in contrast, sees a wide interface, one that lets it access all the data necessary to restore itself to its previous state. Ideally, only the originator that produced the memento would be permitted to access the memento's internal state.
+Originator (ConstraintSolver)
+creates a memento containing a snapshot of its current internal state.
+uses the memento torestore its internal state.
+Caretaker (undo mechanism)
+isresponsible for thememento's safekeeping.
+never operates on or examines the contents of a memento.
+
+--- Slide 78 ---
+Layout: Title and Content
+STATE
+IntentAllow an object to alter its behavior when its internal state changes. The object will appear to change its class
+Motivation Objects like TCPConnection may need to change their behavior depending on their internal state, such as Established, Closed, or Listening. Instead of using conditional logic, the State pattern delegates behavior to separate state objects, allowing the object to change its behavior dynamically by switching its internal state object. This promotes cleaner code and makes state transitions easier to manage and extend.
+
+--- Slide 79 ---
+Layout: Title and Content
+STATE
+Participants
+Context (TCPConnection)
+defines the interface ofinterest to clients.
+maintains an instance ofa ConcreteState subclass that defines the current state.
+State (TCPState)
+defines an interface for encapsulating the behavior associated with a particular state of the Context.
+ConcreteState subclasses (TCPEstablished, TCPListen, TCPClosed)
+each subclass implements abehavior associated with a state oftheContext.
+
+--- Slide 80 ---
+Layout: Title and Content
+STRATEGY
+Intent
+Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it
+Motivation
+Hard-wiring line-breaking algorithms into client classes makes them complex, inflexible, and harder to maintain. The Strategy pattern solves this by encapsulating each algorithm in a separate class, allowing clients like Composition to delegate the task to interchangeable Compositor objects. This makes it easy to switch or extend algorithms without modifying the core logic.
+
+--- Slide 81 ---
+Layout: Title and Content
+STRATEGY
+Participants
+Strategy (Compositor)
+declares an interface common to all supported algorithms. Context uses this interface to call the algorithm defined by a ConcreteStrategy.
+ConcreteStrategy (SimpleCompositor, TeXCompositor,ArrayCompositor)
+implements the algorithm using theStrategy interface.
+Context (Composition)
+is configured with a ConcreteStrategy object.
+maintains a reference to a Strategy object.
+may define an interface that lets Strategy access its data.
+
+--- Slide 82 ---
+Layout: Title and Content
+TEMPLATE METHOD
+Intent
+Define the skeleton of an algorithm in an operation, deferring some steps tosubclasses.Template Method lets subclasses redefine certain steps of an algorithmwithout changing the algorithm's structure
+Motivation
+When an application needs to perform a standard algorithm but allows certain steps to vary, hardcoding those variations can reduce flexibility. The Template Method pattern addresses this by defining the overall algorithm in a base class and letting subclasses override specific steps. This enables reuse of the algorithm’s structure while allowing customization of individual steps.
+
+--- Slide 83 ---
+Layout: Title and Content
+TEMPLATE METHOD
+Participants
+AbstractClass (Application)
+defines abstract primitive operations that concrete subclasses define to implement steps of an algorithm.
+implements a template method defining the skeleton ofan algorithm. The template method calls primitive operations as well as operations definedin AbstractClass or those of other objects.
+ConcreteClass (MyApplication)
+implements the primitive operations to carry out subclass-specific stepsofthe algorithm.
+
+--- Slide 84 ---
+Layout: Title and Content
+VISITOR
+Intent
+Represent an operation to be performed on the elements of an object structure.Visitor lets you define a new operation without changing the classes of the elementson which it operates
+Motivation
+When many operations need to be performed on a complex object structure like an abstract syntax tree, embedding all operations within the node classes makes the system hard to maintain and extend. The Visitor pattern solves this by separating the operations into visitor classes, allowing new behaviors to be added without modifying the node classes. This improves modularity and keeps each concern—such as type checking or code generation—independent and easier to manage.
+
+--- Slide 85 ---
+Layout: Title and Content
+VISITOR
+
+--- Slide 86 ---
+Layout: Title and Content
+VISITOR
+Participants
+Visitor (NodeVisitor)
+declares a Visit operation for each class of ConcreteElement in the object structure. Theoperation's name and signature identifies the class that sends the Visit request to the visitor. That lets the visitor determine the concrete class of the element being visited. Then the visitor can access the element directly through its particularinterface.
+ConcreteVisitor (TypeCheckingVisitor)
+implements each operation declared byVisitor.Eachoperation implements a fragment of the algorithm defined for the corresponding class of object in the structure. ConcreteVisitor provides the context for the algorithm and stores its local state. This state often accumulates results during the traversal of the structure.
+Element (Node)
+defines an Accept operation that takes a visitor as an argument.
+ConcreteElement (AssignmentNode,VariableRefNode)
+implements an Accept operation that takes a visitor as an argument.
+ObjectStructure (Program)
+can enumerate itselements.
+mayprovide a high-level interface to allow the visitor to visit its elements.
+may either be a composite (see Composite (163)) or a collection such as a list or a set.
+
+--- Slide 87 ---
+Layout: Title and Content
+COMMAND
+Intent
+Encapsulate a request as an object, thereby letting you parameterize clients withdifferent requests, queue or log requests, and support undoable operations.
+Motivation
+Sometimes it's necessary to issue requests without knowing the receiver or how the request will be performed. The Command pattern solves this by encapsulating requests as objects, allowing them to be passed, stored, or composed. This decouples the invoker from the receiver and enables features like undo, macros, and dynamic reconfiguration of actions.
+
+--- Slide 88 ---
+Layout: Title and Content
+COMMAND
+Participants
+Command
+declares an interface for executing an operation.
+ConcreteCommand (PasteCommand, OpenCommand)
+defines a binding between a Receiver object and an action.
+implements Execute by invoking the corresponding operation(s) on Receiver.
+Client (Application)
+creates a ConcreteCommand object andsets its receiver.
+Invoker (Menultem)
+asks the command to carry out the request.
+Receiver (Document,Application)
+knows how to perform the operations associated with carrying out a request. Any class may serve as a Receiver.
+
+--- Slide 89 ---
+Layout: Title and Content
+CONCLUSION
+Design patterns provide reusable solutions to common design problems.
+They improve software flexibility, maintainability, and communication.
+Three categories: Creational, Structural, Behavioral.
+Use patterns wisely to avoid unnecessary complexity.
+Mastering patterns builds strong design skills for real-world software development.

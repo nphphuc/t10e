@@ -1,0 +1,62 @@
+{
+  "id": "L05-03",
+  "title": "Tách business rule khỏi dữ liệu",
+  "minutes": 9,
+  "xp": 100,
+  "objective": "Hiểu tại sao cần tách business logic (application logic) khỏi entity data.",
+  "misconceptions": ["entity-does-everything"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS tính thuế: nếu total > 1M thì thuế 5%, nếu không thì 10%. Bạn đặt logic này trong class Order. Vấn đề gì có thể xảy ra?",
+      "options": [
+        "Không có vấn đề — Order nên chứa cả dữ liệu và logic tính thuế",
+        "Nếu luật thuế thay đổi, phải sửa class Order — vi phạm separation of concerns. Nên tách TaxCalculator riêng",
+        "Luật thuế không nên có trong phần mềm"
+      ],
+      "correct": 1,
+      "explanation": "Business rule có thể thay đổi độc lập với dữ liệu. Tách business logic object riêng giúp dễ bảo trì.",
+      "distractorTags": {"0": "entity-does-everything", "2": null},
+      "hints": ["Hỏi: Entity data có thay đổi cùng tốc độ với business rule không?", "Separation of concerns.", "Xem slide 12 về business logic objects."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "choice",
+      "prompt": "Business logic object khác entity object ở điểm nào?",
+      "options": [
+        "Business logic object chứa decision-making rules; entity object lưu data",
+        "Business logic object lưu data; entity object chứa rules",
+        "Không có sự khác biệt"
+      ],
+      "correct": 0,
+      "explanation": "Business logic object định nghĩa các rules xử lý. Entity object lưu trữ dữ liệu.",
+      "hints": ["Entity = data storage.", "Business logic = decision-making.", "Xem slide 12-13."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép class với vai trò phù hợp:",
+      "pairs": {
+        "Order (orderId, total, status)": "Entity object",
+        "TaxCalculator (tính thuế theo luật hiện hành)": "Business logic object",
+        "ShippingCostCalculator": "Algorithm object",
+        "Customer (name, email, address)": "Entity object"
+      },
+      "explanation": "Entity lưu dữ liệu. Business logic/Algorithm objects chứa các rules tính toán có thể thay đổi.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Tách business logic riêng khỏi entity data. Business rules có thể thay đổi độc lập với cấu trúc dữ liệu. Entity lưu data, Business Logic xử lý decision-making.",
+      "exitTicket": "Kể tên 2 business rules trong FOS có thể thay đổi độc lập với entity data."
+    }
+  ]
+}

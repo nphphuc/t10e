@@ -1,0 +1,92 @@
+{
+  "id": "L04-01",
+  "title": "Từ noun đến class, từ value đến attribute",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Xác định class, attribute và operation từ phân tích danh từ trong đặc tả yêu cầu.",
+  "misconceptions": ["class-is-object"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Từ câu: 'Khách hàng Nguyễn An đặt đơn hàng số O123 với tổng tiền 500,000đ vào ngày 15/10.' Đâu là các class tiềm năng trong thiết kế?",
+      "options": [
+        "Nguyễn An, O123, 500,000đ, 15/10",
+        "KháchHàng (Customer), ĐơnHàng (Order)",
+        "Mỗi danh từ đều là một class riêng biệt"
+      ],
+      "correct": 1,
+      "explanation": "Class là một collection các objects có chung characteristics. 'Nguyễn An' là instance của class Customer. '500,000đ' là attribute value của Order.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": "class-is-object"
+      },
+      "hints": [
+        "Class = khuôn mẫu chung; attribute = giá trị mô tả.",
+        "'Nguyễn An' là một cá thể cụ thể (instance).",
+        "Phân biệt lớp (class) và thể hiện (object)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "class-object-card",
+        "options": [
+          "Tên Class được gạch chân, tên Object không gạch chân",
+          "Tên Object được gạch chân, tên Class không gạch chân",
+          "Cả hai đều không gạch chân"
+        ]
+      },
+      "prompt": "Trong UML, ký hiệu nào giúp phân biệt tên Object với tên Class?",
+      "correct": 1,
+      "explanation": "Object name luôn được gạch chân (underline), ví dụ: johnsAccount : Account. Class name (Account) thì không gạch chân.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": null
+      },
+      "hints": [
+        "Nhìn vào kiểu chữ của 'johnsAccount : Account'.",
+        "Đường kẻ nằm ở vị trí nào?",
+        "Tên object luôn được gạch chân."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Từ mô tả: 'Mỗi sản phẩm (Product) có tên, giá, số lượng tồn kho và thuộc một danh mục (Category).' Những class nào nên có? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Product",
+        "Category",
+        "ProductName",
+        "Price",
+        "StockQuantity"
+      ],
+      "correctSet": [0, 1],
+      "explanation": "Product và Category là các class. ProductName, Price, StockQuantity là attributes của Product — không phải class riêng.",
+      "distractorTags": {
+        "2": null,
+        "3": null,
+        "4": null
+      },
+      "hints": [
+        "Attribute là data value, không phải đối tượng độc lập.",
+        "Hỏi: Giá trị này có ý nghĩa đứng một mình không?",
+        "Xem định nghĩa attribute trong slide 4."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Xác định class từ danh từ (noun) trong đặc tả — mỗi class là một nhóm objects có chung đặc điểm. Attribute là data value mô tả class. Object là instance cụ thể, được gạch chân trong UML.",
+      "exitTicket": "Phân tích câu sau và cho biết class, attribute, object instance: 'Xe Toyota màu đỏ của anh Nam đang chạy trên đường Nguyễn Huệ.'"
+    }
+  ]
+}

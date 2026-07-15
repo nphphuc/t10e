@@ -1,0 +1,71 @@
+{
+  "id": "L08-01",
+  "title": "Object-oriented architecture và class contract",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Hiểu OO architecture với information hiding, class interface design, và contract-based design.",
+  "misconceptions": ["interface-is-implementation"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Trong OO design, việc ẩn giấu cấu trúc dữ liệu bên trong class và chỉ cho truy cập qua operations được gọi là gì?",
+      "options": ["Inheritance", "Information hiding", "Polymorphism", "Aggregation"],
+      "correct": 1,
+      "explanation": "Information hiding: class encapsulate thông tin (data structure), ẩn khỏi phần còn lại của hệ thống. Chỉ truy cập qua interface operations.",
+      "distractorTags": {"0": null, "2": null, "3": null},
+      "hints": ["Che giấu thông tin nội bộ.", "Interface = contract.", "Xem slide 3-4."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép loại class trong OO design với mô tả:",
+      "pairs": {
+        "Data Abstraction Class": "Entity class encapsulate data structure",
+        "State-Machine Class": "Encapsulate finite state machine và transition table",
+        "GUI Class": "Che giấu chi tiết giao diện người dùng",
+        "Business Logic Class": "Business rules và decision-making logic"
+      },
+      "explanation": "Mỗi class đóng gói một loại thông tin khác nhau.",
+      "hints": ["Entity = data.", "State-machine = FSM.", "GUI = interface."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Thành phần của class interface specification gồm? (Chọn tất cả đáp án đúng)",
+      "options": ["Information hidden", "Operations with params", "Precondition/Postcondition", "Anticipated changes", "Full source code"],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Class interface spec: thông tin ẩn, operations, pre/post conditions, anticipated changes. Code là internal.",
+      "distractorTags": {"4": "interface-is-implementation"},
+      "hints": ["Interface = contract.", "Implementation = code.", "Xem slide 15-17."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Polymorphism và dynamic binding cho phép làm gì?",
+      "options": [
+        "Cho phép các class khác nhau có cùng operation name nhưng implementation khác nhau, quyết định tại runtime",
+        "Tạo object từ class",
+        "Gọi hàm theo thứ tự cố định"
+      ],
+      "correct": 0,
+      "explanation": "Polymorphism: cùng operation name, khác implementation. Dynamic binding: chọn implementation tại runtime.",
+      "hints": ["Poly = nhiều, morph = hình.", "Dynamic binding = runtime binding.", "Xem slide 22-23."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "OO design: information hiding (che giấu thông tin), class interface (contract), inheritance (Is-A), polymorphism (nhiều hình thái). Interface = contract, implementation = code nội bộ.",
+      "exitTicket": "Giải thích 'separation of interface from implementation' bằng ví dụ."
+    }
+  ]
+}

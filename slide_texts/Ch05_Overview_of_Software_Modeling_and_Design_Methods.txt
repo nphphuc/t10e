@@ -1,0 +1,156 @@
+=== FILE: Ch05_Overview of Software Modeling & Design Methods.pptx ===
+
+Total slides: 20
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch05 – Overview of Software Modeling and Design Methods
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+COMET Overview
+COMET Use Case-Based Software Life Cycle
+COMET Life Cycle vs Other Software Processes
+Requirements, Analysis, and Design Modeling
+Designing Software Architecture
+
+--- Slide 3 ---
+Layout: Title and Content
+COMET Overview
+COMET: Collaborative Object Modeling and Architectural Design Method
+COMET is an iterative use case–driven and object-oriented method
+COMET uses the UML notation
+COMET = UML + Method
+
+--- Slide 4 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life Cycle
+The COMET UC–based software life cycle model is a highly iterative software development process based around the use case (UC) concept
+
+--- Slide 5 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life Cycle
+﻿The COMET method ties in the three phases of requirements, analysis, and design modeling by means of a use case–based approach
+In the requirements model: functional requirements are described in terms of actors and use cases. Each use case defines a sequence of interactions between one or more actors and the system.
+In the analysis model: the use case is realized to describe the objects that participate in the use case and their interactions.
+In the design model: the software architecture is developed, describing components and their interfaces.
+
+--- Slide 6 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleRequirements Modeling
+During the requirements modeling phase, a requirements model is developed in which the functional requirements of the system are described in terms of actors and use cases.
+
+--- Slide 7 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleAnalysis Modeling 1/2
+Static & dynamic models of the system are developed.
+﻿The static model defines the structural relationships among problem domain classes.
+﻿The classes and their relationships are depicted on class diagrams.
+Object structuring criteria are used to determine the objects to be considered for the analysis model.
+
+--- Slide 8 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleAnalysis Modeling 2/2
+﻿A dynamic model is then developed in which the use cases from the requirements model are realized to show the objects that participate in each use case and how they interact with each other.
+﻿Objects and their interactions are depicted on either communication or sequence diagrams.
+State-dependent objects are defined using state charts.
+
+--- Slide 9 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleDesign Modeling
+In the design modeling phase, the software architecture of the system is designed, in which the analysis model is mapped to an operational environment.
+The analysis model, with its emphasis on the problem domain, is mapped to the design model, with its emphasis on the solution domain.
+For sequential systems, the emphasis is on the object-oriented concepts of information hiding, classes, and inheritance.
+
+--- Slide 10 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleIncremental Software Construction
+After completion of the software architectural design, an incremental software construction approach is taken.
+This approach is based on selecting a subset of the system to be constructed for each increment.
+Incremental software construction consists of the detailed design, coding, and unit testing of the classes in the subset.
+This is a phased approach by which the software is gradually constructed and integrated until the whole system is built.
+
+--- Slide 11 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleIncremental Software Integration
+During incremental software integration, the integration testing of each software increment is performed.
+The integration test for the increment is based on the use cases selected for the increment.
+Integration testing is a form of white box testing, in which the interfaces between the objects that participate in each use case are tested
+
+--- Slide 12 ---
+Layout: Title and Content
+COMET Use Case-Based Software Life CycleSystem Testing
+System testing includes the functional testing of the system – namely, testing the system against its functional requirements.
+This testing is black box testing and is based on the black box use cases. Thus, functional test cases are built for each black box use case.
+Any software increment released to the customer needs to go through the system testing phase.
+
+--- Slide 13 ---
+Layout: Title and Content
+COMET Life Cycle vs Other Software ProcessesWith Unified Software Development Process
+The USDP provides considerable detail about the life cycle aspects and some detail about the method to be used.
+The workflows of the USDP are the requirements, analysis, design, implementation, and test workflows.
+Each phase of the COMET life cycle corresponds to a workflow of the USDP.
+The COMET incremental software construction activity corresponds to the USDP implementation workflow.
+
+--- Slide 14 ---
+Layout: Title and Content
+COMET Life Cycle vs Other Software ProcessesWith the Spiral Model
+During the project planning for a given cycle of the spiral model, the project manager decides what specific technical activity should be performed in the third quadrant, which is the product development quadrant.
+The selected technical activity, such as requirements modeling, analysis modeling, or design modeling, is then performed in the third quadrant
+The risk analysis activity, performed in the second quadrant, and cycle planning, performed in the fourth quadrant, determine how many iterations are required through each of the technical activities.
+
+--- Slide 15 ---
+Layout: Title and Content
+Requirements, Analysis, and Design Modeling
+The UML notation supports requirements, analysis, and design concepts.
+The COMET method described in this book separates requirements activities, analysis activities, and design activities.
+COMET differentiates analysis from design as follows:
+Analysis is breaking down or decomposing the problem so it is  understood better;
+Design is synthesizing or composing (putting together) the solution.
+
+--- Slide 16 ---
+Layout: Title and Content
+Requirements, Analysis, and Design ModelingActivities in Requirements Modeling
+In the requirements model, the system is considered as a black box. The use case model is developed.
+Use case modeling. Define actors and black box use cases.
+The use case descriptions are a behavioral view; the relationships among the use cases give a structural view.
+Addressing nonfunctional requirements is also important at the requirements phase.
+
+--- Slide 17 ---
+Layout: Title and Content
+Requirements, Analysis, & Design ModelingActivities in Analysis Modeling
+In the analysis model, the emphasis is on understanding the problem; hence, the emphasis is on identifying the problem domain objects and the information passed between them.
+As the analysis of the problem domain is considered. The activities in this model are as follows:
+Static modeling
+Object structuring
+Dynamic interaction modeling
+Dynamic state machine modeling
+
+--- Slide 18 ---
+Layout: Title and Content
+Requirements, Analysis, & Design ModelingActivities in Design Modeling
+In the design model, the solution domain is considered. During this phase, the analysis model is mapped to a concurrent design model.
+Integrate the object communication model.
+Make decisions about subsystem structure and interfaces.
+Make decisions about what software architectural and design patterns to use in the software architecture.
+Make decisions about class interfaces, in particular for sequential software architectures.
+Make decisions about how to structure the distributed application into distributed subsystems, in which subsystems are designed as configurable components, and define the message communication interfaces between the components.
+Make decisions about the characteristics of objects, particularly whether they are active or passive.
+Make decisions about the characteristics of messages, particularly whether they are asynchronous or synchronous
+
+--- Slide 19 ---
+Layout: Title and Content
+Designing Software Architecture
+During software design modeling, design decisions are made relating to the characteristics of the software architecture.
+Object-Oriented Software Architectures.
+Client/Server Software Architectures.
+Service-Oriented Architectures.
+Distributed Component-Based Software Architectures.
+Real-Time Software Architectures.
+Software Product Line Architectures.
+
+--- Slide 20 ---
+Layout: Title Only
