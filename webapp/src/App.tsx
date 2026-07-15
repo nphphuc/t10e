@@ -6,7 +6,7 @@ import PeReviewLanding from './pages/PeReviewLanding';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/t10e">
       <div className="min-h-screen bg-[#0c0d0e] text-[#f3f4f6]">
         <Routes>
           <Route path="/" element={<CourseMap />} />
