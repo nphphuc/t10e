@@ -9,17 +9,27 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "FOS gửi request xác thực đến AuthService và chờ response trước khi tiếp tục. Pattern gì?",
+      "type": "visual",
+      "visual": {
+        "variant": "sync-async-timeline"
+      },
       "options": [
-        "Asynchronous with Callback",
-        "Synchronous Message Communication with Reply",
-        "Subscription/Notification"
+        "Asynchronous luôn hoàn thành nhanh hơn vì không cần mạng truyền dẫn",
+        "Trong Synchronous, Client bị chặn (blocked) chờ đợi trong thời gian xử lý và truyền mạng của Service gây lãng phí tài nguyên; còn Asynchronous giúp Client tiếp tục thực thi việc khác",
+        "Synchronous sử dụng cơ chế Callback để nhận kết quả không đồng bộ sau khi gửi"
       ],
+      "prompt": "Hãy quan sát và so sánh hai đường thời gian giao tiếp (timeline) bên dưới. Đâu là đặc trưng cốt lõi phân biệt giữa Synchronous (Đồng bộ) và Asynchronous (Bất đồng bộ)?",
       "correct": 1,
-      "explanation": "Client chờ reply trước khi tiếp tục — synchronous with reply.",
-      "distractorTags": {"0": null, "2": null},
-      "hints": ["Client có chờ không?", "Nếu có → synchronous."],
+      "explanation": "Đúng. Điểm khác biệt quan trọng nhất là Synchronous làm Client bị chặn (block/waiting) chờ reply của Service rồi mới làm việc tiếp, còn Asynchronous gửi xong là Client rảnh tay làm tiếp việc khác ngay lập tức, kết quả được trả qua Callback/Notification sau.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Hãy chuyển đổi giữa Synchronous và Asynchronous timeline.",
+        "Ở biểu đồ nào Client Thread có một vùng màu cam kẻ sọc biểu thị trạng thái Blocked?",
+        "Xem slide 10-12 để phân biệt chi tiết."
+      ],
       "weight": 2
     },
     {

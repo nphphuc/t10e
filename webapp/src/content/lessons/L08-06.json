@@ -9,17 +9,27 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "FOS chuyển tiền từ tài khoản A (Bank X) sang B (Bank Y). Debit A thành công nhưng Credit B thất bại. Vấn đề gì?",
+      "type": "visual",
+      "visual": {
+        "variant": "transaction-failure"
+      },
       "options": [
-        "Không vấn đề, chỉ cần debit A là đủ",
-        "Vi phạm Atomicity — transaction phải hoàn thành toàn bộ hoặc không gì cả",
-        "Vấn đề mạng bình thường"
+        "Không làm gì thêm — chỉ cần ghi nhận Debit ở Bank X là đủ",
+        "Gửi yêu cầu ROLLBACK (Abort) tới Bank X để hoàn trả lại tiền cho Account A",
+        "Gửi tiếp yêu cầu COMMIT tới Bank Y mặc kệ lỗi kết nối"
       ],
+      "prompt": "Hệ thống FOS đang thực hiện chuyển tiền từ tài khoản A (Bank X) sang tài khoản B (Bank Y). Trạng thái trừ tiền (debit) ở Bank X thành công và đang chờ (Prepared), nhưng phía Bank Y bị lỗi mạng nên không thể cộng tiền. Bạn là Transaction Coordinator, bạn phải làm gì để đảm bảo Atomicity (Tính toàn vẹn)?",
       "correct": 1,
-      "explanation": "Atomicity: transaction là indivisible unit — hoặc commit cả hai, hoặc rollback cả hai.",
-      "distractorTags": {"0": "acid", "2": null},
-      "hints": ["ACID = Atomicity, Consistency, Isolation, Durability.", "Atomicity: all or nothing.", "Xem slide 14-16."],
+      "explanation": "Đúng. Để đảm bảo tính Atomicity (hoặc làm tất cả hoặc không làm gì), khi một node tham gia bị lỗi, điều phối viên phải gửi lệnh Abort/Rollback tới toàn bộ các node khác để khôi phục lại trạng thái ban đầu của hệ thống.",
+      "distractorTags": {
+        "0": "acid",
+        "2": null
+      },
+      "hints": [
+        "Hãy thử click vào nút 'Gửi ABORT' và quan sát số dư tài khoản ở Bank X.",
+        "Nếu giữ nguyên trạng thái debit thành công ở Bank X mà không cộng được ở Bank Y, tiền sẽ bị biến mất vô lý.",
+        "Xem slide 14-16 về cơ chế 2-Phase Commit."
+      ],
       "weight": 2
     },
     {

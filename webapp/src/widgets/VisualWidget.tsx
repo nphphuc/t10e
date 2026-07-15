@@ -11,6 +11,10 @@ import BecSorter from './visual/BecSorter';
 import SequenceCommunication from './visual/SequenceCommunication';
 import ArchitectureViewSwitcher from './visual/ArchitectureViewSwitcher';
 import SubsystemPartition from './visual/SubsystemPartition';
+import RelationalMapping from './visual/RelationalMapping';
+import ServiceBroker from './visual/ServiceBroker';
+import TransactionFailure from './visual/TransactionFailure';
+import SyncAsyncTimeline from './visual/SyncAsyncTimeline';
 
 
 interface VisualWidgetProps {
@@ -175,6 +179,53 @@ export default function VisualWidget({
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
         isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'relational-mapping') {
+    return (
+      <RelationalMapping
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'service-broker') {
+    return (
+      <ServiceBroker
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'transaction-failure') {
+    return (
+      <TransactionFailure
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'sync-async-timeline') {
+    return (
+      <SyncAsyncTimeline
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
       />
     );
   }

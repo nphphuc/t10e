@@ -155,7 +155,10 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           screen.visual?.variant === 'composition-lifetime' ||
           screen.visual?.variant === 'association-class' ||
           screen.visual?.variant === 'sequence-communication' ||
-          screen.visual?.variant === 'architecture-view-switcher') {
+          screen.visual?.variant === 'architecture-view-switcher' ||
+          screen.visual?.variant === 'relational-mapping' ||
+          screen.visual?.variant === 'transaction-failure' ||
+          screen.visual?.variant === 'sync-async-timeline') {
         return Number(answer) === Number(screen.correct);
       }
       if (screen.visual?.variant === 'subsystem-partition') {
@@ -165,7 +168,8 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
         if (keys.length === 0) return false;
         return keys.every((key) => userPart[key] === correctPart[key]);
       }
-      if (screen.visual?.variant === 'activity-flow') {
+      if (screen.visual?.variant === 'activity-flow' ||
+          screen.visual?.variant === 'service-broker') {
         const ordered = (answer as string[]) || [];
         const correct = screen.visual.correctOrder || [];
         if (ordered.length !== correct.length) return false;
