@@ -1,0 +1,169 @@
+{
+  "id": "L06-06",
+  "title": "State, event, guard và action",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Dự đoán transition và phân biệt state, event, guard, action.",
+  "misconceptions": ["state-is-action", "event-is-state", "ignore-current-state"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "visual",
+      "prompt": "Mô hình News có hai state: Enabled, Disabled. Gửi event DisableNews khi News đang Enabled. State tiếp theo là gì?",
+      "visual": {
+        "variant": "state-machine-runner"
+      },
+      "correct": "Disabled",
+      "hints": [
+        "Hãy quan sát mũi tên transition đi ra từ state Enabled khi có event DisableNews.",
+        "Mũi tên chỉ từ Enabled sang Disabled với label DisableNews."
+      ],
+      "solution": "Disabled là trạng thái tiếp theo sau khi nhận event DisableNews từ trạng thái Enabled.",
+      "feedbackCorrect": "Event kích hoạt transition từ Enabled sang Disabled. DisableNews là điều xảy ra, không phải trạng thái kéo dài.",
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "News đang Disabled và nhận DisableNews. Không có transition nào được định nghĩa. Kết quả hợp lý nhất là gì?",
+      "options": [
+        "Tự chuyển sang Enabled",
+        "Giữ nguyên Disabled hoặc báo event không hợp lệ",
+        "Xóa News",
+        "State không quan trọng"
+      ],
+      "correct": 1,
+      "explanation": "Event không đủ để quyết định next state; current state và transition table đều cần thiết.",
+      "distractorTags": {
+        "0": "ignore-current-state",
+        "2": null,
+        "3": "ignore-current-state"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Phân loại notation trong biểu đồ trạng thái.",
+      "pairs": {
+        "Enabled": "State",
+        "DisableNews": "Event",
+        "[user.isStaff]": "Guard",
+        "/ writeAuditLog()": "Action"
+      },
+      "explanation": "State tồn tại qua một khoảng thời gian; event xảy ra tại một thời điểm; guard là điều kiện; action là computation gắn với transition.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Transition SubmitOrder [stockAvailable] / reserveStock() chỉ chạy khi nào?",
+      "options": [
+        "Mỗi khi stockAvailable thay đổi",
+        "Khi event SubmitOrder tới và guard stockAvailable đúng",
+        "Khi reserveStock hoàn tất",
+        "Bất kỳ khi nào đang ở state nào đó"
+      ],
+      "correct": 1,
+      "explanation": "Guard không tự kích hoạt transition. Nó chỉ cho phép hoặc chặn transition đã được event kích hoạt.",
+      "feedbackWrongByItem": {
+        "Mỗi khi stockAvailable thay đổi": "Guard không tự kích hoạt transition. Nó chỉ cho phép hoặc chặn transition đã được event kích hoạt."
+      },
+      "distractorTags": {
+        "0": "event-is-state",
+        "2": "state-is-action",
+        "3": "ignore-current-state"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Có ba transition khác nhau cùng đi vào Locked, và mọi lần vào đều phải notifySecurity(). Đặt action ở đâu gọn nhất?",
+      "options": [
+        "Lặp trên cả ba transition",
+        "entry / notifySecurity() của Locked",
+        "exit của ba state nguồn",
+        "Trong tên state"
+      ],
+      "correct": 1,
+      "explanation": "Entry action phù hợp khi cùng hành động xảy ra trên mọi transition vào state.",
+      "distractorTags": {
+        "0": null,
+        "2": null,
+        "3": "state-is-action"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s6",
+      "role": "apply",
+      "type": "order",
+      "prompt": "Sắp xếp state của một phiên ATM hợp lệ từ lúc bắt đầu.",
+      "options": [
+        "ProcessingTransaction",
+        "WaitingForCard",
+        "ValidatingPIN",
+        "SelectingTransaction",
+        "EjectingCard"
+      ],
+      "correctOrder": [
+        "WaitingForCard",
+        "ValidatingPIN",
+        "SelectingTransaction",
+        "ProcessingTransaction",
+        "EjectingCard"
+      ],
+      "explanation": "Tên state là tình huống kéo dài, không phải message như insertCard.",
+      "hints": [
+        "ATM ban đầu luôn ở trạng thái chờ thẻ của khách hàng.",
+        "Sau khi nhận thẻ, bước tiếp theo là xác minh mã PIN trước khi cho phép chọn giao dịch."
+      ],
+      "solution": "WaitingForCard -> ValidatingPIN -> SelectingTransaction -> ProcessingTransaction -> EjectingCard",
+      "weight": 2
+    },
+    {
+      "id": "s7",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Những object nào thường tham gia state-dependent realization? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Boundary object gửi event",
+        "State-dependent control object",
+        "Object thực hiện action",
+        "Bất kỳ entity nào trong database dù không tham gia use case"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Control object chạy state machine, nhận event từ boundary và kích hoạt action ở các object tham gia.",
+      "distractorTags": {
+        "3": "actor-is-internal"
+      },
+      "weight": 3
+    },
+    {
+      "id": "s8",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Để kiểm tra chính xác thời điểm invalidPIN quay lại UI trong một flow dài, diagram nào dễ đọc hơn?",
+      "options": [
+        "Sequence diagram",
+        "Communication diagram"
+      ],
+      "correct": 0,
+      "explanation": "Sequence diagram nhấn mạnh trình tự thời gian và thời điểm truyền message.",
+      "weight": 1
+    },
+    {
+      "id": "s9",
+      "role": "takeaway",
+      "type": "takeaway",
+      "prompt": "Tóm tắt nội dung bài học",
+      "text": "nextState = f(currentState, event, guard). Action là kết quả tức thời của transition; state là tình huống tồn tại theo thời gian."
+    }
+  ]
+}

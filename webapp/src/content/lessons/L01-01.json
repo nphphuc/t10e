@@ -1,0 +1,93 @@
+{
+  "id": "L01-01",
+  "title": "Tại sao phải model trước khi code?",
+  "minutes": 8,
+  "xp": 80,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch01_Introduction.pptx#2-3"],
+  "objective": "Hiểu ý nghĩa của việc xây dựng mô hình hệ thống và rủi ro nếu chỉ code trực tiếp.",
+  "misconceptions": ["model-is-documentation"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Dự án FreshFood (FOS) chuẩn bị bắt đầu. Developer muốn nhảy vào viết code ngay lập tức vì 'chỉ code mới tạo ra phần mềm chạy được'. Theo bạn, rủi ro lớn nhất của hướng đi này là gì?",
+      "options": [
+        "Phần mềm sẽ chạy chậm hơn",
+        "Chúng ta viết code xong mới nhận ra mình đã hiểu sai yêu cầu và phải sửa đổi rất lớn",
+        "Không thể bàn giao tài liệu hướng dẫn sử dụng sau này"
+      ],
+      "correct": 1,
+      "explanation": "Viết code mà không thiết kế (model) trước dễ dẫn đến hiểu sai cấu trúc và luồng nghiệp vụ. Khi phát hiện lỗi ở giai đoạn muộn, chi phí đập đi xây lại là cực kỳ lớn.",
+      "distractorTags": {
+        "0": null,
+        "2": "model-is-documentation"
+      },
+      "hints": [
+        "Hãy nghĩ về chi phí sửa đổi khi phát hiện lỗi thiết kế muộn màng.",
+        "Code chạy được nhưng nếu làm sai yêu cầu khách hàng thì có giá trị không?",
+        "Tập trung vào sự khác biệt giữa thiết kế sớm (model) và code trực tiếp."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "model-vs-code",
+        "options": [
+          "Mô hình được dùng để định hướng và dẫn dắt lập trình chi tiết",
+          "Mô hình chỉ để vẽ lại sau khi code xong để làm tài liệu (documentation)",
+          "Mô hình và code là hai thực thể độc lập không liên quan gì nhau"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ quan hệ giữa Mô hình (Model) và Mã nguồn (Code). Nhận định nào dưới đây phản ánh chính xác nhất tiến trình công việc chuẩn?",
+      "correct": 0,
+      "explanation": "Mô hình được xây dựng và phân tích trước khi cài đặt hệ thống, định hướng cho việc viết code sau đó (model-driven). Nó không phải là tài liệu vẽ sau khi code xong.",
+      "distractorTags": {
+        "1": "model-is-documentation",
+        "2": null
+      },
+      "hints": [
+        "Nhìn hướng mũi tên di chuyển trong sơ đồ công việc.",
+        "Mũi tên đi từ Model sang Code biểu thị cái gì làm kim chỉ nam?",
+        "Mô hình được thiết kế trước (prior to implementation)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Một lập trình viên nói: 'Tôi vẽ biểu đồ UML chỉ để kẹp vào hồ sơ nghiệm thu cuối dự án'. Quan điểm này phản ánh lỗi hiểu lầm (misconception) nào?",
+      "options": [
+        "Nhầm lẫn UML là công cụ giải thuật",
+        "Xem mô hình hóa chỉ là công cụ vẽ tài liệu tĩnh (model-is-documentation)",
+        "Nhầm lẫn class với object instance"
+      ],
+      "correct": 1,
+      "explanation": "Đây là hiểu lầm phổ biến 'model-is-documentation'. Thực tế, mô hình UML là công cụ để giao tiếp thiết kế, phân tích tính khả thi và tìm lỗi kiến trúc trước khi đầu tư viết code.",
+      "distractorTags": {
+        "0": null,
+        "2": "class-is-object"
+      },
+      "hints": [
+        "Cụm từ 'kẹp hồ sơ nghiệm thu' cho thấy họ coi mô hình chỉ làm nhiệm vụ lưu trữ hồ sơ hay thiết kế?",
+        "Xem mục 6 về bảng mã hiểu lầm.",
+        "Đây chính là lỗi coi thiết kế chỉ để làm tài liệu báo cáo."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Xây dựng mô hình (Modeling) trước khi viết code giúp chúng ta thử nghiệm nhanh kiến trúc, đồng bộ sự hiểu biết trong team và giảm thiểu rủi ro thiết kế sai lầm trước khi quá muộn.",
+      "exitTicket": "Bạn đã nắm vững lý do tại sao cần model trước khi viết code chưa? Hãy ghi lại suy nghĩ ngắn gọn của bạn."
+    }
+  ]
+}

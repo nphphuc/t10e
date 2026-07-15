@@ -1,0 +1,87 @@
+{
+  "id": "L02-03",
+  "title": "Spiral và RUP: tổ chức iteration",
+  "minutes": 10,
+  "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#9-10", "Ch05_Overview of Software Modeling & Design Methods.pptx#14"],
+  "objective": "Nắm vững chu kỳ lặp của Spiral Model và các pha cốt lõi của Rational Unified Process (RUP).",
+  "misconceptions": ["process-order"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "order",
+      "prompt": "Sắp xếp 4 góc phần tư của Spiral Model (Mô hình xoắn ốc) theo đúng trình tự thực thi chuẩn trong mỗi vòng lặp:",
+      "options": [
+        "Phát triển sản phẩm kỹ thuật (Develop product)",
+        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)",
+        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)",
+        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)"
+      ],
+      "correctOrder": [
+        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)",
+        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)",
+        "Phát triển sản phẩm kỹ thuật (Develop product)",
+        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)"
+      ],
+      "explanation": "Chu trình chuẩn của Spiral Model: Xác định mục tiêu -> Phân tích rủi ro -> Phát triển và kiểm thử kỹ thuật -> Lập kế hoạch chu kỳ tiếp theo.",
+      "hints": [
+        "Chúng ta cần biết mục tiêu (Define objectives) trước khi phân tích rủi ro.",
+        "Phân tích rủi ro xong mới bắt đầu bắt tay vào phát triển kỹ thuật (Develop product).",
+        "Lập kế hoạch chu kỳ sau luôn là bước cuối cùng của vòng lặp hiện tại."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các pha của quy trình RUP (Rational Unified Process) với trọng tâm công việc tương ứng trong mỗi pha:",
+      "pairs": {
+        "Inception (Khởi đầu)": "Định hình ý tưởng và khái niệm sơ bộ của hệ thống",
+        "Elaboration (Mở rộng)": "Thiết kế và ổn định kiến trúc phần mềm nền tảng",
+        "Construction (Xây dựng)": "Lập trình chi tiết và tích hợp toàn bộ tính năng",
+        "Transition (Chuyển giao)": "Bàn giao phần mềm hoạt động cho người dùng cuối"
+      },
+      "explanation": "RUP chia vòng đời thành 4 pha lớn: Inception định hình; Elaboration tập trung vào thiết kế kiến trúc nền tảng; Construction viết code/tích hợp; Transition bàn giao chuyển giao.",
+      "hints": [
+        "Elaboration là pha cực kỳ quan trọng tập trung thiết kế kiến trúc (Architecture).",
+        "Construction là lúc team tập trung xây dựng code nhiều nhất.",
+        "Inception là lúc dự án bắt đầu khởi sinh ý tưởng."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Một kỹ sư nói: 'Trong Spiral Model, viết code và làm thiết kế chi tiết được thực hiện ngay ở góc phần tư thứ hai (Analyze risks)'. Khẳng định này đúng hay sai?",
+      "options": [
+        "Đúng, vì phân tích rủi ro là phải code ngay",
+        "Sai, viết code/thiết kế (Develop product) diễn ra ở góc phần tư thứ ba, góc thứ hai chỉ tập trung phân tích và giảm thiểu rủi ro",
+        "Sai, viết code diễn ra ở góc phần tư thứ tư"
+      ],
+      "correct": 1,
+      "explanation": "Trong Spiral Model, góc phần tư thứ hai dành riêng cho phân tích rủi ro (Analyze risks). Các hoạt động phát triển kỹ thuật thực sự như requirements analysis, design, hay coding thuộc góc phần tư thứ ba (Develop product).",
+      "distractorTags": {
+        "0": "process-order",
+        "2": "process-order"
+      },
+      "hints": [
+        "Nhìn lại thứ tự 4 góc phần tư đã sắp xếp ở màn 1.",
+        "Phân tích rủi ro (Analyze risks) và Phát triển sản phẩm (Develop product) là hai góc phần tư độc lập.",
+        "Góc thứ ba mới là nơi tạo ra sản phẩm kỹ thuật."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Spiral Model tổ chức lặp theo 4 góc phần tư lấy quản trị rủi ro làm trung tâm. RUP chia tiến trình thành 4 pha lớn, trong đó pha Elaboration đóng vai trò chốt chặn kiến trúc cốt lõi.",
+      "exitTicket": "Bạn đã nắm chắc thứ tự thực thi trong Spiral và 4 pha của RUP chưa? Hãy ghi lại phản hồi ngắn."
+    }
+  ]
+}

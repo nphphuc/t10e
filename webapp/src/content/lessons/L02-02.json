@@ -1,0 +1,85 @@
+{
+  "id": "L02-02",
+  "title": "Prototype để học, increment để giao",
+  "minutes": 10,
+  "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#4-8", "Ch03_Software Life Cycle Models and Processes.pptx#11-12"],
+  "objective": "Phân biệt rõ ràng bản mẫu vứt bỏ (Throwaway Prototype) dùng để kiểm chứng yêu cầu với bản mẫu tiến hóa (Evolutionary Prototype) dùng để phát triển lũy tiến.",
+  "misconceptions": ["prototype-is-product"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Khách hàng muốn thiết kế màn hình thanh toán FOS cực kỳ trực quan. Team lập tức tạo một trang web tĩnh HTML/CSS giả lập nút bấm trong 3 ngày để khách chạy thử lấy ý kiến, sau đó bỏ đi để code lại bản thật. Đây là ví dụ của:",
+      "options": [
+        "Evolutionary Prototyping (Bản mẫu tiến hóa)",
+        "Throwaway Prototyping (Bản mẫu vứt bỏ)",
+        "Incremental Development (Phát triển lũy tiến)"
+      ],
+      "correct": 1,
+      "explanation": "Throwaway Prototyping được tạo ra nhanh chóng sau khi có yêu cầu sơ bộ nhằm lấy phản hồi về giao diện (UI) và vượt qua rào cản giao tiếp với khách hàng, sau đó sẽ bị loại bỏ chứ không dùng để phát triển tiếp.",
+      "distractorTags": {
+        "0": "prototype-is-product",
+        "2": null
+      },
+      "hints": [
+        "Từ khóa ở đây là 'bỏ đi để code lại bản thật' (discarded).",
+        "Bản mẫu này làm ra để học hỏi yêu cầu hay để nâng cấp dần?",
+        "Xem định nghĩa về Throwaway Prototyping trong slide 4."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các thuật ngữ về bản mẫu và kiểm chứng với đặc trưng kỹ thuật chính xác của chúng:",
+      "pairs": {
+        "Throwaway Prototype": "Dựng nhanh để làm rõ yêu cầu UI rồi vứt bỏ",
+        "Evolutionary Prototype": "Phát triển dần dần qua các hệ thống trung gian",
+        "Production Increment": "Phần mềm chạy thật được tích hợp qua mỗi pha",
+        "Validation": "Xác nhận hệ thống đúng nhu cầu người dùng"
+      },
+      "explanation": "Throwaway Prototype để làm rõ yêu cầu; Evolutionary Prototype phát triển dần thành sản phẩm cuối; Production Increment là phần mềm chạy thật tích hợp dần; Validation kiểm tra xem có 'build the right system' không.",
+      "hints": [
+        "Evolutionary nghĩa là tiến hóa dần dần.",
+        "Throwaway nghĩa là dùng một lần rồi bỏ.",
+        "Validation tập trung vào nhu cầu người dùng (right system)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Sếp thấy bản demo mock UI chạy thử rất mượt liền yêu cầu: 'Giao diện chạy ngon thế này rồi, đem deploy thẳng lên server cho khách dùng luôn đi để đỡ tốn công code lại'. Sếp đang mắc lỗi hiểu lầm nào?",
+      "options": [
+        "Lỗi coi thiết kế chỉ để làm tài liệu (model-is-documentation)",
+        "Nhầm lẫn bản mẫu thử nghiệm là sản phẩm chạy thật (prototype-is-product)",
+        "Lỗi một quy trình vạn năng (one-process-best)"
+      ],
+      "correct": 1,
+      "explanation": "Đây là hiểu lầm 'prototype-is-product'. Bản mẫu vứt bỏ (Throwaway Prototype) được phát triển nhanh, bỏ qua tính bảo mật, hiệu năng, chuẩn hóa code. Đưa nó trực tiếp lên production sẽ gây ra các lỗi bảo mật và sập hệ thống nghiêm trọng.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Bản demo có chứa code xử lý thực sự của database và bảo mật chưa?",
+        "Việc lấy bản thử nghiệm đưa thẳng lên production phản ánh lỗi gì?",
+        "Đọc kỹ slide 4-5 về rủi ro của bản mẫu vứt bỏ."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Throwaway Prototype dùng để học (validate requirements) và sẽ bị vứt bỏ. Evolutionary Prototype dùng để nâng cấp dần thành sản phẩm. Đừng bao giờ đem bản mẫu thử nghiệm vứt bỏ chạy trực tiếp trên production (lỗi prototype-is-product).",
+      "exitTicket": "Bạn đã hiểu sự khác biệt giữa prototype để học và increment để giao chưa? Hãy ghi lại phản hồi."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "id": "L02-04",
+  "title": "Build the right system, build the system right",
+  "minutes": 9,
+  "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#11-12"],
+  "objective": "Phân biệt rõ ràng mục tiêu và các hoạt động tương ứng của kiểm chứng (Verification) và xác nhận (Validation).",
+  "misconceptions": ["verify-vs-validate"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Khi phát triển FOS, team đối chiếu Class Diagram vừa vẽ với tài liệu Yêu cầu phần mềm (SRS) xem có khớp không. Đây là hoạt động:",
+      "options": [
+        "Verification (Kiểm chứng - 'Build the system right')",
+        "Validation (Xác nhận - 'Build the right system')",
+        "Cả hai hoạt động trên đều tương đương"
+      ],
+      "correct": 0,
+      "explanation": "Verification đảm bảo mỗi pha được xây dựng đúng theo đặc tả từ pha trước đó. Việc so sánh Class Diagram với SRS là kiểm tra tính nhất quán kỹ thuật nội bộ (Build the system right).",
+      "distractorTags": {
+        "1": "verify-vs-validate",
+        "2": "verify-vs-validate"
+      },
+      "hints": [
+        "Chúng ta đang đối chiếu giữa hai tài liệu kỹ thuật nội bộ hay đối chiếu với người dùng cuối?",
+        "Xem định nghĩa về Verification trong slide 11.",
+        "Làm thế nào để biết ta đang xây dựng đúng theo đặc tả (specification)?"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "scenario",
+      "prompt": "Team mang bản Throwaway Prototype giao diện cho người dùng FOS chạy thử để kiểm tra xem ứng dụng có thực sự giúp họ giải quyết đúng khó khăn khi đặt hàng hay không. Đây là hoạt động:",
+      "options": [
+        "Verification (Kiểm chứng)",
+        "Validation (Xác nhận)"
+      ],
+      "correct": 1,
+      "explanation": "Validation đảm bảo hệ thống phù hợp với nhu cầu và mong muốn thực tế của người dùng cuối (Build the right system). Chạy thử prototype với khách hàng là hoạt động Validation.",
+      "distractorTags": {
+        "0": "verify-vs-validate"
+      },
+      "hints": [
+        "Mục tiêu là xem phần mềm có khớp với nhu cầu thực của khách hàng (user's needs) hay không.",
+        "Đọc kỹ slide 11-12 về mục đích của Throwaway Prototyping.",
+        "Xác nhận hệ thống đúng đắn với người dùng cuối chính là Validation."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Lập trình viên nói: 'Chỉ cần tất cả unit test của tôi viết chạy xanh (100% pass) là hệ thống đã được validate thành công'. Nhận định này đúng hay sai?",
+      "options": [
+        "Đúng, vì test xanh chứng tỏ hệ thống chạy đúng đắn hoàn toàn",
+        "Sai, unit test xanh chỉ chứng minh code chạy đúng đặc tả kỹ thuật (Verification), không đảm bảo hệ thống làm ra đúng thứ người dùng cần (Validation)",
+        "Sai, unit test là hoạt động validation còn chạy thử với khách hàng mới là verification"
+      ],
+      "correct": 1,
+      "explanation": "Unit test là hoạt động Verification (đảm bảo code chạy đúng đặc tả kỹ thuật). Hệ thống có thể chạy hoàn hảo không lỗi, nhưng nếu làm sai tính năng khách hàng cần, hệ thống vẫn thất bại về mặt Validation.",
+      "distractorTags": {
+        "0": "verify-vs-validate",
+        "2": "verify-vs-validate"
+      },
+      "hints": [
+        "Có trường hợp nào phần mềm chạy không lỗi nhưng khách hàng vẫn không dùng được vì làm sai tính năng không?",
+        "Unit test kiểm tra code nội bộ hay nhu cầu khách hàng?",
+        "Hãy phân biệt rõ ranh giới kỹ thuật (verification) và ranh giới người dùng (validation)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Hãy nhớ: Validation là làm đúng hệ thống khách hàng cần (build the right system). Verification là làm hệ thống đúng cách, đúng đặc tả kỹ thuật (build the system right). Cả hai hoạt động đều quan trọng và không thể thay thế cho nhau.",
+      "exitTicket": "Bạn đã phân biệt được rõ ràng giữa Verification và Validation chưa? Ghi lại thắc mắc của bạn."
+    }
+  ]
+}

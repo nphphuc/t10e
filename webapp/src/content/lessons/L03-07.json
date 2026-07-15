@@ -1,0 +1,99 @@
+{
+  "id": "L03-07",
+  "title": "Level 3 Review: Requirements và Use Case",
+  "questions": [
+    {
+      "id": "R03-01",
+      "type": "multi",
+      "prompt": "Với FOS software scope, những thành phần nào là actor? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Customer",
+        "Google Auth Service",
+        "Product DB nội bộ",
+        "CheckoutController",
+        "Timer bên ngoài"
+      ],
+      "correctSet": [0, 1, 4],
+      "explanation": "Customer và Google Auth là người dùng hoặc hệ thống ngoài tương tác qua boundary. Timer bên ngoài gửi event kích hoạt định kỳ. Product DB nội bộ và CheckoutController là thành phần thực thi bên trong, không phải actor.",
+      "distractorTags": {
+        "2": "actor-is-internal",
+        "3": "actor-is-internal"
+      }
+    },
+    {
+      "id": "R03-02",
+      "type": "choice",
+      "prompt": "Yêu cầu phi chức năng nào sau đây có khả năng kiểm thử và xác minh (verifiable) tốt nhất?",
+      "options": [
+        "Hệ thống phải có phản hồi trang nhanh",
+        "95% page load < 4s dưới tải 500 users",
+        "Giao diện người dùng phải hiện đại và dễ nhìn",
+        "Hệ thống chạy ổn định và không gặp lỗi"
+      ],
+      "correct": 1,
+      "explanation": "Yêu cầu phi chức năng cần có chỉ số đo lường (measurable) và môi trường kiểm thử (environment) rõ ràng để kiểm tra.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "R03-03",
+      "type": "choice",
+      "prompt": "Tên use case nào đại diện cho cách đặt tên chuẩn mực nhất?",
+      "options": [
+        "Click Add",
+        "Product Button",
+        "Add Product",
+        "Product Screen"
+      ],
+      "correct": 2,
+      "explanation": "Tên use case nên được bắt đầu bằng một động từ đi kèm đối tượng (verb + noun), biểu đạt kết quả/giá trị mang lại cho actor.",
+      "distractorTags": {
+        "0": "usecase-is-click",
+        "1": "usecase-is-click",
+        "3": "usecase-is-click"
+      }
+    },
+    {
+      "id": "R03-04",
+      "type": "order",
+      "prompt": "Sắp xếp thứ tự các bước trong một use case flow hợp lệ cho việc thêm sản phẩm mới:",
+      "options": [
+        "System validates input",
+        "Staff submits product",
+        "System shows form",
+        "System saves product",
+        "Staff enters data"
+      ],
+      "correctOrder": [
+        "System shows form",
+        "Staff enters data",
+        "Staff submits product",
+        "System validates input",
+        "System saves product"
+      ],
+      "explanation": "Luồng tương tác chuẩn: Hệ thống hiển thị giao diện (Show form) -> Người dùng nhập dữ liệu (Enter) -> Người dùng gửi yêu cầu (Submit) -> Hệ thống kiểm tra dữ liệu (Validate) -> Hệ thống lưu trữ (Save).",
+      "distractorTags": {}
+    },
+    {
+      "id": "R03-05",
+      "type": "choice",
+      "prompt": "Login luôn xảy ra trước Checkout và được nhiều use case khác sử dụng lại. Quan hệ phù hợp giữa Checkout và Login là gì?",
+      "options": [
+        "extend",
+        "include",
+        "generalization",
+        "composition"
+      ],
+      "correct": 1,
+      "explanation": "Quan hệ include được sử dụng khi một use case (Checkout) luôn tích hợp hành vi của use case khác (Login) một cách bắt buộc và dùng chung.",
+      "distractorTags": {
+        "0": "include-vs-extend",
+        "2": null,
+        "3": null
+      }
+    }
+  ]
+}

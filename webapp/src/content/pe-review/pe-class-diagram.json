@@ -1,0 +1,85 @@
+{
+  "id": "pe-class-diagram",
+  "title": "Ôn tập Class Diagram",
+  "topic": "class-diagram",
+  "questions": [
+    {
+      "id": "R04-01",
+      "type": "choice",
+      "prompt": "Jane works in Manufacturing là association hay link?",
+      "options": [
+        "Association",
+        "Link"
+      ],
+      "correct": 1,
+      "explanation": "Jane works in Manufacturing là kết nối cụ thể giữa hai thực thể đối tượng (instance link). Association là quan hệ tổng quát mức lớp (ví dụ: Employee works in Department).",
+      "distractorTags": {
+        "0": "association-is-link"
+      }
+    },
+    {
+      "id": "R04-02",
+      "type": "choice",
+      "prompt": "Customer có nhiều Order, mỗi Order thuộc đúng một Customer. FK (Khóa ngoại) nằm hợp lý ở đâu trong database schema?",
+      "options": [
+        "Customer table",
+        "Order table",
+        "Tách thành table liên kết riêng biệt",
+        "Không cần FK"
+      ],
+      "correct": 1,
+      "explanation": "Với quan hệ một-nhiều (1:N), khóa ngoại (FK) luôn được đặt ở bảng phía nhiều (N) - ở đây là Order table - để trỏ về khóa chính của phía một (1) - Customer table.",
+      "distractorTags": {
+        "0": "multiplicity-fk",
+        "2": "multiplicity-fk",
+        "3": "multiplicity-fk"
+      }
+    },
+    {
+      "id": "R04-03",
+      "type": "choice",
+      "prompt": "Liên kết OrderProduct có thêm thuộc tính Quantity và Price tại thời điểm mua. Nên đặt chúng ở đâu?",
+      "options": [
+        "Làm attribute của Product",
+        "Làm attribute của Order",
+        "Tạo Association Class riêng biệt",
+        "Làm attribute của Customer"
+      ],
+      "correct": 2,
+      "explanation": "Quantity và Price là dữ liệu phát sinh từ quan hệ giữa Order và Product (mỗi Product trong mỗi Order có số lượng và giá mua riêng), do đó phải thuộc về một Association Class.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "1": "relationship-data",
+        "3": "relationship-data"
+      }
+    },
+    {
+      "id": "R04-04",
+      "type": "choice",
+      "prompt": "Khi xóa Order thì toàn bộ các dòng chi tiết OrderLine liên quan bị xóa và không được đính kèm vào Order khác. Quan hệ này là gì?",
+      "options": [
+        "Aggregation (Thu gom/Tích hợp)",
+        "Composition (Cấu thành)",
+        "Generalization (Kế thừa)",
+        "Dependency (Phụ thuộc)"
+      ],
+      "correct": 1,
+      "explanation": "Trong quan hệ Composition, sự tồn tại của đối tượng bộ phận (part) phụ thuộc hoàn toàn vào đối tượng toàn thể (whole). Khi whole bị hủy, part cũng bị hủy theo.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "2": "aggregation-equals-composition",
+        "3": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "R04-05",
+      "type": "truefalse",
+      "prompt": "Hai class có một vài trường dữ liệu (fields) giống nhau là lý do đủ để thiết lập quan hệ kế thừa (Inheritance).",
+      "correct": false,
+      "explanation": "Kế thừa đòi hỏi quan hệ 'is-a' chặt chẽ và khả năng thay thế (Liskov Substitution Principle). Việc trùng lặp một vài trường dữ liệu không đủ để tạo quan hệ kế thừa.",
+      "distractorTags": {
+        "true": "inheritance-for-reuse-only"
+      }
+    }
+  ]
+}

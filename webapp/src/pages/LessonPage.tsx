@@ -1,0 +1,46 @@
+import { useParams, useNavigate } from 'react-router-dom';
+import LessonPlayer from '../engine/LessonPlayer';
+import { useProgressStore } from '../store/progress';
+
+// Eagerly import all lessons to dynamically resolve lesson data (e.g. L03-03.json)
+const lessonFiles = import.meta.glob('../content/lessons/*.json', { eager: true });
+
+export default function LessonPage() {
+  const { lessonId } = useParams<{ lessonId: string }>();
+  const navigate = useNavigate();
+  const completeLesson = useProgressStore((state) => state.completeLesson);
+
+  const lessonData = lessonId ? (lessonFiles[`../content/lessons/${lessonId}.json`] as any)?.default : null;
+
+  if (!lessonData) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0c0d0e] p-6 text-center space-y-4">
+        <h2 className="text-2xl font-bold text-gray-200">Không Tìm Thấy Bài Học</h2>
+        <p className="text-gray-400">Bài học "{lessonId}" chưa có nội dung hoặc đang được sản xuất.</p>
+        <button
+          onClick={() => navigate('/')}
+          className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all"
+        >
+          Trở Lại Bản Đồ
+        </button>
+      </div>
+    );
+  }
+
+  const handleComplete = (scorePercentage: number, xpEarned: number, isMastered: boolean) => {
+    console.log(`[LessonPage] Completed: Score ${scorePercentage}%, XP Earned: ${xpEarned}, Mastered: ${isMastered}`);
+    
+    // Complete lesson in progress store
+    completeLesson(lessonData.id, xpEarned);
+    
+    // Redirect back to CourseMap.
+    navigate('/');
+  };
+
+  return (
+    <LessonPlayer
+      lesson={lessonData}
+      onComplete={handleComplete}
+    />
+  );
+}

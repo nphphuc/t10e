@@ -1,0 +1,58 @@
+{
+  "id": "pe-sequence",
+  "title": "Ôn tập Sequence Diagram",
+  "topic": "sequence",
+  "questions": [
+    {
+      "id": "R06-01",
+      "type": "choice",
+      "prompt": "Bạn muốn hiển thị sơ đồ liên kết vật lý (topology) và luồng kết nối giữa các đối tượng một cách rõ ràng nhất. Diagram nào tối ưu hơn?",
+      "options": [
+        "Sequence diagram",
+        "Communication diagram"
+      ],
+      "correct": 1,
+      "explanation": "Communication diagram nhấn mạnh vào cách bố trí cấu trúc (topology) và các đường truyền liên kết vật lý giữa các object, trong khi Sequence diagram nhấn mạnh trình tự thời gian.",
+      "distractorTags": {
+        "0": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "R06-02",
+      "type": "order",
+      "prompt": "Sắp xếp các bước thực hiện Realize Use Case trong động hình học (Dynamic Modeling) từ lúc bắt đầu:",
+      "options": [
+        "Xác định các thông điệp trao đổi (messages)",
+        "Xác định các đối tượng biên (boundary objects)",
+        "Đọc và phân tích Use Case",
+        "Xác định các đối tượng nội bộ (internal objects)",
+        "Mô hình hóa các luồng xử lý thay thế (alternatives)"
+      ],
+      "correctOrder": [
+        "Đọc và phân tích Use Case",
+        "Xác định các đối tượng biên (boundary objects)",
+        "Xác định các đối tượng nội bộ (internal objects)",
+        "Xác định các thông điệp trao đổi (messages)",
+        "Mô hình hóa các luồng xử lý thay thế (alternatives)"
+      ],
+      "explanation": "Trình tự hiện thực hóa use case: Đọc use case -> Xác định boundary -> Xác định internal objects (control, entity) -> Xác định messages -> Xử lý các luồng rẽ nhánh/thay thế (alternatives).",
+      "distractorTags": {}
+    },
+    {
+      "id": "R06-03",
+      "type": "multi",
+      "prompt": "Khi thiết kế luồng thay thế (Alternative Flow - ví dụ: thẻ bị từ chối), những thành phần nào sau đây có thể phát sinh?",
+      "options": [
+        "Thông điệp (message) xử lý lỗi mới",
+        "Đối tượng trung gian (participating object) mới",
+        "Nhánh điều kiện bảo vệ (guard / alt branch) mới",
+        "Không bao giờ thay đổi mô hình thiết kế cũ"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Một luồng rẽ nhánh thay thế có thể làm xuất hiện thêm thông điệp báo lỗi, đối tượng điều khiển lỗi mới, hoặc các khối điều kiện kiểm tra (alt/opt) tương ứng.",
+      "distractorTags": {
+        "3": "ignore-alternative"
+      }
+    }
+  ]
+}

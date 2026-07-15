@@ -1,0 +1,188 @@
+{
+  "id": "L08-05",
+  "title": "SOA: service contract và discovery",
+  "minutes": 12,
+  "xp": 130,
+  "objective": "Giải thích service principles và chọn broker interaction phù hợp.",
+  "misconceptions": ["soa-is-microservices", "distribution-is-free", "interface-is-implementation"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Inventory Service chuyển từ node A sang node B. Bạn muốn client không phải sửa cấu hình. Nên đặt trách nhiệm location ở đâu?",
+      "options": [
+        "Trong từng client",
+        "Service registry/broker",
+        "Trong database table của client",
+        "Hard-code cả hai địa chỉ"
+      ],
+      "correct": 1,
+      "explanation": "Broker tạo location transparency: service cập nhật location một nơi, client vẫn tìm qua contract/name.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp flow đăng ký và gọi service.",
+      "options": [
+        "Client gửi request cho service",
+        "Service đăng ký name, description, location",
+        "Client hỏi broker",
+        "Broker trả location/handle"
+      ],
+      "correctOrder": [
+        "Service đăng ký name, description, location",
+        "Client hỏi broker",
+        "Broker trả location/handle",
+        "Client gửi request cho service"
+      ],
+      "explanation": "Service đăng ký -> Client hỏi broker -> Broker trả location/handle -> Client gửi request.",
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "match",
+      "prompt": "White pages hay yellow pages?",
+      "pairs": {
+        "Biết chính xác Inventory Service, chưa biết location": "White-page lookup",
+        "Biết cần “dịch vụ giao hàng”, chưa chọn provider": "Yellow-page discovery"
+      },
+      "explanation": "White pages tìm service đã biết; yellow pages tìm service theo loại/capability.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Client sẽ trao đổi 30 message với cùng một service. Cách nào giảm traffic qua broker sau lần tìm đầu?",
+      "options": [
+        "Broker Forwarding",
+        "Broker Handle",
+        "Broadcast",
+        "Two-Phase Commit"
+      ],
+      "correct": 1,
+      "explanation": "Handle giảm broker traffic nhưng client giữ reference/location tạm thời và phải xử lý handle hết hạn.",
+      "consequence": "Handle giảm broker traffic nhưng client giữ reference/location tạm thời và phải xử lý handle hết hạn.",
+      "distractorTags": {
+        "0": null,
+        "2": null,
+        "3": null
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Những đặc trưng nào làm Inventory Service dễ tái sử dụng? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Contract rõ",
+        "Autonomy",
+        "Loose coupling",
+        "Ẩn implementation",
+        "Phụ thuộc trực tiếp vào UI của FOS",
+        "Giữ session state của từng màn hình khách hàng"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "UI/session-specific dependency làm service khó dùng ở mobile hoặc ứng dụng khác.",
+      "distractorTags": {
+        "4": "interface-is-implementation",
+        "5": "interface-is-implementation"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s6",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Bất kỳ hệ thống SOA nào cũng phải gồm nhiều microservice nhỏ, deploy độc lập trong container.",
+      "correct": false,
+      "explanation": "SOA là tập nguyên lý và kiến trúc service. Microservices là một cách tổ chức service cụ thể với granularity và operational model riêng.",
+      "weight": 2
+    },
+    {
+      "id": "s7",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Thành phần nào nên xuất hiện trong service contract?",
+      "options": [
+        "Tên operation, input/output và error semantics",
+        "Toàn bộ SQL query",
+        "Private helper methods",
+        "Cấu trúc thư mục source code"
+      ],
+      "correct": 0,
+      "explanation": "Contract mô tả thông tin giao tiếp công khai của service, ẩn implementation chi tiết.",
+      "distractorTags": {
+        "1": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s8",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS sắp có mobile app. Product catalog phải dùng chung cho web và mobile. Thiết kế nào phù hợp hơn?",
+      "options": [
+        "Copy ProductService vào hai app",
+        "Tách Product Catalog thành service có contract chung",
+        "Cho mobile truy cập trực tiếp database",
+        "Chụp dữ liệu thành file tĩnh mỗi ngày"
+      ],
+      "correct": 1,
+      "explanation": "Tách Product Catalog thành service có contract chung giúp tái sử dụng và đảm bảo tính thống nhất dữ liệu.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "distribution-is-free",
+        "3": "distribution-is-free"
+      },
+      "weight": 3
+    },
+    {
+      "id": "s9",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Chọn thêm hai chi phí phải quản lý khi tách thành service.",
+      "options": [
+        "Network failure/latency",
+        "Versioning/observability/authorization",
+        "Trùng lặp code xử lý dữ liệu",
+        "Không thể mở rộng database"
+      ],
+      "correctSet": [0, 1],
+      "explanation": "Khi phân tách service, chi phí network failure/latency và versioning/observability/authorization là hai thách thức lớn nhất của hệ phân tán.",
+      "distractorTags": {
+        "2": "distribution-is-free",
+        "3": "distribution-is-free"
+      },
+      "weight": 3
+    },
+    {
+      "id": "s10",
+      "role": "retrieve",
+      "type": "fill",
+      "prompt": "Khả năng dùng cùng service cho web và mobile là quality attribute nào?",
+      "accepted": ["reusability", "khả năng tái sử dụng", "tái sử dụng"],
+      "explanation": "Reusability (khả năng tái sử dụng) là thuộc tính chất lượng cho phép sử dụng lại một component/service trong nhiều ứng dụng khác nhau.",
+      "weight": 1
+    },
+    {
+      "id": "s11",
+      "role": "takeaway",
+      "type": "takeaway",
+      "prompt": "Tóm tắt nội dung bài học",
+      "text": "SOA tách capability thành service autonomous có contract rõ. Registry/broker hỗ trợ discovery và transparency, nhưng distribution tạo thêm latency, failure và governance cost."
+    }
+  ]
+}

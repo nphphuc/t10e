@@ -1,0 +1,86 @@
+{
+  "id": "L01-06",
+  "title": "Level 1 Review: UML View Detective",
+  "questions": [
+    {
+      "id": "R01-01",
+      "type": "choice",
+      "prompt": "Nhóm phát triển phần mềm cần xác định rõ: 'những tác nhân bên ngoài (external user) nào sẽ khởi tạo những chức năng nào của hệ thống'. Họ nên chọn vẽ biểu đồ nào?",
+      "options": [
+        "Class Diagram",
+        "Use Case Diagram",
+        "Deployment Diagram",
+        "State Machine Diagram"
+      ],
+      "correct": 1,
+      "explanation": "Use Case Diagram mô tả các tác nhân bên ngoài (actors) và mục tiêu (goals) của họ đối với hệ thống, thể hiện phạm vi chức năng nhìn từ ngoài vào.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "2": "view-purpose",
+        "3": "view-purpose"
+      }
+    },
+    {
+      "id": "R01-02",
+      "type": "match",
+      "prompt": "Ghép các khái niệm sau với định nghĩa tương ứng từ lý thuyết thiết kế phần mềm:",
+      "pairs": {
+        "Notation": "Ký hiệu trực quan (ví dụ: UML)",
+        "Method": "Chuỗi bước thực hiện (ví dụ: COMET)",
+        "Strategy": "Định hướng thiết kế (ví dụ: OO)",
+        "Criteria": "Heuristic phân chia (ví dụ: structuring criteria)"
+      },
+      "explanation": "Notation là ký hiệu biểu diễn; Method là trình tự các bước; Strategy là định hướng giải quyết; Criteria là các quy tắc/heuristic phân chia cấu trúc.",
+      "distractorTags": {}
+    },
+    {
+      "id": "R01-03",
+      "type": "choice",
+      "prompt": "Trong một biểu đồ UML, bạn nhìn thấy ký hiệu: `order17 : Order` được gạch chân. Thành phần này đại diện cho cái gì?",
+      "options": [
+        "Class (Lớp)",
+        "Object instance (Đối tượng cụ thể)",
+        "Operation (Hành động)",
+        "Actor (Tác nhân)"
+      ],
+      "correct": 1,
+      "explanation": "Tên đứng trước dấu hai chấm (`order17`) là tên đối tượng, tên đứng sau (`Order`) là tên lớp, toàn bộ được gạch chân biểu thị một Object instance cụ thể.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": null,
+        "3": null
+      }
+    },
+    {
+      "id": "R01-04",
+      "type": "multi",
+      "prompt": "Hệ thống FOS gặp sự cố nghẽn mạng do các thông điệp trao đổi giữa hai thành phần phân tán nằm trên hai server vật lý ở rất xa nhau. Để điều tra nguyên nhân, bạn cần kết hợp phân tích những góc nhìn (views) nào? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Dynamic Interaction View (để xem luồng message trao đổi)",
+        "Deployment View (để xem sự phân bổ mạng vật lý của các node)",
+        "Use Case View",
+        "Static View"
+      ],
+      "correctSet": [0, 1],
+      "explanation": "Sự cố này liên quan đến cả luồng truyền thông điệp ở runtime (Dynamic Interaction) và vị trí vật lý của máy chủ (Deployment View). Cần kết hợp cả hai view để tìm ra nguyên nhân nghẽn.",
+      "distractorTags": {
+        "2": "one-view-enough",
+        "3": "one-view-enough"
+      }
+    },
+    {
+      "id": "R01-05",
+      "type": "choice",
+      "prompt": "Một kỹ sư khẳng định: 'UML diagram chỉ có giá trị khi vẽ sau khi viết code để phục vụ cho việc làm tài liệu (documentation) bàn giao'. Khẳng định này đúng hay sai?",
+      "options": [
+        "Đúng, vì code mới là sản phẩm thực tế, vẽ trước sẽ lạc hậu",
+        "Sai, vì mô hình hóa còn dùng để phân tích rủi ro, kiểm chứng thiết kế và giao tiếp các quyết định trước khi viết code"
+      ],
+      "correct": 1,
+      "explanation": "Khẳng định này sai. Mô hình hóa (modeling) là công cụ đắc lực để thiết kế, giao tiếp, phân tích tính khả thi và tìm lỗi kiến trúc trước khi đầu tư nhiều công sức vào viết code.",
+      "distractorTags": {
+        "0": "model-is-documentation"
+      }
+    }
+  ]
+}

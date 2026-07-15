@@ -1,0 +1,34 @@
+{
+  "id": "pe-state",
+  "title": "Ôn tập Statechart Diagram",
+  "topic": "state",
+  "questions": [
+    {
+      "id": "R06-04",
+      "type": "match",
+      "prompt": "Ghép các khái niệm trong biểu đồ trạng thái (Statechart) với mô tả của chúng:",
+      "pairs": {
+        "Enabled": "State",
+        "DisableNews": "Event",
+        "[isStaff]": "Guard",
+        "writeLog()": "Action"
+      },
+      "explanation": "State mô tả tình huống kéo dài theo thời gian; Event là sự kiện xảy ra lập tức; Guard là điều kiện Boolean bảo vệ; Action là phép xử lý tức thời khi transition kích hoạt.",
+      "distractorTags": {}
+    },
+    {
+      "id": "R06-05",
+      "type": "choice",
+      "prompt": "Khi nhận cùng một sự kiện (event), hệ thống có luôn chuyển sang cùng một trạng thái đích (next state) bất kể trạng thái xuất phát hiện tại hay không?",
+      "options": [
+        "Có, sự kiện luôn quyết định duy nhất trạng thái đích",
+        "Không, trạng thái tiếp theo phụ thuộc vào cả trạng thái hiện tại, sự kiện và điều kiện bảo vệ"
+      ],
+      "correct": 1,
+      "explanation": "Trạng thái tiếp theo (nextState) phụ thuộc hoàn toàn vào tổ hợp: trạng thái hiện tại (currentState), sự kiện kích hoạt (event) và điều kiện bảo vệ (guard): nextState = f(currentState, event, guard).",
+      "distractorTags": {
+        "0": "ignore-current-state"
+      }
+    }
+  ]
+}

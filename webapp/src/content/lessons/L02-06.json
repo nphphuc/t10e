@@ -1,0 +1,85 @@
+{
+  "id": "L02-06",
+  "title": "Level 2 Review: Chọn process theo rủi ro",
+  "questions": [
+    {
+      "id": "R02-01",
+      "type": "order",
+      "prompt": "Sắp xếp thứ tự các hoạt động trong một vòng lặp của mô hình Spiral (Mô hình xoắn ốc):",
+      "options": [
+        "Phát triển sản phẩm kỹ thuật (Develop product)",
+        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)",
+        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)",
+        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)"
+      ],
+      "correctOrder": [
+        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)",
+        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)",
+        "Phát triển sản phẩm kỹ thuật (Develop product)",
+        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)"
+      ],
+      "explanation": "Trình tự chuẩn của Spiral Model: Xác định mục tiêu -> Phân tích rủi ro -> Phát triển -> Lập kế hoạch chu kỳ tiếp theo.",
+      "distractorTags": {}
+    },
+    {
+      "id": "R02-02",
+      "type": "choice",
+      "prompt": "Việc chạy thử bản prototype với người dùng cuối để kiểm tra xem hệ thống có giải quyết đúng nhu cầu thực tế của họ hay không là hoạt động:",
+      "options": [
+        "Verification (Kiểm chứng)",
+        "Validation (Xác nhận)",
+        "Cả hai hoạt động"
+      ],
+      "correct": 1,
+      "explanation": "Validation kiểm tra xem ta có 'build the right system' (xây dựng đúng hệ thống khách hàng cần) hay không.",
+      "distractorTags": {
+        "0": "verify-vs-validate",
+        "2": "verify-vs-validate"
+      }
+    },
+    {
+      "id": "R02-03",
+      "type": "choice",
+      "prompt": "Một bản thử nghiệm UI được làm nhanh để lấy phản hồi từ người dùng và sau đó vứt bỏ hoàn toàn được gọi là:",
+      "options": [
+        "Production increment",
+        "Throwaway prototype",
+        "Evolutionary prototype",
+        "Unit test"
+      ],
+      "correct": 1,
+      "explanation": "Throwaway prototype được tạo ra chỉ để lấy phản hồi nhanh về giao diện hoặc làm rõ yêu cầu, sau đó bị loại bỏ hoàn toàn.",
+      "distractorTags": {
+        "0": "prototype-is-product",
+        "2": "prototype-is-product",
+        "3": null
+      }
+    },
+    {
+      "id": "R02-04",
+      "type": "match",
+      "prompt": "Ghép các mô hình trong quy trình COMET với các thành phần mô tả tương ứng:",
+      "pairs": {
+        "Requirements Modeling": "Mô tả Use Case và Actor của hệ thống (Black Box)",
+        "Analysis Modeling": "Mô tả các Object tham gia và Interaction trong domain",
+        "Design Modeling": "Mô tả các Component cấu hình và Interface giải pháp"
+      },
+      "explanation": "Requirements mô tả Actor/Use case; Analysis mô tả Object/Interaction ở domain; Design mô tả Component/Interface giải pháp.",
+      "distractorTags": {}
+    },
+    {
+      "id": "R02-05",
+      "type": "choice",
+      "prompt": "Dự án mới có yêu cầu nghiệp vụ thay đổi liên tục, công nghệ mới nhiều rủi ro kỹ thuật chưa được kiểm chứng. Bạn nên lựa chọn quy trình nào?",
+      "options": [
+        "Waterfall thuần túy để quản lý tiến độ chặt chẽ từ đầu",
+        "Quy trình lặp hướng rủi ro (Iterative Risk-driven) như Spiral hay Agile"
+      ],
+      "correct": 1,
+      "explanation": "Khi yêu cầu không chắc chắn và rủi ro kỹ thuật cao, quy trình lặp hướng rủi ro giúp thu thập phản hồi và giải quyết rủi ro sớm nhất có thể.",
+      "distractorTags": {
+        "0": "one-process-best"
+      }
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "L01-05",
+  "title": "Diagram nào trả lời câu hỏi nào?",
+  "minutes": 10,
+  "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch01_Introduction.pptx#7", "Ch02_Overview of UML Notation.pptx#3-12"],
+  "objective": "Lựa chọn đúng loại biểu đồ UML phù hợp nhất để giải quyết và truyền đạt các vấn đề thiết kế cụ thể.",
+  "misconceptions": ["view-purpose"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Hệ thống FreshFood chuẩn bị triển khai lên môi trường Cloud AWS. Bạn được giao nhiệm vụ mô tả xem Web Server và Database Server sẽ chạy trên các máy ảo nào và kết nối với nhau ra sao. Bạn nên chọn vẽ biểu đồ nào?",
+      "options": [
+        "Class Diagram để mô tả các thực thể",
+        "Sequence Diagram để mô tả trình tự gọi",
+        "Deployment Diagram để mô tả cấu hình cài đặt vật lý"
+      ],
+      "correct": 2,
+      "explanation": "Deployment Diagram (Biểu đồ triển khai) là biểu đồ duy nhất trong UML được thiết kế đặc thù để mô tả cấu trúc vật lý gồm các node phần cứng, môi trường thực thi và cách phân bổ các thành phần phần mềm trên đó.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "1": "view-purpose"
+      },
+      "hints": [
+        "Chúng ta đang nói về máy ảo, server vật lý và phân bổ mạng.",
+        "Sơ đồ nào tập trung vào môi trường triển khai thực tế?",
+        "Xem mục đích của Deployment Diagram trong slide 7 hoặc 12."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các bài toán thiết kế thực tế sau với loại biểu đồ UML thích hợp nhất để giải quyết chúng:",
+      "pairs": {
+        "Thống nhất phạm vi tính năng với khách hàng": "Use Case Diagram",
+        "Thiết kế cấu trúc dữ liệu lưu trữ tĩnh": "Class Diagram",
+        "Vẽ trình tự gọi API giữa các Microservice": "Sequence Diagram",
+        "Mô tả sự thay đổi trạng thái của Đơn Hàng": "State Machine Diagram",
+        "Mô tả mô hình cài đặt máy chủ Web và DB": "Deployment Diagram"
+      },
+      "explanation": "Mỗi biểu đồ được tối ưu hóa cho một góc nhìn chuyên biệt: Use Case cho nghiệp vụ, Class cho cấu trúc tĩnh, Sequence cho tương tác thời gian, State Machine cho vòng đời trạng thái, Deployment cho hạ tầng vật lý.",
+      "hints": [
+        "Đơn hàng chuyển từ Chờ thanh toán -> Đã giao là sự thay đổi trạng thái (State).",
+        "Trình tự gọi theo thời gian liên quan đến chuỗi (Sequence).",
+        "Cấu trúc dữ liệu tĩnh liên quan đến các Lớp (Class)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Trong cuộc họp thiết kế, một bạn kiến nghị: 'Hãy dùng Class Diagram vẽ lại luồng xử lý của tính năng Đặt hàng (Checkout) để lập trình viên biết code gọi hàm nào trước, hàm nào sau'. Bạn đồng ý hay không?",
+      "options": [
+        "Đồng ý, Class Diagram rất phù hợp để mô tả luồng gọi hàm theo thời gian",
+        "Không đồng ý, Class Diagram chỉ mô tả quan hệ cấu trúc tĩnh. Muốn mô tả luồng gọi hàm tuần tự theo thời gian ta phải dùng Sequence Diagram",
+        "Không đồng ý, ta nên dùng Deployment Diagram cho việc này"
+      ],
+      "correct": 1,
+      "explanation": "Class Diagram là biểu đồ tĩnh, không có khái niệm thời gian hay trình tự gọi. Cố vẽ luồng chạy động lên Class Diagram sẽ làm hỏng biểu đồ và gây rối. Ta phải dùng Sequence Diagram (hoặc Communication Diagram) cho việc này.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "2": null
+      },
+      "hints": [
+        "Hàm gọi trước, hàm gọi sau là tính chất động (dynamic) theo thời gian.",
+        "Class diagram là sơ đồ cấu trúc tĩnh (static).",
+        "Tìm sơ đồ mô tả trình tự gọi tuần tự."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Mỗi biểu đồ UML có một nhiệm vụ riêng (separation of concerns). Đừng cố ép một biểu đồ giải quyết bài toán không thuộc sở trường của nó (lỗi view-purpose). Hãy chọn đúng công cụ cho từng bài toán.",
+      "exitTicket": "Bạn đã biết cách chọn biểu đồ phù hợp chưa? Hãy nêu cảm nhận của bạn."
+    }
+  ]
+}

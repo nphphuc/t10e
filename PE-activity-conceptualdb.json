@@ -1,0 +1,46 @@
+{
+  "_huong_dan": "Điền câu ôn cho 2 chủ đề PE còn thiếu nguồn. Giữ tiếng Việt, thuật ngữ tiếng Anh. Mỗi distractor NÊN gắn misconception tag (nếu không có thì bỏ khỏi distractorTags). Xóa các câu mẫu, thêm bao nhiêu câu tùy bạn. type hợp lệ: choice | multi | truefalse | order | match | fill | scenario.",
+
+  "_cach_ghi_dap_an": {
+    "choice/scenario": "options: [...], correct: <index đáp án đúng, bắt đầu từ 0>",
+    "multi": "options: [...], correctSet: [<các index đúng>]",
+    "truefalse": "correct: true | false (không cần options)",
+    "order": "items: [...], correctOrder: [<index theo thứ tự đúng>]",
+    "match": "pairs: [{left, right}, ...]",
+    "fill": "accepted: [\"đáp án 1\", \"biến thể 2\"]"
+  },
+
+  "pe-activity": {
+    "id": "pe-activity",
+    "title": "Ôn thi PE — Activity Diagram",
+    "topic": "activity",
+    "questions": [
+      {
+        "id": "PA-01",
+        "type": "choice",
+        "prompt": "VÍ DỤ (thay bằng câu của bạn): Ký hiệu nào biểu diễn một quyết định rẽ nhánh trong activity diagram?",
+        "options": ["Hình thoi (decision node)", "Hình chữ nhật bo góc", "Vòng tròn đặc", "Mũi tên nét đứt"],
+        "correct": 0,
+        "explanation": "Decision node là hình thoi, có guard [condition] trên các nhánh ra.",
+        "distractorTags": { "1": "", "2": "", "3": "" }
+      }
+    ]
+  },
+
+  "pe-conceptual-db": {
+    "id": "pe-conceptual-db",
+    "title": "Ôn thi PE — Conceptual Database",
+    "topic": "conceptual-db",
+    "questions": [
+      {
+        "id": "PC-01",
+        "type": "choice",
+        "prompt": "VÍ DỤ (thay bằng câu của bạn): Quan hệ many-to-many giữa Order và Product khi chuyển sang conceptual schema cần?",
+        "options": ["Một bảng trung gian (associative entity)", "Một FK duy nhất ở Order", "Gộp hai bảng làm một", "Không cần thay đổi"],
+        "correct": 0,
+        "explanation": "M:N phải tách thành associative entity giữ khóa của cả hai phía.",
+        "distractorTags": { "1": "", "2": "", "3": "" }
+      }
+    ]
+  }
+}

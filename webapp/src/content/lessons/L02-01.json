@@ -1,0 +1,93 @@
+{
+  "id": "L02-01",
+  "title": "Waterfall dưới áp lực thay đổi",
+  "minutes": 9,
+  "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#2-3"],
+  "objective": "Hiểu rõ các hạn chế cốt lõi của mô hình Waterfall khi đối mặt với sự thay đổi yêu cầu và lý do tại sao không có một quy trình nào là duy nhất tối ưu.",
+  "misconceptions": ["one-process-best"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Dự án FOS được phát triển trong 12 tháng theo quy trình Waterfall thuần túy. Khách hàng đồng ý chỉ kiểm thử ở tháng thứ 11. Theo bạn, rủi ro lớn nhất của dự án này là gì?",
+      "options": [
+        "Phần mềm sẽ chạy chậm hơn mong đợi",
+        "Đến tháng thứ 11 chạy thử mới thấy hệ thống không khớp với nhu cầu thực tế và chi phí sửa đổi là cực kỳ lớn",
+        "Lập trình viên sẽ quên cách code sau 10 tháng chỉ viết tài liệu"
+      ],
+      "correct": 1,
+      "explanation": "Với Waterfall, hệ thống hoạt động chỉ có ở giai đoạn muộn. Nếu yêu cầu bị hiểu sai từ đầu, lỗi chỉ được phát hiện ở giai đoạn tích hợp/kiểm thử cuối cùng, gây tổn thất nghiêm trọng.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Hãy nghĩ về thời điểm khách hàng nhìn thấy phần mềm chạy được.",
+        "Nếu phát hiện lỗi yêu cầu ở tháng thứ 11, ta có phải sửa lại code của 10 tháng trước không?",
+        "Tập trung vào tính chất phi tuần hoàn của Waterfall."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "waterfall-process",
+        "options": [
+          "Quy trình cho phép các giai đoạn gối đầu và lặp lại liên tục",
+          "Mỗi bước đi xuống tuần tự và kiểm thử yêu cầu diễn ra quá muộn ở cuối chuỗi",
+          "Hệ thống hoàn thành ngay từ bước phân tích yêu cầu đầu tiên"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ Waterfall. Nhược điểm chí mạng nào của mô hình này được thể hiện trực quan qua chuỗi chảy đi xuống?",
+      "correct": 1,
+      "explanation": "Waterfall là một quy trình lý tưởng hóa đi xuống tuần tự, không thể hiện sự lặp lại (iteration) và gối đầu (overlap) giữa các pha. Yêu cầu chỉ được kiểm thử ở cuối vòng đời.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhìn vào hướng đi một chiều từ trên xuống dưới.",
+        "Kiểm thử (Testing) nằm ở đâu trong chuỗi?",
+        "Không có mũi tên quay ngược lên để lặp lại."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "Dự án mới có yêu cầu thay đổi hàng tuần. Project Manager khăng khăng: 'Cứ làm Waterfall cho chắc chắn, quy trình này chuẩn nhất rồi'. PM đang mắc sai lầm gì?",
+      "options": [
+        "Nhầm lẫn giữa Class và Object",
+        "Nghĩ rằng Waterfall là quy trình tối ưu duy nhất cho mọi dự án (one-process-best)",
+        "Nhầm lẫn việc viết code với việc thiết kế dữ liệu"
+      ],
+      "correct": 1,
+      "explanation": "Đây là hiểu lầm 'one-process-best'. Waterfall chỉ tốt khi yêu cầu ổn định và xác định rõ từ đầu. Với dự án biến động, các quy trình lặp và hướng rủi ro (iterative & risk-driven) như Spiral hay Agile mới phù hợp.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Yêu cầu thay đổi hàng tuần có phù hợp với một kế hoạch đóng băng từ đầu không?",
+        "Có một quy trình vạn năng cho mọi dự án không?",
+        "Xem danh sách hiểu lầm trong Slide Ch03."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Waterfall hạn chế sự lặp lại, gối đầu và kiểm thử yêu cầu rất muộn. Đừng áp dụng Waterfall một cách mù quáng cho mọi dự án (lỗi one-process-best), đặc biệt khi yêu cầu nghiệp vụ thay đổi liên tục.",
+      "exitTicket": "Bạn đã hiểu rõ tại sao Waterfall dễ gãy dưới áp lực thay đổi chưa? Hãy ghi lại suy nghĩ ngắn gọn."
+    }
+  ]
+}

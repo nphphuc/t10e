@@ -1,0 +1,130 @@
+{
+  "id": "L03-03",
+  "title": "Actor là vai trò, không phải người",
+  "minutes": 9,
+  "xp": 100,
+  "objective": "Phân biệt actor với user instance/internal component và xác định primary/secondary actor.",
+  "misconceptions": ["actor-is-person", "actor-is-internal", "usecase-is-click"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "visual",
+      "prompt": "FOS là phần mềm do nhóm bạn xây dựng. Kéo những thành phần nằm ngoài FOS ra ngoài khung hệ thống.",
+      "visual": {
+        "variant": "boundary-sort",
+        "items": [
+          "Customer",
+          "Warehouse Staff",
+          "Google Authentication Service",
+          "Product Database",
+          "CheckoutController"
+        ],
+        "correctOutside": [
+          "Customer",
+          "Warehouse Staff",
+          "Google Authentication Service"
+        ]
+      },
+      "hints": [
+        "Đừng hỏi “có liên quan đến hệ thống không”. Hãy hỏi “thành phần này có nằm trong phần mềm nhóm đang thiết kế không”.",
+        "Database và controller là implementation của FOS trong case này."
+      ],
+      "solution": "Customer, Warehouse Staff, Google Authentication Service nằm ngoài system boundary và là actor. Product Database và CheckoutController là thành phần nội bộ.",
+      "feedbackCorrect": "Customer và Warehouse Staff gửi input trực tiếp. Google Authentication là hệ thống ngoài cung cấp dịch vụ. Cả ba đều ở ngoài system boundary.",
+      "feedbackWrongByItem": {
+        "Product Database": "Database lưu dữ liệu, nhưng trong scope FOS hiện tại nó là thành phần nội bộ, không phải actor.",
+        "CheckoutController": "Controller là software object của FOS. Actor không nằm trong phần mềm đang xét."
+      },
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Nguyễn An mua rau trên FOS. Actor nên được đặt tên là gì?",
+      "options": [
+        "Nguyễn An",
+        "Customer",
+        "Chrome Browser",
+        "Buy button"
+      ],
+      "correct": 1,
+      "explanation": "Actor đại diện một vai trò mà nhiều user instance có thể đóng. Tên người cụ thể là instance; browser/button là phương tiện giao tiếp.",
+      "distractorTags": {
+        "0": "actor-is-person",
+        "2": null,
+        "3": "usecase-is-click"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép actor với vai trò trong use case Checkout.",
+      "pairs": {
+        "Customer": "Primary actor",
+        "Payment System": "Secondary actor",
+        "Mailing System": "Secondary actor"
+      },
+      "explanation": "Customer khởi tạo Checkout để hoàn tất đơn. Payment và Mailing hỗ trợ hệ thống hoàn thành goal.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Thành phần nào có thể là actor? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Một human role",
+        "Một external system",
+        "Một external I/O device",
+        "Một timer tạo event",
+        "Một private method"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Actor là external role/entity tương tác qua boundary; private method nằm trong implementation.",
+      "distractorTags": {
+        "4": "actor-is-internal"
+      },
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "ATM card reader là phần cứng bên ngoài software system nhưng nằm trong toàn bộ ATM system. Khi vẽ software context, card reader là gì?",
+      "options": [
+        "External I/O device actor",
+        "Entity object",
+        "Control object",
+        "Không xuất hiện"
+      ],
+      "correct": 0,
+      "explanation": "Scope quyết định classification. Trong software context, hardware card reader nằm ngoài software và tương tác qua boundary.",
+      "distractorTags": {
+        "1": "actor-is-internal",
+        "2": "actor-is-internal"
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "truefalse",
+      "prompt": "Khi đang xác định actor và use case, ta cần biết FOS dùng MVC hay Clean Architecture.",
+      "correct": false,
+      "explanation": "Requirements model coi hệ thống như black box. Architecture là quyết định của design phase.",
+      "weight": 1
+    },
+    {
+      "id": "s7",
+      "role": "takeaway",
+      "type": "takeaway",
+      "prompt": "Tóm tắt nội dung bài học",
+      "text": "Actor là một vai trò bên ngoài scope trao đổi input/output với hệ thống. Primary actor khởi tạo use case để đạt giá trị; secondary actor hỗ trợ use case.",
+      "exitTicket": "Gọi tên một actor không phải con người trong dự án của bạn và giải thích vì sao nó ở ngoài scope."
+    }
+  ]
+}

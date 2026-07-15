@@ -1,0 +1,82 @@
+{
+  "id": "L01-04",
+  "title": "Class không phải object",
+  "minutes": 8,
+  "xp": 80,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch02_Overview of UML Notation.pptx#4", "Ch04_Software Design and Architecture Concepts.pptx#3"],
+  "objective": "Phân biệt rõ khái niệm Class (khuôn mẫu) và Object (thực thể cụ thể) cùng ký hiệu biểu diễn tương ứng trong UML.",
+  "misconceptions": ["class-is-object"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Khi thiết kế hệ thống FreshFood, lập trình viên viết: 'Chúng ta có thực thể là khách hàng Nguyễn An'. Về mặt thuật ngữ thiết kế, 'Nguyễn An' đại diện cho khái niệm nào?",
+      "options": [
+        "Class (Lớp)",
+        "Object instance (Đối tượng cụ thể)",
+        "Operation (Hành động)"
+      ],
+      "correct": 1,
+      "explanation": "'Nguyễn An' là một thực thể cụ thể có dữ liệu riêng ở runtime, do đó nó là một Object instance. Ngược lại, 'Customer' mới là Class định nghĩa chung cho tất cả khách hàng.",
+      "distractorTags": {
+        "0": "class-is-object"
+      },
+      "hints": [
+        "Hãy nghĩ xem 'Nguyễn An' là một cái khuôn chung hay là một người cụ thể?",
+        "Class là tập hợp các đối tượng có cùng đặc điểm.",
+        "Nguyễn An là một thể hiện (instance) của lớp Customer."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "class-object-card",
+        "options": [
+          "Tên Object được viết hoa toàn bộ",
+          "Tên Object được gạch chân (underlined)",
+          "Tên Object luôn có dấu ngoặc kép"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ so sánh Class và Object trong UML. Ký hiệu đặc trưng nào được dùng để phân biệt tên của một Object so với tên của một Class?",
+      "correct": 1,
+      "explanation": "Trong UML, tên của một Object luôn được gạch chân (underlined) để người đọc biết ngay đó là một instance cụ thể ở runtime chứ không phải một Class tĩnh.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhìn kỹ kiểu chữ của 'johnsAccount : Account' ở sơ đồ.",
+        "Nó có một đường kẻ nằm ở vị trí nào?",
+        "Tên object name được gạch chân."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "fill",
+      "prompt": "Để biểu diễn đối tượng 'johnsAccount' thuộc lớp 'Account' trong biểu đồ đối tượng UML, ta viết tên đối tượng là: 'johnsAccount : Account'. Để phân biệt với Class tĩnh, tên này bắt buộc phải được _____ dưới.",
+      "accepted": ["gạch", "gạch chân", "underline", "underlined", "được gạch chân"],
+      "explanation": "Tên object (ví dụ: `johnsAccount : Account`) bắt buộc phải được gạch chân (underlined) để phân biệt rõ với định nghĩa Class tĩnh thông thường.",
+      "hints": [
+        "Nhớ lại đặc trưng hiển thị của Object trong UML.",
+        "Đó là một nét vẽ nằm dưới các chữ cái.",
+        "Điền từ 'gạch chân' hoặc 'underline'."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Class là lớp khuôn mẫu tĩnh ở thời điểm thiết kế (ví dụ: Account). Object là thực thể động cụ thể ở runtime (ví dụ: johnsAccount). Trong UML, tên Object luôn được gạch chân để phân biệt.",
+      "exitTicket": "Bạn đã nắm chắc cách biểu diễn Class và Object chưa? Ghi lại thắc mắc nếu có."
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "id": "L01-02",
+  "title": "Concept, strategy, criteria, method hay notation?",
+  "minutes": 9,
+  "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch01_Introduction.pptx#5"],
+  "objective": "Phân biệt được thế nào là khái niệm thiết kế, định hướng, tiêu chí cấu trúc, phương pháp và ký hiệu.",
+  "misconceptions": ["uml-is-method"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Nhiều người nói: 'Tôi học UML tức là tôi đang học cách thiết kế phần mềm'. Nhận định này có điểm gì chưa chính xác?",
+      "options": [
+        "UML chỉ là ký hiệu biểu diễn trực quan (notation), không phải phương pháp thiết kế (method)",
+        "UML là giải thuật lập trình, không dùng cho thiết kế",
+        "UML là tiêu chí phân rã kiến trúc (criteria)"
+      ],
+      "correct": 0,
+      "explanation": "UML chỉ là tập ký hiệu hình vẽ (notation) để biểu đạt thiết kế. Học ký hiệu UML không đồng nghĩa với học phương pháp thiết kế (method) như COMET với các bước phân tích, gán trách nhiệm và cấu trúc hệ thống.",
+      "distractorTags": {
+        "1": null,
+        "2": "uml-is-method"
+      },
+      "hints": [
+        "Sự khác biệt giữa chữ viết (notation) và cách viết một bài văn hay (method).",
+        "UML là Unified Modeling Language - ngôn ngữ ký hiệu.",
+        "Xem định nghĩa về Notation trong slide 5."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các thuật ngữ định nghĩa thiết kế phần mềm với các ví dụ thực tế tương ứng của chúng:",
+      "pairs": {
+        "Concept (Khái niệm)": "Information Hiding (Che giấu thông tin)",
+        "Strategy (Định hướng)": "Object-Oriented Decomposition (Phân rã hướng đối tượng)",
+        "Criteria (Tiêu chí)": "Object Structuring Criteria (Tiêu chí phân chia đối tượng)",
+        "Method (Phương pháp)": "COMET (Phương pháp thực thi các bước)",
+        "Notation (Ký hiệu)": "UML (Ngôn ngữ mô hình hóa thống nhất)"
+      },
+      "explanation": "Concept là ý tưởng nền tảng; Strategy là kế hoạch tổng thể; Criteria là các heuristic hướng dẫn; Method là phương pháp tiếp cận có trình tự các bước; Notation là công cụ đồ họa/văn bản để biểu đạt.",
+      "hints": [
+        "COMET là một phương pháp (method) có các bước thiết kế cụ thể.",
+        "UML là ngôn ngữ ký hiệu hình vẽ (notation).",
+        "Che giấu thông tin (information hiding) là một khái niệm/ý tưởng nền tảng (concept)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Khi thiết kế hệ thống FreshFood (FOS), bạn quyết định giấu kín cấu trúc bảng dữ liệu SQL của Database và chỉ cho gọi qua API. Đây là ví dụ của thành phần nào?",
+      "options": [
+        "Mô hình ký hiệu (Notation)",
+        "Tiêu chí cấu trúc (Criteria)",
+        "Khái niệm che giấu thông tin (Concept - Information Hiding)"
+      ],
+      "correct": 2,
+      "explanation": "Việc ẩn giấu cấu trúc dữ liệu bên trong và chỉ cho truy cập thông qua giao diện (interface) là ứng dụng trực tiếp của khái niệm Che giấu thông tin (Information Hiding - một thiết kế Concept).",
+      "distractorTags": {
+        "0": null,
+        "1": null
+      },
+      "hints": [
+        "Đây là hành động giấu thông tin cấu trúc dữ liệu của đối tượng.",
+        "Information Hiding là một Concept.",
+        "Nội dung này tương ứng với Slide 5 về khái niệm Che giấu thông tin."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Hãy nhớ: UML chỉ là ký hiệu biểu đạt (Notation). Để thiết kế tốt, bạn cần hiểu các khái niệm nền tảng (Concept như Information Hiding), áp dụng định hướng (Strategy), tuân theo tiêu chí (Criteria) và thực hiện các bước theo phương pháp (Method như COMET).",
+      "exitTicket": "Bạn đã phân biệt được Concept, Strategy, Criteria, Method và Notation chưa? Hãy mô tả một ví dụ ngắn."
+    }
+  ]
+}

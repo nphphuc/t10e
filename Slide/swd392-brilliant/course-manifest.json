@@ -1,0 +1,197 @@
+{
+  "$schema": "./course.schema.json",
+  "schemaVersion": "1.0.0",
+  "source": {
+    "repository": "https://github.com/nphphuc/t10e",
+    "branch": "phuc",
+    "commit": "2764885f09992613d50dc2e76b96743f2d30e157",
+    "slideDecks": 23,
+    "slidePages": 579,
+    "caseStudyPdfPages": 55
+  },
+  "course": {
+    "id": "swd392-brilliant",
+    "title": "SWD392: Software Design & Architecture",
+    "subtitle": "Từ yêu cầu nghiệp vụ đến kiến trúc có thể bảo vệ",
+    "language": "vi",
+    "technicalVocabulary": "en",
+    "level": "beginner-to-intermediate",
+    "estimatedMinutes": 846,
+    "levelCount": 11,
+    "lessonCount": 72,
+    "targetExercises": 420,
+    "primaryCaseStudy": "FreshFood Online System",
+    "prerequisites": [
+      "OOP cơ bản",
+      "Biết đọc Java hoặc C# là lợi thế",
+      "Không yêu cầu biết UML trước"
+    ],
+    "masteryRules": {
+      "lessonPercent": 80,
+      "levelReviewPercent": 75,
+      "capstonePercent": 70
+    },
+    "levels": [
+      {
+        "id": "L01",
+        "title": "Nhìn hệ thống trước khi viết code",
+        "outcome": "Phân biệt model, method, notation, architecture và chọn đúng UML view.",
+        "sourceRefs": ["Ch01_Introduction.pptx#2-7", "Ch02_Overview of UML Notation.pptx#2-14", "Ch04_Software Design and Architecture Concepts.pptx#3-4"],
+        "lessons": [
+          {"id":"L01-01","type":"concept","title":"Tại sao phải model trước khi code?","minutes":8,"xp":80,"interactionTypes":["scenario","visual","choice"],"misconceptionTags":["model-is-documentation"]},
+          {"id":"L01-02","type":"concept","title":"Concept, strategy, criteria, method hay notation?","minutes":9,"xp":90,"interactionTypes":["match","choice"],"misconceptionTags":["uml-is-method"]},
+          {"id":"L01-03","type":"concept","title":"Bảy góc nhìn của một hệ thống","minutes":10,"xp":100,"interactionTypes":["visual","match"],"misconceptionTags":["one-view-enough"]},
+          {"id":"L01-04","type":"concept","title":"Class không phải object","minutes":8,"xp":80,"interactionTypes":["visual","choice","fill"],"misconceptionTags":["class-is-object"]},
+          {"id":"L01-05","type":"apply","title":"Diagram nào trả lời câu hỏi nào?","minutes":10,"xp":110,"interactionTypes":["match","scenario"],"misconceptionTags":["view-purpose"]},
+          {"id":"L01-06","type":"review","title":"UML View Detective","minutes":12,"xp":150,"interactionTypes":["scenario","multi","visual"],"misconceptionTags":["one-view-enough","view-purpose"]}
+        ]
+      },
+      {
+        "id": "L02",
+        "title": "Vòng đời và COMET",
+        "outcome": "So sánh process model theo rủi ro và giải thích trace từ use case đến test.",
+        "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#2-13", "Ch05_Overview of Software Modeling & Design Methods.pptx#3-19"],
+        "lessons": [
+          {"id":"L02-01","type":"concept","title":"Waterfall dưới áp lực thay đổi","minutes":9,"xp":90,"interactionTypes":["visual","scenario"],"misconceptionTags":["one-process-best"]},
+          {"id":"L02-02","type":"concept","title":"Prototype để học, increment để giao","minutes":10,"xp":100,"interactionTypes":["match","scenario"],"misconceptionTags":["prototype-is-product"]},
+          {"id":"L02-03","type":"concept","title":"Spiral và RUP: tổ chức iteration","minutes":10,"xp":100,"interactionTypes":["order","match"],"misconceptionTags":["process-order"]},
+          {"id":"L02-04","type":"concept","title":"Build the right system, build the system right","minutes":9,"xp":90,"interactionTypes":["choice","scenario"],"misconceptionTags":["verify-vs-validate"]},
+          {"id":"L02-05","type":"apply","title":"COMET nối yêu cầu với kiến trúc","minutes":11,"xp":120,"interactionTypes":["order","visual"],"misconceptionTags":["analysis-is-design"]},
+          {"id":"L02-06","type":"review","title":"Chọn process theo rủi ro","minutes":13,"xp":160,"interactionTypes":["scenario","multi"],"misconceptionTags":["one-process-best","prototype-is-product"]}
+        ]
+      },
+      {
+        "id": "L03",
+        "title": "Requirements và Use Case",
+        "outcome": "Biến mô tả nghiệp vụ thành requirements model có scope, actor, use case và flow kiểm thử được.",
+        "sourceRefs": ["Ch06_Use Case Modeling.pptx#3-20", "SWD392_RDS Document Case Study.pdf#4-24"],
+        "lessons": [
+          {"id":"L03-01","type":"concept","title":"Nhìn hệ thống như một black box","minutes":9,"xp":90,"interactionTypes":["visual","multi"],"misconceptionTags":["actor-is-internal"]},
+          {"id":"L03-02","type":"concept","title":"Functional hay quality requirement?","minutes":10,"xp":100,"interactionTypes":["match","fill","scenario"],"misconceptionTags":["nfr-is-vague"]},
+          {"id":"L03-03","type":"concept","title":"Actor là vai trò, không phải người","minutes":9,"xp":100,"interactionTypes":["visual","choice","match"],"misconceptionTags":["actor-is-person","actor-is-internal"]},
+          {"id":"L03-04","type":"concept","title":"Tìm use case có giá trị","minutes":11,"xp":110,"interactionTypes":["match","scenario"],"misconceptionTags":["usecase-is-click"]},
+          {"id":"L03-05","type":"concept","title":"Viết main flow có thể kiểm thử","minutes":12,"xp":120,"interactionTypes":["order","scenario"],"misconceptionTags":["flow-order"]},
+          {"id":"L03-06","type":"apply","title":"Include, extend và activity flow","minutes":11,"xp":120,"interactionTypes":["visual","order","choice"],"misconceptionTags":["include-vs-extend"]},
+          {"id":"L03-07","type":"review","title":"Requirements Sprint cho FOS","minutes":16,"xp":180,"interactionTypes":["scenario","visual","multi"],"misconceptionTags":["nfr-is-vague","actor-is-internal","usecase-is-click"]}
+        ]
+      },
+      {
+        "id": "L04",
+        "title": "Static Modeling",
+        "outcome": "Xây class model mô tả cấu trúc dữ liệu và quan hệ mà không lẫn flow xử lý.",
+        "sourceRefs": ["Ch07_Static Modeling.pptx#3-25", "SWD392_RDS Document Case Study.pdf#24-30"],
+        "lessons": [
+          {"id":"L04-01","type":"concept","title":"Từ noun đến class, từ value đến attribute","minutes":9,"xp":90,"interactionTypes":["multi","visual"],"misconceptionTags":["class-is-object"]},
+          {"id":"L04-02","type":"concept","title":"Association, link và multiplicity","minutes":10,"xp":100,"interactionTypes":["visual","choice"],"misconceptionTags":["association-is-link"]},
+          {"id":"L04-03","type":"concept","title":"Quan hệ có dữ liệu riêng","minutes":10,"xp":100,"interactionTypes":["scenario","visual"],"misconceptionTags":["relationship-data"]},
+          {"id":"L04-04","type":"concept","title":"Composition hay aggregation?","minutes":9,"xp":100,"interactionTypes":["visual","choice"],"misconceptionTags":["aggregation-equals-composition"]},
+          {"id":"L04-05","type":"concept","title":"Generalization không chỉ để tái dùng code","minutes":10,"xp":100,"interactionTypes":["visual","truefalse"],"misconceptionTags":["inheritance-for-reuse-only"]},
+          {"id":"L04-06","type":"apply","title":"Vẽ đúng biên và đúng stereotype","minutes":11,"xp":120,"interactionTypes":["visual","match"],"misconceptionTags":["actor-is-internal"]},
+          {"id":"L04-07","type":"review","title":"Data Model Clinic","minutes":15,"xp":180,"interactionTypes":["visual","scenario","multi"],"misconceptionTags":["association-is-link","aggregation-equals-composition","inheritance-for-reuse-only"]}
+        ]
+      },
+      {
+        "id": "L05",
+        "title": "Object & Class Structuring",
+        "outcome": "Gán trách nhiệm đúng cho boundary, entity, control và application-logic objects.",
+        "sourceRefs": ["Ch08_Object and Class Structuring.pptx#3-17", "SWD392_RDS Document Case Study.pdf#30-36"],
+        "lessons": [
+          {"id":"L05-01","type":"concept","title":"Boundary, entity hay control?","minutes":9,"xp":90,"interactionTypes":["match","visual"],"misconceptionTags":["object-role"]},
+          {"id":"L05-02","type":"concept","title":"Khi nào cần control object?","minutes":10,"xp":100,"interactionTypes":["scenario","choice"],"misconceptionTags":["control-always"]},
+          {"id":"L05-03","type":"concept","title":"Tách business rule khỏi dữ liệu","minutes":9,"xp":100,"interactionTypes":["visual","scenario"],"misconceptionTags":["entity-does-everything"]},
+          {"id":"L05-04","type":"apply","title":"Algorithm object và service object","minutes":9,"xp":110,"interactionTypes":["match","scenario"],"misconceptionTags":["object-role","service-initiates"]},
+          {"id":"L05-05","type":"review","title":"Responsibility Sorting","minutes":14,"xp":170,"interactionTypes":["visual","match","multi"],"misconceptionTags":["entity-does-everything","control-always"]}
+        ]
+      },
+      {
+        "id": "L06",
+        "title": "Dynamic Modeling",
+        "outcome": "Hiện thực hóa use case bằng object interaction và state machine nhất quán.",
+        "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#3-26", "SWD392_RDS Document Case Study.pdf#30-37"],
+        "lessons": [
+          {"id":"L06-01","type":"concept","title":"Communication diagram: ai nói với ai?","minutes":9,"xp":90,"interactionTypes":["visual","order"],"misconceptionTags":["sequence-equals-communication"]},
+          {"id":"L06-02","type":"concept","title":"Sequence diagram: khi nào message xảy ra?","minutes":10,"xp":100,"interactionTypes":["visual","order"],"misconceptionTags":["sequence-equals-communication"]},
+          {"id":"L06-03","type":"concept","title":"Hai diagram, một interaction","minutes":9,"xp":100,"interactionTypes":["visual","match"],"misconceptionTags":["sequence-equals-communication"]},
+          {"id":"L06-04","type":"concept","title":"Stateless realization từng bước","minutes":11,"xp":110,"interactionTypes":["order","visual"],"misconceptionTags":["realization-order"]},
+          {"id":"L06-05","type":"concept","title":"Alternative flow không phải ghi chú phụ","minutes":12,"xp":120,"interactionTypes":["scenario","visual"],"misconceptionTags":["ignore-alternative"]},
+          {"id":"L06-06","type":"apply","title":"State, event, guard và action","minutes":11,"xp":120,"interactionTypes":["visual","match","scenario"],"misconceptionTags":["state-is-action","ignore-current-state"]},
+          {"id":"L06-07","type":"review","title":"Realize Add Product","minutes":16,"xp":180,"interactionTypes":["visual","order","scenario"],"misconceptionTags":["ignore-alternative","state-is-action"]}
+        ]
+      },
+      {
+        "id": "L07",
+        "title": "Từ Analysis đến Architecture",
+        "outcome": "Tổng hợp use-case realization thành subsystem, interface và communication architecture.",
+        "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#3-18", "Ch13_Software Subsystem Architectural Design.pptx#3-25", "SWD392_RDS Document Case Study.pdf#37-41"],
+        "lessons": [
+          {"id":"L07-01","type":"concept","title":"Architecture gồm những gì?","minutes":9,"xp":90,"interactionTypes":["multi","visual"],"misconceptionTags":["architecture-is-code"]},
+          {"id":"L07-02","type":"concept","title":"Structural, dynamic và deployment view","minutes":9,"xp":90,"interactionTypes":["visual","match"],"misconceptionTags":["view-purpose"]},
+          {"id":"L07-03","type":"concept","title":"Component, interface và connector","minutes":10,"xp":100,"interactionTypes":["visual","choice"],"misconceptionTags":["interface-is-implementation"]},
+          {"id":"L07-04","type":"concept","title":"Architectural pattern cơ bản","minutes":11,"xp":110,"interactionTypes":["visual","match","scenario"],"misconceptionTags":["async-is-faster"]},
+          {"id":"L07-05","type":"concept","title":"Tích hợp interaction thành kiến trúc","minutes":12,"xp":120,"interactionTypes":["visual","order"],"misconceptionTags":["analysis-is-design"]},
+          {"id":"L07-06","type":"apply","title":"Cắt subsystem theo separation of concerns","minutes":12,"xp":130,"interactionTypes":["visual","scenario"],"misconceptionTags":["partition-by-appearance"]},
+          {"id":"L07-07","type":"review","title":"Message & Subsystem Studio","minutes":16,"xp":190,"interactionTypes":["visual","scenario","multi"],"misconceptionTags":["interface-is-implementation","analysis-is-design"]}
+        ]
+      },
+      {
+        "id": "L08",
+        "title": "Architecture Style Lab",
+        "outcome": "Chọn architecture phù hợp với distribution, autonomy, concurrency, data và transaction needs.",
+        "sourceRefs": ["Ch14_Designing Object-Oriented Software Architectures.pptx#3-23", "Ch15_Designing Client Server Software Architectures.pptx#3-42", "Ch16_Designing Service-Oriented Architectures.pptx#3-29", "Ch17_Designing Component-Based Software Architectures.pptx#3-23", "Ch18_Designing Concurrent and Real-Time Software Architectures.pptx#2-34"],
+        "lessons": [
+          {"id":"L08-01","type":"concept","title":"Object-oriented architecture và class contract","minutes":11,"xp":110,"interactionTypes":["visual","fill","scenario"],"misconceptionTags":["interface-is-implementation"]},
+          {"id":"L08-02","type":"concept","title":"Client/server và multi-tier","minutes":10,"xp":100,"interactionTypes":["visual","match"],"misconceptionTags":["architecture-style-confusion"]},
+          {"id":"L08-03","type":"concept","title":"Request/reply, callback và middleware","minutes":11,"xp":120,"interactionTypes":["visual","scenario"],"misconceptionTags":["async-is-faster"]},
+          {"id":"L08-04","type":"concept","title":"Từ entity model đến relational design","minutes":13,"xp":130,"interactionTypes":["visual","match","scenario"],"misconceptionTags":["multiplicity-fk","relationship-data"]},
+          {"id":"L08-05","type":"concept","title":"SOA: service contract và discovery","minutes":12,"xp":130,"interactionTypes":["visual","order","scenario"],"misconceptionTags":["soa-is-microservices","distribution-is-free"]},
+          {"id":"L08-06","type":"concept","title":"Transaction và coordination","minutes":13,"xp":140,"interactionTypes":["order","visual","scenario"],"misconceptionTags":["acid","distribution-is-free"]},
+          {"id":"L08-07","type":"concept","title":"Component-based architecture","minutes":11,"xp":120,"interactionTypes":["visual","match"],"misconceptionTags":["interface-is-implementation"]},
+          {"id":"L08-08","type":"apply","title":"Concurrent và real-time task architecture","minutes":14,"xp":150,"interactionTypes":["match","visual","scenario"],"misconceptionTags":["task-activation","async-is-faster"]},
+          {"id":"L08-09","type":"review","title":"Architecture Decision Arena","minutes":18,"xp":220,"interactionTypes":["scenario","multi","visual"],"misconceptionTags":["distribution-is-free","architecture-style-confusion"]}
+        ]
+      },
+      {
+        "id": "L09",
+        "title": "Quality Attributes và Trade-off",
+        "outcome": "Viết quality scenario đo được và giải thích trade-off kiến trúc.",
+        "sourceRefs": ["Ch20_Software Quality Attributes.pptx#3-17", "SWD392_RDS Document Case Study.pdf#8", "SWD392_RDS Document Case Study.pdf#51-55"],
+        "lessons": [
+          {"id":"L09-01","type":"concept","title":"Từ nhanh và dễ dùng đến scenario đo được","minutes":10,"xp":100,"interactionTypes":["fill","scenario"],"misconceptionTags":["nfr-is-vague"]},
+          {"id":"L09-02","type":"concept","title":"Khả năng thay đổi và kiểm thử","minutes":11,"xp":110,"interactionTypes":["visual","match"],"misconceptionTags":["quality-confusion"]},
+          {"id":"L09-03","type":"concept","title":"Scale, reuse, performance, security, availability","minutes":12,"xp":120,"interactionTypes":["match","scenario","multi"],"misconceptionTags":["nfr-one-tactic"]},
+          {"id":"L09-04","type":"apply","title":"FOS tiến hóa: client/server đến SOA đến microservices","minutes":14,"xp":150,"interactionTypes":["visual","scenario"],"misconceptionTags":["distribution-is-free","soa-is-microservices"]},
+          {"id":"L09-05","type":"review","title":"Trade-off Board","minutes":16,"xp":190,"interactionTypes":["scenario","visual","multi"],"misconceptionTags":["nfr-one-tactic","quality-driver"]}
+        ]
+      },
+      {
+        "id": "L10",
+        "title": "Design Pattern Toolbox",
+        "outcome": "Nhận diện design pressure, chọn pattern phù hợp và mô tả consequence.",
+        "sourceRefs": ["SWD392_Design Partern.pptx#3-89", "SWD392_GenAI.pptx#11-14"],
+        "lessons": [
+          {"id":"L10-01","type":"concept","title":"Pattern là quyết định, không phải hình UML","minutes":10,"xp":100,"interactionTypes":["order","scenario"],"misconceptionTags":["pattern-by-shape"]},
+          {"id":"L10-02","type":"concept","title":"Tạo object mà không khóa concrete type","minutes":12,"xp":120,"interactionTypes":["match","scenario"],"misconceptionTags":["singleton-global-default"]},
+          {"id":"L10-03","type":"concept","title":"Kết nối interface và hierarchy","minutes":12,"xp":120,"interactionTypes":["visual","match"],"misconceptionTags":["pattern-by-shape"]},
+          {"id":"L10-04","type":"concept","title":"Thêm trách nhiệm và kiểm soát truy cập","minutes":12,"xp":120,"interactionTypes":["visual","scenario"],"misconceptionTags":["wrapper-intent"]},
+          {"id":"L10-05","type":"concept","title":"Phân phối request và notification","minutes":13,"xp":130,"interactionTypes":["visual","scenario"],"misconceptionTags":["pattern-by-shape"]},
+          {"id":"L10-06","type":"apply","title":"Thay đổi algorithm, state và operation","minutes":14,"xp":150,"interactionTypes":["match","scenario","multi"],"misconceptionTags":["state-vs-strategy"]},
+          {"id":"L10-07","type":"review","title":"Pattern Selection Clinic","minutes":18,"xp":220,"interactionTypes":["scenario","multi"],"misconceptionTags":["pattern-by-shape","singleton-global-default","wrapper-intent"]}
+        ]
+      },
+      {
+        "id": "L11",
+        "title": "Case Study Studio và AI Capstone",
+        "outcome": "Tổng hợp quy trình, so sánh architecture và bảo vệ một thiết kế có AI hỗ trợ.",
+        "sourceRefs": ["Ch21_Client Server Software Architecture Case Study-Banking System.pptx#2-45", "Ch22_SOA Case Study-Online Shopping System.pptx#2-19", "Ch23_Component-Based Software Arch_Case Study Emergency Monitoring System.pptx#2-21", "Ch24_Real-Time Software Arch_Case Study Automated Guided Vehicle System.pptx#2-20", "SWD392_GenAI.pptx#2-18", "SWD392_RDS Document Case Study.pdf#4-55"],
+        "lessons": [
+          {"id":"L11-01","type":"case-study","title":"Banking: từ ATM use case đến client/server","minutes":16,"xp":180,"interactionTypes":["visual","order","scenario"],"misconceptionTags":["traceability","case-driver"]},
+          {"id":"L11-02","type":"case-study","title":"Online Shopping: phối hợp nhiều service","minutes":14,"xp":160,"interactionTypes":["visual","scenario"],"misconceptionTags":["soa-is-microservices"]},
+          {"id":"L11-03","type":"case-study","title":"Emergency Monitoring: component và group message","minutes":13,"xp":150,"interactionTypes":["visual","match"],"misconceptionTags":["architecture-style-confusion"]},
+          {"id":"L11-04","type":"case-study","title":"AGV: deadline thay đổi thiết kế","minutes":14,"xp":170,"interactionTypes":["visual","scenario"],"misconceptionTags":["task-activation","async-is-faster"]},
+          {"id":"L11-05","type":"case-study","title":"FreshFood RDS: trace từ requirement đến code","minutes":18,"xp":210,"interactionTypes":["visual","order","scenario"],"misconceptionTags":["traceability","analysis-is-design"]},
+          {"id":"L11-06","type":"capstone","title":"AI-assisted Capstone và Design Defense","minutes":25,"xp":500,"interactionTypes":["scenario","visual","multi"],"misconceptionTags":["ai-output-is-design","distribution-is-free","pattern-by-shape"]}
+        ]
+      }
+    ]
+  }
+}

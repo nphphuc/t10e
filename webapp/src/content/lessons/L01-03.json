@@ -1,0 +1,89 @@
+{
+  "id": "L01-03",
+  "title": "Bảy góc nhìn của một hệ thống",
+  "minutes": 10,
+  "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch01_Introduction.pptx#7"],
+  "objective": "Hiểu và phân biệt được mục tiêu của 7 góc nhìn (views) trong kiến trúc phần mềm và tránh lỗi chỉ dùng một view duy nhất.",
+  "misconceptions": ["one-view-enough"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Khách hàng than phiền rằng ứng dụng FOS phản hồi rất chậm khi tải cao. Một lập trình viên gửi lại một biểu đồ Class Diagram mô tả đầy đủ các bảng dữ liệu để giải thích. Sơ đồ này có giúp giải quyết trực tiếp vấn đề này không?",
+      "options": [
+        "Có, vì class diagram mô tả cấu trúc hệ thống",
+        "Không, vì class diagram là sơ đồ tĩnh (static view), không mô tả được luồng xử lý và hiệu năng động của hệ thống",
+        "Có, vì class diagram chỉ ra được tốc độ truy vấn database"
+      ],
+      "correct": 1,
+      "explanation": "Class Diagram là một Static View mô tả cấu trúc các lớp và thuộc tính tĩnh. Để điều tra vấn đề hiệu năng hay luồng xử lý, ta phải dùng các Dynamic Interaction hoặc Concurrent Views.",
+      "distractorTags": {
+        "0": "one-view-enough",
+        "2": null
+      },
+      "hints": [
+        "Sự khác biệt giữa thiết kế cấu trúc tĩnh và luồng chạy động ở runtime.",
+        "Class diagram có biểu diễn các thông điệp truyền tải theo thời gian không?",
+        "Tập trung vào tính chất 'tĩnh' (static) của Class diagram."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "view-switcher",
+        "options": [
+          "Dùng một biểu đồ duy nhất để thiết kế tất cả các khía cạnh",
+          "Mỗi góc nhìn (view) giải quyết một khía cạnh riêng biệt của hệ thống",
+          "Chỉ cần Use case view là đủ để lập trình trực tiếp"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ 7 góc nhìn của kiến trúc phần mềm. Tại sao chúng ta cần nhiều góc nhìn khác nhau thay vì chỉ dùng một sơ đồ duy nhất?",
+      "correct": 1,
+      "explanation": "Kiến trúc phần mềm rất phức tạp. Mỗi góc nhìn (view) giải quyết một mối quan tâm (separation of concerns) của các bên liên quan: Use case view cho yêu cầu, Static view cho cấu trúc, Dynamic view cho hành vi, và Deployment view cho phân bổ vật lý.",
+      "distractorTags": {
+        "0": "one-view-enough",
+        "2": null
+      },
+      "hints": [
+        "Mỗi vòng tròn trong sơ đồ hướng đến một khía cạnh khác nhau như Static, Dynamic hay Deployment.",
+        "Một sơ đồ có thể vừa biểu diễn tốt cấu trúc lớp vừa biểu diễn tốt phần cứng máy chủ vật lý không?",
+        "Nguyên lý chia để trị trong mô hình hóa."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép các góc nhìn (views) của hệ thống với mục tiêu mô tả tương ứng của chúng:",
+      "pairs": {
+        "Use Case View": "Mô tả yêu cầu chức năng từ bên ngoài",
+        "Static View": "Mô tả cấu trúc lớp và quan hệ tĩnh",
+        "Dynamic Interaction View": "Mô tả luồng thông điệp trao đổi giữa các object",
+        "Dynamic State Machine View": "Mô tả vòng đời và các trạng thái của một đối tượng",
+        "Deployment View": "Mô tả sự phân bổ cấu hình phần cứng vật lý"
+      },
+      "explanation": "Mỗi view giải quyết một câu hỏi cụ thể: Use Case (Ai dùng gì?), Static (Hệ thống gồm những gì?), Interaction (Chạy thế nào?), State (Vòng đời ra sao?), Deployment (Cài đặt ở đâu?).",
+      "hints": [
+        "Dynamic Interaction mô tả các message trao đổi.",
+        "Deployment mô tả các node phần cứng vật lý và cách cài đặt.",
+        "Static view tập trung vào cấu trúc Class tĩnh."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Kiến trúc phần mềm đòi hỏi sự kết hợp của nhiều góc nhìn (Views). Đừng rơi vào bẫy 'one-view-enough' bằng cách lạm dụng Class Diagram cho mọi vấn đề thiết kế.",
+      "exitTicket": "Bạn đã phân biệt được vai trò của 7 góc nhìn UML chưa? Hãy ghi lại phản hồi ngắn."
+    }
+  ]
+}

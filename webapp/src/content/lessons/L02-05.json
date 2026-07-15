@@ -1,0 +1,72 @@
+{
+  "id": "L02-05",
+  "title": "COMET nối yêu cầu với kiến trúc",
+  "minutes": 11,
+  "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch05_Overview of Software Modeling & Design Methods.pptx#4-9", "Ch05_Overview of Software Modeling & Design Methods.pptx#15-18"],
+  "objective": "Hiểu rõ 3 mô hình chính trong quy trình COMET (Requirements, Analysis, Design) và phân biệt ranh giới giữa Phân tích và Thiết kế.",
+  "misconceptions": ["analysis-is-design"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "order",
+      "prompt": "Sắp xếp các hoạt động mô hình hóa theo đúng trình tự dòng chảy từ yêu cầu kỹ thuật đến kiến trúc phần mềm trong COMET:",
+      "options": [
+        "Xác định các Subsystem cấu hình vật lý và định nghĩa Interface (Design Modeling)",
+        "Mô tả các Actor và Use Case của hệ thống dạng Black Box (Requirements Modeling)",
+        "Vẽ Sequence/Communication Diagram để thực thi hóa Use Case (Analysis Modeling)",
+        "Xây dựng Class Diagram mô tả quan hệ tĩnh trong domain (Analysis Modeling)"
+      ],
+      "correctOrder": [
+        "Mô tả các Actor và Use Case của hệ thống dạng Black Box (Requirements Modeling)",
+        "Xây dựng Class Diagram mô tả quan hệ tĩnh trong domain (Analysis Modeling)",
+        "Vẽ Sequence/Communication Diagram để thực thi hóa Use Case (Analysis Modeling)",
+        "Xác định các Subsystem cấu hình vật lý và định nghĩa Interface (Design Modeling)"
+      ],
+      "explanation": "Quy trình COMET chuẩn: Mô tả yêu cầu (Requirements) -> Phân tích cấu trúc tĩnh và động của domain (Analysis) -> Tổng hợp giải pháp kiến trúc và phân chia thành phần vật lý (Design).",
+      "hints": [
+        "Bắt đầu bằng việc xem hệ thống như một Black Box (Requirements).",
+        "Chúng ta phân tích cấu trúc tĩnh của domain trước khi vẽ luồng động thực thi use case.",
+        "Thiết kế Subsystem vật lý và Interface thuộc pha cuối cùng (Design Modeling)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "comet-phases",
+        "options": [
+          "Phân tích (Analysis) phân rã hiểu rõ bài toán (problem domain); Thiết kế (Design) tổng hợp xây dựng giải pháp (solution domain)",
+          "Phân tích là viết mã nguồn; Thiết kế là thiết kế đồ họa giao diện",
+          "Hai pha này hoàn toàn đồng nhất và làm cùng một việc"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ 3 pha chính của COMET. Khẳng định nào mô tả đúng bản chất khác biệt giữa Phân tích (Analysis) và Thiết kế (Design)?",
+      "correct": 0,
+      "explanation": "Theo COMET: Phân tích (Analysis) là phân rã/làm nhỏ bài toán để hiểu sâu về không gian bài toán (problem domain). Thiết kế (Design) là tổng hợp và đưa ra giải pháp trong không gian giải pháp (solution domain, mapping lên môi trường thực thi).",
+      "distractorTags": {
+        "1": null,
+        "2": "analysis-is-design"
+      },
+      "hints": [
+        "Nhìn sự khác biệt giữa hai từ khóa: 'problem domain' (phân tích) và 'solution domain' (thiết kế).",
+        "Phân tích có tạo ra các quyết định cấu hình server vật lý không?",
+        "Xem Slide Ch05 Slide 15."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Hãy nhớ: Requirements là mô tả Black Box. Analysis là phân rã để hiểu bài toán (Problem Domain). Design là tổng hợp để xây dựng giải pháp (Solution Domain). Đừng nhầm lẫn việc phân tích domain với việc đưa ra các quyết định kiến trúc cụ thể (lỗi analysis-is-design).",
+      "exitTicket": "Bạn đã hiểu rõ ranh giới giữa Phân tích (Analysis) và Thiết kế (Design) trong COMET chưa? Hãy ghi lại suy nghĩ của bạn."
+    }
+  ]
+}
