@@ -1,0 +1,134 @@
+=== FILE: Ch22_SOA Case Study-Online Shopping System.pptx ===
+
+Total slides: 20
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch14 - Designing Object-Oriented Software Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Table of contents
+Problem Description
+Use Case Modeling
+Static Modeling
+Object and Class Structuring
+Dynamic Modeling
+Broker and Wrapper Technology Support
+Design Modeling
+Service Reuse
+
+--- Slide 3 ---
+Layout: Title and Content
+Problem description
+The Online Shopping System
+The Online Shopping System case study is a highly distributed World Wide Web–based system that provides services for purchasing items such as books or clothes.
+The solution uses a service-oriented architecture with multiple services; coordinator objects are used to facilitate the integration of the services. In addition, object brokers are used to provide services which include:
+a catalog service
+an inventory service
+a customer account service
+a delivery order service
+an email service
+a credit card authorization service
+
+--- Slide 4 ---
+Layout: Title and Content
+Use Case Model
+Actors
+Customer: browses a catalog and requests to purchase items
+Supplier: provides the catalog and services customer purchase requests
+
+--- Slide 5 ---
+Layout: Title and Content
+Use Case ModelBrowse Catalog
+In the Browse Catalog use case, the customer browses a World Wide Web catalog, views various catalog items from a given supplier’s catalog, and selects items from the catalog.
+
+--- Slide 6 ---
+Layout: Title and Content
+Use Case ModelMake Order Request
+Use Case Description for Make Order Request
+Activity diagram for Make Order Request use case
+
+--- Slide 7 ---
+Layout: Title and Content
+Use Case ModelOther Use Cases
+Process Delivery Order
+Confirm Shipment and Bill Customer
+View Order
+
+--- Slide 8 ---
+Layout: Title and Content
+Static Modeling
+Conceptual static model for Online Shopping System entity classes
+
+--- Slide 9 ---
+Layout: Title and Content
+Static Modeling
+The classes include customer classes (Customer and Customer Account), supplier classes (Supplier, Inventory, and Catalog), and classes that deal with the customer’s order such as Delivery Order, which is an aggregation of Item.
+Entity classes for the Online Shopping System
+
+--- Slide 10 ---
+Layout: Title and Content
+Object and Class Structuring
+Service and entity classes for the Online Shopping System
+
+--- Slide 11 ---
+Layout: Title and Content
+Dynamic Modeling
+Communication diagram for the Make Order Request use case
+
+--- Slide 12 ---
+Layout: Title and Content
+Dynamic Modeling
+Communication diagram for the Process Delivery Order use case
+
+--- Slide 13 ---
+Layout: Title and Content
+Broker & Wrapper Technology Support
+Several legacy databases are used in the Online Shopping System. Many of the entity classes in the static model represent persistent data stored in legacy databases.
+Each legacy database is a stand-alone database that resides on a mainframe. These databases need to be integrated into the application, by means of a broker and wrapper technology.
+Object broker and wrapper technology provide a systematic way of integrating the disparate legacy databases into a service-oriented architecture.
+The legacy databases in the supplier organization are the catalog database, the inventory database, the customer account service, and the delivery order database.
+Database wrapper classes are designed to provide an object-oriented interface to the legacy databases that hides the details of how to read and update the individual databases.
+
+--- Slide 14 ---
+Layout: Title and Content
+Design Modeling
+The components are structured into the layered architecture such that each component is in a layer where it depends on components in the layers below but not the layers above. This layered architecture is based on the Layers of Abstraction pattern. Applying the component structuring criteria, the following components and services, organized by layer, are determined
+
+--- Slide 15 ---
+Layout: Title and Content
+Design Modeling
+Concurrent communication diagram for Online Shopping System
+
+--- Slide 16 ---
+Layout: Title and Content
+Design Modeling
+Each service has one provided interface through which the service operations are accessed.
+The clients of the service invoke the appropriate operations provided by the interface synchronously. The service operations are designed by considering how each individual service is accessed on the use case–based interaction diagrams. Typically, each service is accessed in different ways corresponding to requests for different service operations.
+The interaction diagrams depict the messages arriving at the service (corresponding to service operation invocation and possible input parameters to the service) and the service response (corresponding to data returned by the service), which is either synchronous (as a synchronous message reply) or asynchronous (in a separate asynchronous message.
+Component ports and interfaces for services
+
+--- Slide 17 ---
+Layout: Title and Content
+Design Modeling
+Service interface for Catalog Service
+Service interface for Customer Account Service
+
+--- Slide 18 ---
+Layout: Title and Content
+Design Modeling
+Service-oriented software architecture for Online Shopping System
+
+--- Slide 19 ---
+Layout: Title and Content
+Service Reuse
+Services can be composed into new applications. Other electronic commerce systems could be designed that would reuse the services provided by the Online Shopping System, such as Catalog Service, Delivery Order Service, and Inventory Service.
+In a business to business (B2B) system, for example, instead of using customer accounts, contracts would be established between business customers and suppliers.
+The B2B system would necessitate the creation of additional services as well as different versions of the Customer and Supplier Coordinators.
+A reusable service-oriented architecture for an Electronic Commerce software product line, consisting of kernel, optional, and variant components and services.
+
+--- Slide 20 ---
+Layout: Title Only

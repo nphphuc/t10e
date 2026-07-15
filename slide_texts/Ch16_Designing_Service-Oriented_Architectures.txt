@@ -1,0 +1,234 @@
+=== FILE: Ch16_Designing Service-Oriented Architectures.pptx ===
+
+Total slides: 30
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch16 - Designing Service-Oriented Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Overview
+Design Principles for Services
+Software Architectural Broker Patterns
+Technology Support for SOA
+Software Architectural Transaction Patterns
+Negotiation Pattern
+Service interface design in SOA
+Service Coordination in SOA
+Designing SOAs
+Service Reuse
+
+--- Slide 3 ---
+Layout: Title and Content
+Overview
+A service-oriented architecture (SOA) is a distributed software architecture that consists of multiple autonomous services.
+The services are distributed such that they can execute on different nodes with different service providers.
+With a SOA, the goal is to develop software applications that are composed of distributed services, such that individual services can execute on different platforms and be implemented in different languages.
+Standard protocols are provided to allow services to communicate with each other and to exchange information.
+In order to allow applications to discover and communicate with services, each service has a service description,
+The service description deﬁnes the name of the service, the location of the service, and its data exchange requirements
+
+--- Slide 4 ---
+Layout: Title and Content
+Design Principles for Services
+Services need to be designed according to certain key principles. Many of these concepts are good software engineering and design principles, which have been incorporated into SOA design.
+Loose coupling. Services should be relatively independent of each other.
+Service contract. A service provides a contract, which a SOA application can rely on.
+Autonomy. Each service is self-contained, such that it can operate independently without the need of other services.
+Abstraction. As with object-oriented design, the details of a service are hidden.
+Reusability. A key goal of SOA is to design services that are reusable.
+Composability. Services are designed to be capable of being assembled into larger composite services.
+Statelessness. Where possible, services maintain little or no information about specific client activities.
+Discoverability. A service provides an external description to help allow it to be discovered by a discovery mechanism.
+
+--- Slide 5 ---
+Layout: Title and Content
+Software Architectural Broker Patterns
+In a SOA, object brokers act as intermediaries between clients and services. The broker frees clients from having to maintain information about where a particular service is provided and how to obtain that service. Sophisticated brokers provide white pages (naming services) and yellow pages (trader services) so that clients can locate services more easily.
+In the Broker pattern (which is also known as the Object Broker or Object Request Broker pattern), the broker acts as an intermediary between the clients and services. Services register with the broker.
+The broker provides both location transparency and platform transparency. Location transparency means that if the service is moved to a different location, clients are unaware of the move and only the broker needs to be notified. Platform transparency means that each service can execute on a different hardware/software platform and does not need to maintain information about the platforms that other services execute on.
+The pattern of communication, in which the client knows the service required but not the location, is referred to as white page brokering.
+
+--- Slide 6 ---
+Layout: Title and Content
+Software Architectural Broker PatternsService Registration Pattern
+In the Service Registration pattern, the service needs to register service information with the broker, including the service name, a description of the service, and the location at which the service is provided.
+Service registration is carried out the first time the service joins the brokering exchange (analogous to the stock exchange). On subsequent occasions, if the service relocates, it needs to re-register with the broker by providing its new location.
+The Service Registration pattern is illustrated in the figure below, which depicts the service registering (or re-registering after a relocation) a service with the broker in the following message sequence:
+
+--- Slide 7 ---
+Layout: Title and Content
+Software Architectural Broker PatternsBroker Forwarding Pattern
+There is more than one way for a broker to handle a client request. With the Broker Forwarding pattern, a client sends a message identifying the service required – for example, to withdraw cash from a given bank. The broker receives the client request, determines the location of the service (the ID of the node the service resides on), and forwards the message to the service at the specific location.
+a) Service registration with Broker
+b) Broker Forwarding (white pages) pattern
+
+--- Slide 8 ---
+Layout: Title and Content
+Software Architectural Broker PatternsBroker Handle Pattern
+The Broker Handle pattern keeps the benefit of location transparency while adding the advantage of reducing message traffic. Instead of forwarding each client message to the service, the broker returns a service handle to the client, which is then used for direct communication between client and service.
+This pattern is particularly useful when the client & service are likely to have a dialog and exchange several messages between them. The pattern is depicted in the figure below and consists of the following message sequence:
+
+--- Slide 9 ---
+Layout: Title and Content
+Software Architectural Broker PatternsService Discovery Pattern
+The brokered patterns of communication described in the preceding sections, in which the client knows the service required but not the location, are referred to as white page brokering. A different brokering pattern is yellow page brokering, analogous to the yellow pages of the telephone directory, in which the client knows the type of service required but not the specific service.
+a) Service Discovery (yellow pages) pattern
+
+--- Slide 10 ---
+Layout: Title and Content
+Technology Support for SOAWeb Service Protocols
+Application clients and services need to have a communication protocol for intercomponent communication. Extensible Markup Language (XML) is a technology that allows different systems to interoperate through exchange of data and text.
+The Simple Object Access Protocol (SOAP), which is a lightweight protocol developed by the World Wide Web Consortium (W3C), builds on XML and HTTP to permit exchange of information in a distributed environment.
+SOAP defines a unified approach for sending XML-encoded data and consists of three parts: an envelope that defines a framework for describing what is in a message and how to process it, a set of encoding rules for expressing instances of application-defined data types, and a convention for representing remote procedure calls and responses.
+
+--- Slide 11 ---
+Layout: Title and Content
+Technology Support for SOAWeb Services
+Applications provide services for clients. One example of application services is Web services, which use the World Wide Web for application-to-application communication.
+From a software perspective, Web services are the application programming interfaces (APIs) that provide a standard means of communication among different software applications on the World Wide Web. From a business application perspective, a Web service is business functionality provided by a company in the form of an explicit service over the Internet for other companies or programs to use.
+Several component technologies exist to support the building of applications by means of component technology and Web services, including .NET, J2EE, WebSphere, and WebLogic.
+
+--- Slide 12 ---
+Layout: Title and Content
+Technology Support for SOARegistration Services
+A registration service is provided for services to make their services available to clients. Services register their services with a registration service – a process referred to as publishing or registering the service. Most brokers, such as CORBA and Web service brokers, provide a registration service.
+For Web services, a service registry is provided to allow services to be published and located via the World Wide Web.
+Web client and Web service in a
+World Wide Web services application
+Example of a Web services broker
+
+--- Slide 13 ---
+Layout: Title and Content
+Technology Support for SOABrokering and Discovery Services
+In a distributed environment, an object broker is an intermediary in interactions between clients and services.
+An example of brokering technology is a Web services broker. Information about a Web service can be defined by the Universal Description, Discovery, and Integration (UDDI) framework for Web services integration. A UDDI specification consists of several related documents and an XML schema that defines a SOAP-based protocol for registering and discovering Web services.
+A Web services broker can use the UDDI framework to provide a mechanism for clients to dynamically find services on the Web.
+
+--- Slide 14 ---
+Layout: Title and Content
+Software Architectural Transaction Patterns
+A transaction is a request from a client to a service that consists of two or more operations that perform a single logical function and that must be completed in its entirety or not at all. Transactions are generated at the client and sent to the service for processing.
+Transactions are typically used for updates to a distributed database that needs to be atomic – for example, transferring funds from an account at one bank to an account at a different bank.
+A transaction must be completed in its entirety or not at all.
+Transactions have the following properties, sometimes referred to as ACID properties:
+Atomicity (A). A transaction is an indivisible unit of work. It is either entirely completed (committed) or aborted (rolled back).
+Consistency (C). After the transaction executes, the system must be in a consistent state.
+Isolation (I). A transaction’s behavior must not be affected by other transactions.
+Durability (D). Changes are permanent after a transaction completes. These changes must survive system failures. This is also referred to as persistence
+
+--- Slide 15 ---
+Layout: Title and Content
+Software Architectural Transaction PatternsTwo-Phase Commit Protocol Pattern
+The Two-Phase Commit Protocol pattern addresses the problem of managing atomic transactions in distributed systems. Consider two examples of banking transactions:
+Transfer transaction. Consider a transfer transaction between two accounts – for example, from a savings account to a checking account – in which the accounts are maintained at two separate banks (services). In this case, it is necessary to debit the savings account and credit the checking account. Therefore, the transfer transaction consists of two operations that must be atomic – a debit operation and a credit operation – and the transfer transaction must be either committed or aborted:
+Committed. Both credit and debit operations occur.
+Aborted. Neither the credit nor the debit operation occurs.
+Withdrawal transaction. A withdrawal transaction can be handled in one operation. A semaphore is needed for synchronization to ensure that access to the customer account record is mutually exclusive. The transaction processor locks the account record for this customer, performs the update, and then unlocks the record.
+
+--- Slide 16 ---
+Layout: Title and Content
+Software Architectural Transaction PatternsCompound Transaction Pattern
+The Compound Transaction pattern can be used when the client’s transaction requirement can be
+broken down into smaller
+flat atomic transactions,
+in which each atomic transaction can be performed separately and rolled back separately.
+
+--- Slide 17 ---
+Layout: Title and Content
+Software Architectural Transaction PatternsLong-Living Transaction Pattern
+A long-living transaction is a transaction that has a human in the loop and that could take a long and possibly indefinite time to execute, because individual human behavior is unpredictable.
+With transactions involving human interaction, it is undesirable to keep records locked for a relatively long time while the human is considering various options.
+Long-Living Transaction pattern, which splits a long-living transaction into two or more separate transactions (usually two) so that human decision making takes place between the successive pairs (such as first and second) of transactions.
+
+--- Slide 18 ---
+Layout: Title and Content
+Negotiation Pattern
+In the Negotiation pattern (also known as the Agent-Based Negotiation or Multi-Agent Negotiation pattern), a client agent acts on behalf of the user and makes a proposal to a service agent.
+The service agent attempts to satisfy the client’s proposal, which might involve communication with other services. Having determined the available options, the service agent then offers the client agent one or more options that come closest to matching the original client agent proposal. The client agent may then request one of the options, propose further options, or reject the offer. If the service agent can satisfy the client agent request, it accepts the request; otherwise, it rejects the request.
+
+--- Slide 19 ---
+Layout: Title and Content
+Negotiation PatternExample 1
+
+--- Slide 20 ---
+Layout: Title and Content
+Negotiation PatternClient & Service Agents
+The client agent, who acts on behalf of the client, may do any of the following:
+Propose a service. The client agent proposes a service to the service agent. This proposed service is negotiable, meaning that the client agent is willing to consider counteroffers.
+Request a service. The client agent requests a service from the service agent. This requested service is nonnegotiable, meaning that the client agent is not willing to consider counteroffers.
+Reject a service offer. The client agent rejects an offer made by the service agent.
+The service agent, who acts on behalf of the service, may do any of the following:
+Offer a service. In response to a client proposal, a service agent offers a counterproposal
+Reject a client request/proposal. The service agent rejects the client agent’s proposed or requested service.
+Accept a client request/proposal. The service agent accepts the client agent’s proposed or requested service.
+
+--- Slide 21 ---
+Layout: Title and Content
+Negotiation PatternExample 2
+Consider the following example involving negotiation between a client agent and a software travel agent that follows a scenario similar to that between a human client and a human travel agent. This example used the Negotiation pattern and the Long Living Transaction pattern.
+In this travel agency example, the client agent discovers an appropriate service travel agent – for our purposes, the world Wide Travel Agent – via the object broker’s yellow pages
+
+--- Slide 22 ---
+Layout: Title and Content
+Negotiation PatternExample 2
+The client agent then initiates the negotiation on behalf of a user who wishes to take an airplane trip from Washington, D.C., to London, departing on October 14 and returning on October 21, for a price of less than $700. The negotiation process is depicted on below communication diagram
+
+--- Slide 23 ---
+Layout: Title and Content
+Service interface design in SOA
+The operations of each service are determined by analyzing the message requests made to each service.
+Communication diagram for the Process Delivery Order use case
+
+--- Slide 24 ---
+Layout: Title and Content
+Service interface design in SOA
+Partial communication diagram for the Confirm Shipment and Bill Customer use case
+Service interface for Inventory Service
+
+--- Slide 25 ---
+Layout: Title and Content
+Service Coordination in SOA 1/2
+In SOA applications that involve multiple services, coordination of these services is usually required. To ensure loose coupling among the services, it is often better to separate the details of the coordination from the functionality of the individual services. In any complex activity involving multiple services, coordination is usually needed to sequence the access to the individual services.
+In SOA, different types of coordination are provided, including orchestration and choreography.
+Orchestration consists of centrally controlled workflow coordination logic for coordinating multiple participant services. This allows the reuse of existing services by incorporating them into new service applications.
+Choreography provides distributed coordination among services, and it can be used when coordination is needed between different business organizations.
+Transaction patterns can also be used for service coordination.
+
+--- Slide 26 ---
+Layout: Title and Content
+Service Coordination in SOA 2/2
+An example of a coordinator object, the Supplier Coordinator object coordinates the interactions of the Supplier Interaction object with the Delivery Order Service and Inventory Service objects.
+Supplier Coordinator receives supplier requests from Supplier Interaction via the provided interface called ISupplierCoordinator. Supplier Coordinator is a client of the Inventory Service and thus has a required interface IInventoryService, and a client of Delivery Order Service.
+The requests Supplier Coordinator receives from Supplier Interaction are to:
+Request a new delivery order to process, which is mapped to the requestOrder operation
+Reserve order items from inventory, which is mapped to the reserveInventory operation
+Identify that order is ready for shipment, which is mapped to the readyForShipment operation
+Order has been shipped, which is mapped to the confirmShipment operation.
+Coordinator interface for Supplier Coordinator
+
+--- Slide 27 ---
+Layout: Title and Content
+Designing SOAs 1/2
+After determining the service and coordinator interfaces as described in the previous two sections, the integrated communication diagram can be developed. For SOA, this diagram is both concurrent and distributed.
+The concurrent communication diagrams show the dynamic message sequencing in which the services participate, and the interaction between services and coordinator components and user interaction components.
+
+--- Slide 28 ---
+Layout: Title and Content
+Designing SOAs 2/2
+Concurrent communication diagram for the Online Shopping System
+
+--- Slide 29 ---
+Layout: Title and Content
+Service Reuse
+Once services have been designed, they can be reused. Although a service could invoke an operation on a different service, this can make the service less reusable, because it is now dependent on another service.
+To encourage software reuse, it is recommended that services only have provided interfaces and not have any required interfaces (unless asynchronous communication with callback is used). This makes the service more self-contained.
+Each of the services described could be used in different applications. In each case, new coordinator objects would be created to control and sequence the desired application workflow, taking full advantage of the provided services.
+In the online shopping system, two external services are reused, namely, the Credit Card Service and the Email Service.
+
+--- Slide 30 ---
+Layout: Title Only

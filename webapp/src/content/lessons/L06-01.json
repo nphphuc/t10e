@@ -1,0 +1,82 @@
+{
+  "id": "L06-01",
+  "title": "Communication diagram: ai nói với ai?",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Đọc và vẽ communication diagram thể hiện các object và message sequence.",
+  "misconceptions": ["sequence-equals-communication"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Bạn cần biểu diễn các object tham gia use case View Alarms và thứ tự message. Communication diagram thể hiện điều gì nổi bật?",
+      "options": [
+        "Thể hiện trình tự thời gian theo chiều dọc",
+        "Thể hiện layout kết nối giữa các object và sequence numbers trên links",
+        "Thể hiện trạng thái của object"
+      ],
+      "correct": 1,
+      "explanation": "Communication diagram mạnh về topology (ai nối với ai) — thể hiện các object và đường kết nối với số thứ tự message.",
+      "distractorTags": {"0": "sequence-equals-communication", "2": null},
+      "hints": ["Communication diagram = đồ thị object + links + sequence numbers.", "Xem slide 4-5."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp các bước trong communication diagram cho View Alarms:",
+      "options": [
+        "AlarmService trả về danh sách alarms cho OperatorInteraction",
+        "MonitoringOperator gửi request viewAlarms()",
+        "OperatorInteraction chuyển request đến AlarmService"
+      ],
+      "correctOrder": [
+        "MonitoringOperator gửi request viewAlarms()",
+        "OperatorInteraction chuyển request đến AlarmService",
+        "AlarmService trả về danh sách alarms cho OperatorInteraction"
+      ],
+      "explanation": "Sequence: Actor → Boundary → Service → Response.",
+      "hints": ["Bắt đầu từ actor gửi message.", "Boundary nhận từ actor, gọi service.", "Service trả về response."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép thành phần communication diagram với ý nghĩa:",
+      "pairs": {
+        "Object (hình chữ nhật)": "Instance tham gia use case",
+        "Link (đường nối)": "Kết nối giữa các object",
+        "1: messageName()": "Message đầu tiên trong sequence",
+        "2: messageName()": "Message thứ hai"
+      },
+      "explanation": "Communication diagram có objects, links, và message sequence numbers.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Điểm mạnh của communication diagram so với sequence diagram là gì?",
+      "options": [
+        "Dễ đọc thứ tự thời gian hơn",
+        "Thể hiện rõ cấu trúc kết nối (layout) giữa các object — ai kết nối với ai",
+        "Có thể vẽ được state machine"
+      ],
+      "correct": 1,
+      "explanation": "Communication diagram mạnh về topology (layout kết nối object). Sequence diagram mạnh về trình tự thời gian.",
+      "distractorTags": {"0": "sequence-equals-communication", "2": null},
+      "hints": ["Communication = graph of objects.", "Sequence = timeline.", "Xem slide 8 về so sánh hai diagram."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Communication diagram thể hiện các object tham gia use case, đường kết nối (links) giữa chúng, và sequence numbers trên messages. Ưu điểm: thấy rõ topology kết nối.",
+      "exitTicket": "Vẽ communication diagram cho use case 'Place Order' của FOS với 3 objects."
+    }
+  ]
+}

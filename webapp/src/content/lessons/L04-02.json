@@ -1,0 +1,129 @@
+{
+  "id": "L04-02",
+  "title": "Association, link và multiplicity",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Phân biệt association (quan hệ giữa các class) và link (kết nối giữa các object), vẽ đúng multiplicity.",
+  "misconceptions": ["association-is-link"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Trong cuộc họp thiết kế, bạn A nói: 'Employee Jane làm việc trong Department Manufacturing'. Bạn B nói: 'Đó là một association'. Ai đúng?",
+      "options": [
+        "Bạn A đúng, Jane-Manufacturing là association giữa Employee và Department",
+        "Bạn B đúng — Jane-Manufacturing là một link (instance), còn Employee-Department mới là association",
+        "Cả hai đều sai"
+      ],
+      "correct": 1,
+      "explanation": "Association là quan hệ giữa các class (Employee - Department). Link là kết nối cụ thể giữa các objects (Jane - Manufacturing) - là instance của association.",
+      "distractorTags": {
+        "0": "association-is-link",
+        "2": null
+      },
+      "hints": [
+        "Association = mối quan hệ ở mức class (trừu tượng).",
+        "Link = một thể hiện cụ thể ở runtime.",
+        "Giống Class/Object trong OOP."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "view-switcher",
+        "options": [
+          "Một Customer sở hữu nhiều Order — association với multiplicity 1..*",
+          "Mỗi Order thuộc về đúng một Customer — quan hệ 1-1",
+          "Không có mối quan hệ nào"
+        ]
+      },
+      "prompt": "Quan sát class diagram Customer - Order. Phát biểu nào đúng về mối quan hệ giữa hai class này?",
+      "correct": 0,
+      "explanation": "Multiplicity 1..* ở phía Order nghĩa là một Customer có thể có nhiều Order — đây là one-to-many association.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhìn số ghi ở hai đầu association line.",
+        "1 = một Customer, * = nhiều Order.",
+        "Xem notation trong slide 8-9."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép cách đọc multiplicity với ý nghĩa tương ứng:",
+      "pairs": {
+        "0..1": "Không hoặc một (zero-or-one)",
+        "1": "Chính xác một",
+        "0..*": "Không hoặc nhiều (zero-or-many)",
+        "1..*": "Một hoặc nhiều (one-or-many)",
+        "m..n": "Từ m đến n"
+      },
+      "explanation": "Multiplicity định nghĩa số lượng objects tham gia vào một association ở mỗi đầu.",
+      "hints": [
+        "0..1 = optional, 1 = mandatory one.",
+        "* = any number (including zero).",
+        "Xem ký hiệu UML trên class diagram."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Một Employee phải làm việc cho ít nhất một Department. Một Department có thể có nhiều Employee hoặc chưa có ai. Multiplicity đúng là:",
+      "options": [
+        "Employee 1..* — Department 0..*",
+        "Employee 1..* — Department 0..* (with association WorksIn)",
+        "Employee 0..* — Department 1..*"
+      ],
+      "correct": 1,
+      "explanation": "Employee phải thuộc ít nhất 1 Department (1..* ở phía Department). Department có thể có 0 hoặc nhiều Employee (0..* ở phía Employee).",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Đọc ngược: Employee (1..*) → Department.",
+        "Department (0..*) → Employee.",
+        "Xem slide 7 về association notation."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Hệ thống FOS: Một Customer có thể có 0 hoặc nhiều Review. Mỗi Review thuộc về đúng một Customer và một Product. Multiplicity cho association Customer-Review là:",
+      "options": [
+        "Customer 0..* — Review 0..*",
+        "Customer 1 — Review 0..*",
+        "Customer 1..* — Review 1",
+        "Customer 0..* — Review 1..*"
+      ],
+      "correct": 1,
+      "explanation": "Mỗi Review thuộc về đúng 1 Customer, Customer có thể có 0..* Review.",
+      "distractorTags": {
+        "0": null,
+        "2": null,
+        "3": null
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Association = quan hệ giữa các class (VD: Employee worksIn Department). Link = instance cụ thể (Jane worksIn Manufacturing). Multiplicity xác định số objects tham gia ở mỗi đầu.",
+      "exitTicket": "Vẽ class diagram cho FOS: Product (id, name, price) và OrderItem (quantity) với multiplicity phù hợp."
+    }
+  ]
+}

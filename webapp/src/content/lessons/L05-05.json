@@ -1,0 +1,59 @@
+{
+  "id": "L05-05",
+  "title": "Level 5 Review: Responsibility Sorting",
+  "questions": [
+    {
+      "id": "R05-01",
+      "type": "choice",
+      "prompt": "Class 'ProductDatabase' lưu trữ thông tin sản phẩm và cho phép CRUD. Stereotype phù hợp:",
+      "options": ["«boundary»", "«entity»", "«control»", "«service»"],
+      "correct": 1,
+      "explanation": "ProductDatabase lưu dữ liệu persistent nên là entity class."
+    },
+    {
+      "id": "R05-02",
+      "type": "match",
+      "prompt": "Ghép class với stereotype phù hợp:",
+      "pairs": {
+        "LoginForm": "«boundary»",
+        "OrderController": "«control»",
+        "Customer": "«entity»",
+        "EmailService": "«service»"
+      },
+      "explanation": "Mỗi class đảm nhiệm vai trò khác nhau trong hệ thống."
+    },
+    {
+      "id": "R05-03",
+      "type": "choice",
+      "prompt": "Khi nào KHÔNG cần control object?",
+      "options": [
+        "Khi use case chỉ có boundary giao tiếp trực tiếp với một service",
+        "Khi có nhiều hơn 3 objects tham gia",
+        "Khi có state-dependent behavior"
+      ],
+      "correct": 0,
+      "explanation": "Control object không cần cho use case đơn giản, ít objects tham gia.",
+      "distractorTags": {"1": "control-always", "2": null}
+    },
+    {
+      "id": "R05-04",
+      "type": "scenario",
+      "prompt": "FOS cần module gợi ý sản phẩm dựa trên lịch sử mua hàng. Thuật toán gợi ý có thể thay đổi. Nên thiết kế:",
+      "options": [
+        "Đặt logic gợi ý trong class Customer entity",
+        "Tạo class RecommendationEngine riêng (algorithm object)",
+        "Viết trong Controller"
+      ],
+      "correct": 1,
+      "explanation": "Recommendation là algorithm phức tạp có thể thay đổi độc lập → algorithm object.",
+      "distractorTags": {"0": "entity-does-everything", "2": null}
+    },
+    {
+      "id": "R05-05",
+      "type": "truefalse",
+      "prompt": "Service object có thể chủ động gửi request cho client.",
+      "correct": false,
+      "explanation": "Service object không khởi tạo request. Nó chỉ phản hồi client request."
+    }
+  ]
+}

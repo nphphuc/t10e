@@ -1,0 +1,69 @@
+{
+  "id": "L11-05",
+  "title": "FreshFood RDS: trace từ requirement đến code",
+  "minutes": 18,
+  "xp": 210,
+  "objective": "Trace từ use case qua analysis đến design và code trong FreshFood case study.",
+  "misconceptions": ["traceability", "analysis-is-design"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS: từ use case Place Order → analysis model → design model → code. Bước nào là quan trọng nhất để traceability?",
+      "options": [
+        "Chỉ cần code chạy được",
+        "Mỗi step phải traceable: UC → interaction diagram → subsystem → class interface → code",
+        "Traceability không cần thiết"
+      ],
+      "correct": 1,
+      "explanation": "Traceability: mỗi requirement phải được thiết kế và implement. COMET hỗ trợ trace từ UC đến code.",
+      "distractorTags": {"0": null, "2": "traceability"},
+      "hints": ["Traceability = truy vết.", "COMET hỗ trợ trace.", "Xem Ch20 về traceability."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp quy trình traceability COMET cho FOS:",
+      "options": [
+        "Design model (subsystems, interfaces)",
+        "Requirements model (use case, actors)",
+        "Code (implementation)",
+        "Analysis model (interaction diagrams)"
+      ],
+      "correctOrder": [
+        "Requirements model (use case, actors)",
+        "Analysis model (interaction diagrams)",
+        "Design model (subsystems, interfaces)",
+        "Code (implementation)"
+      ],
+      "explanation": "Trace: Requirements → Analysis → Design → Code.",
+      "hints": ["Bắt đầu với use case.", "Analysis → Design → Code.", "Xem COMET lifecycle."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Một use case 'Place Order' được trace thành công khi nào?",
+      "options": [
+        "Khi có test case",
+        "Khi interaction diagram, subsystem, class interface, và code đều ánh xạ được đến use case đó",
+        "Khi code không lỗi"
+      ],
+      "correct": 1,
+      "explanation": "Traceability: từ UC đến interaction diagrams → subsystems → class interfaces → code. Mỗi bước đều có thể trace ngược.",
+      "hints": ["Trace = mapping.", "Mỗi bước phải liên kết.", "Xem slide 8-9 Ch20."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "COMET hỗ trợ traceability: Requirement → Analysis (interaction diagrams) → Design (subsystems, interfaces) → Implementation (code). Mỗi requirement phải có trace đến code.",
+      "exitTicket": "Vẽ trace path cho use case 'Place Order' của FOS."
+    }
+  ]
+}

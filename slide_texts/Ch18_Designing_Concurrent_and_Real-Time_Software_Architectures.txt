@@ -1,0 +1,291 @@
+=== FILE: Ch18_Designing Concurrent and Real-Time Software Architectures.pptx ===
+
+Total slides: 35
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch18 - Designing Concurrent and Real-TimeSoftware Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Concurrent and real-time software architectures
+Characteristics of real-time system
+Control Patterns for Real-Time Software Architectures
+Concurrent Task Structuring
+In/Out Task Structuring Criteria
+Internal Task Structuring Criteria
+Developing the Concurrent Task Architecture
+Task Communication and Synchronization
+Task Interface and Task Behavior Specifications
+Implementation of Concurrent Tasks in Java
+
+--- Slide 3 ---
+Layout: Title and Content
+Concurrent and real-time software architectures
+An important activity in designing real-time software architectures is to design concurrent objects (concurrent tasks).
+Real-time software architectures can also be distributed; for this reason they can be considered a special case of component-based software architectures. In this context, a task is equivalent to a simple component.
+During concurrent software design, a concurrent software architecture is developed in which the system is structured into concurrent tasks, and the interfaces and interconnections between the concurrent tasks are defined.
+Concurrent tasks also participate in software architectural patterns; thus, they can participate in patterns already described, such as Layered patterns and Client/Service patterns , in which both the client and service could be designed as concurrent software architectures.
+
+--- Slide 4 ---
+Layout: Title and Content
+Characteristics of real-time system
+
+--- Slide 5 ---
+Layout: Title and Content
+Characteristics of real-time system
+Real-time systems are concurrent systems with timing constraints.
+The term real-time system usually refers to the whole system, including the real-time application, real-time operating system, and the real-time In/Out subsystem, with special-purpose device drivers to interface to the various sensors and actuators.
+Real-time systems are often complex because they have to deal with multiple independent streams of input events and produce multiple independent outputs.
+Real-time systems are frequently classified as hard real-time systems or soft real-time systems.
+
+--- Slide 6 ---
+Layout: Title and Content
+Control Patterns for Real-time Software Architectures 1/3
+In the Centralized Control architectural pattern, there is one control component, which conceptually executes a state chart and provides the overall control and sequencing of the system.
+The control component receives events from other components with which it interacts. These include events from various input components and user interface components that interact with the external environment – for example, through sensors that detect changes in the environment.
+Examples of this pattern can be found in the Cruise Control System and the Microwave Oven Control System case study.
+Centralized Control Architectural Pattern
+
+--- Slide 7 ---
+Layout: Title and Content
+Control Patterns for Real-time Software Architectures 2/3
+Distributed Control Architectural Pattern
+Contains several control components. Each of these components controls a given part of the system by conceptually executing a state chart.
+Control is distributed among the various control components, with no single component in overall control. To notify each other of important events, the control components communicate through peer-to-peer communication. They also interact with the external environment as in the Centralized Control pattern
+
+--- Slide 8 ---
+Layout: Title and Content
+Control Patterns for Real-time Software Architectures 3/3
+Hierarchical Control Architectural Pattern
+The Hierarchical Control pattern (also known as the Multilevel Control pattern) contains several control components. Each component controls a given part of a system by conceptually executing a state machine.
+The distributed controllers provide the low-level control, interactingwith sensor and actuator components, and respond to the Hierarchical Controller when they have finished. They may also send progress reports to the Hierarchical Controller.
+
+--- Slide 9 ---
+Layout: Title and Content
+Concurrent Task Structuring
+A concurrent task is an active object, also referred to as a process or thread. The term concurrent task is used to refer to an active object with one thread of control.
+The concurrent structure of a system is best understood by considering the dynamic aspects of the system. In the analysis model, the system is represented as a collection of collaborating objects that communicate by means of messages.
+The objects in the analysis model are analyzed to determine which of these may execute concurrently and which need to execute sequentially. Hence, the determination is made as to which of the analysis model objects should be active and which should be passive.
+
+--- Slide 10 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaEvent Driven In/Out Tasks 1/2
+An event driven In/Out task is needed when there is an event driven (also referred to as interrupt driven) In/Out device to which the system has to interface.
+An event driven In/Out task is constrained to execute at the speed of the In/Out device with which it is interacting.
+Another kind of event driven In/Out task is the event driven proxy task, which interfaces to an external system instead of an In/Out device. An event driven proxy task usually interacts with an external system by using messages.
+
+--- Slide 11 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaEvent Driven In/Out Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+
+--- Slide 12 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaPeriodic In/Out Tasks 1/2
+Unlike an event driven In/Out task, which deals with an event driven In/Out device, a periodic In/Out task deals with a passive In/Out device, in which the device is polled on a regular basis. In this situation, the activation of the task is periodic but its function is In/Out-related.
+Periodic In/Out tasks are often used for simple In/Out devices that, unlike event driven In/Out devices, do not generate interrupts when In/Out is available. Thus, they are often used for passive sensor devices that need to be sampled periodically.
+Consider a passive digital input device – for example, the engine sensor. This is handled by a periodic In/Out task. The task is activated by a timer event and then reads the status of the device.
+
+--- Slide 13 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaPeriodic In/Out Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+
+--- Slide 14 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaDemand Driven In/Out Tasks 1/2
+Demand driven In/Out tasks (referred to as passive In/Out task) are used when dealing with passive In/Out devices that do not need to be polled and, hence, do not need periodic In/Out tasks. In particular, they are used when it is considered desirable to overlap computation with In/Out. A demand driven In/Out task is used in such a situation to interface to the passive In/Out device.
+Demand driven In/Out tasks are used more often with output devices than with input devices, because the output can be overlapped with the computation more often. Usually, if the In/Out and computation are to be overlapped for a passive input device, a periodic input task is used
+
+--- Slide 15 ---
+Layout: Title and Content
+In/Out Task Structuring CriteriaDemand Driven In/Out Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+
+--- Slide 16 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaPeriodic Tasks
+Many real-time and concurrent systems have activities that need to be executed on a periodic basis – for example, computing the distance traveled by the car or the current speed of the car. These periodic activities are typically handled by periodic tasks.
+Although periodic In/Out activities are structured as periodic In/Out tasks, periodic internal activities are structured as periodic tasks. Internal periodic tasks include periodic algorithm tasks.
+An activity that needs to be executed periodically (i.e., at regular, equally spaced intervals of time) is structured as a separate periodic task. The task is activated by a timer event, performs the periodic activity, and then waits for the next timer event. The task’s period is the time between successive activations.
+
+--- Slide 17 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaDemand Driven Tasks 1/2
+Many real-time and concurrent systems have activities that need to be executed on demand. These demand-driven activities are typically handled by means of demand driven tasks. Whereas event driven In/Out tasks are activated by the arrival of external interrupts, demand driven internal tasks (also referred to as aperiodic tasks) are activated on demand by the arrival of internal messages or events.
+An object that is activated on demand (i.e., when it receives an internal message or event sent by a different task) is structured as a separate demand driven task.
+
+--- Slide 18 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaDemand Driven Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+
+--- Slide 19 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaControl Tasks 1/2
+In the analysis model, a state-dependent control object executes a state chart. Using the restricted form of state charts whereby concurrency within an object is not permitted, it follows that the execution of a state chart is strictly sequential.
+Hence, a task, whose execution is also strictly sequential, can perform the control activity. A task that executes a sequential state chart (typically implemented as a state transition table) is referred to as a state-dependent control task.
+In addition to state-dependent control objects, coordinator objects from the analysis model are designed as coordinator tasks. In this case, the job of the task is to control other tasks, although it is not state-dependent.
+
+--- Slide 20 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaControl Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+
+--- Slide 21 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaUser Interaction Tasks 1/2
+A user typically performs a set of sequential actions. Because the user’s interaction with the system is a sequential activity, this can be handled by a user interaction task. The speed of this task is frequently constrained by the speed of user interaction.
+As its name implies, a user interaction object in the analysis model is designed as a user interaction task. User interaction tasks are usually event driven because they are awakened by inputs from the external user.
+The concept of one task per sequential activity is also used on modern workstations with multiple windows.
+
+--- Slide 22 ---
+Layout: Title and Content
+Internal Task Structuring CriteriaUser Interaction Tasks 2/2
+a) Analysis model: communication diagram.
+b) Design model: concurrent communication diagram
+c) Design model: concurrent communication diagram with two tasks.
+
+--- Slide 23 ---
+Layout: Title and Content
+Developing the Concurrent Task Architecture 1/2
+The task structuring criteria may be applied to the analysis model in the following order. In each case, one must first decide whether the analysis model object should be designed as an active object (task) or a passive object in the design model.
+It is possible to have multiple tasks of the same type
+In/Out tasks. Start with the device In/Out objects that interact with the outside world. Determine whether the object should be structured as an event driven In/Out task, a periodic In/Out task, or a demand driven In/Out task.
+Control tasks. Analyze each state-dependent control object and coordinator object. Structure this object as a (usually demand driven) state-dependent control or coordinator task.
+Periodic tasks. Analyze the internal periodic activities, which are structured as periodic tasks.
+Other internal tasks. For each internal task activated by an internal event, structure this task as a demand driven task.
+
+--- Slide 24 ---
+Layout: Title and Content
+Developing the Concurrent Task Architecture 2/2
+After structuring the system into concurrent tasks, an initial concurrent communication diagram is drawn, showing all the tasks in the system.
+On this initial concurrent communication diagram, the interfaces between the tasks are still simple messages as depicted on the analysis model communication diagrams.
+
+--- Slide 25 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Task architecture: example of initial concurrent communication diagram for ATM Client subsystem
+
+--- Slide 26 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Asynchronous (Loosely Coupled) Message Communication
+Asynchronous message communication, also referred to as loosely coupled message communication, between concurrent tasks is based on the Asynchronous Message Communication pattern.
+The producer sends a message to the consumer and continues without waiting for a response.
+
+--- Slide 27 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Synchronous (Tightly Coupled) Message Communication with Reply
+Synchronous message communication with reply, also referred to as tightly coupled message communication with reply, between concurrent tasks is based on the Synchronous Message Communication.
+Although used in client/server systems, Synchronous Message Communication with Reply can also involve a single producer sending a message to a consumer and then waiting for a reply, in which case no message queue develops between the producer and the consumer.
+Example of Synchronous Message Communication with Reply
+
+--- Slide 28 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Synchronous (Tightly Coupled) Message Communication without Reply
+Synchronous message communication without reply, also referred to as tightly coupled message communication without reply, between concurrent tasks is based on the Synchronous Message Communication without Reply pattern.
+The producer sends a message to the consumer and then waits for acceptance of the message by the consumer. When the message arrives, the consumer accepts the message, thereby releasing the producer. The producer and consumer then both continue. The consumer is suspended if no message is available.
+Example of Synchronous Message Communication without Reply
+
+--- Slide 29 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Event Synchronization
+Three types of event synchronization are possible: an external event, a timer event, and an internal event.
+An external event is an event from an external object, typically an interrupt from an external In/Out device.
+An internal event represents internal synchronization between a source task and a destination task.
+A timer event represents a periodic activation of a task. Events are depicted in UML, using the asynchronous message notation to depict an event signal.
+Example of external event
+
+--- Slide 30 ---
+Layout: Title and Content
+Task Communication & Synchronization
+Task Interface and Task Behaviour Specifications
+It is also possible for tasks to exchange information by means of a passive information hiding object.
+It is important to realize how the synchronous message notation used between two concurrent tasks differs from that used between a task and a passive object. The notation looks the same in the UML: an arrow with a filled-in arrowhead. The semantics are different, however. The synchronous message notation between two concurrent tasks represents a producer task waiting for a consumer task to either respond to or accept the producer’s message.
+a) Initial concurrent communication diagram with simple messages.
+b) Revised concurrent communication diagram with tasks invoking operations of passive object
+
+--- Slide 31 ---
+Layout: Title and Content
+Task Interface and Task Behaviour Specifications
+A task interface specification (TIS) describes a concurrent task’s interface. It is an extension of the class interface specification with additional information specific to a task, including task structure, timing characteristics, relative priority, and errors detected.
+A task behavior specification (TBS) describes the task’s event sequencing logic. The task’s interface defines how it interfaces to other tasks. The task’s structure describes how its structure is derived, using the task structuring criteria.
+The TIS is introduced with the task architecture to specify the characteristics of each task. The TBS is defined later, during detailed software design, and describes the task event sequencing logic, which is how the task responds to the input events it receives.
+The TBS describes the task’s event sequencing logic, which is how the task responds to each of its message or event inputs, in particular, what output is generated as a result of each input.
+
+--- Slide 32 ---
+Layout: Title and Content
+Task Interface and Task Behaviour Specifications
+Messages:
+validatePIN
++ Input parameters: cardId, PIN
++ Reply: PINValidationResponse
+withdraw
++ Input parameters: cardId,
+account#, amount
++ Reply: withdrawalResponse
+query
++ Input parameters: cardId, account#
++ Reply: queryResponse
+transfer
++ Input parameters: cardId,
+fromAccount#, toAccount#, amount
++ Reply: transferResponse
+Task outputs:
+Message replies as described previously.
+Errors detected: Unrecognized message
+Name: BankingService
+Information hidden: Details of how BankingService processes ATM transactions
+Structuring criteria: role criterion: service; concurrency criterion: demand driven
+Assumptions: Transactions are processed sequentially.
+Anticipated changes: Possible addition of further transactions; possible change from sequential service to concurrent service processing
+Task interface:
+Task inputs: Synchronous message communication with reply:
+Example of TIS for Banking Service Task
+
+--- Slide 33 ---
+Layout: Title and Content
+Task Interface and Task Behaviour Specifications
+Name: CardReaderInterface
+Information hidden: Details of processing input from and output to card reader
+Structuring criteria: role criterion: input/output; concurrency criterion: event driven
+Assumptions: only one ATM card input and output is handled at one time.
+Anticipated Changes: Possible additional information will need to be read from ATM card.
+Task interface:
+Task inputs:
+Event input: Card reader external interrupt to indicate that a card has been input.
+External input: cardReaderInput.
+Synchronous message communication without reply:
+eject
+confiscate
+Task outputs:
+External output: cardReaderOutput
+Asynchronous message communication:
+cardInserted
+cardEjected
+cardConfiscated
+Passive objects accessed: ATMCard
+Errors detected: Unrecognized card, Card reader malfunction.
+Example of TIS for Card Reader Interface Task
+
+--- Slide 34 ---
+Layout: Title and Content
+Implementation of Concurrent tasks in Java
+As an example of task implementation, consider implementation in Java, in which tasks are implemented as threads. The simplest way to design a thread class in Java is to inherit from the Java Thread class, which has one method called run.
+The new thread class must then implement the run method, which, when invoked, will execute independently with its own thread of control. In the example below, the ATM Control class is designed to be a thread. The body of the thread is contained in the run method.
+
+--- Slide 35 ---
+Layout: Title Only

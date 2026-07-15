@@ -1,0 +1,63 @@
+{
+  "id": "L05-04",
+  "title": "Algorithm object và service object",
+  "minutes": 9,
+  "xp": 110,
+  "objective": "Phân biệt algorithm object và service object, biết khi nào dùng loại nào.",
+  "misconceptions": ["object-role", "service-initiates"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "FOS cần tính lộ trình giao hàng ngắn nhất. Đây là thuật toán phức tạp có thể thay đổi. Nên thiết kế thế nào?",
+      "options": [
+        "Đặt trong class Order (entity) vì liên quan đến dữ liệu đơn hàng",
+        "Tách thành RouteOptimizer — một algorithm object riêng",
+        "Viết trong Controller luôn cho nhanh"
+      ],
+      "correct": 1,
+      "explanation": "Algorithm object dùng khi có thuật toán phức tạp độc lập với entity data.",
+      "distractorTags": {"0": "entity-does-everything", "2": null},
+      "hints": ["Algorithm có thể thay đổi độc lập.", "Entity không nên chứa algorithm phức tạp.", "Xem slide 14-15."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "scenario",
+      "prompt": "FOS gọi CreditCardService bên ngoài để xác thực thanh toán. Service object có đặc điểm gì?",
+      "options": [
+        "Service object chủ động gọi client khi có kết quả",
+        "Service object phản hồi request từ client, không khởi tạo request",
+        "Service object là một loại entity"
+      ],
+      "correct": 1,
+      "explanation": "Service object không khởi tạo request. Nó phản hồi client request. Service object chỉ cung cấp service.",
+      "distractorTags": {"0": "service-initiates", "2": null},
+      "hints": ["Service = provider.", "Client = requester.", "Xem slide 16-17."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép loại object với mô tả:",
+      "pairs": {
+        "Algorithm object": "Giải thuật phức tạp, có thể thay đổi độc lập",
+        "Service object": "Cung cấp service cho client, không khởi tạo request",
+        "Entity object": "Lưu dữ liệu persistent",
+        "Business logic object": "Business rules và decision-making"
+      },
+      "explanation": "Mỗi loại object có vai trò riêng. Algorithm = thuật toán, Service = cung cấp dịch vụ.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Algorithm object: thuật toán độc lập (VD: RouteOptimizer). Service object: cung cấp service cho client, không khởi tạo request. Cả hai đều giúp tách biệt concerns.",
+      "exitTicket": "Trong FOS, hãy cho ví dụ về một service object và một algorithm object."
+    }
+  ]
+}

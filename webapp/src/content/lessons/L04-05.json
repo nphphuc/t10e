@@ -1,0 +1,109 @@
+{
+  "id": "L04-05",
+  "title": "Generalization không chỉ để tái dùng code",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Hiểu generalization/specialization hierarchy dựa trên quan hệ Is-A, không chỉ để tái sử dụng code.",
+  "misconceptions": ["inheritance-for-reuse-only"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Bạn thấy Customer và Product có thuộc tính giống nhau: 'id' và 'name'. Bạn liền cho Product kế thừa từ Customer. Nhận xét?",
+      "options": [
+        "Tốt, tái sử dụng code giảm trùng lặp",
+        "Sai! Product Is-A Customer không đúng về mặt ngữ nghĩa. Generalization chỉ dùng khi có quan hệ Is-A thực sự",
+        "Đúng vì cả hai đều có id và name"
+      ],
+      "correct": 1,
+      "explanation": "Generalization dựa trên Is-A relationship: 'Product IS A Customer' là sai. Chỉ kế thừa khi subclass là một dạng đặc biệt của superclass.",
+      "distractorTags": {
+        "0": "inheritance-for-reuse-only",
+        "2": "inheritance-for-reuse-only"
+      },
+      "hints": [
+        "Hỏi: Product có phải là một loại Customer không?",
+        "Generalization = Is-A, không phải Has-Same-Attributes.",
+        "Xem slide 15 về generalization."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép các cặp class với lý do sử dụng generalization phù hợp:",
+      "pairs": {
+        "Account → CheckingAccount": "CheckingAccount IS-A Account (có thêm lastDepositAmount)",
+        "Account → SavingsAccount": "SavingsAccount IS-A Account (có thêm interest)",
+        "Employee → Manager": "Manager IS-A Employee (có thêm manageTeam)",
+        "Customer → Product": "KHÔNG — Product không phải Customer"
+      },
+      "explanation": "Generalization chỉ hợp lệ khi subclass là một dạng đặc biệt của superclass (Is-A). CheckingAccount và SavingsAccount đều là Account.",
+      "hints": [
+        "Đọc to: CheckingAccount 'is-a' Account → đúng.",
+        "Đọc: Product 'is-a' Customer → sai.",
+        "Xem slide 15-16 về inheritance."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Hệ thống FOS có các loại User: Customer, Admin, WarehouseStaff. Cả ba đều có username, password, email. Nên thiết kế thế nào?",
+      "options": [
+        "Ba class độc lập, mỗi class tự định nghĩa username, password, email",
+        "Tạo superclass User với các thuộc tính chung; Customer, Admin, WarehouseStaff kế thừa từ User",
+        "Cho Customer kế thừa từ Admin vì có nhiều điểm chung"
+      ],
+      "correct": 1,
+      "explanation": "Cả ba đều là User (Is-A). Superclass User chứa attributes chung. Mỗi subclass thêm attributes riêng.",
+      "distractorTags": {
+        "0": null,
+        "2": "inheritance-for-reuse-only"
+      },
+      "hints": [
+        "Hỏi: Customer có 'is a' User không?",
+        "Tìm superclass chung.",
+        "Xem slide 16 về inheritance hierarchy."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Abstract class là class có thể tạo instance trực tiếp.",
+      "correct": false,
+      "explanation": "Abstract class là class không có instance, dùng làm template để tạo subclasses. Abstract operation được khai báo nhưng chưa implement.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "FOS có Payment gồm CreditCardPayment và BankTransferPayment. Cả hai đều có processPayment() nhưng xử lý khác nhau. Thiết kế nào thể hiện đúng OOP?",
+      "options": [
+        "Dùng một class Payment duy nhất với if-else để phân loại",
+        "Abstract class Payment với abstract processPayment(); CreditCardPayment và BankTransferPayment override",
+        "Không cần generalization, viết hai method riêng biệt"
+      ],
+      "correct": 1,
+      "explanation": "Đây là ứng dụng đúng của generalization với abstract class và polymorphism. Subclass cung cấp implementation riêng.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Generalization dựa trên Is-A relationship. Subclass kế thừa attributes/operations từ superclass. Đừng lạm dụng kế thừa chỉ để tái dùng code — phải có quan hệ Is-A thực sự. Abstract class là template không có instance.",
+      "exitTicket": "Cho ví dụ về generalization hợp lệ và không hợp lệ trong hệ thống quản lý sinh viên."
+    }
+  ]
+}

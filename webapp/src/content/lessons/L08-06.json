@@ -1,0 +1,79 @@
+{
+  "id": "L08-06",
+  "title": "Transaction và coordination",
+  "minutes": 13,
+  "xp": 140,
+  "objective": "Hiểu ACID properties, Two-Phase Commit, Compound Transaction và Long-Living Transaction patterns.",
+  "misconceptions": ["acid", "distribution-is-free"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS chuyển tiền từ tài khoản A (Bank X) sang B (Bank Y). Debit A thành công nhưng Credit B thất bại. Vấn đề gì?",
+      "options": [
+        "Không vấn đề, chỉ cần debit A là đủ",
+        "Vi phạm Atomicity — transaction phải hoàn thành toàn bộ hoặc không gì cả",
+        "Vấn đề mạng bình thường"
+      ],
+      "correct": 1,
+      "explanation": "Atomicity: transaction là indivisible unit — hoặc commit cả hai, hoặc rollback cả hai.",
+      "distractorTags": {"0": "acid", "2": null},
+      "hints": ["ACID = Atomicity, Consistency, Isolation, Durability.", "Atomicity: all or nothing.", "Xem slide 14-16."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép ACID property với giải thích:",
+      "pairs": {
+        "Atomicity": "Hoàn thành toàn bộ hoặc không gì cả",
+        "Consistency": "Sau transaction, hệ thống ở trạng thái nhất quán",
+        "Isolation": "Transaction không bị ảnh hưởng bởi transaction khác",
+        "Durability": "Thay đổi permanent sau commit"
+      },
+      "explanation": "ACID là bốn tính chất của transaction.",
+      "hints": ["A = all or nothing.", "I = độc lập.", "D = bền vững."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Hai bank tham gia chuyển tiền. Cần đảm bảo atomicity qua distributed system. Pattern nào?",
+      "options": [
+        "Broadcast",
+        "Two-Phase Commit Protocol",
+        "Subscription/Notification"
+      ],
+      "correct": 1,
+      "explanation": "Two-Phase Commit: Phase 1 (prepare) → Phase 2 (commit/abort). Đảm bảo atomic transaction.",
+      "hints": ["Cần prepare trước khi commit.", "Xem slide 15."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS đặt hàng (có human in the loop). Người dùng có thể suy nghĩ 30 phút trước khi xác nhận. Nên khóa records không?",
+      "options": [
+        "Có, khóa đến khi người dùng quyết định",
+        "Không — dùng Long-Living Transaction: tách thành nhiều transaction nhỏ, không khóa lâu",
+        "Không dùng transaction"
+      ],
+      "correct": 1,
+      "explanation": "Long-Living Transaction tách transaction dài thành nhiều transaction ngắn tránh khóa lâu.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Human in the loop = unpredictable time.", "Không nên khóa lâu.", "Xem slide 17."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "ACID: Atomicity, Consistency, Isolation, Durability. Two-Phase Commit cho distributed transactions. Long-Living Transaction cho human-in-the-loop. Distribution có chi phí (network, coordination).",
+      "exitTicket": "Mô tả một tình huống cần Two-Phase Commit trong FOS."
+    }
+  ]
+}

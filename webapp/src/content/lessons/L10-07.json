@@ -1,0 +1,57 @@
+{
+  "id": "L10-07",
+  "title": "Level 10 Review: Pattern Selection Clinic",
+  "questions": [
+    {
+      "id": "R10-01",
+      "type": "choice",
+      "prompt": "FOS cần tạo nhiều loại notification: Email, SMS, Push. Interface chung nhưng implementation khác. Pattern nào?",
+      "options": ["Singleton", "Factory Method", "State"],
+      "correct": 1,
+      "explanation": "Factory Method: subclass quyết định concrete notification type.",
+      "distractorTags": {"0": null, "2": null}
+    },
+    {
+      "id": "R10-02",
+      "type": "match",
+      "prompt": "Ghép pattern với scenario:",
+      "pairs": {
+        "Singleton": "Chỉ một PrinterSpooler",
+        "Adapter": "Third-party PDF library interface khác",
+        "Observer": "Khi Order thay đổi, notify EmailService",
+        "Strategy": "Chọn thuật toán ship hàng"
+      },
+      "explanation": "Mỗi pattern giải quyết một design pressure khác nhau."
+    },
+    {
+      "id": "R10-03",
+      "type": "choice",
+      "prompt": "Sự khác biệt giữa Strategy và State:",
+      "options": [
+        "Strategy = algorithm selection; State = behavior phụ thuộc state",
+        "State = algorithm selection; Strategy = behavior phụ thuộc state",
+        "Giống nhau hoàn toàn"
+      ],
+      "correct": 0,
+      "explanation": "Strategy: client chọn algorithm. State: behavior thay đổi theo state.",
+      "distractorTags": {"1": "state-vs-strategy", "2": null}
+    },
+    {
+      "id": "R10-04",
+      "type": "choice",
+      "prompt": "FOS cần thêm operation 'exportXML()' vào Product, Order, Customer mà không sửa các class. Pattern nào?",
+      "options": ["Template Method", "Visitor", "Factory"],
+      "correct": 1,
+      "explanation": "Visitor: thêm operation mới vào object structure mà không sửa các class."
+    },
+    {
+      "id": "R10-05",
+      "type": "choice",
+      "prompt": "FOS cần bảo vệ PaymentService — kiểm tra auth trước khi gọi. Pattern nào?",
+      "options": ["Decorator", "Proxy (Protection Proxy)", "Strategy"],
+      "correct": 1,
+      "explanation": "Protection Proxy kiểm soát truy cập trước khi gọi real service.",
+      "distractorTags": {"0": "wrapper-intent", "2": null}
+    }
+  ]
+}

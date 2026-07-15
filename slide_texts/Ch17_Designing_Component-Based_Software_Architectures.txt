@@ -1,0 +1,149 @@
+=== FILE: Ch17_Designing Component-Based Software Architectures.pptx ===
+
+Total slides: 24
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch17 - Designing Component-Based Software Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Overview
+Designing Distributed Component-Based Software Architectures
+Composite Subsystems and Components
+Modeling Components with UML
+Component Structuring Criteria
+Group Message Communication Patterns
+Application Deployment
+
+--- Slide 3 ---
+Layout: Title and Content
+Overview
+A given software application could be configured to have each component-based subsystem allocated to its own separate physical node, or, alternatively, to have all or some of its components allocated to the same physical node.
+A component-based development approach helps achieve the goal of a distributed, highly configurable, message-based design.
+A distributed component is a concurrent object with a well-defined interface.
+A composite component is composed of other part components. A simple component has no part components within it.
+A source component on one node sends a message over the network to a destination component on a different node.
+
+--- Slide 4 ---
+Layout: Title and Content
+Designing Distributed Component-Based Software Architectures
+A distributed application consists of distributed components that can be configured to execute on distributed physical nodes.
+Design distributed software architecture: Structure the distributed application into constituent components that potentially could execute on separate nodes in a distributed environment.
+Design constituent components: a simple component can execute on only one node, the internals of each simple component can be designed by means of a design method for sequential object-oriented software architectures
+Deploy the application. After a distributed application has been designed, instances of it can be defined and deployed.
+
+--- Slide 5 ---
+Layout: Title and Content
+Composite Subsystems and Components
+A composite subsystem is a component that encapsulates the internal components (objects) it contains. The component is both a logical and a physical container, but it adds no further functionality; thus, a component’s functionality is provided entirely by the part components it contains.
+Incoming messages to a component are passed through to the appropriate internal destination component, and outgoing messages from an internal component are passed through to the appropriate external destination component
+
+--- Slide 6 ---
+Layout: Title and Content
+Modeling Components with UMLDesign of Component Interfaces
+An interface specifies the externally visible operations of a class or component without revealing the internal structure (implementation) of the operations.
+Although many components are designed with one interface, it is possible for a component to provide more than one interface. If different components use a component differently, it is possible to design a separate interface for each component that requires a different interface.
+
+--- Slide 7 ---
+Layout: Title and Content
+Modeling Components with UMLProvided and Required Interfaces 1/2
+A provided interface specifies the operations that a component must fulfill.
+A required interface describes the operations that other components provide for this component to operate properly in a particular environment.
+In particular, if a component communicates with more than one component, it can use a different port for each component with which it communicates.
+
+--- Slide 8 ---
+Layout: Title and Content
+Modeling Components with UMLProvided and Required Interfaces 2/2
+
+--- Slide 9 ---
+Layout: Title and Content
+Modeling Components with UMLConnectors & Interconnecting Components
+A connector joins the required port of one component to the provided port of another component.
+The connected ports must be compatible with each other.
+
+--- Slide 10 ---
+Layout: Title and Content
+Modeling Components with UMLDesigning Composite Components
+A composite component is structured into part components, which are also depicted as UML structured classes.
+A component with no internal components is referred to as a simple component.
+
+--- Slide 11 ---
+Layout: Title and Content
+Component Structuring CriteriaProximity to the Source of Physical Data
+In a distributed environment, the sources of data might be physically distant from each other. Designing the component so that it is close to the source of physical data ensures fast access to the data, which is particularly important if data access rates are high.
+
+--- Slide 12 ---
+Layout: Title and Content
+Component Structuring CriteriaLocalized Autonomy
+A distributed component often performs a specific site-related service, where the same service is performed at multiple sites. Each instance of the component resides on a separate node, thereby providing greater local autonomy.
+An example of an autonomous local component is the Automated Guided Vehicle System component of the Factory Automation System
+
+--- Slide 13 ---
+Layout: Title and Content
+Component Structuring CriteriaPerformance
+If a time-critical function is provided within a node, better and more-predictable component performance can often be achieved.
+In a given distributed application, a real-time component can perform a time-critical service at a given node, with non– real-time or less time-critical services performed elsewhere.
+An example of a component that satisfies this criterion is the Automated Guided Vehicle System component
+
+--- Slide 14 ---
+Layout: Title and Content
+Component Structuring CriteriaSpecialized Hardware
+A component might need to reside on a particular node because it supports special-purpose hardware, such as a vector processor, or because it has to interface to special-purpose peripherals, sensors, or actuators that are connected to a specific node
+Instances of the Monitoring Sensor Component (Figure 17.4) interface to special-purpose sensors. Both the Arm Component and Motor Component (Figure 17.8) interface to special-purpose actuators.
+
+--- Slide 15 ---
+Layout: Title and Content
+Component Structuring CriteriaI/O Component
+An I/O component can be designed to be relatively autonomous and in close proximity to the source of physical data.
+In particular, “smart” devices are given greater local autonomy and consist of the hardware plus the software that interfaces to and controls the device.
+I/O component is a general name given to components that interact with the external environment
+
+--- Slide 16 ---
+Layout: Title and Content
+Group Message Comm. Patterns
+The message communication patterns described so far have involved one source component and one destination component.
+A desirable property in some distributed applications is group communication. This is a form of one-to-many message communication in which a sender sends one message to many recipients.
+Two kinds of group message communication (sometimes referred to as groupcast communication) supported in distributed applications are broadcast and multicast communication.
+
+--- Slide 17 ---
+Layout: Title and Content
+Group Message Comm. PatternsBroadcast Message Communication Pattern
+With the Broadcast (or Broadcast Communication) pattern, an unsolicited message is sent to all recipients, perhaps informing them of a pending shutdown. Each recipient must then decide whether it wishes to process the message or discard it.
+
+--- Slide 18 ---
+Layout: Title and Content
+Group Message Comm. PatternsSubs/Noti Message Communication Pattern
+Multicast communication provides a more selective form of group communication, in which the same message is sent to all members of a group.
+The Subscription/Notification pattern uses a form of multicast communication in which components subscribe to a group and receive messages destined for all members of the group.
+
+--- Slide 19 ---
+Layout: Title and Content
+Group Message Comm. PatternsConcurrent Service Design with Subs/Noti 1/2
+
+--- Slide 20 ---
+Layout: Title and Content
+Group Message Comm. PatternsConcurrent Service Design with Subs/Noti 2/2
+The concurrent communication diagram in Figure 17.11 shows three separate interactions: a simple query interaction, a news event subscription interaction, and a news event notification interaction.
+In the query interaction (which does not involve a subscription), a client makes a request to News Service Coordinator, which in turn sends a news archive query to News Archive Service. The latter queries the News Archive and sends the response directly to Client.
+
+--- Slide 21 ---
+Layout: Title and Content
+Application DeploymentApplication Deployment Issues 1/3
+Define instances of the component. For each component that can have multiple instances, it is necessary to define the instances desired.
+Interconnect component instances. The application architecture defines how components communicate with one another.
+Map the component instances to physical nodes. For example, two components could be deployed such that each one could run on a separate physical node. Alternatively, they could both run on the same physical node. The physical configuration of the target application is depicted on a deployment diagram.
+
+--- Slide 22 ---
+Layout: Title and Content
+Application DeploymentApplication Deployment Issues 2/3
+
+--- Slide 23 ---
+Layout: Title and Content
+Application DeploymentApplication Deployment Issues 3/3
+
+--- Slide 24 ---
+Layout: Title Only

@@ -1,0 +1,117 @@
+{
+  "id": "L04-03",
+  "title": "Quan hệ có dữ liệu riêng",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Nhận biết khi nào cần association class để mô tả dữ liệu thuộc về mối quan hệ nhiều-nhiều.",
+  "misconceptions": ["relationship-data"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS: Một Employee có thể làm việc trên nhiều Project. Một Project có nhiều Employee. Mỗi lần làm việc, ta cần lưu số giờ (hoursWorked). Thuộc tính hoursWorked nên đặt ở đâu?",
+      "options": [
+        "Trong class Employee",
+        "Trong class Project",
+        "Trong association class WorksOn giữa Employee và Project"
+      ],
+      "correct": 2,
+      "explanation": "HoursWorked thuộc về mối quan hệ giữa Employee và Project, không thuộc riêng entity nào. Cần association class.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "1": "relationship-data"
+      },
+      "hints": [
+        "Hỏi: hoursWorked có thuộc về một Employee cụ thể không? Hay thuộc về một cặp (Employee, Project)?",
+        "Association class dùng cho many-to-many association.",
+        "Xem slide 11 về association class."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "class-vs-object",
+        "options": [
+          "Association class chỉ cần khi có ít nhất 3 class tham gia",
+          "Association class mô tả thuộc tính của mối quan hệ, thường dùng cho many-to-many",
+          "Association class là class cha của hai class kia"
+        ]
+      },
+      "prompt": "Quan sát ví dụ về association class. Khi nào cần dùng association class?",
+      "correct": 1,
+      "explanation": "Association class mô hình hóa thuộc tính của chính association, không của class nào tham gia. Phổ biến trong many-to-many.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Dữ liệu này có thuộc về một mình Employee không?",
+        "Có thuộc về một mình Project không?",
+        "Nó thuộc về cặp (Employee, Project) → association class."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Hệ thống đào tạo: Một Student học nhiều Course. Một Course có nhiều Student. Cần lưu ngày đăng ký (enrollDate) và điểm (grade). Giải pháp nào?",
+      "options": [
+        "Thêm enrollDate, grade vào Student class",
+        "Thêm enrollDate, grade vào Course class",
+        "Tạo association class Enrollment giữa Student và Course"
+      ],
+      "correct": 2,
+      "explanation": "enrollDate và grade là thuộc tính của quan hệ Enrollment (student-course). Association class là giải pháp chuẩn.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "1": "relationship-data"
+      },
+      "hints": [
+        "Một Student học nhiều Course, mỗi Course có điểm riêng.",
+        "enrollDate của Student A khác với enrollDate của Student B cho cùng Course.",
+        "Dữ liệu thuộc về sự kết hợp (Student, Course)."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Một ternary association là quan hệ ba chiều giữa ba class, và có thể có association class riêng.",
+      "correct": true,
+      "explanation": "Ternary association là quan hệ giữa 3 class. Association class vẫn có thể dùng cho ternary association.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "FOS: Shipper giao nhiều Order. Mỗi Order chỉ do một Shipper giao. Cần lưu thời gian giao và trạng thái giao. Có cần association class không?",
+      "options": [
+        "Có, vì cần lưu dữ liệu giao hàng",
+        "Không, vì đây là one-to-many (một Shipper giao nhiều Order). Các thuộc tính này thuộc về Order",
+        "Cần tạo class riêng cho Shipping"
+      ],
+      "correct": 1,
+      "explanation": "Đây là one-to-many, không phải many-to-many. DeliveryTime và Status là attributes của Order.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "2": null
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Association class được dùng khi một association có dữ liệu riêng — thường gặp ở many-to-many. Kiểm tra: Nếu dữ liệu thuộc về cặp kết hợp (VD: Employee-Project), không thuộc riêng class nào → association class.",
+      "exitTicket": "Cho ví dụ về many-to-many cần association class trong hệ thống quản lý thư viện."
+    }
+  ]
+}

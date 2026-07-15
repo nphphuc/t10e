@@ -1,0 +1,114 @@
+{
+  "id": "L03-01",
+  "title": "Nhìn hệ thống như một black box",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Hiểu tại sao khi phân tích yêu cầu, ta phải xem hệ thống như một hộp đen (black box) và chỉ tập trung vào đặc tính bên ngoài.",
+  "misconceptions": ["actor-is-internal"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS đang trong giai đoạn phân tích yêu cầu. Một developer hỏi: 'Chúng ta dùng database MySQL hay PostgreSQL?'. Câu hỏi này có phù hợp trong bước này không?",
+      "options": [
+        "Có, cần chọn database ngay từ đầu để thiết kế bảng",
+        "Không, vì đang ở giai đoạn yêu cầu — ta xem hệ thống là black box, chưa quyết định công nghệ nội bộ",
+        "Có, vì database ảnh hưởng đến toàn bộ kiến trúc"
+      ],
+      "correct": 1,
+      "explanation": "Requirements modeling xem hệ thống như black box — chỉ xét I/O từ bên ngoài. Database là quyết định thiết kế nội bộ (design phase).",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "2": null
+      },
+      "hints": [
+        "Black box nghĩa là ta chỉ nhìn vào input/output bên ngoài, không quan tâm bên trong.",
+        "Database có phải là thứ người dùng cuối nhìn thấy không?",
+        "Requirements Analysis trả lời WHAT, không phải HOW."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "visual",
+      "visual": {
+        "variant": "static-diagram",
+        "svgId": "model-vs-code",
+        "options": [
+          "Requirements mô tả chi tiết cách cài đặt giải pháp kỹ thuật",
+          "Requirements mô tả chức năng từ góc nhìn người dùng, không quan tâm cài đặt nội bộ",
+          "Requirements là mã giả (pseudocode) của toàn bộ hệ thống"
+        ]
+      },
+      "prompt": "Quan sát sơ đồ luồng từ yêu cầu đến thiết kế. Phát biểu nào đúng về bản chất của Requirements Modeling?",
+      "correct": 1,
+      "explanation": "Requirements modeling coi hệ thống là black box, mô tả chức năng và chất lượng dịch vụ từ bên ngoài, không bị ràng buộc bởi chi tiết cài đặt.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhìn hướng mũi tên từ Model sang Code.",
+        "Yêu cầu (Requirements) nằm ở phía nào của luồng?",
+        "Đọc lại định nghĩa về Black Box từ slide 3."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Những phát biểu nào sau đây thuộc về requirements modeling (chọn tất cả đáp án đúng)?",
+      "options": [
+        "Hệ thống phải cho phép khách hàng tra cứu thông tin sản phẩm",
+        "Hệ thống sử dụng React để xây dựng giao diện front-end",
+        "Sau khi đặt hàng, hệ thống gửi email xác nhận cho khách hàng",
+        "Dữ liệu sản phẩm được lưu trong bảng Product của MySQL"
+      ],
+      "correctSet": [0, 2],
+      "explanation": "Mô tả tính năng từ góc nhìn người dùng (tra cứu, gửi email) là requirements. Công nghệ triển khai (React, MySQL) là design decisions.",
+      "distractorTags": {
+        "1": "actor-is-internal",
+        "3": "actor-is-internal"
+      },
+      "hints": [
+        "Requirements chỉ tập trung vào WHAT (cái gì), không phải HOW (thế nào).",
+        "Công nghệ cụ thể thuộc pha nào?",
+        "Câu nào mô tả hành vi từ góc nhìn người dùng cuối?"
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Sếp nói: 'Tôi muốn thấy kiến trúc tổng thể, biểu đồ class, và cách triển khai server trước khi duyệt yêu cầu'. Sếp đang mắc lỗi gì?",
+      "options": [
+        "Sếp muốn nhảy từ requirements sang design quá sớm, bỏ qua bước phân tích black box",
+        "Sếp đang làm đúng quy trình COMET chuẩn",
+        "Sếp muốn áp dụng mô hình Waterfall"
+      ],
+      "correct": 0,
+      "explanation": "Requirements là giai đoạn đen (black box), cần hiểu rõ vấn đề trước khi lao vào thiết kế giải pháp. Phân tích và thiết kế là các pha riêng biệt.",
+      "distractorTags": {
+        "1": "usecase-is-click",
+        "2": null
+      },
+      "hints": [
+        "Nên đi từ tổng quan (black box) đến chi tiết (white box) hay ngược lại?",
+        "COMET có 3 pha: Requirements → Analysis → Design.",
+        "Black box trước khi white box."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Requirements modeling xem hệ thống như một hộp đen (black box). Ta chỉ mô tả chức năng từ bên ngoài: Actor tương tác gì với hệ thống? Hệ thống trả ra kết quả gì? Chi tiết cài đặt nội bộ thuộc về pha thiết kế sau này.",
+      "exitTicket": "Hãy cho ví dụ về một yêu cầu chức năng (functional) và một yêu cầu phi chức năng (non-functional) cho FOS."
+    }
+  ]
+}

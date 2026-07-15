@@ -1,0 +1,78 @@
+{
+  "id": "L08-08",
+  "title": "Concurrent và real-time task architecture",
+  "minutes": 14,
+  "xp": 150,
+  "objective": "Phân biệt concurrent tasks, I/O task structuring, và control patterns cho real-time systems.",
+  "misconceptions": ["task-activation", "async-is-faster"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS cần đọc dữ liệu từ sensor nhiệt độ mỗi 100ms. Task type nào?",
+      "options": [
+        "Event-driven I/O task",
+        "Periodic I/O task (polling định kỳ)",
+        "Demand-driven I/O task"
+      ],
+      "correct": 1,
+      "explanation": "Periodic I/O task: polling passive device định kỳ, kích hoạt bởi timer event.",
+      "distractorTags": {"0": "task-activation", "2": null},
+      "hints": ["Định kỳ = periodic.", "Timer event kích hoạt.", "Xem slide 12-13."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép task type với mô tả:",
+      "pairs": {
+        "Event-driven I/O task": "I/O device tạo interrupt — task chạy ngay",
+        "Periodic I/O task": "Polling device định kỳ — timer activation",
+        "Demand-driven I/O task": "Client request kích hoạt",
+        "Internal task": "Task xử lý nội bộ, không I/O"
+      },
+      "explanation": "Các loại concurrent tasks phân loại theo cách kích hoạt.",
+      "hints": ["Event = interrupt.", "Periodic = timer.", "Demand = client request.", "Xem slide 10-14."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Hệ thống AGV: Central Controller → Motor Controller → Motor Hardware. Pattern gì?",
+      "options": [
+        "Centralized Control (một controller trung tâm)",
+        "Distributed Control (nhiều controller peer-to-peer)",
+        "Hierarchical Control (phân cấp)"
+      ],
+      "correct": 2,
+      "explanation": "Hierarchical Control: Central Controller (high-level) → Motor Controller (low-level).",
+      "hints": ["Có cấp bậc → hierarchical.", "Centralized: một controller duy nhất.", "Distributed: peer-to-peer.", "Xem slide 6-8."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Hard real-time khác soft real-time ở điểm nào?",
+      "options": [
+        "Hard real-time có deadline bắt buộc; soft real-time có thể trễ nhẹ",
+        "Hard real-time dùng Java; soft dùng Python",
+        "Không khác biệt"
+      ],
+      "correct": 0,
+      "explanation": "Hard real-time: deadline phải đáp ứng (miss deadline = failure). Soft real-time: có thể trễ nhẹ.",
+      "hints": ["Deadline quyết định.", "Hard: không thể miss.", "Xem slide 5."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Concurrent tasks: event-driven (interrupt), periodic (timer), demand-driven (client request). Control patterns: centralized, distributed, hierarchical. Hard vs soft real-time.",
+      "exitTicket": "Cho ví dụ về hard real-time và soft real-time trong cùng một hệ thống."
+    }
+  ]
+}

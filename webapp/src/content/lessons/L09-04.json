@@ -1,0 +1,75 @@
+{
+  "id": "L09-04",
+  "title": "FOS tiến hóa: client/server đến SOA đến microservices",
+  "minutes": 14,
+  "xp": 150,
+  "objective": "Áp dụng quality attributes vào việc tiến hóa kiến trúc FOS từ client/server đến SOA đến microservices.",
+  "misconceptions": ["distribution-is-free", "soa-is-microservices"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS phiên bản 1: monolithic client/server. Lên version 2: tách thành services. Lợi ích chính?",
+      "options": [
+        "Tự động nhanh hơn",
+        "Scalability, reusability, maintainability tốt hơn — mỗi service phát triển độc lập",
+        "Giảm chi phí mạng"
+      ],
+      "correct": 1,
+      "explanation": "Service-oriented architecture cải thiện scalability, reusability, maintainability nhưng tăng chi phí mạng và coordination.",
+      "distractorTags": {"0": null, "2": "distribution-is-free"},
+      "hints": ["SOA = autonomous services.", "Benefit: độc lập, tái sử dụng.", "Cost: network, coordination."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "multi",
+      "prompt": "Chi phí khi chuyển từ monolithic sang SOA? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Network latency và failure",
+        "Versioning và observability",
+        "Authorization và security phức tạp",
+        "Mọi thứ đều miễn phí"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Phân tán = chi phí network, versioning, observability, authorization. Distribution không free.",
+      "distractorTags": {"3": "distribution-is-free"},
+      "hints": ["Phân tán không free.", "Có chi phí coordination.", "Xem discussion về distribution."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "truefalse",
+      "prompt": "SOA và Microservices là hai thuật ngữ hoàn toàn giống nhau.",
+      "correct": false,
+      "explanation": "SOA là tập nguyên lý kiến trúc service. Microservices là một cách tổ chức service cụ thể với granularity nhỏ hơn.",
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "scenario",
+      "prompt": "FOS muốn service có thể dùng cho cả web app và mobile app. Design principle nào quan trọng?",
+      "options": [
+        "Tight coupling",
+        "Service contract rõ ràng và abstraction",
+        "Viết code riêng cho mỗi platform"
+      ],
+      "correct": 1,
+      "explanation": "Service contract rõ ràng + abstraction = reusability. Client không phụ thuộc vào implementation.",
+      "distractorTags": {"0": null, "2": "interface-is-implementation"},
+      "hints": ["Contract = interface.", "Abstraction = ẩn implementation.", "Xem SOA principles."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Tiến hóa kiến trúc: Monolithic → SOA → Microservices. Mỗi bước tăng scalability/reusability nhưng tăng chi phí network và coordination. Distribution không free.",
+      "exitTicket": "FOS version 1 → version 2 → version 3: phân tích trade-offs mỗi bước."
+    }
+  ]
+}

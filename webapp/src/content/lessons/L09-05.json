@@ -1,0 +1,64 @@
+{
+  "id": "L09-05",
+  "title": "Level 9 Review: Trade-off Board",
+  "questions": [
+    {
+      "id": "R09-01",
+      "type": "choice",
+      "prompt": "Thay vì 'hệ thống phải nhanh', NFR tốt hơn là:",
+      "options": [
+        "Hệ thống chạy trên server mạnh",
+        "95% requests < 2s dưới tải 500 users",
+        "Hệ thống dùng SSD"
+      ],
+      "correct": 1,
+      "explanation": "NFR tốt phải measurable: stimulus + condition + metric."
+    },
+    {
+      "id": "R09-02",
+      "type": "match",
+      "prompt": "Ghép quality attribute với ví dụ:",
+      "pairs": {
+        "Performance": "Response time < 2s",
+        "Availability": "Uptime 99.9%",
+        "Security": "Failed login > 5 thì khóa",
+        "Scalability": "Hỗ trợ 10,000 concurrent users"
+      },
+      "explanation": "Mỗi attribute cần scenario cụ thể."
+    },
+    {
+      "id": "R09-03",
+      "type": "truefalse",
+      "prompt": "Security và performance luôn có thể đạt được cùng lúc mà không có trade-off.",
+      "correct": false,
+      "explanation": "Security (encryption, auth) tăng overhead → giảm performance."
+    },
+    {
+      "id": "R09-04",
+      "type": "choice",
+      "prompt": "FOS muốn tái sử dụng Payment Service cho nhiều apps. Yếu tố nào quan trọng nhất?",
+      "options": [
+        "Tight coupling với mỗi app",
+        "Service contract rõ ràng, abstraction, stateless design",
+        "Viết lại service cho mỗi app"
+      ],
+      "correct": 1,
+      "explanation": "Contract, abstraction, statelessness giúp service reusable.",
+      "distractorTags": {"0": null, "2": "interface-is-implementation"}
+    },
+    {
+      "id": "R09-05",
+      "type": "multi",
+      "prompt": "Chi phí của distributed architecture? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Network latency",
+        "Versioning complexity",
+        "Authorization overhead",
+        "Không có chi phí"
+      ],
+      "correctSet": [0, 1, 2],
+      "explanation": "Distribution có chi phí: latency, versioning, auth.",
+      "distractorTags": {"3": "distribution-is-free"}
+    }
+  ]
+}

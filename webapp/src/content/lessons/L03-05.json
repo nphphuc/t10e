@@ -1,0 +1,131 @@
+{
+  "id": "L03-05",
+  "title": "Viết main flow có thể kiểm thử",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Viết use case specification với main sequence, alternative sequences, preconditions và postconditions.",
+  "misconceptions": ["flow-order"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Team FOS viết luồng chính của use case Place Order như sau: 'Bước 1: Kiểm tra giỏ hàng. Bước 2: Tính thuế. Bước 3: Xử lý thanh toán. Bước 4: Gửi email. Bước 5: Cập nhật tồn kho. Bước 6: Bắt đầu.' Vấn đề ở bước nào?",
+      "options": [
+        "Thiếu bước 'Hiển thị xác nhận đơn hàng'",
+        "Thứ tự các bước sai — nên 'Bắt đầu' ở đầu, và cần tuân theo thứ tự tương tác actor→system",
+        "Có quá nhiều bước, cần gộp lại"
+      ],
+      "correct": 1,
+      "explanation": "Use case flow bắt đầu từ input của actor, mỗi bước là một cặp actor→system tương tác. 'Bắt đầu' phải là bước 1.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Use case luôn bắt đầu với input từ primary actor.",
+        "Mỗi bước = Actor gửi → Hệ thống phản hồi.",
+        "Xem cấu trúc UC spec trong slide 17."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp các bước của use case 'Place Order' theo đúng thứ tự main flow:",
+      "options": [
+        "System confirms order and displays order details",
+        "Customer provides shipping address and payment info",
+        "System validates payment and creates order",
+        "Customer initiates checkout",
+        "System sends confirmation email"
+      ],
+      "correctOrder": [
+        "Customer initiates checkout",
+        "System validates payment and creates order",
+        "System confirms order and displays order details",
+        "Customer provides shipping address and payment info",
+        "System sends confirmation email"
+      ],
+      "explanation": "Flow chuẩn: Customer bắt đầu → Nhập thông tin → Hệ thống xử lý → Hệ thống phản hồi → Hoàn tất.",
+      "hints": [
+        "Bắt đầu với input từ actor.",
+        "Actor nhập thông tin trước khi hệ thống xử lý.",
+        "Email là bước cuối cùng."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép các thành phần của UC spec với nội dung tương ứng:",
+      "pairs": {
+        "Use case name": "Place Order",
+        "Actor": "Customer",
+        "Precondition": "Customer has items in cart",
+        "Main sequence": "Các bước tương tác chính thành công",
+        "Alternative sequence": "Xử lý khi credit card bị từ chối",
+        "Postcondition": "Order has been created and payment authorized"
+      },
+      "explanation": "UC spec gồm: name, summary, dependency, actors, preconditions, main sequence, alternative sequences, postcondition.",
+      "hints": [
+        "Precondition là điều kiện trước khi UC bắt đầu.",
+        "Postcondition là trạng thái sau khi UC kết thúc thành công.",
+        "Alternative sequence xử lý các trường hợp ngoại lệ."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "Trong main sequence của use case, mỗi interaction step là:",
+      "options": [
+        "Một dòng code chi tiết",
+        "Một cặp input từ actor và response từ hệ thống",
+        "Một câu lệnh SQL"
+      ],
+      "correct": 1,
+      "explanation": "Mỗi step trong main sequence là một tương tác: actor gửi input → system phản hồi. Đây là mức mô tả hành vi, không phải code.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Main sequence ở level nghiệp vụ, không phải kỹ thuật.",
+        "Mỗi bước = 1 interaction actor ↔ system.",
+        "Xem slide 17 về UC documentation."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Customer muốn hủy đơn hàng vừa đặt. Precondition hợp lệ là gì?",
+      "options": [
+        "Customer đã đăng nhập và có ít nhất một order đang ở trạng thái 'Pending'",
+        "Customer có quyền admin",
+        "Hệ thống đang online",
+        "Bất kỳ lúc nào"
+      ],
+      "correct": 0,
+      "explanation": "Precondition của use case Cancel Order: customer đã đăng nhập và có order đang pending (chưa xử lý). Điều kiện tiên quyết để use case có thể thực thi có ý nghĩa.",
+      "distractorTags": {
+        "1": null,
+        "2": null,
+        "3": null
+      },
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Use case specification gồm: name, actor, precondition, main sequence (các bước tương tác actor↔system), alternative sequences (xử lý ngoại lệ), postcondition. Main sequence mô tả flow chính thành công ở mức nghiệp vụ.",
+      "exitTicket": "Viết main sequence (3-5 bước) cho use case 'Register New Account' của FOS."
+    }
+  ]
+}

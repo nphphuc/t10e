@@ -1,0 +1,62 @@
+{
+  "id": "L05-01",
+  "title": "Boundary, entity hay control?",
+  "minutes": 9,
+  "xp": 90,
+  "objective": "Phân loại software objects thành boundary, entity, control dựa trên vai trò trong ứng dụng.",
+  "misconceptions": ["object-role"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "choice",
+      "prompt": "Trong FOS, class 'CustomerForm' hiển thị giao diện nhập thông tin khách hàng. Stereotype phù hợp là gì?",
+      "options": [
+        "«entity» — vì nó chứa thông tin khách hàng",
+        "«boundary» — vì nó giao tiếp trực tiếp với user",
+        "«control» — vì nó kiểm soát việc nhập liệu"
+      ],
+      "correct": 1,
+      "explanation": "CustomerForm giao tiếp với human user → boundary class (user interaction object).",
+      "distractorTags": {
+        "0": "object-role",
+        "2": "object-role"
+      },
+      "hints": ["Boundary class có nhiệm vụ giao tiếp với external environment.", "Entity lưu dữ liệu, Boundary giao tiếp bên ngoài.", "Xem slide 7 về user interaction objects."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép class với stereotype tương ứng:",
+      "pairs": {
+        "OrderForm (giao diện đặt hàng)": "«boundary»",
+        "Product (lưu thông tin sản phẩm)": "«entity»",
+        "CheckoutController (điều phối luồng checkout)": "«control»",
+        "EmailService (gửi email)": "«boundary»"
+      },
+      "explanation": "Boundary: giao tiếp với bên ngoài. Entity: lưu trữ dữ liệu. Control: điều phối logic.",
+      "hints": ["Boundary = giao diện user/external system.", "Entity = data persistence.", "Control = orchestrator."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Class nào sau đây là entity class? (Chọn tất cả đáp án đúng)",
+      "options": ["Customer", "Order", "LoginForm", "Product", "EmailSender"],
+      "correctSet": [0, 1, 3],
+      "explanation": "Entity class lưu trữ dữ liệu bền vững. Customer, Order, Product là entity. LoginForm và EmailSender là boundary.",
+      "distractorTags": {"2": "object-role", "4": "object-role"},
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Phân loại class: «entity» lưu dữ liệu, «boundary» giao tiếp bên ngoài, «control» điều phối luồng. Đây là bước đầu trong object structuring.",
+      "exitTicket": "Phân loại 3 class bất kỳ trong FOS theo stereotype."
+    }
+  ]
+}

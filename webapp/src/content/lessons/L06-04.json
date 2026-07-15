@@ -1,0 +1,92 @@
+{
+  "id": "L06-04",
+  "title": "Stateless realization từng bước",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Thực hiện stateless dynamic interaction modeling từ use case đến communication diagram.",
+  "misconceptions": ["realization-order"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "order",
+      "prompt": "Sắp xếp các bước stateless dynamic interaction modeling theo đúng trình tự COMET:",
+      "options": [
+        "Determine boundary and internal objects",
+        "Develop UC model",
+        "Determine alternative sequences",
+        "Determine message communication sequence"
+      ],
+      "correctOrder": [
+        "Develop UC model",
+        "Determine boundary and internal objects",
+        "Determine message communication sequence",
+        "Determine alternative sequences"
+      ],
+      "explanation": "Quy trình: 1) UC model → 2) Xác định objects → 3) Message sequence → 4) Alternative sequences.",
+      "hints": ["Bắt đầu với UC model.", "Xác định objects trước khi vẽ message.", "Alternative sequences là bước cuối.", "Xem slide 9."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "scenario",
+      "prompt": "View Alarms: Monitoring Operator muốn xem danh sách alarm. Step xác định objects — cần objects nào?",
+      "options": [
+        "OperatorInteraction (boundary) và AlarmService (service)",
+        "OperatorInteraction, AlarmController (control), AlarmService, AlarmDatabase",
+        "Chỉ một object AlarmService"
+      ],
+      "correct": 0,
+      "explanation": "View Alarms là use case đơn giản: boundary (OperatorInteraction) + service (AlarmService). Không cần control.",
+      "distractorTags": {"1": "control-always", "2": null},
+      "hints": ["Use case đơn giản → ít objects.", "Boundary + service là đủ.", "Xem slide 10-11."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "order",
+      "prompt": "Sắp xếp message sequence cho Make Order Request (Online Shopping):",
+      "options": [
+        "CustomerCoordinator gửi getAccountInfo() đến CustomerAccount",
+        "CustomerInteraction gửi orderRequest()",
+        "Customer Account trả account info",
+        "CustomerCoordinator gửi authorizeCreditCard() đến CreditCardService"
+      ],
+      "correctOrder": [
+        "CustomerInteraction gửi orderRequest()",
+        "CustomerCoordinator gửi getAccountInfo() đến CustomerAccount",
+        "Customer Account trả account info",
+        "CustomerCoordinator gửi authorizeCreditCard() đến CreditCardService"
+      ],
+      "explanation": "Sequence: Interaction → Coordinator → Account Service → Credit Card Service.",
+      "hints": ["Bắt đầu từ actor.", "Coordinator điều phối services.", "Xem slide 12-15."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "multi",
+      "prompt": "Những yếu tố nào cần xác định trong step 'Determine message communication sequence'? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Object nào gửi message",
+        "Object nào nhận message",
+        "Tên message/operation",
+        "Thứ tự message",
+        "Chi tiết code của mỗi operation"
+      ],
+      "correctSet": [0, 1, 2, 3],
+      "explanation": "Xác định source, destination, operation name, và sequence number. Code chi tiết thuộc design phase.",
+      "distractorTags": {"4": null},
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Stateless dynamic interaction modeling: 1) UC model → 2) Xác định objects → 3) Vẽ message sequence → 4) Xác định alternative sequences. Use case đơn giản chỉ cần boundary + service.",
+      "exitTicket": "Áp dụng 4 bước cho use case 'Register' của FOS."
+    }
+  ]
+}

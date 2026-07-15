@@ -1,0 +1,62 @@
+{
+  "id": "L06-03",
+  "title": "Hai diagram, một interaction",
+  "minutes": 9,
+  "xp": 100,
+  "objective": "So sánh và chọn giữa sequence diagram và communication diagram.",
+  "misconceptions": ["sequence-equals-communication"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Team bạn đang thiết kế và cần vẽ interaction cho use case. Một bạn vẽ sequence, bạn kia vẽ communication. Cả hai đều mô tả cùng một use case. Kết luận nào đúng?",
+      "options": [
+        "Một trong hai bạn đang làm sai vì không thống nhất diagram",
+        "Cả hai đều đúng — sequence và communication chỉ khác cách trình bày, cùng mô tả object interaction",
+        "Chỉ sequence diagram mới được UML chuẩn hóa"
+      ],
+      "correct": 1,
+      "explanation": "Cả sequence và communication diagram đều mô tả object interaction, chỉ khác cách trình bày: sequence theo thời gian, communication theo topology.",
+      "distractorTags": {"0": "sequence-equals-communication", "2": null},
+      "hints": ["Cả hai đều là UML interaction diagrams.", "Khác presentation, cùng nội dung.", "Xem slide 8."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép loại diagram với ưu điểm tương ứng:",
+      "pairs": {
+        "Sequence diagram": "Tối ưu cho thấy thứ tự thời gian — dễ đọc luồng",
+        "Communication diagram": "Tối ưu cho thấy layout kết nối giữa các object"
+      },
+      "explanation": "Sequence: timeline tốt. Communication: topology tốt. Chọn theo mục đích.",
+      "hints": ["Sequence = thời gian.", "Communication = kết nối.", "Xem slide 8."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "Bạn cần chuyển sequence diagram thành communication diagram để thực hiện bước integration (tích hợp các use case thành architecture). Ai đúng?",
+      "options": [
+        "Không cần chuyển — chỉ cần giữ nguyên sequence diagram",
+        "COMET khuyên dùng communication diagram vì dễ tích hợp các use case thành architecture tổng thể",
+        "Cả hai đều không cần thiết"
+      ],
+      "correct": 1,
+      "explanation": "COMET khuyên dùng communication diagram vì dễ tích hợp các interaction diagrams thành integrated communication diagram cho toàn bộ hệ thống.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["COMET có preference về communication diagram.", "Integration step cần communication diagram.", "Xem slide 8 về COMET preference."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Sequence và Communication diagram cùng mô tả interaction nhưng khác góc nhìn. Sequence mạnh về thời gian, Communication mạnh về topology. COMET khuyên dùng Communication cho việc tích hợp kiến trúc.",
+      "exitTicket": "Khi nào bạn chọn Sequence? Khi nào chọn Communication?"
+    }
+  ]
+}

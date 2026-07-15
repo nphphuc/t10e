@@ -1,0 +1,72 @@
+{
+  "id": "L08-02",
+  "title": "Client/server và multi-tier",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Phân biệt Multiple Client/Single Service, Multiple Client/Multiple Service, và Multi-tier patterns.",
+  "misconceptions": ["architecture-style-confusion"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS có 1000 khách hàng mobile cùng truy cập vào một Order Service. Pattern kiến trúc nào?",
+      "options": [
+        "Multiple Client / Single Service",
+        "Peer-to-peer",
+        "Single Client / Single Service"
+      ],
+      "correct": 0,
+      "explanation": "1000 clients → một service: Multiple Client/Single Service pattern.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Nhiều client, một service.", "Xem slide 4-6."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với đặc điểm:",
+      "pairs": {
+        "Multiple Client/Single Service": "Nhiều client, một service",
+        "Multiple Client/Multiple Service": "Client giao tiếp với nhiều services",
+        "Multi-tier": "Intermediate tier vừa là client vừa là service"
+      },
+      "explanation": "Các client/server patterns khác nhau về số lượng và vai trò.",
+      "hints": ["Single service: một server.", "Multi-tier: có tầng trung gian.", "Xem slide 4-9."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS có web app (React) gọi API Gateway (tầng giữa), API Gateway gọi OrderService. Đây là:",
+      "options": [
+        "Multiple Client/Single Service",
+        "Multi-tier Client/Service",
+        "Broadcast pattern"
+      ],
+      "correct": 1,
+      "explanation": "API Gateway là intermediate tier — vừa là service cho web app, vừa là client của OrderService.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Tầng giữa đóng hai vai trò.", "Client + service.", "Xem slide 9."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "retrieve",
+      "type": "fill",
+      "prompt": "Trong multi-tier architecture, intermediate tier vừa là _____ (của tầng dưới) vừa là _____ (của tầng trên).",
+      "accepted": ["client, service", "service, client", "client của service, service cho client"],
+      "explanation": "Intermediate tier là client của service tier và là service cho các clients của nó.",
+      "weight": 1
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Client/server patterns: Multiple Client/Single Service (nhiều client một server), Multiple Client/Multiple Service (nhiều client nhiều server), Multi-tier (tầng trung gian đóng hai vai trò).",
+      "exitTicket": "FOS nên dùng multi-tier không? Giải thích."
+    }
+  ]
+}

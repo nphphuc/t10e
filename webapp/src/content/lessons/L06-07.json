@@ -1,0 +1,75 @@
+{
+  "id": "L06-07",
+  "title": "Level 6 Review: Realize Add Product",
+  "questions": [
+    {
+      "id": "R06-01",
+      "type": "choice",
+      "prompt": "Điểm khác biệt chính giữa sequence diagram và communication diagram là gì?",
+      "options": [
+        "Sequence có lifeline dọc; Communication có link với sequence numbers",
+        "Sequence dùng cho web; Communication dùng cho mobile",
+        "Không có khác biệt"
+      ],
+      "correct": 0,
+      "explanation": "Sequence: timeline dọc với lifeline. Communication: graph với link và sequence numbers.",
+      "distractorTags": {"1": "sequence-equals-communication"}
+    },
+    {
+      "id": "R06-02",
+      "type": "order",
+      "prompt": "Sắp xếp các bước stateless interaction modeling:",
+      "options": [
+        "Vẽ message sequence",
+        "Xác định boundary và internal objects",
+        "Phát triển UC model",
+        "Xác định alternative sequences"
+      ],
+      "correctOrder": [
+        "Phát triển UC model",
+        "Xác định boundary và internal objects",
+        "Vẽ message sequence",
+        "Xác định alternative sequences"
+      ],
+      "explanation": "Bắt đầu từ UC model, xác định objects, vẽ message, cuối cùng là alternative sequences."
+    },
+    {
+      "id": "R06-03",
+      "type": "choice",
+      "prompt": "Khi cần debug thứ tự gọi hàm theo thời gian, diagram nào phù hợp nhất?",
+      "options": [
+        "Communication diagram",
+        "Sequence diagram",
+        "Class diagram"
+      ],
+      "correct": 1,
+      "explanation": "Sequence diagram tối ưu cho thấy thứ tự thời gian.",
+      "distractorTags": {"0": "sequence-equals-communication"}
+    },
+    {
+      "id": "R06-04",
+      "type": "choice",
+      "prompt": "Make Order Request: customer không có account. Đây là:",
+      "options": [
+        "Alternative sequence cần mô hình hóa riêng",
+        "Lỗi hệ thống",
+        "Main sequence bình thường"
+      ],
+      "correct": 0,
+      "explanation": "Đây là alternative scenario (tạo account mới) cần có interaction riêng.",
+      "distractorTags": {"1": "ignore-alternative", "2": null}
+    },
+    {
+      "id": "R06-05",
+      "type": "match",
+      "prompt": "Ghép state machine concept với định nghĩa:",
+      "pairs": {
+        "State": "Tình huống tồn tại qua một khoảng thời gian",
+        "Event": "Sự kiện xảy ra tại một thời điểm",
+        "Guard": "[Condition] cho phép transition",
+        "Transition": "Chuyển từ state này sang state khác"
+      },
+      "explanation": "Các khái niệm cốt lõi của finite state machine."
+    }
+  ]
+}

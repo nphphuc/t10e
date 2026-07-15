@@ -1,0 +1,268 @@
+=== FILE: Ch21_Client Server Software Architecture Case Study-Banking System.pptx ===
+
+Total slides: 46
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch21 - Client/Server Software Architecture Case Study - Banking System
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Problem Description
+Software Modeling
+Use Case Model
+Static Modeling
+Object Structuring
+Dynamic Modeling
+ATM Statechart
+﻿Architectural Design
+Integrated communication diagram
+Detailed Design﻿﻿
+Design of ATM Client Subsystem
+﻿﻿Design of Bank Service Subsystem
+﻿Relational Database Design
+Deployment of Banking System
+
+--- Slide 3 ---
+Layout: Title and Content
+Problem Description 1/2
+A bank has several automated teller machines (ATMs) that are geographically distributed and connected via a wide area network to a central server.
+Each ATM machine has a card reader, a cash dispenser, a keyboard/display, and a receipt printer.
+By using the ATM machine, a customer can withdraw cash from either a checking or savings account, query the balance of an account, or transfer funds from one account to another.
+A transaction is initiated when a customer inserts an ATM card into the card reader.
+Encoded on the magnetic strip on the back of the ATM card are the card number, the start date, and the expiration date.
+Assuming the card is recognized, the system validates the ATM card to determine that the expiration date has not passed, that the user-entered personal identiﬁcation number, or PIN, matches the PIN maintained by the system, and that the card is not lost or stolen.
+The customer is allowed three attempts to enter the correct PIN; the card is conﬁscated if the third attempt fails. Cards that have been reported lost or stolen are also conﬁscated.
+
+--- Slide 4 ---
+Layout: Title and Content
+Problem Description 2/2
+If the PIN is validated satisfactorily, the customer is prompted for a withdrawal, query, or transfer transaction.
+Before a withdrawal transaction can be approved, the system determines that sufﬁcient funds exist in the requested account, that the maximum daily limit will not be exceeded, and that there are sufﬁcient funds at the local cash dispenser.
+If the transaction is approved, the requested amount of cash is dispensed, a receipt is printed that contains information about the transaction, and the card is ejected.
+Before a transfer transaction can be approved, the system determines that the customer has at least two accounts and that there are sufﬁcient funds in the account to be debited.
+For approved query and transfer requests, a receipt is printed and the card ejected. A customer may cancel a transaction at any time; the transaction is terminated, and the card is ejected. Customer records, account records, & debit card records are all maintained at the server.
+An ATM operator may start up and close down the ATM to replenish the ATM cash dispenser and for routine maintenance.
+It is assumed that functionality to open and close accounts and to create, update, and delete customer and debit card records is provided by an existing system and is not part of this problem.
+
+--- Slide 5 ---
+Layout: Title and Content
+Use Case Model
+The ATM customer can withdraw funds from a checking or savings account, query the balance of the account, and transfer funds from one account to another.
+The ATM operator can shut down the ATM, replenish the ATM cash dispenser, & start the ATM
+ATM Customer UC specs
+=> Ch21, pages 374-376
+
+--- Slide 6 ---
+Layout: Title and Content
+Static ModelingConceptual static model
+The conceptual static model of the problem domain is given in the class diagram below
+
+--- Slide 7 ---
+Layout: Title and Content
+Static ModelingStatic Modeling of the System Context
+This is to show the external classes to which the Banking System, shown as one aggregate class, has to interface
+
+--- Slide 8 ---
+Layout: Title and Content
+Static ModelingStatic Modeling of the Entity Classes 1/2
+
+--- Slide 9 ---
+Layout: Title and Content
+Static ModelingStatic Modeling of the Entity Classes 2/2
+
+--- Slide 10 ---
+Layout: Title and Content
+Object Structuring
+We next consider structuring the system into objects in preparation for deﬁning the dynamic model.
+The object structuring criteria help determine the objects in the system.
+After the objects and classes have been determined, a communication diagram or sequence diagram is developed for each use case to show the objects that participate in the use case and the dynamic sequence of interactions between them.
+
+--- Slide 11 ---
+Layout: Title and Content
+Object StructuringClient/Server Subsystem Structuring
+
+--- Slide 12 ---
+Layout: Title and Content
+Object StructuringATM Client’s Boundary Objects
+
+--- Slide 13 ---
+Layout: Title and Content
+Object StructuringATM Client’s Objects Participating in UCs
+Validate PIN: CardReaderInterface, ATMCard, CustomerInteraction, ATMTransaction, ATMControl
+Withdraw Funds: ATM Transaction, CashDispenserInterface, ATMCash, ReceiptPrinterInterface, ATMControl
+Other UCs: Operator Interaction, ATMControl
+
+--- Slide 14 ---
+Layout: Title and Content
+Object StructuringObject Structuring in Service Subsystem
+Entity objects:
+Customer,
+Account, CheckingAccount, SavingAccount,
+DebitCard, ATMTransaction, TransactionLog
+Business logic objects:
+PINValidationTransactionManager,
+WithdrawalTransactionManager,
+QueryTransactionManager
+TransferTransactionManager
+
+--- Slide 15 ---
+Layout: Title and Content
+Dynamic ModelingValidate PIN UC – Communication Diagram
+At the ATM Client
+
+--- Slide 16 ---
+Layout: Title and Content
+Dynamic ModelingValidate PIN UC – Communication Diagram
+At the Banking Service
+
+--- Slide 17 ---
+Layout: Title and Content
+Dynamic ModelingValidate PIN UC – Sequence Diagram
+At the ATM Client
+
+--- Slide 18 ---
+Layout: Title and Content
+Dynamic ModelingValidate PIN UC – Sequence Diagram
+At the Banking Service
+
+--- Slide 19 ---
+Layout: Title and Content
+Dynamic ModelingValidate PIN UC – Statechart
+Because the Validate PIN interaction diagram is state-dependent, it is also necessary to consider the ATM statechart (shown in this figure), which is executed by the ATM Control object. In particular, the interaction between the statechart and ATM Control (depicted on the communication diagram) needs to be considered
+
+--- Slide 20 ---
+Layout: Title and Content
+Dynamic ModelingWithdraw Funds – Communication Diagram
+At the ATM Client
+
+--- Slide 21 ---
+Layout: Title and Content
+Dynamic ModelingWithdraw Funds – Communication Diagram
+At the Banking Service
+
+--- Slide 22 ---
+Layout: Title and Content
+Dynamic ModelingWithdraw Funds – Sequence Diagram
+At the ATM Client
+
+--- Slide 23 ---
+Layout: Title and Content
+Dynamic ModelingWithdraw Funds – Sequence Diagram
+At the Banking Service
+
+--- Slide 24 ---
+Layout: Title and Content
+Dynamic ModelingWithdraw Funds – Statechart
+This is state chart for ATM Control
+
+--- Slide 25 ---
+Layout: Title and Content
+ATM Statechart﻿Top-level state chart for ATM Control
+﻿Five states are shown on the top-level statechart: Closed Down (which is the initial state), Idle, and three composite states, Processing Customer Input, Processing
+﻿Transaction, &  Terminating Transaction.
+﻿At system initialization time, given by the event Startup, the ATM transitions from the initial Closed Down state to Idle state. The event Display Welcome is triggered on entry into Idle state. In Idle state, the ATM is waiting for a customer-initiated event.
+
+--- Slide 26 ---
+Layout: Title and Content
+ATM Statechart﻿ ﻿Processing Customer Input 1/3
+﻿The Processing Customer Input composite state is decomposed into three substates
+﻿Waiting for PIN: This substate is entered from Idle state when the customer inserts the card in the ATM, resulting in the Card Inserted event. In this state, the ATM waits for the customer to enter the PIN.
+Validating PIN: This substate is entered when the customer enters the PIN. In this substate, the Banking Service validates the PIN.
+Waiting for Customer Choice: This substate is entered as a result of a Valid PIN event, indicating a valid PIN was entered. In this state, the customer enters a selection: Withdraw, Transfer, or Query.
+
+--- Slide 27 ---
+Layout: Title and Content
+ATM Statechart﻿ ﻿Processing Customer Input 2/3
+﻿When a customer inserts an ATM card, the event Card Inserted causes the ATM to transition to the Waiting for PIN substate of the Processing Customer Input composite state
+
+--- Slide 28 ---
+Layout: Title and Content
+ATM Statechart﻿ ﻿Processing Customer Input 3/3
+﻿The Validating PIN substate is itself a composite state consisting of two substates: Validating PIN and Card as well as Checking PIN Status
+
+--- Slide 29 ---
+Layout: Title and Content
+ATM Statechart﻿ ﻿﻿Processing Transaction Composite State
+﻿The Processing Transaction composite state is also decomposed into three substates, one for each transaction:
+Processing Withdrawal,
+Processing Transfer, ﻿
+Processing Query. ﻿
+Depending on the customer’s selection – for example, withdrawal – the appropriate substate within Processing Transaction – for example, Processing Withdrawal – is entered, during which the customer’s request is processed.
+
+--- Slide 30 ---
+Layout: Title and Content
+ATM Statechart﻿ ﻿Terminating Transaction Composite State
+﻿The Terminating Transaction composite state has substates for Dispensing, Printing, Ejecting, Confiscating, and Terminating.
+
+--- Slide 31 ---
+Layout: Title and Content
+﻿Integrated communication diagram﻿ATM Client subsystem
+
+--- Slide 32 ---
+Layout: Title and Content
+﻿Integrated communication diagram﻿Banking Service subsystem
+
+--- Slide 33 ---
+Layout: Title and Content
+﻿ ﻿ Integrated communication diagram Structuring the System into Subsystems 1/3
+﻿Multiple client/single service architectural pattern
+
+--- Slide 34 ---
+Layout: Title and Content
+﻿ ﻿ Integrated communication diagram Structuring the System into Subsystems 2/3
+﻿ ﻿Synchronous message communication with reply - This is from the considering the distributed nature of the application and defining the distributed message interfaces
+
+--- Slide 35 ---
+Layout: Title and Content
+﻿ ﻿ Integrated communication diagram Structuring the System into Subsystems 3/3
+
+--- Slide 36 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of ATM Client Subsystem﻿Design the Concurrent Task Architecture
+
+--- Slide 37 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of ATM Client Subsystem﻿﻿Define the Task Interfaces
+
+--- Slide 38 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of ATM Client SubsystemDesign the Information Hiding Classes
+
+--- Slide 39 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of Banking Service SubsystemDesign the Concurrent Task Architecture
+
+--- Slide 40 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of Banking Service SubsystemDesign the Task Interfaces
+
+--- Slide 41 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of Banking Service SubsystemDesign the Information Hiding Classes 1/2
+
+--- Slide 42 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of Banking Service SubsystemDesign the Information Hiding Classes 2/2
+
+--- Slide 43 ---
+Layout: Title and Content
+﻿ ﻿﻿Design of Banking Service SubsystemClass Diagram for the UC – Withdraw Funds
+
+--- Slide 44 ---
+Layout: Title and Content
+﻿Relational Database Design
+﻿The data held by these entity classes need to be persistent and therefore need to be stored in a database
+﻿the entity classes are designed as database wrapper classes
+﻿the contents of the entity classes (as defined by the attributes of the entity classes) need to be stored in relational tables in the database
+
+--- Slide 45 ---
+Layout: Title and Content
+Deployment of Banking System
+﻿Because this is a client/server system, there are multiple instances of the client subsystem and one instance of the service subsystem. Each subsystem instance executes on its own node, as depicted in the deployment diagram below. Thus, each instance of the ATM Client executes on an ATM node, and the one instance of the Banking Service executes on the server node.
+
+--- Slide 46 ---
+Layout: Title Only

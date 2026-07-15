@@ -1,0 +1,73 @@
+{
+  "id": "L07-04",
+  "title": "Architectural pattern cơ bản",
+  "minutes": 11,
+  "xp": 110,
+  "objective": "Nhận diện và so sánh các architectural patterns: layers, call/return, synchronous, asynchronous.",
+  "misconceptions": ["async-is-faster"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Mobile App FOS gọi API lấy danh sách sản phẩm. App gửi request và chờ response trước khi hiển thị. Pattern gì?",
+      "options": [
+        "Synchronous Message Communication with Reply",
+        "Asynchronous Message Communication",
+        "Subscription/Notification"
+      ],
+      "correct": 0,
+      "explanation": "Client gửi và chờ reply trước khi tiếp tục — synchronous với reply.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Client có chờ response không?", "Nếu có → synchronous.", "Xem slide 10-13."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với mô tả:",
+      "pairs": {
+        "Layers of Abstraction": "Phân tầng — mỗi tầng sử dụng dịch vụ tầng dưới",
+        "Call/Return": "Gọi hàm đơn giản, truyền control",
+        "Synchronous with Reply": "Client gửi request → chờ reply",
+        "Asynchronous Message": "Producer gửi → consumer nhận sau, không chờ"
+      },
+      "explanation": "Mỗi pattern giải quyết vấn đề giao tiếp khác nhau.",
+      "hints": ["Layers: phân tầng.", "Asynchronous: không đồng bộ."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "contrast",
+      "type": "choice",
+      "prompt": "FOS cần gửi email xác nhận sau khi đặt hàng. Email có thể gửi sau, không cần chờ. Pattern nào?",
+      "options": [
+        "Synchronous with Reply — vì cần xác nhận đã gửi",
+        "Asynchronous Message — producer gửi message, consumer xử lý sau",
+        "Call/Return — gọi trực tiếp"
+      ],
+      "correct": 1,
+      "explanation": "Gửi email có thể xử lý sau → asynchronous message communication.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Có cần chờ email gửi xong không?", "Nếu không → asynchronous.", "Xem slide 11-12."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "retrieve",
+      "type": "truefalse",
+      "prompt": "Asynchronous communication luôn nhanh hơn synchronous.",
+      "correct": false,
+      "explanation": "Asynchronous không nhanh hơn — nó giải phóng producer khỏi chờ đợi. Tốc độ phụ thuộc vào use case.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Các architectural patterns cơ bản: Layers of Abstraction (phân tầng), Call/Return (gọi hàm), Synchronous with Reply (chờ reply), Asynchronous (gửi không chờ). Chọn pattern phù hợp với yêu cầu giao tiếp.",
+      "exitTicket": "Cho ví dụ về tình huống dùng synchronous và asynchronous trong FOS."
+    }
+  ]
+}

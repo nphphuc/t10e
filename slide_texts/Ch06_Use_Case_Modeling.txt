@@ -1,0 +1,191 @@
+=== FILE: Ch06_Use Case Modeling.pptx ===
+
+Total slides: 21
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch06 – Use Case Modeling
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Requirement Modeling
+Use Cases
+Identifying Use Cases
+Documenting Use Cases
+Activity Diagrams
+
+--- Slide 3 ---
+Layout: Title and Content
+Requirement Modelling
+﻿The requirements of a system describe
+﻿What the user expects from the system
+﻿What the system will do for the user
+﻿When defining the requirements of a system
+The system should be viewed as a black box. O﻿nly the external characteristics of the system are considered
+﻿Both functional and nonfunctional requirements need to be considered
+﻿Requirements modeling consists of requirements analysis and requirements specification
+
+--- Slide 4 ---
+Layout: Title and Content
+Requirement Modelling﻿Requirements Analysis
+﻿The software requirements describe the functionality that the system must provide for the users.
+﻿﻿﻿Requirements analysis involves analyzing the requirements by
+Interviewing user
+Analyzing the existing system(s)
+﻿Understanding and documenting the current system
+﻿Determining which features of the current system should be automated and which should remain manual
+Discussing with users what functions could be done differently when the system is automated.
+
+--- Slide 5 ---
+Layout: Title and Content
+Requirement Modelling﻿Requirements Specification 1/2
+﻿﻿The document that needs to be agreed on by the requirements analysts and the users.
+﻿Starting point for the subsequent design & development
+﻿Both functional requirements & nonfunctional requirements need to be specified
+﻿A functional req. describes the functionality the system must be capable of providing in order to fulfill the purpose of the system
+﻿Functionality the system needs to provide
+﻿Input to the system from the external environment
+﻿Output to the external environment
+﻿What stored information the system reads or updates
+﻿A nonfunctional requirement: quality attribute, or quality-of-service goal that the system must fulfill
+
+--- Slide 6 ---
+Layout: Title and Content
+Requirement Modelling﻿Requirements Specification 2/2
+﻿﻿Quality Attributes for a well-written Software Requirement Specification (SRS)
+Correct
+Complete
+﻿Unambiguous
+﻿Consistent
+﻿Verifiable
+﻿Understandable by non-computer specialists
+﻿Modifiable
+﻿Traceable
+
+--- Slide 7 ---
+Layout: Title and Content
+Use Cases
+The use case model describes the functional requirements of the system in terms of the actors & use cases
+﻿The system is treated as a black box (﻿dealing with what the system does in response to the actor’s inputs)
+﻿Functional requirements are described in terms of actors, which are users of the system, and use cases
+﻿A use case (UC) defines a sequence of interactions between one or more actors and the system
+﻿A use case always starts with input from an actor
+﻿Typically consists of a sequence of interactions between the actor and the system
+﻿Each interaction consists of an input from the actor followed by a response from the system
+﻿An actor provides inputs to the system and the system provides responses to the actor﻿
+
+--- Slide 8 ---
+Layout: Title and Content
+Use CasesSimple banking example
+﻿An automated teller machine (ATM) allows customers to withdraw cash from their bank accounts
+﻿The Withdraw Funds use case describes the sequence of interactions between the ﻿customer and the system
+The use case starts when the customer inserts an ATM card into the card reader,
+Then responds to the system’s prompt for the PIN,
+And eventually receives the cash dispensed by the ATM machine
+
+--- Slide 9 ---
+Layout: Title and Content
+Use Cases﻿Emergency Monitoring System
+﻿As an example of a very simple use case, consider View Alarms from the Emergency Monitoring System. There is one actor, the Monitoring Operator, who can request to view the status of all alarms
+
+--- Slide 10 ---
+Layout: Title and Content
+Use CasesWhat are actors?
+﻿An actor characterizes an external user (i.e., outside the system) that interacts with the system
+﻿The only external entities that interact with the system
+﻿Actors are outside the system and not part of it
+﻿A user is an individual, whereas an actor represents the role played by all users of the same type
+There are other types of actors in addition to or in place of human actors: external systems, I/O devices, or timers
+
+--- Slide 11 ---
+Layout: Title and Content
+Use CasesSample actors
+Users
+Homeowners are actors on HOLIS system
+Authors are actors on a word processing system
+Other systems or applications
+HOLIS Control Switch is an actor on the HOLIS Central Control Unit
+A device
+Lights
+Printer
+
+--- Slide 12 ---
+Layout: Title and Content
+Use CasesIdentifying actors
+﻿Following are some questions you might ask to help user representatives identify actors
+Who (or what) is notified when something occurs within the system?
+Who (or what) provides information or services to the system?
+Who (or what) helps the system respond to and complete a task?
+
+--- Slide 13 ---
+Layout: Title and Content
+Use Cases﻿Primary vs secondary actors
+﻿﻿A primary actor initiates a use case. ﻿Thus, the use case starts with an input from the primary actor to which the system has to respond (gain value from the UC)
+﻿Other actors, referred to as secondary actors, can participate in the use case
+
+--- Slide 14 ---
+Layout: Title and Content
+Identifying Use Cases
+A use case (UC) describes a sequence of interactions between a system and an external actor that results in the actor being able to achieve some outcome of value
+In this way, the functional requirements of the system are described in terms of the UCs, which constitute functional specification of a system.
+To determine the UCs in the system, it is useful to start by considering the actors and the interactions they have with the system.
+When developing UCs, it is important to avoid a functional decomposition in which several small UCs describe small individual functions of the system rather than describe a sequence of events that provides a useful result to the actor
+
+--- Slide 15 ---
+Layout: Title and Content
+Identifying Use CasesUse case considering and naming
+Questions to consider when identifying use cases
+What will the actor use the system for?
+Will the actor create, store, change, remove, or read data in the system?
+Will the actor need to inform the system about external events or changes?
+Will the actor need to be informed about certain occurrences in the system?
+The names of use cases are always written in the form of a verb followed by an object.
+Select strong, descriptive names to make it evident from the name that the use case will deliver something valuable for some user.
+
+--- Slide 16 ---
+Layout: Title and Content
+Identifying Use CasesSimple Banking Example
+In addition to withdrawing cash from the ATM, the ATM Customer actor is also allowed to query an account or transfer funds between two accounts.
+Because these are distinct functions initiated by the customer with different useful results, the query and transfer functions should be modeled as separate UCs, rather than being part of the original UC
+
+--- Slide 17 ---
+Layout: Title and Content
+Documenting Use Cases
+UC Spec
+﻿Use case name
+﻿Summary
+﻿Dependency
+Actors
+﻿Preconditions
+﻿Main sequence
+﻿Alternative
+sequences
+﻿Postcondition
+
+--- Slide 18 ---
+Layout: Title and Content
+Documenting Use CasesUse Case Relationships
+UC Relationships
+Generalization
+Include: mandatory
+Extend: optional
+
+--- Slide 19 ---
+Layout: Title and Content
+Activity Diagrams 1/2
+An activity diagram can be used to represent the sequential steps of a UC, including the main sequence and all the alternative sequences
+Depicting the flow of control & sequencing among activities
+Shows the sequence of activities, decision nodes, loops, and even concurrent activities
+
+--- Slide 20 ---
+Layout: Title and Content
+Activity Diagrams 2/2
+An activity node can be used to represent one or more sequential steps of the UC
+To depict a use case, a subset of the activity diagram capabilities is sufficient
+Activity diagrams can also be used to depict sequencing among UCs.
+
+--- Slide 21 ---
+Layout: Title Only

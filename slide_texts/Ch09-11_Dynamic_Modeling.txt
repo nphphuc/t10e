@@ -1,0 +1,240 @@
+=== FILE: Ch09-11_Dynamic Modeling.pptx ===
+
+Total slides: 27
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch09-11: ﻿Dynamic modeling
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+Dynamic Interaction Modeling
+Stateless Dynamic Interaction Modeling
+Finite State Machines
+State-dependent dynamic interaction modeling
+
+--- Slide 3 ---
+Layout: Title and Content
+Dynamic Interaction Modeling
+Describes dynamic interaction modeling concepts. Interaction (sequence or communication) diagrams are developed for each UC, including the main scenario and alternative scenarios. It also describes how to develop an interaction model starting from the UC.
+Dynamic modeling provides a view of a system in which control and sequencing are considered, either within an object (by means of a finite state machine) or between objects (by analysis of object interactions).
+Dynamic interaction modeling is based on the realization of the UCs developed during UC modeling.
+
+--- Slide 4 ---
+Layout: Title and Content
+Dynamic Interaction ModelingCommunication Diagram 1/2
+A communication diagram is a UML interaction diagram that depicts a dynamic view of a group of objects interacting with each other by showing the sequence of messages passed among them.
+On a communication diagram, the sequence in which the objects participate in each UC is depicted by means of message sequence numbers.
+
+--- Slide 5 ---
+Layout: Title and Content
+Dynamic Interaction ModelingCommunication Diagram 2/2
+The communication diagram for the View Alarms UC depicts the user interaction object, Operator Interaction, making a request to the service object, Alarm Service & receiving a response
+
+--- Slide 6 ---
+Layout: Title and Content
+Dynamic Interaction ModelingSequence Diagram 1/2
+The interaction among objects can also be shown on a sequence diagram.
+A sequence diagram shows the objects participating in the interaction and the sequence in which messages are sent.
+Sequence diagrams can also depict loops and iterations.
+Sequence diagrams and communication diagrams depict similar (although not necessarily identical) information, but in different ways.
+In the following example, however, the messages on the sequence diagram are numbered to show their correspondence to the communication diagram.
+
+--- Slide 7 ---
+Layout: Title and Content
+Dynamic Interaction ModelingSequence Diagram 2/2
+An example of a sequence diagram for the View Alarms UC is shown in Figure 9.3. This sequence diagram conveys the same information as the communication diagram shown in Figure 9.2.
+
+--- Slide 8 ---
+Layout: Title and Content
+Dynamic Interaction ModelingSequence vs. Communication Diagram
+Either a sequence diagram or a communication diagram can be used to depict the object interaction and sequence of messages passed among objects.
+However, using iterations (such as do-while) and decision statements (if-then-else) can obscure the sequence of object interactions.
+The communication diagram shows the layout of the objects, particularly how the objects are connected to each other.
+The COMET preference is to use communication diagrams rather than sequence diagrams, because an important step in the transition to design is the integration o the communication diagrams to create the initial software architecture of the system.
+If the analysis started with sequence diagrams, it would be necessary to convert each sequence diagram to a communication diagram before the integration could be done.
+Sometimes, however, the sequence diagram is very helpful, in particularly for very complex and lengthy interactions
+
+--- Slide 9 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingGeneral Introduction
+Dynamic interaction modeling is carried out for each UC. It is an iterative strategy to help determine how the analysis model objects interact with each other to support the UCs.
+This analysis might show a need for additional objects and/or additional interactions to be defined.
+Dynamic interaction modeling can be either state-dependent or stateless, depending on whether the object communication is state-dependent.
+The main steps in the stateless dynamic interaction modeling approach are as follows, starting with the UC.
+1. Develop UC model.
+2. Determine objects needed to realize UC.
+2a. Determine boundary object(s).
+2b. Determine internal software objects.
+3. Determine message communication sequence.    4. Determine alternative sequences.
+
+--- Slide 10 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingView Alarms Example 1/2
+As an example of stateless dynamic interaction modeling, consider View Alarms UC from the Emergency Monitoring System case study.
+1. Develop UC Model
+The UC description is brieflydescribed as follows:
+UC name: View Alarms
+Actor: Monitoring Operator
+Summary: The monitoring operator views outstanding alarms and acknowledges that the cause of an alarm is being addressed.
+Precondition: The monitoring operator is logged in.
+Main sequence:1. The Monitoring Operator requests to view the outstanding alarms.2. The system displays the outstanding alarms. For each alarm, the system displays the name of the alarm, alarm description, location of alarm, and severity of alarm (high, medium, low).
+Postcondition: Outstanding alarms have been displayed
+
+--- Slide 11 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingView Alarms Example 2/2
+2. Determine Objects Needed to Realize UC
+Because View Alarms is a simple UC, only two objects participate in the UC.
+3. Determine Message Communication Sequence
+The communication diagram for this UC depicts the user interaction object, the OperatorInteraction object, making a request to the service object, AlarmService, which responds with the desired information
+
+--- Slide 12 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingMake Order Request Example 1/5
+The second example of stateless dynamic interaction modeling is from the online shopping service-oriented system.
+1. Develop UC Model In the Make Order Request UC, a customer actor enters the order request information. The system then gets the account information and requests credit card authorization. If the credit card is authorized, the system creates a new delivery order and displays the order.
+The UC diagram is depicted in Figure 9.4 and the UC description is as follows:
+
+--- Slide 13 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingMake Order Request Example 2/5
+Use case name: Make Order Request
+Summary: Customer enters an order request to purchase items from the
+online shopping system. The customer’s credit card is checked for validity
+and sufficient credit to pay for the requested catalog items.
+Actor: Customer
+Precondition: Customer has selected one or more catalog items.
+Main sequence:
+Customer provides order request and customer account Id to pay for purchase.
+System retrieves customer account information, including the customer’s credit card details.
+System checks the customer’s credit card for the purchase amount and, if approved, creates a credit card purchase authorization number.
+System creates a delivery order containing order details, customer Id, and credit card authorization number.
+System confirms approval of purchase and displays order information to customer.
+System sends email confirmation to customer.
+
+--- Slide 14 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingMake Order Request Example 3/5
+Alternative sequences:
+Step 2: If customer does not have account, the system prompts the customer to provide information in order to create a new account. The customer can either enter the account information or cancel the order.
+Step 3: If authorization of the customer’s credit card is denied (e.g., invalid credit card or insufficient funds in the customer’s credit card account), the system prompts the customer to enter a different credit card number. The customer can either enter a different credit card number or cancel the order.
+Postcondition: System has created a delivery order for the customer.
+2. Determine Objects Needed to Realize UC
+As before, the objects needed to realize this UC can be determined by a careful reading of the UC, as shown in bold type.
+Given the customer actor, there will need to be a user interaction object, Customer Interaction.
+Service objects are needed for the four services needed to realize this UC, Customer Account, Credit Card, Delivery Order, and Email Service.
+There will also need to be a coordinator object, Customer Coordinator, to coordinate the interactions between Customer Interaction & the four service objects.
+
+--- Slide 15 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingMake Order Request Example 4/5
+3. Determine Message Communication Sequence
+The interaction sequence among the objects needs to reflect the interaction sequence between the actor and the system, as described in the UC.
+The UC description (step 1) indicates that the customer requests to create an order => M1, M2
+In step 2 of the UC, the system retrieves the account information => M3, M4
+In step 3 of the UC, the system checks the customer’s credit card => M5, M6
+In step 4 of the UC, the system creates a delivery order => M7, M8
+Next in the UC, the system confirms the order to the user (M9, M10) and sends a confirmation email via the email service (M9a)
+
+--- Slide 16 ---
+Layout: Title and Content
+Stateless Dynamic Interaction ModelingMake Order Request Example 5/5
+4. Determine Alternative Sequences.
+Alternative scenarios for this UC are that the customer does not have an account, in which case a new account will be created, or that the credit card authorization is denied, in which case the customer has the option of selecting a different card. The new account alternative scenario is depicted in Figure 9.7.
+The credit card denied alternative scenario is depicted below
+
+--- Slide 17 ---
+Layout: Title and Content
+Finite State Machines
+A finite state machine (also referred to as state machine) is a conceptual machine with a finite number of states.
+A state transition is a change in state that is caused by an input event.
+Alternatively, the event might have no effect, in which case the finite state machine remains in the same state.
+The next state depends on the current state, as well as on the input event.
+Finite state machines are used for modeling the control and sequencing view of a system or object.
+In an object-oriented model, the state-dependent view of a system is defined by means of one or more finite state machines, in which each finite state machine is encapsulated inside its own object.
+Notations used to define finite state machines are the state transition diagram, statechart, and state transition table.
+
+--- Slide 18 ---
+Layout: Title and Content
+Finite State MachinesEvents and States
+Events
+An event is an occurrence at a point in time; it is also known as a discrete event, discrete signal, or stimulus.
+The precedence of the two events is reflected in the state that connects them, as shown in Figure 10.1
+It is possible to make a state transition conditional through the use of a guard condition. The notation used is Event [Condition].
+States
+A state represents a recognizable situation that exists over an interval of time.
+Alternatively, an event can have a null effect, in which case the finite state machine remains in the same state.
+In theory, a state transition is meant to take zero time to occur. In practice, the time for a state transition to occur is negligible compared to the time spent in the state
+
+--- Slide 19 ---
+Layout: Title and Content
+Finite State MachinesActions 1/3
+Actions
+Associated with a state transition is an optional output action.
+An action is a computation that executes as a result of a state transition.
+The action executes instantaneously at the state transition; thus conceptually an action is of zero duration. In practice, the duration of an action is very small compared to the duration of a state.
+A transition action is an action that is a result of a transition from one state to another – it could also happen if the state transitions to itself.
+
+--- Slide 20 ---
+Layout: Title and Content
+Finite State MachinesActions 2/3
+Entry Actions
+An entry action is an instantaneous action that is performed on transition into the state.
+Whereas transition actions (actions explicitly depicted on state transitions) can always be used, entry actions should only be used in certain situations.
+The best time to use an entry action is when the following occur:
+There is more than one transition into a state.
+The same action needs to be performed on every transition into this state.
+The action is performed on entry into this state and not on exit from the previous state.
+
+--- Slide 21 ---
+Layout: Title and Content
+Finite State MachinesActions 3/3
+Exit Actions
+An exit action is an instantaneous action that is performed on transition out of the state.
+The best time to use an exit action is when the following occur:
+The best time to use an exit action is when the following occur:
+There is more than one transition out of a state.
+The same action needs to be performed on every transition out of the state.
+The action is performed on exit from this state and not on entry into the next state.
+
+--- Slide 22 ---
+Layout: Title and Content
+State-dependent dynamic interaction modeling 1/5
+Deals with situations in which object interactions are state-dependent. State-dependent interactions involve at least one state-dependent control object that, by executing a statechart , provides the overall control and sequencing of its interactions with other objects
+In state-dependent dynamic interaction modeling, the objective is to determine the interactions among the following objects
+The state-dependent control object, which executes the state machine
+The objects, usually software boundary objects, which send events to the control object. These events cause state transitions in the control object’s internal state machine.
+The objects that provide the actions and activities, which are triggered by the control object as a result of the state transitions
+Any other objects that participate in realizing the use case
+
+--- Slide 23 ---
+Layout: Title and Content
+State-dependent dynamic interaction modeling 2/5
+
+--- Slide 24 ---
+Layout: Title and Content
+State-dependent dynamic interaction modeling 3/5
+Sequence diagram for Validate PIN use case: Valid PIN scenario
+
+--- Slide 25 ---
+Layout: Title and Content
+State-dependent dynamic interaction modeling 4/5
+Sequence diagram for Validate PIN use case: Invalid PIN scenario
+
+--- Slide 26 ---
+Layout: Title and Content
+State-dependent dynamic interaction modeling 5/5
+The main steps in the state-dependent dynamic interaction modeling strategy are presented in the following list. The sequence of interactions needs to reflect the main sequence of interactions described in the use case.
+Determine the boundary object(s). Consider the objects that receive the inputs sent by the external objects in the external environment.
+Determine the state-dependent control object. There is at least one control object, which executes the statechart. Others might also be required.
+Determine the other software objects. These are software objects that interact with the control object or boundary objects.
+Determine object interactions in the main sequence scenario. Carry out this step in conjunction with step 5 because the interaction between the state-dependent control object and the statechart it executes needs to be determined in detail.
+Determine the execution of the statechart.
+Consider alternative sequence scenarios. Perform the state-dependent dynamic analysis on scenarios described by the alternative sequences of the use case.
+
+--- Slide 27 ---
+Layout: Title Only

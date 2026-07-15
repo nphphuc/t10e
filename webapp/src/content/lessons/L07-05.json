@@ -1,0 +1,70 @@
+{
+  "id": "L07-05",
+  "title": "Tích hợp interaction thành kiến trúc",
+  "minutes": 12,
+  "xp": 120,
+  "objective": "Hiểu cách tích hợp các communication diagrams thành integrated communication diagram cho kiến trúc tổng thể.",
+  "misconceptions": ["analysis-is-design"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Team bạn đã vẽ 20 communication diagrams cho 20 use cases của FOS. Làm sao để có cái nhìn tổng thể?",
+      "options": [
+        "Giữ nguyên 20 diagrams riêng, không cần tích hợp",
+        "Tích hợp tất cả thành một integrated communication diagram để thấy architecture tổng thể",
+        "Bỏ hết chỉ giữ lại class diagram"
+      ],
+      "correct": 1,
+      "explanation": "Integrated communication diagram tổng hợp tất cả interactions thành một sơ đồ duy nhất để xác định subsystems.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Tích hợp = synthesis.", "Từ analysis → design.", "Xem slide 7-9."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp quy trình từ analysis đến design:",
+      "options": [
+        "Design subsystems and interfaces",
+        "Phát triển communication diagrams cho từng UC",
+        "Xác định message communication type",
+        "Tích hợp thành integrated communication diagram"
+      ],
+      "correctOrder": [
+        "Phát triển communication diagrams cho từng UC",
+        "Tích hợp thành integrated communication diagram",
+        "Xác định message communication type",
+        "Design subsystems and interfaces"
+      ],
+      "explanation": "Phân tích từng UC → Tích hợp → Xác định message type → Thiết kế subsystems.",
+      "hints": ["Bắt đầu với từng UC.", "Tích hợp trước khi thiết kế.", "Xem slide 4."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Integrated communication diagram quá phức tạp. Cách giải quyết?",
+      "options": [
+        "Giảm bớt use cases",
+        "Aggregate messages và phát triển integrated diagrams cho từng subsystem",
+        "Chỉ vẽ một subsystem duy nhất"
+      ],
+      "correct": 1,
+      "explanation": "Có thể aggregate messages và chia thành các subsystem-level integrated diagrams.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": ["Chia nhỏ để quản lý phức tạp.", "Aggregate messages.", "Xem slide 9."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Từ analysis (từng UC riêng lẻ) → Design (tích hợp thành kiến trúc tổng thể). Integrated communication diagram tổng hợp tất cả interactions để xác định subsystems.",
+      "exitTicket": "Nêu lợi ích của integrated communication diagram."
+    }
+  ]
+}

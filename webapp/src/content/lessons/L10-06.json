@@ -1,0 +1,79 @@
+{
+  "id": "L10-06",
+  "title": "Thay đổi algorithm, state và operation",
+  "minutes": 14,
+  "xp": 150,
+  "objective": "Phân biệt Strategy (thuật toán), State (trạng thái), Template Method (khung), Visitor (operations trên structure).",
+  "misconceptions": ["state-vs-strategy"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS tính phí ship: có thể là StandardShipping, ExpressShipping, hoặc FreeShipping. Thuật toán thay đổi linh hoạt. Pattern nào?",
+      "options": [
+        "State — vì phí ship thay đổi theo state",
+        "Strategy — family of algorithms, có thể chọn linh hoạt",
+        "Singleton"
+      ],
+      "correct": 1,
+      "explanation": "Strategy: định nghĩa family of algorithms, mỗi algorithm là một class riêng, client chọn strategy.",
+      "distractorTags": {"0": "state-vs-strategy", "2": null},
+      "hints": ["Strategy = algorithm family.", "State = behavior depends on state.", "Xem Strategy vs State."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép pattern với mô tả:",
+      "pairs": {
+        "Strategy": "Family of algorithms — client chọn (VD: ShippingCost)",
+        "State": "Object thay đổi behavior khi state thay đổi (VD: OrderState)",
+        "Template Method": "Skeleton của algorithm, subclass implement steps",
+        "Visitor": "Thêm operation mới vào object structure"
+      },
+      "explanation": "Bốn behavioral patterns: Strategy (algorithms), State (state-based), Template Method (framework), Visitor (operation extension).",
+      "hints": ["Strategy = algorithm.", "State = state machine.", "Template = skeleton.", "Visitor = thêm operation."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "scenario",
+      "prompt": "FOS: Order có các state: Pending, Paid, Shipped, Delivered. Hành vi khác nhau ở mỗi state. Pattern nào?",
+      "options": [
+        "Strategy — vì là algorithm",
+        "State — object behavior thay đổi khi state thay đổi",
+        "Template Method"
+      ],
+      "correct": 1,
+      "explanation": "State pattern: Order behavior phụ thuộc vào current state. Mỗi state là một class riêng.",
+      "distractorTags": {"0": "state-vs-strategy", "2": null},
+      "hints": ["State → behavior changes.", "Strategy → algorithm selection.", "Xem slide về State vs Strategy."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Template Method: class Report có các steps: loadData(), formatHeader(), formatBody(), formatFooter(). Subclass có thể override. Đây là gì?",
+      "options": [
+        "Visitor — thêm operation",
+        "Template Method — skeleton với các steps, subclass customize",
+        "Strategy — chọn algorithm"
+      ],
+      "correct": 1,
+      "explanation": "Template Method: định nghĩa skeleton của algorithm, để subclass implement các steps cụ thể.",
+      "hints": ["Skeleton + steps.", "Subclass customize.", "Xem Template Method."],
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Strategy: chọn algorithm family. State: behavior thay đổi theo state. Template Method: skeleton với hook steps. Visitor: thêm operation vào structure. Chọn dựa vào pressure thiết kế.",
+      "exitTicket": "Trong FOS: dùng Strategy ở đâu? Dùng State ở đâu? Giải thích."
+    }
+  ]
+}

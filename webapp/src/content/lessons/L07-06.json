@@ -1,0 +1,65 @@
+{
+  "id": "L07-06",
+  "title": "Cắt subsystem theo separation of concerns",
+  "minutes": 12,
+  "xp": 130,
+  "objective": "Áp dụng subsystem structuring criteria để phân chia hệ thống thành các subsystem.",
+  "misconceptions": ["partition-by-appearance"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "FOS gồm: Customer UI, OrderService, PaymentService, EmailService, ProductDB. Ai là client, ai là service?",
+      "options": [
+        "CustomerUI là client; còn lại là services",
+        "Tất cả đều là service",
+        "EmailService là client của CustomerUI"
+      ],
+      "correct": 0,
+      "explanation": "CustomerUI là client request services. OrderService, PaymentService, EmailService, ProductDB là services.",
+      "distractorTags": {"1": null, "2": null},
+      "hints": ["Client = requester.", "Service = provider.", "Xem slide 12, 17-19."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "match",
+      "prompt": "Ghép structuring criterion với mô tả:",
+      "pairs": {
+        "Geographical location": "Objects ở xa nhau nên ở subsystem khác nhau",
+        "Client/Service separation": "Client và service ở subsystem riêng",
+        "User interaction": "UI objects nên ở subsystem riêng",
+        "Scope of control": "Control object + các object nó điều khiển ở cùng subsystem"
+      },
+      "explanation": "Các criteria giúp phân chia subsystem hợp lý.",
+      "hints": ["Địa lý: objects xa → subsystem khác.", "UI: user interaction subsystem riêng.", "Xem slide 10-22."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "multi",
+      "prompt": "Các loại subsystem cơ bản gồm? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "User Interaction Subsystem",
+        "Service Subsystem",
+        "Control Subsystem",
+        "IO Subsystem",
+        "Coordinator Subsystem"
+      ],
+      "correctSet": [0, 1, 2, 3, 4],
+      "explanation": "Năm loại subsystem: User Interaction, Service, Control, IO, Coordinator — mỗi loại phục vụ mục đích riêng.",
+      "hints": ["UI subsystem cho user.", "Service subsystem cho business services.", "Xem slide 17-22."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Subsystem structuring criteria: geographical location, client/service, user interaction, interface to external, scope of control. Các loại subsystem: client, service, control, IO, coordinator.",
+      "exitTicket": "Phân tích FOS thành 3 subsystems và nêu lý do."
+    }
+  ]
+}

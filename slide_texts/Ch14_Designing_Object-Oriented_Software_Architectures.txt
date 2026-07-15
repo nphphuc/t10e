@@ -1,0 +1,213 @@
+=== FILE: Ch14_Designing Object-Oriented Software Architectures.pptx ===
+
+Total slides: 24
+
+
+--- Slide 1 ---
+Layout: Title Slide
+Software Design (swD392)
+Ch14 - Designing Object-Oriented Software Architectures
+
+--- Slide 2 ---
+Layout: Title and Content
+Main Contents
+General Introduction
+Concepts, Architectures, and Patterns
+Designing Information Hiding Classes
+Designing Class Interface & Operations
+Data Abstraction Classes
+State-Machine Classes
+Graphical User Interaction Classes
+Business Logic Classes
+Inheritance in Design
+Class Interface Specifications
+Detailed Design of Information Hiding Classes
+Polymorphism and Dynamic Binding
+
+--- Slide 3 ---
+Layout: Title and Content
+General Introduction
+Object-oriented design refers to software systems that are designed using the concepts of
+Information hiding: encapsulate different kinds of information (details of a data structure, state machine,..)
+Classes: the design of class interfaces and the operations provided by each class
+Inheritance: mechanism for sharing and reusing code between classes - a child class inherits the properties (encapsulated data and operations) of a parent class.
+Objects are instantiated from classes & are accessed through operations
+Are also referred to as methods
+The speciﬁcation and the implementation of a function performed by an object
+
+--- Slide 4 ---
+Layout: Title and Content
+Concepts, Architectures, and Patterns
+Information hiding is a fundamental design concept in which a class encapsulates some information, such as a data structure, that is hidden from the rest of the system
+The separation of the interface from the implementation.
+The interface forms a contract between the provider of the interface and the user of the interface
+These object-oriented concepts have also been applied and extended in the design of
+Distributed and component-based software architectures,
+Concurrent and real-time software architectures,
+Service-oriented architectures,
+Software product line architectures.
+For communication between objects, the Call/Return pattern is the only pattern of communication in a sequential architecture
+
+--- Slide 5 ---
+Layout: Title and Content
+Designing Information Hiding Classes
+In design modeling, information hiding classes are categorized by stereotype.
+Classes determined from the analysis model are categorized as following:
+Entity classes from the analysis model, encapsulate data.
+Boundary classes Communicate with and interface to the external environment.
+Active (concurrent) classes: device I/O classes, proxy classes
+Passive boundary classes: graphical user interaction class
+Control classes. Provide the overall coordination for a collection of objects.
+Control classes are often active (concurrent) classes
+One of the passive control classes is the state-machine class, which encapsulates a ﬁnite state machine.
+Application logic classes.
+Encapsulate application-specific logic and algorithms
+Categorized as business logic classes, service classes, or algorithm classes.
+
+--- Slide 6 ---
+Layout: Title and Content
+Designing Class Interface & Operations
+The class interface consists of the operations (methods) provided by each class.
+Each operation can have input parameters, output parameters, and (if it is a function) a return value.
+The operations of a class can be determined typically from the dynamic model
+Interaction message: operations being invoked at the destination object receiving the message
+Message passing between passive objects consists of an operation in one object invoking an operation provided by another object
+From the class diagrams of the static model: standard operations are create, read, update, delete (CRUD actions)
+
+--- Slide 7 ---
+Layout: Title and Content
+Designing Class Interface & OperationsDesigning Class Operations from the Interaction Model
+(a) Analysis model: communication diagram.
+(b) Design model: communication diagram.
+(c) Design model: class diagram
+
+--- Slide 8 ---
+Layout: Title and Content
+Data Abstraction Classes
+Used to encapsulate the data structure
+Hiding the internal details of how the data structure is represented
+The operations are designed as access procedures or functions whose internals, which deﬁne how the data structure is manipulated, are also hidden.
+Each entity class in the analysis model that encapsulates data is designed as a data abstraction class.
+An entity class stores some data and provides operations to access the data and to read or write to the data.
+In the data abstraction class
+The information on the attributes information should be available from the static model of the problem domain
+The operations of the data abstraction class are determined by considering the needs of the client objects that use the data abstraction object in order to indirectly access the data structure. This can be determined by analyzing how the data abstraction object is accessed by other objects, as given in the communication model.
+
+--- Slide 9 ---
+Layout: Title and Content
+Data Abstraction Classes
+
+--- Slide 10 ---
+Layout: Title and Content
+State-Machine Classes
+During class design, the state-machine class determined in the analysis model is designed.
+The statechart executed by the state-machine object is encapsulated in a state transition table. Thus, the state-machine class hides the contents of the state transition table and maintains the current state of the object
+State-machine classes provide the operations that access the state
+transition table & change
+the state of the object.
+
+--- Slide 11 ---
+Layout: Title and Content
+Graphical User Interaction Classes
+A graphical user interaction (GUI) class hides from other classes the details of the interface to the user.
+In a given application, the user interface might be a simple command line interface or a sophisticated GUI
+A command line interface is typically handled by one user interaction class.
+
+--- Slide 12 ---
+Layout: Title and Content
+Business Logic Classes
+A business logic class defines the decision-making, business-specific application logic for processing a client’s request.  The goal is to encapsulate business rules that could change independently of each other into separate business logic classes.
+Usually a business logic object accesses various entity objects during its execution.
+
+--- Slide 13 ---
+Layout: Title and Content
+Inheritance in Design
+Inheritance can be used when designing two similar, but not identical, classes (share many, but not all, characteristics).
+Inheritance can also be used when adapting a design for either maintenance or reuse purposes.
+Class Hierarchies
+Class hierarchies (also referred to as generalization/specialization hierarchies and inheritance hierarchies) can be developed either top-down, bottom-up, or by some combination of the two approaches.
+When designing with
+inheritance, the internals
+of the parent classes
+are visible to the subclasses
+
+--- Slide 14 ---
+Layout: Title and Content
+Inheritance in DesignAbstract Classes
+An abstract class is a class with no instances, used as a template to create subclasses
+An abstract operation is an operation that is declared in an abstract class but not implemented.
+In reality, some of the operations may be implemented in the abstract class, especially in
+cases in which some or all
+of the subclasses need to
+use the same
+implementation.
+
+--- Slide 15 ---
+Layout: Title and Content
+Class Interface Specifications
+A class interface specification defines the interface of the information hiding class, including the specification of the operations provided by the class. It defines the following:
+Information hidden by information hiding class: for example, data structure(s) encapsulated, in the case of a data abstraction class.
+Class structuring criteria used to design this class.
+Assumptions made in specifying the class: for example, whether one operation needs to be called before another.
+Anticipated changes. This is to encourage consideration of design for change.
+Superclass (if applicable)
+Inherited operations (if applicable)
+Operations provided by the class. For each operation, define:
+Function performed
+Precondition (a condition that must be true when the operation is invoked)
+Postcondition (a condition that must be true at the completion of the operation)
+Invariant (a condition that must be true at all times: before, during, and after execution of the operation)
+Input parameters
+Output parameters
+Operations used from other classes
+
+--- Slide 16 ---
+Layout: Title and Content
+Class Interface SpecificationsExample of Class Interface Speciﬁcation 1/2
+
+--- Slide 17 ---
+Layout: Title and Content
+Class Interface SpecificationsExample of Class Interface Speciﬁcation 2/2
+
+--- Slide 18 ---
+Layout: Title and Content
+Detailed Design of Information Hiding Classes
+During detailed design of the information hiding classes, the internal algorithmic design of each operation is determined. The operation internals are documented in pseudocode.
+Detailed Design of the Account
+Abstract Superclass
+
+--- Slide 19 ---
+Layout: Title and Content
+Detailed Design of
+Checking Account
+Subclass
+Detailed Design of Information Hiding Classes
+
+--- Slide 20 ---
+Layout: Title and Content
+Detailed Design of
+Savings Account
+Subclass 1/2
+Detailed Design of Information Hiding Classes
+
+--- Slide 21 ---
+Layout: Title and Content
+Detailed Design of
+Savings Account
+Subclass 2/2
+Detailed Design of Information Hiding Classes
+
+--- Slide 22 ---
+Layout: Title and Content
+Polymorphism and Dynamic Binding
+Polymorphism is Greek for “many forms”. In object-oriented design, polymorphism is used to mean that different classes may have the same operation name. The specification of the operation is identical for each class; however, classes can implement the operation differently.
+Dynamic binding is used in conjunction with polymorphism.
+Dynamic binding means that the association of a request to an object’s operation is done at run-time and can thus change from one invocation to the next.
+
+--- Slide 23 ---
+Layout: Title and Content
+Polymorphism and Dynamic Binding
+Example of Polymorphism and Dynamic Binding
+
+--- Slide 24 ---
+Layout: Title Only

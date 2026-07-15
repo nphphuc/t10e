@@ -1,0 +1,77 @@
+{
+  "id": "L10-01",
+  "title": "Pattern là quyết định, không phải hình UML",
+  "minutes": 10,
+  "xp": 100,
+  "objective": "Hiểu bản chất của design pattern: problem-solution-consequences, không chỉ là hình vẽ UML.",
+  "misconceptions": ["pattern-by-shape"],
+  "screens": [
+    {
+      "id": "s1",
+      "role": "hook",
+      "type": "scenario",
+      "prompt": "Developer A nói: 'Tôi biết Singleton — vẽ một class với self-reference arrow'. Developer B nói điều gì còn thiếu?",
+      "options": [
+        "Đúng, Singleton chỉ là hình vẽ",
+        "Thiếu: Pattern còn có problem (khi nào dùng), consequences (pros/cons), và motivation",
+        "Singleton không cần hiểu problem"
+      ],
+      "correct": 1,
+      "explanation": "Pattern = name + problem + solution + consequences. Không chỉ là UML shape.",
+      "distractorTags": {"0": "pattern-by-shape", "2": null},
+      "hints": ["Pattern = giải pháp cho problem trong context.", "Consequences = pros/cons.", "Xem slide 3-8."],
+      "weight": 2
+    },
+    {
+      "id": "s2",
+      "role": "explore",
+      "type": "order",
+      "prompt": "Sắp xếp các thành phần của một design pattern theo thứ tự đọc chuẩn (GoF template):",
+      "options": [
+        "Solution (UML + participants)",
+        "Problem (khi nào áp dụng)",
+        "Consequences (trade-offs)",
+        "Intent (mục đích)"
+      ],
+      "correctOrder": [
+        "Intent (mục đích)",
+        "Problem (khi nào áp dụng)",
+        "Solution (UML + participants)",
+        "Consequences (trade-offs)"
+      ],
+      "explanation": "GoF template: Intent → Problem/ Motivation → Solution (structure, participants) → Consequences.",
+      "hints": ["Bắt đầu với Intent.", "Problem trước Solution.", "Kết thúc với Consequences."],
+      "weight": 2
+    },
+    {
+      "id": "s3",
+      "role": "apply",
+      "type": "match",
+      "prompt": "Ghép category pattern với mục đích:",
+      "pairs": {
+        "Creational patterns": "Object creation linh hoạt",
+        "Structural patterns": "Composition của classes/objects",
+        "Behavioral patterns": "Phân phối trách nhiệm giữa objects"
+      },
+      "explanation": "Ba categories: Creational (tạo object), Structural (cấu trúc), Behavioral (hành vi).",
+      "hints": ["Creational = tạo.", "Structural = cấu trúc.", "Behavioral = hành vi.", "Xem slide 8-13."],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "contrast",
+      "type": "truefalse",
+      "prompt": "Design pattern là giải pháp cố định có thể dùng giống hệt nhau trong mọi tình huống.",
+      "correct": false,
+      "explanation": "Pattern là giải pháp linh hoạt (template) — áp dụng khác nhau tùy context. 'You can use this solution a million times over, without ever doing it the same way twice'.",
+      "weight": 2
+    },
+    {
+      "id": "s5",
+      "role": "takeaway",
+      "type": "takeaway",
+      "text": "Design pattern = name + problem + solution + consequences. Ba categories: Creational (tạo object), Structural (cấu trúc), Behavioral (hành vi). Pattern không phải hình UML — là quyết định thiết kế.",
+      "exitTicket": "Chọn một pattern bạn biết. Mô tả problem, solution, consequences."
+    }
+  ]
+}
