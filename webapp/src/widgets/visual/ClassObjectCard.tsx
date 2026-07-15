@@ -27,6 +27,13 @@ export default function ClassObjectCard({
 
   return (
     <div className="flex flex-col gap-6 w-full animate-fadeIn">
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .transition-colors, .transition-transform, .transition-all {
+            transition: none !important;
+          }
+        }
+      `}</style>
       {/* Mode Toggle Slider */}
       <div className="flex justify-center items-center gap-3">
         <span className={`text-xs font-bold transition-colors ${!isObjectMode ? 'text-purple-400' : 'text-gray-500'}`}>

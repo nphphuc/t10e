@@ -9,23 +9,27 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "choice",
-      "prompt": "Trong FOS, một Order gồm nhiều OrderItem. Nếu Order bị xóa, các OrderItem cũng bị xóa theo. Đây là quan hệ gì?",
+      "type": "visual",
+      "visual": {
+        "variant": "composition-lifetime",
+        "whole": "Order",
+        "part": "OrderItem",
+        "relationship": "composition"
+      },
       "options": [
-        "Aggregation — vì Order gom (aggregate) các OrderItem",
-        "Composition — vì OrderItem không thể tồn tại độc lập nếu Order bị hủy (part live/die with whole)",
-        "Generalization — Order là cha của OrderItem"
+        "OrderItem biến mất cùng Order (Composition)",
+        "OrderItem vẫn tồn tại độc lập (Aggregation)"
       ],
-      "correct": 1,
-      "explanation": "Composition: part objects (OrderItem) được tạo, sống và chết cùng whole (Order). Đây là sở hữu độc quyền.",
+      "prompt": "Trong sơ đồ lớp FOS, một Order chứa nhiều OrderItem. Dự đoán điều gì xảy ra với các OrderItem khi Order bị xóa khỏi hệ thống?",
+      "correct": 0,
+      "explanation": "Đúng. Trong mối quan hệ sở hữu độc quyền (Composition - hình thoi đen đặc), vòng đời của Part (OrderItem) hoàn toàn phụ thuộc vào Whole (Order). Khi Order bị xóa, các OrderItem của nó cũng tự động bị hủy theo.",
       "distractorTags": {
-        "0": "aggregation-equals-composition",
-        "2": null
+        "1": "aggregation-equals-composition"
       },
       "hints": [
-        "Nếu xóa whole, các part có còn tồn tại không?",
-        "Composition = part sống/chết cùng whole.",
-        "Aggregation = part có thể tồn tại độc lập."
+        "Nhìn vào ký hiệu hình thoi đen đặc (filled diamond). Đây là Aggregation hay Composition?",
+        "Hỏi: Một OrderItem có thể tồn tại nếu không có Order nào không? (ví dụ: món hàng trong giỏ không thuộc hóa đơn nào)?",
+        "Tên của mối quan hệ sở hữu mạnh là gì?"
       ],
       "weight": 2
     },
@@ -53,23 +57,27 @@
     {
       "id": "s3",
       "role": "apply",
-      "type": "choice",
-      "prompt": "Một Library có nhiều Book. Book có thể tồn tại độc lập khi Library bị giải tán (VD: chuyển sang thư viện khác). Đây là:",
+      "type": "visual",
+      "visual": {
+        "variant": "composition-lifetime",
+        "whole": "Library",
+        "part": "Book",
+        "relationship": "aggregation"
+      },
       "options": [
-        "Composition — Library chứa Book",
-        "Aggregation — Library aggregate Book (vì Book không phụ thuộc vòng đời vào Library)",
-        "Không phải whole-part"
+        "Book biến mất cùng Library (Composition)",
+        "Book vẫn tồn tại độc lập (Aggregation)"
       ],
+      "prompt": "Một Library có nhiều Book. Dự đoán điều gì xảy ra với các Book nếu Library bị giải tán?",
       "correct": 1,
-      "explanation": "Book có thể tồn tại không cần Library → aggregation (hollow diamond). Library ~ aggregate, Book ~ part độc lập.",
+      "explanation": "Đúng. Trong mối quan hệ sở hữu yếu (Aggregation - hình thoi rỗng), vòng đời của Part (Book) độc lập với Whole (Library). Khi Library bị giải tán, các Book vẫn tiếp tục tồn tại và có thể chuyển sang thư viện khác.",
       "distractorTags": {
-        "0": "aggregation-equals-composition",
-        "2": null
+        "0": "aggregation-equals-composition"
       },
       "hints": [
-        "Book có còn tồn tại khi Library đóng cửa không?",
-        "Nếu có thể → aggregation.",
-        "Xem slide 14 về aggregation hierarchy."
+        "Nhìn vào ký hiệu hình thoi rỗng (hollow diamond) trên sơ đồ lớp. Đây là Aggregation hay Composition?",
+        "Hỏi: Một cuốn sách có bắt buộc phải bị tiêu hủy khi thư viện sở hữu nó đóng cửa không?",
+        "Aggregation thể hiện quan hệ sở hữu yếu, các thành phần có vòng đời độc lập."
       ],
       "weight": 2
     },

@@ -58,17 +58,32 @@
     {
       "id": "s4",
       "role": "contrast",
-      "type": "choice",
-      "prompt": "Điểm mạnh của communication diagram so với sequence diagram là gì?",
+      "type": "visual",
+      "visual": {
+        "variant": "sequence-communication",
+        "lifelines": ["c : Customer", "ctl : CheckoutController", "o : Order"],
+        "messages": [
+          { "from": "c : Customer", "to": "ctl : CheckoutController", "name": "submitOrder()", "num": "1" },
+          { "from": "ctl : CheckoutController", "to": "o : Order", "name": "createOrder()", "num": "1.1" }
+        ]
+      },
       "options": [
-        "Dễ đọc thứ tự thời gian hơn",
-        "Thể hiện rõ cấu trúc kết nối (layout) giữa các object — ai kết nối với ai",
-        "Có thể vẽ được state machine"
+        "Dễ đọc thứ tự thời gian của các message hơn",
+        "Thể hiện rõ cấu trúc liên kết (layout/topology) giữa các object — ai gửi tin nhắn trực tiếp cho ai",
+        "Có thể vẽ được các luồng rẽ nhánh phức tạp hơn"
       ],
+      "prompt": "Hãy so sánh hai góc nhìn Sequence Diagram và Communication Diagram bên dưới. Đâu là điểm mạnh vượt trội của Communication Diagram?",
       "correct": 1,
-      "explanation": "Communication diagram mạnh về topology (layout kết nối object). Sequence diagram mạnh về trình tự thời gian.",
-      "distractorTags": {"0": "sequence-equals-communication", "2": null},
-      "hints": ["Communication = graph of objects.", "Sequence = timeline.", "Xem slide 8 về so sánh hai diagram."],
+      "explanation": "Đúng. Communication diagram tập trung vào topology (cấu trúc đồ thị liên kết giữa các objects), giúp nhìn rõ đối tượng nào trực tiếp kết nối và truyền thông điệp với đối tượng nào. Trong khi đó, Sequence diagram nhấn mạnh trình tự thời gian từ trên xuống dưới.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Hãy thử chuyển đổi qua lại giữa Sequence View và Communication View.",
+        "Góc nhìn nào làm nổi bật các mối quan hệ kết nối trực tiếp (links) giữa các hình chữ nhật đối tượng?",
+        "Xem so sánh chi tiết ưu/nhược điểm trong slide 8."
+      ],
       "weight": 2
     },
     {

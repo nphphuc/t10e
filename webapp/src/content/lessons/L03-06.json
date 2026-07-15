@@ -75,21 +75,24 @@
       "role": "explore",
       "type": "visual",
       "visual": {
-        "variant": "static-diagram",
-        "svgId": "model-vs-code",
-        "options": [
-          "Activity diagram vẽ một use case duy nhất mà không có rẽ nhánh",
-          "Activity diagram biểu diễn main flow và alternative flows với decision nodes và merge nodes",
-          "Activity diagram chỉ dùng cho kiến trúc tổng thể"
-        ]
+        "variant": "activity-flow",
+        "nodes": [
+          { "id": "start", "type": "initial", "label": "Bắt đầu" },
+          { "id": "place_order", "type": "action", "label": "Đặt hàng (Place Order)" },
+          { "id": "decision", "type": "decision", "label": "Tổng đơn > 1 triệu VND?", "guard": "[Đúng]" },
+          { "id": "apply_discount", "type": "action", "label": "Áp dụng giảm giá (Apply Discount)" },
+          { "id": "end", "type": "final", "label": "Kết thúc" }
+        ],
+        "correctOrder": ["start", "place_order", "decision", "apply_discount", "end"]
       },
-      "prompt": "Activity diagram có thể dùng để biểu diễn các bước của use case. Đặc điểm quan trọng nhất của activity diagram là gì?",
-      "correct": 1,
-      "explanation": "Activity diagram cho phép biểu diễn flow of control với decision nodes, merge, fork/join — rất phù hợp để mô tả UC flow và alternative paths.",
-      "distractorTags": {
-        "0": null,
-        "2": null
-      },
+      "prompt": "Hãy kéo thả các bước dưới đây để xây dựng đúng luồng hoạt động (Activity Flow) của quy trình Đặt hàng có áp dụng giảm giá khi đơn hàng > 1 triệu:",
+      "explanation": "Luồng hoạt động chuẩn: Bắt đầu ➔ Đặt hàng (Place Order) ➔ Quyết định: Tổng đơn > 1 triệu VND? (nhánh Đúng) ➔ Áp dụng giảm giá (Apply Discount) ➔ Kết thúc. Điều này trực quan hóa mối quan hệ extend có điều kiện giữa các use case.",
+      "hints": [
+        "Mọi Activity Diagram luôn bắt đầu bằng một hình tròn đen nhỏ (Initial Node).",
+        "Tiến trình tiếp theo là hành động Đặt hàng (Place Order) rồi đến điểm rẽ nhánh kiểm tra điều kiện.",
+        "Nhánh kiểm tra điều kiện (Decision Node) có guard '[Đúng]' sẽ dẫn tới hành động Áp dụng giảm giá.",
+        "Tiến trình kết thúc tại Final Node (vòng tròn đôi)."
+      ],
       "weight": 2
     },
     {

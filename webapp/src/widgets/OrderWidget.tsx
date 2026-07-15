@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   DndContext,
   closestCenter,
@@ -35,6 +36,16 @@ interface SortableItemProps {
 }
 
 function SortableItem({ id, isSubmitted, isCorrect }: SortableItemProps) {
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const listener = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', listener);
+    return () => mq.removeEventListener('change', listener);
+  }, []);
+
   const {
     attributes,
     listeners,
@@ -46,7 +57,7 @@ function SortableItem({ id, isSubmitted, isCorrect }: SortableItemProps) {
 
   const style = {
     transform: CSS.Transform.toString(transform),
-    transition,
+    transition: reducedMotion ? 'none' : transition,
     zIndex: isDragging ? 10 : 1,
   };
 
@@ -115,6 +126,13 @@ export default function OrderWidget({
 
   return (
     <div className="space-y-4">
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .transition-all {
+            transition: none !important;
+          }
+        }
+      `}</style>
       {!isSubmitted && (
         <div className="text-xs text-blue-400 font-semibold tracking-wider uppercase">
           Kéo thả hoặc dùng bàn phím (Tab, Space, mũi tên lên/xuống) để sắp xếp

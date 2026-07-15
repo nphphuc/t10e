@@ -34,24 +34,38 @@
       "role": "explore",
       "type": "visual",
       "visual": {
-        "variant": "view-switcher",
-        "options": [
-          "Một Customer sở hữu nhiều Order — association với multiplicity 1..*",
-          "Mỗi Order thuộc về đúng một Customer — quan hệ 1-1",
-          "Không có mối quan hệ nào"
-        ]
+        "variant": "association-multiplicity",
+        "classA": "Customer",
+        "classB": "Order",
+        "objectsA": ["c1", "c2"],
+        "objectsB": ["o1", "o2", "o3"],
+        "links": [
+          { "from": "c1", "to": "o1" },
+          { "from": "c1", "to": "o2" },
+          { "from": "c2", "to": "o3" }
+        ],
+        "optionMultiplicities": {
+          "0": ["1", "0..*"],
+          "1": ["0..*", "1"],
+          "2": ["0..1", "1"]
+        }
       },
-      "prompt": "Quan sát class diagram Customer - Order. Phát biểu nào đúng về mối quan hệ giữa hai class này?",
+      "options": [
+        "Customer 1 — Order 0..* (Một Customer có nhiều Order, mỗi Order thuộc về đúng 1 Customer)",
+        "Customer 0..* — Order 1 (Mỗi Customer có đúng 1 Order, một Order có nhiều Customer)",
+        "Customer 0..1 — Order 1 (Mỗi Customer có đúng 1 Order, mỗi Order thuộc về tối đa 1 Customer)"
+      ],
+      "prompt": "Quan sát sơ đồ liên kết thực tế của các đối tượng bên dưới. Hãy chọn bộ Multiplicity đúng nhất để mô tả quan hệ này trên Sơ đồ Lớp (Class Diagram):",
       "correct": 0,
-      "explanation": "Multiplicity 1..* ở phía Order nghĩa là một Customer có thể có nhiều Order — đây là one-to-many association.",
+      "explanation": "Đúng. Mỗi Order (o1, o2, o3) được liên kết với chính xác 1 Customer (c1 hoặc c2), do đó đầu Customer có multiplicity là 1. Mỗi Customer có thể có 0 hoặc nhiều Order (c1 có 2, c2 có 1), do đó đầu Order có multiplicity là 0..*.",
       "distractorTags": {
-        "1": null,
-        "2": null
+        "1": "association-is-link",
+        "2": "association-is-link"
       },
       "hints": [
-        "Nhìn số ghi ở hai đầu association line.",
-        "1 = một Customer, * = nhiều Order.",
-        "Xem notation trong slide 8-9."
+        "Đếm số đường kết nối xuất phát từ mỗi Order (bên phải) sang Customer (bên trái). Mỗi Order có bao nhiêu liên kết?",
+        "Đếm số đường kết nối xuất phát từ mỗi Customer (bên trái) sang Order. Customer c1 đang liên kết với bao nhiêu Order?",
+        "Chọn đáp án không gây ra bất kỳ cảnh báo vi phạm nào trên sơ đồ thực thể."
       ],
       "weight": 2
     },

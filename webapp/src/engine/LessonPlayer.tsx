@@ -148,8 +148,35 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
       if (screen.visual?.variant === 'state-machine-runner') {
         return answer === screen.correct;
       }
-      if (screen.visual?.variant === 'static-diagram') {
+      if (screen.visual?.variant === 'static-diagram' ||
+          screen.visual?.variant === 'view-switcher' ||
+          screen.visual?.variant === 'class-object-card' ||
+          screen.visual?.variant === 'association-multiplicity' ||
+          screen.visual?.variant === 'composition-lifetime' ||
+          screen.visual?.variant === 'association-class' ||
+          screen.visual?.variant === 'sequence-communication' ||
+          screen.visual?.variant === 'architecture-view-switcher') {
         return Number(answer) === Number(screen.correct);
+      }
+      if (screen.visual?.variant === 'subsystem-partition') {
+        const userPart = (answer as Record<string, string>) || {};
+        const correctPart = screen.visual.correctPartition || {};
+        const keys = Object.keys(correctPart);
+        if (keys.length === 0) return false;
+        return keys.every((key) => userPart[key] === correctPart[key]);
+      }
+      if (screen.visual?.variant === 'activity-flow') {
+        const ordered = (answer as string[]) || [];
+        const correct = screen.visual.correctOrder || [];
+        if (ordered.length !== correct.length) return false;
+        return ordered.every((item, idx) => correct[idx] === item);
+      }
+      if (screen.visual?.variant === 'bec-sorter') {
+        const placements = (answer as Record<string, string>) || {};
+        const correctMapping = screen.visual.correctMapping || {};
+        const items = screen.visual.items || [];
+        if (Object.keys(placements).length !== items.length) return false;
+        return items.every((item) => placements[item] === correctMapping[item]);
       }
     }
 
