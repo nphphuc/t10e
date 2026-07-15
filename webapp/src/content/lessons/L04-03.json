@@ -34,25 +34,28 @@
       "role": "explore",
       "type": "visual",
       "visual": {
-        "variant": "static-diagram",
-        "svgId": "class-vs-object",
-        "options": [
-          "Association class chỉ cần khi có ít nhất 3 class tham gia",
-          "Association class mô tả thuộc tính của mối quan hệ, thường dùng cho many-to-many",
-          "Association class là class cha của hai class kia"
-        ]
+        "variant": "association-class",
+        "classA": "Student",
+        "classB": "Course",
+        "associationName": "Enrollment",
+        "attributeName": "grade : String"
       },
-      "prompt": "Quan sát ví dụ về association class. Khi nào cần dùng association class?",
-      "correct": 1,
-      "explanation": "Association class mô hình hóa thuộc tính của chính association, không của class nào tham gia. Phổ biến trong many-to-many.",
+      "options": [
+        "Đặt trong class Student (Học sinh)",
+        "Đặt trong class Course (Môn học)",
+        "Đặt trong Association Class Enrollment"
+      ],
+      "prompt": "Quan sát sơ đồ quan hệ giữa Student và Course. Thuộc tính 'grade' (điểm số của học sinh trong môn học đó) nên được đặt ở đâu để đảm bảo thiết kế chuẩn xác nhất?",
+      "correct": 2,
+      "explanation": "Đúng. Điểm số (grade) thuộc về cặp liên kết (Student, Course) chứ không phải của riêng Student (vì một học sinh học nhiều môn và có điểm khác nhau) hay Course (vì môn học có nhiều học sinh và điểm khác nhau). Việc đặt vào Association Class Enrollment giúp biểu diễn chính xác cấu trúc dữ liệu này.",
       "distractorTags": {
-        "0": null,
-        "2": null
+        "0": "relationship-data",
+        "1": "relationship-data"
       },
       "hints": [
-        "Dữ liệu này có thuộc về một mình Employee không?",
-        "Có thuộc về một mình Project không?",
-        "Nó thuộc về cặp (Employee, Project) → association class."
+        "Hãy thử chọn đặt thuộc tính vào Student. Điều gì xảy ra nếu học sinh học 5 môn khác nhau? Họ có 5 điểm khác nhau hay chỉ 1 điểm duy nhất?",
+        "Tương tự, điều gì xảy ra nếu đặt vào Course? Liệu tất cả các học sinh học môn đó có bị chung 1 điểm số duy nhất không?",
+        "Điểm số thuộc về mối liên kết giữa học sinh và môn học đó. Hãy chọn vị trí đại diện cho mối liên kết này."
       ],
       "weight": 2
     },

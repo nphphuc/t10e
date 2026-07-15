@@ -28,16 +28,30 @@
     {
       "id": "s2",
       "role": "explore",
-      "type": "match",
-      "prompt": "Ghép class với stereotype tương ứng:",
-      "pairs": {
-        "OrderForm (giao diện đặt hàng)": "«boundary»",
-        "Product (lưu thông tin sản phẩm)": "«entity»",
-        "CheckoutController (điều phối luồng checkout)": "«control»",
-        "EmailService (gửi email)": "«boundary»"
+      "type": "visual",
+      "visual": {
+        "variant": "bec-sorter",
+        "items": ["OrderForm", "Product", "CheckoutController", "EmailService"],
+        "correctMapping": {
+          "OrderForm": "boundary",
+          "Product": "entity",
+          "CheckoutController": "control",
+          "EmailService": "boundary"
+        }
       },
-      "explanation": "Boundary: giao tiếp với bên ngoài. Entity: lưu trữ dữ liệu. Control: điều phối logic.",
-      "hints": ["Boundary = giao diện user/external system.", "Entity = data persistence.", "Control = orchestrator."],
+      "feedbackWrongByItem": {
+        "OrderForm": "OrderForm là giao diện hiển thị để người dùng tương tác, thuộc Boundary.",
+        "Product": "Product lưu trữ dữ liệu sản phẩm bền vững, thuộc Entity.",
+        "CheckoutController": "CheckoutController điều phối logic của use case thanh toán, thuộc Control.",
+        "EmailService": "EmailService giao tiếp với hệ thống gửi email bên ngoài (external system), thuộc Boundary."
+      },
+      "prompt": "Hãy phân loại các lớp thiết kế (objects) sau đây vào đúng phân vùng Boundary, Entity hoặc Control tương ứng:",
+      "explanation": "Đúng vậy. OrderForm và EmailService thực hiện giao tiếp bên ngoài (Boundary). Product lưu trữ dữ liệu (Entity). CheckoutController điều phối quy trình (Control).",
+      "hints": [
+        "Lớp nào chịu trách nhiệm lưu trữ thông tin sản phẩm lâu dài?",
+        "Lớp nào giao tiếp trực tiếp với người dùng hoặc hệ thống bên ngoài?",
+        "Lớp nào đóng vai trò như nhạc trưởng điều phối toàn bộ luồng nghiệp vụ?"
+      ],
       "weight": 2
     },
     {

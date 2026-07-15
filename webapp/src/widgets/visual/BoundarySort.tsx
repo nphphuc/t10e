@@ -76,6 +76,14 @@ export default function BoundarySort({
         .animate-shake {
           animation: shake 0.5s ease-in-out;
         }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-shake {
+            animation: none !important;
+          }
+          .transition-all {
+            transition: none !important;
+          }
+        }
       `}</style>
 
       <div className="text-center text-xs text-gray-400">

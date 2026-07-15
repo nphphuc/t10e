@@ -18,6 +18,15 @@ export default function StateMachineRunner({
   isSubmitted,
 }: StateMachineRunnerProps) {
   const [animate, setAnimate] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReducedMotion(mq.matches);
+    const listener = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', listener);
+    return () => mq.removeEventListener('change', listener);
+  }, []);
 
   // Trigger animation when submitted and correct
   useEffect(() => {
@@ -119,13 +128,17 @@ export default function StateMachineRunner({
 
           {/* Animated Token moving on DisableNews */}
           {animate && (
-            <circle r="6" fill="#60a5fa" className="shadow-lg shadow-blue-500">
-              <animateMotion
-                dur="1.2s"
-                repeatCount="indefinite"
-                path="M 180 130 Q 300 70 420 130"
-              />
-            </circle>
+            reducedMotion ? (
+              <circle cx="450" cy="150" r="6" fill="#60a5fa" className="shadow-lg shadow-blue-500" />
+            ) : (
+              <circle r="6" fill="#60a5fa" className="shadow-lg shadow-blue-500">
+                <animateMotion
+                  dur="1.2s"
+                  repeatCount="indefinite"
+                  path="M 180 130 Q 300 70 420 130"
+                />
+              </circle>
+            )
           )}
 
           {/* Initial State Entry Arrow */}
@@ -183,7 +196,7 @@ export default function StateMachineRunner({
               className="transition-all duration-200 group-hover:stroke-gray-600"
             />
             {/* Active start pointer */}
-            <circle cx="150" cy="125" r="4" fill="#f97316" className="animate-ping" />
+            <circle cx="150" cy="125" r="4" fill="#f97316" className={reducedMotion ? "" : "animate-ping"} />
             <circle cx="150" cy="125" r="3" fill="#f97316" />
             
             <text

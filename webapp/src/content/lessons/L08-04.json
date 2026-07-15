@@ -9,17 +9,30 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Class diagram có Customer (customerId) và Account (accountNumber). Một Customer có nhiều Account. Foreign key đặt ở đâu?",
+      "type": "visual",
+      "visual": {
+        "variant": "relational-mapping",
+        "classA": "Customer",
+        "classB": "Account",
+        "relationship": "one-to-many"
+      },
       "options": [
-        "Thêm customerId vào Account (many side)",
-        "Thêm accountNumber vào Customer (one side)",
-        "Tạo bảng thứ ba"
+        "Thêm khóa ngoại customerId vào bảng Accounts (phía N - Many)",
+        "Thêm khóa ngoại accountNumber vào bảng Customers (phía 1 - One)",
+        "Tạo bảng thứ ba (Associative Table) để liên kết hai bảng"
       ],
+      "prompt": "Xét sơ đồ UML Class bên dưới: Lớp Customer có quan hệ 1-nhiều với lớp Account. Khi ánh xạ sang cơ sở dữ liệu quan hệ (RDD), bạn nên đặt khóa ngoại (Foreign Key - FK) ở bảng nào?",
       "correct": 0,
-      "explanation": "One-to-many: foreign key ở many side (Account). customerId là FK trong Account relation.",
-      "distractorTags": {"1": "multiplicity-fk", "2": "multiplicity-fk"},
-      "hints": ["FK ở 'nhiều' bên.", "Xem slide 29-30."],
+      "explanation": "Đúng. Với quan hệ 1-nhiều (One-to-Many), khóa ngoại luôn được đặt ở bảng tương ứng với phía 'nhiều' (Many-side), tức là bảng Accounts, trỏ về khóa chính của bảng Customers.",
+      "distractorTags": {
+        "1": "multiplicity-fk",
+        "2": "multiplicity-fk"
+      },
+      "hints": [
+        "Hãy thử click vào các bảng bên dưới để xem sự thay đổi của khóa ngoại.",
+        "Phía Many (Account) có thể có nhiều dòng trỏ về cùng một Customer.",
+        "Xem slide 29-30 về ánh xạ mối quan hệ 1-N."
+      ],
       "weight": 2
     },
     {

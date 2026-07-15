@@ -3,6 +3,18 @@ import StateMachineRunner from './visual/StateMachineRunner';
 import ChoiceWidget from './ChoiceWidget';
 import ViewSwitcher from './visual/ViewSwitcher';
 import ClassObjectCard from './visual/ClassObjectCard';
+import ActivityFlow from './visual/ActivityFlow';
+import AssociationMultiplicity from './visual/AssociationMultiplicity';
+import CompositionLifetime from './visual/CompositionLifetime';
+import AssociationClass from './visual/AssociationClass';
+import BecSorter from './visual/BecSorter';
+import SequenceCommunication from './visual/SequenceCommunication';
+import ArchitectureViewSwitcher from './visual/ArchitectureViewSwitcher';
+import SubsystemPartition from './visual/SubsystemPartition';
+import RelationalMapping from './visual/RelationalMapping';
+import ServiceBroker from './visual/ServiceBroker';
+import TransactionFailure from './visual/TransactionFailure';
+import SyncAsyncTimeline from './visual/SyncAsyncTimeline';
 
 
 interface VisualWidgetProps {
@@ -69,6 +81,146 @@ export default function VisualWidget({
   if (variant === 'class-object-card') {
     return (
       <ClassObjectCard
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'activity-flow') {
+    return (
+      <ActivityFlow
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'association-multiplicity') {
+    return (
+      <AssociationMultiplicity
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'composition-lifetime') {
+    return (
+      <CompositionLifetime
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'association-class') {
+    return (
+      <AssociationClass
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'bec-sorter') {
+    return (
+      <BecSorter
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'sequence-communication') {
+    return (
+      <SequenceCommunication
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'architecture-view-switcher') {
+    return (
+      <ArchitectureViewSwitcher
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'subsystem-partition') {
+    return (
+      <SubsystemPartition
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'relational-mapping') {
+    return (
+      <RelationalMapping
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'service-broker') {
+    return (
+      <ServiceBroker
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'transaction-failure') {
+    return (
+      <TransactionFailure
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'sync-async-timeline') {
+    return (
+      <SyncAsyncTimeline
         data={data}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}

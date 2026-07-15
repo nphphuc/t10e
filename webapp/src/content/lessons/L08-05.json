@@ -29,14 +29,11 @@
     {
       "id": "s2",
       "role": "explore",
-      "type": "order",
-      "prompt": "Sắp xếp flow đăng ký và gọi service.",
-      "options": [
-        "Client gửi request cho service",
-        "Service đăng ký name, description, location",
-        "Client hỏi broker",
-        "Broker trả location/handle"
-      ],
+      "type": "visual",
+      "visual": {
+        "variant": "service-broker"
+      },
+      "prompt": "Sắp xếp trình tự các bước thực hiện quá trình đăng ký (registration) và khám phá (discovery) dịch vụ trong kiến trúc SOA thông qua Broker bằng cách di chuyển các bước bên dưới:",
       "correctOrder": [
         "Service đăng ký name, description, location",
         "Client hỏi broker",

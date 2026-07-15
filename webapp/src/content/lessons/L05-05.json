@@ -12,15 +12,25 @@
     },
     {
       "id": "R05-02",
-      "type": "match",
-      "prompt": "Ghép class với stereotype phù hợp:",
-      "pairs": {
-        "LoginForm": "«boundary»",
-        "OrderController": "«control»",
-        "Customer": "«entity»",
-        "EmailService": "«service»"
+      "type": "visual",
+      "visual": {
+        "variant": "bec-sorter",
+        "items": ["LoginForm", "OrderController", "Customer", "PaymentGatewayInterface"],
+        "correctMapping": {
+          "LoginForm": "boundary",
+          "OrderController": "control",
+          "Customer": "entity",
+          "PaymentGatewayInterface": "boundary"
+        }
       },
-      "explanation": "Mỗi class đảm nhiệm vai trò khác nhau trong hệ thống."
+      "feedbackWrongByItem": {
+        "LoginForm": "LoginForm hiển thị màn hình đăng nhập cho người dùng, thuộc Boundary.",
+        "OrderController": "OrderController điều phối luồng nghiệp vụ tạo đơn hàng, thuộc Control.",
+        "Customer": "Customer lưu trữ thông tin khách hàng lâu dài, thuộc Entity.",
+        "PaymentGatewayInterface": "PaymentGatewayInterface kết nối với API cổng thanh toán bên ngoài (external system), thuộc Boundary."
+      },
+      "prompt": "Hãy kéo thả hoặc sử dụng bàn phím để phân loại các lớp sau đây vào đúng stereotype Boundary, Entity hoặc Control tương ứng:",
+      "explanation": "Chính xác. LoginForm và PaymentGatewayInterface là các thành phần giao tiếp ngoài (Boundary). Customer chứa dữ liệu khách hàng (Entity). OrderController đóng vai trò trung gian điều phối luồng xử lý (Control)."
     },
     {
       "id": "R05-03",

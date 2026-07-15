@@ -9,17 +9,33 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "FOS gồm: Customer UI, OrderService, PaymentService, EmailService, ProductDB. Ai là client, ai là service?",
-      "options": [
-        "CustomerUI là client; còn lại là services",
-        "Tất cả đều là service",
-        "EmailService là client của CustomerUI"
+      "type": "visual",
+      "visual": {
+        "variant": "subsystem-partition",
+        "objects": ["CustomerUI", "OrderService", "PaymentService", "EmailService", "ProductDB"],
+        "subsystems": ["User Interaction", "Service Subsystem"],
+        "correctPartition": {
+          "CustomerUI": "User Interaction",
+          "OrderService": "Service Subsystem",
+          "PaymentService": "Service Subsystem",
+          "EmailService": "Service Subsystem",
+          "ProductDB": "Service Subsystem"
+        },
+        "links": [
+          {"from": "CustomerUI", "to": "OrderService"},
+          {"from": "OrderService", "to": "PaymentService"},
+          {"from": "OrderService", "to": "EmailService"},
+          {"from": "OrderService", "to": "ProductDB"}
+        ]
+      },
+      "prompt": "Hãy phân chia các đối tượng thiết kế của hệ thống FOS dưới đây vào đúng 2 nhóm phân hệ: 'User Interaction' (cho các client UI) và 'Service Subsystem' (cho các dịch vụ xử lý/lưu trữ dữ liệu) để đạt độ kết dính tốt nhất:",
+      "explanation": "Đúng. Phân hệ User Interaction chứa các đối tượng tương tác trực tiếp với người dùng như CustomerUI. Các phân hệ Service Subsystem chứa các dịch vụ xử lý logic và cơ sở dữ liệu như OrderService, PaymentService, EmailService, và ProductDB.",
+      "hints": [
+        "Hãy kéo thả các đối tượng hoặc click chọn rồi bấm phím số 1, 2 để phân chia.",
+        "CustomerUI là thành phần giao diện người dùng trực tiếp nên thuộc về phân hệ User Interaction.",
+        "Các thành phần khác cung cấp dịch vụ tính toán, xử lý hoặc lưu trữ nghiệp vụ nên được gom vào Service Subsystem.",
+        "Xem slide 17-19 về phân chia phân hệ."
       ],
-      "correct": 0,
-      "explanation": "CustomerUI là client request services. OrderService, PaymentService, EmailService, ProductDB là services.",
-      "distractorTags": {"1": null, "2": null},
-      "hints": ["Client = requester.", "Service = provider.", "Xem slide 12, 17-19."],
       "weight": 2
     },
     {

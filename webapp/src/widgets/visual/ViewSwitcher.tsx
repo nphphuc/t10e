@@ -219,6 +219,13 @@ export default function ViewSwitcher({
 
   return (
     <div className="flex flex-col gap-6 w-full animate-fadeIn">
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .transition-all {
+            transition: none !important;
+          }
+        }
+      `}</style>
       {/* View Switcher Tabs */}
       <div className="flex flex-wrap gap-1.5 justify-center">
         {views.map((v) => {

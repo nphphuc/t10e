@@ -9,17 +9,32 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Team bạn đang thiết kế và cần vẽ interaction cho use case. Một bạn vẽ sequence, bạn kia vẽ communication. Cả hai đều mô tả cùng một use case. Kết luận nào đúng?",
+      "type": "visual",
+      "visual": {
+        "variant": "sequence-communication",
+        "lifelines": ["op : Operator", "ui : OperatorUI", "srv : AlarmService"],
+        "messages": [
+          { "from": "op : Operator", "to": "ui : OperatorUI", "name": "viewAlarms()", "num": "1" },
+          { "from": "ui : OperatorUI", "to": "srv : AlarmService", "name": "getAlarms()", "num": "1.1" }
+        ]
+      },
       "options": [
-        "Một trong hai bạn đang làm sai vì không thống nhất diagram",
-        "Cả hai đều đúng — sequence và communication chỉ khác cách trình bày, cùng mô tả object interaction",
-        "Chỉ sequence diagram mới được UML chuẩn hóa"
+        "Một trong hai bạn đang vẽ sai vì không thống nhất định dạng biểu đồ",
+        "Cả hai bạn đều vẽ đúng — Sequence và Communication chỉ là hai cách hiển thị (views) khác nhau của cùng một tập thông điệp động",
+        "Chỉ Sequence Diagram mới được công nhận là biểu đồ chuẩn trong UML"
       ],
+      "prompt": "Hai thành viên trong dự án cùng mô tả luồng xử lý 'Xem cảnh báo' (View Alarms): một người vẽ Sequence Diagram, người còn lại vẽ Communication Diagram. Kết luận nào sau đây là chính xác?",
       "correct": 1,
-      "explanation": "Cả sequence và communication diagram đều mô tả object interaction, chỉ khác cách trình bày: sequence theo thời gian, communication theo topology.",
-      "distractorTags": {"0": "sequence-equals-communication", "2": null},
-      "hints": ["Cả hai đều là UML interaction diagrams.", "Khác presentation, cùng nội dung.", "Xem slide 8."],
+      "explanation": "Đúng thế. Cả Sequence Diagram và Communication Diagram đều là biểu đồ tương tác (Interaction Diagrams) trong UML. Chúng hoàn toàn tương đương về mặt ngữ nghĩa (semantically equivalent) và có thể tự động chuyển đổi qua lại mà không mất mát thông tin.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Hãy chuyển sang tab Communication View và kiểm tra: liệu các đối tượng tham gia và trình tự số hiệu tin nhắn (1, 1.1) có khớp hoàn toàn với Sequence View không?",
+        "Chúng có khác biệt về mặt thông tin truyền tải hay chỉ là khác nhau về cách bố trí hình ảnh?",
+        "Xem slide 8 về nguyên lý tương đương ngữ nghĩa."
+      ],
       "weight": 2
     },
     {

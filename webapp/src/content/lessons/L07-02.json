@@ -9,17 +9,27 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Khách hàng muốn xem hệ thống FOS gồm những server nào, cài đặt ở đâu, và kết nối mạng ra sao. View nào phù hợp?",
+      "type": "visual",
+      "visual": {
+        "variant": "architecture-view-switcher"
+      },
       "options": [
-        "Structural view — class diagram",
-        "Dynamic view — communication diagram",
-        "Deployment view — biểu diễn các node vật lý và phân bổ"
+        "Logical/Structural View — mô tả class diagram và package structure",
+        "Process View — mô tả luồng điều khiển và truyền nhận message",
+        "Physical/Deployment View — biểu diễn các node vật lý, kết nối mạng và vị trí triển khai"
       ],
+      "prompt": "Bạn đang phân tích kiến trúc của FOS. Hãy chuyển qua các view kiến trúc bên dưới để trả lời: View nào mô tả server vật lý, mạng kết nối và cách phân bổ components trên hạ tầng?",
       "correct": 2,
-      "explanation": "Deployment view mô tả cấu hình vật lý: nodes, kết nối mạng, phân bổ components.",
-      "distractorTags": {"0": "view-purpose", "1": "view-purpose"},
-      "hints": ["Deployment = physical.", "Structural = static class.", "Dynamic = behavioral messaging.", "Xem slide 5-7."],
+      "explanation": "Đúng. Physical View (hay Deployment View) mô tả cấu hình các nút xử lý vật lý (nodes) trong hệ thống thực tế và việc triển khai các components phần mềm trên các nút đó.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "1": "view-purpose"
+      },
+      "hints": [
+        "Hãy bấm vào từng tab view ở thanh trên để xem hình ảnh trực quan tương ứng.",
+        "Nhìn vào diagram: view nào vẽ các thực thể phần cứng như User PC, App Server VM, DB Server?",
+        "Xem so sánh các view trong slide 5-7."
+      ],
       "weight": 2
     },
     {
