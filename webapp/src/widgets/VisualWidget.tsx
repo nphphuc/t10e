@@ -15,6 +15,9 @@ import RelationalMapping from './visual/RelationalMapping';
 import ServiceBroker from './visual/ServiceBroker';
 import TransactionFailure from './visual/TransactionFailure';
 import SyncAsyncTimeline from './visual/SyncAsyncTimeline';
+import TradeoffRadar from './visual/TradeoffRadar';
+import PatternPressure from './visual/PatternPressure';
+import RdsTrace from './visual/RdsTrace';
 
 
 interface VisualWidgetProps {
@@ -221,6 +224,41 @@ export default function VisualWidget({
   if (variant === 'sync-async-timeline') {
     return (
       <SyncAsyncTimeline
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'tradeoff-radar') {
+    return (
+      <TradeoffRadar
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+        disabledOptions={disabledOptions}
+      />
+    );
+  }
+
+  if (variant === 'pattern-pressure') {
+    return (
+      <PatternPressure
+        data={data}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'rds-trace') {
+    return (
+      <RdsTrace
         data={data}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}

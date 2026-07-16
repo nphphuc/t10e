@@ -41,17 +41,32 @@
     {
       "id": "s3",
       "role": "apply",
-      "type": "scenario",
-      "prompt": "FOS muốn vừa performance cao vừa security tối đa. Mỗi request đều phải mã hóa và kiểm tra nhiều lớp. Nhận xét?",
+      "type": "visual",
+      "visual": {
+        "variant": "tradeoff-radar",
+        "tactics": [
+          "Mã hóa dữ liệu & Xác thực đa nhân tố",
+          "Sử dụng Caching",
+          "Dư thừa dữ liệu (Redundancy)"
+        ]
+      },
       "options": [
-        "Cả hai đều đạt được dễ dàng",
-        "Trade-off: security overhead (encryption, auth) làm giảm performance",
-        "Chỉ cần chọn một"
+        "Cả hai thuộc tính chất lượng đều đạt mức tối đa dễ dàng",
+        "Có sự Trade-off rõ rệt: Bổ sung bảo mật tăng overhead xử lý làm giảm hiệu năng hệ thống",
+        "Việc thay đổi chiến thuật không làm ảnh hưởng gì đến các chất lượng khác"
       ],
+      "prompt": "Nhà thiết kế FOS muốn hệ thống vừa có hiệu năng (Performance) cao vừa có tính bảo mật (Security) tuyệt đối thông qua việc mã hóa & xác thực nhiều lớp. Hãy thử kích hoạt các Tactics ở bảng bên dưới, xem biểu đồ radar thay đổi thế nào và đưa ra nhận xét đúng nhất:",
       "correct": 1,
-      "explanation": "Quality attributes thường trade-off với nhau. Security (encryption, auth) tăng latency → giảm performance.",
-      "distractorTags": {"0": "nfr-one-tactic", "2": null},
-      "hints": ["Security + Performance = trade-off.", "Xem slide 16 về trade-offs."],
+      "explanation": "Đúng. Trong thiết kế kiến trúc phần mềm, các thuộc tính chất lượng (NFRs) luôn có sự ràng buộc và trade-off lẫn nhau. Bổ sung các bước mã hóa hay xác thực sẽ tăng overhead xử lý và latency, trực tiếp làm giảm Performance.",
+      "distractorTags": {
+        "0": "nfr-one-tactic",
+        "2": null
+      },
+      "hints": [
+        "Hãy tick thử vào hộp 'Mã hóa dữ liệu & Xác thực đa nhân tố' và quan sát chỉ số Security vs Performance.",
+        "Khi Security tăng từ 3 lên 5, Performance đã bị giảm từ 3 xuống 1.",
+        "Xem slide 16 về trade-offs."
+      ],
       "weight": 2
     },
     {

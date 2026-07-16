@@ -158,7 +158,9 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           screen.visual?.variant === 'architecture-view-switcher' ||
           screen.visual?.variant === 'relational-mapping' ||
           screen.visual?.variant === 'transaction-failure' ||
-          screen.visual?.variant === 'sync-async-timeline') {
+          screen.visual?.variant === 'sync-async-timeline' ||
+          screen.visual?.variant === 'tradeoff-radar' ||
+          screen.visual?.variant === 'rds-trace') {
         return Number(answer) === Number(screen.correct);
       }
       if (screen.visual?.variant === 'subsystem-partition') {
@@ -175,12 +177,13 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
         if (ordered.length !== correct.length) return false;
         return ordered.every((item, idx) => correct[idx] === item);
       }
-      if (screen.visual?.variant === 'bec-sorter') {
+      if (screen.visual?.variant === 'bec-sorter' ||
+          screen.visual?.variant === 'pattern-pressure') {
         const placements = (answer as Record<string, string>) || {};
         const correctMapping = screen.visual.correctMapping || {};
-        const items = screen.visual.items || [];
-        if (Object.keys(placements).length !== items.length) return false;
-        return items.every((item) => placements[item] === correctMapping[item]);
+        const keys = Object.keys(correctMapping);
+        if (keys.length === 0) return false;
+        return keys.every((key) => placements[key] === correctMapping[key]);
       }
     }
 
