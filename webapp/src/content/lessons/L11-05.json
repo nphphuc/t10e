@@ -9,25 +9,22 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "visual",
-      "visual": {
-        "variant": "rds-trace"
-      },
+      "type": "scenario",
       "options": [
-        "Bỏ qua các bước trung gian, chỉ cần viết mã nguồn chạy được là đủ",
-        "Xây dựng chuỗi truy vết đầy đủ: REQ-1 (Requirement) ➔ UC-1 (Analysis) ➔ Subsystem: Order Management (Design)",
-        "Liên kết REQ-1 trực tiếp sang Subsystem: Billing Management để rút ngắn thời gian thiết kế"
+        "Chỉ cần code chạy được",
+        "Mỗi step phải traceable: UC → interaction diagram → subsystem → class interface → code",
+        "Traceability không cần thiết"
       ],
-      "prompt": "Xét sơ đồ Traceability liên kết Requirement ➔ Analysis ➔ Design bên dưới. Để đảm bảo tính đúng đắn (correctness), bạn cần trace từ yêu cầu đặt món 'REQ-1 (Đặt món)' đến các thành phần tương ứng ở pha Analysis và Design. Hãy nhấn vào các node trên sơ đồ để xây dựng đường đi hợp lệ và chọn đáp án chính xác:",
+      "prompt": "FOS: từ use case Place Order → analysis model → design model → code. Bước nào là quan trọng nhất để traceability?",
       "correct": 1,
-      "explanation": "Đúng. Để đảm bảo tính Traceability, mỗi yêu cầu (Requirement) phải được phân tích qua Use Case tương ứng và sau đó được thiết kế bởi Subsystem chịu trách nhiệm thích hợp. Trong trường hợp này: REQ-1 ➔ UC-1 ➔ Subsystem: Order Management.",
+      "explanation": "Traceability: mỗi requirement phải được thiết kế và implement. COMET hỗ trợ trace từ UC đến code.",
       "distractorTags": {
         "0": null,
         "2": "traceability"
       },
       "hints": [
-        "Hãy thử click vào các node REQ-1, UC-1, và Subsystem: Order Mgmt trên biểu đồ để làm nổi bật đường đi.",
-        "Đường truyền vết hợp lệ phải đi qua các thành phần có cùng ngữ cảnh nghiệp vụ đặt hàng (Order).",
+        "Traceability = truy vết.",
+        "COMET hỗ trợ trace.",
         "Xem Ch20 về traceability."
       ],
       "weight": 2
