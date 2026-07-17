@@ -30,11 +30,23 @@ export default function LessonPage() {
   const handleComplete = (scorePercentage: number, xpEarned: number, isMastered: boolean) => {
     console.log(`[LessonPage] Completed: Score ${scorePercentage}%, XP Earned: ${xpEarned}, Mastered: ${isMastered}`);
     
+    // Get previous streak
+    const prevStreak = useProgressStore.getState().streak;
+    
     // Complete lesson in progress store
     completeLesson(lessonData.id, xpEarned);
     
-    // Redirect back to CourseMap.
-    navigate('/');
+    // Get next streak
+    const nextStreak = useProgressStore.getState().streak;
+    const streakIncreased = nextStreak > prevStreak;
+    
+    // Redirect back to CourseMap with state
+    navigate('/', {
+      state: {
+        justCompleted: lessonData.id,
+        streakIncreased,
+      }
+    });
   };
 
   return (

@@ -6,6 +6,7 @@ import { track } from './analytics';
 import { calculateLessonScore } from './scoring';
 import type { AnswerState } from './scoring';
 import { getHintForAttempt, getDisabledDistractors } from './hints';
+import { playSelect, playCorrect, playWrong, playFanfare, isMuted, setMuted } from './sound';
 
 // Widgets
 import ChoiceWidget from '../widgets/ChoiceWidget';
@@ -66,11 +67,65 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
   const [disabledOptions, setDisabledOptions] = useState<number[]>([]);
   const [exitTicketText, setExitTicketText] = useState("");
+  const [soundMuted, setSoundMuted] = useState(isMuted());
+  
+  const [exitStage, setExitStage] = useState(0);
+  const [displayScore, setDisplayScore] = useState(0);
+
+  const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
+
+  const toggleSound = () => {
+    const next = !soundMuted;
+    setSoundMuted(next);
+    setMuted(next);
+  };
 
   // Timing
   const screenStartTime = useRef<number>(Date.now());
   const lessonStartTime = useRef<number>(Date.now());
   const [showExitScreen, setShowExitScreen] = useState(false);
+
+  useEffect(() => {
+    if (showExitScreen) {
+      if (shouldReduceMotion) {
+        setDisplayScore(Math.round(scoreResult.percentage));
+        setExitStage(3);
+        return;
+      }
+      setDisplayScore(0);
+      setExitStage(0);
+      const duration = 1000; // ms for count-up
+      const start = Date.now();
+      const target = Math.round(scoreResult.percentage);
+      let frameId: number;
+
+      const updateCount = () => {
+        const elapsed = Date.now() - start;
+        const progress = Math.min(elapsed / duration, 1);
+        setDisplayScore(Math.round(progress * target));
+
+        if (progress < 1) {
+          frameId = requestAnimationFrame(updateCount);
+        } else {
+          // Trigger stage 1 (XP spring scale-in)
+          setTimeout(() => {
+            setExitStage(1);
+            // Trigger stage 2 (Mastery stamp down)
+            setTimeout(() => {
+              setExitStage(2);
+              // Trigger stage 3 (Buttons fade-in)
+              setTimeout(() => {
+                setExitStage(3);
+              }, 400);
+            }, 400);
+          }, 200);
+        }
+      };
+
+      frameId = requestAnimationFrame(updateCount);
+      return () => cancelAnimationFrame(frameId);
+    }
+  }, [showExitScreen, shouldReduceMotion, scoreResult.percentage]);
 
   const currentScreen = lesson.screens[currentScreenIdx];
 
@@ -98,6 +153,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
 
   const handleAnswerSelect = (val: any) => {
     if (isSubmitted) return;
+    playSelect();
     setCurrentAnswer(val);
   };
 
@@ -235,6 +291,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     });
 
     if (correct) {
+      playCorrect();
       setIsCorrect(true);
       setIsSubmitted(true);
       setAnswers((prev) => ({
@@ -247,6 +304,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
         },
       }));
     } else {
+      playWrong();
       if (newAttempts >= 3) {
         // Solution escalation (Revealed)
         setIsCorrect(false);
@@ -286,8 +344,6 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   };
 
   const handleFinishLesson = () => {
-    const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
-    
     track('lesson_mastered', {
       score: scoreResult.percentage,
       durationMs: Date.now() - lessonStartTime.current,
@@ -295,6 +351,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     });
 
     if (scoreResult.isMastered) {
+      playFanfare();
       confetti({
         particleCount: 120,
         spread: 80,
@@ -306,7 +363,6 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   };
 
   const handleFinishConfirm = () => {
-    const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
     onComplete(scoreResult.percentage, scoreResult.xpEarned, scoreResult.isMastered);
   };
 
@@ -315,6 +371,8 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     setAnswers({});
     setCurrentScreenIdx(0);
     setShowExitScreen(false);
+    setExitStage(0);
+    setDisplayScore(0);
     lessonStartTime.current = Date.now();
     screenStartTime.current = Date.now();
   };
@@ -426,67 +484,97 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
 
   // Exit screen rendering
   if (showExitScreen) {
-    const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#0c0d0e] px-4 py-8">
         <div className="max-w-md w-full bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl text-center space-y-6 animate-fadeIn">
           <div>
             <span className="text-6xl">🏆</span>
-            <h2 className="text-3xl font-extrabold mt-4">Kết Quả Bài Học</h2>
+            <h2 className="text-3xl font-extrabold mt-4 font-display text-white">Kết Quả Bài Học</h2>
             <p className="text-sm text-gray-400 mt-1">{lesson.title}</p>
           </div>
 
           <div className="py-4 border-y border-gray-800 grid grid-cols-2 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-gray-200">{Math.round(scoreResult.percentage)}%</div>
-              <div className="text-xs text-gray-500 uppercase mt-0.5">Điểm Đạt Được</div>
+              <div className="text-3xl font-extrabold text-gray-200">{displayScore}%</div>
+              <div className="text-xs text-gray-500 uppercase mt-0.5 font-medium">Điểm Đạt Được</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-blue-400">+{scoreResult.xpEarned}</div>
-              <div className="text-xs text-gray-500 uppercase mt-0.5">XP Nhận Được</div>
+            
+            <div className="text-center flex flex-col justify-center items-center">
+              {exitStage >= 1 ? (
+                <motion.div
+                  initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.3 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  <div className="text-3xl font-extrabold text-blue-400">+{scoreResult.xpEarned}</div>
+                  <div className="text-xs text-gray-500 uppercase mt-0.5 font-medium">XP Nhận Được</div>
+                </motion.div>
+              ) : (
+                <div className="h-[52px]" /> // placeholder to prevent layout shift
+              )}
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-gray-950 border border-gray-800">
-            {scoreResult.isMastered ? (
-              <div className="text-success font-semibold flex items-center justify-center gap-2">
-                <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                  <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
-                </svg>
-                <span>Chúc mừng! Bạn đã đạt Mastery.</span>
-              </div>
-            ) : (
-              <div className="text-error font-semibold flex flex-col items-center gap-1">
-                <span>Chưa đạt Mastery (Cần ≥ 80% & đúng Transfer).</span>
-                <span className="text-xs text-gray-500">Bạn chỉ nhận được 50% XP của bài học.</span>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-2 pt-2">
-            {scoreResult.isMastered ? (
-              <button
-                onClick={handleFinishConfirm}
-                className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all"
+          <div className="relative min-h-[76px] flex items-center justify-center">
+            {exitStage >= 2 ? (
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.6 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 12 }}
+                className="w-full"
               >
-                Tiếp Tục Bản Đồ Khóa Học
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={handleRetryLesson}
-                  className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all"
-                >
-                  Luyện Tập Lại
-                </button>
-                <button
-                  onClick={handleFinishConfirm}
-                  className="w-full py-4 rounded-xl border border-gray-700 bg-gray-800/40 text-gray-300 hover:bg-gray-800 hover:text-white font-semibold transition-all"
-                >
-                  Bỏ Qua
-                </button>
-              </>
-            )}
+                <div className="p-4 rounded-2xl bg-gray-950 border border-gray-800">
+                  {scoreResult.isMastered ? (
+                    <div className="text-success font-semibold flex items-center justify-center gap-2">
+                      <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+                      </svg>
+                      <span>Chúc mừng! Bạn đã đạt Mastery.</span>
+                    </div>
+                  ) : (
+                    <div className="text-error font-semibold flex flex-col items-center gap-1">
+                      <span>Chưa đạt Mastery (Cần ≥ 80% & đúng Transfer).</span>
+                      <span className="text-xs text-gray-500">Bạn chỉ nhận được 50% XP của bài học.</span>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ) : null}
+          </div>
+
+          <div className="min-h-[56px]">
+            {exitStage >= 3 ? (
+              <motion.div
+                initial={shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-2 pt-2"
+              >
+                {scoreResult.isMastered ? (
+                  <button
+                    onClick={handleFinishConfirm}
+                    className="btn-3d btn-3d-primary w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold"
+                  >
+                    Tiếp Tục Bản Đồ Khóa Học
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleRetryLesson}
+                      className="btn-3d btn-3d-primary w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold"
+                    >
+                      Luyện Tập Lại
+                    </button>
+                    <button
+                      onClick={handleFinishConfirm}
+                      className="w-full py-4 rounded-xl border border-gray-700 bg-gray-800/40 text-gray-300 hover:bg-gray-800 hover:text-white font-semibold transition-all"
+                    >
+                      Bỏ Qua
+                    </button>
+                  </>
+                )}
+              </motion.div>
+            ) : null}
           </div>
         </div>
       </div>
@@ -517,16 +605,39 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           <div className="text-xs text-gray-500 font-semibold mb-1 text-center truncate">
             {lesson.title} — Màn {currentScreenIdx + 1}/{lesson.screens.length}
           </div>
-          <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-blue-500 transition-all duration-300"
-              style={{ width: `${((currentScreenIdx + 1) / lesson.screens.length) * 100}%` }}
-            />
+          {/* Progress bar segmented: mỗi segment = 1 màn hình */}
+          <div className="flex gap-1 h-2" role="progressbar" aria-valuemin={0} aria-valuemax={lesson.screens.length} aria-valuenow={currentScreenIdx + 1} aria-label="Tiến độ bài học">
+            {lesson.screens.map((screen, idx) => {
+              const isFilled = idx < currentScreenIdx;
+              const isCurrent = idx === currentScreenIdx;
+              return (
+                <div
+                  key={screen.id}
+                  className={`flex-1 rounded-full transition-colors duration-300 ${
+                    isFilled
+                      ? 'bg-blue-500'
+                      : isCurrent
+                        ? `bg-blue-400 shadow-[0_0_8px_rgba(59,130,246,0.6)] ${!shouldReduceMotion ? 'animate-segment-pop' : ''}`
+                        : 'bg-gray-800'
+                  }`}
+                />
+              );
+            })}
           </div>
         </div>
-        <div className="text-xs font-bold text-yellow-500 bg-yellow-500/10 border border-yellow-500/30 px-3 py-1 rounded-full flex items-center gap-1">
-          <span>⚡</span>
-          <span>{lesson.xp} XP</span>
+        <div className="flex items-center gap-2">
+          <button
+            onClick={toggleSound}
+            aria-label={soundMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+            title={soundMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+            className="text-sm w-8 h-8 rounded-full border border-gray-700 bg-gray-800/40 hover:bg-gray-800 flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            {soundMuted ? '🔇' : '🔊'}
+          </button>
+          <div className="text-xs font-bold text-yellow-500 bg-yellow-500/10 border border-yellow-500/30 px-3 py-1 rounded-full flex items-center gap-1">
+            <span>⚡</span>
+            <span>{lesson.xp} XP</span>
+          </div>
         </div>
       </header>
 
@@ -539,7 +650,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
               {currentScreen.role}
             </span>
           )}
-          <h1 className="text-xl md:text-2xl font-bold leading-snug text-gray-100">
+          <h1 className="text-xl md:text-2xl font-bold font-display leading-snug text-gray-100">
             {currentScreen.prompt}
           </h1>
           {wordWarning && import.meta.env.DEV && (
@@ -611,14 +722,14 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
               <button
                 disabled={currentAnswer === null && currentScreen.type !== 'takeaway'}
                 onClick={handleCheck}
-                className="w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-blue-500/20"
+                className="btn-3d btn-3d-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-base"
               >
                 Kiểm Tra
               </button>
             ) : (
               <button
                 onClick={handleNext}
-                className="w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-success text-black hover:bg-opacity-90 transition-opacity text-base"
+                className="btn-3d btn-3d-success w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-success text-black hover:bg-opacity-90 text-base"
               >
                 {currentScreenIdx === lesson.screens.length - 1 ? "Hoàn Thành" : "Tiếp Tục"}
               </button>

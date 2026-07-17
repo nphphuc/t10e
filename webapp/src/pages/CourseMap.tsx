@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { useProgressStore } from '../store/progress';
-import { Link } from 'react-router-dom';
-import { useReducedMotion } from 'framer-motion';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { motion, useReducedMotion } from 'framer-motion';
+import confetti from 'canvas-confetti';
 import manifestData from '../content/manifest.json';
 
 // Dynamically discover all implemented lessons in the content/lessons directory
@@ -13,12 +15,106 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
   const shouldReduceMotion = useReducedMotion();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const justCompletedId = location.state?.justCompleted || null;
+  const streakIncreased = location.state?.streakIncreased || false;
+
+  const [animatingLessonId, setAnimatingLessonId] = useState<string | null>(justCompletedId);
+  const [animState, setAnimState] = useState<'idle' | 'pedestal' | 'connector' | 'nextActive' | 'done'>('idle');
+  const [flashLevelId, setFlashLevelId] = useState<string | null>(null);
+  const [animateStreak, setAnimateStreak] = useState(false);
 
   const course = manifestData.course;
   const levels = course.levels;
 
   // Flatten all lessons to determine locks and the single active lesson
   const allLessons = levels.flatMap((level) => level.lessons);
+
+  // Find next lesson after the completed one
+  const completedIdx = allLessons.findIndex(l => l.id === animatingLessonId);
+  const nextLessonId = completedIdx !== -1 && completedIdx < allLessons.length - 1 ? allLessons[completedIdx + 1].id : null;
+
+  // Find completed level to check for level completion confetti
+  const completedLevel = levels.find(l => l.lessons.some(less => less.id === justCompletedId));
+  const levelImplLessons = completedLevel ? completedLevel.lessons.filter(l => IMPLEMENTED_LESSONS.includes(l.id)) : [];
+  const isLastImpl = completedLevel && levelImplLessons.length > 0 && levelImplLessons[levelImplLessons.length - 1].id === justCompletedId;
+
+  // Clear navigation state so it doesn't replay on refresh
+  useEffect(() => {
+    if (location.state?.justCompleted || location.state?.streakIncreased) {
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
+
+  // Handle animation sequence
+  useEffect(() => {
+    if (justCompletedId && !shouldReduceMotion) {
+      setAnimatingLessonId(justCompletedId);
+      setAnimState('pedestal');
+      
+      const t1 = setTimeout(() => {
+        setAnimState('connector');
+      }, 800);
+
+      const t2 = setTimeout(() => {
+        setAnimState('nextActive');
+      }, 1400);
+
+      const t3 = setTimeout(() => {
+        setAnimState('done');
+        setAnimatingLessonId(null);
+      }, 2200);
+
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+        clearTimeout(t3);
+      };
+    } else {
+      setAnimState('done');
+      setAnimatingLessonId(null);
+    }
+  }, [justCompletedId, shouldReduceMotion]);
+
+  // Handle Level completion confetti & pill flash
+  useEffect(() => {
+    if (justCompletedId && completedLevel && isLastImpl && !shouldReduceMotion) {
+      const tFlash = setTimeout(() => {
+        setFlashLevelId(completedLevel.id);
+        
+        const pillEl = document.getElementById(`pill-${completedLevel.id}`);
+        if (pillEl) {
+          const rect = pillEl.getBoundingClientRect();
+          const x = (rect.left + rect.width / 2) / window.innerWidth;
+          const y = (rect.top + rect.height / 2) / window.innerHeight;
+          confetti({
+            particleCount: 45,
+            spread: 55,
+            origin: { x, y }
+          });
+        }
+
+        setTimeout(() => {
+          setFlashLevelId(null);
+        }, 1000);
+      }, 1500);
+
+      return () => clearTimeout(tFlash);
+    }
+  }, [justCompletedId, completedLevel, isLastImpl, shouldReduceMotion]);
+
+  // Handle Streak scale-pop
+  useEffect(() => {
+    if (streakIncreased && !shouldReduceMotion) {
+      setAnimateStreak(true);
+      const timer = setTimeout(() => {
+        setAnimateStreak(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [streakIncreased, shouldReduceMotion]);
 
   // Helper to determine if a level is unlocked dynamically
   const isLevelUnlocked = (lvlId: string) => {
@@ -81,8 +177,24 @@ export default function CourseMap() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#0c0d0e] pb-24 text-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10 items-start">
+    <div className="min-h-screen bg-[#0c0d0e] pb-24 text-gray-200 relative overflow-hidden">
+      {/* Background Dot Grid Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.05]"
+        style={{
+          backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
+      {/* Vignette Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6) 100%)',
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10 items-start relative z-10">
         
         {/* Left Column: Sticky Course Info */}
         <aside className="w-full md:w-80 md:sticky md:top-8 flex-shrink-0 space-y-6">
@@ -91,18 +203,24 @@ export default function CourseMap() {
               <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl mb-4">
                 🎓
               </div>
-              <h1 className="text-xl font-extrabold text-white tracking-tight leading-snug">
+              <h1 className="text-xl font-extrabold text-white tracking-tight leading-snug font-display">
                 {course.title}
               </h1>
               <p className="text-xs text-gray-400 mt-2 leading-relaxed">
                 {course.subtitle}
               </p>
             </div>
-
+ 
             {/* Gamification Stats */}
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 rounded-2xl bg-orange-500/5 border border-orange-500/20 flex flex-col items-center justify-center text-center">
-                <span className="text-lg">🔥</span>
+                <motion.span
+                  className="text-lg"
+                  animate={animateStreak ? { scale: [1, 1.6, 1], rotate: [0, 15, -15, 0] } : {}}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  🔥
+                </motion.span>
                 <span className="text-sm font-bold text-orange-400 mt-1">{streak} Ngày</span>
                 <span className="text-[9px] text-gray-500 uppercase font-semibold mt-0.5">Streak</span>
               </div>
@@ -163,7 +281,14 @@ export default function CourseMap() {
               <div key={level.id} className="space-y-8">
                 {/* Level Title Pill */}
                 <div className="flex justify-start">
-                  <div className="px-4 py-2 rounded-full border border-purple-500/30 bg-purple-950/10 backdrop-blur text-xs font-bold tracking-wide text-purple-400 flex items-center gap-2">
+                  <div
+                    id={`pill-${level.id}`}
+                    className={`px-4 py-2 rounded-full border text-xs font-bold tracking-wide flex items-center gap-2 transition-all duration-500 font-display ${
+                      flashLevelId === level.id
+                        ? 'border-purple-400 bg-purple-900/30 shadow-[0_0_20px_rgba(168,85,247,0.7)] scale-105'
+                        : 'border-purple-500/30 bg-purple-950/10 backdrop-blur text-purple-400'
+                    }`}
+                  >
                     <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
                     LEVEL {levelIdx + 1}: {level.title}
                   </div>
@@ -173,19 +298,39 @@ export default function CourseMap() {
                 <div className="relative flex flex-col gap-16 py-4">
 
                   {level.lessons.map((lesson, lessonIdx) => {
-                    const { isCompleted, isUnlocked, isImplemented } = getLessonStatus(lesson.id);
-                    const isPlayable = true; // All lessons are clickable
-                    const isActive = activeLesson && activeLesson.id === lesson.id;
+                    const status = getLessonStatus(lesson.id);
+                    let isCompletedDynamic = status.isCompleted;
+                    let isActiveDynamic = activeLesson && activeLesson.id === lesson.id;
 
+                    if (animatingLessonId) {
+                      if (lesson.id === animatingLessonId) {
+                        if (animState === 'pedestal') {
+                          isCompletedDynamic = false;
+                          isActiveDynamic = true;
+                        } else {
+                          isCompletedDynamic = true;
+                          isActiveDynamic = false;
+                        }
+                      } else if (lesson.id === nextLessonId) {
+                        if (animState === 'pedestal' || animState === 'connector') {
+                          isCompletedDynamic = false;
+                          isActiveDynamic = false;
+                        } else if (animState === 'nextActive' || animState === 'done') {
+                          isCompletedDynamic = false;
+                          isActiveDynamic = true;
+                        }
+                      }
+                    }
+
+                    const isPlayable = true; // All lessons are clickable
                     const loadedData = (lessonFiles[`../content/lessons/${lesson.id}.json`] as any)?.default;
                     const needsReview = loadedData?.needsReview;
 
                     // Alternating shifts: -28px, 28px, -28px, 28px...
                     const xShift = lessonIdx % 2 === 0 ? '-28px' : '28px';
 
-
                     let statusLabel = '';
-                    if (isUnlocked && !isImplemented) {
+                    if (status.isUnlocked && !status.isImplemented) {
                       statusLabel = 'Đang sản xuất';
                     }
 
@@ -195,9 +340,14 @@ export default function CourseMap() {
 
                     // Construct 3D isometric pedestal rendering elements
                     let pedestalElement;
-                    if (isCompleted) {
+                    if (isCompletedDynamic) {
                       pedestalElement = (
-                        <div className="w-24 h-24 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer">
+                        <motion.div
+                          initial={lesson.id === animatingLessonId && !shouldReduceMotion ? { scale: 1.2, opacity: 0.5 } : false}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                          className="w-24 h-24 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                        >
                           {/* Outer shadow */}
                           <div className="absolute bottom-2 w-20 h-5 bg-black/40 blur-sm rounded-[50%]" />
                           {/* Depth / Side wall */}
@@ -209,11 +359,16 @@ export default function CourseMap() {
                               <span className="text-sm font-bold">✓</span>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       );
-                    } else if (isActive) {
+                    } else if (isActiveDynamic) {
                       pedestalElement = (
-                        <div className="w-24 h-28 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer">
+                        <motion.div
+                          initial={lesson.id === nextLessonId && !shouldReduceMotion ? { y: 15, opacity: 0 } : false}
+                          animate={{ y: 0, opacity: 1 }}
+                          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                          className="w-24 h-28 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                        >
                           {/* Glow Shadow */}
                           <div className="absolute bottom-2 w-22 h-6 bg-cyan-500/20 blur-md rounded-[50%]" />
                           {/* Depth / Side wall */}
@@ -235,9 +390,9 @@ export default function CourseMap() {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       );
-                    } else if (isUnlocked && !isImplemented) {
+                    } else if (status.isUnlocked && !status.isImplemented) {
                       pedestalElement = (
                         <div className="w-24 h-24 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
                           {/* Shadow */}
@@ -282,13 +437,45 @@ export default function CourseMap() {
                             className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none -z-10 overflow-visible"
                             style={{ width: '128px', height: '144px' }}
                           >
-                            <path
-                              d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
-                              fill="none"
-                              stroke={isCompleted ? "#a855f7" : "#1f2937"}
-                              strokeWidth="6"
-                              strokeLinecap="round"
-                            />
+                            {lesson.id === animatingLessonId && animState === 'pedestal' ? (
+                              <path
+                                d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                fill="none"
+                                stroke="#1f2937"
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                              />
+                            ) : lesson.id === animatingLessonId && animState === 'connector' ? (
+                              <>
+                                <path
+                                  d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                  fill="none"
+                                  stroke="#1f2937"
+                                  strokeWidth="6"
+                                  strokeLinecap="round"
+                                />
+                                <motion.path
+                                  d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                  fill="none"
+                                  stroke="#a855f7"
+                                  strokeWidth="6"
+                                  strokeLinecap="round"
+                                  initial={{ pathLength: 0 }}
+                                  animate={{ pathLength: 1 }}
+                                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                                  style={{ filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.5))' }}
+                                />
+                              </>
+                            ) : (
+                              <path
+                                d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                fill="none"
+                                stroke={isCompletedDynamic ? "#a855f7" : "#1f2937"}
+                                strokeWidth="6"
+                                strokeLinecap="round"
+                                style={isCompletedDynamic ? { filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.4))' } : undefined}
+                              />
+                            )}
                           </svg>
                         )}
 
@@ -296,11 +483,11 @@ export default function CourseMap() {
                         <div className="text-right pr-2">
                           {lessonIdx % 2 === 0 && (
                             <div className="space-y-1">
-                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActive ? 'text-cyan-400' : 'text-gray-500'}`}>
+                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
                               </span>
-                              <h4 className={`leading-snug transition-all duration-200 ${
-                                isActive
+                              <h4 className={`leading-snug transition-all duration-200 font-display ${
+                                isActiveDynamic
                                   ? 'text-sm font-extrabold text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]'
                                   : 'text-xs font-bold text-gray-200'
                               }`}>
@@ -325,17 +512,17 @@ export default function CourseMap() {
                           className="flex justify-center items-center relative"
                           style={{ transform: `translateX(${xShift})` }}
                         >
-                          {isActive && (
+                          {isActiveDynamic && (
                             <div className="absolute w-28 h-28 bg-cyan-500/10 blur-xl rounded-full pointer-events-none animate-pulse -z-10" />
                           )}
-                          {isCompleted && (
+                          {isCompletedDynamic && (
                             <div className="absolute w-24 h-24 bg-purple-500/5 blur-lg rounded-full pointer-events-none -z-10" />
                           )}
                           {isPlayable ? (
                             <Link
                               to={toPath}
                               aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: ${
-                                isCompleted ? 'Đã hoàn thành' : 'Sẵn sàng học'
+                                isCompletedDynamic ? 'Đã hoàn thành' : 'Sẵn sàng học'
                               }`}
                               className="focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-full"
                             >
@@ -355,11 +542,11 @@ export default function CourseMap() {
                         <div className="text-left pl-2">
                           {lessonIdx % 2 !== 0 && (
                             <div className="space-y-1">
-                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActive ? 'text-cyan-400' : 'text-gray-500'}`}>
+                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
                               </span>
-                              <h4 className={`leading-snug transition-all duration-200 ${
-                                isActive
+                              <h4 className={`leading-snug transition-all duration-200 font-display ${
+                                isActiveDynamic
                                   ? 'text-sm font-extrabold text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]'
                                   : 'text-xs font-bold text-gray-200'
                               }`}>
@@ -395,7 +582,7 @@ export default function CourseMap() {
             <span className="text-[9px] uppercase font-extrabold text-purple-400 tracking-wider">
               Bài tiếp theo • {activeLesson.id}
             </span>
-            <h4 className="font-bold text-xs text-white leading-snug line-clamp-1">
+            <h4 className="font-bold text-xs text-white leading-snug line-clamp-1 font-display">
               {activeLesson.title}
             </h4>
           </div>
@@ -405,7 +592,7 @@ export default function CourseMap() {
                 ? `/review/${activeLesson.id.split('-')[0]}`
                 : `/lesson/${activeLesson.id}`
             }
-            className="px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-purple-500/20 transition-all duration-200 active:scale-95"
+            className="btn-3d px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs [--btn-shadow:#4c1d95]"
           >
             Bắt đầu
           </Link>
