@@ -1,38 +1,53 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
 import FoxFallTransition from './FoxFallTransition';
 
+const pageVariants = {
+  initial: { opacity: 0, scale: 0.95 },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 150,
+      damping: 18,
+      delay: 1.25, // Bắt đầu pop lên ngay khi fox rơi qua ở giữa và chuẩn bị thoát
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 1.02,
+    transition: {
+      duration: 0.2,
+      ease: 'easeIn',
+    },
+  },
+};
+
 /**
- * Hiệu ứng chuyển màn khi đổi route:
- * - Đối với các bài học (lesson) hoặc bài đánh giá (review), hiển thị hiệu ứng Fox rơi tự do.
- * - Các route khác có hiệu ứng fade nhẹ nhàng, loại bỏ curtain sweep dễ lỗi đen màn trước đây.
- * Tôn trọng prefers-reduced-motion: bỏ hoàn toàn animation, hiện ngay nội dung.
+ * Hiệu ứng chuyển màn đồng bộ trên toàn ứng dụng:
+ * - Khi đổi route, chạy hiệu ứng Fox rơi tự do toàn màn hình.
+ * - Trang đích sẽ tự động pop-up mượt mà (scale + opacity) đồng bộ đúng lúc Fox rơi qua.
+ * Tôn trọng prefers-reduced-motion: bỏ hoàn toàn animation, hiển thị ngay nội dung.
  */
 export default function PageTransition({ children }: { children: ReactNode }) {
   const shouldReduceMotion = useReducedMotion();
-  const location = useLocation();
 
   if (shouldReduceMotion) {
     return <>{children}</>;
   }
 
-  const isLessonOrReview =
-    location.pathname.startsWith('/lesson/') ||
-    location.pathname.startsWith('/review/') ||
-    (location.pathname.startsWith('/pe-review/') && location.pathname !== '/pe-review');
-
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      exit={{ opacity: 0, scale: 1.02 }}
-      transition={{ duration: 0.22, ease: 'easeInOut' }}
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
     >
       {children}
 
-      {/* Hiệu ứng Fox rơi tự do cho lesson/review */}
-      {isLessonOrReview && <FoxFallTransition />}
+      {/* Hiệu ứng Fox rơi tự do */}
+      <FoxFallTransition />
     </motion.div>
   );
 }

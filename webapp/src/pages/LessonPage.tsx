@@ -1,5 +1,4 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
 import LessonPlayer from '../engine/LessonPlayer';
 import { useProgressStore } from '../store/progress';
 
@@ -10,7 +9,6 @@ export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const navigate = useNavigate();
   const completeLesson = useProgressStore((state) => state.completeLesson);
-  const shouldReduceMotion = useReducedMotion();
 
   const lessonData = lessonId ? (lessonFiles[`../content/lessons/${lessonId}.json`] as any)?.default : null;
 
@@ -54,20 +52,9 @@ export default function LessonPage() {
   };
 
   return (
-    <motion.div
-      initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        type: 'spring',
-        stiffness: 150,
-        damping: 18,
-        delay: shouldReduceMotion ? 0 : 1.25 // Đồng bộ: bắt đầu pop khi fox rơi qua và overlay bắt đầu exit
-      }}
-    >
-      <LessonPlayer
-        lesson={lessonData}
-        onComplete={handleComplete}
-      />
-    </motion.div>
+    <LessonPlayer
+      lesson={lessonData}
+      onComplete={handleComplete}
+    />
   );
 }
