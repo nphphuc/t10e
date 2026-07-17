@@ -55,9 +55,14 @@ export default function LessonPage() {
 
   return (
     <motion.div
-      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
+      initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        type: 'spring',
+        stiffness: 150,
+        damping: 18,
+        delay: shouldReduceMotion ? 0 : 0.85 // Đồng bộ: bắt đầu pop khi fox rơi qua và overlay bắt đầu exit
+      }}
     >
       <LessonPlayer
         lesson={lessonData}

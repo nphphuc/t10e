@@ -78,13 +78,13 @@ export default function FoxFallTransition() {
         ))}
       </div>
 
-      {/* Con Fox phóng lớn ở giữa chạy animation Fall */}
+      {/* Con Fox chạy animation Fall rơi từ trên xuống dưới màn hình */}
       <motion.div
-        initial={{ scale: 0.4, opacity: 0, y: -40 }}
-        animate={{ scale: [0.4, 1.05, 1], opacity: 1, y: 0 }}
+        initial={{ y: '-60vh', scale: 0.9, opacity: 0, rotate: -8 }}
+        animate={{ y: '60vh', scale: [0.9, 1.1, 1], opacity: [0, 1, 1, 1], rotate: 8 }}
         transition={{ 
-          duration: 0.5, 
-          ease: [0.34, 1.56, 0.64, 1] 
+          duration: 0.95, 
+          ease: [0.4, 0, 1, 1] // Easing trọng lực (tăng tốc khi rơi)
         }}
         className="w-[280px] h-[280px] flex items-center justify-center relative select-none pointer-events-none"
       >
