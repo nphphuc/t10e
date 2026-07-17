@@ -13,12 +13,7 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
   return match ? match[1] : '';
 }).filter(Boolean);
 
-function truncateWords(text: string, maxWords: number = 20): string {
-  if (!text) return '';
-  const words = text.split(/\s+/).filter(Boolean);
-  if (words.length <= maxWords) return text;
-  return words.slice(0, maxWords).join(' ') + '...';
-}
+
 
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
@@ -222,6 +217,29 @@ export default function CourseMap() {
     return isUnlocked && isImplemented && !isCompleted;
   });
 
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
+  const [foxMoving, setFoxMoving] = useState(false);
+
+  // Set initial selected lesson when activeLesson is resolved
+  useEffect(() => {
+    if (activeLesson && !selectedLessonId) {
+      setSelectedLessonId(activeLesson.id);
+    }
+  }, [activeLesson, selectedLessonId]);
+
+  // Animate mascot state on selection change (simulating Run/Walk to the new node)
+  useEffect(() => {
+    if (selectedLessonId) {
+      setFoxMoving(true);
+      const timer = setTimeout(() => {
+        setFoxMoving(false);
+      }, 750);
+      return () => clearTimeout(timer);
+    }
+  }, [selectedLessonId]);
+
+  const selectedLesson = allLessons.find((lesson) => lesson.id === selectedLessonId) || activeLesson;
+
   const playableCompletedCount = IMPLEMENTED_LESSONS.filter((id) =>
     completedLessons.includes(id)
   ).length;
@@ -383,7 +401,7 @@ export default function CourseMap() {
                     const isReviewNode = lesson.type === 'review';
                     const activeLessonData = (lessonFiles[`../content/lessons/${lesson.id}.json`] as any)?.default;
                     const objectiveText = activeLessonData?.objective || lesson.title;
-                    const blurbText = truncateWords(objectiveText, 20);
+                    const blurbText = objectiveText;
 
                     if (animatingLessonId) {
                       if (lesson.id === animatingLessonId) {
@@ -405,7 +423,7 @@ export default function CourseMap() {
                       }
                     }
 
-                    const isPlayable = true; // All lessons are clickable
+                    const isPlayable = status.isImplemented && (status.isCompleted || status.isUnlocked);
                     const loadedData = (lessonFiles[`../content/lessons/${lesson.id}.json`] as any)?.default;
                     const needsReview = loadedData?.needsReview;
 
@@ -420,6 +438,19 @@ export default function CourseMap() {
                     const toPath = lesson.type === 'review'
                       ? `/review/${level.id}`
                       : `/lesson/${lesson.id}`;
+
+                    const isSelected = lesson.id === selectedLessonId;
+
+                    const handleNodeClick = (e: React.MouseEvent | React.KeyboardEvent) => {
+                      if (!isPlayable) return;
+                      if (isSelected) {
+                        navigate(toPath);
+                      } else {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        setSelectedLessonId(lesson.id);
+                      }
+                    };
 
                     // Construct 3D isometric pedestal rendering elements
                     let pedestalElement;
@@ -494,13 +525,6 @@ export default function CourseMap() {
                             {!shouldReduceMotion && (
                               <div className="absolute bottom-[28px] w-18 h-20 bg-gradient-to-t from-yellow-400/20 via-yellow-400/5 to-transparent pointer-events-none rounded-[50%/20%] blur-[1px]" />
                             )}
-                            {/* Fox Mascot sitting on the pedestal */}
-                            <div className="absolute bottom-[28px] w-20 h-20 z-20 pointer-events-none flex items-center justify-center">
-                              <FoxMascot 
-                                animation={animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive' ? 'Jump' : 'Sit'} 
-                                className="w-full h-full"
-                              />
-                            </div>
                           </motion.div>
                         );
                       } else {
@@ -524,13 +548,6 @@ export default function CourseMap() {
                             {!shouldReduceMotion && (
                               <div className="absolute bottom-[24px] w-14 h-16 bg-gradient-to-t from-cyan-400/20 via-cyan-400/5 to-transparent pointer-events-none rounded-[50%/20%] blur-[1px]" />
                             )}
-                            {/* Fox Mascot sitting on the pedestal */}
-                            <div className="absolute bottom-[28px] w-16 h-16 z-20 pointer-events-none flex items-center justify-center">
-                              <FoxMascot 
-                                animation={animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive' ? 'Jump' : 'Sit'} 
-                                className="w-full h-full"
-                              />
-                            </div>
                           </motion.div>
                         );
                       }
@@ -704,87 +721,6 @@ export default function CourseMap() {
 
                         {/* Left Column: Label for Odd items / Blurb Bubble for Even items */}
                         <div className="text-right pr-2 flex items-center justify-end">
-                          {lessonIdx % 2 === 0 ? (
-                            <div className="space-y-1">
-                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
-                                {lesson.id}
-                              </span>
-                              <h4 className={`leading-snug transition-all duration-200 font-display ${
-                                isActiveDynamic
-                                  ? 'text-sm font-extrabold text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]'
-                                  : 'text-xs font-bold text-gray-200'
-                              }`}>
-                                {lesson.title}
-                                {needsReview && (
-                                  <span className="ml-1.5 inline-block text-[9px] px-1 py-0.2 rounded bg-red-500/25 text-red-400 border border-red-500/30 font-bold uppercase tracking-wider">
-                                    Draft
-                                  </span>
-                                )}
-                              </h4>
-                              {statusLabel && (
-                                <span className="inline-block text-[9px] px-1.5 py-0.5 rounded bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 font-semibold">
-                                  {statusLabel}
-                                </span>
-                              )}
-                            </div>
-                          ) : (
-                            isActiveDynamic && (
-                              <motion.div
-                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: 10 } : false}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                transition={{ duration: 0.35, delay: 0.2 }}
-                                className="relative ml-auto max-w-[200px] p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
-                                role="tooltip"
-                                aria-live="polite"
-                              >
-                                {/* Speech bubble arrow pointing right to center */}
-                                <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-r border-t border-cyan-500/30 rotate-45 pointer-events-none" />
-                                <div className="relative z-10 space-y-1">
-                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
-                                    Học gì bài này
-                                  </span>
-                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
-                                    {blurbText}
-                                  </p>
-                                </div>
-                              </motion.div>
-                            )
-                          )}
-                        </div>
-
-                        {/* Center Column: Circle Node */}
-                        <div
-                          className="flex justify-center items-center relative"
-                          style={{ transform: `translateX(${xShift})` }}
-                        >
-                          {isActiveDynamic && (
-                            <div className="absolute w-28 h-28 bg-cyan-500/10 blur-xl rounded-full pointer-events-none animate-pulse -z-10" />
-                          )}
-                          {isCompletedDynamic && (
-                            <div className="absolute w-24 h-24 bg-purple-500/5 blur-lg rounded-full pointer-events-none -z-10" />
-                          )}
-                          {isPlayable ? (
-                            <Link
-                              to={toPath}
-                              aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: ${
-                                isCompletedDynamic ? 'Đã hoàn thành' : 'Sẵn sàng học'
-                              }`}
-                              className="focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-full"
-                            >
-                              {pedestalElement}
-                            </Link>
-                          ) : (
-                            <div
-                              aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: Khóa.`}
-                              aria-disabled="true"
-                            >
-                              {pedestalElement}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Right Column: Label for Even items / Blurb Bubble for Odd items */}
-                        <div className="text-left pl-2 flex items-center justify-start">
                           {lessonIdx % 2 !== 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
@@ -809,12 +745,128 @@ export default function CourseMap() {
                               )}
                             </div>
                           ) : (
-                            isActiveDynamic && (
+                            isSelected && (
+                              <motion.div
+                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: 10 } : false}
+                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                transition={{ duration: 0.35 }}
+                                className="relative ml-auto max-w-[260px] w-64 p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                role="tooltip"
+                                aria-live="polite"
+                              >
+                                {/* Speech bubble arrow pointing right to center */}
+                                <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-r border-t border-cyan-500/30 rotate-45 pointer-events-none" />
+                                <div className="relative z-10 space-y-1">
+                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
+                                    Học gì bài này
+                                  </span>
+                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
+                                    {blurbText}
+                                  </p>
+                                  <Link
+                                    to={toPath}
+                                    className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
+                                  >
+                                    {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
+                                  </Link>
+                                </div>
+                              </motion.div>
+                            )
+                          )}
+                        </div>
+
+                        {/* Center Column: Circle Node */}
+                        <div
+                          className="flex justify-center items-center relative"
+                          style={{ transform: `translateX(${xShift})` }}
+                        >
+                          {isActiveDynamic && (
+                            <div className="absolute w-28 h-28 bg-cyan-500/10 blur-xl rounded-full pointer-events-none animate-pulse -z-10" />
+                          )}
+                          {isCompletedDynamic && (
+                            <div className="absolute w-24 h-24 bg-purple-500/5 blur-lg rounded-full pointer-events-none -z-10" />
+                          )}
+                          {isPlayable ? (
+                            <div
+                              role="button"
+                              tabIndex={0}
+                              onClick={handleNodeClick}
+                              onKeyDown={(e) => {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                  e.preventDefault();
+                                  handleNodeClick(e as any);
+                                }
+                              }}
+                              aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: ${
+                                isCompletedDynamic ? 'Đã hoàn thành' : 'Sẵn sàng học'
+                              }. ${isSelected ? 'Nhấn thêm lần nữa để vào học.' : 'Nhấn để xem chi tiết.'}`}
+                              className="focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-full cursor-pointer relative"
+                            >
+                              {pedestalElement}
+                              {isSelected && (
+                                <motion.div
+                                  layoutId={!shouldReduceMotion ? "fox-mascot" : undefined}
+                                  className={`absolute z-20 pointer-events-none flex items-center justify-center ${
+                                    isReviewNode ? 'bottom-[28px] w-20 h-20' : 'bottom-[28px] w-16 h-16'
+                                  }`}
+                                  transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                                >
+                                  <FoxMascot 
+                                    animation={
+                                      animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive'
+                                        ? 'Jump'
+                                        : foxMoving
+                                          ? 'Walk'
+                                          : 'Sit'
+                                    } 
+                                    className="w-full h-full"
+                                  />
+                                </motion.div>
+                              )}
+                            </div>
+                          ) : (
+                            <div
+                              aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: Khóa.`}
+                              aria-disabled="true"
+                              className="relative"
+                            >
+                              {pedestalElement}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Right Column: Label for Even items / Blurb Bubble for Odd items */}
+                        <div className="text-left pl-2 flex items-center justify-start">
+                          {lessonIdx % 2 === 0 ? (
+                            <div className="space-y-1">
+                              <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
+                                {lesson.id}
+                              </span>
+                              <h4 className={`leading-snug transition-all duration-200 font-display ${
+                                isActiveDynamic
+                                  ? 'text-sm font-extrabold text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]'
+                                  : 'text-xs font-bold text-gray-200'
+                              }`}>
+                                {lesson.title}
+                                {needsReview && (
+                                  <span className="ml-1.5 inline-block text-[9px] px-1 py-0.2 rounded bg-red-500/25 text-red-400 border border-red-500/30 font-bold uppercase tracking-wider">
+                                    Draft
+                                  </span>
+                                )}
+                              </h4>
+                              {statusLabel && (
+                                <span className="inline-block text-[9px] px-1.5 py-0.5 rounded bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 font-semibold">
+                                  {statusLabel}
+                                </span>
+                              )}
+                            </div>
+                          ) : (
+                            isSelected && (
                               <motion.div
                                 initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: -10 } : false}
                                 animate={{ opacity: 1, scale: 1, x: 0 }}
-                                transition={{ duration: 0.35, delay: 0.2 }}
-                                className="relative mr-auto max-w-[200px] p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                transition={{ duration: 0.35 }}
+                                className="relative mr-auto max-w-[260px] w-64 p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
                                 role="tooltip"
                                 aria-live="polite"
                               >
@@ -827,6 +879,12 @@ export default function CourseMap() {
                                   <p className="text-[11px] text-gray-200 leading-normal font-semibold">
                                     {blurbText}
                                   </p>
+                                  <Link
+                                    to={toPath}
+                                    className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
+                                  >
+                                    {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
+                                  </Link>
                                 </div>
                               </motion.div>
                             )
@@ -843,25 +901,25 @@ export default function CourseMap() {
       </div>
 
       {/* Floating Active Lesson Card ("Start Card") */}
-      {activeLesson ? (
+      {selectedLesson ? (
         <div className="fixed bottom-6 right-6 max-w-sm w-full z-40 p-4 rounded-3xl bg-gray-900/95 border border-purple-900/40 shadow-2xl backdrop-blur-md flex items-center justify-between gap-4 animate-slideUp">
           <div className="space-y-1">
             <span className="text-[9px] uppercase font-extrabold text-purple-400 tracking-wider">
-              Bài tiếp theo • {activeLesson.id}
+              {selectedLesson.id === activeLesson?.id ? 'Bài tiếp theo' : 'Bài đã chọn'} • {selectedLesson.id}
             </span>
             <h4 className="font-bold text-xs text-white leading-snug line-clamp-1 font-display">
-              {activeLesson.title}
+              {selectedLesson.title}
             </h4>
           </div>
           <Link
             to={
-              activeLesson.type === 'review'
-                ? `/review/${activeLesson.id.split('-')[0]}`
-                : `/lesson/${activeLesson.id}`
+              selectedLesson.type === 'review'
+                ? `/review/${selectedLesson.id.split('-')[0]}`
+                : `/lesson/${selectedLesson.id}`
             }
             className="btn-3d px-4 py-2 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs [--btn-shadow:#4c1d95]"
           >
-            Bắt đầu
+            {completedLessons.includes(selectedLesson.id) ? 'Học lại' : 'Bắt đầu'}
           </Link>
         </div>
       ) : (
