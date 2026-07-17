@@ -1,5 +1,7 @@
 
 
+import { motion, useReducedMotion } from 'framer-motion';
+
 interface ScenarioWidgetProps {
   data: {
     prompt: string;
@@ -21,6 +23,8 @@ export default function ScenarioWidget({
   isSubmitted,
   disabledOptions,
 }: ScenarioWidgetProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   const handleSelect = (idx: number) => {
     if (isSubmitted || disabledOptions.includes(idx)) return;
     onAnswer(idx);
@@ -53,17 +57,20 @@ export default function ScenarioWidget({
           }
 
           return (
-            <button
+            <motion.button
               key={idx}
               disabled={isDisabled || isSubmitted}
               onClick={() => handleSelect(idx)}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
               className={`w-full p-4 rounded-xl text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-start gap-3 ${btnClass}`}
             >
               <span className="flex-shrink-0 w-6 h-6 rounded-full border border-current flex items-center justify-center font-bold text-xs uppercase">
                 {String.fromCharCode(65 + idx)}
               </span>
               <span>{option}</span>
-            </button>
+            </motion.button>
           );
         })}
       </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { track } from './analytics';
 import { calculateLessonScore } from './scoring';
 import type { AnswerState } from './scoring';
@@ -54,6 +55,7 @@ interface LessonPlayerProps {
 
 export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) {
   const navigate = useNavigate();
+  const shouldReduceMotion = useReducedMotion();
   const [currentScreenIdx, setCurrentScreenIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
   
@@ -548,8 +550,19 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
         </div>
 
         {/* Interactive widget */}
-        <div className="bg-gray-900/40 border border-gray-800 rounded-3xl p-6 shadow-xl min-h-[300px] flex flex-col justify-center">
-          {renderWidget()}
+        <div className="bg-gray-900/40 border border-gray-800 rounded-3xl p-6 shadow-xl min-h-[300px] flex flex-col justify-center overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentScreen.id}
+              initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 15 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -15 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.2, ease: "easeInOut" }}
+              className="w-full h-full flex flex-col justify-center"
+            >
+              {renderWidget()}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {/* Solution Worked Example Block */}

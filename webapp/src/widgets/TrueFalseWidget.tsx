@@ -1,5 +1,7 @@
 
 
+import { motion, useReducedMotion } from 'framer-motion';
+
 interface TrueFalseWidgetProps {
   data: {
     prompt: string;
@@ -17,6 +19,8 @@ export default function TrueFalseWidget({
   onAnswer,
   isSubmitted,
 }: TrueFalseWidgetProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   const handleSelect = (val: boolean) => {
     if (isSubmitted) return;
     onAnswer(val);
@@ -48,14 +52,17 @@ export default function TrueFalseWidget({
         }
 
         return (
-          <button
+          <motion.button
             key={opt.label}
             disabled={isSubmitted}
             onClick={() => handleSelect(opt.value)}
+            whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
+            whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 400, damping: 15 }}
             className={`p-6 rounded-2xl text-center font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${btnClass}`}
           >
             {opt.label}
-          </button>
+          </motion.button>
         );
       })}
     </div>

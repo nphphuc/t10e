@@ -1,5 +1,7 @@
 
 
+import { motion, useReducedMotion } from 'framer-motion';
+
 interface MultiWidgetProps {
   data: {
     prompt: string;
@@ -20,6 +22,7 @@ export default function MultiWidget({
   isSubmitted,
   disabledOptions = [],
 }: MultiWidgetProps) {
+  const shouldReduceMotion = useReducedMotion();
   const currentSelections = Array.isArray(selectedAnswer) ? selectedAnswer : [];
 
   const handleToggle = (idx: number) => {
@@ -65,10 +68,13 @@ export default function MultiWidget({
           }
 
           return (
-            <button
+            <motion.button
               key={idx}
               disabled={isDisabled || isSubmitted}
               onClick={() => handleToggle(idx)}
+              whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
+              whileHover={shouldReduceMotion ? {} : { scale: 1.01 }}
+              transition={{ type: "spring", stiffness: 400, damping: 15 }}
               className={`w-full p-4 rounded-xl text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-3 ${btnClass}`}
             >
               <div className={`w-5 h-5 rounded flex items-center justify-center border-2 transition-all ${checkboxClass}`}>
@@ -79,7 +85,7 @@ export default function MultiWidget({
                 )}
               </div>
               <span>{option}</span>
-            </button>
+            </motion.button>
           );
         })}
       </div>
