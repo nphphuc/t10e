@@ -620,6 +620,11 @@ export default function CourseMap() {
                       }
                     }
 
+                    const svgWidth = 160;
+                    const svgCenter = svgWidth / 2;
+                    const startX = svgCenter + (lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET);
+                    const endX = svgCenter + (lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET);
+
                     return (
                       <div
                         key={lesson.id}
@@ -629,7 +634,7 @@ export default function CourseMap() {
                         {lessonIdx < level.lessons.length - 1 && (
                           <svg
                             className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none -z-10 overflow-visible"
-                            style={{ width: '160px', height: '144px' }}
+                            style={{ width: `${svgWidth}px`, height: '144px' }}
                           >
                             <defs>
                               <linearGradient id={`grad-completed-${lesson.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -639,7 +644,7 @@ export default function CourseMap() {
                             </defs>
                             {lesson.id === animatingLessonId && animState === 'pedestal' ? (
                               <path
-                                d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                 fill="none"
                                 stroke="#374151"
                                 strokeWidth="4"
@@ -650,7 +655,7 @@ export default function CourseMap() {
                             ) : lesson.id === animatingLessonId && animState === 'connector' ? (
                               <>
                                 <path
-                                  d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                  d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                   fill="none"
                                   stroke="#374151"
                                   strokeWidth="4"
@@ -659,7 +664,7 @@ export default function CourseMap() {
                                   className="opacity-60"
                                 />
                                 <motion.path
-                                  d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                  d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                   fill="none"
                                   stroke={`url(#grad-completed-${lesson.id})`}
                                   strokeWidth="6"
@@ -677,7 +682,7 @@ export default function CourseMap() {
                                   if (leadsToActive) {
                                     return (
                                       <motion.path
-                                        d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                        d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                         fill="none"
                                         stroke={`url(#grad-completed-${lesson.id})`}
                                         strokeWidth="6"
@@ -691,7 +696,7 @@ export default function CourseMap() {
                                   } else {
                                     return (
                                       <path
-                                        d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                        d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                         fill="none"
                                         stroke={`url(#grad-completed-${lesson.id})`}
                                         strokeWidth="6"
@@ -703,7 +708,7 @@ export default function CourseMap() {
                                 } else {
                                   return (
                                     <path
-                                      d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
+                                      d={`M ${startX} 12 C ${startX} 72, ${endX} 72, ${endX} 132`}
                                       fill="none"
                                       stroke="#374151"
                                       strokeWidth="4"
@@ -719,9 +724,9 @@ export default function CourseMap() {
                         )}
 
                         {/* Left Column: Label for Even items / Blurb Bubble for Odd items */}
-                        <div className="relative flex items-center justify-start text-left w-full">
+                        <div className={`relative flex items-center justify-start w-full ${lessonIdx % 2 === 0 ? 'text-right pr-12' : 'text-left'}`}>
                           {lessonIdx % 2 === 0 ? (
-                            <div className="space-y-1">
+                            <div className="space-y-1 w-full">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
                               </span>
@@ -841,9 +846,9 @@ export default function CourseMap() {
                         </div>
 
                         {/* Right Column: Label for Odd items / Blurb Bubble for Even items */}
-                        <div className="relative flex items-center justify-end text-right w-full">
+                        <div className={`relative flex items-center justify-end w-full ${lessonIdx % 2 !== 0 ? 'text-left pl-12' : 'text-right'}`}>
                           {lessonIdx % 2 !== 0 ? (
-                            <div className="space-y-1">
+                            <div className="space-y-1 w-full">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
                               </span>
@@ -875,7 +880,7 @@ export default function CourseMap() {
                                   className="p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
                                   role="tooltip"
                                   aria-live="polite"
-                                >
+                                  >
                                   {/* Speech bubble arrow pointing left to center */}
                                   <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-l border-b border-cyan-500/30 rotate-45 pointer-events-none" />
                                   <div className="relative z-10 space-y-1">
