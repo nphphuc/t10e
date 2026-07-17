@@ -13,6 +13,13 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
   return match ? match[1] : '';
 }).filter(Boolean);
 
+function truncateWords(text: string, maxWords: number = 20): string {
+  if (!text) return '';
+  const words = text.split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return text;
+  return words.slice(0, maxWords).join(' ') + '...';
+}
+
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
   const shouldReduceMotion = useReducedMotion();
@@ -374,6 +381,9 @@ export default function CourseMap() {
                     let isCompletedDynamic = status.isCompleted;
                     let isActiveDynamic = activeLesson && activeLesson.id === lesson.id;
                     const isReviewNode = lesson.type === 'review';
+                    const activeLessonData = (lessonFiles[`../content/lessons/${lesson.id}.json`] as any)?.default;
+                    const objectiveText = activeLessonData?.objective || lesson.title;
+                    const blurbText = truncateWords(objectiveText, 20);
 
                     if (animatingLessonId) {
                       if (lesson.id === animatingLessonId) {
@@ -692,9 +702,9 @@ export default function CourseMap() {
                           </svg>
                         )}
 
-                        {/* Left Column: Label for Odd items */}
-                        <div className="text-right pr-2">
-                          {lessonIdx % 2 === 0 && (
+                        {/* Left Column: Label for Odd items / Blurb Bubble for Even items */}
+                        <div className="text-right pr-2 flex items-center justify-end">
+                          {lessonIdx % 2 === 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
@@ -717,6 +727,28 @@ export default function CourseMap() {
                                 </span>
                               )}
                             </div>
+                          ) : (
+                            isActiveDynamic && (
+                              <motion.div
+                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: 10 } : false}
+                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                transition={{ duration: 0.35, delay: 0.2 }}
+                                className="relative ml-auto max-w-[200px] p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                role="tooltip"
+                                aria-live="polite"
+                              >
+                                {/* Speech bubble arrow pointing right to center */}
+                                <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-r border-t border-cyan-500/30 rotate-45 pointer-events-none" />
+                                <div className="relative z-10 space-y-1">
+                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
+                                    Học gì bài này
+                                  </span>
+                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
+                                    {blurbText}
+                                  </p>
+                                </div>
+                              </motion.div>
+                            )
                           )}
                         </div>
 
@@ -751,9 +783,9 @@ export default function CourseMap() {
                           )}
                         </div>
 
-                        {/* Right Column: Label for Even items */}
-                        <div className="text-left pl-2">
-                          {lessonIdx % 2 !== 0 && (
+                        {/* Right Column: Label for Even items / Blurb Bubble for Odd items */}
+                        <div className="text-left pl-2 flex items-center justify-start">
+                          {lessonIdx % 2 !== 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
@@ -776,6 +808,28 @@ export default function CourseMap() {
                                 </span>
                               )}
                             </div>
+                          ) : (
+                            isActiveDynamic && (
+                              <motion.div
+                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: -10 } : false}
+                                animate={{ opacity: 1, scale: 1, x: 0 }}
+                                transition={{ duration: 0.35, delay: 0.2 }}
+                                className="relative mr-auto max-w-[200px] p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                role="tooltip"
+                                aria-live="polite"
+                              >
+                                {/* Speech bubble arrow pointing left to center */}
+                                <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-l border-b border-cyan-500/30 rotate-45 pointer-events-none" />
+                                <div className="relative z-10 space-y-1">
+                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
+                                    Học gì bài này
+                                  </span>
+                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
+                                    {blurbText}
+                                  </p>
+                                </div>
+                              </motion.div>
+                            )
                           )}
                         </div>
                       </div>
