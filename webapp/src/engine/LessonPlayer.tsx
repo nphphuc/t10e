@@ -529,88 +529,90 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
       </header>
 
       {/* Main Body */}
-      <main className="flex-1 flex flex-col md:flex-row max-w-7xl w-full mx-auto p-6 gap-8 items-stretch justify-center">
-        {/* Left pane: prompt & diagram */}
-        <div className="flex-1 flex flex-col justify-center space-y-6 md:max-w-xl">
-          <div className="space-y-3">
-            {import.meta.env.DEV && (
-              <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700/60 inline-block">
-                {currentScreen.role}
-              </span>
-            )}
-            <h1 className="text-xl md:text-2xl font-bold leading-snug text-gray-100">
-              {currentScreen.prompt}
-            </h1>
-            {wordWarning && import.meta.env.DEV && (
-              <span className="text-[10px] text-yellow-500/60 block">
-                [Pedagogy Check: Prompt contains {wordCount} words, slightly over the 45-word rule]
-              </span>
-            )}
-          </div>
-
-          {/* Solution Worked Example Block */}
-          {isWrongSubmitted && currentScreen.solution && (
-            <div className="p-5 rounded-2xl bg-yellow-950/15 border border-yellow-900/40 text-yellow-100/90 text-[15px] leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
-              <div className="font-bold text-yellow-400 flex items-center gap-1.5 mb-2 text-lg">
-                <span>💡</span>
-                <span>Lời giải mẫu (Worked Example):</span>
-              </div>
-              <p>{currentScreen.solution}</p>
-            </div>
+      <main className="flex-grow max-w-[680px] w-full mx-auto p-6 space-y-6 pb-40 flex flex-col justify-start">
+        {/* Prompt, tags, role */}
+        <div className="space-y-3">
+          {import.meta.env.DEV && (
+            <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700/60 inline-block">
+              {currentScreen.role}
+            </span>
+          )}
+          <h1 className="text-xl md:text-2xl font-bold leading-snug text-gray-100">
+            {currentScreen.prompt}
+          </h1>
+          {wordWarning && import.meta.env.DEV && (
+            <span className="text-[10px] text-yellow-500/60 block">
+              [Pedagogy Check: Prompt contains {wordCount} words, slightly over the 45-word rule]
+            </span>
           )}
         </div>
 
-        {/* Right pane: widgets & inputs */}
-        <div className="flex-1 flex flex-col justify-center max-w-md w-full mx-auto md:mx-0">
-          <div className="bg-gray-900/40 border border-gray-800 rounded-3xl p-6 shadow-xl flex-grow flex flex-col justify-between min-h-[350px]">
-            <div className="flex-grow flex flex-col justify-center">
-              {renderWidget()}
+        {/* Interactive widget */}
+        <div className="bg-gray-900/40 border border-gray-800 rounded-3xl p-6 shadow-xl min-h-[300px] flex flex-col justify-center">
+          {renderWidget()}
+        </div>
+
+        {/* Solution Worked Example Block */}
+        {isWrongSubmitted && currentScreen.solution && (
+          <div className="p-5 rounded-2xl bg-yellow-950/15 border border-yellow-900/40 text-yellow-100/90 text-[15px] leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+            <div className="font-bold text-yellow-400 flex items-center gap-1.5 mb-2 text-lg">
+              <span>💡</span>
+              <span>Lời giải mẫu (Worked Example):</span>
             </div>
+            <p>{currentScreen.solution}</p>
+          </div>
+        )}
+      </main>
 
-            {/* Hint & Feedback output block */}
-            <div className="mt-6 space-y-4">
-              {/* Correct Feedback */}
-              {isCorrectSubmitted && (currentScreen.feedbackCorrect || currentScreen.explanation) && (
-                <div className="p-5 rounded-xl bg-success/10 border border-success/30 text-success text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
-                  <div className="font-bold mb-2 text-lg">Đúng!</div>
-                  <p>{currentScreen.feedbackCorrect || currentScreen.explanation}</p>
+      {/* Fixed bottom action bar */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0c0d0e]/95 border-t border-gray-800/80 shadow-2xl backdrop-blur-md">
+        <div className="max-w-[680px] w-full mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          {/* Left side: Hint / Feedback */}
+          <div className="flex-1 min-w-0">
+            {/* Correct Feedback */}
+            {isCorrectSubmitted && (currentScreen.feedbackCorrect || currentScreen.explanation) && (
+              <div className="text-success text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+                <div className="font-bold mb-1 flex items-center gap-1.5 text-base">
+                  <span>✓</span>
+                  <span>Đúng!</span>
                 </div>
-              )}
-
-              {/* Hints Escalation Output */}
-              {!isCorrectSubmitted && activeHint && (
-                <div className="p-5 rounded-xl bg-gray-800/80 border border-gray-700 text-gray-300 text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
-                  <div className="font-bold text-blue-400 mb-2 text-lg flex items-center gap-1.5">
-                    <span>💡</span>
-                    <span>{attempts >= 3 ? "Giải đáp" : `Gợi ý tầng ${attempts}`}</span>
-                  </div>
-                  <p>{activeHint.text}</p>
-                </div>
-              )}
-
-              {/* Action buttons */}
-              <div className="pt-2">
-                {!isSubmitted ? (
-                  <button
-                    disabled={currentAnswer === null && currentScreen.type !== 'takeaway'}
-                    onClick={handleCheck}
-                    className="w-full py-4 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                  >
-                    Kiểm Tra
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleNext}
-                    className="w-full py-4 rounded-xl font-bold bg-success text-black hover:bg-opacity-90 transition-opacity"
-                  >
-                    {currentScreenIdx === lesson.screens.length - 1 ? "Hoàn Thành" : "Tiếp Tục"}
-                  </button>
-                )}
+                <p>{currentScreen.feedbackCorrect || currentScreen.explanation}</p>
               </div>
-            </div>
+            )}
+
+            {/* Hints Escalation Output */}
+            {!isCorrectSubmitted && activeHint && (
+              <div className="text-gray-300 text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+                <div className="font-bold text-blue-400 mb-1 flex items-center gap-1.5 text-base">
+                  <span>💡</span>
+                  <span>{attempts >= 3 ? "Giải đáp" : `Gợi ý tầng ${attempts}`}</span>
+                </div>
+                <p>{activeHint.text}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Right side: Action Button */}
+          <div className="flex-shrink-0 md:pl-4 flex items-center justify-end">
+            {!isSubmitted ? (
+              <button
+                disabled={currentAnswer === null && currentScreen.type !== 'takeaway'}
+                onClick={handleCheck}
+                className="w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors disabled:opacity-40 disabled:cursor-not-allowed text-base shadow-lg shadow-blue-500/20"
+              >
+                Kiểm Tra
+              </button>
+            ) : (
+              <button
+                onClick={handleNext}
+                className="w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-success text-black hover:bg-opacity-90 transition-opacity text-base"
+              >
+                {currentScreenIdx === lesson.screens.length - 1 ? "Hoàn Thành" : "Tiếp Tục"}
+              </button>
+            )}
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
