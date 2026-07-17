@@ -50,10 +50,10 @@ export default function MultiWidget({
             checkboxClass = "border-gray-800";
           } else if (isSubmitted) {
             if (isCorrect) {
-              btnClass = "border-success bg-success/10 text-success font-semibold cursor-default";
+              btnClass = "border-success bg-success/10 text-success font-semibold cursor-default animate-pulse-success";
               checkboxClass = "border-success bg-success text-black";
             } else if (isSelected) {
-              btnClass = "border-error bg-error/10 text-error font-semibold cursor-default";
+              btnClass = "border-error bg-error/10 text-error font-semibold cursor-default animate-shake";
               checkboxClass = "border-error bg-error text-white";
             } else {
               btnClass = "border-gray-800 bg-gray-900/40 text-gray-500 cursor-default";

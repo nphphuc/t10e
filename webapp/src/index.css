@@ -66,3 +66,35 @@ body {
 .animate-slideUp {
   animation: slideUp 0.4s ease-out both;
 }
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+@keyframes pulse-success {
+  0%, 100% {
+    background-color: rgba(22, 163, 74, 0.1);
+    box-shadow: 0 0 0 0px rgba(22, 163, 74, 0);
+  }
+  50% {
+    background-color: rgba(22, 163, 74, 0.25);
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.animate-pulse-success {
+  animation: pulse-success 1.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shake, .animate-pulse-success, .animate-glow-pulse, .animate-float, .animate-fadeIn, .animate-slideUp {
+    animation: none !important;
+    transition: none !important;
+  }
+}
