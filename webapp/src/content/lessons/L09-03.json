@@ -5,6 +5,7 @@
   "xp": 120,
   "objective": "Hiểu scalability, reusability, performance, security, availability và trade-offs giữa chúng.",
   "misconceptions": ["nfr-one-tactic"],
+  "needsReview": true,
   "screens": [
     {
       "id": "s1",
@@ -39,19 +40,52 @@
       "weight": 2
     },
     {
+      "id": "s2v",
+      "role": "apply",
+      "type": "visual",
+      "visual": {
+        "variant": "tradeoff-radar",
+        "axes": [
+          { "id": "performance", "label": "Performance" },
+          { "id": "security", "label": "Security" },
+          { "id": "scalability", "label": "Scalability" }
+        ],
+        "baseline": { "performance": 3, "security": 3, "scalability": 3 },
+        "tactics": [
+          { "id": "enc", "label": "Thêm encryption + xác thực nhiều lớp cho mỗi request", "effects": { "security": 2, "performance": -1 } },
+          { "id": "dist", "label": "Chuyển sang distributed + thêm replica", "effects": { "scalability": 2, "performance": 1 } }
+        ]
+      },
+      "prompt": "Bật tactic 'encryption + xác thực' và quan sát radar. Nhận xét về trade-off?",
+      "options": [
+        "Cả Performance và Security đều tăng",
+        "Security tăng nhưng Performance giảm — đây là trade-off",
+        "Không ảnh hưởng gì đến các thuộc tính khác"
+      ],
+      "correct": 1,
+      "explanation": "Security tactic (encryption, auth) thêm overhead xử lý mỗi request → tăng Security nhưng giảm Performance. Quality attributes thường trade-off với nhau.",
+      "weight": 2
+    },
+    {
       "id": "s3",
       "role": "apply",
       "type": "scenario",
-      "prompt": "FOS muốn vừa performance cao vừa security tối đa. Mỗi request đều phải mã hóa và kiểm tra nhiều lớp. Nhận xét?",
       "options": [
         "Cả hai đều đạt được dễ dàng",
         "Trade-off: security overhead (encryption, auth) làm giảm performance",
         "Chỉ cần chọn một"
       ],
+      "prompt": "FOS muốn vừa performance cao vừa security tối đa. Mỗi request đều phải mã hóa và kiểm tra nhiều lớp. Nhận xét?",
       "correct": 1,
       "explanation": "Quality attributes thường trade-off với nhau. Security (encryption, auth) tăng latency → giảm performance.",
-      "distractorTags": {"0": "nfr-one-tactic", "2": null},
-      "hints": ["Security + Performance = trade-off.", "Xem slide 16 về trade-offs."],
+      "distractorTags": {
+        "0": "nfr-one-tactic",
+        "2": null
+      },
+      "hints": [
+        "Security + Performance = trade-off.",
+        "Xem slide 16 về trade-offs."
+      ],
       "weight": 2
     },
     {

@@ -14,14 +14,14 @@
     {
       "id": "R10-02",
       "type": "match",
-      "prompt": "Ghép pattern với scenario:",
+      "prompt": "Hãy ghép nối các lực đẩy thiết kế (scenarios) bên dưới với mẫu thiết kế (Design Pattern) tối ưu tương ứng:",
       "pairs": {
-        "Singleton": "Chỉ một PrinterSpooler",
-        "Adapter": "Third-party PDF library interface khác",
-        "Observer": "Khi Order thay đổi, notify EmailService",
-        "Strategy": "Chọn thuật toán ship hàng"
+        "Chỉ cho phép duy nhất một instance PrinterSpooler hoạt động trong toàn hệ thống": "Singleton",
+        "Cần giao tiếp với một thư viện PDF của bên thứ ba có interface khác biệt với hệ thống": "Adapter",
+        "Khi trạng thái của đối tượng Order thay đổi, cần tự động gửi thông báo đến EmailService": "Observer",
+        "Cần linh hoạt thay đổi và lựa chọn các thuật toán tính phí vận chuyển khác nhau khi runtime": "Strategy"
       },
-      "explanation": "Mỗi pattern giải quyết một design pressure khác nhau."
+      "explanation": "Đúng. Singleton đảm bảo duy nhất 1 instance; Adapter làm cầu nối giữa hai interface khác biệt; Observer tự động thông báo cập nhật trạng thái; Strategy đóng gói các thuật toán để thay đổi linh hoạt khi runtime."
     },
     {
       "id": "R10-03",

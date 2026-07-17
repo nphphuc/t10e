@@ -15,6 +15,9 @@ export default {
         error: '#EF4444',
         success: '#16A34A',
       },
+      fontFamily: {
+        display: ['"Be Vietnam Pro"', 'sans-serif'],
+      },
     },
   },
   plugins: [],

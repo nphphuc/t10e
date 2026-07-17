@@ -29,12 +29,26 @@ export default function LessonPage() {
 
   const handleComplete = (scorePercentage: number, xpEarned: number, isMastered: boolean) => {
     console.log(`[LessonPage] Completed: Score ${scorePercentage}%, XP Earned: ${xpEarned}, Mastered: ${isMastered}`);
-    
+
+    const prevState = useProgressStore.getState();
+    const wasCompleted = prevState.completedLessons.includes(lessonData.id);
+    const prevStreak = prevState.streak;
+
     // Complete lesson in progress store
     completeLesson(lessonData.id, xpEarned);
-    
-    // Redirect back to CourseMap.
-    navigate('/');
+
+    const nextStreak = useProgressStore.getState().streak;
+    const streakIncreased = nextStreak > prevStreak;
+
+    // Redirect back to CourseMap with state
+    navigate('/', {
+      state: {
+        justCompleted: lessonData.id,
+        streakIncreased,
+        // XP thực sự được cộng (0 nếu bài đã hoàn thành trước đó)
+        xpGained: wasCompleted ? 0 : xpEarned,
+      }
+    });
   };
 
   return (
