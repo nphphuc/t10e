@@ -2,20 +2,6 @@ import { motion, useReducedMotion } from 'framer-motion';
 import type { ReactNode } from 'react';
 import FoxFallTransition from './FoxFallTransition';
 
-const contentVariants = {
-  initial: { opacity: 0, scale: 0.95 },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: 'spring',
-      stiffness: 150,
-      damping: 18,
-      delay: 1.25, // Bắt đầu pop lên ngay khi fox rơi qua ở giữa và chuẩn bị thoát
-    },
-  },
-};
-
 /**
  * Hiệu ứng chuyển màn đồng bộ trên toàn ứng dụng:
  * - Khi đổi route, chạy hiệu ứng Fox rơi tự do toàn màn hình.
@@ -38,9 +24,14 @@ export default function PageTransition({ children }: { children: ReactNode }) {
     >
       {/* Target page content with delay and spring pop */}
       <motion.div
-        variants={contentVariants}
-        initial="initial"
-        animate="animate"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{
+          type: 'spring',
+          stiffness: 150,
+          damping: 18,
+          delay: 1.25, // Bắt đầu pop lên ngay khi fox rơi qua ở giữa và chuẩn bị thoát
+        }}
       >
         {children}
       </motion.div>
