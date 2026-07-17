@@ -5,6 +5,7 @@
   "xp": 210,
   "objective": "Trace từ use case qua analysis đến design và code trong FreshFood case study.",
   "misconceptions": ["traceability", "analysis-is-design"],
+  "needsReview": true,
   "screens": [
     {
       "id": "s1",
@@ -48,6 +49,36 @@
       ],
       "explanation": "Trace: Requirements → Analysis → Design → Code.",
       "hints": ["Bắt đầu với use case.", "Analysis → Design → Code.", "Xem COMET lifecycle."],
+      "weight": 2
+    },
+    {
+      "id": "s2v",
+      "role": "apply",
+      "type": "visual",
+      "visual": {
+        "variant": "rds-trace",
+        "nodes": [
+          { "id": "uc", "label": "Use Case: Place Order", "layer": "requirement" },
+          { "id": "nfr", "label": "NFR: trang tải < 4s", "layer": "requirement" },
+          { "id": "int", "label": "Interaction diagram: OrderController ↔ Order, Payment", "layer": "analysis" },
+          { "id": "prod", "label": "Bảng CSDL Product", "layer": "analysis" },
+          { "id": "subsys", "label": "Order Subsystem + IOrderService interface", "layer": "design" },
+          { "id": "theme", "label": "CSS theme giao diện", "layer": "design" }
+        ],
+        "edges": [
+          { "from": "uc", "to": "int" },
+          { "from": "int", "to": "subsys" }
+        ],
+        "correctPath": ["uc", "int", "subsys"]
+      },
+      "prompt": "Chọn node đúng ở mỗi tầng để dựng trace cho use case Place Order, rồi xác nhận chuỗi trace hợp lệ:",
+      "options": [
+        "Place Order → Interaction (OrderController/Order) → Order Subsystem/Interface",
+        "CSS theme → Bảng Product → NFR tải trang",
+        "Chỉ cần code chạy được, không cần trace"
+      ],
+      "correct": 0,
+      "explanation": "Trace COMET: Use Case (requirement) → Interaction diagram (analysis) → Subsystem/class interface (design) → code. Mỗi bước ánh xạ ngược được về use case gốc.",
       "weight": 2
     },
     {

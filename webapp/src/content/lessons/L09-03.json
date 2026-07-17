@@ -5,6 +5,7 @@
   "xp": 120,
   "objective": "Hiểu scalability, reusability, performance, security, availability và trade-offs giữa chúng.",
   "misconceptions": ["nfr-one-tactic"],
+  "needsReview": true,
   "screens": [
     {
       "id": "s1",
@@ -36,6 +37,33 @@
       },
       "explanation": "Năm quality attributes quan trọng trong kiến trúc phần mềm.",
       "hints": ["Scale = mở rộng.", "Reuse = tái sử dụng.", "Xem slide 10-14."],
+      "weight": 2
+    },
+    {
+      "id": "s2v",
+      "role": "apply",
+      "type": "visual",
+      "visual": {
+        "variant": "tradeoff-radar",
+        "axes": [
+          { "id": "performance", "label": "Performance" },
+          { "id": "security", "label": "Security" },
+          { "id": "scalability", "label": "Scalability" }
+        ],
+        "baseline": { "performance": 3, "security": 3, "scalability": 3 },
+        "tactics": [
+          { "id": "enc", "label": "Thêm encryption + xác thực nhiều lớp cho mỗi request", "effects": { "security": 2, "performance": -1 } },
+          { "id": "dist", "label": "Chuyển sang distributed + thêm replica", "effects": { "scalability": 2, "performance": 1 } }
+        ]
+      },
+      "prompt": "Bật tactic 'encryption + xác thực' và quan sát radar. Nhận xét về trade-off?",
+      "options": [
+        "Cả Performance và Security đều tăng",
+        "Security tăng nhưng Performance giảm — đây là trade-off",
+        "Không ảnh hưởng gì đến các thuộc tính khác"
+      ],
+      "correct": 1,
+      "explanation": "Security tactic (encryption, auth) thêm overhead xử lý mỗi request → tăng Security nhưng giảm Performance. Quality attributes thường trade-off với nhau.",
       "weight": 2
     },
     {

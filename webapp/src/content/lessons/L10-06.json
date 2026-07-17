@@ -5,6 +5,7 @@
   "xp": 150,
   "objective": "Phân biệt Strategy (thuật toán), State (trạng thái), Template Method (khung), Visitor (operations trên structure).",
   "misconceptions": ["state-vs-strategy"],
+  "needsReview": true,
   "screens": [
     {
       "id": "s1",
@@ -35,6 +36,25 @@
       },
       "explanation": "Bốn behavioral patterns: Strategy (algorithms), State (state-based), Template Method (framework), Visitor (operation extension).",
       "hints": ["Strategy = algorithm.", "State = state machine.", "Template = skeleton.", "Visitor = thêm operation."],
+      "weight": 2
+    },
+    {
+      "id": "s2v",
+      "role": "apply",
+      "type": "visual",
+      "visual": {
+        "variant": "pattern-pressure",
+        "patterns": ["Strategy", "State", "Template Method", "Visitor"],
+        "forces": [
+          { "id": "f1", "label": "FOS Order có nhiều state (Pending, Paid, Shipped) với hành vi khác nhau ở mỗi state" },
+          { "id": "f2", "label": "Phí ship có nhiều thuật toán (Standard, Express, Free), chọn linh hoạt khi runtime" },
+          { "id": "f3", "label": "Report có skeleton các step cố định, subclass chỉ override từng step" },
+          { "id": "f4", "label": "Cần thêm operation exportXML() vào Product/Order mà không sửa các class" }
+        ],
+        "correctMapping": { "f1": "State", "f2": "Strategy", "f3": "Template Method", "f4": "Visitor" }
+      },
+      "prompt": "Ghép mỗi lực đẩy thiết kế (design force) với behavioral pattern phù hợp nhất:",
+      "explanation": "State: hành vi đổi theo state. Strategy: family of algorithms chọn linh hoạt. Template Method: skeleton + hook steps. Visitor: thêm operation vào object structure mà không sửa class.",
       "weight": 2
     },
     {

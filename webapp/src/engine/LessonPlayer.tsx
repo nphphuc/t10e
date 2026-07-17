@@ -533,13 +533,15 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
         {/* Left pane: prompt & diagram */}
         <div className="flex-1 flex flex-col justify-center space-y-6 md:max-w-xl">
           <div className="space-y-3">
-            <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700/60 inline-block">
-              {currentScreen.role}
-            </span>
+            {import.meta.env.DEV && (
+              <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700/60 inline-block">
+                {currentScreen.role}
+              </span>
+            )}
             <h1 className="text-xl md:text-2xl font-bold leading-snug text-gray-100">
               {currentScreen.prompt}
             </h1>
-            {wordWarning && (
+            {wordWarning && import.meta.env.DEV && (
               <span className="text-[10px] text-yellow-500/60 block">
                 [Pedagogy Check: Prompt contains {wordCount} words, slightly over the 45-word rule]
               </span>
@@ -548,8 +550,8 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
 
           {/* Solution Worked Example Block */}
           {isWrongSubmitted && currentScreen.solution && (
-            <div className="p-5 rounded-2xl bg-yellow-950/15 border border-yellow-900/40 text-yellow-100/90 text-sm animate-fadeIn">
-              <div className="font-bold text-yellow-400 flex items-center gap-1.5 mb-1.5">
+            <div className="p-5 rounded-2xl bg-yellow-950/15 border border-yellow-900/40 text-yellow-100/90 text-[15px] leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+              <div className="font-bold text-yellow-400 flex items-center gap-1.5 mb-2 text-lg">
                 <span>💡</span>
                 <span>Lời giải mẫu (Worked Example):</span>
               </div>
@@ -569,16 +571,16 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
             <div className="mt-6 space-y-4">
               {/* Correct Feedback */}
               {isCorrectSubmitted && (currentScreen.feedbackCorrect || currentScreen.explanation) && (
-                <div className="p-4 rounded-xl bg-success/10 border border-success/30 text-success text-xs leading-relaxed animate-fadeIn">
-                  <div className="font-bold mb-1">Đúng!</div>
+                <div className="p-5 rounded-xl bg-success/10 border border-success/30 text-success text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+                  <div className="font-bold mb-2 text-lg">Đúng!</div>
                   <p>{currentScreen.feedbackCorrect || currentScreen.explanation}</p>
                 </div>
               )}
 
               {/* Hints Escalation Output */}
               {!isCorrectSubmitted && activeHint && (
-                <div className="p-4 rounded-xl bg-gray-800/80 border border-gray-700 text-gray-300 text-xs leading-relaxed animate-fadeIn">
-                  <div className="font-bold text-blue-400 mb-1 flex items-center gap-1">
+                <div className="p-5 rounded-xl bg-gray-800/80 border border-gray-700 text-gray-300 text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+                  <div className="font-bold text-blue-400 mb-2 text-lg flex items-center gap-1.5">
                     <span>💡</span>
                     <span>{attempts >= 3 ? "Giải đáp" : `Gợi ý tầng ${attempts}`}</span>
                   </div>

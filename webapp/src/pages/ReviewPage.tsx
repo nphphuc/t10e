@@ -90,6 +90,8 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
   }
 };
 
+const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
+
 export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolean }) {
   const { levelId } = useParams<{ levelId: string }>();
   const navigate = useNavigate();
@@ -130,6 +132,7 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
   const questions = reviewData.questions || [];
   const currentQuestion = questions[currentIdx];
   const selectedAnswer = answers[currentQuestion?.id] ?? null;
+  const isUnsupportedQuestion = Boolean(currentQuestion && !SUPPORTED_REVIEW_TYPES.has(currentQuestion.type));
 
   const handleAnswerSelect = (value: any) => {
     setAnswers((prev) => ({
@@ -327,7 +330,7 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
   }
 
   // Render question UI
-  const isAnswered = selectedAnswer !== null;
+  const isAnswered = isUnsupportedQuestion || selectedAnswer !== null;
 
   return (
     <div className="min-h-screen bg-[#0c0d0e] pb-16 flex flex-col">
@@ -372,6 +375,12 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
 
           {/* Render corresponding widget with isSubmitted=false to keep it interactive without grading feedback */}
           <div className="p-1">
+            {isUnsupportedQuestion && (
+              <div role="status" className="rounded-2xl border border-amber-700/50 bg-amber-950/20 p-4 text-sm text-amber-100">
+                Loại câu hỏi <code className="font-bold">{currentQuestion.type}</code> chưa được hỗ trợ trong Level Review. Bạn có thể bỏ qua câu này; bài review vẫn tiếp tục.
+              </div>
+            )}
+
             {currentQuestion.type === 'choice' && (
               <ChoiceWidget
                 data={currentQuestion}
@@ -437,7 +446,7 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
                 : 'bg-gray-800 text-gray-500 cursor-not-allowed'
             }`}
           >
-            <span>{currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Xác Nhận & Tiếp Tục'}</span>
+            <span>{isUnsupportedQuestion ? 'Bỏ Qua & Tiếp Tục' : currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Xác Nhận & Tiếp Tục'}</span>
             <span>➔</span>
           </button>
         </div>

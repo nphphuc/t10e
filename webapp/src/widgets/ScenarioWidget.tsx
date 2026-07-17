@@ -69,8 +69,8 @@ export default function ScenarioWidget({
       </div>
 
       {showConsequence && (data.consequence || data.explanation) && (
-        <div className="mt-4 p-4 rounded-xl bg-blue-950/20 border border-blue-900/40 text-blue-200 text-sm animate-fadeIn">
-          <div className="font-semibold text-blue-400 mb-1">Hệ quả thiết kế (Consequence):</div>
+        <div className="mt-4 p-5 rounded-xl bg-blue-950/20 border border-blue-900/40 text-blue-200 text-[15px] leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
+          <div className="font-bold text-blue-400 mb-2 text-md">Hệ quả thiết kế (Consequence):</div>
           <p>{data.consequence || data.explanation}</p>
         </div>
       )}
