@@ -14,11 +14,11 @@ export default function FoxFallTransition() {
 
     const tExit = setTimeout(() => {
       setStage('exit');
-    }, 1100); // Giữ overlay ~1.1s ở trạng thái enter
+    }, 1500); // Giữ overlay ~1.5s ở trạng thái enter (rơi 0.3s + dừng 0.75s + rơi tiếp 0.3s + trễ nhẹ)
 
     const tRemove = setTimeout(() => {
       setStage('removed');
-    }, 1450); // Gỡ hoàn toàn khỏi DOM sau khi exit animation xong (1.1s + 350ms)
+    }, 1850); // Gỡ hoàn toàn khỏi DOM sau khi exit animation xong (1.5s + 350ms)
 
     return () => {
       clearTimeout(tExit);
@@ -78,13 +78,19 @@ export default function FoxFallTransition() {
         ))}
       </div>
 
-      {/* Con Fox chạy animation Fall rơi từ trên xuống dưới màn hình */}
+      {/* Con Fox chạy animation Fall rơi từ trên xuống, dừng lại 0.75s ở giữa rồi rơi tiếp */}
       <motion.div
-        initial={{ y: '-60vh', scale: 0.9, opacity: 0, rotate: -8 }}
-        animate={{ y: '60vh', scale: [0.9, 1.1, 1], opacity: [0, 1, 1, 1], rotate: 8 }}
+        initial={{ y: '-60vh', scale: 0.8, opacity: 0, rotate: -8 }}
+        animate={{ 
+          y: ['-60vh', '0vh', '0vh', '60vh'], 
+          scale: [0.8, 1, 1, 0.9], 
+          opacity: [0, 1, 1, 1], 
+          rotate: [-8, 0, 0, 8] 
+        }}
         transition={{ 
-          duration: 0.95, 
-          ease: [0.4, 0, 1, 1] // Easing trọng lực (tăng tốc khi rơi)
+          duration: 1.35, 
+          times: [0, 0.22, 0.78, 1], 
+          ease: ['easeOut', 'linear', 'easeIn'] 
         }}
         className="w-[280px] h-[280px] flex items-center justify-center relative select-none pointer-events-none"
       >

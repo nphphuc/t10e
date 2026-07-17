@@ -61,7 +61,7 @@ export default function LessonPage() {
         type: 'spring',
         stiffness: 150,
         damping: 18,
-        delay: shouldReduceMotion ? 0 : 0.85 // Đồng bộ: bắt đầu pop khi fox rơi qua và overlay bắt đầu exit
+        delay: shouldReduceMotion ? 0 : 1.25 // Đồng bộ: bắt đầu pop khi fox rơi qua và overlay bắt đầu exit
       }}
     >
       <LessonPlayer
