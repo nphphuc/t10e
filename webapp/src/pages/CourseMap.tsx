@@ -12,7 +12,7 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
   const match = path.match(/\/([^/]+)\.json$/);
   return match ? match[1] : '';
 }).filter(Boolean);
-const NODE_OFFSET = 52;
+const NODE_OFFSET = 40;
 
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
@@ -623,7 +623,7 @@ export default function CourseMap() {
                     return (
                       <div
                         key={lesson.id}
-                        className="grid grid-cols-[1fr_96px_1fr] items-center gap-4 relative w-full max-w-xl mx-auto z-10"
+                        className="grid grid-cols-[1fr_96px_1fr] items-center gap-4 relative w-full max-w-md mx-auto z-10"
                       >
                         {/* Curved serpentine connection line to the next node */}
                         {lessonIdx < level.lessons.length - 1 && (
@@ -719,7 +719,7 @@ export default function CourseMap() {
                         )}
 
                         {/* Left Column: Label for Even items / Blurb Bubble for Odd items */}
-                        <div className={`relative flex items-center justify-end text-right w-full ${lessonIdx % 2 === 0 ? 'pr-16 md:pr-20' : 'pr-2'}`}>
+                        <div className="relative flex items-center justify-start text-left w-full">
                           {lessonIdx % 2 === 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
@@ -841,7 +841,7 @@ export default function CourseMap() {
                         </div>
 
                         {/* Right Column: Label for Odd items / Blurb Bubble for Even items */}
-                        <div className={`relative flex items-center justify-start text-left w-full ${lessonIdx % 2 !== 0 ? 'pl-16 md:pl-20' : 'pl-2'}`}>
+                        <div className="relative flex items-center justify-end text-right w-full">
                           {lessonIdx % 2 !== 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
