@@ -802,7 +802,7 @@ export default function CourseMap() {
                               aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: ${
                                 isCompletedDynamic ? 'Đã hoàn thành' : 'Sẵn sàng học'
                               }. ${isSelected ? 'Nhấn thêm lần nữa để vào học.' : 'Nhấn để xem chi tiết.'}`}
-                              className={`focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-full cursor-pointer relative transition-all duration-300 ${
+                              className={`focus:outline-none rounded-full cursor-pointer relative transition-all duration-300 ${
                                 isSelected ? 'scale-105 filter drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]' : ''
                               }`}
                             >
@@ -810,7 +810,7 @@ export default function CourseMap() {
                               {isSelected && (
                                 <motion.div
                                   layoutId={!shouldReduceMotion ? "fox-mascot" : undefined}
-                                  className={`absolute z-20 pointer-events-none flex items-center justify-center ${
+                                  className={`absolute z-20 pointer-events-none flex items-center justify-center left-1/2 -translate-x-1/2 ${
                                     isReviewNode ? 'bottom-[28px] w-20 h-20' : 'bottom-[28px] w-16 h-16'
                                   }`}
                                   transition={{ type: "spring", stiffness: 120, damping: 14 }}
