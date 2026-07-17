@@ -12,8 +12,7 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
   const match = path.match(/\/([^/]+)\.json$/);
   return match ? match[1] : '';
 }).filter(Boolean);
-
-
+const NODE_OFFSET = 52;
 
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
@@ -427,8 +426,8 @@ export default function CourseMap() {
                     const loadedData = (lessonFiles[`../content/lessons/${lesson.id}.json`] as any)?.default;
                     const needsReview = loadedData?.needsReview;
 
-                    // Alternating shifts: -28px, 28px, -28px, 28px...
-                    const xShift = lessonIdx % 2 === 0 ? '-28px' : '28px';
+                    // Alternating shifts using NODE_OFFSET
+                    const xShift = lessonIdx % 2 === 0 ? `-${NODE_OFFSET}px` : `${NODE_OFFSET}px`;
 
                     let statusLabel = '';
                     if (status.isUnlocked && !status.isImplemented) {
@@ -624,13 +623,13 @@ export default function CourseMap() {
                     return (
                       <div
                         key={lesson.id}
-                        className="grid grid-cols-[1fr_96px_1fr] items-center gap-4 relative w-full max-w-lg mx-auto z-10"
+                        className="grid grid-cols-[1fr_96px_1fr] items-center gap-4 relative w-full max-w-xl mx-auto z-10"
                       >
                         {/* Curved serpentine connection line to the next node */}
                         {lessonIdx < level.lessons.length - 1 && (
                           <svg
                             className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none -z-10 overflow-visible"
-                            style={{ width: '128px', height: '144px' }}
+                            style={{ width: '160px', height: '144px' }}
                           >
                             <defs>
                               <linearGradient id={`grad-completed-${lesson.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
@@ -640,7 +639,7 @@ export default function CourseMap() {
                             </defs>
                             {lesson.id === animatingLessonId && animState === 'pedestal' ? (
                               <path
-                                d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                 fill="none"
                                 stroke="#374151"
                                 strokeWidth="4"
@@ -651,7 +650,7 @@ export default function CourseMap() {
                             ) : lesson.id === animatingLessonId && animState === 'connector' ? (
                               <>
                                 <path
-                                  d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                  d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                   fill="none"
                                   stroke="#374151"
                                   strokeWidth="4"
@@ -660,7 +659,7 @@ export default function CourseMap() {
                                   className="opacity-60"
                                 />
                                 <motion.path
-                                  d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                  d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                   fill="none"
                                   stroke={`url(#grad-completed-${lesson.id})`}
                                   strokeWidth="6"
@@ -678,7 +677,7 @@ export default function CourseMap() {
                                   if (leadsToActive) {
                                     return (
                                       <motion.path
-                                        d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                        d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                         fill="none"
                                         stroke={`url(#grad-completed-${lesson.id})`}
                                         strokeWidth="6"
@@ -692,7 +691,7 @@ export default function CourseMap() {
                                   } else {
                                     return (
                                       <path
-                                        d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                        d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                         fill="none"
                                         stroke={`url(#grad-completed-${lesson.id})`}
                                         strokeWidth="6"
@@ -704,7 +703,7 @@ export default function CourseMap() {
                                 } else {
                                   return (
                                     <path
-                                      d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                      d={`M ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 12 C ${lessonIdx % 2 === 0 ? -NODE_OFFSET : NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 72, ${lessonIdx % 2 === 0 ? NODE_OFFSET : -NODE_OFFSET} 132`}
                                       fill="none"
                                       stroke="#374151"
                                       strokeWidth="4"
@@ -720,7 +719,7 @@ export default function CourseMap() {
                         )}
 
                         {/* Left Column: Label for Even items / Blurb Bubble for Odd items */}
-                        <div className="text-right pr-2 relative flex items-center justify-end">
+                        <div className={`relative flex items-center justify-end text-right w-full ${lessonIdx % 2 === 0 ? 'pr-16 md:pr-20' : 'pr-2'}`}>
                           {lessonIdx % 2 === 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
@@ -808,24 +807,26 @@ export default function CourseMap() {
                             >
                               {pedestalElement}
                               {isSelected && (
-                                <motion.div
-                                  layoutId={!shouldReduceMotion ? "fox-mascot" : undefined}
-                                  className={`absolute z-20 pointer-events-none flex items-center justify-center left-1/2 -translate-x-1/2 ${
-                                    isReviewNode ? 'bottom-[28px] w-20 h-20' : 'bottom-[28px] w-16 h-16'
-                                  }`}
-                                  transition={{ type: "spring", stiffness: 120, damping: 14 }}
-                                >
-                                  <FoxMascot 
-                                    animation={
-                                      animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive'
-                                        ? 'Jump'
-                                        : foxMoving
-                                          ? 'Walk'
-                                          : 'Sit'
-                                    } 
-                                    className="w-full h-full"
-                                  />
-                                </motion.div>
+                                <div className="absolute inset-x-0 bottom-[28px] z-20 pointer-events-none flex justify-center">
+                                  <motion.div
+                                    layoutId={!shouldReduceMotion ? "fox-mascot" : undefined}
+                                    className={`flex items-center justify-center ${
+                                      isReviewNode ? 'w-20 h-20' : 'w-16 h-16'
+                                    }`}
+                                    transition={{ type: "spring", stiffness: 120, damping: 14 }}
+                                  >
+                                    <FoxMascot
+                                      animation={
+                                        animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive'
+                                          ? 'Jump'
+                                          : foxMoving
+                                            ? 'Walk'
+                                            : 'Sit'
+                                      }
+                                      className="w-full h-full"
+                                    />
+                                  </motion.div>
+                                </div>
                               )}
                             </div>
                           ) : (
@@ -840,7 +841,7 @@ export default function CourseMap() {
                         </div>
 
                         {/* Right Column: Label for Odd items / Blurb Bubble for Even items */}
-                        <div className="text-left pl-2 relative flex items-center justify-start">
+                        <div className={`relative flex items-center justify-start text-left w-full ${lessonIdx % 2 !== 0 ? 'pl-16 md:pl-20' : 'pl-2'}`}>
                           {lessonIdx % 2 !== 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
