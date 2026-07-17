@@ -719,9 +719,9 @@ export default function CourseMap() {
                           </svg>
                         )}
 
-                        {/* Left Column: Label for Odd items / Blurb Bubble for Even items */}
-                        <div className="text-right pr-2 flex items-center justify-end">
-                          {lessonIdx % 2 !== 0 ? (
+                        {/* Left Column: Label for Even items / Blurb Bubble for Odd items */}
+                        <div className="text-right pr-2 relative flex items-center justify-end">
+                          {lessonIdx % 2 === 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
@@ -746,31 +746,33 @@ export default function CourseMap() {
                             </div>
                           ) : (
                             isSelected && (
-                              <motion.div
-                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: 10 } : false}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                transition={{ duration: 0.35 }}
-                                className="relative ml-auto max-w-[260px] w-64 p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
-                                role="tooltip"
-                                aria-live="polite"
-                              >
-                                {/* Speech bubble arrow pointing right to center */}
-                                <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-r border-t border-cyan-500/30 rotate-45 pointer-events-none" />
-                                <div className="relative z-10 space-y-1">
-                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
-                                    Học gì bài này
-                                  </span>
-                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
-                                    {blurbText}
-                                  </p>
-                                  <Link
-                                    to={toPath}
-                                    className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
-                                  >
-                                    {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
-                                  </Link>
-                                </div>
-                              </motion.div>
+                              <div className="absolute right-2 top-1/2 -translate-y-1/2 w-64 z-30 pointer-events-auto">
+                                <motion.div
+                                  initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: 10 } : false}
+                                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                                  transition={{ duration: 0.35 }}
+                                  className="p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                  role="tooltip"
+                                  aria-live="polite"
+                                >
+                                  {/* Speech bubble arrow pointing right to center */}
+                                  <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-r border-t border-cyan-500/30 rotate-45 pointer-events-none" />
+                                  <div className="relative z-10 space-y-1">
+                                    <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
+                                      Học gì bài này
+                                    </span>
+                                    <p className="text-[11px] text-gray-200 leading-normal font-semibold">
+                                      {blurbText}
+                                    </p>
+                                    <Link
+                                      to={toPath}
+                                      className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
+                                    >
+                                      {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
+                                    </Link>
+                                  </div>
+                                </motion.div>
+                              </div>
                             )
                           )}
                         </div>
@@ -800,7 +802,9 @@ export default function CourseMap() {
                               aria-label={`Bài học ${lesson.id}: ${lesson.title}. Trạng thái: ${
                                 isCompletedDynamic ? 'Đã hoàn thành' : 'Sẵn sàng học'
                               }. ${isSelected ? 'Nhấn thêm lần nữa để vào học.' : 'Nhấn để xem chi tiết.'}`}
-                              className="focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-full cursor-pointer relative"
+                              className={`focus:outline-none focus:ring-2 focus:ring-cyan-500 rounded-full cursor-pointer relative transition-all duration-300 ${
+                                isSelected ? 'scale-105 filter drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]' : ''
+                              }`}
                             >
                               {pedestalElement}
                               {isSelected && (
@@ -835,9 +839,9 @@ export default function CourseMap() {
                           )}
                         </div>
 
-                        {/* Right Column: Label for Even items / Blurb Bubble for Odd items */}
-                        <div className="text-left pl-2 flex items-center justify-start">
-                          {lessonIdx % 2 === 0 ? (
+                        {/* Right Column: Label for Odd items / Blurb Bubble for Even items */}
+                        <div className="text-left pl-2 relative flex items-center justify-start">
+                          {lessonIdx % 2 !== 0 ? (
                             <div className="space-y-1">
                               <span className={`text-[10px] uppercase font-extrabold tracking-wider block ${isActiveDynamic ? 'text-cyan-400' : 'text-gray-500'}`}>
                                 {lesson.id}
@@ -862,31 +866,33 @@ export default function CourseMap() {
                             </div>
                           ) : (
                             isSelected && (
-                              <motion.div
-                                initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: -10 } : false}
-                                animate={{ opacity: 1, scale: 1, x: 0 }}
-                                transition={{ duration: 0.35 }}
-                                className="relative mr-auto max-w-[260px] w-64 p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
-                                role="tooltip"
-                                aria-live="polite"
-                              >
-                                {/* Speech bubble arrow pointing left to center */}
-                                <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-l border-b border-cyan-500/30 rotate-45 pointer-events-none" />
-                                <div className="relative z-10 space-y-1">
-                                  <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
-                                    Học gì bài này
-                                  </span>
-                                  <p className="text-[11px] text-gray-200 leading-normal font-semibold">
-                                    {blurbText}
-                                  </p>
-                                  <Link
-                                    to={toPath}
-                                    className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
-                                  >
-                                    {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
-                                  </Link>
-                                </div>
-                              </motion.div>
+                              <div className="absolute left-2 top-1/2 -translate-y-1/2 w-64 z-30 pointer-events-auto">
+                                <motion.div
+                                  initial={!shouldReduceMotion ? { opacity: 0, scale: 0.95, x: -10 } : false}
+                                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                                  transition={{ duration: 0.35 }}
+                                  className="p-3 rounded-2xl bg-gray-950/95 border border-cyan-500/30 text-left shadow-xl animate-float"
+                                  role="tooltip"
+                                  aria-live="polite"
+                                >
+                                  {/* Speech bubble arrow pointing left to center */}
+                                  <div className="absolute left-[-6px] top-1/2 -translate-y-1/2 w-3 h-3 bg-gray-950 border-l border-b border-cyan-500/30 rotate-45 pointer-events-none" />
+                                  <div className="relative z-10 space-y-1">
+                                    <span className="text-[9px] uppercase font-black text-cyan-400 tracking-wider block font-display">
+                                      Học gì bài này
+                                    </span>
+                                    <p className="text-[11px] text-gray-200 leading-normal font-semibold">
+                                      {blurbText}
+                                    </p>
+                                    <Link
+                                      to={toPath}
+                                      className="mt-2.5 w-full text-center block btn-3d px-3 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold text-[10px] [--btn-shadow:#1e3a8a] transition-all"
+                                    >
+                                      {isReviewNode ? 'Vào ôn tập' : 'Vào học ngay'}
+                                    </Link>
+                                  </div>
+                                </motion.div>
+                              </div>
                             )
                           )}
                         </div>
