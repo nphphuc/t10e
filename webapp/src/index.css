@@ -92,9 +92,104 @@ body {
   animation: pulse-success 1.5s ease-in-out infinite;
 }
 
+/* ==== Game-feel: nút 3D kiểu Duolingo ==== */
+/* Dùng box-shadow làm "đế" nút; khi nhấn thì lún xuống và đế biến mất. */
+.btn-3d {
+  --btn-shadow: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 0 0 var(--btn-shadow);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-3d:active:not(:disabled) {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 0 var(--btn-shadow);
+}
+.btn-3d:disabled {
+  box-shadow: none;
+}
+/* Biến thể màu đế theo trạng thái */
+.btn-3d-primary { --btn-shadow: #1e3a8a; }   /* đế của nút xanh dương */
+.btn-3d-success { --btn-shadow: #14532d; }   /* đế của nút xanh lá */
+.btn-3d-selected { --btn-shadow: rgba(59, 130, 246, 0.45); }
+
+/* ==== Game-feel: particle burst khi trả lời đúng ==== */
+@keyframes burst-fly {
+  0% {
+    opacity: 1;
+    transform: rotate(var(--angle)) translateX(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle)) translateX(46px) scale(0.3);
+  }
+}
+
+.burst-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  border-radius: 9999px;
+  background: #22c55e;
+  animation: burst-fly 0.55s cubic-bezier(0.1, 0.8, 0.3, 1) var(--delay, 0ms) both;
+}
+.burst-particle:nth-child(odd) {
+  background: #86efac;
+  width: 5px;
+  height: 5px;
+}
+
+/* ==== Game-feel: segment progress pop ==== */
+@keyframes segment-pop {
+  0% { transform: scaleY(1); }
+  40% { transform: scaleY(1.8); }
+  100% { transform: scaleY(1); }
+}
+
+.animate-segment-pop {
+  animation: segment-pop 0.35s ease-out both;
+}
+
+/* ==== Ambient Floating Blobs & Shine Sweeps ==== */
+@keyframes blob-float {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob-float {
+  animation: blob-float 25s infinite ease-in-out;
+}
+.animate-blob-float-delayed {
+  animation: blob-float 35s infinite ease-in-out;
+  animation-delay: 5s;
+}
+.animate-blob-float-fast {
+  animation: blob-float 18s infinite ease-in-out;
+  animation-delay: 2s;
+}
+
+@keyframes shine-sweep {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  20% { transform: translateX(100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+.animate-shine-sweep {
+  animation: shine-sweep 6s infinite ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-shake, .animate-pulse-success, .animate-glow-pulse, .animate-float, .animate-fadeIn, .animate-slideUp {
+  .animate-shake, .animate-pulse-success, .animate-glow-pulse, .animate-float, .animate-fadeIn, .animate-slideUp, .animate-segment-pop, .burst-particle, .animate-blob-float, .animate-blob-float-delayed, .animate-blob-float-fast, .animate-shine-sweep {
     animation: none !important;
     transition: none !important;
+  }
+  .burst-particle {
+    display: none;
+  }
+  .btn-3d,
+  .btn-3d:active:not(:disabled) {
+    transform: none;
+    transition: none;
   }
 }

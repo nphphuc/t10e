@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import manifestData from '../content/manifest.json';
+import FoxMascot from '../components/FoxMascot';
 
 // Dynamically discover all implemented lessons in the content/lessons directory
 const lessonFiles = import.meta.glob('../content/lessons/*.json', { eager: true });
@@ -18,13 +19,26 @@ export default function CourseMap() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const justCompletedId = location.state?.justCompleted || null;
-  const streakIncreased = location.state?.streakIncreased || false;
+  // Snapshot navigation state MỘT LẦN khi mount: ngay sau đó state bị clear
+  // (navigate replace) để refresh không replay animation. Nếu đọc trực tiếp
+  // location.state, các effect phụ thuộc sẽ bị cleanup ngay khi state thành {}.
+  const [entryState] = useState(() => ({
+    justCompleted: (location.state?.justCompleted as string | undefined) || null,
+    streakIncreased: Boolean(location.state?.streakIncreased),
+    xpGained: Number(location.state?.xpGained) || 0,
+  }));
+  const justCompletedId = entryState.justCompleted;
+  const streakIncreased = entryState.streakIncreased;
+  const xpGained = entryState.xpGained;
 
   const [animatingLessonId, setAnimatingLessonId] = useState<string | null>(justCompletedId);
   const [animState, setAnimState] = useState<'idle' | 'pedestal' | 'connector' | 'nextActive' | 'done'>('idle');
   const [flashLevelId, setFlashLevelId] = useState<string | null>(null);
   const [animateStreak, setAnimateStreak] = useState(false);
+
+  // XP count-up: bắt đầu từ giá trị TRƯỚC khi cộng, chạy lên totalXp
+  const [displayXp, setDisplayXp] = useState(totalXp - xpGained);
+  const [xpCounting, setXpCounting] = useState(false);
 
   const course = manifestData.course;
   const levels = course.levels;
@@ -116,6 +130,35 @@ export default function CourseMap() {
     }
   }, [streakIncreased, shouldReduceMotion]);
 
+  // Handle XP count-up (delay 600ms cho khớp với unlock animation)
+  useEffect(() => {
+    if (xpGained <= 0 || shouldReduceMotion) {
+      setDisplayXp(totalXp);
+      return;
+    }
+    const prevXp = totalXp - xpGained;
+    const delay = 600;
+    const duration = 900;
+    const start = Date.now();
+    let frameId: number;
+    setXpCounting(true);
+
+    const tick = () => {
+      const t = Math.min(Math.max(Date.now() - start - delay, 0) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOutCubic
+      setDisplayXp(Math.round(prevXp + eased * xpGained));
+      if (t < 1) {
+        frameId = requestAnimationFrame(tick);
+      } else {
+        setXpCounting(false);
+      }
+    };
+    frameId = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frameId);
+    // Chạy đúng 1 lần khi mount — entryState là snapshot bất biến
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Helper to determine if a level is unlocked dynamically
   const isLevelUnlocked = (lvlId: string) => {
     const lvlIdx = levels.findIndex(l => l.id === lvlId);
@@ -193,6 +236,14 @@ export default function CourseMap() {
           background: 'radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.6) 100%)',
         }}
       />
+      {/* Floating background glowing ambient blobs */}
+      {!shouldReduceMotion && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute w-[300px] h-[300px] rounded-full bg-purple-900/10 blur-[100px] top-[10%] left-[10%] animate-blob-float" />
+          <div className="absolute w-[400px] h-[400px] rounded-full bg-indigo-900/10 blur-[120px] bottom-[20%] right-[10%] animate-blob-float-delayed" />
+          <div className="absolute w-[250px] h-[250px] rounded-full bg-cyan-900/10 blur-[90px] top-[50%] left-[50%] animate-blob-float-fast" />
+        </div>
+      )}
 
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10 items-start relative z-10">
         
@@ -226,7 +277,13 @@ export default function CourseMap() {
               </div>
               <div className="p-3 rounded-2xl bg-yellow-500/5 border border-yellow-500/20 flex flex-col items-center justify-center text-center">
                 <span className="text-lg">⚡</span>
-                <span className="text-sm font-bold text-yellow-400 mt-1">{totalXp} XP</span>
+                <motion.span
+                  className="text-sm font-bold text-yellow-400 mt-1"
+                  animate={xpCounting && !shouldReduceMotion ? { scale: 1.15 } : { scale: 1 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
+                  {displayXp} XP
+                </motion.span>
                 <span className="text-[9px] text-gray-500 uppercase font-semibold mt-0.5">Tổng điểm</span>
               </div>
             </div>
@@ -234,13 +291,19 @@ export default function CourseMap() {
             {/* Progress status */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs text-gray-400 font-semibold">
-                <span>Tiến độ bài học mẫu</span>
-                <span>{playableCompletedCount} / 4</span>
+                <span>Tiến độ bài học</span>
+                <span>{playableCompletedCount} / {IMPLEMENTED_LESSONS.length}</span>
               </div>
               <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 transition-all duration-500"
-                  style={{ width: `${(playableCompletedCount / 4) * 100}%` }}
+                <motion.div
+                  className="h-full bg-gradient-to-r from-purple-500 to-indigo-500"
+                  initial={
+                    shouldReduceMotion || xpGained <= 0
+                      ? false
+                      : { width: `${(Math.max(playableCompletedCount - 1, 0) / IMPLEMENTED_LESSONS.length) * 100}%` }
+                  }
+                  animate={{ width: `${(playableCompletedCount / IMPLEMENTED_LESSONS.length) * 100}%` }}
+                  transition={{ delay: 0.6, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
               </div>
             </div>
@@ -278,7 +341,16 @@ export default function CourseMap() {
         <main className="flex-grow w-full space-y-12">
           {levels.map((level, levelIdx) => {
             return (
-              <div key={level.id} className="space-y-8">
+              <div 
+                key={level.id} 
+                className={`p-6 rounded-[32px] border transition-all duration-500 space-y-8 ${
+                  levelIdx % 3 === 0 
+                    ? 'bg-purple-950/10 border-purple-900/10' 
+                    : levelIdx % 3 === 1 
+                      ? 'bg-indigo-950/10 border-indigo-900/10' 
+                      : 'bg-cyan-950/10 border-cyan-900/10'
+                }`}
+              >
                 {/* Level Title Pill */}
                 <div className="flex justify-start">
                   <div
@@ -301,6 +373,7 @@ export default function CourseMap() {
                     const status = getLessonStatus(lesson.id);
                     let isCompletedDynamic = status.isCompleted;
                     let isActiveDynamic = activeLesson && activeLesson.id === lesson.id;
+                    const isReviewNode = lesson.type === 'review';
 
                     if (animatingLessonId) {
                       if (lesson.id === animatingLessonId) {
@@ -341,89 +414,184 @@ export default function CourseMap() {
                     // Construct 3D isometric pedestal rendering elements
                     let pedestalElement;
                     if (isCompletedDynamic) {
-                      pedestalElement = (
-                        <motion.div
-                          initial={lesson.id === animatingLessonId && !shouldReduceMotion ? { scale: 1.2, opacity: 0.5 } : false}
-                          animate={{ scale: 1, opacity: 1 }}
-                          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                          className="w-24 h-24 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-                        >
-                          {/* Outer shadow */}
-                          <div className="absolute bottom-2 w-20 h-5 bg-black/40 blur-sm rounded-[50%]" />
-                          {/* Depth / Side wall */}
-                          <div className="absolute bottom-4 w-20 h-10 bg-[#5b21b6] rounded-[50%] border-b-[5px] border-[#4c1d95]" />
-                          {/* Top surface */}
-                          <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-purple-500 to-indigo-600 border border-purple-400 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.2)]">
-                            {/* Inner concentric ring */}
-                            <div className="w-[70%] h-[70%] bg-purple-950/60 rounded-[50%] flex items-center justify-center text-white border border-purple-400/20">
-                              <span className="text-sm font-bold">✓</span>
+                      if (isReviewNode) {
+                        pedestalElement = (
+                          <motion.div
+                            initial={lesson.id === animatingLessonId && !shouldReduceMotion ? { scale: 1.2, opacity: 0.5 } : false}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="w-28 h-28 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                          >
+                            {/* Outer shadow */}
+                            <div className="absolute bottom-2 w-24 h-6 bg-black/50 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-24 h-12 bg-[#b45309] rounded-[50%] border-b-[5px] border-[#78350f]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-24 h-12 bg-gradient-to-b from-yellow-400 to-amber-500 border border-yellow-300 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_0_15px_rgba(245,158,11,0.3)] overflow-hidden">
+                              {/* Shine Sweep Overlay */}
+                              {!shouldReduceMotion && (
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shine-sweep" />
+                              )}
+                              {/* Inner concentric ring */}
+                              <div className="w-[70%] h-[70%] bg-amber-950/80 rounded-[50%] flex items-center justify-center text-yellow-400 border border-yellow-400/20">
+                                <span className="text-base font-extrabold">👑</span>
+                              </div>
                             </div>
-                          </div>
-                        </motion.div>
-                      );
+                          </motion.div>
+                        );
+                      } else {
+                        pedestalElement = (
+                          <motion.div
+                            initial={lesson.id === animatingLessonId && !shouldReduceMotion ? { scale: 1.2, opacity: 0.5 } : false}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                            className="w-24 h-24 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                          >
+                            {/* Outer shadow */}
+                            <div className="absolute bottom-2 w-20 h-5 bg-black/40 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-20 h-10 bg-[#5b21b6] rounded-[50%] border-b-[5px] border-[#4c1d95]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-purple-500 to-indigo-600 border border-purple-400 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.2)] overflow-hidden">
+                              {/* Shine Sweep Overlay */}
+                              {!shouldReduceMotion && (
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full animate-shine-sweep" />
+                              )}
+                              {/* Inner concentric ring */}
+                              <div className="w-[70%] h-[70%] bg-purple-950/60 rounded-[50%] flex items-center justify-center text-white border border-purple-400/20">
+                                <span className="text-sm font-bold">✓</span>
+                              </div>
+                            </div>
+                          </motion.div>
+                        );
+                      }
                     } else if (isActiveDynamic) {
-                      pedestalElement = (
-                        <motion.div
-                          initial={lesson.id === nextLessonId && !shouldReduceMotion ? { y: 15, opacity: 0 } : false}
-                          animate={{ y: 0, opacity: 1 }}
-                          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                          className="w-24 h-28 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
-                        >
-                          {/* Glow Shadow */}
-                          <div className="absolute bottom-2 w-22 h-6 bg-cyan-500/20 blur-md rounded-[50%]" />
-                          {/* Depth / Side wall */}
-                          <div className="absolute bottom-4 w-20 h-10 bg-indigo-950 rounded-[50%] border-b-[6px] border-[#1e1b4b]" />
-                          {/* Top surface */}
-                          <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-purple-500 to-indigo-600 border border-purple-300 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]">
-                            {/* Inner core - glowing cyan circle */}
-                            <div className="w-[70%] h-[70%] bg-cyan-400 rounded-[50%] shadow-[0_0_15px_#22d3ee] border border-white/50 flex items-center justify-center animate-glow-pulse" />
-                          </div>
-                          {/* Light beam cylinder */}
-                          {!shouldReduceMotion && (
-                            <div className="absolute bottom-[24px] w-14 h-16 bg-gradient-to-t from-cyan-400/20 via-cyan-400/5 to-transparent pointer-events-none rounded-[50%/20%] blur-[1px]" />
-                          )}
-                          {/* Floating Badge (Green diamond with white inner square and black dot) */}
-                          <div className="absolute bottom-[36px] z-20 animate-float pointer-events-none">
-                            <div className="w-8 h-8 bg-[#22c55e] rounded-lg rotate-45 flex items-center justify-center border border-green-400 shadow-[0_0_12px_rgba(34,197,94,0.5)]">
-                              <div className="w-3.5 h-3.5 bg-white rounded flex items-center justify-center -rotate-45">
-                                <div className="w-1.5 h-1.5 bg-black rounded-sm" />
+                      if (isReviewNode) {
+                        pedestalElement = (
+                          <motion.div
+                            initial={lesson.id === nextLessonId && !shouldReduceMotion ? { y: 15, opacity: 0 } : false}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                            className="w-28 h-32 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                          >
+                            {/* Glow Shadow */}
+                            <div className="absolute bottom-2 w-26 h-7 bg-yellow-500/20 blur-md rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-24 h-12 bg-amber-950 rounded-[50%] border-b-[6px] border-[#451a03]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-24 h-12 bg-gradient-to-b from-yellow-400 to-amber-500 border border-yellow-300 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_0_15px_rgba(245,158,11,0.3)]" />
+                            {/* Light beam cylinder */}
+                            {!shouldReduceMotion && (
+                              <div className="absolute bottom-[28px] w-18 h-20 bg-gradient-to-t from-yellow-400/20 via-yellow-400/5 to-transparent pointer-events-none rounded-[50%/20%] blur-[1px]" />
+                            )}
+                            {/* Fox Mascot sitting on the pedestal */}
+                            <div className="absolute bottom-[28px] w-20 h-20 z-20 pointer-events-none flex items-center justify-center">
+                              <FoxMascot 
+                                animation={animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive' ? 'Jump' : 'Sit'} 
+                                className="w-full h-full"
+                              />
+                            </div>
+                          </motion.div>
+                        );
+                      } else {
+                        pedestalElement = (
+                          <motion.div
+                            initial={lesson.id === nextLessonId && !shouldReduceMotion ? { y: 15, opacity: 0 } : false}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                            className="w-24 h-28 relative flex items-center justify-center hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                          >
+                            {/* Glow Shadow */}
+                            <div className="absolute bottom-2 w-22 h-6 bg-cyan-500/20 blur-md rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-20 h-10 bg-indigo-950 rounded-[50%] border-b-[6px] border-[#1e1b4b]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-purple-500 to-indigo-600 border border-purple-300 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_4px_rgba(255,255,255,0.3)]">
+                              {/* Inner core - glowing cyan circle */}
+                              <div className="w-[70%] h-[70%] bg-cyan-400 rounded-[50%] shadow-[0_0_15px_#22d3ee] border border-white/50 flex items-center justify-center animate-glow-pulse" />
+                            </div>
+                            {/* Light beam cylinder */}
+                            {!shouldReduceMotion && (
+                              <div className="absolute bottom-[24px] w-14 h-16 bg-gradient-to-t from-cyan-400/20 via-cyan-400/5 to-transparent pointer-events-none rounded-[50%/20%] blur-[1px]" />
+                            )}
+                            {/* Fox Mascot sitting on the pedestal */}
+                            <div className="absolute bottom-[28px] w-16 h-16 z-20 pointer-events-none flex items-center justify-center">
+                              <FoxMascot 
+                                animation={animatingLessonId && lesson.id === nextLessonId && animState === 'nextActive' ? 'Jump' : 'Sit'} 
+                                className="w-full h-full"
+                              />
+                            </div>
+                          </motion.div>
+                        );
+                      }
+                    } else if (status.isUnlocked && !status.isImplemented) {
+                      if (isReviewNode) {
+                        pedestalElement = (
+                          <div className="w-28 h-28 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
+                            {/* Shadow */}
+                            <div className="absolute bottom-2 w-24 h-6 bg-black/40 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-24 h-12 bg-[#92400e] rounded-[50%] border-b-[5px] border-[#78350f]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-24 h-12 bg-gradient-to-b from-[#f59e0b] to-[#d97706] border border-[#fef08a]/60 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.3),0_0_15px_rgba(245,158,11,0.2)]">
+                              {/* Inner Core */}
+                              <div className="w-[70%] h-[70%] bg-[#451a03] rounded-[50%] flex items-center justify-center text-[#f59e0b] border border-[#d97706]/30">
+                                <span className="text-sm font-bold">🛠️</span>
                               </div>
                             </div>
                           </div>
-                        </motion.div>
-                      );
-                    } else if (status.isUnlocked && !status.isImplemented) {
-                      pedestalElement = (
-                        <div className="w-24 h-24 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
-                          {/* Shadow */}
-                          <div className="absolute bottom-2 w-20 h-5 bg-black/40 blur-sm rounded-[50%]" />
-                          {/* Depth / Side wall */}
-                          <div className="absolute bottom-4 w-20 h-10 bg-[#92400e] rounded-[50%] border-b-[5px] border-[#78350f]" />
-                          {/* Top surface */}
-                          <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-[#f59e0b] to-[#d97706] border border-[#fef08a]/60 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.3),0_0_15px_rgba(245,158,11,0.2)]">
-                            {/* Inner Core */}
-                            <div className="w-[70%] h-[70%] bg-[#451a03] rounded-[50%] flex items-center justify-center text-[#f59e0b] border border-[#d97706]/30">
-                              <span className="text-xs font-bold">🛠️</span>
+                        );
+                      } else {
+                        pedestalElement = (
+                          <div className="w-24 h-24 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
+                            {/* Shadow */}
+                            <div className="absolute bottom-2 w-20 h-5 bg-black/40 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-20 h-10 bg-[#92400e] rounded-[50%] border-b-[5px] border-[#78350f]" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-[#f59e0b] to-[#d97706] border border-[#fef08a]/60 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.3),0_0_15px_rgba(245,158,11,0.2)]">
+                              {/* Inner Core */}
+                              <div className="w-[70%] h-[70%] bg-[#451a03] rounded-[50%] flex items-center justify-center text-[#f59e0b] border border-[#d97706]/30">
+                                <span className="text-xs font-bold">🛠️</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      );
+                        );
+                      }
                     } else {
-                      pedestalElement = (
-                        <div className="w-24 h-24 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
-                          {/* Shadow */}
-                          <div className="absolute bottom-2 w-20 h-5 bg-black/30 blur-sm rounded-[50%]" />
-                          {/* Depth / Side wall */}
-                          <div className="absolute bottom-4 w-20 h-10 bg-slate-700 rounded-[50%] border-b-[5px] border-slate-800" />
-                          {/* Top surface */}
-                          <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-slate-300 to-slate-500 border border-slate-200 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.4),0_0_12px_rgba(148,163,184,0.15)]">
-                            {/* Inner Core */}
-                            <div className="w-[70%] h-[70%] bg-slate-900/90 rounded-[50%] flex items-center justify-center text-slate-500 border border-slate-650/40">
-                              <span className="text-xs font-black font-mono">{lessonIdx + 1}</span>
+                      if (isReviewNode) {
+                        pedestalElement = (
+                          <div className="w-28 h-28 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
+                            {/* Shadow */}
+                            <div className="absolute bottom-2 w-24 h-6 bg-black/30 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-24 h-12 bg-slate-700 rounded-[50%] border-b-[5px] border-slate-800" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-24 h-12 bg-gradient-to-b from-slate-300 to-slate-500 border border-slate-200 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.4),0_0_12px_rgba(148,163,184,0.15)]">
+                              {/* Inner Core */}
+                              <div className="w-[70%] h-[70%] bg-slate-900/90 rounded-[50%] flex items-center justify-center text-slate-500 border border-slate-650/40">
+                                <span className="text-sm font-bold">🔒</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      );
+                        );
+                      } else {
+                        pedestalElement = (
+                          <div className="w-24 h-24 relative flex items-center justify-center hover:scale-102 transition-transform duration-200">
+                            {/* Shadow */}
+                            <div className="absolute bottom-2 w-20 h-5 bg-black/30 blur-sm rounded-[50%]" />
+                            {/* Depth / Side wall */}
+                            <div className="absolute bottom-4 w-20 h-10 bg-slate-700 rounded-[50%] border-b-[5px] border-slate-800" />
+                            {/* Top surface */}
+                            <div className="absolute bottom-5 w-20 h-10 bg-gradient-to-b from-slate-300 to-slate-500 border border-slate-200 rounded-[50%] flex items-center justify-center shadow-[inset_0_2px_3px_rgba(255,255,255,0.4),0_0_12px_rgba(148,163,184,0.15)]">
+                              {/* Inner Core */}
+                              <div className="w-[70%] h-[70%] bg-slate-900/90 rounded-[50%] flex items-center justify-center text-slate-500 border border-slate-650/40">
+                                <span className="text-xs font-black font-mono">{lessonIdx + 1}</span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      }
                     }
 
                     return (
@@ -437,27 +605,37 @@ export default function CourseMap() {
                             className="absolute top-10 left-1/2 -translate-x-1/2 pointer-events-none -z-10 overflow-visible"
                             style={{ width: '128px', height: '144px' }}
                           >
+                            <defs>
+                              <linearGradient id={`grad-completed-${lesson.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" stopColor="#a855f7" />
+                                <stop offset="100%" stopColor="#06b6d4" />
+                              </linearGradient>
+                            </defs>
                             {lesson.id === animatingLessonId && animState === 'pedestal' ? (
                               <path
                                 d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
                                 fill="none"
-                                stroke="#1f2937"
-                                strokeWidth="6"
+                                stroke="#374151"
+                                strokeWidth="4"
+                                strokeDasharray="4 4"
                                 strokeLinecap="round"
+                                className="opacity-60"
                               />
                             ) : lesson.id === animatingLessonId && animState === 'connector' ? (
                               <>
                                 <path
                                   d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
                                   fill="none"
-                                  stroke="#1f2937"
-                                  strokeWidth="6"
+                                  stroke="#374151"
+                                  strokeWidth="4"
+                                  strokeDasharray="4 4"
                                   strokeLinecap="round"
+                                  className="opacity-60"
                                 />
                                 <motion.path
                                   d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
                                   fill="none"
-                                  stroke="#a855f7"
+                                  stroke={`url(#grad-completed-${lesson.id})`}
                                   strokeWidth="6"
                                   strokeLinecap="round"
                                   initial={{ pathLength: 0 }}
@@ -467,14 +645,49 @@ export default function CourseMap() {
                                 />
                               </>
                             ) : (
-                              <path
-                                d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
-                                fill="none"
-                                stroke={isCompletedDynamic ? "#a855f7" : "#1f2937"}
-                                strokeWidth="6"
-                                strokeLinecap="round"
-                                style={isCompletedDynamic ? { filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.4))' } : undefined}
-                              />
+                              (() => {
+                                const leadsToActive = activeLesson && activeLesson.id === level.lessons[lessonIdx + 1]?.id;
+                                if (isCompletedDynamic) {
+                                  if (leadsToActive) {
+                                    return (
+                                      <motion.path
+                                        d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                        fill="none"
+                                        stroke={`url(#grad-completed-${lesson.id})`}
+                                        strokeWidth="6"
+                                        strokeLinecap="round"
+                                        strokeDasharray="6 6"
+                                        animate={!shouldReduceMotion ? { strokeDashoffset: [0, -20] } : {}}
+                                        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                        style={{ filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.5))' }}
+                                      />
+                                    );
+                                  } else {
+                                    return (
+                                      <path
+                                        d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                        fill="none"
+                                        stroke={`url(#grad-completed-${lesson.id})`}
+                                        strokeWidth="6"
+                                        strokeLinecap="round"
+                                        style={{ filter: 'drop-shadow(0 0 6px rgba(168,85,247,0.4))' }}
+                                      />
+                                    );
+                                  }
+                                } else {
+                                  return (
+                                    <path
+                                      d={`M ${lessonIdx % 2 === 0 ? -28 : 28} 12 C ${lessonIdx % 2 === 0 ? -28 : 28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 72, ${lessonIdx % 2 === 0 ? 28 : -28} 132`}
+                                      fill="none"
+                                      stroke="#374151"
+                                      strokeWidth="4"
+                                      strokeDasharray="4 4"
+                                      strokeLinecap="round"
+                                      className="opacity-60"
+                                    />
+                                  );
+                                }
+                              })()
                             )}
                           </svg>
                         )}
