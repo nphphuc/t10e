@@ -7,6 +7,7 @@ import { calculateLessonScore } from './scoring';
 import type { AnswerState } from './scoring';
 import { getHintForAttempt, getDisabledDistractors } from './hints';
 import { playSelect, playCorrect, playWrong, playFanfare, isMuted, setMuted } from './sound';
+import FoxMascot from '../components/FoxMascot';
 
 // Widgets
 import ChoiceWidget from '../widgets/ChoiceWidget';
@@ -71,6 +72,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   
   const [exitStage, setExitStage] = useState(0);
   const [displayScore, setDisplayScore] = useState(0);
+  const [foxAnim, setFoxAnim] = useState<'Sit' | 'Jump' | 'Howl' | 'Bark' | 'Run' | 'Walk' | 'Fall'>('Sit');
 
   const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
 
@@ -148,8 +150,29 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     setIsSubmitted(false);
     setIsCorrect(null);
     setDisabledOptions([]);
+    setFoxAnim('Sit');
     screenStartTime.current = Date.now();
   }, [currentScreenIdx]);
+
+  useEffect(() => {
+    if (isSubmitted && isCorrect === false && !shouldReduceMotion) {
+      setFoxAnim('Bark');
+      const timer = setTimeout(() => {
+        setFoxAnim('Sit');
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted, isCorrect, attempts, shouldReduceMotion]);
+
+  useEffect(() => {
+    if (isSubmitted && isCorrect === true && !shouldReduceMotion) {
+      setFoxAnim('Jump');
+      const timer = setTimeout(() => {
+        setFoxAnim('Sit');
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted, isCorrect, shouldReduceMotion]);
 
   const handleAnswerSelect = (val: any) => {
     if (isSubmitted) return;
@@ -488,7 +511,13 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
       <div className="min-h-screen flex items-center justify-center bg-[#0c0d0e] px-4 py-8">
         <div className="max-w-md w-full bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl text-center space-y-6 animate-fadeIn">
           <div>
-            <span className="text-6xl">🏆</span>
+            {scoreResult.isMastered ? (
+              <div className="h-32 mx-auto" aria-hidden="true">
+                <FoxMascot animation="Howl" />
+              </div>
+            ) : (
+              <span className="text-6xl">🏆</span>
+            )}
             <h2 className="text-3xl font-extrabold mt-4 font-display text-white">Kết Quả Bài Học</h2>
             <p className="text-sm text-gray-400 mt-1">{lesson.title}</p>
           </div>
@@ -584,7 +613,6 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   // Get active hint state
   const activeHint = getHintForAttempt(currentScreen, attempts);
   const isCorrectSubmitted = isSubmitted && isCorrect;
-  const isWrongSubmitted = isSubmitted && isCorrect === false;
 
   // Word count check warning for pedagogy rule (max 45 Vietnamese words)
   const isHookOrExplore = currentScreen.role === 'hook' || currentScreen.role === 'explore';
@@ -676,14 +704,25 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           </AnimatePresence>
         </div>
 
-        {/* Solution Worked Example Block */}
-        {isWrongSubmitted && currentScreen.solution && (
-          <div className="p-5 rounded-2xl bg-yellow-950/15 border border-yellow-900/40 text-yellow-100/90 text-[15px] leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
-            <div className="font-bold text-yellow-400 flex items-center gap-1.5 mb-2 text-lg">
-              <span>💡</span>
-              <span>Lời giải mẫu (Worked Example):</span>
+        {/* Fox mascot hint/solution companion */}
+        {!isCorrectSubmitted && attempts > 0 && activeHint && (
+          <div className={`flex gap-4 items-end mt-6 ${!shouldReduceMotion ? 'animate-fadeIn' : ''}`}>
+            <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 relative">
+              <FoxMascot animation={foxAnim} className="w-full h-full" />
             </div>
-            <p>{currentScreen.solution}</p>
+            <div 
+              className="flex-1 bg-gray-900 border border-gray-800 rounded-3xl p-5 relative shadow-xl text-gray-200 text-[15px] leading-relaxed"
+              role="status"
+              aria-live="polite"
+            >
+              {/* Triangle/Speech bubble tail pointing to Fox */}
+              <div className="absolute left-[-8px] bottom-[28px] w-4 h-4 bg-gray-900 border-l border-b border-gray-800 rotate-45 transform pointer-events-none" />
+              <div className="font-bold text-blue-400 mb-1 flex items-center gap-1.5 font-display text-base">
+                <span>🦊</span>
+                <span>{attempts >= 3 ? "Lời giải mẫu (Worked Example):" : `Fox gợi ý (Tầng ${attempts}):`}</span>
+              </div>
+              <p className="whitespace-pre-line leading-relaxed">{activeHint.text}</p>
+            </div>
           </div>
         )}
       </main>
@@ -701,17 +740,6 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
                   <span>Đúng!</span>
                 </div>
                 <p>{currentScreen.feedbackCorrect || currentScreen.explanation}</p>
-              </div>
-            )}
-
-            {/* Hints Escalation Output */}
-            {!isCorrectSubmitted && activeHint && (
-              <div className="text-gray-300 text-[15px] md:text-base leading-relaxed md:leading-loose whitespace-pre-line animate-fadeIn">
-                <div className="font-bold text-blue-400 mb-1 flex items-center gap-1.5 text-base">
-                  <span>💡</span>
-                  <span>{attempts >= 3 ? "Giải đáp" : `Gợi ý tầng ${attempts}`}</span>
-                </div>
-                <p>{activeHint.text}</p>
               </div>
             )}
           </div>
