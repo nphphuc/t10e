@@ -1,6 +1,7 @@
 
 
 import { motion, useReducedMotion } from 'framer-motion';
+import SuccessBurst from '../components/SuccessBurst';
 
 interface TrueFalseWidgetProps {
   data: {
@@ -37,7 +38,7 @@ export default function TrueFalseWidget({
         const isSelected = selectedAnswer === opt.value;
         const isCorrect = opt.value === data.correct;
 
-        let btnClass = "border-2 border-gray-700 bg-gray-800/40 text-gray-200 hover:border-gray-500 hover:bg-gray-800/80";
+        let btnClass = "btn-3d border-2 border-gray-700 bg-gray-800/40 text-gray-200 hover:border-gray-500 hover:bg-gray-800/80";
 
         if (isSubmitted) {
           if (isCorrect) {
@@ -48,7 +49,7 @@ export default function TrueFalseWidget({
             btnClass = "border-gray-800 bg-gray-900/40 text-gray-500 cursor-default";
           }
         } else if (isSelected) {
-          btnClass = "border-blue-500 bg-blue-500/10 text-blue-400 font-semibold";
+          btnClass = "btn-3d btn-3d-selected border-blue-500 bg-blue-500/10 text-blue-400 font-semibold";
         }
 
         return (
@@ -59,9 +60,10 @@ export default function TrueFalseWidget({
             whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
             whileHover={shouldReduceMotion ? {} : { scale: 1.02 }}
             transition={{ type: "spring", stiffness: 400, damping: 15 }}
-            className={`p-6 rounded-2xl text-center font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${btnClass}`}
+            className={`relative p-6 rounded-2xl text-center font-bold text-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 ${btnClass}`}
           >
             {opt.label}
+            {isSubmitted && isCorrect && isSelected && <SuccessBurst />}
           </motion.button>
         );
       })}

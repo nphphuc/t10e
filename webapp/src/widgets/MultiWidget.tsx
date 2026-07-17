@@ -1,6 +1,7 @@
 
 
 import { motion, useReducedMotion } from 'framer-motion';
+import SuccessBurst from '../components/SuccessBurst';
 
 interface MultiWidgetProps {
   data: {
@@ -45,7 +46,7 @@ export default function MultiWidget({
           const isDisabled = disabledOptions.includes(idx);
           const isCorrect = data.correctSet.includes(idx);
 
-          let btnClass = "border-2 border-gray-700 bg-gray-800/40 text-gray-200 hover:border-gray-500 hover:bg-gray-800/80";
+          let btnClass = "btn-3d border-2 border-gray-700 bg-gray-800/40 text-gray-200 hover:border-gray-500 hover:bg-gray-800/80";
           let checkboxClass = "border-gray-500";
 
           if (isDisabled) {
@@ -63,7 +64,7 @@ export default function MultiWidget({
               checkboxClass = "border-gray-800";
             }
           } else if (isSelected) {
-            btnClass = "border-blue-500 bg-blue-500/10 text-blue-400 font-semibold";
+            btnClass = "btn-3d btn-3d-selected border-blue-500 bg-blue-500/10 text-blue-400 font-semibold";
             checkboxClass = "border-blue-500 bg-blue-500";
           }
 
@@ -75,7 +76,7 @@ export default function MultiWidget({
               whileTap={shouldReduceMotion ? {} : { scale: 0.98 }}
               whileHover={shouldReduceMotion ? {} : { scale: 1.01 }}
               transition={{ type: "spring", stiffness: 400, damping: 15 }}
-              className={`w-full p-4 rounded-xl text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-3 ${btnClass}`}
+              className={`relative w-full p-4 rounded-xl text-left transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-3 ${btnClass}`}
             >
               <div className={`w-5 h-5 rounded flex items-center justify-center border-2 transition-all ${checkboxClass}`}>
                 {isSelected && (
@@ -85,6 +86,7 @@ export default function MultiWidget({
                 )}
               </div>
               <span>{option}</span>
+              {isSubmitted && isCorrect && isSelected && <SuccessBurst />}
             </motion.button>
           );
         })}

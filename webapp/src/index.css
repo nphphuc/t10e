@@ -179,6 +179,10 @@ body {
   animation: shine-sweep 6s infinite ease-in-out;
 }
 
+/* Ẩn vòng/loading mặc định của model-viewer (fox) để không nhấp nháy khi fox re-mount lúc chọn node */
+model-viewer::part(default-progress-bar) { display: none !important; }
+model-viewer { --poster-color: transparent; }
+
 @media (prefers-reduced-motion: reduce) {
   .animate-shake, .animate-pulse-success, .animate-glow-pulse, .animate-float, .animate-fadeIn, .animate-slideUp, .animate-segment-pop, .burst-particle, .animate-blob-float, .animate-blob-float-delayed, .animate-blob-float-fast, .animate-shine-sweep {
     animation: none !important;

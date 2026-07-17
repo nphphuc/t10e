@@ -2,67 +2,62 @@ import { useState, useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import FoxMascot from './FoxMascot';
 
+/**
+ * Transition "fox rơi vào ải":
+ * - Fox rơi từ trên xuống GIỮA, dừng ~0.75s, rồi rơi tiếp xuống dưới.
+ * - Nền đen là lớp RIÊNG, tự mờ đi NGAY khi fox tới giữa → nội dung lộ ra sớm
+ *   (content pop-up đồng bộ trong PageTransition), fox rơi tiếp đè lên nội dung.
+ * - Overlay luôn pointer-events-none (không chặn tương tác) và tự gỡ khỏi DOM →
+ *   KHÔNG BAO GIỜ kẹt đen kể cả khi có hiccup.
+ * - reduced-motion: bỏ hoàn toàn.
+ */
 export default function FoxFallTransition() {
   const shouldReduceMotion = useReducedMotion();
-  const [stage, setStage] = useState<'enter' | 'exit' | 'removed'>('enter');
+  const [removed, setRemoved] = useState(false);
 
   useEffect(() => {
     if (shouldReduceMotion) {
-      setStage('removed');
+      setRemoved(true);
       return;
     }
-
-    const tExit = setTimeout(() => {
-      setStage('exit');
-    }, 1500); // Giữ overlay ~1.5s ở trạng thái enter (rơi 0.3s + dừng 0.75s + rơi tiếp 0.3s + trễ nhẹ)
-
-    const tRemove = setTimeout(() => {
-      setStage('removed');
-    }, 1850); // Gỡ hoàn toàn khỏi DOM sau khi exit animation xong (1.5s + 350ms)
-
-    return () => {
-      clearTimeout(tExit);
-      clearTimeout(tRemove);
-    };
+    // Fox rơi xong (~1.5s) thì gỡ overlay
+    const t = setTimeout(() => setRemoved(true), 1500);
+    return () => clearTimeout(t);
   }, [shouldReduceMotion]);
 
-  if (stage === 'removed' || shouldReduceMotion) {
+  if (removed || shouldReduceMotion) {
     return null;
   }
 
-  // Tạo ngẫu nhiên 12 vạch tốc độ gió
-  const lines = Array.from({ length: 12 }).map((_, idx) => {
-    const left = 5 + (idx * 8.5) + (Math.random() * 4); // Phân bổ đều chiều rộng kèm lệch nhẹ
-    const duration = 0.45 + Math.random() * 0.3; // Tốc độ chạy lên nhanh chậm ngẫu nhiên
-    const delay = Math.random() * 0.35;
-    const height = 120 + Math.random() * 140; // Chiều dài vạch ngẫu nhiên
-    const opacity = 0.15 + Math.random() * 0.25;
-    return { left, duration, delay, height, opacity, id: idx };
-  });
+  // 12 vạch gió chạy dọc lên
+  const lines = Array.from({ length: 12 }).map((_, idx) => ({
+    id: idx,
+    left: 5 + idx * 8.5 + Math.random() * 4,
+    duration: 0.45 + Math.random() * 0.3,
+    delay: Math.random() * 0.35,
+    height: 120 + Math.random() * 140,
+    opacity: 0.15 + Math.random() * 0.25,
+  }));
 
   return (
-    <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: stage === 'exit' ? 0 : 1 }}
-      transition={{ duration: 0.35, ease: 'easeOut' }}
-      className={`fixed inset-0 z-[999] bg-[#0c0d0e] flex flex-col items-center justify-center overflow-hidden select-none ${
-        stage === 'exit' ? 'pointer-events-none' : 'pointer-events-auto'
-      }`}
-      aria-hidden="true"
-    >
+    <div className="fixed inset-0 z-[999] pointer-events-none overflow-hidden select-none" aria-hidden="true">
       <style>{`
         @keyframes speed-line-up {
-          0% {
-            transform: translateY(100vh);
-          }
-          100% {
-            transform: translateY(-100vh);
-          }
+          0% { transform: translateY(100vh); }
+          100% { transform: translateY(-100vh); }
         }
       `}</style>
 
-      {/* Hiệu ứng gió: các vạch tốc độ chạy dọc ngược lên */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-50">
+      {/* Lớp nền đen RIÊNG: mờ đi ngay khi fox tới giữa (~0.35s) để content lộ ra */}
+      <motion.div
+        className="absolute inset-0 bg-[#0c0d0e]"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 0 }}
+        transition={{ duration: 0.35, delay: 0.9, ease: 'easeOut' }}
+      />
+
+      {/* Gió */}
+      <div className="absolute inset-0 overflow-hidden">
         {lines.map((line) => (
           <div
             key={line.id}
@@ -78,33 +73,26 @@ export default function FoxFallTransition() {
         ))}
       </div>
 
-      {/* Con Fox chạy animation Fall rơi từ trên xuống, dừng lại 0.75s ở giữa rồi rơi tiếp */}
-      <motion.div
-        initial={{ y: '-60vh', scale: 0.8, opacity: 0, rotate: -8 }}
-        animate={{ 
-          y: ['-60vh', '0vh', '0vh', '60vh'], 
-          scale: [0.8, 1, 1, 0.9], 
-          opacity: [0, 1, 1, 1], 
-          rotate: [-8, 0, 0, 8] 
-        }}
-        transition={{ 
-          duration: 1.35, 
-          times: [0, 0.22, 0.78, 1], 
-          ease: ['easeOut', 'linear', 'easeIn'] 
-        }}
-        className="w-[280px] h-[280px] flex items-center justify-center relative select-none pointer-events-none"
-      >
-        <FoxMascot animation="Fall" className="w-full h-full" />
-      </motion.div>
-
-      {/* Speed wind vignette blur/darken edges */}
-      <div 
-        className="absolute inset-0 pointer-events-none border-[30px] border-transparent"
-        style={{
-          boxShadow: 'inset 0 0 120px rgba(12, 13, 14, 0.95)',
-          backdropFilter: 'blur(0.5px)',
-        }}
-      />
-    </motion.div>
+      {/* Fox: rơi xuống giữa → dừng 0.75s → rơi tiếp xuống dưới */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <motion.div
+          initial={{ y: '-70vh', scale: 0.8, opacity: 0, rotate: -8 }}
+          animate={{
+            y: ['-70vh', '0vh', '0vh', '70vh'],
+            scale: [0.8, 1, 1, 0.9],
+            opacity: [0, 1, 1, 1],
+            rotate: [-8, 0, 0, 8],
+          }}
+          transition={{
+            duration: 1.05,
+            times: [0, 0.32, 0.5, 1],
+            ease: ['easeOut', 'linear', 'easeIn'],
+          }}
+          className="w-[260px] h-[260px] flex items-center justify-center"
+        >
+          <FoxMascot animation="Fall" className="w-full h-full" />
+        </motion.div>
+      </div>
+    </div>
   );
 }
