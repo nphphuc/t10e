@@ -12,13 +12,16 @@
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Hệ thống FreshFood chuẩn bị triển khai lên môi trường Cloud AWS. Bạn được giao nhiệm vụ mô tả xem Web Server và Database Server sẽ chạy trên các máy ảo nào và kết nối với nhau ra sao. Bạn nên chọn vẽ biểu đồ nào?",
-      "options": [
-        "Class Diagram để mô tả các thực thể",
-        "Sequence Diagram để mô tả trình tự gọi",
-        "Deployment Diagram để mô tả cấu hình cài đặt vật lý"
-      ],
+      "type": "visual",
+      "visual": {
+        "variant": "view-switcher",
+        "options": [
+          "Class Diagram để mô tả các thực thể",
+          "Sequence Diagram để mô tả trình tự gọi",
+          "Deployment Diagram để mô tả cấu hình cài đặt vật lý"
+        ]
+      },
+      "prompt": "Hệ thống FreshFood chuẩn bị triển khai lên môi trường Cloud AWS. Bạn được giao nhiệm vụ mô tả xem Web Server và Database Server sẽ chạy trên các máy ảo nào và kết nối với nhau ra sao. Hãy thử chuyển qua các view bên dưới rồi chọn đúng biểu đồ nên vẽ.",
       "correct": 2,
       "explanation": "Deployment Diagram (Biểu đồ triển khai) là biểu đồ duy nhất trong UML được thiết kế đặc thù để mô tả cấu trúc vật lý gồm các node phần cứng, môi trường thực thi và cách phân bổ các thành phần phần mềm trên đó.",
       "distractorTags": {
@@ -28,7 +31,7 @@
       "hints": [
         "Chúng ta đang nói về máy ảo, server vật lý và phân bổ mạng.",
         "Sơ đồ nào tập trung vào môi trường triển khai thực tế?",
-        "Xem mục đích của Deployment Diagram trong slide 7 hoặc 12."
+        "Deployment Diagram là biểu đồ duy nhất mô tả node phần cứng và cách phần mềm được cài đặt lên đó."
       ],
       "weight": 2
     },
@@ -77,6 +80,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong Clinic Booking, bạn cần giải thích cho khách hàng phi kỹ thuật: 'bác sĩ và bệnh nhân dùng hệ thống để làm những việc gì'. Biểu đồ nào phù hợp nhất để trình bày?",
+      "options": [
+        "Use Case Diagram — mô tả actor và mục tiêu chức năng nhìn từ bên ngoài",
+        "Class Diagram — mô tả chi tiết thuộc tính dữ liệu",
+        "Sequence Diagram — mô tả từng lời gọi hàm nội bộ"
+      ],
+      "correct": 0,
+      "explanation": "Với khách hàng phi kỹ thuật quan tâm 'ai làm gì', Use Case Diagram là lựa chọn đúng vì nó mô tả actor và mục tiêu chức năng ở mức cao, không lộ chi tiết cài đặt.",
+      "distractorTags": {
+        "1": "view-purpose",
+        "2": "view-purpose"
+      },
+      "hints": [
+        "Khách hàng phi kỹ thuật cần bức tranh tổng quan 'ai dùng hệ thống để làm gì', không cần chi tiết cài đặt.",
+        "Biểu đồ nào tập trung vào actor và mục tiêu chức năng nhìn từ bên ngoài?",
+        "Use Case Diagram được thiết kế riêng để giao tiếp phạm vi chức năng với người không chuyên kỹ thuật."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: ký hiệu 'appt_2201 : Appointment' trong UML thể hiện điều gì?",
+      "options": [
+        "Một Class chung cho mọi lịch hẹn",
+        "Một Object instance cụ thể của class Appointment",
+        "Một Operation xử lý lịch hẹn"
+      ],
+      "correct": 1,
+      "explanation": "Đúng, cú pháp 'tên : ClassName' với tên được gạch chân biểu thị một object instance cụ thể ở runtime, không phải class.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài về Class vs Object và cách gạch chân tên.",
+        "Phần trước dấu hai chấm là gì, phần sau là gì?",
+        "Đây là object instance, vì tên riêng biệt đứng trước class name."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Mỗi biểu đồ UML có một nhiệm vụ riêng (separation of concerns). Đừng cố ép một biểu đồ giải quyết bài toán không thuộc sở trường của nó (lỗi view-purpose). Hãy chọn đúng công cụ cho từng bài toán.",

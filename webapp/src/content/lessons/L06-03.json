@@ -3,6 +3,9 @@
   "title": "Hai diagram, một interaction",
   "minutes": 9,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#8"],
   "objective": "So sánh và chọn giữa sequence diagram và communication diagram.",
   "misconceptions": ["sequence-equals-communication"],
   "screens": [
@@ -33,7 +36,7 @@
       "hints": [
         "Hãy chuyển sang tab Communication View và kiểm tra: liệu các đối tượng tham gia và trình tự số hiệu tin nhắn (1, 1.1) có khớp hoàn toàn với Sequence View không?",
         "Chúng có khác biệt về mặt thông tin truyền tải hay chỉ là khác nhau về cách bố trí hình ảnh?",
-        "Xem slide 8 về nguyên lý tương đương ngữ nghĩa."
+        "Cả hai biểu diễn cùng một tập message — chỉ khác cách trình bày, không khác nội dung."
       ],
       "weight": 2
     },
@@ -47,7 +50,7 @@
         "Communication diagram": "Tối ưu cho thấy layout kết nối giữa các object"
       },
       "explanation": "Sequence: timeline tốt. Communication: topology tốt. Chọn theo mục đích.",
-      "hints": ["Sequence = thời gian.", "Communication = kết nối.", "Xem slide 8."],
+      "hints": ["Sequence = thời gian.", "Communication = kết nối.", "Chọn diagram theo câu hỏi bạn muốn trả lời: 'khi nào' hay 'ai nối ai'."],
       "weight": 2
     },
     {
@@ -63,11 +66,57 @@
       "correct": 1,
       "explanation": "COMET khuyên dùng communication diagram vì dễ tích hợp các interaction diagrams thành integrated communication diagram cho toàn bộ hệ thống.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["COMET có preference về communication diagram.", "Integration step cần communication diagram.", "Xem slide 8 về COMET preference."],
+      "hints": ["COMET có preference về communication diagram.", "Integration step cần communication diagram.", "Bước tích hợp kiến trúc cần thấy rõ topology kết nối, đúng thế mạnh của Communication diagram."],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Hai thành viên team Clinic Booking cùng mô tả luồng 'Verify Insurance': một vẽ Sequence, một vẽ Communication. Kết quả nào đúng?",
+      "options": [
+        "Một trong hai đang vẽ sai vì không thống nhất định dạng",
+        "Cả hai đều đúng — chỉ là hai góc nhìn khác nhau của cùng một tập message",
+        "Chỉ Sequence Diagram mới là chuẩn UML"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ View Alarms, Sequence và Communication diagram tương đương về ngữ nghĩa — chỉ khác cách trình bày.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Hai diagram có truyền tải nội dung khác nhau hay chỉ khác cách trình bày?",
+        "So sánh với ví dụ View Alarms đã học.",
+        "Chúng semantically equivalent — chuyển đổi qua lại không mất thông tin."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: bạn đang debug luồng Đặt lịch hẹn và cần biết chính xác bước nào xảy ra trước, bước nào xảy ra sau. Nên dùng diagram nào?",
+      "options": [
+        "Communication diagram",
+        "Sequence diagram",
+        "Class diagram"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — khi cần biết thứ tự thời gian chính xác, Sequence diagram phù hợp hơn.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Sequence diagram.",
+        "'Trước/sau theo thời gian' là thế mạnh của diagram nào?",
+        "Sequence diagram luôn ưu tiên trục thời gian dọc."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Sequence và Communication diagram cùng mô tả interaction nhưng khác góc nhìn. Sequence mạnh về thời gian, Communication mạnh về topology. COMET khuyên dùng Communication cho việc tích hợp kiến trúc.",

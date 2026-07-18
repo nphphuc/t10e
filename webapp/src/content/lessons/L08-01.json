@@ -3,6 +3,9 @@
   "title": "Object-oriented architecture và class contract",
   "minutes": 11,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch14_Designing Object-Oriented Software Architectures.pptx#3-23"],
   "objective": "Hiểu OO architecture với information hiding, class interface design, và contract-based design.",
   "misconceptions": ["interface-is-implementation"],
   "screens": [
@@ -15,7 +18,7 @@
       "correct": 1,
       "explanation": "Information hiding: class encapsulate thông tin (data structure), ẩn khỏi phần còn lại của hệ thống. Chỉ truy cập qua interface operations.",
       "distractorTags": {"0": null, "2": null, "3": null},
-      "hints": ["Che giấu thông tin nội bộ.", "Interface = contract.", "Xem slide 3-4."],
+      "hints": ["Che giấu thông tin nội bộ.", "Interface = contract.", "Chỉ operations mới lộ ra ngoài, cấu trúc dữ liệu bên trong bị ẩn — đó là information hiding."],
       "weight": 2
     },
     {
@@ -42,7 +45,7 @@
       "correctSet": [0, 1, 2, 3],
       "explanation": "Class interface spec: thông tin ẩn, operations, pre/post conditions, anticipated changes. Code là internal.",
       "distractorTags": {"4": "interface-is-implementation"},
-      "hints": ["Interface = contract.", "Implementation = code.", "Xem slide 15-17."],
+      "hints": ["Interface = contract.", "Implementation = code.", "Source code đầy đủ luôn thuộc về implementation, không phải interface spec."],
       "weight": 2
     },
     {
@@ -57,11 +60,58 @@
       ],
       "correct": 0,
       "explanation": "Polymorphism: cùng operation name, khác implementation. Dynamic binding: chọn implementation tại runtime.",
-      "hints": ["Poly = nhiều, morph = hình.", "Dynamic binding = runtime binding.", "Xem slide 22-23."],
+      "hints": ["Poly = nhiều, morph = hình.", "Dynamic binding = runtime binding.", "Cùng tên method, khác cách chạy tùy theo class thực tế — đó là dấu hiệu của polymorphism."],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Clinic Booking có class interface spec cho AppointmentManager. Thành phần nào KHÔNG nên xuất hiện trong bản đặc tả interface này? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Tên các operations như bookSlot(), cancelSlot()",
+        "Precondition: slot phải đang trống",
+        "Toàn bộ mã nguồn xử lý logic khóa slot bên trong",
+        "Chi tiết thư viện database driver đang dùng"
+      ],
+      "correctSet": [2, 3],
+      "explanation": "Giống class interface spec đã học, mã nguồn xử lý logic và chi tiết driver cụ thể là implementation — phải ẩn khỏi interface, chỉ giữ lại operations và pre/postcondition.",
+      "distractorTags": {
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      },
+      "hints": [
+        "Interface chỉ mô tả CÁI GÌ (contract), không mô tả LÀM THẾ NÀO (implementation).",
+        "So sánh với ví dụ 'Full source code' đã học — chi tiết driver có giống vậy không?",
+        "Bất kỳ chi tiết cài đặt cụ thể nào cũng thuộc implementation, không thuộc interface."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: một dev đề xuất gom DoctorUI và AppointmentService cùng subsystem vì chúng vẽ gần nhau trên sơ đồ. Nhận xét?",
+      "options": [
+        "Hợp lý vì vị trí trên sơ đồ phản ánh cấu trúc",
+        "Không hợp lý — nên phân theo vai trò (UI vs Service), không theo vị trí vẽ",
+        "Không quan trọng"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — phân chia subsystem phải dựa trên vai trò/trách nhiệm, không dựa trên cách trình bày trực quan.",
+      "distractorTags": {
+        "0": "partition-by-appearance",
+        "2": "partition-by-appearance"
+      },
+      "hints": [
+        "Nhớ lại bài Cắt subsystem theo separation of concerns.",
+        "Vị trí vẽ trên sơ đồ có phản ánh đúng vai trò của object không?",
+        "Luôn phân chia theo trách nhiệm thực tế."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "OO design: information hiding (che giấu thông tin), class interface (contract), inheritance (Is-A), polymorphism (nhiều hình thái). Interface = contract, implementation = code nội bộ.",

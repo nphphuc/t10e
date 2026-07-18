@@ -3,6 +3,9 @@
   "title": "Quan hệ có dữ liệu riêng",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#11"],
   "objective": "Nhận biết khi nào cần association class để mô tả dữ liệu thuộc về mối quan hệ nhiều-nhiều.",
   "misconceptions": ["relationship-data"],
   "screens": [
@@ -25,7 +28,7 @@
       "hints": [
         "Hỏi: hoursWorked có thuộc về một Employee cụ thể không? Hay thuộc về một cặp (Employee, Project)?",
         "Association class dùng cho many-to-many association.",
-        "Xem slide 11 về association class."
+        "Dữ liệu chỉ có ý nghĩa khi biết cả cặp (Employee, Project) — đó là dấu hiệu cần association class."
       ],
       "weight": 2
     },
@@ -89,28 +92,61 @@
       "prompt": "Một ternary association là quan hệ ba chiều giữa ba class, và có thể có association class riêng.",
       "correct": true,
       "explanation": "Ternary association là quan hệ giữa 3 class. Association class vẫn có thể dùng cho ternary association.",
+      "hints": [
+        "Ternary nghĩa là 'ba' — đếm số class tham gia vào quan hệ.",
+        "Association class gắn dữ liệu vào một quan hệ, không giới hạn số class tham gia.",
+        "Quan hệ ba chiều vẫn là một association, chỉ khác số đầu tham gia."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
       "role": "transfer",
       "type": "scenario",
-      "prompt": "FOS: Shipper giao nhiều Order. Mỗi Order chỉ do một Shipper giao. Cần lưu thời gian giao và trạng thái giao. Có cần association class không?",
+      "prompt": "Clinic Booking: Một Doctor có thể tư vấn nhiều Patient qua nhiều Appointment. Một Patient cũng gặp nhiều Doctor khác nhau. Mỗi lần khám cần lưu chẩn đoán (diagnosis) riêng cho lần đó. Nên đặt diagnosis ở đâu?",
       "options": [
-        "Có, vì cần lưu dữ liệu giao hàng",
-        "Không, vì đây là one-to-many (một Shipper giao nhiều Order). Các thuộc tính này thuộc về Order",
-        "Cần tạo class riêng cho Shipping"
+        "Trong class Doctor",
+        "Trong class Patient",
+        "Trong association class Appointment giữa Doctor và Patient"
       ],
-      "correct": 1,
-      "explanation": "Đây là one-to-many, không phải many-to-many. DeliveryTime và Status là attributes của Order.",
+      "correct": 2,
+      "explanation": "Giống ví dụ Employee-Project, diagnosis chỉ có ý nghĩa gắn với một cặp (Doctor, Patient) cụ thể tại một lần khám — đây là many-to-many cần association class Appointment.",
       "distractorTags": {
         "0": "relationship-data",
-        "2": null
+        "1": "relationship-data"
       },
+      "hints": [
+        "diagnosis có thuộc về riêng một Doctor không, hay phụ thuộc vào cặp (Doctor, Patient) tại một lần khám cụ thể?",
+        "Một Doctor khám nhiều Patient với chẩn đoán khác nhau — dữ liệu này có nằm cố định ở Doctor không?",
+        "Dữ liệu gắn với một lần kết hợp cụ thể giữa hai class luôn cần association class."
+      ],
       "weight": 3
     },
     {
       "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: 'Customer 1 — Order 0..*' nghĩa là gì?",
+      "options": [
+        "Mỗi Order thuộc về đúng 1 Customer; một Customer có thể có 0 hoặc nhiều Order",
+        "Mỗi Customer thuộc về đúng 1 Order",
+        "Customer và Order không liên quan nhau"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — số ở đầu Customer (1) áp dụng cho phía Order (mỗi Order có 1 Customer), số ở đầu Order (0..*) áp dụng cho phía Customer.",
+      "distractorTags": {
+        "1": "association-is-link",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại cách đọc multiplicity: số đặt gần class nào thì áp dụng cho phía class đó khi nhìn từ đầu kia.",
+        "Multiplicity '1' ở gần Customer nghĩa là mỗi Order có bao nhiêu Customer?",
+        "Customer 1 — Order 0..* : một Order có đúng 1 Customer, một Customer có 0..* Order."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Association class được dùng khi một association có dữ liệu riêng — thường gặp ở many-to-many. Kiểm tra: Nếu dữ liệu thuộc về cặp kết hợp (VD: Employee-Project), không thuộc riêng class nào → association class.",

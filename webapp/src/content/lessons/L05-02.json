@@ -3,6 +3,9 @@
   "title": "Khi nào cần control object?",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch08_Object and Class Structuring.pptx#9-11"],
   "objective": "Nhận biết khi nào cần control object để điều phối use case phức tạp.",
   "misconceptions": ["control-always"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Use case đơn giản không cần control. Control object chỉ cần cho use case phức tạp có nhiều object tham gia.",
       "distractorTags": {"0": "control-always", "2": null},
-      "hints": ["Control object giống nhạc trưởng (conductor).", "Dàn nhạc nhỏ không cần nhạc trưởng.", "Xem slide 9 về control objects."],
+      "hints": ["Control object giống nhạc trưởng (conductor).", "Dàn nhạc nhỏ không cần nhạc trưởng.", "Một service, một bước, một actor — không có gì cần điều phối cả."],
       "weight": 2
     },
     {
@@ -35,7 +38,7 @@
       "correct": 1,
       "explanation": "State-dependent control object: behavior thay đổi theo state. VD: ATM Control có các state: WaitingCard, ValidatingPIN, SelectingTransaction.",
       "distractorTags": {"0": "control-always", "2": null},
-      "hints": ["Nếu object phản hồi khác nhau ở mỗi state → state-dependent.", "Xem slide 11 về state-dependent control."],
+      "hints": ["Nếu object phản hồi khác nhau ở mỗi state → state-dependent.", "Số lượng entity class không quyết định việc có cần statechart hay không.", "Hành vi thay đổi theo trạng thái hiện tại là dấu hiệu của state-dependent control."],
       "weight": 2
     },
     {
@@ -51,11 +54,57 @@
       "correct": 1,
       "explanation": "Checkout phức tạp với nhiều services → cần control object để điều phối.",
       "distractorTags": {"0": "control-always", "2": null},
-      "hints": ["Giống dàn nhạc lớn cần nhạc trưởng.", "Control phối hợp thứ tự gọi services.", "Xem slide 9-10."],
+      "hints": ["Giống dàn nhạc lớn cần nhạc trưởng.", "Control phối hợp thứ tự gọi services.", "Nhiều service phải chạy đúng thứ tự là dấu hiệu rõ ràng cần control object."],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Use case Clinic Booking 'Xem lịch trống của bác sĩ': BoundaryForm gọi thẳng ScheduleService để lấy danh sách slot trống, không có bước xử lý nào khác. Có cần control object không?",
+      "options": [
+        "Có, mọi use case đều cần control object",
+        "Không — use case đơn giản chỉ cần boundary giao tiếp trực tiếp với service",
+        "Cần vì liên quan đến bác sĩ"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ View Alarms, đây là use case đơn giản chỉ có 1 bước đọc dữ liệu — không cần control object, tránh object proliferation.",
+      "distractorTags": {
+        "0": "control-always",
+        "2": null
+      },
+      "hints": [
+        "Có bao nhiêu service tham gia và có cần phối hợp thứ tự không?",
+        "So sánh với ví dụ View Alarms — cấu trúc use case có giống nhau không?",
+        "Một bước đọc dữ liệu đơn giản không cần 'nhạc trưởng' điều phối."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: một class kiểm tra lịch hẹn sắp tới rồi điều phối gọi EmailService gửi nhắc lịch. Stereotype nào phù hợp?",
+      "options": [
+        "«entity»",
+        "«boundary»",
+        "«control»"
+      ],
+      "correct": 2,
+      "explanation": "Đúng — class điều phối nhiều bước xử lý nghiệp vụ (kiểm tra + gọi service) là «control».",
+      "distractorTags": {
+        "0": "object-role",
+        "1": "object-role"
+      },
+      "hints": [
+        "Nhớ lại bài Boundary/Entity/Control.",
+        "Class này lưu data, giao tiếp UI, hay điều phối logic?",
+        "Điều phối nhiều bước xử lý luôn là dấu hiệu của Control."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Control object điều phối các object tham gia use case. Chỉ cần khi use case phức tạp, có nhiều object tương tác. State-dependent control dùng khi behavior thay đổi theo trạng thái.",

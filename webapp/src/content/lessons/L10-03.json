@@ -3,6 +3,9 @@
   "title": "Kết nối interface và hierarchy",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#35-46"],
   "objective": "Hiểu Adapter, Bridge, Composite patterns để kết nối interfaces không tương thích và tổ chức tree structures.",
   "misconceptions": ["pattern-by-shape"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 0,
       "explanation": "Adapter convert interface của class thành interface client mong đợi.",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["Interface không tương thích → Adapter.", "Wrapper.", "Xem slide 35-40."],
+      "hints": [
+        "Vấn đề là HAI interface không khớp nhau, không phải số lượng instance hay việc thông báo thay đổi.",
+        "Adapter đóng vai trò 'bộ chuyển đổi' — giữ nguyên thư viện gốc, chỉ bọc thêm lớp chuyển đổi."
+      ],
       "weight": 2
     },
     {
@@ -49,7 +55,10 @@
       "correct": 0,
       "explanation": "Composite: client xử lý Leaf (Product) và Composite (Category) đồng nhất qua cùng interface Component.",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["Tree structure.", "Uniform treatment.", "Xem slide 44-46."],
+      "hints": [
+        "Category chứa SubCategory hoặc Product — cả hai cần xử lý QUA CÙNG một interface.",
+        "Nếu phải viết code khác nhau cho 'lá' (Product) và 'nhánh' (Category), đó chưa phải Composite."
+      ],
       "weight": 2
     },
     {
@@ -65,8 +74,49 @@
       "correct": 1,
       "explanation": "Bridge decouple abstraction (Window) khỏi implementation (WindowImpl cho Windows/Linux).",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Abstraction + Implementation.", "Hai hierarchies.", "Xem slide 41-43."],
+      "hints": [
+        "Có HAI thứ cùng cần thay đổi độc lập: abstraction (Window) và implementation (nền tảng OS).",
+        "Khác Adapter: Adapter chỉ chuyển đổi MỘT interface có sẵn, Bridge tách biệt hẳn hai hierarchy để cả hai bên phát triển riêng."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking tích hợp hệ thống bảo hiểm bên thứ ba có interface hoàn toàn khác (InsuranceClaimAPI thay vì IPaymentGateway nội bộ). Pattern nào?",
+      "options": [
+        "Adapter — chuyển đổi interface bên thứ ba sang interface FOS mong đợi",
+        "Composite — vì bảo hiểm và thanh toán đều là 'khoản tiền'",
+        "Bridge — vì cả hai đều xử lý tiền"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ thư viện PDF: interface bên ngoài không tương thích → Adapter bọc lại để FOS gọi qua interface quen thuộc.",
+      "distractorTags": {"1": "pattern-by-shape", "2": "pattern-by-shape"},
+      "hints": [
+        "Vấn đề chính là gì: cấu trúc cây, hai hierarchy độc lập, hay chỉ đơn giản là hai interface không khớp?",
+        "Chỉ cần MỘT lớp 'phiên dịch' giữa API bảo hiểm và interface nội bộ."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: khi nào nên dùng Singleton?",
+      "options": [
+        "Bất cứ khi nào muốn truy cập nhanh từ nhiều nơi",
+        "Khi hệ thống thật sự chỉ cần đúng MỘT instance duy nhất (vd: một spooler máy in)",
+        "Khi có nhiều loại object cần tạo linh hoạt"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: Singleton chỉ hợp lý khi 'chỉ một instance' là ràng buộc thật sự, không phải cách thay thế dependency injection.",
+      "distractorTags": {"0": "singleton-global-default", "2": "pattern-by-shape"},
+      "hints": [
+        "Nhớ lại ví dụ PrinterSpooler ở bài trước.",
+        "'Muốn truy cập từ nhiều nơi' khác với 'chỉ được phép có một instance'."
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

@@ -3,6 +3,9 @@
   "title": "Pattern là quyết định, không phải hình UML",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#3-13"],
   "objective": "Hiểu bản chất của design pattern: problem-solution-consequences, không chỉ là hình vẽ UML.",
   "misconceptions": ["pattern-by-shape"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "Pattern = name + problem + solution + consequences. Không chỉ là UML shape.",
       "distractorTags": {"0": "pattern-by-shape", "2": null},
-      "hints": ["Pattern = giải pháp cho problem trong context.", "Consequences = pros/cons.", "Xem slide 3-8."],
+      "hints": [
+        "Một pattern đầy đủ cần biết KHI NÀO dùng (problem) và ĐÁNH ĐỔI gì (consequences), không chỉ hình dạng.",
+        "Nếu chỉ nhìn UML diagram, làm sao biết đây có phải tình huống nên dùng Singleton hay không?"
+      ],
       "weight": 2
     },
     {
@@ -54,7 +60,10 @@
         "Behavioral patterns": "Phân phối trách nhiệm giữa objects"
       },
       "explanation": "Ba categories: Creational (tạo object), Structural (cấu trúc), Behavioral (hành vi).",
-      "hints": ["Creational = tạo.", "Structural = cấu trúc.", "Behavioral = hành vi.", "Xem slide 8-13."],
+      "hints": [
+        "Creational = tạo. Structural = cấu trúc. Behavioral = hành vi.",
+        "Creational tạo ra object, Structural sắp xếp object lại với nhau, Behavioral quyết định object giao tiếp/phân công thế nào."
+      ],
       "weight": 2
     },
     {
@@ -64,7 +73,49 @@
       "prompt": "Design pattern là giải pháp cố định có thể dùng giống hệt nhau trong mọi tình huống.",
       "correct": false,
       "explanation": "Pattern là giải pháp linh hoạt (template) — áp dụng khác nhau tùy context. 'You can use this solution a million times over, without ever doing it the same way twice'.",
+      "hints": [
+        "Câu quote GoF: 'dùng giải pháp này cả triệu lần, không lần nào giống hệt nhau'.",
+        "Nếu áp dụng y hệt mọi lúc, pattern có còn là 'template' linh hoạt không?"
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking dev vẽ một class ObservablePatient với mũi tên tự tham chiếu và nói 'đây là Observer pattern'. Nhận xét?",
+      "options": [
+        "Đúng, vì hình vẽ có mũi tên tự tham chiếu giống Observer",
+        "Sai — cần biết problem (ai cần được thông báo khi gì thay đổi) và consequences (coupling giữa subject-observer), không chỉ nhìn hình",
+        "Observer không cần problem, chỉ cần đúng UML"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ Singleton: nhận diện pattern qua problem nó giải quyết (notify nhiều observer khi state đổi) và consequences, không phải qua hình dạng diagram.",
+      "distractorTags": {"0": "pattern-by-shape", "2": "pattern-by-shape"},
+      "hints": [
+        "Observer giải quyết vấn đề gì — không phải nó VẼ như thế nào.",
+        "Hai pattern khác nhau có thể có hình UML gần giống nhau; hai lần dùng CÙNG pattern có thể vẽ khác nhau."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước (Level 9): tách một hệ thống nhỏ, ổn định thành nhiều microservices có luôn miễn phí về mặt vận hành không?",
+      "options": [
+        "Có, tách càng nhiều càng tốt",
+        "Không — phân tán luôn có chi phí network, coordination, versioning",
+        "Chỉ tốn chi phí nếu hệ thống lớn"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như Level 9: distribution không free, dù hệ thống lớn hay nhỏ — chi phí đó cần được biện minh bằng lợi ích thực sự.",
+      "distractorTags": {"0": "distribution-is-free", "2": "distribution-is-free"},
+      "hints": [
+        "Nhớ lại: network latency, versioning, coordination — những chi phí này có biến mất nếu hệ thống nhỏ không?",
+        "Phân tán luôn có cost, bất kể quy mô."
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

@@ -3,6 +3,9 @@
   "title": "Generalization không chỉ để tái dùng code",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#15-16"],
   "objective": "Hiểu generalization/specialization hierarchy dựa trên quan hệ Is-A, không chỉ để tái sử dụng code.",
   "misconceptions": ["inheritance-for-reuse-only"],
   "screens": [
@@ -25,7 +28,7 @@
       "hints": [
         "Hỏi: Product có phải là một loại Customer không?",
         "Generalization = Is-A, không phải Has-Same-Attributes.",
-        "Xem slide 15 về generalization."
+        "Trùng thuộc tính không chứng minh quan hệ Is-A — phải kiểm tra ngữ nghĩa thực sự."
       ],
       "weight": 2
     },
@@ -44,7 +47,7 @@
       "hints": [
         "Đọc to: CheckingAccount 'is-a' Account → đúng.",
         "Đọc: Product 'is-a' Customer → sai.",
-        "Xem slide 15-16 về inheritance."
+        "Chỉ giữ lại các cặp mà câu 'X is-a Y' nghe hợp lý về ngữ nghĩa."
       ],
       "weight": 2
     },
@@ -67,7 +70,7 @@
       "hints": [
         "Hỏi: Customer có 'is a' User không?",
         "Tìm superclass chung.",
-        "Xem slide 16 về inheritance hierarchy."
+        "Attribute trùng lặp ở cả 3 subclass là dấu hiệu nên kéo lên một superclass chung."
       ],
       "weight": 2
     },
@@ -78,28 +81,61 @@
       "prompt": "Abstract class là class có thể tạo instance trực tiếp.",
       "correct": false,
       "explanation": "Abstract class là class không có instance, dùng làm template để tạo subclasses. Abstract operation được khai báo nhưng chưa implement.",
+      "hints": [
+        "Abstract nghĩa là 'trừu tượng' — có cụ thể để tạo ra một object hoàn chỉnh không?",
+        "Abstract class thường chứa ít nhất một abstract operation chưa có implementation.",
+        "Chỉ subclass cụ thể (concrete) mới có thể tạo instance."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
       "role": "transfer",
       "type": "scenario",
-      "prompt": "FOS có Payment gồm CreditCardPayment và BankTransferPayment. Cả hai đều có processPayment() nhưng xử lý khác nhau. Thiết kế nào thể hiện đúng OOP?",
+      "prompt": "Clinic Booking có Notification gồm SmsNotification và EmailNotification. Cả hai đều có send() nhưng xử lý khác nhau. Thiết kế nào thể hiện đúng OOP?",
       "options": [
-        "Dùng một class Payment duy nhất với if-else để phân loại",
-        "Abstract class Payment với abstract processPayment(); CreditCardPayment và BankTransferPayment override",
+        "Dùng một class Notification duy nhất với if-else để phân loại",
+        "Abstract class Notification với abstract send(); SmsNotification và EmailNotification override",
         "Không cần generalization, viết hai method riêng biệt"
       ],
       "correct": 1,
-      "explanation": "Đây là ứng dụng đúng của generalization với abstract class và polymorphism. Subclass cung cấp implementation riêng.",
+      "explanation": "Giống ví dụ Payment, đây là ứng dụng đúng của generalization với abstract class và polymorphism — mỗi subclass cung cấp implementation send() riêng.",
       "distractorTags": {
-        "0": null,
+        "0": "inheritance-for-reuse-only",
         "2": null
       },
+      "hints": [
+        "SmsNotification và EmailNotification có 'is-a' Notification không?",
+        "So sánh với ví dụ Payment/CreditCardPayment đã học — cấu trúc có giống nhau không?",
+        "Abstract superclass khai báo hành vi chung (send), subclass override cách thực hiện."
+      ],
       "weight": 3
     },
     {
       "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: MedicalRecord chứa nhiều DiagnosisEntry, xóa MedicalRecord thì DiagnosisEntry cũng mất theo. Đây là quan hệ gì?",
+      "options": [
+        "Composition",
+        "Aggregation",
+        "Generalization"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — part (DiagnosisEntry) sống/chết cùng whole (MedicalRecord) và không tồn tại độc lập, đây là Composition.",
+      "distractorTags": {
+        "1": "aggregation-equals-composition",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Composition vs Aggregation.",
+        "Part có tồn tại được khi whole bị xóa không?",
+        "Sống/chết cùng nhau và không thuộc whole nào khác là Composition."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Generalization dựa trên Is-A relationship. Subclass kế thừa attributes/operations từ superclass. Đừng lạm dụng kế thừa chỉ để tái dùng code — phải có quan hệ Is-A thực sự. Abstract class là template không có instance.",

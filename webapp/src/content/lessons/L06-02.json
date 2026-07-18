@@ -3,6 +3,9 @@
   "title": "Sequence diagram: khi nào message xảy ra?",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#6-15"],
   "objective": "Đọc và vẽ sequence diagram với lifelines, messages, và activation bars.",
   "misconceptions": ["sequence-equals-communication"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Sequence diagram mạnh về thứ tự thời gian — dễ đọc message nào xảy ra trước/sau.",
       "distractorTags": {"0": "sequence-equals-communication", "2": null},
-      "hints": ["Sequence = timeline dọc.", "Message đi từ trên xuống dưới.", "Xem slide 6-7."],
+      "hints": ["Sequence = timeline dọc.", "Message đi từ trên xuống dưới.", "Khi cần biết 'cái gì xảy ra trước, cái gì xảy ra sau', trục thời gian dọc là chìa khóa."],
       "weight": 2
     },
     {
@@ -38,7 +41,7 @@
         "Customer Account trả account info"
       ],
       "explanation": "Interaction gửi request → Coordinator gửi message → Service trả response.",
-      "hints": ["Timeline từ trên xuống.", "Xem slide 12-15 về Make Order Request."],
+      "hints": ["Timeline từ trên xuống.", "Boundary luôn nhận request từ actor trước khi chuyển tiếp cho control/service.", "Response luôn là message cuối cùng đi ngược trở lại."],
       "weight": 2
     },
     {
@@ -53,10 +56,61 @@
         "Self-message": "Object gọi chính nó"
       },
       "explanation": "Sequence diagram có lifeline, activation bar và message arrow.",
+      "hints": [
+        "Đường thẳng đứng dưới mỗi object đại diện cho điều gì theo thời gian?",
+        "Hình chữ nhật mỏng trên lifeline chỉ xuất hiện khi object đang làm việc.",
+        "Mũi tên quay lại chính lifeline xuất phát là self-message."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Bạn đang debug luồng Clinic Booking 'Đặt lịch hẹn' và cần biết chính xác BoundaryForm gọi ScheduleService trước hay AppointmentEntity được tạo trước. Nên dùng diagram nào?",
+      "options": [
+        "Communication diagram — vì thể hiện topology rõ",
+        "Sequence diagram — vì nhấn mạnh thứ tự thời gian dọc theo lifeline",
+        "Class diagram — vì thể hiện cấu trúc"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ debug Checkout, khi cần biết chính xác thứ tự trước/sau theo thời gian, Sequence diagram là lựa chọn phù hợp.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Câu hỏi 'cái gì xảy ra trước' cần xem trục nào của diagram?",
+        "So sánh với ví dụ debug Checkout đã học.",
+        "Sequence diagram luôn ưu tiên trục thời gian dọc."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: khi cần xem nhanh Doctor, ScheduleService, Appointment kết nối trực tiếp với nhau thế nào (không quan tâm mốc thời gian), nên chọn diagram nào?",
+      "options": [
+        "Sequence diagram",
+        "Communication diagram",
+        "Class diagram"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — khi trọng tâm là topology kết nối thay vì thời gian, Communication diagram phù hợp hơn.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Communication diagram.",
+        "'Ai nối với ai' hay 'việc gì xảy ra khi nào' quan trọng hơn ở đây?",
+        "Topology là thế mạnh của Communication diagram."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Sequence diagram nhấn mạnh thứ tự thời gian: lifeline dọc thể hiện object, message ngang thể hiện giao tiếp. Dùng khi cần trace luồng xử lý chi tiết.",

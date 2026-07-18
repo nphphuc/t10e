@@ -80,6 +80,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong dự án Clinic Booking, sếp hỏi 'tại sao bác sĩ bị double-book hai bệnh nhân cùng giờ?'. Bạn cần xem góc nhìn nào để trả lời đúng nguyên nhân?",
+      "options": [
+        "Static View — vì lỗi chắc chắn nằm ở cấu trúc class",
+        "Dynamic State Machine View — để xem trạng thái lịch hẹn và điều kiện chuyển trạng thái",
+        "Deployment View — vì lỗi liên quan đến máy chủ vật lý"
+      ],
+      "correct": 1,
+      "explanation": "Double-booking là lỗi về trạng thái/luồng xử lý (một slot bị đặt 2 lần), nên cần Dynamic State Machine View để xem vòng đời lịch hẹn và điều kiện chuyển trạng thái, không phải cấu trúc tĩnh hay hạ tầng vật lý.",
+      "distractorTags": {
+        "0": "one-view-enough",
+        "2": null
+      },
+      "hints": [
+        "Câu hỏi liên quan đến 'điều kiện nào cho phép việc đặt lịch xảy ra' — đó là hành vi hay cấu trúc?",
+        "Class diagram không cho biết một slot đã bị chiếm hay chưa tại một thời điểm.",
+        "Vòng đời và điều kiện chuyển trạng thái của một lịch hẹn nằm trong State Machine View."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: 'UML chỉ là ký hiệu, không phải phương pháp thiết kế có các bước' — đây là điểm phân biệt giữa Notation và thành phần nào?",
+      "options": [
+        "Method",
+        "Static View",
+        "Deployment View"
+      ],
+      "correct": 0,
+      "explanation": "Đúng, ở bài trước ta đã phân biệt Notation (ký hiệu) với Method (phương pháp có chuỗi bước như COMET) — UML chỉ đóng vai trò notation.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Đây là khái niệm đã học ở bài Concept/Strategy/Criteria/Method/Notation.",
+        "Cần một thứ có 'chuỗi bước thực hiện cụ thể' để đối lập với ký hiệu.",
+        "Method là phương pháp có quy trình thiết kế, còn UML chỉ là notation."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Kiến trúc phần mềm đòi hỏi sự kết hợp của nhiều góc nhìn (Views). Đừng rơi vào bẫy 'one-view-enough' bằng cách lạm dụng Class Diagram cho mọi vấn đề thiết kế.",

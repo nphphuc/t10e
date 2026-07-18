@@ -57,12 +57,81 @@
       "hints": [
         "Nhìn sự khác biệt giữa hai từ khóa: 'problem domain' (phân tích) và 'solution domain' (thiết kế).",
         "Phân tích có tạo ra các quyết định cấu hình server vật lý không?",
-        "Xem Slide Ch05 Slide 15."
+        "Analysis dừng lại ở hiểu bài toán; Design mới đưa ra quyết định giải pháp cụ thể như cấu hình server."
       ],
       "weight": 2
     },
     {
       "id": "s3",
+      "role": "apply",
+      "type": "choice",
+      "prompt": "Team FOS đang quyết định 'CheckoutService sẽ được deploy trên node server nào và giao tiếp qua giao thức gì với PaymentGateway'. Đây thuộc pha nào của COMET?",
+      "options": [
+        "Requirements Modeling",
+        "Analysis Modeling",
+        "Design Modeling"
+      ],
+      "correct": 2,
+      "explanation": "Quyết định về node triển khai và giao thức giao tiếp là tổng hợp giải pháp cụ thể trong solution domain — đây là Design Modeling, không còn là phân tích bài toán nữa.",
+      "distractorTags": {
+        "0": null,
+        "1": "analysis-is-design"
+      },
+      "hints": [
+        "Câu hỏi này có đang mô tả bài toán hay đang đưa ra giải pháp cụ thể?",
+        "Quyết định về node server và giao thức thuộc solution domain hay problem domain?",
+        "Design Modeling là nơi các quyết định triển khai cụ thể được đưa ra."
+      ],
+      "weight": 2
+    },
+    {
+      "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong Clinic Booking, nhóm đang vẽ Class Diagram mô tả quan hệ giữa Doctor, Appointment và Patient để hiểu rõ domain, CHƯA bàn đến việc triển khai lên server nào. Đây thuộc pha nào?",
+      "options": [
+        "Analysis Modeling — vẫn đang phân rã để hiểu problem domain",
+        "Design Modeling — vì có vẽ Class Diagram",
+        "Requirements Modeling — vì mô tả actor"
+      ],
+      "correct": 0,
+      "explanation": "Vẽ Class Diagram để hiểu cấu trúc domain, chưa quyết định triển khai, vẫn thuộc Analysis Modeling. Việc có vẽ diagram không tự động nghĩa là Design — chính bản chất quyết định (hiểu bài toán và giải pháp) mới phân định.",
+      "distractorTags": {
+        "1": "analysis-is-design",
+        "2": null
+      },
+      "hints": [
+        "Có quyết định nào về triển khai vật lý hay giao thức xuất hiện ở đây không?",
+        "Class Diagram xuất hiện ở cả Analysis lẫn Design — điều gì phân biệt chúng?",
+        "Chưa bàn đến giải pháp triển khai nghĩa là vẫn ở problem domain — Analysis."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: đối chiếu unit test 'xanh 100%' có đủ để khẳng định hệ thống đã Validate thành công không?",
+      "options": [
+        "Có, test xanh nghĩa là hệ thống đã đúng nhu cầu người dùng",
+        "Không, test xanh chỉ chứng minh Verification (đúng đặc tả kỹ thuật), không đảm bảo Validation",
+        "Có, vì Verification và Validation là một"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — unit test xanh chỉ là Verification. Hệ thống vẫn có thể sai tính năng khách hàng cần, nghĩa là chưa chắc đã Validate thành công.",
+      "distractorTags": {
+        "0": "verify-vs-validate",
+        "2": "verify-vs-validate"
+      },
+      "hints": [
+        "Nhớ lại bài Verification vs Validation.",
+        "Test xanh kiểm tra code đúng đặc tả hay đúng nhu cầu người dùng?",
+        "Verification ≠ Validation — test xanh chỉ chứng minh vế đầu."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Hãy nhớ: Requirements là mô tả Black Box. Analysis là phân rã để hiểu bài toán (Problem Domain). Design là tổng hợp để xây dựng giải pháp (Solution Domain). Đừng nhầm lẫn việc phân tích domain với việc đưa ra các quyết định kiến trúc cụ thể (lỗi analysis-is-design).",

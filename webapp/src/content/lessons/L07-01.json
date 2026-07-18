@@ -3,6 +3,9 @@
   "title": "Architecture gồm những gì?",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#3"],
   "objective": "Hiểu định nghĩa software architecture: components, interfaces, relationships, và views.",
   "misconceptions": ["architecture-is-code"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Architecture quyết định cấu trúc tổng thể (components, interfaces, relationships). Code là implementation chi tiết.",
       "distractorTags": {"0": "architecture-is-code", "2": null},
-      "hints": ["Architecture = high-level design.", "Code = implementation details.", "Xem định nghĩa slide 3."],
+      "hints": ["Architecture = high-level design.", "Code = implementation details.", "Cấu trúc tổng thể cần được quyết định trước để đáp ứng yêu cầu chất lượng, không thể 'tự hình thành'."],
       "weight": 2
     },
     {
@@ -35,7 +38,7 @@
       ],
       "correctSet": [0, 1, 2],
       "explanation": "Architecture = elements + properties + relationships. Implementation detail thuộc về low-level design.",
-      "hints": ["Architecture = bức tranh tổng thể.", "Chi tiết code không thuộc architecture.", "Xem slide 3."],
+      "hints": ["Architecture = bức tranh tổng thể.", "Chi tiết code không thuộc architecture.", "Nếu một chi tiết không externally visible (chỉ nằm trong một hàm), nó không phải architecture."],
       "weight": 2
     },
     {
@@ -50,10 +53,61 @@
         "Connector": "Cơ chế giao tiếp giữa components"
       },
       "explanation": "Component = đơn vị tự trị. Interface = contract. Subsystem = phân hệ. Connector = kết nối.",
+      "hints": [
+        "Yếu tố nào mô tả 'hợp đồng' giao tiếp, không phải bản thân đơn vị chức năng?",
+        "Subsystem là một nhóm lớn hơn Component đơn lẻ.",
+        "Connector là cơ chế, không phải nơi chứa logic nghiệp vụ."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking đang review thiết kế: một dev nói 'cứ code các API trước, kiến trúc tổng thể tính sau'. Nhận xét đúng nhất?",
+      "options": [
+        "Đúng, kiến trúc sẽ tự lộ ra sau khi có đủ code",
+        "Sai — cần xác định trước components, interfaces và relationships để đảm bảo hệ thống đạt yêu cầu chất lượng (như khả năng mở rộng khi thêm chuyên khoa mới)",
+        "Kiến trúc chỉ cần thiết cho hệ thống lớn, Clinic Booking nhỏ nên không cần"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ FOS, kiến trúc cần được thiết kế trước để đảm bảo chất lượng hệ thống — bất kể quy mô dự án lớn hay nhỏ.",
+      "distractorTags": {
+        "0": "architecture-is-code",
+        "2": "architecture-is-code"
+      },
+      "hints": [
+        "Kiến trúc có 'tự nhiên hình thành' từ code rời rạc không?",
+        "So sánh với ví dụ developer nói 'code trước, architecture tự hình thành'.",
+        "Quy mô dự án không loại bỏ nhu cầu thiết kế cấu trúc tổng thể trước."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: nếu team nói 'hết hàng ít khi xảy ra, không cần vẽ alternative flow', đó có phải cách làm đúng không?",
+      "options": [
+        "Đúng, tiết kiệm thời gian",
+        "Sai — alternative flow là phần bắt buộc của use case, cần mô hình hóa nghiêm túc",
+        "Chỉ cần ghi chú trong code"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là hiểu lầm 'ignore-alternative'. Alternative sequences mô tả tình huống thực tế và cần UC spec + interaction diagram riêng.",
+      "distractorTags": {
+        "0": "ignore-alternative",
+        "2": "ignore-alternative"
+      },
+      "hints": [
+        "Nhớ lại bài Alternative flow không phải ghi chú phụ.",
+        "Tình huống 'hết hàng' có phải là ngoại lệ hiếm gặp trong thực tế không?",
+        "Alternative flow cần được mô hình hóa nghiêm túc như main flow."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Software architecture = structure(s) of system: components, externally visible properties, and relationships. Đây là high-level design, không phải code chi tiết.",

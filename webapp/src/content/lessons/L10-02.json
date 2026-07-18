@@ -3,6 +3,9 @@
   "title": "Tạo object mà không khóa concrete type",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#9-33"],
   "objective": "Hiểu Factory Method, Abstract Factory, Singleton và khi nào dùng chúng.",
   "misconceptions": ["singleton-global-default"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 0,
       "explanation": "Factory Method: định nghĩa interface tạo object, để subclass quyết định concrete class nào được instantiate.",
       "distractorTags": {"1": "singleton-global-default", "2": null},
-      "hints": ["Factory = tạo object.", "Subclass decides which class.", "Xem slide 29-31."],
+      "hints": [
+        "Factory Method để SUBCLASS quyết định class cụ thể nào được tạo ra, không phải if-else rải khắp code.",
+        "Nếu chỉ cần đúng MỘT instance duy nhất, đó có phải vấn đề 'chọn loại nào để tạo' không?"
+      ],
       "weight": 2
     },
     {
@@ -35,7 +41,10 @@
         "Prototype": "Clone object từ prototype instance"
       },
       "explanation": "Năm creational patterns — mỗi pattern giải quyết vấn đề tạo object khác nhau.",
-      "hints": ["Factory = tạo.", "Singleton = một instance.", "Builder = xây dựng phức tạp.", "Prototype = clone.", "Xem slide 9, 18-33."],
+      "hints": [
+        "Factory Method vs Abstract Factory: một class hay một FAMILY class liên quan?",
+        "Singleton chỉ quan tâm SỐ LƯỢNG instance (1), không phải cách tạo ra nó."
+      ],
       "weight": 2
     },
     {
@@ -51,7 +60,10 @@
       "correct": 1,
       "explanation": "Singleton: ensure a class has only one instance. Printer spooler, file system, window manager là các ví dụ kinh điển.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Chỉ một instance.", "Global point of access.", "Xem slide 26-28."],
+      "hints": [
+        "Vấn đề ở đây là SỐ LƯỢNG instance (chỉ 1), không phải loại object nào được tạo.",
+        "Nếu cần MỘT instance duy nhất dùng chung toàn hệ thống, đây có phải bài toán 'chọn class con nào' không?"
+      ],
       "weight": 2
     },
     {
@@ -61,7 +73,49 @@
       "prompt": "Singleton có thể dùng làm global variable thay thế cho tất cả dependencies.",
       "correct": false,
       "explanation": "Singleton không phải global variable thay thế. Nó tạo coupling ẩn và khó test. Dùng Singleton đúng lúc, đúng chỗ.",
+      "hints": [
+        "Singleton tạo ra một điểm truy cập toàn cục — điều này có giống việc TRUYỀN dependency rõ ràng qua constructor/parameter không?",
+        "Dùng Singleton thay mọi dependency có làm code khó test hơn không?"
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking cần tạo AppointmentReminder có thể là SMSReminder, EmailReminder hoặc CallReminder tùy cấu hình phòng khám. Code hiện có nhiều if-else theo loại. Pattern nào?",
+      "options": [
+        "Factory Method — để subclass quyết định loại reminder cụ thể",
+        "Singleton — chỉ một reminder cho toàn hệ thống",
+        "Không cần pattern, if-else vẫn ổn"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ Payment trong FOS: nhiều loại object cùng interface, chọn loại nào lúc runtime → Factory Method thay vì if-else rải rác.",
+      "distractorTags": {"1": "singleton-global-default", "2": "pattern-by-shape"},
+      "hints": [
+        "Có nhiều LOẠI reminder khác nhau cần tạo, không phải chỉ một instance duy nhất.",
+        "If-else rải khắp code khi thêm loại mới — pattern nào giải quyết đúng vấn đề tạo object linh hoạt?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: nhận diện một design pattern có nên chỉ dựa vào hình UML giống nhau không?",
+      "options": [
+        "Có, hình giống là đủ",
+        "Không — cần biết cả problem nó giải quyết và consequences (trade-off) khi dùng",
+        "Chỉ cần đúng tên pattern"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: pattern = name + problem + solution + consequences, không chỉ là hình vẽ.",
+      "distractorTags": {"0": "pattern-by-shape", "2": "pattern-by-shape"},
+      "hints": [
+        "Nhớ lại ví dụ Developer A/B ở bài trước.",
+        "Hình vẽ giống nhau không đảm bảo cùng problem/consequences."
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

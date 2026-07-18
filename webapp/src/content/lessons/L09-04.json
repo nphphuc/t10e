@@ -3,6 +3,9 @@
   "title": "FOS tiến hóa: client/server đến SOA đến microservices",
   "minutes": 14,
   "xp": 150,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_RDS Document Case Study.pdf#51-55"],
   "objective": "Áp dụng quality attributes vào việc tiến hóa kiến trúc FOS từ client/server đến SOA đến microservices.",
   "misconceptions": ["distribution-is-free", "soa-is-microservices"],
   "screens": [
@@ -36,7 +39,10 @@
       "correctSet": [0, 1, 2],
       "explanation": "Phân tán = chi phí network, versioning, observability, authorization. Distribution không free.",
       "distractorTags": {"3": "distribution-is-free"},
-      "hints": ["Phân tán không free.", "Có chi phí coordination.", "Xem discussion về distribution."],
+      "hints": [
+        "Phân tán luôn có chi phí ẩn — network, coordination, versioning không tự nhiên biến mất.",
+        "Nếu 'mọi thứ đều miễn phí' đúng, tại sao SOA/microservices lại cần thêm observability, versioning riêng?"
+      ],
       "weight": 2
     },
     {
@@ -46,6 +52,10 @@
       "prompt": "SOA và Microservices là hai thuật ngữ hoàn toàn giống nhau.",
       "correct": false,
       "explanation": "SOA là tập nguyên lý kiến trúc service. Microservices là một cách tổ chức service cụ thể với granularity nhỏ hơn.",
+      "hints": [
+        "SOA là một tập nguyên lý kiến trúc (autonomy, contract, abstraction); Microservices là MỘT cách áp dụng cụ thể các nguyên lý đó với granularity rất nhỏ.",
+        "Mọi microservices architecture đều theo tinh thần SOA, nhưng không phải mọi SOA đều chia nhỏ tới mức microservices."
+      ],
       "weight": 2
     },
     {
@@ -61,8 +71,49 @@
       "correct": 1,
       "explanation": "Service contract rõ ràng + abstraction = reusability. Client không phụ thuộc vào implementation.",
       "distractorTags": {"0": null, "2": "interface-is-implementation"},
-      "hints": ["Contract = interface.", "Abstraction = ẩn implementation.", "Xem SOA principles."],
+      "hints": [
+        "Interface/contract giúp client không cần biết chi tiết bên trong service.",
+        "Viết code riêng cho từng platform (web/mobile) có tận dụng lại được service chung không?"
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking version 1 là một khối monolithic. Muốn cho phép cả app bệnh nhân và app bác sĩ cùng dùng chung logic đặt lịch. Nên làm gì?",
+      "options": [
+        "Viết lại logic đặt lịch riêng cho từng app",
+        "Tách logic đặt lịch thành một service riêng, có contract rõ ràng cho cả hai app gọi vào",
+        "Giữ nguyên monolithic, mỗi app tự query thẳng database"
+      ],
+      "correct": 1,
+      "explanation": "Giống FOS: tách thành service với contract rõ ràng giúp tái sử dụng cho nhiều client (reusability), nhưng cũng thêm chi phí network/coordination — distribution không free.",
+      "distractorTags": {"0": "interface-is-implementation", "2": "distribution-is-free"},
+      "hints": [
+        "Hai app cùng cần MỘT logic — viết 2 lần có phải cách hay không?",
+        "Tách thành service giúp gì cho việc tái sử dụng?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: vì sao thêm encryption cho mọi request lại làm giảm performance?",
+      "options": [
+        "Vì encryption không liên quan tới performance",
+        "Vì mỗi lớp bảo mật (mã hóa, xác thực) đều tốn thời gian xử lý thêm — đây là trade-off",
+        "Vì encryption chỉ ảnh hưởng tới availability"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: quality attributes thường trade-off với nhau — security tăng thường kéo performance giảm.",
+      "distractorTags": {"0": "nfr-one-tactic", "2": "nfr-one-tactic"},
+      "hints": [
+        "Nhớ lại radar trade-off ở bài trước: bật tactic bảo mật thì trục nào giảm?",
+        "Xử lý thêm bước kiểm tra luôn tốn thời gian, dù là bước nào."
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

@@ -3,6 +3,9 @@
   "title": "Cắt subsystem theo separation of concerns",
   "minutes": 12,
   "xp": 130,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch13_Software Subsystem Architectural Design.pptx#10-22"],
   "objective": "Áp dụng subsystem structuring criteria để phân chia hệ thống thành các subsystem.",
   "misconceptions": ["partition-by-appearance"],
   "screens": [
@@ -34,7 +37,7 @@
         "Hãy kéo thả các đối tượng hoặc click chọn rồi bấm phím số 1, 2 để phân chia.",
         "CustomerUI là thành phần giao diện người dùng trực tiếp nên thuộc về phân hệ User Interaction.",
         "Các thành phần khác cung cấp dịch vụ tính toán, xử lý hoặc lưu trữ nghiệp vụ nên được gom vào Service Subsystem.",
-        "Xem slide 17-19 về phân chia phân hệ."
+        "Phân chia theo VAI TRÒ (UI hay service), không phải theo vị trí xuất hiện trên màn hình thiết kế."
       ],
       "weight": 2
     },
@@ -50,7 +53,7 @@
         "Scope of control": "Control object + các object nó điều khiển ở cùng subsystem"
       },
       "explanation": "Các criteria giúp phân chia subsystem hợp lý.",
-      "hints": ["Địa lý: objects xa → subsystem khác.", "UI: user interaction subsystem riêng.", "Xem slide 10-22."],
+      "hints": ["Địa lý: objects xa → subsystem khác.", "UI: user interaction subsystem riêng.", "Mỗi tiêu chí dựa trên trách nhiệm/hoạt động thực tế, không dựa trên hình dạng hay màu sắc trên diagram."],
       "weight": 2
     },
     {
@@ -67,11 +70,57 @@
       ],
       "correctSet": [0, 1, 2, 3, 4],
       "explanation": "Năm loại subsystem: User Interaction, Service, Control, IO, Coordinator — mỗi loại phục vụ mục đích riêng.",
-      "hints": ["UI subsystem cho user.", "Service subsystem cho business services.", "Xem slide 17-22."],
+      "hints": ["UI subsystem cho user.", "Service subsystem cho business services.", "Cả 5 lựa chọn đều là loại subsystem hợp lệ trong COMET, không có lựa chọn nào cần loại bỏ."],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking có: DoctorUI, AppointmentService, InsuranceGateway, NotificationService, PatientDB. Một dev đề xuất gom DoctorUI và AppointmentService vào cùng subsystem 'vì chúng cùng nằm gần nhau trên sơ đồ khi vẽ'. Nhận xét?",
+      "options": [
+        "Hợp lý, vị trí trên sơ đồ phản ánh đúng cấu trúc hệ thống",
+        "Không hợp lý — nên phân theo vai trò: DoctorUI thuộc User Interaction Subsystem, AppointmentService thuộc Service Subsystem, bất kể vị trí vẽ trên sơ đồ",
+        "Không quan trọng, gom thế nào cũng được"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ FOS, việc phân chia phải dựa trên vai trò/trách nhiệm (UI vs service), không dựa trên vị trí trình bày trên diagram — đây là hiểu lầm 'partition-by-appearance'.",
+      "distractorTags": {
+        "0": "partition-by-appearance",
+        "2": "partition-by-appearance"
+      },
+      "hints": [
+        "Vị trí vẽ trên sơ đồ có phản ánh đúng vai trò/trách nhiệm của object không?",
+        "So sánh với ví dụ FOS: CustomerUI và OrderService có cùng subsystem không dù đứng cạnh nhau trên sơ đồ?",
+        "Luôn phân chia theo trách nhiệm thực tế, không theo cách trình bày trực quan."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: team đã vẽ 15 communication diagrams cho 15 use case, quá rối vì nhiều object. Cách xử lý hợp lý nhất?",
+      "options": [
+        "Bỏ bớt use case ít quan trọng",
+        "Aggregate messages và tách theo subsystem",
+        "Giữ nguyên 1 diagram duy nhất dù rối"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — gộp message tương tự và chia theo subsystem giúp quản lý độ phức tạp mà không mất thông tin.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Tích hợp interaction thành kiến trúc.",
+        "Bỏ use case có làm mất thông tin quan trọng không?",
+        "Chia theo subsystem là cách quản lý độ phức tạp chuẩn."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Subsystem structuring criteria: geographical location, client/service, user interaction, interface to external, scope of control. Các loại subsystem: client, service, control, IO, coordinator.",

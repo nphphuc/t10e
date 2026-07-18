@@ -3,6 +3,9 @@
   "title": "Tách business rule khỏi dữ liệu",
   "minutes": 9,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch08_Object and Class Structuring.pptx#12-13"],
   "objective": "Hiểu tại sao cần tách business logic (application logic) khỏi entity data.",
   "misconceptions": ["entity-does-everything"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Business rule có thể thay đổi độc lập với dữ liệu. Tách business logic object riêng giúp dễ bảo trì.",
       "distractorTags": {"0": "entity-does-everything", "2": null},
-      "hints": ["Hỏi: Entity data có thay đổi cùng tốc độ với business rule không?", "Separation of concerns.", "Xem slide 12 về business logic objects."],
+      "hints": ["Hỏi: Entity data có thay đổi cùng tốc độ với business rule không?", "Separation of concerns.", "Luật thuế thay đổi thường xuyên hơn cấu trúc dữ liệu Order — hai thứ này nên tách biệt."],
       "weight": 2
     },
     {
@@ -34,7 +37,7 @@
       ],
       "correct": 0,
       "explanation": "Business logic object định nghĩa các rules xử lý. Entity object lưu trữ dữ liệu.",
-      "hints": ["Entity = data storage.", "Business logic = decision-making.", "Xem slide 12-13."],
+      "hints": ["Entity = data storage.", "Business logic = decision-making.", "TaxCalculator quyết định CÁCH tính, Order chỉ lưu KẾT QUẢ — đó là ranh giới giữa hai vai trò."],
       "weight": 2
     },
     {
@@ -49,10 +52,61 @@
         "Customer (name, email, address)": "Entity object"
       },
       "explanation": "Entity lưu dữ liệu. Business logic/Algorithm objects chứa các rules tính toán có thể thay đổi.",
+      "hints": [
+        "Class nào chỉ lưu các thuộc tính (id, tên, trạng thái) mà không quyết định logic gì?",
+        "TaxCalculator và ShippingCostCalculator đều chứa 'công thức' hay 'thuật toán' có thể thay đổi.",
+        "Entity object luôn là danh từ mô tả dữ liệu; business logic/algorithm object là nơi ra quyết định."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: phí khám phụ thuộc vào loại bảo hiểm và giờ khám (ngoài giờ +20%). Bạn định đặt logic tính phí này trực tiếp trong class Appointment. Vấn đề gì có thể xảy ra?",
+      "options": [
+        "Không có vấn đề — Appointment nên tự tính luôn phí khám",
+        "Nếu chính sách phí thay đổi, phải sửa class Appointment — nên tách FeeCalculator riêng",
+        "Phí khám không nên được tính tự động"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ TaxCalculator, chính sách phí có thể thay đổi độc lập với dữ liệu lịch hẹn. Tách FeeCalculator giúp sửa chính sách mà không đụng vào Appointment.",
+      "distractorTags": {
+        "0": "entity-does-everything",
+        "2": null
+      },
+      "hints": [
+        "Chính sách phí có thay đổi cùng tốc độ với dữ liệu Appointment không?",
+        "So sánh với ví dụ TaxCalculator — cấu trúc vấn đề có giống nhau không?",
+        "Logic có thể thay đổi độc lập nên tách khỏi entity lưu dữ liệu."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: use case Checkout gồm nhiều service phải chạy đúng thứ tự (Order → Payment → Email). Có cần control object không?",
+      "options": [
+        "Không, các service tự giao tiếp là đủ",
+        "Có, cần control object điều phối thứ tự gọi các service",
+        "Chỉ cần boundary và entity"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — nhiều service cần phối hợp thứ tự là dấu hiệu rõ ràng cần control object, khác với use case đơn giản 1 bước.",
+      "distractorTags": {
+        "0": "control-always",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài về khi nào cần control object.",
+        "Có bao nhiêu bước và có cần đúng thứ tự không?",
+        "Nhiều service + thứ tự bắt buộc = cần 'nhạc trưởng' điều phối."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Tách business logic riêng khỏi entity data. Business rules có thể thay đổi độc lập với cấu trúc dữ liệu. Entity lưu data, Business Logic xử lý decision-making.",

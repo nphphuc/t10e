@@ -3,6 +3,9 @@
   "title": "Component-based architecture",
   "minutes": 11,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch17_Designing Component-Based Software Architectures.pptx#5-15"],
   "objective": "Hiểu component-based architecture: composite/simple components, provided/required interfaces, ports.",
   "misconceptions": ["interface-is-implementation"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Composite component chứa các part components bên trong.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Composite = có part inside.", "Simple = không có part.", "Xem slide 5, 10."],
+      "hints": ["Composite = có part inside.", "Simple = không có part.", "OrderManager chứa 3 component con bên trong — đó là dấu hiệu của composite."],
       "weight": 2
     },
     {
@@ -34,7 +37,7 @@
         "Connector": "Kết nối required port với provided port"
       },
       "explanation": "Component-based architecture: giao tiếp qua ports và connectors.",
-      "hints": ["Provided = cung cấp.", "Required = cần.", "Xem slide 6-9."],
+      "hints": ["Provided = cung cấp.", "Required = cần.", "Connector không chứa logic, chỉ là cầu nối giữa hai port."],
       "weight": 2
     },
     {
@@ -50,12 +53,12 @@
       ],
       "correctSet": [0, 1, 2, 3],
       "explanation": "Bốn criteria: proximity, autonomy, performance, specialized hardware.",
-      "hints": ["Gần dữ liệu = nhanh hơn.", "Local autonomy = tự trị.", "Xem slide 11-15."],
+      "hints": ["Gần dữ liệu = nhanh hơn.", "Local autonomy = tự trị.", "Cả 4 lựa chọn đều là tiêu chí hợp lệ, không có lựa chọn nào cần loại bỏ."],
       "weight": 2
     },
     {
       "id": "s4",
-      "role": "scenario",
+      "role": "contrast",
       "type": "choice",
       "prompt": "FOS có sensor component chạy trên thiết bị IoT riêng. Criterion nào áp dụng?",
       "options": [
@@ -65,11 +68,57 @@
       ],
       "correct": 0,
       "explanation": "Sensor gần dữ liệu vật lý (proximity) và cần hardware đặc thù (specialized hardware).",
-      "hints": ["Sensor gần nguồn dữ liệu.", "Có hardware riêng.", "Xem slide 11, 14."],
+      "hints": ["Sensor gần nguồn dữ liệu.", "Có hardware riêng.", "Thiết bị IoT chuyên biệt luôn kéo theo cả hai tiêu chí proximity và specialized hardware."],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking có 'CheckInManager' component gồm QrScanner, IdentityVerifier, và QueueAssigner bên trong. Đây là:",
+      "options": [
+        "Simple component",
+        "Composite component (chứa các part components)",
+        "Không phải component"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ OrderManager, CheckInManager chứa nhiều component con bên trong — đây là composite component.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Component này có chứa các component con bên trong không?",
+        "So sánh với ví dụ OrderManager đã học.",
+        "Chứa các part component bên trong luôn là dấu hiệu của composite component."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: nếu trừ slot ở ScheduleService thành công nhưng PaymentService lỗi mạng, Coordinator nên làm gì?",
+      "options": [
+        "Không làm gì, giữ nguyên slot đã trừ",
+        "Gửi ROLLBACK tới ScheduleService để hoàn lại slot",
+        "Gửi tiếp COMMIT tới PaymentService mặc kệ lỗi"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — để đảm bảo Atomicity, phải rollback toàn bộ khi một node lỗi.",
+      "distractorTags": {
+        "0": "acid",
+        "2": "acid"
+      },
+      "hints": [
+        "Nhớ lại bài Transaction và coordination.",
+        "Nếu chỉ trừ slot mà không có thanh toán, hệ thống có hợp lệ không?",
+        "Atomicity yêu cầu hoàn thành toàn bộ hoặc rollback toàn bộ."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Component-based architecture: components (simple/composite) với provided/required interfaces qua ports và connectors. Structuring criteria: proximity, autonomy, performance, specialized hardware.",

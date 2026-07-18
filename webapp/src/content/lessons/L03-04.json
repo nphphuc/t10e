@@ -3,6 +3,9 @@
   "title": "Tìm use case có giá trị",
   "minutes": 11,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch06_Use Case Modeling.pptx#15-16"],
   "objective": "Xác định use case dựa trên mục tiêu có giá trị của actor, tránh functional decomposition.",
   "misconceptions": ["usecase-is-click"],
   "screens": [
@@ -48,7 +51,7 @@
       "hints": [
         "Use case tập trung vào tương tác giữa Actor và Hệ thống.",
         "Database là thiết kế nội bộ.",
-        "Xem danh sách câu hỏi trong slide 15."
+        "Câu hỏi về 'bảng nào cần tạo' đã bước sang tư duy giải pháp kỹ thuật, không còn là tìm mục tiêu của actor nữa."
       ],
       "weight": 2
     },
@@ -90,21 +93,49 @@
       "hints": [
         "Mỗi use case nên là một mục tiêu trọn vẹn.",
         "Rút tiền và Tra cứu có cùng kết quả không?",
-        "Xem ví dụ Banking trong slide 16."
+        "Mỗi chức năng mang lại một kết quả khác nhau cho actor nên cần tách use case riêng."
       ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking đề xuất use case tên 'Nhấn nút Xác nhận lịch hẹn'. Tên này có ổn không?",
+      "options": [
+        "Ổn, vì mô tả đúng thao tác người dùng bấm",
+        "Không ổn — đây là functional decomposition mô tả thao tác UI. Nên đặt là 'Book Appointment' (mục tiêu trọn vẹn của bệnh nhân)",
+        "Ổn, miễn là actor hiểu được"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ 'Click Add Button', tên use case mô tả thao tác UI chi tiết thay vì mục tiêu giá trị. Nên đặt tên theo Verb + Object thể hiện kết quả actor đạt được: 'Book Appointment'.",
+      "distractorTags": {
+        "0": "usecase-is-click",
+        "2": "usecase-is-click"
+      },
+      "hints": [
+        "Đây là mô tả thao tác bấm nút hay mục tiêu actor đạt được?",
+        "So sánh với ví dụ 'Click Add Button' → 'Add Product' đã học.",
+        "Đặt tên theo Verb + Object mô tả kết quả trọn vẹn, không phải hành động UI."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
       "role": "retrieve",
       "type": "fill",
       "prompt": "Tên use case được viết dưới dạng: _____ + object. (điền loại từ còn thiếu)",
       "accepted": ["verb", "động từ", "Verb", "Động từ"],
       "explanation": "Quy tắc đặt tên use case: Verb (động từ) + Object (đối tượng) để thể hiện mục tiêu có giá trị.",
+      "hints": [
+        "Nhớ lại quy tắc đặt tên use case đã học ở đầu bài.",
+        "Phần đầu tiên của tên use case luôn là một hành động.",
+        "'Add Product', 'Place Order' đều bắt đầu bằng loại từ này."
+      ],
       "weight": 1
     },
     {
-      "id": "s6",
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Use case mô tả một mục tiêu giá trị trọn vẹn mà Actor đạt được qua tương tác với hệ thống. Đặt tên theo dạng Verb + Object (VD: Place Order). Tránh functional decomposition (VD: ClickButton, EnterData).",

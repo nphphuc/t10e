@@ -3,6 +3,9 @@
   "title": "Alternative flow không phải ghi chú phụ",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#16"],
   "objective": "Xác định và mô hình hóa alternative flows trong use case realization.",
   "misconceptions": ["ignore-alternative"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Alternative sequences là phần bắt buộc của UC spec. Chúng mô tả các tình huống ngoại lệ thực tế.",
       "distractorTags": {"0": "ignore-alternative", "2": "ignore-alternative"},
-      "hints": ["Không phải mọi UC đều chạy main flow.", "Alternative = xử lý ngoại lệ.", "Xem slide 16."],
+      "hints": ["Không phải mọi UC đều chạy main flow.", "Alternative = xử lý ngoại lệ.", "Credit card denied là tình huống thực tế thường gặp, không phải trường hợp hiếm bỏ qua được."],
       "weight": 2
     },
     {
@@ -34,7 +37,7 @@
       ],
       "correct": 1,
       "explanation": "Cả hai tình huống đều là alternative: customer không có account (ngoại lệ) và credit card denied (ngoại lệ).",
-      "hints": ["Không phải mọi bước đều thuộc main flow.", "Tình huống 'nếu...thì' là alternative.", "Xem slide 16."],
+      "hints": ["Không phải mọi bước đều thuộc main flow.", "Tình huống 'nếu...thì' là alternative.", "Cả hai case đều là nhánh rẽ có điều kiện, khác với luồng thành công mặc định."],
       "weight": 2
     },
     {
@@ -50,6 +53,11 @@
       "correct": 1,
       "explanation": "Mỗi alternative scenario nên có interaction diagram riêng để mô tả luồng xử lý cụ thể.",
       "distractorTags": {"0": "ignore-alternative", "2": "ignore-alternative"},
+      "hints": [
+        "Hết hàng có phải là tình huống thực tế thường gặp không?",
+        "Alternative flow cần được model hóa nghiêm túc, giống main flow.",
+        "Interaction diagram riêng giúp thấy rõ luồng xử lý ngoại lệ này."
+      ],
       "weight": 2
     },
     {
@@ -65,10 +73,61 @@
       ],
       "correctSet": [0, 1, 2, 3],
       "explanation": "Tất cả các tình huống trên đều là alternative sequences cần được mô hình hóa.",
+      "hints": [
+        "Alternative flow bao phủ mọi trường hợp không đi theo main sequence.",
+        "Lỗi hệ thống, input sai, timeout, hủy bỏ — tất cả đều lệch khỏi luồng thành công mặc định.",
+        "Không có lựa chọn nào ở đây nên bị loại bỏ."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: nếu bác sĩ hủy ca khám đột xuất sau khi bệnh nhân đã đặt lịch, team nói 'hiếm khi xảy ra, không cần vẽ alternative flow'. Nhận xét?",
+      "options": [
+        "Đúng, tiết kiệm thời gian vẽ",
+        "Sai! Đây là tình huống ngoại lệ thực tế cần có alternative flow xử lý (báo bệnh nhân, gợi ý đổi lịch)",
+        "Chỉ cần ghi chú trong code comment"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ credit card denied, đây là alternative sequence thực tế cần mô hình hóa nghiêm túc, không phải ghi chú phụ.",
+      "distractorTags": {
+        "0": "ignore-alternative",
+        "2": "ignore-alternative"
+      },
+      "hints": [
+        "Đây có phải tình huống có thể thực sự xảy ra trong vận hành không?",
+        "So sánh với ví dụ credit card denied — cách xử lý có nên giống nhau không?",
+        "Alternative flow cần UC spec + interaction diagram riêng, không chỉ ghi chú."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: use case 'Xem lịch trống' chỉ có BoundaryForm gọi ScheduleService, không có bước phối hợp nào khác. Có cần control object không?",
+      "options": [
+        "Có, mọi use case đều cần",
+        "Không — use case đơn giản chỉ cần boundary + service",
+        "Cần vì liên quan đến lịch"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — use case đơn giản 1 bước đọc dữ liệu không cần control object.",
+      "distractorTags": {
+        "0": "control-always",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Stateless realization.",
+        "Có bao nhiêu bước cần phối hợp ở đây?",
+        "Một bước đọc dữ liệu đơn giản không cần 'nhạc trưởng' điều phối."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Alternative sequences không phải ghi chú phụ. Mỗi tình huống ngoại lệ cần được mô tả trong UC spec và vẽ interaction diagram riêng (nếu cần).",

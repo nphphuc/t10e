@@ -3,6 +3,9 @@
   "title": "Từ nhanh và dễ dùng đến scenario đo được",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch20_Software Quality Attributes.pptx#3-5"],
   "objective": "Chuyển đổi NFR mơ hồ thành measurable quality attribute scenarios.",
   "misconceptions": ["nfr-is-vague"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "NFR cần measurable. Maintainability: 'Thời gian trung bình fix một bug < 4 giờ' hoặc 'Thêm một field mới mất < 30 phút'.",
       "distractorTags": {"0": "nfr-is-vague", "2": "nfr-is-vague"},
-      "hints": ["Làm sao đo 'dễ bảo trì'?", "Cần metric cụ thể.", "Xem slide 3-5."],
+      "hints": [
+        "Làm sao đo được 'dễ bảo trì' bằng con số?",
+        "So sánh: '< 4 giờ để fix một bug' đo được thời gian; 'dễ bảo trì' thì không đo được gì cả."
+      ],
       "weight": 2
     },
     {
@@ -34,7 +40,10 @@
         "Security": "Failed login > 5 lần thì khóa tài khoản 15 phút"
       },
       "explanation": "Mỗi quality attribute cần stimulus, metric, condition rõ ràng.",
-      "hints": ["Performance = thời gian.", "Availability = uptime.", "Xem slide 3-5."],
+      "hints": [
+        "Performance thường đo bằng thời gian phản hồi.",
+        "Availability đo bằng % uptime — Security đo bằng hành vi khi bị tấn công (thử sai bao nhiêu lần)."
+      ],
       "weight": 2
     },
     {
@@ -44,6 +53,42 @@
       "prompt": "Điền từ: 'Maintainability is the extent to which software is capable of being _____ after deployment.' (sửa đổi sau triển khai)",
       "accepted": ["changed", "modified", "thay đổi", "sửa đổi"],
       "explanation": "Maintainability là khả năng thay đổi phần mềm sau khi triển khai.",
+      "hints": [
+        "Từ đồng nghĩa với 'sửa lại' hoặc 'điều chỉnh', áp dụng cho phần mềm sau khi đã phát hành.",
+        "Tiếng Anh bắt đầu bằng 'modif-' hoặc 'chang-'."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: khách hàng yêu cầu 'hệ thống đặt lịch phải ổn định'. Câu này có vấn đề gì?",
+      "options": [
+        "Không vấn đề gì, 'ổn định' đã đủ rõ",
+        "Mơ hồ — cần cụ thể hóa: ví dụ uptime ≥ 99.5%/tháng, hoặc không mất lịch đã đặt khi server restart",
+        "Ổn định không phải quality attribute"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ 'dễ bảo trì', 'ổn định' cần chuyển thành scenario đo được: stimulus (server restart), metric (uptime %), condition (trong 1 tháng).",
+      "distractorTags": {"0": "nfr-is-vague", "2": "nfr-is-vague"},
+      "hints": [
+        "'Ổn định' có đo bằng số liệu cụ thể được không?",
+        "So sánh với ví dụ FOS 'dễ bảo trì' → 'fix bug < 4 giờ'."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "truefalse",
+      "prompt": "Nhắc lại bài trước (Level 8): một task được kích hoạt định kỳ theo đồng hồ (vd: mỗi giây lấy mẫu nhiệt độ một lần) là kiểu 'periodic activation'.",
+      "correct": true,
+      "explanation": "Đúng — periodic (định kỳ) là một trong ba kiểu kích hoạt task, cùng với event-driven (interrupt) và demand-driven (message nội bộ).",
+      "hints": [
+        "Định kỳ theo đồng hồ, không chờ sự kiện hay message.",
+        "So sánh: interrupt = event-driven, message = demand-driven, đồng hồ = periodic."
+      ],
       "weight": 1
     },
     {

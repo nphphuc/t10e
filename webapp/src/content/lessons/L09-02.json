@@ -3,6 +3,9 @@
   "title": "Khả năng thay đổi và kiểm thử",
   "minutes": 11,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch20_Software Quality Attributes.pptx#5"],
   "objective": "Hiểu maintainability, modifiability, testability và cách thiết kế để đạt được chúng.",
   "misconceptions": ["quality-confusion"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "Modifiability: khả năng sửa đổi với tác động tối thiểu. Encapsulation, low coupling giúp modifiability.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Thay đổi ít ảnh hưởng → modifiability.", "Xem slide 5."],
+      "hints": [
+        "Thay đổi ít ảnh hưởng module khác → đó là modifiability.",
+        "So sánh: Performance đo tốc độ, Availability đo uptime — không liên quan tới 'tác động khi sửa code'."
+      ],
       "weight": 2
     },
     {
@@ -33,6 +39,10 @@
         "Testability": "Encapsulation, interfaces, patterns, low coupling"
       },
       "explanation": "Các attribute đạt được nhờ design tactics.",
+      "hints": [
+        "Maintainability là khả năng chung sau triển khai; Modifiability và Testability là hai yếu tố góp phần vào đó.",
+        "Cả ba đều cần: module nhỏ, interface rõ, ít phụ thuộc chéo."
+      ],
       "weight": 2
     },
     {
@@ -49,7 +59,49 @@
       "correctSet": [0, 1, 2],
       "explanation": "Encapsulation, interfaces, low coupling giúp dễ test. Hard-code làm giảm testability.",
       "distractorTags": {"3": null},
+      "hints": [
+        "Cách nào giúp cô lập một phần để test riêng, thay vì viết chết cứng?",
+        "Hard-code (đáp án cuối) làm code không thể thay thế/mock được khi test — ngược hoàn toàn với testability."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Clinic Booking cần thay đổi quy tắc tính phí khám theo từng khoa. Cách nào giúp cả testability lẫn modifiability tốt? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Tách rule tính phí thành class/interface riêng biệt",
+        "Inject rule đó vào nơi cần dùng thay vì gọi trực tiếp class cụ thể",
+        "Viết cứng công thức tính phí ngay trong AppointmentController"
+      ],
+      "correctSet": [0, 1],
+      "explanation": "Tách biệt + dependency injection giúp thay class rule khác khi test (testability) và sửa không ảnh hưởng module khác (modifiability). Hard-code làm cả hai đều khó.",
+      "distractorTags": {"2": null},
+      "hints": [
+        "Encapsulation + low coupling luôn là chìa khóa cho cả hai quality attribute này.",
+        "Đáp án cuối viết cứng công thức ngay trong controller — điều này có tách biệt được không?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: NFR nào sau đây là measurable scenario đúng chuẩn?",
+      "options": [
+        "'Hệ thống dễ sửa'",
+        "'Thêm một loại thanh toán mới mất dưới 2 ngày, sửa không quá 3 module'",
+        "'Code sạch và dễ đọc'"
+      ],
+      "correct": 1,
+      "explanation": "Giống bài trước — NFR tốt cần stimulus (thêm loại thanh toán), metric (2 ngày, 3 module), không phải tính từ mơ hồ.",
+      "distractorTags": {"0": "nfr-is-vague", "2": "nfr-is-vague"},
+      "hints": [
+        "Câu nào có con số cụ thể (ngày, số module)?",
+        "'Dễ sửa' và 'sạch, dễ đọc' đều là tính từ không đo được."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

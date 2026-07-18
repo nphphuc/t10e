@@ -73,6 +73,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong hệ thống Clinic Booking, đoạn log ghi: 'appt_2201 : Appointment đã chuyển sang trạng thái Confirmed'. 'appt_2201' đại diện cho khái niệm nào?",
+      "options": [
+        "Class Appointment",
+        "Object instance cụ thể của class Appointment",
+        "Operation chuyển trạng thái"
+      ],
+      "correct": 1,
+      "explanation": "'appt_2201' là một object instance cụ thể ở runtime của class Appointment — giống hệt cách 'johnsAccount' là instance của class Account.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": null
+      },
+      "hints": [
+        "Ký hiệu 'tên : ClassName' luôn biểu thị điều gì trong UML?",
+        "So sánh với ví dụ 'johnsAccount : Account' đã học.",
+        "Phần trước dấu hai chấm là tên object instance, phần sau là class."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: khi chỉ dùng đúng một loại sơ đồ (ví dụ Class Diagram) để giải quyết mọi vấn đề thiết kế, đó là hiểu lầm nào?",
+      "options": [
+        "one-view-enough",
+        "class-is-object",
+        "model-is-documentation"
+      ],
+      "correct": 0,
+      "explanation": "Đúng, đây là 'one-view-enough' — mỗi góc nhìn (view) chỉ giải quyết một khía cạnh, cần phối hợp nhiều view để hiểu toàn bộ hệ thống.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài về 7 góc nhìn của hệ thống.",
+        "Đây là hiểu lầm về việc chỉ dùng MỘT sơ đồ cho MỌI vấn đề.",
+        "Tên mã hiểu lầm có chứa cụm 'one-view'."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Class là lớp khuôn mẫu tĩnh ở thời điểm thiết kế (ví dụ: Account). Object là thực thể động cụ thể ở runtime (ví dụ: johnsAccount). Trong UML, tên Object luôn được gạch chân để phân biệt.",

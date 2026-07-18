@@ -27,7 +27,7 @@
       },
       "hints": [
         "Chúng ta đang đối chiếu giữa hai tài liệu kỹ thuật nội bộ hay đối chiếu với người dùng cuối?",
-        "Xem định nghĩa về Verification trong slide 11.",
+        "Verification là kiểm tra sự nhất quán giữa các artefact kỹ thuật nội bộ, không cần người dùng tham gia.",
         "Làm thế nào để biết ta đang xây dựng đúng theo đặc tả (specification)?"
       ],
       "weight": 2
@@ -48,7 +48,7 @@
       },
       "hints": [
         "Mục tiêu là xem phần mềm có khớp với nhu cầu thực của khách hàng (user's needs) hay không.",
-        "Đọc kỹ slide 11-12 về mục đích của Throwaway Prototyping.",
+        "Throwaway Prototype tồn tại chính là để kiểm chứng nhu cầu người dùng trước khi đầu tư code thật.",
         "Xác nhận hệ thống đúng đắn với người dùng cuối chính là Validation."
       ],
       "weight": 2
@@ -78,6 +78,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Team Clinic Booking cho bác sĩ thật dùng thử bản demo đặt lịch để xem quy trình có thực sự tiết kiệm thời gian cho họ không. Đây là hoạt động gì?",
+      "options": [
+        "Verification — kiểm tra code đúng đặc tả kỹ thuật",
+        "Validation — kiểm tra hệ thống đúng nhu cầu người dùng thật",
+        "Cả hai đều đúng như nhau"
+      ],
+      "correct": 1,
+      "explanation": "Cho bác sĩ thật trải nghiệm để đánh giá giá trị thực tế là Validation — xác nhận hệ thống giải quyết đúng vấn đề của người dùng, không phải kiểm tra tính đúng đắn kỹ thuật nội bộ.",
+      "distractorTags": {
+        "0": "verify-vs-validate",
+        "2": "verify-vs-validate"
+      },
+      "hints": [
+        "Ai đang đánh giá — kỹ sư nội bộ đối chiếu tài liệu, hay người dùng thật trải nghiệm giá trị?",
+        "So sánh với ví dụ FOS: chạy thử prototype với khách hàng là hoạt động gì?",
+        "Đánh giá bởi người dùng thật về giá trị thực tế luôn là Validation."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: khi kiến trúc dự án chưa ổn định và cần chốt trước khi xây dựng ồ ạt, RUP gọi đó là pha nào?",
+      "options": [
+        "Inception",
+        "Elaboration",
+        "Construction"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Elaboration là pha chuyên chốt chặn kiến trúc nền tảng trước khi bước vào Construction quy mô lớn.",
+      "distractorTags": {
+        "0": "process-order",
+        "2": "process-order"
+      },
+      "hints": [
+        "Nhớ lại 4 pha của RUP đã học ở bài trước.",
+        "Pha nào tập trung vào việc ổn định kiến trúc, không phải khởi tạo ý tưởng hay code hàng loạt?",
+        "Elaboration = ổn định kiến trúc nền tảng."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Hãy nhớ: Validation là làm đúng hệ thống khách hàng cần (build the right system). Verification là làm hệ thống đúng cách, đúng đặc tả kỹ thuật (build the system right). Cả hai hoạt động đều quan trọng và không thể thay thế cho nhau.",

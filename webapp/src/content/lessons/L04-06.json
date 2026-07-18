@@ -3,6 +3,9 @@
   "title": "Vẽ đúng biên và đúng stereotype",
   "minutes": 11,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#21-25"],
   "objective": "Áp dụng context modeling và stereotype của UML để phân biệt external/internal classes.",
   "misconceptions": ["actor-is-internal"],
   "screens": [
@@ -79,7 +82,7 @@
       "hints": [
         "Boundary class giao tiếp với external environment.",
         "I/O device nằm ở biên hệ thống.",
-        "Xem slide 21-22 về external classes."
+        "ATMCardReader tiếp xúc trực tiếp với thiết bị phần cứng bên ngoài, không lưu data hay điều phối luồng."
       ],
       "weight": 2
     },
@@ -100,10 +103,61 @@
       "distractorTags": {
         "4": "actor-is-internal"
       },
+      "hints": [
+        "Actor luôn nằm ngoài system boundary — kiểm tra từng lựa chọn có nằm trong code hệ thống không.",
+        "Timer và I/O device không phải con người nhưng vẫn có thể là actor nếu ở ngoài scope phần mềm.",
+        "Chỉ loại bỏ lựa chọn nào là một object được code bên trong hệ thống."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking gọi một 'InsuranceVerificationAPI' bên ngoài để kiểm tra bảo hiểm bệnh nhân trước khi xác nhận lịch hẹn. Stereotype phù hợp để biểu diễn class giao tiếp với API này là gì?",
+      "options": [
+        "«entity» — vì nó lưu dữ liệu bảo hiểm",
+        "«boundary» — vì nó giao tiếp với hệ thống bên ngoài",
+        "«control» — vì nó điều phối luồng xác nhận lịch hẹn"
+      ],
+      "correct": 1,
+      "explanation": "Giống ATMCardReader, class gọi tới InsuranceVerificationAPI nằm ở biên giữa phần mềm và hệ thống bên ngoài, nên mang stereotype «boundary».",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Class này có lưu trữ dữ liệu bền vững hay chỉ chuyển tiếp yêu cầu ra ngoài?",
+        "So sánh với ví dụ ATMCardReader — vai trò tương tự nhau ở điểm nào?",
+        "Bất kỳ class nào tiếp xúc trực tiếp với hệ thống/thiết bị bên ngoài đều là «boundary»."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: SmsNotification và EmailNotification cùng kế thừa từ abstract class Notification. Đây là ứng dụng của khái niệm nào?",
+      "options": [
+        "Composition",
+        "Generalization với Is-A relationship",
+        "Association class"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — cả hai subclass đều 'is-a' Notification và override hành vi send(), đây là generalization đúng cách, không chỉ để tái dùng code.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Generalization vs tái dùng code.",
+        "SmsNotification có 'is-a' Notification không?",
+        "Generalization dựa trên quan hệ Is-A, không chỉ trùng thuộc tính/hành vi."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Software context diagram xác định biên hệ thống và các external classes. UML stereotypes «entity», «boundary», «control» giúp phân loại class theo vai trò. Actor luôn ở ngoài system boundary.",

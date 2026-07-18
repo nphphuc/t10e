@@ -3,6 +3,9 @@
   "title": "Composition hay aggregation?",
   "minutes": 9,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#13-14"],
   "objective": "Phân biệt composition (sở hữu mạnh — part sống/chết cùng whole) và aggregation (sở hữu yếu — part có thể tồn tại độc lập).",
   "misconceptions": ["aggregation-equals-composition"],
   "screens": [
@@ -49,7 +52,7 @@
       "explanation": "Composition: filled diamond, độc quyền, part phụ thuộc vòng đời. Aggregation: hollow diamond, lỏng lẻo hơn, part độc lập.",
       "hints": [
         "Đặc (filled) = mạnh, rỗng (hollow) = yếu.",
-        "Xem ký hiệu UML trong slide 13-14.",
+        "Ký hiệu hình thoi (đặc/rỗng) đặt ở đầu nào của association thể hiện ai là 'whole'?",
         "Aggregation thường cho conceptual classes."
       ],
       "weight": 2
@@ -97,10 +100,61 @@
         "0": "aggregation-equals-composition",
         "2": null
       },
+      "hints": [
+        "Topping có 'chết' cùng Pizza không, hay vẫn dùng được cho Pizza khác?",
+        "Một Topping có thể thuộc về nhiều Pizza cùng lúc — điều đó nói lên gì về vòng đời?",
+        "Part tồn tại độc lập và có thể chia sẻ giữa nhiều whole là dấu hiệu của Aggregation."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: một MedicalRecord (hồ sơ bệnh án) chứa nhiều DiagnosisEntry (mục chẩn đoán). Khi MedicalRecord bị xóa, các DiagnosisEntry của nó cũng bị xóa theo và không tồn tại độc lập ở đâu khác. Đây là quan hệ gì?",
+      "options": [
+        "Composition — DiagnosisEntry sống/chết cùng MedicalRecord",
+        "Aggregation — DiagnosisEntry có thể tồn tại độc lập",
+        "Association thông thường không có sở hữu"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ Order-OrderItem, DiagnosisEntry không có ý nghĩa tồn tại ngoài MedicalRecord của nó và bị xóa cùng — đây là Composition (sở hữu độc quyền, filled diamond).",
+      "distractorTags": {
+        "1": "aggregation-equals-composition",
+        "2": null
+      },
+      "hints": [
+        "DiagnosisEntry có thể tồn tại nếu MedicalRecord của nó bị xóa không?",
+        "So sánh với ví dụ Order-OrderItem: OrderItem có sống được khi Order bị xóa không?",
+        "Part biến mất cùng whole và không thuộc whole nào khác là dấu hiệu Composition."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: Doctor tư vấn nhiều Patient qua nhiều Appointment, mỗi lần khám lưu diagnosis riêng. diagnosis nên đặt ở đâu?",
+      "options": [
+        "Trong class Doctor",
+        "Trong class Patient",
+        "Trong association class Appointment"
+      ],
+      "correct": 2,
+      "explanation": "Đúng — diagnosis gắn với một cặp (Doctor, Patient) tại một lần khám cụ thể, nên cần association class Appointment, không thuộc riêng Doctor hay Patient.",
+      "distractorTags": {
+        "0": "relationship-data",
+        "1": "relationship-data"
+      },
+      "hints": [
+        "Nhớ lại bài về association class.",
+        "diagnosis có cố định theo một Doctor không, hay thay đổi theo từng lần khám?",
+        "Dữ liệu gắn với một lần kết hợp cụ thể luôn cần association class."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Composition (filled diamond): part sống/chết cùng whole, độc quyền. Aggregation (hollow diamond): part độc lập, có thể chia sẻ. Hãy kiểm tra lifetime dependency để quyết định.",

@@ -5,7 +5,9 @@
   "xp": 210,
   "objective": "Trace từ use case qua analysis đến design và code trong FreshFood case study.",
   "misconceptions": ["traceability", "analysis-is-design"],
+  "status": "draft-from-slide",
   "needsReview": true,
+  "sourceRefs": ["SWD392_RDS Document Case Study.pdf#4-20"],
   "screens": [
     {
       "id": "s1",
@@ -24,9 +26,8 @@
         "2": "traceability"
       },
       "hints": [
-        "Traceability = truy vết.",
-        "COMET hỗ trợ trace.",
-        "Xem Ch20 về traceability."
+        "Traceability nghĩa là có thể lần ngược từ code về đúng use case đã sinh ra nó.",
+        "Nếu chỉ cần 'code chạy được', làm sao biết code đó có đáp ứng ĐÚNG yêu cầu ban đầu không?"
       ],
       "weight": 2
     },
@@ -79,6 +80,10 @@
       ],
       "correct": 0,
       "explanation": "Trace COMET: Use Case (requirement) → Interaction diagram (analysis) → Subsystem/class interface (design) → code. Mỗi bước ánh xạ ngược được về use case gốc.",
+      "hints": [
+        "Bắt đầu từ Use Case — đây là điểm khởi đầu của mọi trace.",
+        "Interaction diagram thuộc tầng analysis, Subsystem/Interface thuộc tầng design — đi đúng thứ tự từ trái sang phải."
+      ],
       "weight": 2
     },
     {
@@ -93,8 +98,49 @@
       ],
       "correct": 1,
       "explanation": "Traceability: từ UC đến interaction diagrams → subsystems → class interfaces → code. Mỗi bước đều có thể trace ngược.",
-      "hints": ["Trace = mapping.", "Mỗi bước phải liên kết.", "Xem slide 8-9 Ch20."],
+      "hints": [
+        "Có test case không đảm bảo trace được về đúng use case nào.",
+        "Mỗi tầng (interaction → subsystem → class interface → code) phải NỐI được với use case gốc, không chỉ 'chạy không lỗi'."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: use case 'Đặt lịch khám' được code xong nhưng không ai ghi lại code đó xử lý phần nào của yêu cầu, hay giao diện nào gọi tới nó. 6 tháng sau, đổi yêu cầu 'Đặt lịch khám', dev mới không biết sửa file nào. Vấn đề gì?",
+      "options": [
+        "Không có vấn đề gì, cứ đọc code là hiểu",
+        "Thiếu traceability — không có đường nối từ use case đến design/code nên khó bảo trì khi requirement thay đổi",
+        "Chỉ cần test case là đủ, không cần trace"
+      ],
+      "correct": 1,
+      "explanation": "Giống FreshFood: thiếu trace từ use case → design/code khiến việc thay đổi requirement sau này rất khó xác định phạm vi ảnh hưởng — đây chính là lý do COMET yêu cầu trace xuyên suốt mọi tầng.",
+      "distractorTags": {"0": "traceability", "2": "traceability"},
+      "hints": [
+        "6 tháng sau muốn sửa, dev mới có cách nào biết code nào ứng với use case nào không?",
+        "Đọc code không đảm bảo biết code đó có đáp ứng ĐÚNG use case ban đầu hay không."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: một task chạy theo ĐỒNG HỒ, lặp lại đều đặn (vd mỗi 20ms) mà không chờ sự kiện bên ngoài, là loại kích hoạt task nào?",
+      "options": [
+        "Event-driven (interrupt)",
+        "Periodic — kích hoạt định kỳ theo thời gian",
+        "Demand-driven (theo message)"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: periodic activation là kích hoạt theo đồng hồ, khác event-driven (chờ sự kiện) và demand-driven (chờ message).",
+      "distractorTags": {"0": "task-activation", "2": "task-activation"},
+      "hints": [
+        "Nhớ lại ví dụ AGV Controller gửi tín hiệu Motor mỗi 20ms.",
+        "Không chờ sự kiện hay message — chạy đều đặn theo đồng hồ."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

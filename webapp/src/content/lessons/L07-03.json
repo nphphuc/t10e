@@ -3,6 +3,9 @@
   "title": "Component, interface và connector",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#16"],
   "objective": "Phân biệt component, provided/required interface, và connector trong component-based architecture.",
   "misconceptions": ["interface-is-implementation"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Interface định nghĩa contract (tên operation, params). Implementation là code nội bộ được ẩn đi.",
       "distractorTags": {"0": "interface-is-implementation", "2": null},
-      "hints": ["Interface = contract.", "Implementation = hidden details.", "Xem slide 16."],
+      "hints": ["Interface = contract.", "Implementation = hidden details.", "Client chỉ cần biết tên operation và tham số, không cần biết code bên trong."],
       "weight": 2
     },
     {
@@ -34,6 +37,11 @@
         "Connector": "Kết nối giữa required và provided interface"
       },
       "explanation": "Component = black box với provided/required interfaces. Connector = kết nối giữa các interface.",
+      "hints": [
+        "'Provided' là cho đi, 'required' là nhận về — dịch vụ nào component tự cung cấp?",
+        "Connector không chứa logic nghiệp vụ, chỉ nối các interface lại.",
+        "Component luôn được xem như một hộp đen có ranh giới interface rõ ràng."
+      ],
       "weight": 2
     },
     {
@@ -50,10 +58,61 @@
       "correctSet": [0, 1, 2],
       "explanation": "Component self-contained, encapsulation, interface rõ ràng. Không phụ thuộc implementation cụ thể.",
       "distractorTags": {"3": "interface-is-implementation"},
+      "hints": [
+        "Component tốt có nên biết chi tiết cài đặt bên trong component khác không?",
+        "Phụ thuộc vào implementation cụ thể phá vỡ tính self-contained.",
+        "Chỉ nên phụ thuộc vào interface (contract), không phụ thuộc implementation."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking có component 'NotificationService'. Một dev viết code trong BoundaryForm gọi thẳng vào hàm nội bộ sendViaTwilioSDK() của NotificationService thay vì gọi qua interface send(). Vấn đề gì?",
+      "options": [
+        "Không có vấn đề, miễn là chạy được",
+        "Vi phạm nguyên tắc interface — client đang phụ thuộc vào implementation cụ thể thay vì contract",
+        "Đây là cách làm đúng để tối ưu hiệu năng"
+      ],
+      "correct": 1,
+      "explanation": "Giống nguyên tắc PaymentService, client chỉ nên phụ thuộc provided interface (send()), không được gọi thẳng chi tiết cài đặt bên trong — nếu không sẽ mất khả năng thay đổi implementation sau này.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation"
+      },
+      "hints": [
+        "Client có nên biết component dùng Twilio SDK cụ thể không?",
+        "So sánh với nguyên tắc Interface là contract, Implementation là chi tiết ẩn.",
+        "Gọi thẳng hàm nội bộ phá vỡ encapsulation của component."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: Clinic Booking cần xác định AppServer đặt ở đâu và kết nối mạng với DBServer ra sao. View nào cần dùng?",
+      "options": [
+        "Structural view",
+        "Dynamic view",
+        "Deployment view"
+      ],
+      "correct": 2,
+      "explanation": "Đúng — câu hỏi về vị trí server và kết nối mạng luôn thuộc Deployment View.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "1": "view-purpose"
+      },
+      "hints": [
+        "Nhớ lại bài về 3 views kiến trúc.",
+        "Câu hỏi này về cấu trúc phần mềm hay hạ tầng vật lý?",
+        "Vị trí server và kết nối mạng luôn thuộc Deployment View."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Component: self-contained unit với provided/required interfaces. Interface: contract tách biệt implementation. Connector: kết nối interfaces.",

@@ -3,6 +3,9 @@
   "title": "Online Shopping: phối hợp nhiều service",
   "minutes": 14,
   "xp": 160,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch22_SOA Case Study-Online Shopping System.pptx#2-19"],
   "objective": "Áp dụng SOA và coordinator pattern vào Online Shopping System case study.",
   "misconceptions": ["soa-is-microservices"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "CustomerCoordinator điều phối: lấy account → authorize credit card → tạo delivery order → gửi email.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Nhiều services cần coordinator.", "Xem Ch22 slides."],
+      "hints": [
+        "Bốn service khác nhau cần được gọi theo ĐÚNG THỨ TỰ — ai đảm bảo thứ tự đó?",
+        "Nếu để các service tự gọi nhau, ai chịu trách nhiệm khi một bước thất bại giữa chừng?"
+      ],
       "weight": 2
     },
     {
@@ -40,7 +46,10 @@
         "CustomerCoordinator gửi createOrder đến DeliveryOrderService"
       ],
       "explanation": "Interaction → getAccount → authorizeCreditCard → createOrder.",
-      "hints": ["Bắt đầu từ actor.", "Xem sequence diagram Ch22."],
+      "hints": [
+        "Luôn bắt đầu từ hành động của actor (Customer) qua CustomerInteraction.",
+        "Coordinator chỉ gọi bước sau khi bước trước đã xong — account trước, credit card sau, rồi mới tạo delivery."
+      ],
       "weight": 2
     },
     {
@@ -56,8 +65,49 @@
       ],
       "correctSet": [0, 1, 3],
       "explanation": "CreditCard, Email, DeliveryOrder services có thể tái sử dụng. UI form là specific.",
-      "hints": ["Service = reusable.", "UI = specific.", "Xem Ch22."],
+      "hints": [
+        "Service nào có thể dùng lại cho ứng dụng khác (không chỉ web)?",
+        "UI form luôn gắn chặt với MỘT giao diện cụ thể — khác với service xử lý nghiệp vụ."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: khi bệnh nhân xác nhận đặt lịch, cần kiểm tra bảo hiểm, giữ chỗ slot bác sĩ, gửi email xác nhận — theo đúng thứ tự. Cần coordinator không?",
+      "options": [
+        "Không — ba service tự gọi nhau là đủ",
+        "Có — BookingCoordinator điều phối theo đúng thứ tự: bảo hiểm → giữ slot → email",
+        "Chỉ cần giao diện gọi thẳng cả ba service cùng lúc"
+      ],
+      "correct": 1,
+      "explanation": "Giống CustomerCoordinator trong Online Shopping: nhiều service cần chạy ĐÚNG THỨ TỰ và có thể cần xử lý khi một bước lỗi (vd bảo hiểm từ chối) → cần coordinator điều phối, không để service tự gọi nhau hay gọi song song không kiểm soát.",
+      "distractorTags": {"0": "case-driver", "2": "case-driver"},
+      "hints": [
+        "Nếu bảo hiểm bị từ chối SAU KHI đã giữ slot, ai xử lý việc hủy giữ chỗ?",
+        "Thứ tự CÓ QUAN TRỌNG (kiểm tra trước khi giữ chỗ) — điều gì đảm bảo thứ tự đó?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: vì sao nhiều ATM lại dùng chung MỘT Bank Service thay vì mỗi ATM tự lưu dữ liệu riêng?",
+      "options": [
+        "Vì ATM không có đủ bộ nhớ",
+        "Vì dữ liệu tài khoản cần NHẤT QUÁN giữa mọi ATM — client/server đảm bảo điều đó",
+        "Không có lý do đặc biệt"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: nhiều client cần truy cập dữ liệu DÙNG CHUNG và nhất quán → kiến trúc client/server với service trung tâm.",
+      "distractorTags": {"0": null, "2": "case-driver"},
+      "hints": [
+        "Nếu mỗi ATM tự lưu số dư riêng, điều gì xảy ra khi rút tiền ở hai ATM khác nhau?",
+        "Nhớ lại: Bank Service là nơi DUY NHẤT giữ dữ liệu đúng."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

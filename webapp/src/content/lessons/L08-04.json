@@ -3,6 +3,9 @@
   "title": "Từ entity model đến relational design",
   "minutes": 13,
   "xp": 130,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch14_Designing Object-Oriented Software Architectures.pptx#23-40"],
   "objective": "Ánh xạ từ static class model sang relational database: primary keys, foreign keys, association classes.",
   "misconceptions": ["multiplicity-fk", "relationship-data"],
   "screens": [
@@ -31,7 +34,7 @@
       "hints": [
         "Hãy thử click vào các bảng bên dưới để xem sự thay đổi của khóa ngoại.",
         "Phía Many (Account) có thể có nhiều dòng trỏ về cùng một Customer.",
-        "Xem slide 29-30 về ánh xạ mối quan hệ 1-N."
+        "FK luôn nằm ở bảng có thể lặp lại nhiều lần cho cùng một giá trị khóa chính bên kia."
       ],
       "weight": 2
     },
@@ -47,7 +50,7 @@
         "Association class": "Mapped thành associative relation"
       },
       "explanation": "RDD mapping: entity → table, 1-* → FK, *-* → associative table.",
-      "hints": ["Entity → Table.", "Many-to-many → associative table.", "Xem slide 23-33."],
+      "hints": ["Entity → Table.", "Many-to-many → associative table.", "Association class cũng có dữ liệu riêng nên luôn được ánh xạ thành một bảng riêng."],
       "weight": 2
     },
     {
@@ -62,7 +65,7 @@
       ],
       "correct": 2,
       "explanation": "Associative relation dùng concatenated primary key từ cả hai bảng tham gia.",
-      "hints": ["Cần unique cho mỗi cặp Student-Course.", "Xem slide 31-33."],
+      "hints": ["Cần unique cho mỗi cặp Student-Course.", "Một mình studentId hay courseId có đủ để xác định duy nhất một dòng Enrollment không?", "Chỉ có kết hợp cả hai khóa mới đảm bảo tính duy nhất cho mỗi lần đăng ký."],
       "weight": 2
     },
     {
@@ -77,11 +80,63 @@
       ],
       "correct": 2,
       "explanation": "Cách 1: superclass + 2 subclass tables. Account (accountNumber, type, balance), CheckingAccount (accountNumber, lastDeposit), SavingsAccount (accountNumber, interest).",
-      "hints": ["Shared primary key.", "Discriminator.", "Xem slide 36-40."],
+      "hints": ["Shared primary key.", "Discriminator.", "Cách này giữ dữ liệu chung ở bảng cha, dữ liệu riêng ở từng bảng con, nối qua khóa chính chung."],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "visual",
+      "visual": {
+        "variant": "relational-mapping",
+        "classA": "Doctor",
+        "classB": "Appointment",
+        "relationship": "one-to-many"
+      },
+      "options": [
+        "Thêm khóa ngoại doctorId vào bảng Appointments (phía N - Many)",
+        "Thêm khóa ngoại appointmentId vào bảng Doctors (phía 1 - One)",
+        "Tạo bảng thứ ba để liên kết hai bảng"
+      ],
+      "prompt": "Clinic Booking: Doctor có quan hệ 1-nhiều với Appointment (một bác sĩ có nhiều lịch hẹn). Khóa ngoại nên đặt ở bảng nào?",
+      "correct": 0,
+      "explanation": "Giống ví dụ Customer-Account, khóa ngoại luôn đặt ở bảng phía 'many' (Appointments), trỏ về khóa chính của bảng phía 'one' (Doctors).",
+      "distractorTags": {
+        "1": "multiplicity-fk",
+        "2": "multiplicity-fk"
+      },
+      "hints": [
+        "Phía nào có thể có nhiều dòng cùng trỏ về một Doctor?",
+        "So sánh với ví dụ Customer-Account đã học — cấu trúc quan hệ có giống nhau không?",
+        "FK luôn nằm ở bảng phía 'many' của quan hệ 1-nhiều."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: bệnh nhân bấm 'Xác nhận đặt lịch' và cần thấy ngay kết quả trên màn hình. Pattern phù hợp?",
+      "options": [
+        "Synchronous with Reply",
+        "Asynchronous Message Communication với Callback",
+        "Broadcast"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — cần phản hồi ngay để hiển thị nên chọn Synchronous with Reply.",
+      "distractorTags": {
+        "1": "async-is-faster",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Request/reply, callback và middleware.",
+        "Bệnh nhân có cần thấy kết quả ngay lập tức không?",
+        "Cần phản hồi ngay luôn là dấu hiệu của Synchronous with Reply."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "RDD mapping: Entity class → Table. 1-* → FK ở many side. *-* → Associative table. Generalization → 3 cách mapping (super+sub, sub only, super only). Association class → associative relation.",

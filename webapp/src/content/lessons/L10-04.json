@@ -3,6 +3,9 @@
   "title": "Thêm trách nhiệm và kiểm soát truy cập",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#47-56"],
   "objective": "Hiểu Decorator và Proxy patterns để thêm trách nhiệm động và kiểm soát truy cập.",
   "misconceptions": ["wrapper-intent"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "Decorator: wrap object với các decorators. Mỗi decorator thêm chức năng mới mà không sửa class gốc.",
       "distractorTags": {"0": "wrapper-intent", "2": null},
-      "hints": ["Decorator = wrapper thêm chức năng.", "Open for extension, closed for modification.", "Xem Decorator pattern."],
+      "hints": [
+        "Muốn THÊM tính năng mới mà không sửa code cũ đang chạy tốt — đó là dấu hiệu Decorator.",
+        "Nếu sửa trực tiếp Notifier mỗi lần thêm kênh mới, class đó sẽ ngày càng phình to và dễ vỡ."
+      ],
       "weight": 2
     },
     {
@@ -49,8 +55,49 @@
       "correct": 1,
       "explanation": "Protection Proxy kiểm soát truy cập: kiểm tra quyền → nếu OK mới gọi real service.",
       "distractorTags": {"0": "wrapper-intent", "2": null},
-      "hints": ["Proxy = placeholder kiểm soát.", "Access control = Protection Proxy.", "Xem Proxy pattern."],
+      "hints": [
+        "Câu hỏi ở đây là KIỂM SOÁT TRUY CẬP trước khi cho gọi service thật, không phải thêm tính năng mới.",
+        "Proxy giữ NGUYÊN interface của service thật, chỉ chặn trước khi cho đi qua."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: AppointmentService hiện chỉ cho bác sĩ xem lịch của mình. Cần thêm bước kiểm tra role (Admin/Doctor/Patient) TRƯỚC khi cho gọi service, không sửa code AppointmentService gốc. Pattern nào?",
+      "options": [
+        "Proxy — ProtectionProxy kiểm tra quyền trước khi gọi service thật",
+        "Decorator — thêm tính năng kiểm tra quyền như một lớp trang trí",
+        "Cả hai đều sai vì phải sửa trực tiếp AppointmentService"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ PaymentService: kiểm soát TRUY CẬP trước khi gọi service thật là đúng vai trò của Protection Proxy, không phải Decorator (Decorator thêm behavior/chức năng, không phải chặn quyền truy cập).",
+      "distractorTags": {"1": "wrapper-intent", "2": "wrapper-intent"},
+      "hints": [
+        "Mục tiêu là CHẶN truy cập trái phép, không phải THÊM chức năng mới cho AppointmentService.",
+        "Nhớ lại: Proxy kiểm soát ai được đi qua; Decorator thêm gì đó cho mọi request đi qua."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: Clinic Booking cần hiển thị Khoa → Phòng khám → Bác sĩ và xử lý đồng nhất dù là node lá hay node cha. Pattern nào?",
+      "options": [
+        "Adapter",
+        "Composite — xử lý Leaf và Composite đồng nhất qua cùng interface",
+        "Decorator"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: cấu trúc cây với xử lý đồng nhất giữa phần tử đơn và phần tử chứa nhiều phần tử con là Composite.",
+      "distractorTags": {"0": "pattern-by-shape", "2": "wrapper-intent"},
+      "hints": [
+        "Nhớ lại ví dụ Category/SubCategory/Product ở bài trước.",
+        "Đây là cấu trúc CÂY, không phải chuyển đổi interface hay thêm tính năng."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

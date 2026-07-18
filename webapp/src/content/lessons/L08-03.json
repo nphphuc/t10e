@@ -3,6 +3,9 @@
   "title": "Request/reply, callback và middleware",
   "minutes": 11,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch15_Designing Client Server Software Architectures.pptx#10-13"],
   "objective": "Phân biệt synchronous request/reply, asynchronous callback, và vai trò của middleware.",
   "misconceptions": ["async-is-faster"],
   "screens": [
@@ -28,7 +31,7 @@
       "hints": [
         "Hãy chuyển đổi giữa Synchronous và Asynchronous timeline.",
         "Ở biểu đồ nào Client Thread có một vùng màu cam kẻ sọc biểu thị trạng thái Blocked?",
-        "Xem slide 10-12 để phân biệt chi tiết."
+        "Blocked/waiting là đặc trưng của Synchronous; Asynchronous cho phép client tiếp tục ngay."
       ],
       "weight": 2
     },
@@ -43,7 +46,7 @@
         "Middleware": "Lớp phần mềm đồng nhất hóa các nền tảng khác nhau"
       },
       "explanation": "Mỗi pattern phù hợp với tình huống khác nhau.",
-      "hints": ["Sync: chờ.", "Async callback: trả lời sau.", "Xem slide 10-13."],
+      "hints": ["Sync: chờ.", "Async callback: trả lời sau.", "Middleware không xử lý nghiệp vụ, nó chỉ giúp các nền tảng khác nhau giao tiếp được với nhau."],
       "weight": 2
     },
     {
@@ -59,20 +62,71 @@
       "correct": 1,
       "explanation": "Upload ảnh lớn không cần chờ → asynchronous callback pattern.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Không cần chờ → async.", "Callback để nhận kết quả sau.", "Xem slide 12."],
+      "hints": ["Không cần chờ → async.", "Callback để nhận kết quả sau.", "Ảnh lớn mất thời gian xử lý — giữ client chờ suốt quá trình đó là lãng phí tài nguyên."],
       "weight": 2
     },
     {
       "id": "s4",
-      "role": "retrieve",
+      "role": "contrast",
       "type": "truefalse",
       "prompt": "Asynchronous callback luôn là lựa chọn tốt hơn synchronous.",
       "correct": false,
       "explanation": "Không phải lúc nào cũng vậy. Synchronous đơn giản hơn khi cần kết quả ngay. Chọn dựa trên use case.",
+      "hints": [
+        "Async có làm mất đi sự đơn giản khi client thực sự cần kết quả ngay không?",
+        "Nếu use case cần phản hồi tức thì để hiển thị cho người dùng, pattern nào hợp lý hơn?",
+        "Chọn pattern theo nhu cầu nghiệp vụ, không theo pattern nào 'nghe có vẻ hiện đại hơn'."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: bệnh nhân bấm 'Xác nhận đặt lịch' và cần thấy ngay kết quả (thành công/thất bại) trên màn hình. Pattern phù hợp?",
+      "options": [
+        "Synchronous with Reply — vì cần kết quả ngay để hiển thị",
+        "Asynchronous Message Communication với Callback",
+        "Broadcast"
+      ],
+      "correct": 0,
+      "explanation": "Khác với ví dụ upload ảnh (không cần chờ), xác nhận đặt lịch cần phản hồi tức thì để hiển thị cho bệnh nhân — Synchronous with Reply là phù hợp.",
+      "distractorTags": {
+        "1": "async-is-faster",
+        "2": null
+      },
+      "hints": [
+        "Bệnh nhân có cần thấy kết quả ngay lập tức trên màn hình không?",
+        "So sánh với ví dụ upload ảnh (không cần chờ) — tình huống này có giống vậy không?",
+        "Cần phản hồi ngay để hiển thị luôn là dấu hiệu của Synchronous with Reply."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: mobile app gọi BookingGateway (tầng giữa), BookingGateway gọi tiếp ScheduleService. Đây là pattern gì?",
+      "options": [
+        "Multiple Client/Single Service",
+        "Multi-tier Client/Service",
+        "Broadcast pattern"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — BookingGateway đóng cả hai vai trò client và service, đây là Multi-tier.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Client/server và multi-tier.",
+        "BookingGateway có nhận request rồi gửi tiếp request không?",
+        "Tầng giữa đóng hai vai trò là dấu hiệu của Multi-tier."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Synchronous with Reply: client chờ. Asynchronous with Callback: client gửi handle, service trả sau. Middleware: lớp đồng nhất hóa nền tảng.",

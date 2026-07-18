@@ -3,6 +3,9 @@
   "title": "Emergency Monitoring: component và group message",
   "minutes": 13,
   "xp": 150,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch23_Component-Based Software Arch_Case Study Emergency Monitoring System.pptx#2-21"],
   "objective": "Áp dụng component-based architecture và group communication patterns vào Emergency Monitoring System.",
   "misconceptions": ["architecture-style-confusion"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 0,
       "explanation": "Group communication: broadcast (gửi tất cả) hoặc subscription/notification (gửi nhóm đã đăng ký).",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["Một gửi, nhiều nhận.", "Broadcast hoặc multicast.", "Xem Ch17, Ch23."],
+      "hints": [
+        "Một sự kiện (alarm) cần đến được NHIỀU operator cùng lúc — không phải một request/response giữa hai bên.",
+        "Client/Server phù hợp cho 1-1 request/reply; ở đây là 1 gửi → NHIỀU nhận."
+      ],
       "weight": 2
     },
     {
@@ -49,8 +55,49 @@
       ],
       "correct": 1,
       "explanation": "Subscription/Notification: component subscribe để nhận messages. Multicast selective.",
-      "hints": ["Chỉ gửi cho subscriber.", "Xem Ch17 slide 18-20."],
+      "hints": [
+        "Nếu MỌI operator đều nhận được dù không đăng ký, đó là broadcast.",
+        "Nếu chỉ operator ĐÃ ĐĂNG KÝ mới nhận, đó là subscription/notification — có tính chọn lọc."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: khi có lịch hẹn bị hủy gấp, cần báo NGAY cho các bác sĩ đã đăng ký nhận thông báo 'slot trống' của khung giờ đó (không phải mọi bác sĩ trong hệ thống). Pattern nào?",
+      "options": [
+        "Broadcast — gửi cho toàn bộ bác sĩ trong hệ thống",
+        "Subscription/Notification — chỉ gửi cho bác sĩ đã đăng ký nhận thông báo khung giờ đó",
+        "Client/Server request/reply"
+      ],
+      "correct": 1,
+      "explanation": "Giống Emergency Monitoring: chỉ những bên ĐÃ ĐĂNG KÝ mới cần nhận thông báo, không phải toàn bộ hệ thống → Subscription/Notification (multicast chọn lọc), không phải broadcast (gửi tất cả bất kể có quan tâm hay không).",
+      "distractorTags": {"0": "architecture-style-confusion", "2": "architecture-style-confusion"},
+      "hints": [
+        "Không phải MỌI bác sĩ đều quan tâm tới khung giờ đó — chỉ người đã đăng ký.",
+        "Broadcast gửi cho TẤT CẢ; ở đây chỉ cần gửi cho một NHÓM đã đăng ký."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: vì sao Make Order Request cần một CustomerCoordinator thay vì để các service tự gọi nhau?",
+      "options": [
+        "Vì service không biết gọi nhau",
+        "Vì các bước cần chạy ĐÚNG THỨ TỰ và có thể cần xử lý khi một bước thất bại giữa chừng",
+        "Không có lý do gì đặc biệt"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: khi nhiều service cần phối hợp theo trình tự (và có thể lỗi giữa chừng), cần một coordinator điều phối rõ ràng.",
+      "distractorTags": {"0": null, "2": "case-driver"},
+      "hints": [
+        "Nhớ lại thứ tự getAccountInfo → authorizeCreditCard → createOrder ở bài trước.",
+        "Nếu credit card bị từ chối SAU KHI đã tạo delivery order, ai xử lý?"
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

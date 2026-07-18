@@ -3,6 +3,9 @@
   "title": "Communication diagram: ai nói với ai?",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#4-8"],
   "objective": "Đọc và vẽ communication diagram thể hiện các object và message sequence.",
   "misconceptions": ["sequence-equals-communication"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Communication diagram mạnh về topology (ai nối với ai) — thể hiện các object và đường kết nối với số thứ tự message.",
       "distractorTags": {"0": "sequence-equals-communication", "2": null},
-      "hints": ["Communication diagram = đồ thị object + links + sequence numbers.", "Xem slide 4-5."],
+      "hints": ["Communication diagram = đồ thị object + links + sequence numbers.", "Trọng tâm là AI kết nối với AI, không phải thời điểm nào xảy ra trước sau."],
       "weight": 2
     },
     {
@@ -53,6 +56,11 @@
         "2: messageName()": "Message thứ hai"
       },
       "explanation": "Communication diagram có objects, links, và message sequence numbers.",
+      "hints": [
+        "Số thứ tự (1, 2...) gắn trên link nào cho biết message xảy ra khi nào?",
+        "Object là danh từ (instance), link là đường nối giữa chúng.",
+        "Số thập phân (1.1) cho biết message con thuộc về message cha nào."
+      ],
       "weight": 2
     },
     {
@@ -82,12 +90,58 @@
       "hints": [
         "Hãy thử chuyển đổi qua lại giữa Sequence View và Communication View.",
         "Góc nhìn nào làm nổi bật các mối quan hệ kết nối trực tiếp (links) giữa các hình chữ nhật đối tượng?",
-        "Xem so sánh chi tiết ưu/nhược điểm trong slide 8."
+        "Communication diagram ưu tiên layout kết nối; Sequence diagram ưu tiên trình tự thời gian."
       ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: bạn cần xem nhanh Doctor, ScheduleService và Appointment kết nối trực tiếp với nhau như thế nào, không quan tâm mốc thời gian chính xác. Nên chọn diagram nào?",
+      "options": [
+        "Sequence diagram — vì thể hiện thời gian rõ ràng",
+        "Communication diagram — vì làm nổi bật topology kết nối giữa các object",
+        "Class diagram — vì thể hiện cấu trúc tĩnh"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ View Alarms, khi cần thấy rõ 'ai nối trực tiếp với ai' thay vì mốc thời gian, Communication diagram là lựa chọn phù hợp.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Câu hỏi 'ai kết nối với ai' hay 'việc gì xảy ra lúc nào' quan trọng hơn ở đây?",
+        "So sánh với ví dụ Sequence vs Communication đã học.",
+        "Topology kết nối là thế mạnh của Communication diagram."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: Book Appointment luôn phải Verify Insurance, còn Apply Prepayment Discount chỉ xảy ra khi bệnh nhân chọn thanh toán trước. Quan hệ đúng là gì?",
+      "options": [
+        "Book Appointment includes Verify Insurance; Apply Prepayment Discount extends Book Appointment",
+        "Cả hai đều là include",
+        "Cả hai đều là extend"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — hành vi bắt buộc là include, hành vi có điều kiện là extend.",
+      "distractorTags": {
+        "1": "include-vs-extend",
+        "2": "include-vs-extend"
+      },
+      "hints": [
+        "Nhớ lại bài Include, extend.",
+        "Hành vi nào luôn xảy ra, hành vi nào có điều kiện?",
+        "Bắt buộc = include; có điều kiện = extend."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Communication diagram thể hiện các object tham gia use case, đường kết nối (links) giữa chúng, và sequence numbers trên messages. Ưu điểm: thấy rõ topology kết nối.",

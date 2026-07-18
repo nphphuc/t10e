@@ -28,7 +28,7 @@
       "hints": [
         "Sự khác biệt giữa chữ viết (notation) và cách viết một bài văn hay (method).",
         "UML là Unified Modeling Language - ngôn ngữ ký hiệu.",
-        "Xem định nghĩa về Notation trong slide 5."
+        "Notation chỉ là hình vẽ; method mới là chuỗi bước quyết định cách thiết kế."
       ],
       "weight": 2
     },
@@ -71,12 +71,58 @@
       "hints": [
         "Đây là hành động giấu thông tin cấu trúc dữ liệu của đối tượng.",
         "Information Hiding là một Concept.",
-        "Nội dung này tương ứng với Slide 5 về khái niệm Che giấu thông tin."
+        "Concept là ý tưởng nền tảng đứng sau quyết định thiết kế, không phải ký hiệu hay tiêu chí."
       ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong dự án Clinic Booking, nhóm bạn quyết định: 'Mọi thay đổi trạng thái lịch hẹn phải đi qua một service duy nhất, module khác không được sửa trực tiếp'. Đây là ứng dụng của thành phần nào?",
+      "options": [
+        "Notation — vì được vẽ minh họa bằng sơ đồ",
+        "Concept — cụ thể là Information Hiding, giấu logic thay đổi trạng thái sau một service",
+        "Method — vì có nhiều bước triển khai"
+      ],
+      "correct": 1,
+      "explanation": "Buộc mọi thay đổi đi qua một service duy nhất là cách áp dụng Information Hiding: chi tiết cách trạng thái được cập nhật bị giấu kín, module khác chỉ biết gọi service, không biết bên trong.",
+      "distractorTags": {
+        "0": "uml-is-method",
+        "2": null
+      },
+      "hints": [
+        "Câu hỏi là 'giấu chi tiết implementation ở đâu', không phải 'vẽ bằng ký hiệu gì'.",
+        "So sánh với ví dụ Database/API ở màn trước — cùng bản chất khái niệm nào?",
+        "Che chi tiết bên trong sau một cổng truy cập duy nhất chính là Information Hiding."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: nếu ai đó nghĩ 'vẽ UML nghĩa là đã thiết kế xong hệ thống', họ đang nhầm UML với vai trò của thành phần nào?",
+      "options": [
+        "Method — phương pháp có chuỗi bước thiết kế cụ thể",
+        "Criteria — tiêu chí phân rã hệ thống",
+        "Concept — ý tưởng nền tảng như Information Hiding"
+      ],
+      "correct": 0,
+      "explanation": "Đây là hiểu lầm 'uml-is-method': UML chỉ là notation (ký hiệu), trong khi việc thiết kế thật sự cần một method (như COMET) với các bước phân tích và quyết định cụ thể.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài trước: UML là ký hiệu (notation), còn cái người ta nhầm nó thành là gì?",
+        "Cái bị nhầm lẫn phải là thứ có 'chuỗi bước thực hiện', không phải ý tưởng hay tiêu chí.",
+        "Method là phương pháp có quy trình các bước — đây chính là thứ UML thường bị nhầm thành."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Hãy nhớ: UML chỉ là ký hiệu biểu đạt (Notation). Để thiết kế tốt, bạn cần hiểu các khái niệm nền tảng (Concept như Information Hiding), áp dụng định hướng (Strategy), tuân theo tiêu chí (Criteria) và thực hiện các bước theo phương pháp (Method như COMET).",

@@ -3,6 +3,9 @@
   "title": "Banking: từ ATM use case đến client/server",
   "minutes": 16,
   "xp": 180,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch21_Client Server Software Architecture Case Study-Banking System.pptx#2-45"],
   "objective": "Trace use case đến architecture trong Banking System case study.",
   "misconceptions": ["traceability", "case-driver"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 0,
       "explanation": "ATM là client của Bank Service. Multiple clients (ATMs) kết nối đến một Bank Service.",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["ATM = client.", "Bank = service.", "Xem Ch21."],
+      "hints": [
+        "Nhiều ATM cần dữ liệu tài khoản NHẤT QUÁN — điều gì đảm bảo điều đó?",
+        "ATM chỉ gửi yêu cầu; nơi giữ số dư thật sự và xử lý giao dịch là Bank Service dùng chung."
+      ],
       "weight": 2
     },
     {
@@ -33,7 +39,10 @@
         "Transfer Funds": "Bank Service (debit A, credit B)"
       },
       "explanation": "Tất cả banking use cases đều dùng Bank Service.",
-      "hints": ["Các use case đều gọi Bank Service.", "Xem Ch21."],
+      "hints": [
+        "Cả ba use case đều cần đọc/ghi cùng một nguồn dữ liệu tài khoản.",
+        "Bank Service là nơi duy nhất được phép thay đổi số dư."
+      ],
       "weight": 2
     },
     {
@@ -49,8 +58,49 @@
       ],
       "correctSet": [0, 1, 2],
       "explanation": "Customer, Account, DebitCard đều có tables riêng. Transaction là associative.",
-      "hints": ["Entity → table.", "FK for associations.", "Xem RDD mapping Ch21."],
+      "hints": [
+        "Mỗi entity/class ổn định (Customer, Account, DebitCard) cần một table với PK riêng.",
+        "Transaction thường là dữ liệu của một quan hệ (association), không tự động sinh bảng mà cần thiết kế FK rõ ràng."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: nhiều phòng khám (clinic) cùng dùng chung một BookingService để tránh trùng lịch bác sĩ. Kiến trúc phù hợp?",
+      "options": [
+        "Client/Server — mỗi ClinicApp là client gọi BookingService dùng chung",
+        "Standalone — mỗi phòng khám tự lưu lịch riêng",
+        "Peer-to-peer — các ClinicApp tự đồng bộ lịch với nhau"
+      ],
+      "correct": 0,
+      "explanation": "Giống ATM/Bank Service: nhiều client (ClinicApp) cần dữ liệu NHẤT QUÁN dùng chung → client/server với một service trung tâm, không phải standalone (dữ liệu rời rạc) hay p2p (đồng bộ phức tạp, dễ conflict).",
+      "distractorTags": {"1": "case-driver", "2": "case-driver"},
+      "hints": [
+        "Nhiều phòng khám CẦN dữ liệu lịch NHẤT QUÁN — điều gì xảy ra nếu mỗi nơi tự lưu riêng?",
+        "Giống ATM: nhiều client, một service trung tâm giữ dữ liệu đúng."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước (Level 10): chọn design pattern nên dựa vào điều gì?",
+      "options": [
+        "Hình UML trông giống pattern nào nhất",
+        "Design force/pressure thực tế của bài toán (VD: cần thêm operation mà không sửa class → Visitor)",
+        "Tên pattern nghe quen thuộc nhất"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như Level 10: chọn pattern theo vấn đề cần giải (design force), không theo hình dạng hay tên gọi quen thuộc.",
+      "distractorTags": {"0": "pattern-by-shape", "2": "pattern-by-shape"},
+      "hints": [
+        "Nhớ lại bảng 'design force → pattern' ở bài trước.",
+        "Hình vẽ giống nhau không đảm bảo cùng vấn đề cần giải."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

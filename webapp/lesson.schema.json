@@ -10,6 +10,12 @@
     "title": {"type": "string", "minLength": 1},
     "minutes": {"type": "integer", "minimum": 1},
     "xp": {"type": "integer", "minimum": 1},
+    "status": {"type": "string"},
+    "needsReview": {"type": "boolean"},
+    "sourceRefs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
     "objective": {"type": "string", "minLength": 1},
     "misconceptions": {
       "type": "array",
@@ -21,7 +27,16 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "role", "type", "prompt"],
+        "required": ["id", "role", "type"],
+        "if": {
+          "properties": {"type": {"const": "takeaway"}}
+        },
+        "then": {
+          "required": ["id", "role", "type", "text"]
+        },
+        "else": {
+          "required": ["id", "role", "type", "prompt"]
+        },
         "additionalProperties": false,
         "properties": {
           "id": {"type": "string"},

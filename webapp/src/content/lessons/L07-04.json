@@ -3,14 +3,20 @@
   "title": "Architectural pattern cơ bản",
   "minutes": 11,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#10-13"],
   "objective": "Nhận diện và so sánh các architectural patterns: layers, call/return, synchronous, asynchronous.",
   "misconceptions": ["async-is-faster"],
   "screens": [
     {
       "id": "s1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Mobile App FOS gọi API lấy danh sách sản phẩm. App gửi request và chờ response trước khi hiển thị. Pattern gì?",
+      "type": "visual",
+      "visual": {
+        "variant": "sync-async-timeline"
+      },
+      "prompt": "Mobile App FOS gọi API lấy danh sách sản phẩm. App gửi request và chờ response trước khi hiển thị. Hãy so sánh hai timeline bên dưới rồi cho biết đây là pattern gì?",
       "options": [
         "Synchronous Message Communication with Reply",
         "Asynchronous Message Communication",
@@ -19,7 +25,7 @@
       "correct": 0,
       "explanation": "Client gửi và chờ reply trước khi tiếp tục — synchronous với reply.",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["Client có chờ response không?", "Nếu có → synchronous.", "Xem slide 10-13."],
+      "hints": ["Client có chờ response không?", "Nếu có → synchronous.", "App hiển thị kết quả ngay sau khi có response, chứng tỏ nó đã đợi."],
       "weight": 2
     },
     {
@@ -50,20 +56,71 @@
       "correct": 1,
       "explanation": "Gửi email có thể xử lý sau → asynchronous message communication.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Có cần chờ email gửi xong không?", "Nếu không → asynchronous.", "Xem slide 11-12."],
+      "hints": ["Có cần chờ email gửi xong không?", "Nếu không → asynchronous.", "Gửi rồi tiếp tục công việc khác ngay, không chờ, là dấu hiệu của asynchronous."],
       "weight": 2
     },
     {
       "id": "s4",
-      "role": "retrieve",
+      "role": "contrast",
       "type": "truefalse",
       "prompt": "Asynchronous communication luôn nhanh hơn synchronous.",
       "correct": false,
       "explanation": "Asynchronous không nhanh hơn — nó giải phóng producer khỏi chờ đợi. Tốc độ phụ thuộc vào use case.",
+      "hints": [
+        "Asynchronous giải quyết vấn đề 'chờ đợi', không phải vấn đề 'tốc độ xử lý'.",
+        "Producer không chờ không có nghĩa là consumer xử lý nhanh hơn.",
+        "Chọn pattern theo yêu cầu giao tiếp (có cần phản hồi ngay không), không phải theo tốc độ."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: sau khi đặt lịch thành công, hệ thống gửi SMS nhắc lịch trước 1 ngày. Một dev nói 'dùng async cho nhanh hơn'. Nhận xét về lý do này?",
+      "options": [
+        "Đúng, async luôn nhanh hơn nên chọn async là hợp lý",
+        "Sai lý do — nên chọn async vì SMS không cần chờ phản hồi ngay (giải phóng producer), không phải vì 'nhanh hơn'",
+        "Không nên dùng async cho SMS"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ gửi email, quyết định async đúng vì SMS không cần response ngay lập tức để tiếp tục luồng chính — không phải vì async nhanh hơn synchronous.",
+      "distractorTags": {
+        "0": "async-is-faster",
+        "2": null
+      },
+      "hints": [
+        "Lý do chọn async có phải là 'tốc độ' không, hay là 'không cần chờ phản hồi'?",
+        "So sánh với ví dụ gửi email xác nhận đơn hàng đã học.",
+        "Async giải phóng producer khỏi việc chờ đợi, đó mới là lý do đúng."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: client gọi thẳng hàm nội bộ sendViaTwilioSDK() của NotificationService thay vì gọi qua interface send(). Vấn đề gì?",
+      "options": [
+        "Không có vấn đề",
+        "Vi phạm nguyên tắc interface — client phụ thuộc vào implementation cụ thể thay vì contract",
+        "Đây là cách tối ưu đúng"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — client chỉ nên phụ thuộc provided interface, không gọi thẳng chi tiết cài đặt bên trong.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation"
+      },
+      "hints": [
+        "Nhớ lại bài Component, interface và connector.",
+        "Client có nên biết chi tiết SDK cụ thể bên trong component không?",
+        "Interface là contract; implementation là chi tiết cần được ẩn đi."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Các architectural patterns cơ bản: Layers of Abstraction (phân tầng), Call/Return (gọi hàm), Synchronous with Reply (chờ reply), Asynchronous (gửi không chờ). Chọn pattern phù hợp với yêu cầu giao tiếp.",
