@@ -3,6 +3,9 @@
   "title": "Tích hợp interaction thành kiến trúc",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#4-9"],
   "objective": "Hiểu cách tích hợp các communication diagrams thành integrated communication diagram cho kiến trúc tổng thể.",
   "misconceptions": ["analysis-is-design"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Integrated communication diagram tổng hợp tất cả interactions thành một sơ đồ duy nhất để xác định subsystems.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Tích hợp = synthesis.", "Từ analysis → design.", "Xem slide 7-9."],
+      "hints": ["Tích hợp = synthesis.", "Từ analysis → design.", "20 diagram rời rạc không cho thấy bức tranh toàn hệ thống — cần gộp lại."],
       "weight": 2
     },
     {
@@ -40,7 +43,7 @@
         "Design subsystems and interfaces"
       ],
       "explanation": "Phân tích từng UC → Tích hợp → Xác định message type → Thiết kế subsystems.",
-      "hints": ["Bắt đầu với từng UC.", "Tích hợp trước khi thiết kế.", "Xem slide 4."],
+      "hints": ["Bắt đầu với từng UC.", "Tích hợp trước khi thiết kế.", "Chỉ sau khi có bức tranh tổng thể mới có thể quyết định subsystem boundary."],
       "weight": 2
     },
     {
@@ -56,11 +59,49 @@
       "correct": 1,
       "explanation": "Có thể aggregate messages và chia thành các subsystem-level integrated diagrams.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Chia nhỏ để quản lý phức tạp.", "Aggregate messages.", "Xem slide 9."],
+      "hints": ["Chia nhỏ để quản lý phức tạp.", "Aggregate messages.", "Giảm mức chi tiết bằng cách gộp message tương tự, không phải cắt bỏ use case."],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Team Clinic Booking đã vẽ 15 communication diagrams cho 15 use case. Diagram tổng hợp quá rối vì quá nhiều object. Cách xử lý hợp lý nhất?",
+      "options": [
+        "Bỏ bớt use case ít quan trọng để đơn giản hóa",
+        "Aggregate messages và tách thành các integrated diagram theo từng subsystem (VD: Scheduling, Billing)",
+        "Chỉ giữ lại 1 diagram duy nhất cho toàn hệ thống dù có rối"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ FOS, giải pháp đúng là gộp message tương tự và chia theo subsystem, không phải bỏ bớt use case hay giữ nguyên độ phức tạp.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Bỏ use case có làm mất thông tin quan trọng không?",
+        "So sánh với ví dụ FOS 20 diagrams quá phức tạp đã học.",
+        "Chia theo subsystem giúp quản lý độ phức tạp mà không mất thông tin."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "truefalse",
+      "prompt": "Asynchronous communication luôn nhanh hơn synchronous communication.",
+      "correct": false,
+      "explanation": "Đúng, phát biểu này SAI. Asynchronous giải phóng producer khỏi việc chờ đợi — không phải là nhanh hơn về tốc độ xử lý.",
+      "distractorTags": {},
+      "hints": [
+        "Nhớ lại bài Architectural pattern cơ bản.",
+        "Async giải quyết vấn đề gì — chờ đợi hay tốc độ?",
+        "Chọn pattern theo nhu cầu giao tiếp, không phải theo tốc độ."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Từ analysis (từng UC riêng lẻ) → Design (tích hợp thành kiến trúc tổng thể). Integrated communication diagram tổng hợp tất cả interactions để xác định subsystems.",

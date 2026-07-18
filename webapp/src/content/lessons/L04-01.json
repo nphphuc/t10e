@@ -3,6 +3,9 @@
   "title": "Từ noun đến class, từ value đến attribute",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#3-6"],
   "objective": "Xác định class, attribute và operation từ phân tích danh từ trong đặc tả yêu cầu.",
   "misconceptions": ["class-is-object"],
   "screens": [
@@ -77,12 +80,59 @@
       "hints": [
         "Attribute là data value, không phải đối tượng độc lập.",
         "Hỏi: Giá trị này có ý nghĩa đứng một mình không?",
-        "Xem định nghĩa attribute trong slide 4."
+        "ProductName/Price/StockQuantity chỉ có ý nghĩa khi gắn với một Product cụ thể — đó là dấu hiệu của attribute."
       ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Từ mô tả Clinic Booking: 'Mỗi bác sĩ (Doctor) có tên, số giấy phép hành nghề và thuộc một khoa (Department).' Những class nào nên có? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Doctor",
+        "Department",
+        "DoctorName",
+        "LicenseNumber"
+      ],
+      "correctSet": [0, 1],
+      "explanation": "Doctor và Department là class vì chúng là nhóm objects có chung đặc điểm và có thể có nhiều instance. DoctorName và LicenseNumber chỉ là attribute mô tả Doctor.",
+      "distractorTags": {
+        "2": "class-is-object",
+        "3": "class-is-object"
+      },
+      "hints": [
+        "Đâu là những 'thứ' có thể có nhiều instance khác nhau, đâu là giá trị mô tả một instance?",
+        "So sánh với ví dụ Product/Category đã học — ProductName đóng vai trò gì?",
+        "DoctorName chỉ có ý nghĩa khi gắn với một Doctor cụ thể, giống ProductName gắn với Product."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: trong ký hiệu UML 'johnsAccount : Account', phần nào biểu thị một Object instance cụ thể?",
+      "options": [
+        "'Account' — vì đứng sau dấu hai chấm",
+        "'johnsAccount' — vì được gạch chân và đứng trước dấu hai chấm",
+        "Cả hai đều là Class"
+      ],
+      "correct": 1,
+      "explanation": "Đúng, 'johnsAccount' là tên object instance (gạch chân), còn 'Account' là tên class mà nó thuộc về.",
+      "distractorTags": {
+        "0": "class-is-object",
+        "2": "class-is-object"
+      },
+      "hints": [
+        "Phần nào được gạch chân trong ký hiệu UML?",
+        "Object name luôn đứng trước dấu hai chấm và có gạch chân.",
+        "'johnsAccount' là instance cụ thể, 'Account' là class chung."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Xác định class từ danh từ (noun) trong đặc tả — mỗi class là một nhóm objects có chung đặc điểm. Attribute là data value mô tả class. Object là instance cụ thể, được gạch chân trong UML.",

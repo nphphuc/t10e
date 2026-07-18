@@ -3,6 +3,9 @@
   "title": "Stateless realization từng bước",
   "minutes": 11,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch09-11_Dynamic Modeling.pptx#9-15"],
   "objective": "Thực hiện stateless dynamic interaction modeling từ use case đến communication diagram.",
   "misconceptions": ["realization-order"],
   "screens": [
@@ -24,7 +27,7 @@
         "Determine alternative sequences"
       ],
       "explanation": "Quy trình: 1) UC model → 2) Xác định objects → 3) Message sequence → 4) Alternative sequences.",
-      "hints": ["Bắt đầu với UC model.", "Xác định objects trước khi vẽ message.", "Alternative sequences là bước cuối.", "Xem slide 9."],
+      "hints": ["Bắt đầu với UC model.", "Xác định objects trước khi vẽ message.", "Alternative sequences là bước cuối, vì cần biết main sequence trước."],
       "weight": 2
     },
     {
@@ -40,7 +43,7 @@
       "correct": 0,
       "explanation": "View Alarms là use case đơn giản: boundary (OperatorInteraction) + service (AlarmService). Không cần control.",
       "distractorTags": {"1": "control-always", "2": null},
-      "hints": ["Use case đơn giản → ít objects.", "Boundary + service là đủ.", "Xem slide 10-11."],
+      "hints": ["Use case đơn giản → ít objects.", "Boundary + service là đủ.", "Không có nhiều bước cần phối hợp nên không cần control object."],
       "weight": 2
     },
     {
@@ -61,7 +64,7 @@
         "CustomerCoordinator gửi authorizeCreditCard() đến CreditCardService"
       ],
       "explanation": "Sequence: Interaction → Coordinator → Account Service → Credit Card Service.",
-      "hints": ["Bắt đầu từ actor.", "Coordinator điều phối services.", "Xem slide 12-15."],
+      "hints": ["Bắt đầu từ actor.", "Coordinator điều phối services.", "Mỗi service chỉ được gọi sau khi bước trước hoàn tất và trả kết quả cần thiết."],
       "weight": 2
     },
     {
@@ -79,10 +82,61 @@
       "correctSet": [0, 1, 2, 3],
       "explanation": "Xác định source, destination, operation name, và sequence number. Code chi tiết thuộc design phase.",
       "distractorTags": {"4": null},
+      "hints": [
+        "Bước này ở mức phân tích luồng, không phải viết code.",
+        "Sequence diagram/communication diagram cần đủ 4 yếu tố: ai gửi, ai nhận, tên gì, thứ tự nào.",
+        "Code chi tiết bên trong operation không thuộc bước phân tích interaction."
+      ],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: use case 'Xem lịch trống' chỉ có BoundaryForm gọi ScheduleService, đọc và trả kết quả — không có control. Đâu là objects cần xác định ở bước 'Determine boundary and internal objects'?",
+      "options": [
+        "Chỉ ScheduleService",
+        "BoundaryForm (boundary) và ScheduleService (service)",
+        "BoundaryForm, ScheduleController (control), ScheduleService, ScheduleDatabase"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ View Alarms, use case đơn giản chỉ có 1 bước đọc dữ liệu cần boundary + service, không cần control object.",
+      "distractorTags": {
+        "0": null,
+        "2": "control-always"
+      },
+      "hints": [
+        "Use case này có nhiều bước cần phối hợp hay chỉ đọc dữ liệu đơn giản?",
+        "So sánh với ví dụ View Alarms — cấu trúc use case có giống nhau không?",
+        "Use case đơn giản chỉ cần boundary + service, không cần control."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: Communication diagram và Sequence diagram có phải là hai cách vẽ tương đương ngữ nghĩa của cùng một luồng không?",
+      "options": [
+        "Đúng — chỉ khác cách trình bày",
+        "Sai — chúng mô tả hai luồng xử lý khác nhau",
+        "Chỉ đúng nếu use case đơn giản"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Sequence và Communication diagram semantically equivalent, chỉ khác cách trình bày (thời gian vs topology).",
+      "distractorTags": {
+        "1": "sequence-equals-communication",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Hai diagram, một interaction.",
+        "Chúng có truyền tải nội dung khác nhau không?",
+        "Semantically equivalent nghĩa là chuyển đổi qua lại không mất thông tin."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Stateless dynamic interaction modeling: 1) UC model → 2) Xác định objects → 3) Vẽ message sequence → 4) Xác định alternative sequences. Use case đơn giản chỉ cần boundary + service.",

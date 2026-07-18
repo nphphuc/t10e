@@ -5,7 +5,9 @@
   "xp": 120,
   "objective": "Hiểu scalability, reusability, performance, security, availability và trade-offs giữa chúng.",
   "misconceptions": ["nfr-one-tactic"],
+  "status": "draft-from-slide",
   "needsReview": true,
+  "sourceRefs": ["Ch20_Software Quality Attributes.pptx#10-16"],
   "screens": [
     {
       "id": "s1",
@@ -20,7 +22,10 @@
       "correct": 1,
       "explanation": "Scalability: khả năng mở rộng khi tải tăng. Distributed system scalability tốt hơn centralized.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Scalability = khả năng mở rộng.", "Xem slide 10."],
+      "hints": [
+        "Scalability liên quan tới việc mở rộng khi tải tăng lên, không phải bảo trì hay bảo mật.",
+        "So sánh: chuyển từ 1 server sang nhiều server (distributed) là ví dụ kinh điển của scalability."
+      ],
       "weight": 2
     },
     {
@@ -36,7 +41,10 @@
         "Availability": "Uptime và fault tolerance"
       },
       "explanation": "Năm quality attributes quan trọng trong kiến trúc phần mềm.",
-      "hints": ["Scale = mở rộng.", "Reuse = tái sử dụng.", "Xem slide 10-14."],
+      "hints": [
+        "Scale = khả năng mở rộng khi tải tăng; Reuse = dùng lại ở nơi khác.",
+        "Performance đo tốc độ xử lý; Availability đo % thời gian hệ thống hoạt động được."
+      ],
       "weight": 2
     },
     {
@@ -64,6 +72,10 @@
       ],
       "correct": 1,
       "explanation": "Security tactic (encryption, auth) thêm overhead xử lý mỗi request → tăng Security nhưng giảm Performance. Quality attributes thường trade-off với nhau.",
+      "hints": [
+        "Bật tactic 'encryption' rồi quan sát trục Performance có giảm không.",
+        "Thêm lớp bảo mật luôn tốn thêm thời gian xử lý mỗi request."
+      ],
       "weight": 2
     },
     {
@@ -83,25 +95,48 @@
         "2": null
       },
       "hints": [
-        "Security + Performance = trade-off.",
-        "Xem slide 16 về trade-offs."
+        "Security cần encryption + kiểm tra nhiều lớp — mỗi bước đều tốn thời gian xử lý.",
+        "Muốn performance cao mà vẫn giữ nguyên số lớp kiểm tra bảo mật, có được không?"
       ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking thêm xác thực 2 lớp (OTP + password) cho MỌI request kể cả xem lịch trống. Nhận xét?",
+      "options": [
+        "Hợp lý vì bảo mật luôn là ưu tiên số 1",
+        "Trade-off: bảo mật tăng nhưng mỗi request chậm hơn — cần cân nhắc mức độ theo tính nhạy cảm của dữ liệu",
+        "Không ảnh hưởng gì tới tốc độ hệ thống"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ FOS: security tactic (OTP, xác thực nhiều lớp) luôn có chi phí performance. Áp dụng đều cho MỌI request kể cả thao tác ít nhạy cảm (xem lịch trống) là lãng phí — cần cân nhắc trade-off theo ngữ cảnh.",
+      "distractorTags": {"0": "nfr-one-tactic", "2": "nfr-one-tactic"},
+      "hints": [
+        "Xem lịch trống có phải thao tác nhạy cảm cần bảo mật tối đa như thanh toán không?",
+        "Mọi tactic bảo mật đều có chi phí — áp dụng đồng loạt cho mọi request có hợp lý không?"
+      ],
+      "weight": 3
     },
     {
       "id": "s4",
       "role": "retrieve",
       "type": "choice",
-      "prompt": "Để cải thiện performance, cách nào tốt nhất?",
+      "prompt": "Nhắc lại bài trước: cách nào cải thiện testability?",
       "options": [
-        "Thêm nhiều tính năng",
-        "Performance modeling và real-time scheduling analysis",
-        "Giảm bảo mật"
+        "Hard-code toàn bộ logic vào một class lớn",
+        "Encapsulation, interface rõ ràng, low coupling",
+        "Bỏ hết comment cho code ngắn gọn"
       ],
       "correct": 1,
-      "explanation": "Performance modeling và scheduling analysis giúp đảm bảo performance goals.",
-      "hints": ["Model trước → measure sau.", "Xem slide 12."],
-      "weight": 2
+      "explanation": "Testability (bài trước) cũng cần encapsulation + low coupling — cùng nguyên lý thiết kế giúp nhiều quality attribute khác nhau, nhưng KHÔNG có nghĩa một tactic tốt cho mọi thứ (xem lại s3: security tactic lại làm giảm performance).",
+      "distractorTags": {"0": null, "2": null},
+      "hints": [
+        "Testability cần thấy được và thay thế được từng phần — class quá lớn có làm được điều đó không?",
+        "Nhớ lại bài trước: Encapsulation, interfaces, low coupling là chìa khóa chung."
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

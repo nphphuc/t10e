@@ -3,6 +3,9 @@
   "title": "Client/server và multi-tier",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch15_Designing Client Server Software Architectures.pptx#4-9"],
   "objective": "Phân biệt Multiple Client/Single Service, Multiple Client/Multiple Service, và Multi-tier patterns.",
   "misconceptions": ["architecture-style-confusion"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 0,
       "explanation": "1000 clients → một service: Multiple Client/Single Service pattern.",
       "distractorTags": {"1": null, "2": null},
-      "hints": ["Nhiều client, một service.", "Xem slide 4-6."],
+      "hints": ["Nhiều client, một service.", "Đếm số lượng client và số lượng service trong tình huống này."],
       "weight": 2
     },
     {
@@ -33,7 +36,7 @@
         "Multi-tier": "Intermediate tier vừa là client vừa là service"
       },
       "explanation": "Các client/server patterns khác nhau về số lượng và vai trò.",
-      "hints": ["Single service: một server.", "Multi-tier: có tầng trung gian.", "Xem slide 4-9."],
+      "hints": ["Single service: một server.", "Multi-tier: có tầng trung gian.", "Đếm số service mà client giao tiếp trực tiếp để phân biệt các pattern."],
       "weight": 2
     },
     {
@@ -49,20 +52,72 @@
       "correct": 1,
       "explanation": "API Gateway là intermediate tier — vừa là service cho web app, vừa là client của OrderService.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Tầng giữa đóng hai vai trò.", "Client + service.", "Xem slide 9."],
+      "hints": ["Tầng giữa đóng hai vai trò.", "Client + service.", "API Gateway nhận request (đóng vai service) rồi lại gửi tiếp request (đóng vai client)."],
       "weight": 2
     },
     {
       "id": "s4",
-      "role": "retrieve",
+      "role": "contrast",
       "type": "fill",
       "prompt": "Trong multi-tier architecture, intermediate tier vừa là _____ (của tầng dưới) vừa là _____ (của tầng trên).",
       "accepted": ["client, service", "service, client", "client của service, service cho client"],
       "explanation": "Intermediate tier là client của service tier và là service cho các clients của nó.",
+      "hints": [
+        "Nhớ lại ví dụ API Gateway vừa nhận request vừa gửi tiếp request.",
+        "Với tầng phía trên, intermediate tier đóng vai gì? Với tầng phía dưới thì sao?",
+        "Điền đúng hai từ: client và service, theo đúng thứ tự vai trò với từng phía."
+      ],
       "weight": 1
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: mobile app gọi BookingGateway (tầng giữa), BookingGateway gọi tiếp ScheduleService để lấy slot trống. Đây là pattern gì?",
+      "options": [
+        "Multiple Client/Single Service",
+        "Multi-tier Client/Service",
+        "Broadcast pattern"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ API Gateway, BookingGateway là intermediate tier — service cho mobile app, đồng thời là client của ScheduleService.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "BookingGateway có nhận request từ app rồi gửi tiếp request không?",
+        "So sánh với ví dụ API Gateway đã học.",
+        "Tầng giữa đóng cả hai vai trò client và service là dấu hiệu của Multi-tier."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "multi",
+      "prompt": "Nhắc lại: thành phần nào KHÔNG nên xuất hiện trong class interface specification? (Chọn tất cả đáp án đúng)",
+      "options": [
+        "Tên operations",
+        "Precondition/Postcondition",
+        "Toàn bộ mã nguồn xử lý logic bên trong",
+        "Chi tiết thư viện cụ thể đang dùng"
+      ],
+      "correctSet": [2, 3],
+      "explanation": "Đúng — mã nguồn và chi tiết thư viện cụ thể là implementation, không thuộc interface spec.",
+      "distractorTags": {
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      },
+      "hints": [
+        "Nhớ lại bài Object-oriented architecture và class contract.",
+        "Interface mô tả CÁI GÌ hay LÀM THẾ NÀO?",
+        "Chi tiết cài đặt cụ thể luôn thuộc implementation."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Client/server patterns: Multiple Client/Single Service (nhiều client một server), Multiple Client/Multiple Service (nhiều client nhiều server), Multi-tier (tầng trung gian đóng hai vai trò).",

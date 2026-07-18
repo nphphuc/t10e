@@ -3,6 +3,9 @@
   "title": "Structural, dynamic và deployment view",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch12_Overview of Software Architecture.pptx#5-7"],
   "objective": "Phân biệt 3 views của software architecture: structural (tĩnh), dynamic (hành vi), deployment (vật lý).",
   "misconceptions": ["view-purpose"],
   "screens": [
@@ -28,7 +31,7 @@
       "hints": [
         "Hãy bấm vào từng tab view ở thanh trên để xem hình ảnh trực quan tương ứng.",
         "Nhìn vào diagram: view nào vẽ các thực thể phần cứng như User PC, App Server VM, DB Server?",
-        "Xem so sánh các view trong slide 5-7."
+        "Chỉ Deployment View vẽ node vật lý và kết nối mạng — hai view kia tập trung vào cấu trúc phần mềm hoặc luồng xử lý."
       ],
       "weight": 2
     },
@@ -43,6 +46,11 @@
         "Deployment view": "Deployment diagram (physical nodes)"
       },
       "explanation": "Structural = static structure. Dynamic = behavioral messaging. Deployment = physical configuration.",
+      "hints": [
+        "View nào trả lời 'hệ thống gồm những class/quan hệ nào'?",
+        "View nào trả lời 'ai gửi message cho ai theo thứ tự nào'?",
+        "View nào trả lời 'chạy trên máy chủ vật lý nào'?"
+      ],
       "weight": 2
     },
     {
@@ -58,10 +66,61 @@
       "correct": 0,
       "explanation": "Cấu trúc class là static → structural view.",
       "distractorTags": {"1": "view-purpose", "2": "view-purpose"},
+      "hints": [
+        "Đây là câu hỏi về cấu trúc dữ liệu tĩnh hay luồng xử lý theo thời gian?",
+        "Class và association không liên quan gì đến server vật lý.",
+        "Structural view luôn gắn với class diagram và quan hệ tĩnh."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking cần xác định AppServer sẽ đặt ở khu vực mạng nào và kết nối với DBServer ra sao. View nào cần dùng?",
+      "options": [
+        "Structural view — để vẽ class diagram",
+        "Dynamic view — để vẽ message sequence",
+        "Deployment view — để vẽ node vật lý và kết nối mạng"
+      ],
+      "correct": 2,
+      "explanation": "Giống ví dụ FOS, câu hỏi về vị trí server và kết nối mạng thuộc Deployment View, không phải cấu trúc class hay luồng message.",
+      "distractorTags": {
+        "0": "view-purpose",
+        "1": "view-purpose"
+      },
+      "hints": [
+        "Câu hỏi này về cấu trúc phần mềm hay hạ tầng vật lý?",
+        "So sánh với ví dụ FOS về User PC, App Server VM, DB Server.",
+        "Vị trí server và kết nối mạng luôn thuộc Deployment View."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: một developer nói 'cứ code trước, architecture tự nhiên hình thành'. Nhận xét đúng nhất?",
+      "options": [
+        "Đúng, kiến trúc sẽ tự lộ ra",
+        "Sai — kiến trúc cần được thiết kế trước để đảm bảo chất lượng hệ thống",
+        "Kiến trúc và code là một"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là hiểu lầm 'architecture-is-code'. Kiến trúc là cấu trúc nền tảng cần thiết kế trước, không tự hình thành từ code.",
+      "distractorTags": {
+        "0": "architecture-is-code",
+        "2": "architecture-is-code"
+      },
+      "hints": [
+        "Nhớ lại bài Architecture gồm những gì.",
+        "Kiến trúc có 'tự nhiên hình thành' từ code rời rạc không?",
+        "Kiến trúc cần được thiết kế trước để đảm bảo yêu cầu chất lượng."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Ba views chính: Structural (cấu trúc tĩnh - class diagram), Dynamic (hành vi - communication diagram), Deployment (vật lý - deployment diagram). Mỗi view trả lời một câu hỏi khác nhau.",

@@ -3,6 +3,9 @@
   "title": "AGV: deadline thay đổi thiết kế",
   "minutes": 14,
   "xp": 170,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch24_Real-Time Software Arch_Case Study Automated Guided Vehicle System.pptx#2-20"],
   "objective": "Áp dụng concurrent và real-time architecture vào Automated Guided Vehicle System.",
   "misconceptions": ["task-activation", "async-is-faster"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "AGV an toàn: stop command có hard deadline. Trễ = nguy hiểm.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Deadline bắt buộc = hard real-time.", "Xem Ch24."],
+      "hints": [
+        "Nếu trễ deadline có thể gây tai nạn/nguy hiểm vật lý, đó là hard real-time.",
+        "Soft real-time chỉ có nghĩa là trễ nhẹ gây khó chịu, không gây nguy hiểm."
+      ],
       "weight": 2
     },
     {
@@ -34,7 +40,10 @@
         "Supervisory System": "Cấp trên gửi lệnh cho AGV"
       },
       "explanation": "AGV: controller (centralized) + sensor I/O + motor I/O + external supervisory system.",
-      "hints": ["Controller = brain.", "Sensor = input.", "Motor = output.", "Xem Ch24."],
+      "hints": [
+        "Controller là bộ não ra quyết định.",
+        "Sensor đưa dữ liệu VÀO, Motor đưa lệnh RA — Supervisory System đứng ở tầng cao hơn, gửi lệnh xuống AGV."
+      ],
       "weight": 2
     },
     {
@@ -50,8 +59,49 @@
       "correct": 0,
       "explanation": "Periodic: timer kích hoạt mỗi 20ms để gửi tín hiệu đến motor.",
       "distractorTags": {"1": "task-activation", "2": null},
-      "hints": ["Định kỳ = periodic.", "Timer activation.", "Xem Ch18, Ch24."],
+      "hints": [
+        "Task chạy theo ĐỒNG HỒ, lặp lại đều đặn mỗi 20ms — không chờ sự kiện hay message.",
+        "So sánh: interrupt (event-driven) xảy ra khi có sự kiện bất ngờ; đây là lịch cố định."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: hệ thống phải tự động khóa slot đã đặt trong vòng 200ms để tránh hai bệnh nhân cùng đặt trùng giờ — nếu trễ, chỉ gây trùng lịch (không nguy hiểm tính mạng, có thể sửa tay sau đó). Đây là loại real-time nào?",
+      "options": [
+        "Hard real-time — trễ tuyệt đối không được phép",
+        "Soft real-time — nên đúng deadline nhưng trễ nhẹ không gây hậu quả nghiêm trọng",
+        "Không cần quan tâm tới thời gian phản hồi"
+      ],
+      "correct": 1,
+      "explanation": "Khác AGV (trễ = nguy hiểm vật lý = hard real-time), Clinic Booking trễ chỉ gây phiền toái có thể khắc phục (soft real-time) — mức độ nghiêm trọng của hậu quả khi trễ mới quyết định loại real-time, không phải cứ có deadline là hard real-time.",
+      "distractorTags": {"0": "async-is-faster", "2": "task-activation"},
+      "hints": [
+        "Nếu trễ 200ms, có ai bị nguy hiểm tính mạng không?",
+        "So sánh hậu quả: AGV trễ = tai nạn; Clinic Booking trễ = trùng lịch, có thể sửa tay."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: khi có alarm mới, tại sao không nên broadcast cho TẤT CẢ mọi thiết bị trong hệ thống Emergency Monitoring?",
+      "options": [
+        "Vì broadcast không hoạt động được về mặt kỹ thuật",
+        "Vì chỉ operator ĐANG TRỰC/đã đăng ký mới cần và nên nhận — gửi thừa gây nhiễu, tốn băng thông",
+        "Vì broadcast luôn nhanh hơn subscription"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: gửi đúng nhóm liên quan (subscription/notification) hiệu quả hơn gửi tràn lan (broadcast) khi không phải ai cũng cần nhận.",
+      "distractorTags": {"0": null, "2": "architecture-style-confusion"},
+      "hints": [
+        "Nhớ lại: chỉ operator đã đăng ký khung giờ/khu vực đó mới cần biết.",
+        "Gửi cho người không liên quan có lợi ích gì không?"
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

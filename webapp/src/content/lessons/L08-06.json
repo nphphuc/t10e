@@ -3,6 +3,9 @@
   "title": "Transaction và coordination",
   "minutes": 13,
   "xp": 140,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch18_Designing Concurrent and Real-Time Software Architectures.pptx#14-17"],
   "objective": "Hiểu ACID properties, Two-Phase Commit, Compound Transaction và Long-Living Transaction patterns.",
   "misconceptions": ["acid", "distribution-is-free"],
   "screens": [
@@ -28,7 +31,7 @@
       "hints": [
         "Hãy thử click vào nút 'Gửi ABORT' và quan sát số dư tài khoản ở Bank X.",
         "Nếu giữ nguyên trạng thái debit thành công ở Bank X mà không cộng được ở Bank Y, tiền sẽ bị biến mất vô lý.",
-        "Xem slide 14-16 về cơ chế 2-Phase Commit."
+        "Atomicity nghĩa là toàn bộ giao dịch phải hoàn thành hoặc không có gì xảy ra cả."
       ],
       "weight": 2
     },
@@ -59,7 +62,7 @@
       ],
       "correct": 1,
       "explanation": "Two-Phase Commit: Phase 1 (prepare) → Phase 2 (commit/abort). Đảm bảo atomic transaction.",
-      "hints": ["Cần prepare trước khi commit.", "Xem slide 15."],
+      "hints": ["Cần prepare trước khi commit.", "Giao dịch có nhiều node tham gia (nhiều ngân hàng) cần một cơ chế phối hợp qua 2 pha để đảm bảo atomicity."],
       "weight": 2
     },
     {
@@ -75,11 +78,63 @@
       "correct": 1,
       "explanation": "Long-Living Transaction tách transaction dài thành nhiều transaction ngắn tránh khóa lâu.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Human in the loop = unpredictable time.", "Không nên khóa lâu.", "Xem slide 17."],
+      "hints": ["Human in the loop = unpredictable time.", "Không nên khóa lâu.", "Khóa dữ liệu suốt thời gian người dùng suy nghĩ sẽ chặn các giao dịch khác — cần tách nhỏ transaction."],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: đặt lịch hẹn cần trừ 1 slot ở ScheduleService VÀ ghi nhận thanh toán ở PaymentService (2 service khác nhau). Nếu trừ slot thành công nhưng PaymentService bị lỗi mạng, Coordinator nên làm gì?",
+      "options": [
+        "Không làm gì, giữ nguyên slot đã trừ",
+        "Gửi ROLLBACK tới ScheduleService để hoàn lại slot",
+        "Gửi tiếp COMMIT tới PaymentService mặc kệ lỗi"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ chuyển tiền hai ngân hàng, để đảm bảo Atomicity, khi một node lỗi, phải Rollback toàn bộ để tránh trạng thái nửa vời (slot bị trừ nhưng thanh toán chưa ghi nhận).",
+      "distractorTags": {
+        "0": "acid",
+        "2": "acid"
+      },
+      "hints": [
+        "Nếu chỉ trừ slot mà không có thanh toán, hệ thống có ở trạng thái hợp lệ không?",
+        "So sánh với ví dụ chuyển tiền hai ngân hàng đã học.",
+        "Atomicity yêu cầu: hoàn thành toàn bộ hoặc rollback toàn bộ."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "visual",
+      "visual": {
+        "variant": "relational-mapping",
+        "classA": "Doctor",
+        "classB": "Appointment",
+        "relationship": "one-to-many"
+      },
+      "options": [
+        "Thêm khóa ngoại doctorId vào bảng Appointments",
+        "Thêm khóa ngoại appointmentId vào bảng Doctors",
+        "Tạo bảng thứ ba để liên kết"
+      ],
+      "prompt": "Nhắc lại: Doctor có quan hệ 1-nhiều với Appointment. Khóa ngoại nên đặt ở bảng nào?",
+      "correct": 0,
+      "explanation": "Đúng — khóa ngoại luôn đặt ở bảng phía 'many' (Appointments).",
+      "distractorTags": {
+        "1": "multiplicity-fk",
+        "2": "multiplicity-fk"
+      },
+      "hints": [
+        "Nhớ lại bài Từ entity model đến relational design.",
+        "Phía nào có thể có nhiều dòng cùng trỏ về một Doctor?",
+        "FK luôn nằm ở bảng phía 'many'."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "ACID: Atomicity, Consistency, Isolation, Durability. Two-Phase Commit cho distributed transactions. Long-Living Transaction cho human-in-the-loop. Distribution có chi phí (network, coordination).",

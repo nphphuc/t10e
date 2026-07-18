@@ -3,6 +3,9 @@
   "title": "AI-assisted Capstone và Design Defense",
   "minutes": 25,
   "xp": 500,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_GenAI.pptx#2-18"],
   "objective": "Tổng hợp toàn bộ quy trình COMET, bảo vệ thiết kế và sử dụng AI hỗ trợ.",
   "misconceptions": ["ai-output-is-design", "distribution-is-free", "pattern-by-shape"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 1,
       "explanation": "AI hỗ trợ tạo nhanh diagram, nhưng designer phải review, validate, và đảm bảo traceability.",
       "distractorTags": {"0": "ai-output-is-design", "2": null},
-      "hints": ["AI = tool, không phải thay thế.", "Validate với requirements.", "Xem hướng dẫn capstone."],
+      "hints": [
+        "AI có thể tạo hình vẽ ĐÚNG cú pháp UML, nhưng có tự biết yêu cầu nghiệp vụ thật sự là gì không?",
+        "Ai là người chịu trách nhiệm nếu thiết kế đó sai — AI hay designer?"
+      ],
       "weight": 2
     },
     {
@@ -58,7 +64,30 @@
       "correctSet": [0, 1, 2, 3],
       "explanation": "Design defense: requirements, analysis, architecture patterns, trade-offs. Code chi tiết không cần.",
       "distractorTags": {"4": null},
+      "hints": [
+        "Mã nguồn chi tiết từng dòng có giúp hội đồng đánh giá QUYẾT ĐỊNH kiến trúc không, hay chỉ giúp đánh giá coding style?",
+        "Design defense tập trung vào QUYẾT ĐỊNH và LÝ DO, không phải chi tiết implementation."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: một AI tool đề xuất tách hệ thống thành 12 microservices ngay từ bản đầu tiên, chỉ có 2 dev và 50 bệnh nhân/ngày, không nêu rõ lý do. Quyết định đúng?",
+      "options": [
+        "Chấp nhận ngay vì microservices luôn hiện đại và tốt hơn monolithic",
+        "Yêu cầu AI giải thích quality driver cụ thể (scale, team boundary) — nếu không có lý do rõ ràng, KHÔNG tách nhỏ khi team và tải còn nhỏ",
+        "Từ chối hoàn toàn AI, không bao giờ dùng gợi ý của nó"
+      ],
+      "correct": 1,
+      "explanation": "Giống nguyên tắc capstone: AI output phải được validate với quality driver và trade-off thực tế, không chấp nhận chỉ vì 'nghe hiện đại'. Đồng thời không nên từ chối AI hoàn toàn — vấn đề là THẨM ĐỊNH, không phải cấm dùng.",
+      "distractorTags": {"0": "ai-output-is-design", "2": "ai-output-is-design"},
+      "hints": [
+        "Team 2 người, 50 bệnh nhân/ngày có thật sự cần 12 service độc lập không?",
+        "AI có tự nêu được lý do (quality driver) đằng sau đề xuất đó không — hay chỉ đưa ra kết quả?"
+      ],
+      "weight": 3
     },
     {
       "id": "s4",
@@ -67,6 +96,10 @@
       "prompt": "COMET là viết tắt của: Concurrent Object Modeling and _____ Method.",
       "accepted": ["architectural design", "Architectural Design", "Architectural", "Architectural Design Method"],
       "explanation": "COMET = Concurrent Object Modeling and Architectural Design Method.",
+      "hints": [
+        "Concurrent Object Modeling and ___ Design Method — chữ còn thiếu mô tả việc THIẾT KẾ CẤU TRÚC hệ thống.",
+        "Liên quan tới từ 'Architecture' đã học từ Level 7."
+      ],
       "weight": 1
     },
     {

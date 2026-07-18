@@ -28,7 +28,7 @@
       "hints": [
         "Từ khóa ở đây là 'bỏ đi để code lại bản thật' (discarded).",
         "Bản mẫu này làm ra để học hỏi yêu cầu hay để nâng cấp dần?",
-        "Xem định nghĩa về Throwaway Prototyping trong slide 4."
+        "Throwaway Prototype tồn tại chỉ để lấy phản hồi, không bao giờ trở thành sản phẩm cuối."
       ],
       "weight": 2
     },
@@ -70,12 +70,58 @@
       "hints": [
         "Bản demo có chứa code xử lý thực sự của database và bảo mật chưa?",
         "Việc lấy bản thử nghiệm đưa thẳng lên production phản ánh lỗi gì?",
-        "Đọc kỹ slide 4-5 về rủi ro của bản mẫu vứt bỏ."
+        "Prototype vứt bỏ bỏ qua bảo mật/hiệu năng — đem thẳng lên production là coi nó như sản phẩm thật."
       ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Trong Clinic Booking, team dựng nhanh một màn hình chọn bác sĩ chỉ để hỏi ý kiến bác sĩ trưởng khoa về bố cục, rồi dự định code lại từ đầu sau khi chốt UI. Đây là loại prototype nào?",
+      "options": [
+        "Throwaway Prototype — dùng để lấy phản hồi rồi bỏ đi",
+        "Evolutionary Prototype — sẽ được nâng cấp dần thành sản phẩm",
+        "Production Increment — đã là phần mềm chạy thật"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ FOS, đây là Throwaway Prototype: dựng nhanh để kiểm chứng bố cục UI với người dùng thật, sau đó bị loại bỏ và code lại bản chính thức.",
+      "distractorTags": {
+        "1": null,
+        "2": "prototype-is-product"
+      },
+      "hints": [
+        "Mục đích của màn hình này là lấy ý kiến hay để dùng lâu dài?",
+        "Nhóm có kế hoạch 'code lại từ đầu' sau khi chốt UI không?",
+        "Dựng nhanh + dự định bỏ đi = Throwaway Prototype."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: dự án có yêu cầu thay đổi liên tục nhưng PM khăng khăng theo Waterfall vì 'quy trình này chuẩn nhất'. Đây là hiểu lầm nào?",
+      "options": [
+        "one-process-best",
+        "prototype-is-product",
+        "model-is-documentation"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — 'one-process-best' là niềm tin sai rằng một quy trình luôn tối ưu bất kể mức độ biến động của dự án.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Waterfall vừa học.",
+        "Đây là lỗi tin rằng một quy trình phù hợp với MỌI dự án.",
+        "Tên mã hiểu lầm có chứa cụm 'one-process'."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Throwaway Prototype dùng để học (validate requirements) và sẽ bị vứt bỏ. Evolutionary Prototype dùng để nâng cấp dần thành sản phẩm. Đừng bao giờ đem bản mẫu thử nghiệm vứt bỏ chạy trực tiếp trên production (lỗi prototype-is-product).",

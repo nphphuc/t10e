@@ -3,6 +3,9 @@
   "title": "Association, link và multiplicity",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch07_Static Modeling.pptx#7-10"],
   "objective": "Phân biệt association (quan hệ giữa các class) và link (kết nối giữa các object), vẽ đúng multiplicity.",
   "misconceptions": ["association-is-link"],
   "screens": [
@@ -108,7 +111,7 @@
       "hints": [
         "Đọc ngược: Employee (1..*) → Department.",
         "Department (0..*) → Employee.",
-        "Xem slide 7 về association notation."
+        "Áp dụng cách đếm liên kết như ví dụ Customer-Order: đếm từ mỗi phía để suy ra multiplicity."
       ],
       "weight": 2
     },
@@ -116,24 +119,52 @@
       "id": "s5",
       "role": "transfer",
       "type": "scenario",
-      "prompt": "Hệ thống FOS: Một Customer có thể có 0 hoặc nhiều Review. Mỗi Review thuộc về đúng một Customer và một Product. Multiplicity cho association Customer-Review là:",
+      "prompt": "Hệ thống Clinic Booking: Một Doctor có thể có 0 hoặc nhiều Appointment. Mỗi Appointment thuộc về đúng một Doctor và một Patient. Multiplicity cho association Doctor-Appointment là:",
       "options": [
-        "Customer 0..* — Review 0..*",
-        "Customer 1 — Review 0..*",
-        "Customer 1..* — Review 1",
-        "Customer 0..* — Review 1..*"
+        "Doctor 0..* — Appointment 0..*",
+        "Doctor 1 — Appointment 0..*",
+        "Doctor 1..* — Appointment 1",
+        "Doctor 0..* — Appointment 1..*"
       ],
       "correct": 1,
-      "explanation": "Mỗi Review thuộc về đúng 1 Customer, Customer có thể có 0..* Review.",
+      "explanation": "Mỗi Appointment thuộc về đúng 1 Doctor (multiplicity 1 ở phía Doctor), còn Doctor có thể có 0..* Appointment — cùng cấu trúc với Customer-Order đã học.",
       "distractorTags": {
-        "0": null,
+        "0": "association-is-link",
         "2": null,
         "3": null
       },
+      "hints": [
+        "Mỗi Appointment gắn với bao nhiêu Doctor — một hay nhiều?",
+        "So sánh cấu trúc này với ví dụ Customer-Order: 'mỗi Order thuộc 1 Customer' tương ứng với 'mỗi Appointment thuộc 1 Doctor'.",
+        "Phía 'một' (Doctor) nhận multiplicity 1; phía 'nhiều tùy chọn' (Appointment) nhận 0..*."
+      ],
       "weight": 3
     },
     {
       "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: 'Jane làm việc trong Manufacturing' là một link hay một association?",
+      "options": [
+        "Association — vì mô tả quan hệ giữa hai class",
+        "Link — vì là kết nối cụ thể giữa hai object instance",
+        "Cả hai đều đúng như nhau"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — 'Jane' và 'Manufacturing' là hai object instance cụ thể, nên kết nối giữa chúng là một link. 'Employee worksIn Department' mới là association ở mức class.",
+      "distractorTags": {
+        "0": "association-is-link",
+        "2": null
+      },
+      "hints": [
+        "'Jane' và 'Manufacturing' là tên class hay tên instance cụ thể?",
+        "Link luôn là kết nối giữa các object instance, không phải class.",
+        "Association ở mức class; link ở mức object instance."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Association = quan hệ giữa các class (VD: Employee worksIn Department). Link = instance cụ thể (Jane worksIn Manufacturing). Multiplicity xác định số objects tham gia ở mỗi đầu.",

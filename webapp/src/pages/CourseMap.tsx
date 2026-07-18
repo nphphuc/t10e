@@ -5,6 +5,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 import manifestData from '../content/manifest.json';
 import FoxMascot from '../components/FoxMascot';
+import { isMuted, setMuted } from '../engine/sound';
+import { useMistakesStore } from '../store/mistakes';
 
 // Dynamically discover all implemented lessons in the content/lessons directory
 const lessonFiles = import.meta.glob('../content/lessons/*.json', { eager: true });
@@ -16,6 +18,7 @@ const NODE_OFFSET = 40;
 
 export default function CourseMap() {
   const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
+  const mistakesCount = useMistakesStore((s) => s.getMistakesCount());
   const shouldReduceMotion = useReducedMotion();
   const location = useLocation();
   const navigate = useNavigate();
@@ -218,6 +221,12 @@ export default function CourseMap() {
 
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
   const [foxMoving, setFoxMoving] = useState(false);
+  const [soundMuted, setSoundMuted] = useState(isMuted());
+  const toggleSound = () => {
+    const next = !soundMuted;
+    setSoundMuted(next);
+    setMuted(next);
+  };
 
   // Set initial selected lesson when activeLesson is resolved
   useEffect(() => {
@@ -331,6 +340,34 @@ export default function CourseMap() {
                 />
               </div>
             </div>
+
+            {/* Sound toggle */}
+            <button
+              onClick={toggleSound}
+              className="w-full py-2.5 px-4 rounded-2xl bg-gray-800/40 border border-gray-800 hover:border-gray-700 text-center transition-all duration-200 flex items-center justify-center gap-2 text-xs font-semibold text-gray-400 hover:text-gray-200"
+              aria-label={soundMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+            >
+              <span>{soundMuted ? '🔇' : '🔊'}</span>
+              <span>{soundMuted ? 'Đã tắt âm thanh' : 'Âm thanh đang bật'}</span>
+            </button>
+
+            {/* Luyện điểm yếu card — chỉ hiện khi có mistake */}
+            {mistakesCount > 0 && (
+              <Link
+                to="/practice"
+                className="block w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-orange-900/20 to-red-900/20 border border-orange-700/40 hover:border-orange-600/60 text-center transition-all duration-200 group"
+              >
+                <span className="block text-xs font-extrabold text-orange-400 group-hover:text-orange-300 uppercase tracking-wider flex items-center justify-center gap-2">
+                  <span>🔁 Luyện Điểm Yếu</span>
+                  <span className="px-1.5 py-0.5 rounded-full bg-orange-500/20 text-orange-300 text-[10px] font-bold border border-orange-500/30">
+                    {mistakesCount}
+                  </span>
+                </span>
+                <span className="block text-[9px] text-gray-500 mt-0.5">
+                  Ôn lại câu sai — luyện đến khi nắm chắc
+                </span>
+              </Link>
+            )}
 
             {/* PE Review Entry Button */}
             <Link

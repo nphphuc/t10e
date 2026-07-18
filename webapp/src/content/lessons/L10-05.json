@@ -3,6 +3,9 @@
   "title": "Phân phối request và notification",
   "minutes": 13,
   "xp": 130,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#57-68"],
   "objective": "Hiểu Observer, Mediator, Chain of Responsibility patterns để phân phối request/notification.",
   "misconceptions": ["pattern-by-shape"],
   "screens": [
@@ -19,7 +22,10 @@
       "correct": 0,
       "explanation": "Observer: Subject (Order) notify observers (EmailService, Inventory, Logger) khi state thay đổi.",
       "distractorTags": {"1": "pattern-by-shape", "2": null},
-      "hints": ["Publish/subscribe.", "Observers đăng ký nhận event.", "Xem Observer pattern."],
+      "hints": [
+        "Order KHÔNG cần biết CHI TIẾT EmailService/Inventory/Logger làm gì — chỉ cần thông báo 'tôi vừa được tạo'.",
+        "Nếu thêm một observer mới (vd SMS), có cần sửa code Order không?"
+      ],
       "weight": 2
     },
     {
@@ -49,8 +55,49 @@
       "correct": 1,
       "explanation": "Mediator đứng giữa điều phối — các component chỉ biết Mediator, không biết nhau.",
       "distractorTags": {"0": null, "2": null},
-      "hints": ["Giảm many-to-many → one-to-many.", "Xem Mediator pattern."],
+      "hints": [
+        "Không có Mediator: OrderForm phải biết OrderController, biết InventoryService, biết EmailService — rất nhiều liên kết chéo.",
+        "Mediator đứng GIỮA, biến nhiều liên kết chéo (many-to-many) thành các liên kết một chiều tới Mediator."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking: khi một Appointment bị hủy, cần gửi email cho bệnh nhân, giải phóng slot lịch, và ghi log — mà không muốn class Appointment biết chi tiết ba việc đó. Pattern nào?",
+      "options": [
+        "Observer — Appointment là subject, các listener (EmailService, SlotManager, Logger) tự đăng ký nhận sự kiện hủy",
+        "Mediator — vì cần điều phối nhiều component",
+        "Singleton — chỉ một Appointment tồn tại"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ Order: một sự kiện (hủy lịch) cần thông báo cho nhiều bên không liên quan trực tiếp đến nhau → Observer, không phải Mediator (Mediator dùng khi nhiều component cần GIAO TIẾP QUA LẠI, không chỉ một chiều thông báo).",
+      "distractorTags": {"1": "pattern-by-shape", "2": "pattern-by-shape"},
+      "hints": [
+        "Đây là MỘT sự kiện cần thông báo cho NHIỀU bên — quan hệ một-nhiều (1-n), không phải nhiều bên giao tiếp qua lại.",
+        "Appointment có cần biết EmailService gửi gì hay SlotManager làm gì không?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: sự khác biệt chính giữa Decorator và Proxy là gì?",
+      "options": [
+        "Decorator thêm chức năng mới; Proxy kiểm soát truy cập tới service gốc",
+        "Cả hai đều dùng để kiểm soát truy cập",
+        "Cả hai đều dùng để thêm chức năng mới"
+      ],
+      "correct": 0,
+      "explanation": "Đúng như bài trước: Decorator = thêm behavior (vd SMS/Slack notification); Proxy = kiểm soát truy cập (vd kiểm tra quyền trước khi gọi service thật).",
+      "distractorTags": {"1": "wrapper-intent", "2": "wrapper-intent"},
+      "hints": [
+        "Nhớ lại ví dụ Notifier (Decorator) và PaymentService (Proxy) ở bài trước.",
+        "'Thêm chức năng mới' khác với 'chặn/kiểm tra trước khi cho đi qua'."
+      ],
+      "weight": 1
     },
     {
       "id": "s4",

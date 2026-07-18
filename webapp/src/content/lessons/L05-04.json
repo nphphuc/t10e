@@ -3,6 +3,9 @@
   "title": "Algorithm object và service object",
   "minutes": 9,
   "xp": 110,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch08_Object and Class Structuring.pptx#14-17"],
   "objective": "Phân biệt algorithm object và service object, biết khi nào dùng loại nào.",
   "misconceptions": ["object-role", "service-initiates"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Algorithm object dùng khi có thuật toán phức tạp độc lập với entity data.",
       "distractorTags": {"0": "entity-does-everything", "2": null},
-      "hints": ["Algorithm có thể thay đổi độc lập.", "Entity không nên chứa algorithm phức tạp.", "Xem slide 14-15."],
+      "hints": ["Algorithm có thể thay đổi độc lập.", "Entity không nên chứa algorithm phức tạp.", "RouteOptimizer đóng gói một thuật toán riêng biệt, tách khỏi dữ liệu Order."],
       "weight": 2
     },
     {
@@ -35,7 +38,7 @@
       "correct": 1,
       "explanation": "Service object không khởi tạo request. Nó phản hồi client request. Service object chỉ cung cấp service.",
       "distractorTags": {"0": "service-initiates", "2": null},
-      "hints": ["Service = provider.", "Client = requester.", "Xem slide 16-17."],
+      "hints": ["Service = provider.", "Client = requester.", "Ai là bên chủ động gọi trước — CreditCardService hay client cần xác thực?"],
       "weight": 2
     },
     {
@@ -50,10 +53,61 @@
         "Business logic object": "Business rules và decision-making"
       },
       "explanation": "Mỗi loại object có vai trò riêng. Algorithm = thuật toán, Service = cung cấp dịch vụ.",
+      "hints": [
+        "Object nào chỉ lưu dữ liệu, không quyết định gì cả?",
+        "Phân biệt 'công thức thuật toán' (Algorithm) với 'quy tắc nghiệp vụ' (Business logic).",
+        "Service luôn đóng vai trò phản hồi client, không tự khởi tạo request."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking cần thuật toán xếp lịch tối ưu (ghép bác sĩ rảnh với khung giờ bệnh nhân yêu cầu), đây là logic phức tạp có thể thay đổi. Nên thiết kế thế nào?",
+      "options": [
+        "Đặt trong class Appointment (entity) vì liên quan đến lịch hẹn",
+        "Tách thành SchedulingOptimizer — một algorithm object riêng",
+        "Viết trong BoundaryForm luôn cho nhanh"
+      ],
+      "correct": 1,
+      "explanation": "Giống RouteOptimizer, thuật toán xếp lịch phức tạp và có thể thay đổi độc lập với dữ liệu Appointment — nên tách thành algorithm object riêng.",
+      "distractorTags": {
+        "0": "entity-does-everything",
+        "2": "object-role"
+      },
+      "hints": [
+        "Thuật toán này có thể thay đổi độc lập với dữ liệu Appointment không?",
+        "So sánh với ví dụ RouteOptimizer — cấu trúc vấn đề giống nhau ở điểm nào?",
+        "Thuật toán phức tạp, độc lập với entity data luôn nên tách thành algorithm object."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: chính sách tính phí khám phụ thuộc loại bảo hiểm và giờ khám. Bạn định đặt logic này trực tiếp trong class Appointment. Vấn đề gì?",
+      "options": [
+        "Không có vấn đề gì",
+        "Nếu chính sách phí thay đổi, phải sửa class Appointment — nên tách FeeCalculator riêng",
+        "Phí khám không nên tính tự động"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là dấu hiệu 'entity-does-everything'. Business rule có thể thay đổi độc lập với dữ liệu nên phải tách business logic object riêng.",
+      "distractorTags": {
+        "0": "entity-does-everything",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Tách business rule khỏi dữ liệu.",
+        "Chính sách phí có thay đổi cùng tốc độ với dữ liệu Appointment không?",
+        "Logic thay đổi độc lập nên tách khỏi entity lưu dữ liệu."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Algorithm object: thuật toán độc lập (VD: RouteOptimizer). Service object: cung cấp service cho client, không khởi tạo request. Cả hai đều giúp tách biệt concerns.",

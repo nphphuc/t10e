@@ -3,6 +3,9 @@
   "title": "Boundary, entity hay control?",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch08_Object and Class Structuring.pptx#3-9"],
   "objective": "Phân loại software objects thành boundary, entity, control dựa trên vai trò trong ứng dụng.",
   "misconceptions": ["object-role"],
   "screens": [
@@ -22,7 +25,7 @@
         "0": "object-role",
         "2": "object-role"
       },
-      "hints": ["Boundary class có nhiệm vụ giao tiếp với external environment.", "Entity lưu dữ liệu, Boundary giao tiếp bên ngoài.", "Xem slide 7 về user interaction objects."],
+      "hints": ["Boundary class có nhiệm vụ giao tiếp với external environment.", "Entity lưu dữ liệu, Boundary giao tiếp bên ngoài.", "CustomerForm hiển thị UI để user nhập liệu — đó là dấu hiệu của user interaction object (boundary)."],
       "weight": 2
     },
     {
@@ -63,10 +66,61 @@
       "correctSet": [0, 1, 3],
       "explanation": "Entity class lưu trữ dữ liệu bền vững. Customer, Order, Product là entity. LoginForm và EmailSender là boundary.",
       "distractorTags": {"2": "object-role", "4": "object-role"},
+      "hints": [
+        "Entity lưu trữ dữ liệu bền vững — class nào có dữ liệu tồn tại lâu dài trong hệ thống?",
+        "LoginForm và EmailSender có lưu dữ liệu hay chỉ giao tiếp?",
+        "Loại bỏ mọi class giao tiếp UI hoặc external system — chỉ giữ lại class lưu data."
+      ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking có class 'AppointmentReminderScheduler' — nó kiểm tra lịch hẹn sắp tới và điều phối việc gọi EmailService để gửi nhắc lịch. Stereotype phù hợp là gì?",
+      "options": [
+        "«entity» — vì nó liên quan đến lịch hẹn",
+        "«boundary» — vì nó gửi email",
+        "«control» — vì nó điều phối luồng kiểm tra và gửi nhắc lịch"
+      ],
+      "correct": 2,
+      "explanation": "Giống CheckoutController, class này điều phối logic nghiệp vụ (kiểm tra lịch, gọi service gửi nhắc) mà không tự lưu data hay tự giao tiếp UI — đây là «control».",
+      "distractorTags": {
+        "0": "object-role",
+        "1": "object-role"
+      },
+      "hints": [
+        "Class này có tự lưu trữ dữ liệu lịch hẹn hay chỉ điều phối logic?",
+        "So sánh với CheckoutController — vai trò 'nhạc trưởng' điều phối luồng có giống nhau không?",
+        "Điều phối nhiều bước xử lý nghiệp vụ luôn là dấu hiệu của Control."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: một class gọi tới InsuranceVerificationAPI bên ngoài để kiểm tra bảo hiểm. Stereotype nào phù hợp?",
+      "options": [
+        "«entity»",
+        "«boundary»",
+        "«control»"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — class giao tiếp trực tiếp với hệ thống bên ngoài luôn mang stereotype «boundary».",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài về context diagram và external system.",
+        "Class này lưu data, điều phối, hay chỉ chuyển tiếp ra ngoài?",
+        "Giao tiếp với hệ thống/API bên ngoài luôn là «boundary»."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Phân loại class: «entity» lưu dữ liệu, «boundary» giao tiếp bên ngoài, «control» điều phối luồng. Đây là bước đầu trong object structuring.",

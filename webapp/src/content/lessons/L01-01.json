@@ -84,6 +84,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Nhóm bạn nhận yêu cầu xây dựng app đặt lịch khám bệnh (Clinic Booking). Product Owner muốn code demo ngay tuần sau, bỏ qua phần model vì 'domain đơn giản, ai cũng hiểu'. Bạn nên phản hồi thế nào?",
+      "options": [
+        "Đồng ý, vì domain đơn giản thì không cần model",
+        "Vẫn dành thời gian model ngắn gọn để thống nhất scope và luồng nghiệp vụ trước khi code",
+        "Chỉ viết tài liệu mô hình sau khi demo xong để báo cáo"
+      ],
+      "correct": 1,
+      "explanation": "Dù domain có vẻ đơn giản, model giúp cả nhóm thống nhất cách hiểu về scope và luồng trước khi đầu tư code — rủi ro hiểu sai vẫn tồn tại bất kể độ phức tạp của domain.",
+      "distractorTags": {
+        "0": null,
+        "2": "model-is-documentation"
+      },
+      "hints": [
+        "'Đơn giản' theo cảm nhận của một người không có nghĩa cả team hiểu giống nhau.",
+        "Việc thống nhất hiểu biết chung có xảy ra tốt hơn trước hay sau khi code?",
+        "Model không tỷ lệ thuận với độ phức tạp — nó phục vụ việc thống nhất hiểu biết sớm."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: nếu một lập trình viên chỉ vẽ UML sau khi code xong để 'có tài liệu nộp báo cáo', đó là hiểu lầm gì?",
+      "options": [
+        "model-is-documentation — coi mô hình chỉ là tài liệu lưu trữ",
+        "actor-is-person — coi actor luôn là con người",
+        "class-is-object — nhầm class với object instance"
+      ],
+      "correct": 0,
+      "explanation": "Đúng, đây chính là 'model-is-documentation'. Mô hình có giá trị lớn nhất khi được dùng để định hướng thiết kế TRƯỚC khi code, không phải chỉ để lưu hồ sơ sau đó.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Đây là khái niệm chính của bài này — nhìn lại tên hiểu lầm vừa gặp ở s3.",
+        "Cả 3 lựa chọn đều là mã hiểu lầm thật, nhưng chỉ một mã khớp đúng tình huống 'vẽ sau khi code xong'.",
+        "Tên mã hiểu lầm mô tả đúng hành vi: xem model như tài liệu, không phải công cụ thiết kế."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Xây dựng mô hình (Modeling) trước khi viết code giúp chúng ta thử nghiệm nhanh kiến trúc, đồng bộ sự hiểu biết trong team và giảm thiểu rủi ro thiết kế sai lầm trước khi quá muộn.",

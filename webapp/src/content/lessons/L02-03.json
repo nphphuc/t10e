@@ -78,6 +78,52 @@
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Dự án Clinic Booking đang ở giai đoạn kiến trúc chưa ổn định (chưa chốt cách tích hợp với hệ thống bảo hiểm). Theo cấu trúc RUP, team nên đang ở pha nào?",
+      "options": [
+        "Inception — vẫn còn định hình ý tưởng sơ bộ",
+        "Elaboration — cần ổn định kiến trúc nền tảng trước khi xây dựng ồ ạt",
+        "Transition — chuẩn bị bàn giao cho người dùng"
+      ],
+      "correct": 1,
+      "explanation": "Khi kiến trúc (cách tích hợp bảo hiểm) chưa ổn định, dự án đang ở pha Elaboration — pha chuyên chốt chặn kiến trúc nền tảng trước khi bước vào Construction quy mô lớn.",
+      "distractorTags": {
+        "0": "process-order",
+        "2": "process-order"
+      },
+      "hints": [
+        "Việc 'chưa chốt cách tích hợp kiến trúc' đặc trưng cho pha nào trong 4 pha RUP?",
+        "Inception chỉ định hình ý tưởng sơ bộ, chưa đi sâu kiến trúc.",
+        "Elaboration là pha ổn định kiến trúc nền tảng trước khi Construction bắt đầu."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: đội dựng nhanh 1 màn hình tĩnh chỉ để lấy phản hồi rồi dự định code lại từ đầu. Đây là loại prototype nào?",
+      "options": [
+        "Evolutionary Prototype",
+        "Throwaway Prototype",
+        "Production Increment"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — dựng nhanh để lấy phản hồi rồi bỏ đi là đặc trưng của Throwaway Prototype, khác với Evolutionary Prototype vốn được nâng cấp dần thành sản phẩm.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài trước về hai loại prototype.",
+        "Mục đích của bản mẫu này là học hỏi hay để nâng cấp dần?",
+        "Dự định 'code lại từ đầu' là dấu hiệu của Throwaway Prototype."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Spiral Model tổ chức lặp theo 4 góc phần tư lấy quản trị rủi ro làm trung tâm. RUP chia tiến trình thành 4 pha lớn, trong đó pha Elaboration đóng vai trò chốt chặn kiến trúc cốt lõi.",

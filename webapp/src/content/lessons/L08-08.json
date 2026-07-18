@@ -3,6 +3,9 @@
   "title": "Concurrent và real-time task architecture",
   "minutes": 14,
   "xp": 150,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch18_Designing Concurrent and Real-Time Software Architectures.pptx#5-14"],
   "objective": "Phân biệt concurrent tasks, I/O task structuring, và control patterns cho real-time systems.",
   "misconceptions": ["task-activation", "async-is-faster"],
   "screens": [
@@ -19,7 +22,7 @@
       "correct": 1,
       "explanation": "Periodic I/O task: polling passive device định kỳ, kích hoạt bởi timer event.",
       "distractorTags": {"0": "task-activation", "2": null},
-      "hints": ["Định kỳ = periodic.", "Timer event kích hoạt.", "Xem slide 12-13."],
+      "hints": ["Định kỳ = periodic.", "Timer event kích hoạt.", "Đọc mỗi 100ms đều đặn là dấu hiệu của kích hoạt theo timer, không phải theo sự kiện bất ngờ."],
       "weight": 2
     },
     {
@@ -34,7 +37,7 @@
         "Internal task": "Task xử lý nội bộ, không I/O"
       },
       "explanation": "Các loại concurrent tasks phân loại theo cách kích hoạt.",
-      "hints": ["Event = interrupt.", "Periodic = timer.", "Demand = client request.", "Xem slide 10-14."],
+      "hints": ["Event = interrupt.", "Periodic = timer.", "Demand = client request.", "Internal task không giao tiếp trực tiếp với thiết bị I/O nào cả."],
       "weight": 2
     },
     {
@@ -49,7 +52,7 @@
       ],
       "correct": 2,
       "explanation": "Hierarchical Control: Central Controller (high-level) → Motor Controller (low-level).",
-      "hints": ["Có cấp bậc → hierarchical.", "Centralized: một controller duy nhất.", "Distributed: peer-to-peer.", "Xem slide 6-8."],
+      "hints": ["Có cấp bậc → hierarchical.", "Centralized: một controller duy nhất.", "Cấu trúc có nhiều tầng điều khiển nối tiếp nhau (cao → thấp) là dấu hiệu của hierarchical."],
       "weight": 2
     },
     {
@@ -64,11 +67,57 @@
       ],
       "correct": 0,
       "explanation": "Hard real-time: deadline phải đáp ứng (miss deadline = failure). Soft real-time: có thể trễ nhẹ.",
-      "hints": ["Deadline quyết định.", "Hard: không thể miss.", "Xem slide 5."],
+      "hints": ["Deadline quyết định.", "Hard: không thể miss.", "Ngôn ngữ lập trình không quyết định hard hay soft real-time — mức độ nghiêm ngặt của deadline mới quyết định."],
       "weight": 2
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking cần kiểm tra máy đo nhiệt độ phòng khám mỗi 5 phút để cảnh báo nếu vượt ngưỡng bảo quản vắc-xin. Task type nào?",
+      "options": [
+        "Event-driven I/O task",
+        "Periodic I/O task (polling định kỳ)",
+        "Demand-driven I/O task"
+      ],
+      "correct": 1,
+      "explanation": "Giống ví dụ sensor nhiệt độ FOS, kiểm tra đều đặn theo chu kỳ cố định (5 phút) là Periodic I/O task, kích hoạt bởi timer.",
+      "distractorTags": {
+        "0": "task-activation",
+        "2": null
+      },
+      "hints": [
+        "Task này được kích hoạt bởi thiết bị báo hay bởi đồng hồ đếm thời gian?",
+        "So sánh với ví dụ sensor nhiệt độ FOS đã học.",
+        "Kiểm tra đều đặn theo chu kỳ cố định luôn là Periodic I/O task."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: CheckInManager gồm QrScanner, IdentityVerifier, QueueAssigner bên trong. Đây là loại component nào?",
+      "options": [
+        "Simple component",
+        "Composite component",
+        "Không phải component"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — chứa nhiều component con bên trong là composite component.",
+      "distractorTags": {
+        "0": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Component-based architecture.",
+        "Component này có chứa các component con không?",
+        "Chứa part component bên trong là dấu hiệu của composite."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Concurrent tasks: event-driven (interrupt), periodic (timer), demand-driven (client request). Control patterns: centralized, distributed, hierarchical. Hard vs soft real-time.",

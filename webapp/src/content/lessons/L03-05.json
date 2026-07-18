@@ -3,6 +3,9 @@
   "title": "Viết main flow có thể kiểm thử",
   "minutes": 12,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch06_Use Case Modeling.pptx#17"],
   "objective": "Viết use case specification với main sequence, alternative sequences, preconditions và postconditions.",
   "misconceptions": ["flow-order"],
   "screens": [
@@ -25,34 +28,33 @@
       "hints": [
         "Use case luôn bắt đầu với input từ primary actor.",
         "Mỗi bước = Actor gửi → Hệ thống phản hồi.",
-        "Xem cấu trúc UC spec trong slide 17."
+        "Bước 'Bắt đầu' phải mở đầu chuỗi tương tác, không thể nằm ở cuối."
       ],
       "weight": 2
     },
     {
       "id": "s2",
       "role": "explore",
-      "type": "order",
-      "prompt": "Sắp xếp các bước của use case 'Place Order' theo đúng thứ tự main flow:",
-      "options": [
-        "System confirms order and displays order details",
-        "Customer provides shipping address and payment info",
-        "System validates payment and creates order",
-        "Customer initiates checkout",
-        "System sends confirmation email"
-      ],
-      "correctOrder": [
-        "Customer initiates checkout",
-        "System validates payment and creates order",
-        "System confirms order and displays order details",
-        "Customer provides shipping address and payment info",
-        "System sends confirmation email"
-      ],
+      "type": "visual",
+      "visual": {
+        "variant": "activity-flow",
+        "nodes": [
+          { "id": "start", "type": "initial", "label": "Bắt đầu" },
+          { "id": "initiate", "type": "action", "label": "Customer initiates checkout" },
+          { "id": "provide_info", "type": "action", "label": "Customer provides shipping address and payment info" },
+          { "id": "validate", "type": "action", "label": "System validates payment and creates order" },
+          { "id": "confirm", "type": "action", "label": "System confirms order and displays order details" },
+          { "id": "email", "type": "action", "label": "System sends confirmation email" },
+          { "id": "end", "type": "final", "label": "Kết thúc" }
+        ],
+        "correctOrder": ["start", "initiate", "provide_info", "validate", "confirm", "email", "end"]
+      },
+      "prompt": "Kéo thả để xây dựng đúng luồng hoạt động (Activity Flow) của use case 'Place Order':",
       "explanation": "Flow chuẩn: Customer bắt đầu → Nhập thông tin → Hệ thống xử lý → Hệ thống phản hồi → Hoàn tất.",
       "hints": [
         "Bắt đầu với input từ actor.",
         "Actor nhập thông tin trước khi hệ thống xử lý.",
-        "Email là bước cuối cùng."
+        "Email là bước cuối cùng, trước Final Node."
       ],
       "weight": 2
     },
@@ -96,7 +98,7 @@
       "hints": [
         "Main sequence ở level nghiệp vụ, không phải kỹ thuật.",
         "Mỗi bước = 1 interaction actor ↔ system.",
-        "Xem slide 17 về UC documentation."
+        "Mỗi bước main sequence là một cặp hành động qua lại, không đi sâu vào cách hệ thống cài đặt."
       ],
       "weight": 2
     },
@@ -104,24 +106,52 @@
       "id": "s5",
       "role": "transfer",
       "type": "scenario",
-      "prompt": "Customer muốn hủy đơn hàng vừa đặt. Precondition hợp lệ là gì?",
+      "prompt": "Clinic Booking: Patient muốn hủy lịch hẹn vừa đặt. Precondition hợp lệ cho use case 'Cancel Appointment' là gì?",
       "options": [
-        "Customer đã đăng nhập và có ít nhất một order đang ở trạng thái 'Pending'",
-        "Customer có quyền admin",
+        "Patient đã đăng nhập và có ít nhất một Appointment đang ở trạng thái 'Confirmed'",
+        "Patient có quyền admin",
         "Hệ thống đang online",
         "Bất kỳ lúc nào"
       ],
       "correct": 0,
-      "explanation": "Precondition của use case Cancel Order: customer đã đăng nhập và có order đang pending (chưa xử lý). Điều kiện tiên quyết để use case có thể thực thi có ý nghĩa.",
+      "explanation": "Giống ví dụ Cancel Order, precondition phải mô tả điều kiện có ý nghĩa để use case thực thi được: patient đã đăng nhập và có lịch hẹn đang ở trạng thái có thể hủy.",
       "distractorTags": {
         "1": null,
         "2": null,
         "3": null
       },
+      "hints": [
+        "Precondition phải là điều kiện CỤ THỂ, không phải trạng thái luôn đúng (như 'hệ thống online').",
+        "So sánh với ví dụ Cancel Order — cấu trúc precondition có tương tự không?",
+        "Cần xác định actor đã đăng nhập VÀ đối tượng cần hủy đang ở đúng trạng thái."
+      ],
       "weight": 3
     },
     {
       "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: tên use case 'Click Add Button' có vấn đề gì?",
+      "options": [
+        "Không có vấn đề, mô tả đúng thao tác UI",
+        "Đây là functional decomposition, nên đổi thành 'Add Product' — mục tiêu có giá trị cho actor",
+        "Tên này quá ngắn"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là hiểu lầm 'usecase-is-click'. Use case phải mô tả mục tiêu trọn vẹn (Verb + Object), không phải thao tác UI chi tiết.",
+      "distractorTags": {
+        "0": "usecase-is-click",
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Tìm use case có giá trị.",
+        "'Click' mô tả một cú bấm chuột hay một mục tiêu nghiệp vụ?",
+        "Use case luôn đặt tên theo Verb + Object thể hiện kết quả, không phải hành động UI."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Use case specification gồm: name, actor, precondition, main sequence (các bước tương tác actor↔system), alternative sequences (xử lý ngoại lệ), postcondition. Main sequence mô tả flow chính thành công ở mức nghiệp vụ.",

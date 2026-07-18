@@ -5,7 +5,9 @@
   "xp": 150,
   "objective": "Phân biệt Strategy (thuật toán), State (trạng thái), Template Method (khung), Visitor (operations trên structure).",
   "misconceptions": ["state-vs-strategy"],
+  "status": "draft-from-slide",
   "needsReview": true,
+  "sourceRefs": ["SWD392_Design Partern.pptx#76-89"],
   "screens": [
     {
       "id": "s1",
@@ -20,7 +22,10 @@
       "correct": 1,
       "explanation": "Strategy: định nghĩa family of algorithms, mỗi algorithm là một class riêng, client chọn strategy.",
       "distractorTags": {"0": "state-vs-strategy", "2": null},
-      "hints": ["Strategy = algorithm family.", "State = behavior depends on state.", "Xem Strategy vs State."],
+      "hints": [
+        "Có NHIỀU thuật toán tính phí (Standard/Express/Free) được chọn LINH HOẠT lúc runtime — đây là dấu hiệu Strategy.",
+        "State chỉ đúng nếu hành vi thay đổi theo TRẠNG THÁI nội tại của Order, không phải do người dùng CHỌN loại ship."
+      ],
       "weight": 2
     },
     {
@@ -55,6 +60,10 @@
       },
       "prompt": "Ghép mỗi lực đẩy thiết kế (design force) với behavioral pattern phù hợp nhất:",
       "explanation": "State: hành vi đổi theo state. Strategy: family of algorithms chọn linh hoạt. Template Method: skeleton + hook steps. Visitor: thêm operation vào object structure mà không sửa class.",
+      "hints": [
+        "f1 nói về HÀNH VI THAY ĐỔI THEO TRẠNG THÁI (Pending/Paid/Shipped) — không phải chọn thuật toán.",
+        "f2 nói về CHỌN LINH HOẠT giữa nhiều thuật toán tính phí — đây chính là Strategy."
+      ],
       "weight": 2
     },
     {
@@ -70,7 +79,10 @@
       "correct": 1,
       "explanation": "State pattern: Order behavior phụ thuộc vào current state. Mỗi state là một class riêng.",
       "distractorTags": {"0": "state-vs-strategy", "2": null},
-      "hints": ["State → behavior changes.", "Strategy → algorithm selection.", "Xem slide về State vs Strategy."],
+      "hints": [
+        "Order KHÔNG được người dùng CHỌN trạng thái — trạng thái tự chuyển đổi theo luồng nghiệp vụ (Pending→Paid→Shipped).",
+        "Hành vi (được phép làm gì) khác nhau ở MỖI trạng thái — đây là dấu hiệu của State, không phải Strategy."
+      ],
       "weight": 2
     },
     {
@@ -85,8 +97,49 @@
       ],
       "correct": 1,
       "explanation": "Template Method: định nghĩa skeleton của algorithm, để subclass implement các steps cụ thể.",
-      "hints": ["Skeleton + steps.", "Subclass customize.", "Xem Template Method."],
+      "hints": [
+        "Report luôn có các bước CỐ ĐỊNH theo cùng thứ tự (load→header→body→footer) — chỉ chi tiết TỪNG bước được subclass tùy biến.",
+        "Khác Strategy: Strategy cho phép thay thế TOÀN BỘ thuật toán; Template Method chỉ cho tùy biến TỪNG BƯỚC trong khung cố định."
+      ],
       "weight": 2
+    },
+    {
+      "id": "sT",
+      "role": "transfer",
+      "type": "choice",
+      "prompt": "Clinic Booking cần thêm operation exportPDF() vào cả Appointment, Doctor, Patient mà KHÔNG sửa các class này. Pattern nào phù hợp nhất?",
+      "options": [
+        "Strategy — vì exportPDF là một thuật toán",
+        "State — vì export thay đổi theo trạng thái",
+        "Visitor — thêm operation mới vào object structure mà không sửa các class gốc"
+      ],
+      "correct": 2,
+      "explanation": "Giống ví dụ exportXML() trong FOS: cần thêm operation mới cho nhiều class KHÔNG LIÊN QUAN mà không sửa chúng → Visitor, không phải Strategy (không phải chọn thuật toán) hay State (không phụ thuộc trạng thái).",
+      "distractorTags": {"0": "state-vs-strategy", "1": "state-vs-strategy"},
+      "hints": [
+        "Đây không phải chọn MỘT trong NHIỀU thuật toán, cũng không phụ thuộc trạng thái đối tượng.",
+        "Mục tiêu là thêm HÀNH VI MỚI cho NHIỀU class khác nhau mà không đụng vào code gốc của chúng — đây là dấu hiệu riêng của Visitor."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "sR",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: Mediator giúp gì cho các component OrderForm, InventoryService, EmailService?",
+      "options": [
+        "Cho phép chúng gọi trực tiếp lẫn nhau để nhanh hơn",
+        "Điều phối giữa chúng — mỗi component chỉ cần biết Mediator, không cần biết nhau",
+        "Không có tác dụng gì đặc biệt"
+      ],
+      "correct": 1,
+      "explanation": "Đúng như bài trước: Mediator giảm coupling bằng cách biến liên kết chéo (many-to-many) thành liên kết một chiều qua trung gian.",
+      "distractorTags": {"0": null, "2": null},
+      "hints": [
+        "Nhớ lại ví dụ OrderForm/OrderController/InventoryService/EmailService ở bài trước.",
+        "Mediator đứng GIỮA — các component có cần biết chi tiết lẫn nhau không?"
+      ],
+      "weight": 1
     },
     {
       "id": "s5",

@@ -18,6 +18,8 @@ import SyncAsyncTimeline from './visual/SyncAsyncTimeline';
 import TradeoffRadar from './visual/TradeoffRadar';
 import PatternPressure from './visual/PatternPressure';
 import RdsTrace from './visual/RdsTrace';
+import ExplorableTakeaway from './visual/ExplorableTakeaway';
+import TimelineScrubber from './visual/TimelineScrubber';
 
 
 interface VisualWidgetProps {
@@ -497,6 +499,28 @@ export default function VisualWidget({
           disabledOptions={disabledOptions}
         />
       </div>
+    );
+  }
+
+  if (variant === 'explorable-takeaway') {
+    return (
+      <ExplorableTakeaway
+        data={data as any}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
+    );
+  }
+
+  if (variant === 'timeline-scrubber') {
+    return (
+      <TimelineScrubber
+        data={data as any}
+        selectedAnswer={selectedAnswer}
+        onAnswer={onAnswer}
+        isSubmitted={isSubmitted}
+      />
     );
   }
 

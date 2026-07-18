@@ -3,6 +3,9 @@
   "title": "Include, extend và activity flow",
   "minutes": 11,
   "xp": 120,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch06_Use Case Modeling.pptx#18-20"],
   "objective": "Phân biệt quan hệ include (bắt buộc) và extend (tùy chọn) giữa các use case, và đọc activity diagram.",
   "misconceptions": ["include-vs-extend"],
   "screens": [
@@ -25,7 +28,7 @@
       "hints": [
         "Include: hành vi bắt buộc luôn xảy ra.",
         "Extend: hành vi mở rộng có điều kiện.",
-        "Xem slide 18 về use case relationships."
+        "Xác thực luôn xảy ra ở mọi lần Place Order — đó là dấu hiệu của include."
       ],
       "weight": 2
     },
@@ -115,7 +118,7 @@
       "hints": [
         "Activity diagram là behavioral diagram.",
         "Có thể biểu diễn song song (fork/join) không?",
-        "Xem slide 19-20 về activity diagrams."
+        "Activity diagram mô tả control flow ở mức hành vi, không xuống đến chi tiết implementation."
       ],
       "weight": 2
     },
@@ -126,10 +129,61 @@
       "prompt": "Mối quan hệ include cho phép use case đích (target) quyết định điều kiện chạy hay không chạy.",
       "correct": false,
       "explanation": "Include là bắt buộc — UC nguồn luôn gọi UC đích. Chỉ có extend mới là tùy chọn (optional).",
+      "hints": [
+        "Include có kèm điều kiện guard hay luôn xảy ra?",
+        "So sánh với extend — bên nào mới có extension point kèm điều kiện?",
+        "Include = bắt buộc, không có lựa chọn chạy hay không."
+      ],
       "weight": 2
     },
     {
       "id": "s7",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Clinic Booking: mỗi lần Book Appointment, hệ thống luôn phải Verify Insurance. Nếu bệnh nhân chọn thanh toán trước, hệ thống Apply Prepayment Discount (chỉ khi chọn). Quan hệ nào đúng?",
+      "options": [
+        "Book Appointment includes Verify Insurance; Apply Prepayment Discount extends Book Appointment",
+        "Book Appointment extends Verify Insurance; Apply Prepayment Discount includes Book Appointment",
+        "Cả hai đều là generalization"
+      ],
+      "correct": 0,
+      "explanation": "Giống ví dụ Place Order/Authenticate User/Apply Discount: hành vi bắt buộc (Verify Insurance) là include, hành vi có điều kiện (Apply Prepayment Discount) là extend.",
+      "distractorTags": {
+        "1": "include-vs-extend",
+        "2": null
+      },
+      "hints": [
+        "Verify Insurance có luôn xảy ra hay chỉ khi có điều kiện?",
+        "So sánh với ví dụ Authenticate User (include) và Apply Discount (extend).",
+        "Bắt buộc luôn xảy ra = include; có điều kiện = extend."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s8",
+      "role": "retrieve",
+      "type": "scenario",
+      "prompt": "Nhắc lại: Patient muốn hủy lịch hẹn. Precondition hợp lệ cho use case 'Cancel Appointment' là gì?",
+      "options": [
+        "Patient đã đăng nhập và có Appointment đang ở trạng thái 'Confirmed'",
+        "Hệ thống đang online",
+        "Bất kỳ lúc nào"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — precondition cần mô tả điều kiện cụ thể, có ý nghĩa để use case thực thi được.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài Viết main flow.",
+        "Precondition có nên là điều kiện luôn đúng không?",
+        "Cần actor đã đăng nhập VÀ đối tượng ở đúng trạng thái."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s9",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Include: use case A bắt buộc gọi use case B (VD: Place Order → Authenticate User). Extend: use case B mở rộng use case A có điều kiện (VD: Apply Discount extends Place Order khi total > 1M). Activity diagram mô tả flow với decision nodes và concurrent activities.",

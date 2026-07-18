@@ -3,6 +3,9 @@
   "title": "Nhìn hệ thống như một black box",
   "minutes": 9,
   "xp": 90,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch06_Use Case Modeling.pptx#3-4"],
   "objective": "Hiểu tại sao khi phân tích yêu cầu, ta phải xem hệ thống như một hộp đen (black box) và chỉ tập trung vào đặc tính bên ngoài.",
   "misconceptions": ["actor-is-internal"],
   "screens": [
@@ -52,7 +55,7 @@
       "hints": [
         "Nhìn hướng mũi tên từ Model sang Code.",
         "Yêu cầu (Requirements) nằm ở phía nào của luồng?",
-        "Đọc lại định nghĩa về Black Box từ slide 3."
+        "Black box mô tả chức năng nhìn thấy được từ bên ngoài, không phải cách cài đặt bên trong."
       ],
       "weight": 2
     },
@@ -105,6 +108,53 @@
     },
     {
       "id": "s5",
+      "role": "transfer",
+      "type": "multi",
+      "prompt": "Dự án Clinic Booking đang ở giai đoạn thu thập yêu cầu. Phát biểu nào sau đây thuộc về requirements modeling (chọn tất cả đáp án đúng)?",
+      "options": [
+        "Bệnh nhân phải đặt được lịch hẹn với bác sĩ theo chuyên khoa",
+        "Hệ thống dùng Node.js và MongoDB để lưu trữ dữ liệu",
+        "Sau khi đặt lịch, hệ thống gửi SMS xác nhận cho bệnh nhân",
+        "Bảng Appointment có khóa ngoại doctor_id tham chiếu bảng Doctor"
+      ],
+      "correctSet": [0, 2],
+      "explanation": "Giống ví dụ FOS, mô tả hành vi từ góc nhìn người dùng (đặt lịch, nhận SMS) là requirements; công nghệ và cấu trúc bảng dữ liệu là design decisions thuộc pha sau.",
+      "distractorTags": {
+        "1": "actor-is-internal",
+        "3": "actor-is-internal"
+      },
+      "hints": [
+        "Requirements chỉ tập trung vào WHAT, không phải HOW hay công nghệ cụ thể.",
+        "So sánh với ví dụ FOS: React/MySQL không phải requirements, vậy Node.js/MongoDB thì sao?",
+        "Câu nào mô tả hành vi mà bệnh nhân/bác sĩ nhìn thấy được từ bên ngoài?"
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại bài trước: khi vẽ UML chỉ để 'kẹp vào hồ sơ nghiệm thu cuối dự án', đó là hiểu lầm nào?",
+      "options": [
+        "model-is-documentation",
+        "actor-is-internal",
+        "one-view-enough"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — coi mô hình chỉ là tài liệu lưu trữ sau khi code xong, thay vì công cụ thiết kế trước khi code, là 'model-is-documentation'.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại bài đầu tiên của khóa học về lý do cần model trước khi code.",
+        "Đây là hiểu lầm về việc VẼ SAU khi code xong chỉ để báo cáo.",
+        "Tên mã hiểu lầm có chứa cụm 'documentation'."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Requirements modeling xem hệ thống như một hộp đen (black box). Ta chỉ mô tả chức năng từ bên ngoài: Actor tương tác gì với hệ thống? Hệ thống trả ra kết quả gì? Chi tiết cài đặt nội bộ thuộc về pha thiết kế sau này.",

@@ -3,6 +3,9 @@
   "title": "Functional hay quality requirement?",
   "minutes": 10,
   "xp": 100,
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "sourceRefs": ["Ch06_Use Case Modeling.pptx#5-6"],
   "objective": "Phân biệt functional requirements (FR) và nonfunctional requirements (NFR), đồng thời viết NFR có thể kiểm thử được.",
   "misconceptions": ["nfr-is-vague"],
   "screens": [
@@ -25,7 +28,7 @@
       "hints": [
         "Hãy tự hỏi: Làm sao kiểm tra 'phản hồi nhanh' là đúng hay sai?",
         "Yêu cầu phi chức năng cần đi kèm chỉ số.",
-        "Xem slide 5-6 về requirements specification."
+        "'Nhanh' không có mốc đo, trong khi '95% requests <2s' thì có — đó là ranh giới verifiable/vague."
       ],
       "weight": 2
     },
@@ -81,6 +84,11 @@
       "prompt": "Điền từ còn thiếu: 'A nonfunctional requirement describes a _____ attribute or quality-of-service goal that the system must fulfill.'",
       "accepted": ["quality", "chất lượng", "quality-of-service", "quality of service"],
       "explanation": "Nonfunctional requirements mô tả các thuộc tính chất lượng (quality attributes) như performance, security, availability, maintainability.",
+      "hints": [
+        "Nhớ lại định nghĩa NFR: nó mô tả CÁI GÌ của hệ thống?",
+        "Không phải chức năng (function), mà là một loại thuộc tính khác.",
+        "Từ cần điền liên quan đến 'chất lượng dịch vụ' (quality-of-service)."
+      ],
       "weight": 1
     },
     {
@@ -100,10 +108,38 @@
       "distractorTags": {
         "2": null
       },
+      "hints": [
+        "SRS tốt hướng đến việc mọi người ĐỌC HIỂU và KIỂM CHỨNG được, không phải hướng đến vẻ phức tạp.",
+        "Loại bỏ lựa chọn nói về hình thức trình bày (ngôn ngữ), không phải phẩm chất nội dung.",
+        "Correct, unambiguous, verifiable, traceable đều là tiêu chí chất lượng nội dung của SRS."
+      ],
       "weight": 3
     },
     {
       "id": "s6",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: khi phân tích yêu cầu, việc bàn về 'dùng MySQL hay PostgreSQL' có phù hợp không?",
+      "options": [
+        "Có, vì database ảnh hưởng toàn bộ kiến trúc",
+        "Không, vì đó là quyết định thiết kế nội bộ, requirements chỉ xét black box từ bên ngoài",
+        "Có, vì phải chọn ngay từ đầu"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — công nghệ cụ thể như MySQL/PostgreSQL là design decision, không thuộc requirements modeling (black box).",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "2": "actor-is-internal"
+      },
+      "hints": [
+        "Nhớ lại bài Black Box.",
+        "Requirements trả lời WHAT hay HOW?",
+        "Công nghệ cụ thể luôn thuộc pha thiết kế, không phải yêu cầu."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s7",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Functional requirement: hệ thống LÀM gì (chức năng cụ thể). Nonfunctional requirement: hệ thống LÀM TỐT đến đâu (chất lượng). NFR cần được viết có thể kiểm thử được (verifiable) với chỉ số rõ ràng.",

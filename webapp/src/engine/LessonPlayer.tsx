@@ -8,6 +8,7 @@ import type { AnswerState } from './scoring';
 import { getHintForAttempt, getDisabledDistractors } from './hints';
 import { playSelect, playCorrect, playWrong, playFanfare, isMuted, setMuted } from './sound';
 import FoxMascot from '../components/FoxMascot';
+import { useMistakesStore } from '../store/mistakes';
 
 // Widgets
 import ChoiceWidget from '../widgets/ChoiceWidget';
@@ -57,6 +58,7 @@ interface LessonPlayerProps {
 
 export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) {
   const navigate = useNavigate();
+  const addMistake = useMistakesStore((s) => s.addMistake);
   const shouldReduceMotion = useReducedMotion();
   const [currentScreenIdx, setCurrentScreenIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
@@ -75,6 +77,11 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   const [foxAnim, setFoxAnim] = useState<'Sit' | 'Jump' | 'Howl' | 'Bark' | 'Run' | 'Walk' | 'Fall'>('Sit');
 
   const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
+  const answeredScreens = Object.values(answers);
+  const isPerfect =
+    scoreResult.isMastered &&
+    answeredScreens.length > 0 &&
+    answeredScreens.every((a) => a.hintsUsed === 0 && !a.revealed);
 
   const toggleSound = () => {
     const next = !soundMuted;
@@ -329,7 +336,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     } else {
       playWrong();
       if (newAttempts >= 3) {
-        // Solution escalation (Revealed)
+        // Solution escalation (Revealed) — ghi vào mistakes store
         setIsCorrect(false);
         setIsSubmitted(true);
         setAnswers((prev) => ({
@@ -341,6 +348,22 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
             revealed: true,
           },
         }));
+        // Ghi mistake để luyện lại sau
+        addMistake({
+          lessonId: lesson.id,
+          screenId: currentScreen.id,
+          questionText: currentScreen.prompt,
+          type: currentScreen.type,
+          options: currentScreen.options,
+          correct: currentScreen.correct,
+          correctSet: currentScreen.correctSet,
+          correctOrder: currentScreen.correctOrder,
+          pairs: currentScreen.pairs,
+          accepted: currentScreen.accepted,
+          explanation: currentScreen.explanation,
+          feedbackCorrect: currentScreen.feedbackCorrect,
+          misconceptionTags: misconceptionTags,
+        });
       } else {
         // Normal hint escalation
         if (newAttempts === 2) {
@@ -373,11 +396,12 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
       retryCount: 0,
     });
 
+    // isPerfect là computed constant ở trên — tự cập nhật khi answers thay đổi
     if (scoreResult.isMastered) {
       playFanfare();
       confetti({
-        particleCount: 120,
-        spread: 80,
+        particleCount: isPerfect ? 200 : 120,
+        spread: isPerfect ? 100 : 80,
         origin: { y: 0.6 },
       });
     }
@@ -396,6 +420,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     setShowExitScreen(false);
     setExitStage(0);
     setDisplayScore(0);
+    // isPerfect là computed từ answers — tự reset khi answers = {}
     lessonStartTime.current = Date.now();
     screenStartTime.current = Date.now();
   };
@@ -513,13 +538,18 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           <div>
             {scoreResult.isMastered ? (
               <div className="h-32 mx-auto" aria-hidden="true">
-                <FoxMascot animation="Howl" />
+                <FoxMascot animation={isPerfect ? 'Jump' : 'Howl'} />
               </div>
             ) : (
               <span className="text-6xl">🏆</span>
             )}
             <h2 className="text-3xl font-extrabold mt-4 font-display text-white">Kết Quả Bài Học</h2>
             <p className="text-sm text-gray-400 mt-1">{lesson.title}</p>
+            {isPerfect && (
+              <p className="text-sm font-semibold text-amber-400 mt-2">
+                🌟 Hoàn hảo — không cần gợi ý!
+              </p>
+            )}
           </div>
 
           <div className="py-4 border-y border-gray-800 grid grid-cols-2 gap-4">
@@ -554,15 +584,23 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
               >
                 <div className="p-4 rounded-2xl bg-gray-950 border border-gray-800">
                   {scoreResult.isMastered ? (
-                    <div className="text-success font-semibold flex items-center justify-center gap-2">
-                      <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
-                        <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
-                      </svg>
-                      <span>Chúc mừng! Bạn đã đạt Mastery.</span>
+                    <div className="flex flex-col items-center gap-1.5">
+                      <div className="text-success font-semibold flex items-center justify-center gap-2">
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                          <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
+                        </svg>
+                        <span>Chúc mừng! Bạn đã đạt Mastery.</span>
+                      </div>
+                      {isPerfect && (
+                        <div className="mt-1 px-4 py-1.5 rounded-full bg-yellow-500/15 border border-yellow-400/30 text-yellow-300 text-sm font-bold flex items-center gap-1.5 animate-fadeIn">
+                          <span>🌟</span>
+                          <span>Perfect! Không dùng hint nào!</span>
+                        </div>
+                      )}
                     </div>
                   ) : (
                     <div className="text-error font-semibold flex flex-col items-center gap-1">
-                      <span>Chưa đạt Mastery (Cần ≥ 80% & đúng Transfer).</span>
+                      <span>Chưa đạt Mastery (Cần ≥ 80% &amp; đúng Transfer).</span>
                       <span className="text-xs text-gray-500">Bạn chỉ nhận được 50% XP của bài học.</span>
                     </div>
                   )}

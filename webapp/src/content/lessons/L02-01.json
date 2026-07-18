@@ -78,12 +78,58 @@
       "hints": [
         "Yêu cầu thay đổi hàng tuần có phù hợp với một kế hoạch đóng băng từ đầu không?",
         "Có một quy trình vạn năng cho mọi dự án không?",
-        "Xem danh sách hiểu lầm trong Slide Ch03."
+        "Đây là niềm tin sai rằng một quy trình cố định luôn tối ưu bất kể mức độ biến động của yêu cầu."
       ],
       "weight": 2
     },
     {
       "id": "s4",
+      "role": "transfer",
+      "type": "scenario",
+      "prompt": "Dự án Clinic Booking có yêu cầu rõ ràng, ổn định (do quy định y tế bắt buộc) và ngân sách cố định, không kỳ vọng thay đổi lớn giữa chừng. Waterfall có còn là lựa chọn hợp lý ở đây không?",
+      "options": [
+        "Không, Waterfall luôn là lựa chọn tệ trong mọi trường hợp",
+        "Có thể phù hợp, vì yêu cầu ổn định làm giảm rủi ro chính của Waterfall — thiếu khả năng thích ứng thay đổi",
+        "Không liên quan, chọn quy trình nào cũng như nhau"
+      ],
+      "correct": 1,
+      "explanation": "Waterfall phù hợp khi yêu cầu ổn định và ít thay đổi — đúng bản chất rủi ro nó không xử lý tốt là 'thay đổi'. Không có quy trình nào luôn tốt hoặc luôn tệ; phải xét theo mức độ rủi ro và biến động của từng dự án.",
+      "distractorTags": {
+        "0": "one-process-best",
+        "2": "one-process-best"
+      },
+      "hints": [
+        "Rủi ro chính của Waterfall là gì — và dự án này có rủi ro đó không?",
+        "So sánh mức độ biến động yêu cầu giữa Clinic Booking và FOS.",
+        "Không quy trình nào là 'best' tuyệt đối, chỉ có quy trình phù hợp với ngữ cảnh rủi ro."
+      ],
+      "weight": 3
+    },
+    {
+      "id": "s5",
+      "role": "retrieve",
+      "type": "choice",
+      "prompt": "Nhắc lại: sơ đồ Waterfall vẽ các pha đi xuống tuần tự không có mũi tên quay lại. Điều này cho thấy hạn chế nào?",
+      "options": [
+        "Không hỗ trợ lặp lại (iteration) và kiểm thử yêu cầu diễn ra rất muộn",
+        "Không thể vẽ được bằng UML",
+        "Không có giai đoạn phân tích yêu cầu"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — cấu trúc một chiều của Waterfall nghĩa là không có vòng lặp phản hồi sớm, nên lỗi yêu cầu chỉ lộ ra ở giai đoạn kiểm thử cuối cùng.",
+      "distractorTags": {
+        "1": null,
+        "2": null
+      },
+      "hints": [
+        "Nhớ lại sơ đồ với các bước chảy một chiều từ trên xuống.",
+        "Testing nằm ở vị trí nào trong chuỗi các bước đó?",
+        "Thiếu mũi tên quay ngược nghĩa là thiếu khả năng lặp lại sớm."
+      ],
+      "weight": 1
+    },
+    {
+      "id": "s6",
       "role": "takeaway",
       "type": "takeaway",
       "text": "Waterfall hạn chế sự lặp lại, gối đầu và kiểm thử yêu cầu rất muộn. Đừng áp dụng Waterfall một cách mù quáng cho mọi dự án (lỗi one-process-best), đặc biệt khi yêu cầu nghiệp vụ thay đổi liên tục.",
