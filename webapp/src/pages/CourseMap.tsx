@@ -359,7 +359,7 @@ export default function CourseMap() {
             </button>
 
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-4 overflow-hidden p-1.5">
+              <div className="w-28 h-28 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-4 p-2">
                 <img
                   src={`${import.meta.env.BASE_URL}baihoc.png`}
                   alt=""
@@ -420,15 +420,7 @@ export default function CourseMap() {
               </div>
             </div>
 
-            {/* Sound toggle */}
-            <button
-              onClick={toggleSound}
-              className="w-full py-2.5 px-4 rounded-2xl bg-gray-800/40 border border-gray-800 hover:border-gray-700 text-center transition-all duration-200 flex items-center justify-center gap-2 text-xs font-semibold text-gray-400 hover:text-gray-200"
-              aria-label={soundMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
-            >
-              <span>{soundMuted ? '🔇' : '🔊'}</span>
-              <span>{soundMuted ? 'Đã tắt âm thanh' : 'Âm thanh đang bật'}</span>
-            </button>
+
 
             {/* Luyện điểm yếu card — chỉ hiện khi có mistake */}
             {mistakesCount > 0 && (
@@ -1024,6 +1016,15 @@ export default function CourseMap() {
           })}
         </main>
       </div>
+
+      {/* Floating Sound Toggle — icon nhỏ ở góc trái */}
+      <button
+        onClick={toggleSound}
+        className="fixed bottom-6 left-6 z-50 w-11 h-11 rounded-full bg-gray-900/80 border border-gray-700/50 hover:border-gray-400 flex items-center justify-center transition-all duration-200 backdrop-blur-md shadow-lg hover:scale-110 active:scale-90"
+        aria-label={soundMuted ? 'Bật âm thanh' : 'Tắt âm thanh'}
+      >
+        <span className="text-xl leading-none">{soundMuted ? '🔇' : '🔊'}</span>
+      </button>
 
       {/* Floating Active Lesson Card ("Start Card") */}
       {selectedLesson ? (
