@@ -18,7 +18,7 @@ export default function LessonPage() {
         <h2 className="text-2xl font-bold text-gray-200">Không Tìm Thấy Bài Học</h2>
         <p className="text-gray-400">Bài học "{lessonId}" chưa có nội dung hoặc đang được sản xuất.</p>
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all"
         >
           Trở Lại Bản Đồ
@@ -41,7 +41,7 @@ export default function LessonPage() {
     const streakIncreased = nextStreak > prevStreak;
 
     // Redirect back to CourseMap with state
-    navigate('/', {
+    navigate('/home', {
       state: {
         justCompleted: lessonData.id,
         streakIncreased,

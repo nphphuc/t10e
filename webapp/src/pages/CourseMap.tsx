@@ -263,18 +263,26 @@ export default function CourseMap() {
       ? nextLessonId
       : activeLesson?.id ?? null;
 
-  // Khi connector đã vẽ xong và ải kế vừa mở khóa (animState === 'nextActive'),
-  // dời fox sang node kế tiếp — layoutId="fox-mascot" tự animate (nhảy) từ node
-  // cũ sang node mới nhờ framer-motion shared layout transition.
+  // Chỉ tự động dời fox sang ải kế ĐÚNG MỘT LẦN cho lần hoàn thành bài vừa
+  // rồi (khi animState chạy qua 'nextActive' → 'done'). Nếu không chặn bằng
+  // ref này, effect sẽ re-run mỗi khi selectedLessonId đổi — kể cả khi người
+  // dùng tự bấm chọn 1 ải cũ đã unlock — và kéo selection về lại chỗ fox
+  // đang đứng ngay lập tức (bug: click ải cũ bị "kéo xuống" chỗ fox).
+  const hasAppliedCompletionSelectionRef = useRef(false);
   useEffect(() => {
+    if (hasAppliedCompletionSelectionRef.current) return;
     if (animState === 'nextActive' && foxTravelTarget) {
       setSelectedLessonId(foxTravelTarget);
-    } else if (animState === 'done' && activeLesson && selectedLessonId !== activeLesson.id) {
+      hasAppliedCompletionSelectionRef.current = true;
+    } else if (animState === 'done') {
       // Safety net: đảm bảo fox luôn kết thúc đúng ở ải active (kể cả khi
-      // reduced-motion bỏ qua animState 'nextActive').
-      setSelectedLessonId(activeLesson.id);
+      // reduced-motion bỏ qua animState 'nextActive'). Chỉ set 1 lần duy nhất.
+      if (activeLesson) {
+        setSelectedLessonId(activeLesson.id);
+      }
+      hasAppliedCompletionSelectionRef.current = true;
     }
-  }, [animState, foxTravelTarget, activeLesson, selectedLessonId]);
+  }, [animState, foxTravelTarget, activeLesson]);
 
   // Vị trí DOM của từng node bài học, để cuộn màn hình tới đúng chỗ con fox
   // đang đứng thay vì luôn cuộn về đầu course path.

@@ -133,13 +133,13 @@ export default function PracticePage() {
           </p>
           <div className="flex flex-col gap-2 pt-2">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/home')}
               className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-colors"
             >
               Về Bản Đồ Khóa Học
             </button>
             <button
-              onClick={() => { clearMistakes(); navigate('/'); }}
+              onClick={() => { clearMistakes(); navigate('/home'); }}
               className="w-full py-2.5 rounded-xl border border-gray-700 text-gray-400 hover:text-gray-200 text-sm transition-colors"
             >
               Xóa toàn bộ lịch sử luyện
@@ -155,7 +155,7 @@ export default function PracticePage() {
       {/* Header */}
       <header className="px-6 py-4 border-b border-gray-800 flex items-center gap-4 bg-gray-900/60 backdrop-blur">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1.5"
         >
           ← <span className="hidden sm:inline">Bản đồ</span>

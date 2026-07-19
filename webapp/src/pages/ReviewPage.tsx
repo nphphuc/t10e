@@ -117,7 +117,7 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isFinished, setIsFinished] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : '/';
+  const exitPath = isPeReview ? '/pe-review' : '/home';
 
   if (!reviewData) {
     return (
