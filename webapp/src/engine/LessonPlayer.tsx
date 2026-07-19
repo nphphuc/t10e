@@ -19,12 +19,18 @@ import OrderWidget from '../widgets/OrderWidget';
 import MatchWidget from '../widgets/MatchWidget';
 import ScenarioWidget from '../widgets/ScenarioWidget';
 import VisualWidget from '../widgets/VisualWidget';
+import TeachWidget, { type TeachWidgetHandle } from '../widgets/TeachWidget';
 
 interface Screen {
   id: string;
   role: 'hook' | 'explore' | 'feedback' | 'contrast' | 'apply' | 'transfer' | 'retrieve' | 'takeaway';
-  type: 'choice' | 'multi' | 'truefalse' | 'fill' | 'order' | 'match' | 'visual' | 'scenario' | 'takeaway';
-  prompt: string;
+  type: 'choice' | 'multi' | 'truefalse' | 'fill' | 'order' | 'match' | 'visual' | 'scenario' | 'takeaway' | 'teach';
+  /** Required for quiz types; absent on teach/takeaway */
+  prompt?: string;
+  /** Optional heading for teach screens (no question mark tone) */
+  title?: string;
+  /** teach blocks: text | reveal | figure | predict */
+  blocks?: any[];
   options?: string[];
   correct?: any;
   correctSet?: number[];
@@ -62,6 +68,8 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   const shouldReduceMotion = useReducedMotion();
   const [currentScreenIdx, setCurrentScreenIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, AnswerState>>({});
+  /** Ref to the currently-mounted TeachWidget, so we can call next() from the CTA button */
+  const teachWidgetRef = useRef<TeachWidgetHandle>(null);
   
   // Current screen state
   const [currentAnswer, setCurrentAnswer] = useState<any>(null);
@@ -512,12 +520,12 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
             {currentScreen.exitTicket && (
               <div className="space-y-2 mt-4">
                 <label className="text-sm font-semibold text-gray-400 block">
-                  Exit Ticket: {currentScreen.exitTicket}
+                  Exit Ticket (không bắt buộc): {currentScreen.exitTicket}
                 </label>
                 <textarea
                   value={exitTicketText}
                   onChange={(e) => setExitTicketText(e.target.value)}
-                  placeholder="Nhập câu trả lời của bạn vào đây..."
+                  placeholder="Nhập câu trả lời của bạn vào đây (có thể bỏ qua)..."
                   rows={3}
                   className="w-full p-4 rounded-xl border-2 border-gray-700 bg-gray-800/40 text-gray-200 focus:border-blue-500 focus:outline-none"
                 />
@@ -525,10 +533,18 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
             )}
           </div>
         );
+      case 'teach':
+        return (
+          <TeachWidget
+            ref={teachWidgetRef}
+            screen={{ ...currentScreen, _lessonId: lesson.id } as any}
+          />
+        );
       default:
         return <div>Widget không khả dụng.</div>;
     }
   };
+
 
   // Exit screen rendering
   if (showExitScreen) {
@@ -709,20 +725,36 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
 
       {/* Main Body */}
       <main className="flex-grow max-w-[680px] w-full mx-auto p-6 space-y-6 pb-40 flex flex-col justify-start">
-        {/* Prompt, tags, role */}
+        {/* Prompt / Title */}
         <div className="space-y-3">
           {import.meta.env.DEV && (
-            <span className="px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-gray-800 text-gray-400 border border-gray-700/60 inline-block">
-              {currentScreen.role}
+            <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border inline-block ${
+              currentScreen.type === 'teach'
+                ? 'bg-blue-950 text-blue-400 border-blue-800/60'
+                : 'bg-gray-800 text-gray-400 border-gray-700/60'
+            }`}>
+              {currentScreen.type === 'teach' ? '📖 teach' : currentScreen.role}
             </span>
           )}
-          <h1 className="text-xl md:text-2xl font-bold font-display leading-snug text-gray-100">
-            {currentScreen.prompt}
-          </h1>
-          {wordWarning && import.meta.env.DEV && (
-            <span className="text-[10px] text-yellow-500/60 block">
-              [Pedagogy Check: Prompt contains {wordCount} words, slightly over the 45-word rule]
-            </span>
+          {currentScreen.type === 'teach' ? (
+            // Teach screens: show optional title as a small heading (not a question)
+            currentScreen.title ? (
+              <h1 className="text-base md:text-lg font-semibold font-display leading-snug text-blue-300">
+                {currentScreen.title}
+              </h1>
+            ) : null
+          ) : (
+            // Quiz / scenario screens: show full prompt as h1
+            <>
+              <h1 className="text-xl md:text-2xl font-bold font-display leading-snug text-gray-100">
+                {currentScreen.prompt}
+              </h1>
+              {wordWarning && import.meta.env.DEV && (
+                <span className="text-[10px] text-yellow-500/60 block">
+                  [Pedagogy Check: Prompt contains {wordCount} words, slightly over the 45-word rule]
+                </span>
+              )}
+            </>
           )}
         </div>
 
@@ -742,8 +774,8 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           </AnimatePresence>
         </div>
 
-        {/* Fox mascot hint/solution companion */}
-        {!isCorrectSubmitted && attempts > 0 && activeHint && (
+        {/* Fox mascot hint/solution companion — hidden on teach screens */}
+        {currentScreen.type !== 'teach' && !isCorrectSubmitted && attempts > 0 && activeHint && (
           <div className={`flex gap-4 items-end mt-6 ${!shouldReduceMotion ? 'animate-fadeIn' : ''}`}>
             <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 relative">
               <FoxMascot animation={foxAnim} className="w-full h-full" />
@@ -784,9 +816,31 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
 
           {/* Right side: Action Button */}
           <div className="flex-shrink-0 md:pl-4 flex items-center justify-end">
-            {!isSubmitted ? (
+            {currentScreen.type === 'teach' ? (
+              /* Teach: single CTA — advances reveal or moves to next screen */
               <button
-                disabled={currentAnswer === null && currentScreen.type !== 'takeaway'}
+                onClick={() => {
+                  const stillAdvancing = teachWidgetRef.current?.next();
+                  if (stillAdvancing === false) {
+                    handleNext();
+                  }
+                }}
+                className="btn-3d btn-3d-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 text-base"
+              >
+                {currentScreenIdx === lesson.screens.length - 1 ? 'Hoàn Thành' : 'Tiếp Tục'}
+              </button>
+            ) : currentScreen.type === 'takeaway' ? (
+              /* Takeaway/Exit ticket: không chấm điểm, không ép trả lời, không tính vào Luyện Điểm Yếu.
+                 Bấm để qua tiếp bất kể exit ticket có được điền hay không. */
+              <button
+                onClick={handleNext}
+                className="btn-3d btn-3d-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 text-base"
+              >
+                {currentScreenIdx === lesson.screens.length - 1 ? 'Hoàn Thành' : 'Tiếp Tục'}
+              </button>
+            ) : !isSubmitted ? (
+              <button
+                disabled={currentAnswer === null}
                 onClick={handleCheck}
                 className="btn-3d btn-3d-primary w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed text-base"
               >
@@ -797,10 +851,11 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
                 onClick={handleNext}
                 className="btn-3d btn-3d-success w-full md:w-auto px-8 py-3.5 rounded-xl font-bold bg-success text-black hover:bg-opacity-90 text-base"
               >
-                {currentScreenIdx === lesson.screens.length - 1 ? "Hoàn Thành" : "Tiếp Tục"}
+                {currentScreenIdx === lesson.screens.length - 1 ? 'Hoàn Thành' : 'Tiếp Tục'}
               </button>
             )}
           </div>
+
         </div>
       </div>
     </div>

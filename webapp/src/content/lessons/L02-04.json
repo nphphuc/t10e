@@ -1,36 +1,55 @@
 {
   "id": "L02-04",
   "title": "Build the right system, build the system right",
-  "minutes": 9,
+  "minutes": 11,
   "xp": 90,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#11-12"],
+  "sourceRefs": [
+    "Ch03_Software Life Cycle Models and Processes.pptx#11-12"
+  ],
   "objective": "Phân biệt rõ ràng mục tiêu và các hoạt động tương ứng của kiểm chứng (Verification) và xác nhận (Validation).",
-  "misconceptions": ["verify-vs-validate"],
+  "misconceptions": [
+    "verify-vs-validate"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "choice",
-      "prompt": "Khi phát triển FOS, team đối chiếu Class Diagram vừa vẽ với tài liệu Yêu cầu phần mềm (SRS) xem có khớp không. Đây là hoạt động:",
-      "options": [
-        "Verification (Kiểm chứng - 'Build the system right')",
-        "Validation (Xác nhận - 'Build the right system')",
-        "Cả hai hoạt động trên đều tương đương"
+      "type": "teach",
+      "title": "Verification vs Validation — hai câu hỏi khác nhau",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Verification hỏi: 'Chúng ta đang xây đúng cách không?' — đối chiếu với đặc tả kỹ thuật nội bộ. Validation hỏi: 'Chúng ta đang xây đúng thứ không?' — đối chiếu với nhu cầu thực tế của người dùng."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Verification (Build the system right): code review, unit test, kiểm tra nhất quán giữa design và spec.",
+            "Validation (Build the right system): user acceptance test, prototype chạy thử với khách hàng, beta test.",
+            "Bạn có thể pass 100% Verification nhưng vẫn fail Validation — nếu làm đúng spec nhưng spec sai.",
+            "Throwaway Prototype là công cụ Validation: giúp phát hiện spec sai trước khi đầu tư code."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Team đối chiếu Class Diagram vừa vẽ với tài liệu SRS xem có khớp không. Đây là hoạt động gì?",
+          "options": [
+            "Verification (Kiểm chứng - 'Build the system right')",
+            "Validation (Xác nhận - 'Build the right system')",
+            "Cả hai hoạt động trên đều tương đương"
+          ],
+          "outcome": "Verification — đối chiếu artifact kỹ thuật nội bộ với nhau.",
+          "explain": "Verification đảm bảo từng pha được xây dựng đúng theo đặc tả pha trước. Đây là kiểm tra tính nhất quán kỹ thuật nội bộ (Class Diagram khớp SRS), không cần người dùng tham gia.",
+          "distractorTags": {
+            "1": "verify-vs-validate",
+            "2": "verify-vs-validate"
+          },
+          "expected": 0
+        }
       ],
-      "correct": 0,
-      "explanation": "Verification đảm bảo mỗi pha được xây dựng đúng theo đặc tả từ pha trước đó. Việc so sánh Class Diagram với SRS là kiểm tra tính nhất quán kỹ thuật nội bộ (Build the system right).",
-      "distractorTags": {
-        "1": "verify-vs-validate",
-        "2": "verify-vs-validate"
-      },
-      "hints": [
-        "Chúng ta đang đối chiếu giữa hai tài liệu kỹ thuật nội bộ hay đối chiếu với người dùng cuối?",
-        "Verification là kiểm tra sự nhất quán giữa các artefact kỹ thuật nội bộ, không cần người dùng tham gia.",
-        "Làm thế nào để biết ta đang xây dựng đúng theo đặc tả (specification)?"
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -52,6 +71,28 @@
         "Xác nhận hệ thống đúng đắn với người dùng cuối chính là Validation."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Unit test xanh ≠ Validation thành công",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Một trong những hiểu lầm nguy hiểm nhất: 'Test xanh hết là xong'. Unit test chỉ chứng minh code làm đúng những gì spec nói — không chứng minh spec nói đúng điều người dùng muốn."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Tình huống thực tế: Specification bị viết sai → code triển khai đúng spec → test xanh → nhưng tính năng sai hoàn toàn.",
+            "Ví dụ: Spec nói 'hiển thị danh sách bác sĩ theo họ tên' nhưng bác sĩ muốn 'theo chuyên khoa'.",
+            "Unit test đảm bảo Verification. Chỉ có User Acceptance Test mới đảm bảo Validation.",
+            "Kết luận: cả Verification lẫn Validation đều cần — không cái nào thay thế cái kia."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

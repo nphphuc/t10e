@@ -1,36 +1,53 @@
 {
   "id": "L01-01",
   "title": "Tại sao phải model trước khi code?",
-  "minutes": 8,
+  "minutes": 10,
   "xp": 80,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch01_Introduction.pptx#2-3"],
+  "sourceRefs": [
+    "Ch01_Introduction.pptx#2-3"
+  ],
   "objective": "Hiểu ý nghĩa của việc xây dựng mô hình hệ thống và rủi ro nếu chỉ code trực tiếp.",
-  "misconceptions": ["model-is-documentation"],
+  "misconceptions": [
+    "model-is-documentation"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Dự án FreshFood (FOS) chuẩn bị bắt đầu. Developer muốn nhảy vào viết code ngay lập tức vì 'chỉ code mới tạo ra phần mềm chạy được'. Theo bạn, rủi ro lớn nhất của hướng đi này là gì?",
-      "options": [
-        "Phần mềm sẽ chạy chậm hơn",
-        "Chúng ta viết code xong mới nhận ra mình đã hiểu sai yêu cầu và phải sửa đổi rất lớn",
-        "Không thể bàn giao tài liệu hướng dẫn sử dụng sau này"
+      "type": "teach",
+      "title": "Model trước khi code — tại sao?",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Khi xây nhà, kiến trúc sư vẽ bản thiết kế trước — không ai xây rồi mới hỏi 'cửa để ở đâu?'. Phần mềm cũng vậy: Model là bản vẽ giúp cả nhóm thống nhất trước khi đầu tư hàng ngàn giờ lập trình."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Model giúp phát hiện mâu thuẫn trong yêu cầu sớm — trước khi code.",
+            "Model là ngôn ngữ chung để dev, tester và khách hàng cùng thảo luận.",
+            "Sửa một biểu đồ mất 30 phút; sửa code sau khi deploy mất 30 ngày."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Developer muốn nhảy vào viết code ngay lập tức vì 'chỉ code mới tạo ra phần mềm chạy được'. Rủi ro lớn nhất là gì?",
+          "options": [
+            "Phần mềm sẽ chạy chậm hơn",
+            "Chúng ta viết code xong mới nhận ra mình đã hiểu sai yêu cầu và phải sửa đổi rất lớn",
+            "Không thể bàn giao tài liệu hướng dẫn sử dụng sau này"
+          ],
+          "outcome": "Rủi ro lớn nhất: phát hiện lỗi yêu cầu quá muộn.",
+          "explain": "Viết code trước khi model khiến mâu thuẫn yêu cầu chỉ lộ ra khi tích hợp hoặc demo. Chi phí sửa ở giai đoạn đó gấp 10–100 lần so với giai đoạn thiết kế.",
+          "distractorTags": {
+            "2": "model-is-documentation"
+          },
+          "expected": 1
+        }
       ],
-      "correct": 1,
-      "explanation": "Viết code mà không thiết kế (model) trước dễ dẫn đến hiểu sai cấu trúc và luồng nghiệp vụ. Khi phát hiện lỗi ở giai đoạn muộn, chi phí đập đi xây lại là cực kỳ lớn.",
-      "distractorTags": {
-        "0": null,
-        "2": "model-is-documentation"
-      },
-      "hints": [
-        "Hãy nghĩ về chi phí sửa đổi khi phát hiện lỗi thiết kế muộn màng.",
-        "Code chạy được nhưng nếu làm sai yêu cầu khách hàng thì có giá trị không?",
-        "Tập trung vào sự khác biệt giữa thiết kế sớm (model) và code trực tiếp."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -58,6 +75,27 @@
         "Mô hình được thiết kế trước (prior to implementation)."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Hiểu lầm phổ biến: 'UML chỉ để kẹp hồ sơ'",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Hiểu lầm model-is-documentation xuất hiện khi mô hình bị vẽ AFTER khi code xong — chỉ để lưu hồ sơ. Thực tế, UML phải được dùng TRƯỚC và TRONG khi thiết kế, không phải để làm đẹp báo cáo."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Mô hình được thiết kế trước để phát hiện xung đột giữa các thành phần hệ thống.",
+            "Mô hình được dùng để thảo luận và xin phê duyệt từ stakeholder.",
+            "Vẽ UML sau khi code chỉ giải thích cái đã làm — không còn giúp quyết định thiết kế."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

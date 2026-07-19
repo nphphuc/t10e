@@ -1,35 +1,55 @@
 {
   "id": "L01-04",
   "title": "Class không phải object",
-  "minutes": 8,
+  "minutes": 10,
   "xp": 80,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch02_Overview of UML Notation.pptx#4", "Ch04_Software Design and Architecture Concepts.pptx#3"],
+  "sourceRefs": [
+    "Ch02_Overview of UML Notation.pptx#4",
+    "Ch04_Software Design and Architecture Concepts.pptx#3"
+  ],
   "objective": "Phân biệt rõ khái niệm Class (khuôn mẫu) và Object (thực thể cụ thể) cùng ký hiệu biểu diễn tương ứng trong UML.",
-  "misconceptions": ["class-is-object"],
+  "misconceptions": [
+    "class-is-object"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "choice",
-      "prompt": "Khi thiết kế hệ thống FreshFood, lập trình viên viết: 'Chúng ta có thực thể là khách hàng Nguyễn An'. Về mặt thuật ngữ thiết kế, 'Nguyễn An' đại diện cho khái niệm nào?",
-      "options": [
-        "Class (Lớp)",
-        "Object instance (Đối tượng cụ thể)",
-        "Operation (Hành động)"
+      "type": "teach",
+      "title": "Class là khuôn đúc — Object là sản phẩm",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Hãy hình dung Class như một cái khuôn bánh mì. Khuôn định nghĩa hình dạng, nhưng mỗi chiếc bánh nướng ra là một Object riêng — có trọng lượng, màu sắc khác nhau. Khuôn chỉ có một; bánh có thể có hàng trăm."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Class = khuôn mẫu, tồn tại trong source code ở design time.",
+            "Object = thực thể cụ thể, tồn tại trong bộ nhớ RAM ở runtime.",
+            "Một Class có thể tạo ra vô số Object (instances).",
+            "Trong UML: tên Class viết thường (Account), tên Object gạch chân (johnsAccount : Account)."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Khi thiết kế FreshFood, lập trình viên viết: 'Chúng ta có thực thể là khách hàng Nguyễn An'. Về mặt thuật ngữ, 'Nguyễn An' đại diện cho khái niệm nào?",
+          "options": [
+            "Class (Lớp)",
+            "Object instance (Đối tượng cụ thể)",
+            "Operation (Hành động)"
+          ],
+          "outcome": "'Nguyễn An' là Object instance của class Customer.",
+          "explain": "'Nguyễn An' là một người cụ thể có dữ liệu riêng ở runtime — đó là Object. 'Customer' mới là Class định nghĩa chung cho tất cả khách hàng.",
+          "distractorTags": {
+            "0": "class-is-object"
+          },
+          "expected": 1
+        }
       ],
-      "correct": 1,
-      "explanation": "'Nguyễn An' là một thực thể cụ thể có dữ liệu riêng ở runtime, do đó nó là một Object instance. Ngược lại, 'Customer' mới là Class định nghĩa chung cho tất cả khách hàng.",
-      "distractorTags": {
-        "0": "class-is-object"
-      },
-      "hints": [
-        "Hãy nghĩ xem 'Nguyễn An' là một cái khuôn chung hay là một người cụ thể?",
-        "Class là tập hợp các đối tượng có cùng đặc điểm.",
-        "Nguyễn An là một thể hiện (instance) của lớp Customer."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -58,11 +78,39 @@
       "weight": 2
     },
     {
+      "id": "t2",
+      "role": "apply",
+      "type": "teach",
+      "title": "Cú pháp đầy đủ của Object trong UML",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Khi đọc biểu đồ đối tượng UML, bạn sẽ thấy cú pháp: 'objectName : ClassName'. Phần trước dấu ':' là tên object cụ thể, phần sau là class nó thuộc về. Tên luôn được gạch chân."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "johnsAccount : Account — 'johnsAccount' là object, 'Account' là class.",
+            "appt_2201 : Appointment — 'appt_2201' là object, 'Appointment' là class.",
+            "Nếu object không có tên riêng: ': ClassName' (anonymous instance) — vẫn gạch chân.",
+            "Class box trong Class Diagram KHÔNG gạch chân — đây là điểm phân biệt trực quan."
+          ]
+        }
+      ],
+      "weight": 0
+    },
+    {
       "id": "s3",
       "role": "apply",
       "type": "fill",
       "prompt": "Để biểu diễn đối tượng 'johnsAccount' thuộc lớp 'Account' trong biểu đồ đối tượng UML, ta viết tên đối tượng là: 'johnsAccount : Account'. Để phân biệt với Class tĩnh, tên này bắt buộc phải được _____ dưới.",
-      "accepted": ["gạch", "gạch chân", "underline", "underlined", "được gạch chân"],
+      "accepted": [
+        "gạch",
+        "gạch chân",
+        "underline",
+        "underlined",
+        "được gạch chân"
+      ],
       "explanation": "Tên object (ví dụ: `johnsAccount : Account`) bắt buộc phải được gạch chân (underlined) để phân biệt rõ với định nghĩa Class tĩnh thông thường.",
       "hints": [
         "Nhớ lại đặc trưng hiển thị của Object trong UML.",

@@ -3,106 +3,345 @@
   "$id": "https://learnly.local/schemas/swd392-lesson.schema.json",
   "title": "SWD392 Lesson Schema",
   "type": "object",
-  "required": ["id", "title", "minutes", "xp", "objective", "misconceptions", "screens"],
+  "required": [
+    "id",
+    "title",
+    "minutes",
+    "xp",
+    "objective",
+    "misconceptions",
+    "screens"
+  ],
   "additionalProperties": false,
   "properties": {
-    "id": {"type": "string", "pattern": "^L[0-9]{2}-[0-9]{2}$"},
-    "title": {"type": "string", "minLength": 1},
-    "minutes": {"type": "integer", "minimum": 1},
-    "xp": {"type": "integer", "minimum": 1},
-    "status": {"type": "string"},
-    "needsReview": {"type": "boolean"},
+    "id": {
+      "type": "string",
+      "pattern": "^L[0-9]{2}-[0-9]{2}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "minutes": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "xp": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "type": "string"
+    },
+    "needsReview": {
+      "type": "boolean"
+    },
     "sourceRefs": {
       "type": "array",
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
-    "objective": {"type": "string", "minLength": 1},
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
     "misconceptions": {
       "type": "array",
       "uniqueItems": true,
-      "items": {"type": "string"}
+      "items": {
+        "type": "string"
+      }
     },
     "screens": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "role", "type"],
+        "required": [
+          "id",
+          "role",
+          "type"
+        ],
         "if": {
-          "properties": {"type": {"const": "takeaway"}}
+          "properties": {
+            "type": {
+              "const": "takeaway"
+            }
+          }
         },
         "then": {
-          "required": ["id", "role", "type", "text"]
+          "required": [
+            "id",
+            "role",
+            "type",
+            "text"
+          ],
+          "not": {
+            "required": [
+              "prompt"
+            ]
+          }
         },
         "else": {
-          "required": ["id", "role", "type", "prompt"]
+          "if": {
+            "properties": {
+              "type": {
+                "const": "teach"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "id",
+              "role",
+              "type",
+              "blocks"
+            ],
+            "not": {
+              "required": [
+                "prompt"
+              ]
+            },
+            "description": "teach screens must NOT have a prompt field — use title instead"
+          },
+          "else": {
+            "required": [
+              "id",
+              "role",
+              "type",
+              "prompt"
+            ]
+          }
         },
         "additionalProperties": false,
         "properties": {
-          "id": {"type": "string"},
-          "role": {"enum": ["hook", "explore", "feedback", "contrast", "apply", "transfer", "retrieve", "takeaway"]},
-          "type": {"enum": ["choice", "multi", "truefalse", "fill", "order", "match", "visual", "scenario", "takeaway"]},
-          "prompt": {"type": "string"},
+          "id": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "hook",
+              "explore",
+              "feedback",
+              "contrast",
+              "apply",
+              "transfer",
+              "retrieve",
+              "takeaway"
+            ]
+          },
+          "type": {
+            "enum": [
+              "choice",
+              "multi",
+              "truefalse",
+              "fill",
+              "order",
+              "match",
+              "visual",
+              "scenario",
+              "takeaway",
+              "teach"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "prompt": {
+            "type": "string"
+          },
+          "blocks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "kind": {
+                  "enum": [
+                    "text",
+                    "reveal",
+                    "figure",
+                    "predict"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                },
+                "items": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "visual": {
+                  "type": "object",
+                  "required": [
+                    "variant"
+                  ],
+                  "properties": {
+                    "variant": {
+                      "type": "string"
+                    },
+                    "sandbox": {
+                      "type": "boolean"
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "correctOutside": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "additionalProperties": true
+                },
+                "prompt": {
+                  "type": "string"
+                },
+                "options": {
+                  "type": "array",
+                  "minItems": 2,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "outcome": {
+                  "type": "string"
+                },
+                "explain": {
+                  "type": "string"
+                },
+                "expected": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "distractorTags": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  }
+                }
+              }
+            }
+          },
           "options": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           },
           "correct": {
-            "type": ["integer", "boolean", "string"]
+            "type": [
+              "integer",
+              "boolean",
+              "string"
+            ]
           },
           "correctSet": {
             "type": "array",
-            "items": {"type": "integer"}
+            "items": {
+              "type": "integer"
+            }
           },
           "correctOrder": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           },
           "pairs": {
             "type": "object",
-            "additionalProperties": {"type": "string"}
+            "additionalProperties": {
+              "type": "string"
+            }
           },
           "accepted": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           },
           "visual": {
             "type": "object",
-            "required": ["variant"],
+            "required": [
+              "variant"
+            ],
             "properties": {
-              "variant": {"type": "string"},
+              "variant": {
+                "type": "string"
+              },
               "items": {
                 "type": "array",
-                "items": {"type": "string"}
+                "items": {
+                  "type": "string"
+                }
               },
               "correctOutside": {
                 "type": "array",
-                "items": {"type": "string"}
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "additionalProperties": true
           },
           "hints": {
             "type": "array",
-            "items": {"type": "string"}
+            "items": {
+              "type": "string"
+            }
           },
-          "solution": {"type": "string"},
-          "feedbackCorrect": {"type": "string"},
+          "solution": {
+            "type": "string"
+          },
+          "feedbackCorrect": {
+            "type": "string"
+          },
           "feedbackWrongByItem": {
             "type": "object",
-            "additionalProperties": {"type": "string"}
+            "additionalProperties": {
+              "type": "string"
+            }
           },
-          "explanation": {"type": "string"},
-          "consequence": {"type": "string"},
+          "explanation": {
+            "type": "string"
+          },
+          "consequence": {
+            "type": "string"
+          },
           "distractorTags": {
             "type": "object",
             "additionalProperties": {
-              "type": ["string", "null"]
+              "type": [
+                "string",
+                "null"
+              ]
             }
           },
-          "weight": {"type": "integer", "minimum": 1},
-          "text": {"type": "string"},
-          "exitTicket": {"type": "string"}
+          "weight": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "text": {
+            "type": "string"
+          },
+          "exitTicket": {
+            "type": "string"
+          }
         }
       }
     }

@@ -5,6 +5,13 @@ export interface ScreenState {
   weight?: number;
 }
 
+/** teach screens are never scored — they're learning moments, not assessment */
+export function isGradedScreen(screen: ScreenState): boolean {
+  if (screen.type === 'teach' || screen.type === 'takeaway') return false;
+  if (screen.weight === 0) return false;
+  return true;
+}
+
 export interface AnswerState {
   correct: boolean;
   attempts: number;
@@ -51,8 +58,8 @@ export function calculateLessonScore(
   let maxPossibleScore = 0;
   let transferSuccess = true;
 
-  // Filter out takeaways as they are not scored
-  const scoreableScreens = screens.filter((s) => s.role !== 'takeaway');
+  // Filter out teach + takeaway + weight:0 — they are learning moments, not assessment
+  const scoreableScreens = screens.filter(isGradedScreen);
 
   scoreableScreens.forEach((screen) => {
     const weight = getScreenWeight(screen);

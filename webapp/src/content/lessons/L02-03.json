@@ -1,38 +1,56 @@
 {
   "id": "L02-03",
   "title": "Spiral và RUP: tổ chức iteration",
-  "minutes": 10,
+  "minutes": 12,
   "xp": 100,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#9-10", "Ch05_Overview of Software Modeling & Design Methods.pptx#14"],
+  "sourceRefs": [
+    "Ch03_Software Life Cycle Models and Processes.pptx#9-10",
+    "Ch05_Overview of Software Modeling & Design Methods.pptx#14"
+  ],
   "objective": "Nắm vững chu kỳ lặp của Spiral Model và các pha cốt lõi của Rational Unified Process (RUP).",
-  "misconceptions": ["process-order"],
+  "misconceptions": [
+    "process-order"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "order",
-      "prompt": "Sắp xếp 4 góc phần tư của Spiral Model (Mô hình xoắn ốc) theo đúng trình tự thực thi chuẩn trong mỗi vòng lặp:",
-      "options": [
-        "Phát triển sản phẩm kỹ thuật (Develop product)",
-        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)",
-        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)",
-        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)"
+      "type": "teach",
+      "title": "Spiral — vòng lặp lấy rủi ro làm trung tâm",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Spiral Model giải quyết điểm yếu của Waterfall bằng cách lặp lại theo vòng tròn. Mỗi vòng lặp (spiral) đi qua đúng 4 góc phần tư theo thứ tự cố định — không được đảo lộn."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Góc 1 — Define objectives: Xác định mục tiêu, giải pháp và ràng buộc của vòng lặp này.",
+            "Góc 2 — Analyze risks: Phân tích và giảm thiểu rủi ro kỹ thuật và quản lý.",
+            "Góc 3 — Develop product: Phát triển sản phẩm kỹ thuật (prototype, design, code, test).",
+            "Góc 4 — Plan next cycle: Lập kế hoạch cho vòng lặp tiếp theo dựa trên kết quả."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Hãy xếp 4 góc phần tư của Spiral theo thứ tự đúng. Sau khi Phân tích rủi ro (Góc 2), bước tiếp theo là gì?",
+          "options": [
+            "Lập kế hoạch chu kỳ tiếp theo",
+            "Phát triển sản phẩm kỹ thuật (Develop product)",
+            "Xác định mục tiêu vòng lặp mới"
+          ],
+          "outcome": "Sau phân tích rủi ro → Phát triển sản phẩm (Góc 3).",
+          "explain": "Thứ tự chuẩn: Define objectives → Analyze risks → Develop product → Plan next cycle. Phân tích rủi ro TRƯỚC khi code để tránh lãng phí nguồn lực vào hướng rủi ro cao.",
+          "distractorTags": {
+            "0": "process-order",
+            "2": "process-order"
+          },
+          "expected": 1
+        }
       ],
-      "correctOrder": [
-        "Xác định mục tiêu, giải pháp và ràng buộc (Define objectives, alternatives, and constraints)",
-        "Phân tích rủi ro kỹ thuật và quản lý (Analyze risks)",
-        "Phát triển sản phẩm kỹ thuật (Develop product)",
-        "Lập kế hoạch cho chu kỳ tiếp theo (Plan next cycle)"
-      ],
-      "explanation": "Chu trình chuẩn của Spiral Model: Xác định mục tiêu -> Phân tích rủi ro -> Phát triển và kiểm thử kỹ thuật -> Lập kế hoạch chu kỳ tiếp theo.",
-      "hints": [
-        "Chúng ta cần biết mục tiêu (Define objectives) trước khi phân tích rủi ro.",
-        "Phân tích rủi ro xong mới bắt đầu bắt tay vào phát triển kỹ thuật (Develop product).",
-        "Lập kế hoạch chu kỳ sau luôn là bước cuối cùng của vòng lặp hiện tại."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -52,6 +70,28 @@
         "Inception là lúc dự án bắt đầu khởi sinh ý tưởng."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Elaboration — pha then chốt của RUP",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Trong RUP, Elaboration là pha quan trọng nhất — không phải Construction. Mục tiêu: chốt chặn kiến trúc nền tảng trước khi hàng chục developer bắt đầu code song song. Sai kiến trúc ở đây = thảm họa ở Construction."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Elaboration tập trung: identify use cases kiến trúc quan trọng nhất.",
+            "Elaboration tập trung: xây prototype kiến trúc để verify các quyết định kỹ thuật.",
+            "Elaboration tập trung: giảm thiểu rủi ro kỹ thuật cao trước giai đoạn Construction.",
+            "Khi Elaboration xong: kiến trúc phải đủ ổn định để Construction chạy song song an toàn."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

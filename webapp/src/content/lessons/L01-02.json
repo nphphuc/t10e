@@ -1,36 +1,55 @@
 {
   "id": "L01-02",
   "title": "Concept, strategy, criteria, method hay notation?",
-  "minutes": 9,
+  "minutes": 11,
   "xp": 90,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch01_Introduction.pptx#5"],
+  "sourceRefs": [
+    "Ch01_Introduction.pptx#5"
+  ],
   "objective": "Phân biệt được thế nào là khái niệm thiết kế, định hướng, tiêu chí cấu trúc, phương pháp và ký hiệu.",
-  "misconceptions": ["uml-is-method"],
+  "misconceptions": [
+    "uml-is-method"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "choice",
-      "prompt": "Nhiều người nói: 'Tôi học UML tức là tôi đang học cách thiết kế phần mềm'. Nhận định này có điểm gì chưa chính xác?",
-      "options": [
-        "UML chỉ là ký hiệu biểu diễn trực quan (notation), không phải phương pháp thiết kế (method)",
-        "UML là giải thuật lập trình, không dùng cho thiết kế",
-        "UML là tiêu chí phân rã kiến trúc (criteria)"
+      "type": "teach",
+      "title": "Năm thành phần của tư duy thiết kế",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Thiết kế phần mềm không chỉ là 'vẽ UML'. Có 5 thành phần khác nhau: Concept (ý tưởng nền tảng), Strategy (định hướng tổng thể), Criteria (tiêu chí phân rã), Method (quy trình các bước) và Notation (ký hiệu biểu đạt)."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Concept: ý tưởng nền tảng — ví dụ Information Hiding (che giấu thông tin nội bộ sau interface).",
+            "Strategy: kế hoạch tổng thể — ví dụ Object-Oriented Decomposition (phân rã hướng đối tượng).",
+            "Criteria: heuristic hướng dẫn phân chia — ví dụ Object Structuring Criteria.",
+            "Method: quy trình có chuỗi bước cụ thể — ví dụ COMET.",
+            "Notation: ký hiệu hình vẽ/văn bản — ví dụ UML."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Nhiều người nói: 'Tôi học UML tức là tôi đang học cách thiết kế phần mềm'. Nhận định này có điểm gì chưa chính xác?",
+          "options": [
+            "UML chỉ là ký hiệu biểu diễn trực quan (notation), không phải phương pháp thiết kế (method)",
+            "UML là giải thuật lập trình, không dùng cho thiết kế",
+            "UML là tiêu chí phân rã kiến trúc (criteria)"
+          ],
+          "outcome": "UML là Notation — không phải Method.",
+          "explain": "Học UML là học ngôn ngữ ký hiệu (notation), giống như học cách viết chữ. Muốn thiết kế tốt, bạn còn cần hiểu ý tưởng nền tảng (Concept) và quy trình các bước (Method như COMET).",
+          "distractorTags": {
+            "2": "uml-is-method"
+          },
+          "expected": 0
+        }
       ],
-      "correct": 0,
-      "explanation": "UML chỉ là tập ký hiệu hình vẽ (notation) để biểu đạt thiết kế. Học ký hiệu UML không đồng nghĩa với học phương pháp thiết kế (method) như COMET với các bước phân tích, gán trách nhiệm và cấu trúc hệ thống.",
-      "distractorTags": {
-        "1": null,
-        "2": "uml-is-method"
-      },
-      "hints": [
-        "Sự khác biệt giữa chữ viết (notation) và cách viết một bài văn hay (method).",
-        "UML là Unified Modeling Language - ngôn ngữ ký hiệu.",
-        "Notation chỉ là hình vẽ; method mới là chuỗi bước quyết định cách thiết kế."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -51,6 +70,27 @@
         "Che giấu thông tin (information hiding) là một khái niệm/ý tưởng nền tảng (concept)."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Information Hiding — Concept trong thực tế",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Information Hiding (Che giấu thông tin) là Concept quan trọng nhất trong bài này. Ý tưởng: giấu chi tiết cài đặt bên trong, chỉ để lộ interface. Module khác không cần biết bên trong làm gì."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Ví dụ: Database giấu cấu trúc bảng SQL, chỉ cho gọi qua REST API.",
+            "Ví dụ: BookingService giấu logic tính toán lịch trống, chỉ expose phương thức getAvailableSlots().",
+            "Kết quả: thay đổi bên trong không làm hỏng module khác — giảm ripple effect."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",
