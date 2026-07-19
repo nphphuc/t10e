@@ -1,39 +1,57 @@
 {
   "id": "L01-05",
   "title": "Diagram nào trả lời câu hỏi nào?",
-  "minutes": 10,
+  "minutes": 12,
   "xp": 110,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch01_Introduction.pptx#7", "Ch02_Overview of UML Notation.pptx#3-12"],
+  "sourceRefs": [
+    "Ch01_Introduction.pptx#7",
+    "Ch02_Overview of UML Notation.pptx#3-12"
+  ],
   "objective": "Lựa chọn đúng loại biểu đồ UML phù hợp nhất để giải quyết và truyền đạt các vấn đề thiết kế cụ thể.",
-  "misconceptions": ["view-purpose"],
+  "misconceptions": [
+    "view-purpose"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "visual",
-      "visual": {
-        "variant": "view-switcher",
-        "options": [
-          "Class Diagram để mô tả các thực thể",
-          "Sequence Diagram để mô tả trình tự gọi",
-          "Deployment Diagram để mô tả cấu hình cài đặt vật lý"
-        ]
-      },
-      "prompt": "Hệ thống FreshFood chuẩn bị triển khai lên môi trường Cloud AWS. Bạn được giao nhiệm vụ mô tả xem Web Server và Database Server sẽ chạy trên các máy ảo nào và kết nối với nhau ra sao. Hãy thử chuyển qua các view bên dưới rồi chọn đúng biểu đồ nên vẽ.",
-      "correct": 2,
-      "explanation": "Deployment Diagram (Biểu đồ triển khai) là biểu đồ duy nhất trong UML được thiết kế đặc thù để mô tả cấu trúc vật lý gồm các node phần cứng, môi trường thực thi và cách phân bổ các thành phần phần mềm trên đó.",
-      "distractorTags": {
-        "0": "view-purpose",
-        "1": "view-purpose"
-      },
-      "hints": [
-        "Chúng ta đang nói về máy ảo, server vật lý và phân bổ mạng.",
-        "Sơ đồ nào tập trung vào môi trường triển khai thực tế?",
-        "Deployment Diagram là biểu đồ duy nhất mô tả node phần cứng và cách phần mềm được cài đặt lên đó."
+      "type": "teach",
+      "title": "Mỗi diagram — một câu hỏi cụ thể",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Khi gặp một vấn đề thiết kế, câu hỏi đầu tiên không phải 'vẽ bằng gì' mà là 'mình đang hỏi điều gì?'. Mỗi loại diagram UML được tối ưu cho một loại câu hỏi khác nhau."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Ai dùng hệ thống để làm gì? → Use Case Diagram.",
+            "Hệ thống có những lớp và quan hệ nào? → Class Diagram.",
+            "Hàm/service gọi nhau theo thứ tự nào? → Sequence Diagram.",
+            "Trạng thái của đối tượng thay đổi thế nào? → State Machine Diagram.",
+            "Phần mềm chạy trên phần cứng nào? → Deployment Diagram."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "FreshFood chuẩn bị lên Cloud AWS. Bạn cần mô tả Web Server và Database Server chạy trên máy ảo nào, kết nối ra sao. Hãy chọn biểu đồ phù hợp.",
+          "options": [
+            "Class Diagram để mô tả các thực thể",
+            "Sequence Diagram để mô tả trình tự gọi",
+            "Deployment Diagram để mô tả cấu hình cài đặt vật lý"
+          ],
+          "outcome": "Deployment Diagram — dành riêng cho phân bổ phần cứng và môi trường thực thi.",
+          "explain": "Deployment Diagram mô tả node phần cứng, môi trường thực thi và cách phân bổ phần mềm lên đó. Class Diagram và Sequence Diagram không có khái niệm 'máy ảo' hay 'cài đặt lên server'.",
+          "distractorTags": {
+            "0": "view-purpose",
+            "1": "view-purpose"
+          },
+          "expected": 2
+        }
       ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -54,6 +72,27 @@
         "Cấu trúc dữ liệu tĩnh liên quan đến các Lớp (Class)."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Lỗi view-purpose: ép diagram làm việc không thuộc sở trường",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lỗi view-purpose xảy ra khi dùng sai diagram cho bài toán — ví dụ vẽ luồng gọi hàm bằng Class Diagram. Kết quả là diagram hỗn loạn và lập trình viên đọc nhầm ý định thiết kế."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Class Diagram là TĨNH — không có khái niệm 'trước' và 'sau' theo thời gian.",
+            "Sequence Diagram là ĐỘNG — trục dọc là thời gian, mũi tên là message gọi tuần tự.",
+            "Dùng Class Diagram cho luồng gọi = mất đi chiều thời gian = thiết kế mơ hồ."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

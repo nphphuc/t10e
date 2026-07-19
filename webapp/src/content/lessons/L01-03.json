@@ -1,36 +1,56 @@
 {
   "id": "L01-03",
   "title": "Bảy góc nhìn của một hệ thống",
-  "minutes": 10,
+  "minutes": 12,
   "xp": 100,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch01_Introduction.pptx#7"],
+  "sourceRefs": [
+    "Ch01_Introduction.pptx#7"
+  ],
   "objective": "Hiểu và phân biệt được mục tiêu của 7 góc nhìn (views) trong kiến trúc phần mềm và tránh lỗi chỉ dùng một view duy nhất.",
-  "misconceptions": ["one-view-enough"],
+  "misconceptions": [
+    "one-view-enough"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "choice",
-      "prompt": "Khách hàng than phiền rằng ứng dụng FOS phản hồi rất chậm khi tải cao. Một lập trình viên gửi lại một biểu đồ Class Diagram mô tả đầy đủ các bảng dữ liệu để giải thích. Sơ đồ này có giúp giải quyết trực tiếp vấn đề này không?",
-      "options": [
-        "Có, vì class diagram mô tả cấu trúc hệ thống",
-        "Không, vì class diagram là sơ đồ tĩnh (static view), không mô tả được luồng xử lý và hiệu năng động của hệ thống",
-        "Có, vì class diagram chỉ ra được tốc độ truy vấn database"
+      "type": "teach",
+      "title": "Tại sao cần nhiều góc nhìn?",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Một bản thiết kế nhà gồm nhiều bản vẽ: mặt bằng, mặt đứng, mặt cắt, điện nước. Không có bản vẽ nào giải quyết tất cả. Phần mềm cũng vậy — mỗi góc nhìn (view) trả lời một câu hỏi riêng."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Use Case View: Ai dùng hệ thống? Để làm gì?",
+            "Static View: Hệ thống gồm những lớp nào? Quan hệ thế nào?",
+            "Dynamic Interaction View: Các object giao tiếp với nhau theo trình tự nào?",
+            "Dynamic State Machine View: Một object trải qua những trạng thái nào?",
+            "Deployment View: Phần mềm được cài đặt lên phần cứng nào?",
+            "Component/Concurrency Views: Cấu trúc module và xử lý song song."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Khách hàng than phiền ứng dụng phản hồi chậm khi tải cao. Dev gửi lại Class Diagram mô tả đầy đủ các bảng dữ liệu. Sơ đồ này có giúp giải quyết trực tiếp vấn đề này không?",
+          "options": [
+            "Có, vì class diagram mô tả cấu trúc hệ thống",
+            "Không, vì class diagram là sơ đồ tĩnh, không mô tả được luồng xử lý động",
+            "Có, vì class diagram chỉ ra được tốc độ truy vấn database"
+          ],
+          "outcome": "Không — Class Diagram là Static View, không mô tả hiệu năng runtime.",
+          "explain": "Static View (Class Diagram) chỉ mô tả cấu trúc lớp và thuộc tính tĩnh. Để điều tra hiệu năng hay luồng xử lý, ta cần Dynamic Interaction hoặc Concurrent Views.",
+          "distractorTags": {
+            "0": "one-view-enough"
+          },
+          "expected": 1
+        }
       ],
-      "correct": 1,
-      "explanation": "Class Diagram là một Static View mô tả cấu trúc các lớp và thuộc tính tĩnh. Để điều tra vấn đề hiệu năng hay luồng xử lý, ta phải dùng các Dynamic Interaction hoặc Concurrent Views.",
-      "distractorTags": {
-        "0": "one-view-enough",
-        "2": null
-      },
-      "hints": [
-        "Sự khác biệt giữa thiết kế cấu trúc tĩnh và luồng chạy động ở runtime.",
-        "Class diagram có biểu diễn các thông điệp truyền tải theo thời gian không?",
-        "Tập trung vào tính chất 'tĩnh' (static) của Class diagram."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -57,6 +77,27 @@
         "Nguyên lý chia để trị trong mô hình hóa."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "apply",
+      "type": "teach",
+      "title": "Static vs Dynamic — hai nhóm chính",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Trong 7 views, có thể nhóm lại thành hai cụm: Static (cấu trúc bất biến theo thời gian) và Dynamic (hành vi thay đổi theo thời gian). Biết thuộc nhóm nào giúp chọn đúng view ngay."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Static: Use Case View, Static Structural View, Implementation View — mô tả cấu trúc.",
+            "Dynamic: Interaction View, State Machine View, Activity View — mô tả hành vi theo thời gian.",
+            "Deployment View: đặc biệt — mô tả phân bổ vật lý không thuộc static/dynamic thuần túy."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",
