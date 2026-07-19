@@ -83,6 +83,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
   const [exitStage, setExitStage] = useState(0);
   const [displayScore, setDisplayScore] = useState(0);
   const [foxAnim, setFoxAnim] = useState<'Sit' | 'Jump' | 'Howl' | 'Bark' | 'Run' | 'Walk' | 'Fall'>('Sit');
+  const [hintDismissed, setHintDismissed] = useState(false);
 
   const scoreResult = calculateLessonScore(lesson.screens, answers, lesson.xp);
   const answeredScreens = Object.values(answers);
@@ -166,28 +167,31 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
     setIsCorrect(null);
     setDisabledOptions([]);
     setFoxAnim('Sit');
+    setHintDismissed(false);
     screenStartTime.current = Date.now();
   }, [currentScreenIdx]);
 
+  // Người dùng bấm tắt bong bóng hint đi thì thôi, nhưng hint TẦNG MỚI (bấm
+  // sai lần tiếp theo) vẫn phải hiện lại — không bị "tắt vĩnh viễn" cả màn.
   useEffect(() => {
-    if (isSubmitted && isCorrect === false && !shouldReduceMotion) {
-      setFoxAnim('Bark');
-      const timer = setTimeout(() => {
-        setFoxAnim('Sit');
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isSubmitted, isCorrect, attempts, shouldReduceMotion]);
+    setHintDismissed(false);
+  }, [attempts]);
 
+  // Fox "hú" (Howl) mỗi khi 1 hint mới xuất hiện — tức là mỗi lần bấm sai
+  // (kể cả tầng 3 lộ lời giải), không riêng lần đầu. Không howl khi vừa đúng.
   useEffect(() => {
-    if (isSubmitted && isCorrect === true && !shouldReduceMotion) {
-      setFoxAnim('Jump');
+    const justAnsweredWrong = attempts > 0 && !(isSubmitted && isCorrect);
+    if (justAnsweredWrong && !shouldReduceMotion) {
+      setFoxAnim('Howl');
       const timer = setTimeout(() => {
         setFoxAnim('Sit');
-      }, 1500);
+      }, 1200);
       return () => clearTimeout(timer);
     }
-  }, [isSubmitted, isCorrect, shouldReduceMotion]);
+  }, [attempts, isSubmitted, isCorrect, shouldReduceMotion]);
+
+  // Bỏ animation "Jump" khi trả lời đúng — model bị lỗi/mất hình lúc chạy clip
+  // này trong badge nhỏ, giữ Sit cho ổn định (Howl khi có hint vẫn giữ nguyên).
 
   const handleAnswerSelect = (val: any) => {
     if (isSubmitted) return;
@@ -774,28 +778,43 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
           </AnimatePresence>
         </div>
 
-        {/* Fox mascot hint/solution companion — hidden on teach screens */}
-        {currentScreen.type !== 'teach' && !isCorrectSubmitted && attempts > 0 && activeHint && (
-          <div className={`flex gap-4 items-end mt-6 ${!shouldReduceMotion ? 'animate-fadeIn' : ''}`}>
-            <div className="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 relative">
-              <FoxMascot animation={foxAnim} className="w-full h-full" />
-            </div>
-            <div 
-              className="flex-1 bg-gray-900 border border-gray-800 rounded-3xl p-5 relative shadow-xl text-gray-200 text-[15px] leading-relaxed"
-              role="status"
-              aria-live="polite"
-            >
-              {/* Triangle/Speech bubble tail pointing to Fox */}
-              <div className="absolute left-[-8px] bottom-[28px] w-4 h-4 bg-gray-900 border-l border-b border-gray-800 rotate-45 transform pointer-events-none" />
-              <div className="font-bold text-blue-400 mb-1 flex items-center gap-1.5 font-display text-base">
-                <span>🦊</span>
-                <span>{attempts >= 3 ? "Lời giải mẫu (Worked Example):" : `Fox gợi ý (Tầng ${attempts}):`}</span>
-              </div>
-              <p className="whitespace-pre-line leading-relaxed">{activeHint.text}</p>
-            </div>
-          </div>
-        )}
       </main>
+
+      {/* Fox companion cố định góc dưới trái — luôn hiện xuyên suốt bài học,
+          hiển thị tự nhiên không khung/nền, hú (Howl) mỗi khi có hint mới. */}
+      <div className="fixed -bottom-[104px] left-[-17px] md:-bottom-[120px] md:left-[-9px] z-50 pointer-events-none w-48 h-48 md:w-60 md:h-60">
+        <FoxMascot animation={foxAnim} className="w-full h-full" />
+      </div>
+
+      {/* Hint/solution bubble — pop lên ngay cạnh fox như lời thoại, cố định
+          theo viewport (không nằm trong luồng nội dung cuộn nữa). */}
+      <AnimatePresence>
+        {currentScreen.type !== 'teach' && !isCorrectSubmitted && attempts > 0 && activeHint && !hintDismissed && (
+          <motion.div
+            key={`hint-${currentScreen.id}-${attempts}`}
+            initial={shouldReduceMotion ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.85, x: -12 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 380, damping: 22 }}
+            className="fixed left-[144px] md:left-[192px] bottom-6 md:bottom-8 right-4 sm:right-auto z-50 sm:max-w-[210px] md:max-w-[280px] bg-gray-900 border border-gray-800 rounded-2xl rounded-bl-md p-3 md:p-3.5 shadow-2xl text-gray-200 text-xs md:text-sm leading-relaxed origin-bottom-left"
+            role="status"
+            aria-live="polite"
+            aria-label={attempts >= 3 ? 'Lời giải mẫu từ Fox' : `Fox gợi ý tầng ${attempts}`}
+          >
+            {/* Đuôi bong bóng chỉ sang trái, hướng về phía fox */}
+            <div className="absolute -left-[6px] bottom-3 w-3 h-3 bg-gray-900 border-l border-b border-gray-800 rotate-45 pointer-events-none" />
+            {/* Nút tắt hint */}
+            <button
+              onClick={() => setHintDismissed(true)}
+              aria-label="Đóng gợi ý"
+              className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-gray-800 transition-colors text-sm leading-none"
+            >
+              ×
+            </button>
+            <p className="whitespace-pre-line leading-relaxed pr-4">{activeHint.text}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Fixed bottom action bar */}
       <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0c0d0e]/95 border-t border-gray-800/80 shadow-2xl backdrop-blur-md">

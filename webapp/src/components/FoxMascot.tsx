@@ -37,6 +37,10 @@ interface FoxMascotProps {
   /** Tên animation clip trong GLB (mặc định "Sit") */
   animation?: FoxClip;
   className?: string;
+  /** Override camera của model-viewer — dùng cho case cần zoom (VD: badge tròn góc màn hình) */
+  cameraOrbit?: string;
+  cameraTarget?: string;
+  fieldOfView?: string;
 }
 
 /**
@@ -44,8 +48,16 @@ interface FoxMascotProps {
  * - Nền trong suốt, không camera control — chỉ là "sinh vật sống" trang trí.
  * - Đổi prop `animation` là đổi clip đang chạy (model-viewer tự crossfade).
  * - reduced-motion: không autoplay (đứng yên ở frame đầu).
+ * - Zoom bằng camera-orbit (giảm % bán kính) thay vì CSS scale/translate: model-viewer
+ *   tự căn giữa model theo bounding box thật, không bị lệch như crop CSS thủ công.
  */
-export default function FoxMascot({ animation = 'Sit', className = '' }: FoxMascotProps) {
+export default function FoxMascot({
+  animation = 'Sit',
+  className = '',
+  cameraOrbit = '-18deg 80deg 72%',
+  cameraTarget = 'auto auto auto',
+  fieldOfView = '20deg',
+}: FoxMascotProps) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -54,9 +66,9 @@ export default function FoxMascot({ animation = 'Sit', className = '' }: FoxMasc
       alt="Mascot cáo của khóa học"
       autoplay={!shouldReduceMotion}
       animation-name={animation}
-      camera-orbit="-18deg 80deg 72%"
-      camera-target="auto auto auto"
-      field-of-view="20deg"
+      camera-orbit={cameraOrbit}
+      camera-target={cameraTarget}
+      field-of-view={fieldOfView}
       interaction-prompt="none"
       disable-zoom
       disable-pan
