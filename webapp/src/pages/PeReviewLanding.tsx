@@ -60,7 +60,7 @@ export default function PeReviewLanding() {
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
-              onClick={() => navigate('/')}
+              onClick={() => navigate('/home')}
               className="text-gray-400 hover:text-gray-200 transition-colors"
             >
               ← Bản đồ khóa học

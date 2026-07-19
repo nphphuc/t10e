@@ -662,7 +662,7 @@ export default function LessonPlayer({ lesson, onComplete }: LessonPlayerProps) 
       {/* Header */}
       <header className="px-6 py-4 border-b border-gray-800 flex items-center justify-between gap-4 bg-gray-900/60 backdrop-blur">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/home')}
           className="text-gray-400 hover:text-white transition-colors text-sm flex items-center gap-1.5 focus:outline-none"
         >
           &larr; <span className="hidden sm:inline">Bản đồ</span>
