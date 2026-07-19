@@ -347,9 +347,24 @@ export default function CourseMap() {
         {/* Left Column: Sticky Course Info */}
         <aside className="w-full md:w-80 sticky top-4 z-20 flex-shrink-0 space-y-6">
           <div className="p-6 rounded-3xl bg-gray-900/40 border border-gray-800 space-y-6 backdrop-blur">
+            {/* Back to landing */}
+            <button
+              onClick={() => navigate('/')}
+              className="flex items-center gap-1.5 text-[11px] font-semibold text-gray-500 hover:text-gray-300 transition-colors duration-200"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Quay lại trang chủ
+            </button>
+
             <div>
-              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl mb-4">
-                🎓
+              <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center mb-4 overflow-hidden p-1.5">
+                <img
+                  src={`${import.meta.env.BASE_URL}baihoc.png`}
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
               </div>
               <h1 className="text-xl font-extrabold text-white tracking-tight leading-snug font-display">
                 {course.title}
@@ -432,19 +447,6 @@ export default function CourseMap() {
                 </span>
               </Link>
             )}
-
-            {/* PE Review Entry Button */}
-            <Link
-              to="/pe-review"
-              className="block w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-blue-900/20 to-indigo-900/20 border border-blue-800/40 hover:border-blue-700/60 text-center transition-all duration-200 group"
-            >
-              <span className="block text-xs font-extrabold text-blue-400 group-hover:text-blue-300 uppercase tracking-wider">
-                🚀 Ôn Thi PE (Practical)
-              </span>
-              <span className="block text-[9px] text-gray-500 mt-0.5">
-                Practice Exam Review Sets
-              </span>
-            </Link>
 
             {/* Reset progress */}
             <div className="text-center pt-2">
