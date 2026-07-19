@@ -24,12 +24,13 @@ import TimelineScrubber from './visual/TimelineScrubber';
 
 interface VisualWidgetProps {
   data: {
-    prompt: string;
+    prompt?: string;
     correct?: any;
     visual: {
       variant: string;
       items?: string[];
       correctOutside?: string[];
+      sandbox?: boolean;
     };
     feedbackWrongByItem?: Record<string, string>;
   };
@@ -37,6 +38,8 @@ interface VisualWidgetProps {
   onAnswer: (value: any) => void;
   isSubmitted: boolean;
   disabledOptions: number[];
+  /** sandbox=true: free exploration mode, no right/wrong, no submit */
+  sandbox?: boolean;
 }
 
 export default function VisualWidget({
@@ -45,16 +48,22 @@ export default function VisualWidget({
   onAnswer,
   isSubmitted,
   disabledOptions,
+  sandbox = false,
 }: VisualWidgetProps) {
   const variant = data.visual?.variant;
+  // Widget sub-components expect prompt:string; cast to any for compatibility
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dataForWidgets = data as any;
+  // In sandbox mode: never lock the widget (treat as never-submitted)
+  const effectiveIsSubmitted = sandbox ? false : isSubmitted;
 
   if (variant === 'boundary-sort') {
     return (
       <BoundarySort
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -63,10 +72,10 @@ export default function VisualWidget({
   if (variant === 'state-machine-runner') {
     return (
       <StateMachineRunner
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -74,10 +83,10 @@ export default function VisualWidget({
   if (variant === 'view-switcher') {
     return (
       <ViewSwitcher
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -86,10 +95,10 @@ export default function VisualWidget({
   if (variant === 'class-object-card') {
     return (
       <ClassObjectCard
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -98,10 +107,10 @@ export default function VisualWidget({
   if (variant === 'activity-flow') {
     return (
       <ActivityFlow
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -109,10 +118,10 @@ export default function VisualWidget({
   if (variant === 'association-multiplicity') {
     return (
       <AssociationMultiplicity
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -121,10 +130,10 @@ export default function VisualWidget({
   if (variant === 'composition-lifetime') {
     return (
       <CompositionLifetime
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -133,10 +142,10 @@ export default function VisualWidget({
   if (variant === 'association-class') {
     return (
       <AssociationClass
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -145,10 +154,10 @@ export default function VisualWidget({
   if (variant === 'bec-sorter') {
     return (
       <BecSorter
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -156,10 +165,10 @@ export default function VisualWidget({
   if (variant === 'sequence-communication') {
     return (
       <SequenceCommunication
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -168,10 +177,10 @@ export default function VisualWidget({
   if (variant === 'architecture-view-switcher') {
     return (
       <ArchitectureViewSwitcher
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -180,10 +189,10 @@ export default function VisualWidget({
   if (variant === 'subsystem-partition') {
     return (
       <SubsystemPartition
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -191,10 +200,10 @@ export default function VisualWidget({
   if (variant === 'relational-mapping') {
     return (
       <RelationalMapping
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -203,10 +212,10 @@ export default function VisualWidget({
   if (variant === 'service-broker') {
     return (
       <ServiceBroker
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -214,10 +223,10 @@ export default function VisualWidget({
   if (variant === 'transaction-failure') {
     return (
       <TransactionFailure
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -226,10 +235,10 @@ export default function VisualWidget({
   if (variant === 'sync-async-timeline') {
     return (
       <SyncAsyncTimeline
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -238,10 +247,10 @@ export default function VisualWidget({
   if (variant === 'tradeoff-radar') {
     return (
       <TradeoffRadar
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -250,10 +259,10 @@ export default function VisualWidget({
   if (variant === 'pattern-pressure') {
     return (
       <PatternPressure
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -261,10 +270,10 @@ export default function VisualWidget({
   if (variant === 'rds-trace') {
     return (
       <RdsTrace
-        data={data}
+        data={dataForWidgets}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
         disabledOptions={disabledOptions}
       />
     );
@@ -495,7 +504,7 @@ export default function VisualWidget({
           }}
           selectedAnswer={selectedAnswer}
           onAnswer={onAnswer}
-          isSubmitted={isSubmitted}
+          isSubmitted={effectiveIsSubmitted}
           disabledOptions={disabledOptions}
         />
       </div>
@@ -508,7 +517,7 @@ export default function VisualWidget({
         data={data as any}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }
@@ -519,7 +528,7 @@ export default function VisualWidget({
         data={data as any}
         selectedAnswer={selectedAnswer}
         onAnswer={onAnswer}
-        isSubmitted={isSubmitted}
+        isSubmitted={effectiveIsSubmitted}
       />
     );
   }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { track } from '../engine/analytics';
+import { useProgressStore } from '../store/progress';
 import ChoiceWidget from '../widgets/ChoiceWidget';
 import MultiWidget from '../widgets/MultiWidget';
 import OrderWidget from '../widgets/OrderWidget';
@@ -97,6 +98,8 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
   const navigate = useNavigate();
 
   let reviewData = null;
+  let reviewLessonId: string | null = null;
+  let reviewLessonXp = 0;
   if (isPeReview) {
     reviewData = levelId ? peReviewMap[levelId] : null;
   } else if (levelId) {
@@ -105,6 +108,8 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
     if (reviewLesson) {
       const matchKey = `../content/lessons/${reviewLesson.id}.json`;
       reviewData = (lessonFiles[matchKey] as any)?.default || null;
+      reviewLessonId = reviewLesson.id;
+      reviewLessonXp = (reviewLesson as any).xp ?? 0;
     }
   }
 
@@ -222,6 +227,11 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
       });
 
       if (passed) {
+        // Đánh dấu bài review hoàn thành để mở khóa level kế tiếp
+        // (PE review không thuộc lộ trình nên không tính)
+        if (!isPeReview && reviewLessonId) {
+          useProgressStore.getState().completeLesson(reviewLessonId, reviewLessonXp);
+        }
         confetti({
           particleCount: 150,
           spread: 80,

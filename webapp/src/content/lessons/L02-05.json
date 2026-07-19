@@ -1,38 +1,56 @@
 {
   "id": "L02-05",
   "title": "COMET nối yêu cầu với kiến trúc",
-  "minutes": 11,
+  "minutes": 13,
   "xp": 120,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch05_Overview of Software Modeling & Design Methods.pptx#4-9", "Ch05_Overview of Software Modeling & Design Methods.pptx#15-18"],
+  "sourceRefs": [
+    "Ch05_Overview of Software Modeling & Design Methods.pptx#4-9",
+    "Ch05_Overview of Software Modeling & Design Methods.pptx#15-18"
+  ],
   "objective": "Hiểu rõ 3 mô hình chính trong quy trình COMET (Requirements, Analysis, Design) và phân biệt ranh giới giữa Phân tích và Thiết kế.",
-  "misconceptions": ["analysis-is-design"],
+  "misconceptions": [
+    "analysis-is-design"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "order",
-      "prompt": "Sắp xếp các hoạt động mô hình hóa theo đúng trình tự dòng chảy từ yêu cầu kỹ thuật đến kiến trúc phần mềm trong COMET:",
-      "options": [
-        "Xác định các Subsystem cấu hình vật lý và định nghĩa Interface (Design Modeling)",
-        "Mô tả các Actor và Use Case của hệ thống dạng Black Box (Requirements Modeling)",
-        "Vẽ Sequence/Communication Diagram để thực thi hóa Use Case (Analysis Modeling)",
-        "Xây dựng Class Diagram mô tả quan hệ tĩnh trong domain (Analysis Modeling)"
+      "type": "teach",
+      "title": "COMET — ba mô hình nối yêu cầu đến kiến trúc",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "COMET (Component-based Object and Model-driven Engineering Technology) định nghĩa 3 mô hình theo trình tự: Requirements Modeling → Analysis Modeling → Design Modeling. Mỗi mô hình trả lời một câu hỏi khác nhau."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Requirements Modeling: Hệ thống cần làm gì? — mô tả actor, use case dạng Black Box.",
+            "Analysis Modeling: Bài toán có cấu trúc như thế nào? — Class Diagram domain, Sequence/Communication Diagram.",
+            "Design Modeling: Giải pháp triển khai thế nào? — Subsystem, Interface, Deployment.",
+            "Thứ tự không thể đảo: phải hiểu bài toán (Analysis) trước khi đưa ra giải pháp (Design)."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Sắp xếp các hoạt động theo đúng trình tự trong COMET. Hoạt động nào diễn ra TRƯỚC Analysis Modeling?",
+          "options": [
+            "Xác định các Subsystem cấu hình vật lý và định nghĩa Interface",
+            "Mô tả các Actor và Use Case của hệ thống dạng Black Box",
+            "Vẽ Sequence Diagram để thực thi hóa Use Case"
+          ],
+          "outcome": "Requirements Modeling (Actor + Use Case dạng Black Box) đến trước Analysis.",
+          "explain": "COMET bắt đầu từ Black Box view (ai dùng, để làm gì), sau đó mới mở Black Box ra để phân tích cấu trúc bên trong (Analysis), cuối cùng mới quyết định triển khai cụ thể (Design).",
+          "distractorTags": {
+            "0": "analysis-is-design",
+            "2": null
+          },
+          "expected": 1
+        }
       ],
-      "correctOrder": [
-        "Mô tả các Actor và Use Case của hệ thống dạng Black Box (Requirements Modeling)",
-        "Xây dựng Class Diagram mô tả quan hệ tĩnh trong domain (Analysis Modeling)",
-        "Vẽ Sequence/Communication Diagram để thực thi hóa Use Case (Analysis Modeling)",
-        "Xác định các Subsystem cấu hình vật lý và định nghĩa Interface (Design Modeling)"
-      ],
-      "explanation": "Quy trình COMET chuẩn: Mô tả yêu cầu (Requirements) -> Phân tích cấu trúc tĩnh và động của domain (Analysis) -> Tổng hợp giải pháp kiến trúc và phân chia thành phần vật lý (Design).",
-      "hints": [
-        "Bắt đầu bằng việc xem hệ thống như một Black Box (Requirements).",
-        "Chúng ta phân tích cấu trúc tĩnh của domain trước khi vẽ luồng động thực thi use case.",
-        "Thiết kế Subsystem vật lý và Interface thuộc pha cuối cùng (Design Modeling)."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -60,6 +78,28 @@
         "Analysis dừng lại ở hiểu bài toán; Design mới đưa ra quyết định giải pháp cụ thể như cấu hình server."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "apply",
+      "type": "teach",
+      "title": "Analysis vs Design — ranh giới quan trọng",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Lỗi analysis-is-design xảy ra khi nhầm hai pha này. Dấu hiệu nhận biết: nếu quyết định đang đưa ra liên quan đến công nghệ, server, giao thức, framework — đó là Design. Nếu chỉ mô tả domain thuần túy — đó là Analysis."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Analysis: 'Doctor có nhiều Appointment, mỗi Appointment có trạng thái khác nhau' — thuần domain.",
+            "Design: 'AppointmentService deploy trên node AWS us-east-1, giao tiếp qua gRPC' — giải pháp kỹ thuật.",
+            "Ranh giới: Class Diagram có thể xuất hiện ở CẢ HAI — bản chất quyết định mới phân định.",
+            "Nhớ: Analysis = decompose để hiểu; Design = compose để giải quyết."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

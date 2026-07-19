@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useProgressStore } from '../store/progress';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
@@ -17,7 +17,7 @@ const IMPLEMENTED_LESSONS = Object.keys(lessonFiles).map(path => {
 const NODE_OFFSET = 40;
 
 export default function CourseMap() {
-  const { completedLessons, totalXp, streak, resetProgress } = useProgressStore();
+  const { completedLessons, totalXp, streak, resetProgress, completeLesson } = useProgressStore();
   const mistakesCount = useMistakesStore((s) => s.getMistakesCount());
   const shouldReduceMotion = useReducedMotion();
   const location = useLocation();
@@ -213,6 +213,22 @@ export default function CourseMap() {
     };
   };
 
+  // DEV/TEST ONLY: force-complete mọi bài đã implement ở các level trước `levelIdx`
+  // để mở khóa level đó ngay lập tức, phục vụ test — cộng XP tương ứng như hoàn thành thật.
+  const handleDevUnlockLevel = (levelIdx: number) => {
+    const confirmed = window.confirm(
+      `[Dev/Test] Đánh dấu hoàn thành toàn bộ bài đã có ở các level trước LEVEL ${levelIdx + 1} để mở khóa? Thao tác này sẽ cộng XP như hoàn thành thật.`
+    );
+    if (!confirmed) return;
+    for (let i = 0; i < levelIdx; i++) {
+      levels[i].lessons.forEach((l) => {
+        if (IMPLEMENTED_LESSONS.includes(l.id) && !completedLessons.includes(l.id)) {
+          completeLesson(l.id, l.xp);
+        }
+      });
+    }
+  };
+
   // Find the single active lesson (first unlocked, implemented, and not completed)
   const activeLesson = allLessons.find((lesson) => {
     const { isCompleted, isUnlocked, isImplemented } = getLessonStatus(lesson.id);
@@ -228,12 +244,52 @@ export default function CourseMap() {
     setMuted(next);
   };
 
-  // Set initial selected lesson when activeLesson is resolved
+  // Set initial selected lesson. Nếu vừa hoàn thành 1 bài, fox đứng lại ở ải
+  // VỪA XONG trước (không nhảy thẳng tới ải mới) để có điểm xuất phát cho màn
+  // "nhảy xuống ải kế" bên dưới. Vào bản đồ bình thường thì chọn thẳng activeLesson.
   useEffect(() => {
-    if (activeLesson && !selectedLessonId) {
+    if (selectedLessonId) return;
+    if (justCompletedId) {
+      setSelectedLessonId(justCompletedId);
+    } else if (activeLesson) {
       setSelectedLessonId(activeLesson.id);
     }
-  }, [activeLesson, selectedLessonId]);
+  }, [activeLesson, selectedLessonId, justCompletedId]);
+
+  // Đích fox sẽ nhảy tới: ưu tiên nextLessonId nếu bài đó đã implement (playable),
+  // fallback về activeLesson để không nhảy tới node "Đang sản xuất" (không render fox).
+  const foxTravelTarget =
+    nextLessonId && IMPLEMENTED_LESSONS.includes(nextLessonId)
+      ? nextLessonId
+      : activeLesson?.id ?? null;
+
+  // Khi connector đã vẽ xong và ải kế vừa mở khóa (animState === 'nextActive'),
+  // dời fox sang node kế tiếp — layoutId="fox-mascot" tự animate (nhảy) từ node
+  // cũ sang node mới nhờ framer-motion shared layout transition.
+  useEffect(() => {
+    if (animState === 'nextActive' && foxTravelTarget) {
+      setSelectedLessonId(foxTravelTarget);
+    } else if (animState === 'done' && activeLesson && selectedLessonId !== activeLesson.id) {
+      // Safety net: đảm bảo fox luôn kết thúc đúng ở ải active (kể cả khi
+      // reduced-motion bỏ qua animState 'nextActive').
+      setSelectedLessonId(activeLesson.id);
+    }
+  }, [animState, foxTravelTarget, activeLesson, selectedLessonId]);
+
+  // Vị trí DOM của từng node bài học, để cuộn màn hình tới đúng chỗ con fox
+  // đang đứng thay vì luôn cuộn về đầu course path.
+  const lessonNodeRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  // Mỗi khi fox đổi vị trí (vào bản đồ lần đầu, hoặc vừa nhảy sang ải kế),
+  // cuộn màn hình tới đúng node đó.
+  useEffect(() => {
+    if (!selectedLessonId) return;
+    const t = setTimeout(() => {
+      const el = lessonNodeRefs.current[selectedLessonId];
+      el?.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth', block: 'center' });
+    }, 50);
+    return () => clearTimeout(t);
+  }, [selectedLessonId, shouldReduceMotion]);
 
   // Animate mascot state on selection change (simulating Run/Walk to the new node)
   useEffect(() => {
@@ -253,7 +309,7 @@ export default function CourseMap() {
   ).length;
 
   return (
-    <div className="min-h-screen bg-[#0c0d0e] pb-24 text-gray-200 relative overflow-hidden">
+    <div className="min-h-screen bg-[#0c0d0e] pb-24 text-gray-200 relative">
       {/* Background Dot Grid Overlay */}
       <div 
         className="absolute inset-0 pointer-events-none opacity-[0.05]"
@@ -281,7 +337,7 @@ export default function CourseMap() {
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10 items-start relative z-10">
         
         {/* Left Column: Sticky Course Info */}
-        <aside className="w-full md:w-80 md:sticky md:top-8 flex-shrink-0 space-y-6">
+        <aside className="w-full md:w-80 sticky top-4 z-20 flex-shrink-0 space-y-6">
           <div className="p-6 rounded-3xl bg-gray-900/40 border border-gray-800 space-y-6 backdrop-blur">
             <div>
               <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-xl mb-4">
@@ -413,7 +469,7 @@ export default function CourseMap() {
                 }`}
               >
                 {/* Level Title Pill */}
-                <div className="flex justify-start">
+                <div className="flex justify-start items-center gap-2 flex-wrap">
                   <div
                     id={`pill-${level.id}`}
                     className={`px-4 py-2 rounded-full border text-xs font-bold tracking-wide flex items-center gap-2 transition-all duration-500 font-display ${
@@ -425,6 +481,15 @@ export default function CourseMap() {
                     <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
                     LEVEL {levelIdx + 1}: {level.title}
                   </div>
+                  {!isLevelUnlocked(level.id) && (
+                    <button
+                      onClick={() => handleDevUnlockLevel(levelIdx)}
+                      className="px-3 py-1.5 rounded-full border border-dashed border-amber-600/50 bg-amber-950/20 text-[10px] font-bold text-amber-400 hover:bg-amber-900/30 hover:border-amber-500 transition-colors"
+                      title="Chỉ dùng để test — đánh dấu hoàn thành các bài trước đó"
+                    >
+                      🔓 Mở khóa (test)
+                    </button>
+                  )}
                 </div>
 
                 {/* Vertical Winding Path of Lessons */}
@@ -665,6 +730,7 @@ export default function CourseMap() {
                     return (
                       <div
                         key={lesson.id}
+                        ref={(el) => { lessonNodeRefs.current[lesson.id] = el; }}
                         className="grid grid-cols-[1fr_96px_1fr] items-center gap-4 relative w-full max-w-md mx-auto z-10"
                       >
                         {/* Curved serpentine connection line to the next node */}

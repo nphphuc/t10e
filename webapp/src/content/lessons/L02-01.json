@@ -1,36 +1,55 @@
 {
   "id": "L02-01",
   "title": "Waterfall dưới áp lực thay đổi",
-  "minutes": 9,
+  "minutes": 11,
   "xp": 90,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#2-3"],
+  "sourceRefs": [
+    "Ch03_Software Life Cycle Models and Processes.pptx#2-3"
+  ],
   "objective": "Hiểu rõ các hạn chế cốt lõi của mô hình Waterfall khi đối mặt với sự thay đổi yêu cầu và lý do tại sao không có một quy trình nào là duy nhất tối ưu.",
-  "misconceptions": ["one-process-best"],
+  "misconceptions": [
+    "one-process-best"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Dự án FOS được phát triển trong 12 tháng theo quy trình Waterfall thuần túy. Khách hàng đồng ý chỉ kiểm thử ở tháng thứ 11. Theo bạn, rủi ro lớn nhất của dự án này là gì?",
-      "options": [
-        "Phần mềm sẽ chạy chậm hơn mong đợi",
-        "Đến tháng thứ 11 chạy thử mới thấy hệ thống không khớp với nhu cầu thực tế và chi phí sửa đổi là cực kỳ lớn",
-        "Lập trình viên sẽ quên cách code sau 10 tháng chỉ viết tài liệu"
+      "type": "teach",
+      "title": "Waterfall — quy trình thẳng, một chiều",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Waterfall là quy trình phát triển tuyến tính: Requirements → Design → Implementation → Testing → Deployment. Mỗi pha hoàn thành mới bắt đầu pha tiếp theo. Không có vòng lặp ngược."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Phù hợp khi yêu cầu rõ ràng và ít thay đổi từ đầu đến cuối dự án.",
+            "Nhược điểm chính: phần mềm hoạt động chỉ xuất hiện ở cuối giai đoạn Testing.",
+            "Lỗi trong Requirements chỉ được phát hiện ở cuối — chi phí sửa rất cao.",
+            "Không có cơ chế phản hồi sớm từ người dùng trong quá trình phát triển."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Dự án FOS theo Waterfall 12 tháng, khách hàng kiểm thử ở tháng 11. Rủi ro lớn nhất là gì?",
+          "options": [
+            "Phần mềm sẽ chạy chậm hơn mong đợi",
+            "Đến tháng 11 mới thấy hệ thống không khớp với nhu cầu và chi phí sửa là cực lớn",
+            "Lập trình viên sẽ quên cách code sau 10 tháng chỉ viết tài liệu"
+          ],
+          "outcome": "Rủi ro: phát hiện lỗi yêu cầu quá muộn — tháng 11 mới thấy mình đi sai hướng.",
+          "explain": "Waterfall không có phản hồi sớm. Nếu Requirements bị hiểu sai từ đầu, toàn bộ 10 tháng Design và Implementation bị lãng phí. Chi phí sửa ở giai đoạn Testing cuối gấp nhiều lần so với giai đoạn Requirements ban đầu.",
+          "distractorTags": {
+            "0": null,
+            "2": null
+          },
+          "expected": 1
+        }
       ],
-      "correct": 1,
-      "explanation": "Với Waterfall, hệ thống hoạt động chỉ có ở giai đoạn muộn. Nếu yêu cầu bị hiểu sai từ đầu, lỗi chỉ được phát hiện ở giai đoạn tích hợp/kiểm thử cuối cùng, gây tổn thất nghiêm trọng.",
-      "distractorTags": {
-        "0": null,
-        "2": null
-      },
-      "hints": [
-        "Hãy nghĩ về thời điểm khách hàng nhìn thấy phần mềm chạy được.",
-        "Nếu phát hiện lỗi yêu cầu ở tháng thứ 11, ta có phải sửa lại code của 10 tháng trước không?",
-        "Tập trung vào tính chất phi tuần hoàn của Waterfall."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -58,6 +77,28 @@
         "Không có mũi tên quay ngược lên để lặp lại."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "one-process-best — bẫy tư duy nguy hiểm",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Không có quy trình phát triển phần mềm nào là tốt nhất tuyệt đối. Mỗi quy trình giải quyết tốt một loại rủi ro và context khác nhau. Áp dụng sai quy trình có thể làm hỏng cả dự án."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Waterfall tốt khi: yêu cầu ổn định, domain hiểu rõ, ngân sách cố định.",
+            "Agile/Spiral tốt khi: yêu cầu thay đổi liên tục, cần phản hồi sớm.",
+            "RUP tốt khi: dự án lớn, cần kiến trúc vững chắc trước khi xây dựng ồ ạt.",
+            "Quyết định quy trình dựa trên: độ biến động yêu cầu, quy mô team, mức độ rủi ro kỹ thuật."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",

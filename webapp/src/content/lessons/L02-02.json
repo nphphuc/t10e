@@ -1,36 +1,55 @@
 {
   "id": "L02-02",
   "title": "Prototype để học, increment để giao",
-  "minutes": 10,
+  "minutes": 12,
   "xp": 100,
   "status": "draft-from-slide",
   "needsReview": true,
-  "sourceRefs": ["Ch03_Software Life Cycle Models and Processes.pptx#4-8", "Ch03_Software Life Cycle Models and Processes.pptx#11-12"],
+  "sourceRefs": [
+    "Ch03_Software Life Cycle Models and Processes.pptx#4-8",
+    "Ch03_Software Life Cycle Models and Processes.pptx#11-12"
+  ],
   "objective": "Phân biệt rõ ràng bản mẫu vứt bỏ (Throwaway Prototype) dùng để kiểm chứng yêu cầu với bản mẫu tiến hóa (Evolutionary Prototype) dùng để phát triển lũy tiến.",
-  "misconceptions": ["prototype-is-product"],
+  "misconceptions": [
+    "prototype-is-product"
+  ],
   "screens": [
     {
-      "id": "s1",
+      "id": "t1",
       "role": "hook",
-      "type": "scenario",
-      "prompt": "Khách hàng muốn thiết kế màn hình thanh toán FOS cực kỳ trực quan. Team lập tức tạo một trang web tĩnh HTML/CSS giả lập nút bấm trong 3 ngày để khách chạy thử lấy ý kiến, sau đó bỏ đi để code lại bản thật. Đây là ví dụ của:",
-      "options": [
-        "Evolutionary Prototyping (Bản mẫu tiến hóa)",
-        "Throwaway Prototyping (Bản mẫu vứt bỏ)",
-        "Incremental Development (Phát triển lũy tiến)"
+      "type": "teach",
+      "title": "Prototype — học hỏi nhanh với chi phí thấp",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Prototype không phải là sản phẩm — đó là công cụ học hỏi. Bạn dựng nhanh một phiên bản thô để trả lời câu hỏi 'Người dùng có thực sự muốn thế này không?' trước khi đầu tư code thật."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Throwaway Prototype: dựng cực nhanh, bỏ qua code quality, chỉ để lấy phản hồi UI/UX rồi vứt.",
+            "Evolutionary Prototype: bắt đầu từ core chức năng, phát triển dần qua các vòng lặp thành sản phẩm.",
+            "Production Increment: phần mềm chạy thật được tích hợp vào hệ thống qua mỗi pha.",
+            "Quy tắc: Throwaway Prototype KHÔNG BAO GIỜ đi thẳng lên production."
+          ]
+        },
+        {
+          "kind": "predict",
+          "prompt": "Team lập tức tạo một trang web tĩnh HTML/CSS giả lập trong 3 ngày để khách chạy thử lấy ý kiến, sau đó bỏ đi để code lại bản thật. Đây là ví dụ của loại nào?",
+          "options": [
+            "Evolutionary Prototyping (Bản mẫu tiến hóa)",
+            "Throwaway Prototyping (Bản mẫu vứt bỏ)",
+            "Incremental Development (Phát triển lũy tiến)"
+          ],
+          "outcome": "Throwaway Prototyping — dựng nhanh để lấy phản hồi, sau đó vứt bỏ.",
+          "explain": "Dấu hiệu nhận biết: 'bỏ đi để code lại bản thật'. Throwaway Prototype tồn tại chỉ để giảm bất định về yêu cầu UI — không bao giờ trở thành sản phẩm cuối.",
+          "distractorTags": {
+            "0": "prototype-is-product"
+          },
+          "expected": 1
+        }
       ],
-      "correct": 1,
-      "explanation": "Throwaway Prototyping được tạo ra nhanh chóng sau khi có yêu cầu sơ bộ nhằm lấy phản hồi về giao diện (UI) và vượt qua rào cản giao tiếp với khách hàng, sau đó sẽ bị loại bỏ chứ không dùng để phát triển tiếp.",
-      "distractorTags": {
-        "0": "prototype-is-product",
-        "2": null
-      },
-      "hints": [
-        "Từ khóa ở đây là 'bỏ đi để code lại bản thật' (discarded).",
-        "Bản mẫu này làm ra để học hỏi yêu cầu hay để nâng cấp dần?",
-        "Throwaway Prototype tồn tại chỉ để lấy phản hồi, không bao giờ trở thành sản phẩm cuối."
-      ],
-      "weight": 2
+      "weight": 0
     },
     {
       "id": "s2",
@@ -50,6 +69,29 @@
         "Validation tập trung vào nhu cầu người dùng (right system)."
       ],
       "weight": 2
+    },
+    {
+      "id": "t2",
+      "role": "contrast",
+      "type": "teach",
+      "title": "Nguy hiểm của prototype-is-product",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Khi sếp thấy prototype đẹp và yêu cầu deploy thẳng lên production — đây là sai lầm nghiêm trọng. Throwaway Prototype được viết với mục đích tốc độ, hoàn toàn bỏ qua những yêu cầu của sản phẩm thật."
+        },
+        {
+          "kind": "reveal",
+          "items": [
+            "Prototype bỏ qua: Authentication & Authorization (bảo mật).",
+            "Prototype bỏ qua: Error handling và logging.",
+            "Prototype bỏ qua: Performance optimization và load testing.",
+            "Prototype bỏ qua: Code review và test coverage.",
+            "Đưa prototype lên production = mời hacker vào và sập hệ thống khi tải tăng."
+          ]
+        }
+      ],
+      "weight": 0
     },
     {
       "id": "s3",
