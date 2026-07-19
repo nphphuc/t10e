@@ -62,7 +62,7 @@ function NavCard({ icon, glowColor, onClick, disabled }: NavCardProps) {
         initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-800/50 bg-gray-900/15 backdrop-blur-sm opacity-50 select-none cursor-not-allowed overflow-hidden"
+        className="relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-700/40 bg-gray-900/15 backdrop-blur-sm opacity-50 select-none cursor-not-allowed overflow-hidden"
       >
         {iconEl}
       </motion.div>
@@ -77,7 +77,7 @@ function NavCard({ icon, glowColor, onClick, disabled }: NavCardProps) {
       whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
       whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
       onClick={onClick}
-      className="group relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-800/40 bg-gray-900/20 backdrop-blur-sm
+      className="group relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-700/60 bg-gray-900/20 backdrop-blur-sm
                  hover:brightness-110
                  transition-all duration-300 ease-out w-full
                  focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 overflow-hidden"
