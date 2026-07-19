@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import FoxMascot from '../components/FoxMascot';
-import { TOPIC_ICONS, ClayIconDefs } from '../components/ClayIcon';
 
-/* ===== Ambient Background ===== */
+/* ===== Background Effects ===== */
 
 function AnimatedGradientBlobs() {
   const shouldReduceMotion = useReducedMotion();
@@ -30,62 +29,121 @@ function DotGrid() {
   );
 }
 
-/* ===== Topic Icon Card ===== */
+/* ===== Nav Card — logo-only clickable square ===== */
 
-function TopicCard({ topic, index, onClick }: {
-  topic: typeof TOPIC_ICONS[0];
-  index: number;
-  onClick: () => void;
-}) {
+interface NavCardProps {
+  icon: string;
+  glowColor: string;
+  onClick?: () => void;
+  disabled?: boolean;
+}
+
+function NavCard({ icon, glowColor, onClick, disabled }: NavCardProps) {
   const shouldReduceMotion = useReducedMotion();
-  const Icon = topic.component;
+
+  const iconEl = (
+    <div className="w-full h-full flex items-center justify-center p-6 md:p-8">
+      {icon.startsWith('/') ? (
+        <img
+          src={`${import.meta.env.BASE_URL}${icon.slice(1)}`}
+          alt=""
+          className="w-full h-full object-contain"
+          loading="lazy"
+        />
+      ) : (
+        <span className="text-3xl">{icon}</span>
+      )}
+    </div>
+  );
+
+  if (disabled) {
+    return (
+      <motion.div
+        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-800/50 bg-gray-900/15 backdrop-blur-sm opacity-50 select-none cursor-not-allowed overflow-hidden"
+      >
+        {iconEl}
+      </motion.div>
+    );
+  }
 
   return (
     <motion.button
-      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
-      transition={{ duration: 0.4, delay: index * 0.04, ease: [0.22, 1, 0.36, 1] }}
+      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
+      whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
       onClick={onClick}
-      className="group relative flex flex-col items-center gap-2 p-4 rounded-2xl 
-                 bg-gray-900/20 border border-gray-800/40
-                 hover:bg-gray-900/40 hover:border-gray-700/60
-                 transition-all duration-300 ease-out
-                 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50"
+      className="group relative aspect-square rounded-3xl border-[8px] border-b-[24px] border-gray-800/40 bg-gray-900/20 backdrop-blur-sm
+                 hover:brightness-110
+                 transition-all duration-300 ease-out w-full
+                 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 overflow-hidden"
+      style={{
+        boxShadow: `0 0 0 0 transparent`,
+        transition: `box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.15s ease`,
+      }}
+      onMouseEnter={(e) => {
+        if (shouldReduceMotion) return;
+        const el = e.currentTarget;
+        el.style.borderColor = glowColor + '60';
+        el.style.backgroundColor = 'rgba(255,255,255,0.04)';
+        el.style.boxShadow = `0 0 30px -5px ${glowColor}30, 0 0 0 1px ${glowColor}20 inset`;
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget;
+        el.style.borderColor = '';
+        el.style.backgroundColor = '';
+        el.style.boxShadow = '';
+      }}
+      onMouseDown={(e) => {
+        if (shouldReduceMotion) return;
+        const el = e.currentTarget;
+        el.style.borderColor = glowColor + '90';
+        el.style.boxShadow = `0 0 40px -4px ${glowColor}50, 0 0 0 1px ${glowColor}40 inset`;
+        el.style.backgroundColor = 'rgba(255,255,255,0.06)';
+      }}
+      onMouseUp={(e) => {
+        const el = e.currentTarget;
+        if (shouldReduceMotion) {
+          el.style.borderColor = '';
+          el.style.boxShadow = '';
+          el.style.backgroundColor = '';
+          return;
+        }
+        el.style.borderColor = glowColor + '60';
+        el.style.boxShadow = `0 0 30px -5px ${glowColor}30, 0 0 0 1px ${glowColor}20 inset`;
+        el.style.backgroundColor = 'rgba(255,255,255,0.04)';
+      }}
+      onTouchStart={(e) => {
+        if (shouldReduceMotion) return;
+        const el = e.currentTarget;
+        el.style.borderColor = glowColor + '90';
+        el.style.boxShadow = `0 0 40px -4px ${glowColor}50, 0 0 0 1px ${glowColor}40 inset`;
+        el.style.backgroundColor = 'rgba(255,255,255,0.06)';
+      }}
+      onTouchEnd={(e) => {
+        const el = e.currentTarget;
+        if (shouldReduceMotion) {
+          el.style.borderColor = '';
+          el.style.boxShadow = '';
+          el.style.backgroundColor = '';
+          return;
+        }
+        el.style.borderColor = '';
+        el.style.boxShadow = '';
+        el.style.backgroundColor = '';
+      }}
     >
-      {/* Icon container — square, rounded */}
-      <div className="relative w-full aspect-square rounded-xl bg-gradient-to-br from-gray-800/30 to-gray-900/30 
-                      overflow-hidden flex items-center justify-center
-                      group-hover:scale-[1.02] transition-transform duration-300 ease-out
-                      border border-gray-800/30 group-hover:border-gray-700/40">
-        {/* Ambient glow behind icon */}
-        <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
-          style={{ backgroundColor: topic.color, opacity: 0.08 }}
-        />
+      {/* Hover shine sweep */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 
+                      bg-gradient-to-r from-transparent via-white/[0.04] to-transparent
+                      -skew-x-12 -translate-x-full group-hover:translate-x-full
+                      transition-transform duration-700 ease-out pointer-events-none" />
 
-        {/* The clay icon */}
-        <div className="relative z-10 w-3/4 h-3/4 flex items-center justify-center">
-          <Icon />
-        </div>
-
-        {/* Hover shine sweep */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 
-                        bg-gradient-to-r from-transparent via-white/5 to-transparent
-                        -skew-x-12 -translate-x-full group-hover:translate-x-full
-                        transition-transform duration-700 ease-out pointer-events-none" />
-      </div>
-
-      {/* Topic name */}
-      <span className="text-xs font-semibold text-gray-300 group-hover:text-white 
-                       transition-colors duration-200 text-center leading-tight">
-        {topic.label}
-      </span>
-
-      {/* Subtle border glow on hover */}
-      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 
-                      transition-opacity duration-300 pointer-events-none"
-           style={{ boxShadow: `inset 0 0 0 1px ${topic.color}20` }} />
+      {iconEl}
     </motion.button>
   );
 }
@@ -97,10 +155,7 @@ export default function LandingPage() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="min-h-screen bg-[#0c0d0e] text-[#f3f4f6] relative overflow-x-hidden">
-      {/* Shared SVG filter & gradient defs — rendered once to avoid ID collisions */}
-      <ClayIconDefs />
-
+    <div className="min-h-screen bg-[#0c0d0e] text-[#f3f4f6] relative overflow-x-hidden flex flex-col">
       {/* Background */}
       <AnimatedGradientBlobs />
       <DotGrid />
@@ -113,8 +168,8 @@ export default function LandingPage() {
         }}
       />
 
-      {/* ===== HERO — minimal, no big buttons ===== */}
-      <section className="relative z-10 pt-24 pb-8 md:pt-32 md:pb-10 px-6">
+      {/* ===== HERO ===== */}
+      <section className="relative z-10 pt-20 pb-6 md:pt-28 md:pb-8 px-6">
         <motion.div
           initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -134,19 +189,50 @@ export default function LandingPage() {
             SWD392 • FPT University
           </motion.div>
 
-          {/* Title */}
-          <motion.h1
+          {/* Title row: fox + text */}
+          <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight font-display"
+            className="flex items-center justify-center gap-3 md:gap-4"
           >
-            <span className="text-white">Software Design</span>
-            <br />
-            <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent">
-              & Architecture
-            </span>
-          </motion.h1>
+            {/* Fox logo — nhúc nhích cạnh title */}
+            <motion.div
+              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.8 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                ...(shouldReduceMotion ? {} : {
+                  rotate: [0, -6, 3, -4, 2, 0],
+                }),
+              }}
+              transition={{
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1],
+                ...(shouldReduceMotion ? {} : {
+                  rotate: {
+                    duration: 0.5,
+                    delay: 0.7,
+                    repeat: Infinity,
+                    repeatDelay: 4,
+                    ease: 'easeInOut',
+                  },
+                }),
+              }}
+              className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0"
+            >
+              <FoxMascot animation="Sit" />
+            </motion.div>
+
+            {/* Title text — one line */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display whitespace-nowrap">
+              <span className="text-white">Software Design</span>
+              <span className="text-white mx-1.5">&</span>
+              <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent">
+                Architecture
+              </span>
+            </h1>
+          </motion.div>
 
           {/* Subtitle */}
           <motion.p
@@ -155,75 +241,54 @@ export default function LandingPage() {
             transition={{ duration: 0.5, delay: 0.35 }}
             className="text-gray-500 text-sm md:text-base max-w-sm mx-auto leading-relaxed"
           >
-            Tương tác trực quan — mỗi khái niệm là một thử thách, mỗi thử thách là một bước tiến.
+            Chọn chế độ học tập phù hợp với bạn
           </motion.p>
         </motion.div>
       </section>
 
-      {/* ===== TOPIC GRID — Brilliant-style clay icons ===== */}
-      <section className="relative z-10 max-w-4xl mx-auto px-6 pb-8">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 md:gap-3">
-          {TOPIC_ICONS.map((topic, idx) => (
-            <TopicCard
-              key={topic.id}
-              topic={topic}
-              index={idx}
+      {/* ===== NAV CARDS (logo only) ===== */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-8 flex-grow flex items-center">
+        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {/* Card 1: Bài học */}
+          <div className="flex flex-col items-center gap-3">
+            <NavCard
+              icon="/baihoc.png"
+              glowColor="#a855f7"
               onClick={() => navigate('/home')}
             />
-          ))}
+            <span className="text-lg font-bold text-gray-200">Bài học</span>
+          </div>
+
+          {/* Card 2: Ôn thi PE */}
+          <div className="flex flex-col items-center gap-3">
+            <NavCard
+              icon="/thipe.png"
+              glowColor="#06b6d4"
+              onClick={() => navigate('/pe-review')}
+            />
+            <span className="text-lg font-bold text-gray-200">Ôn thi PE</span>
+          </div>
+
+          {/* Card 3: Ôn thi FE (đang hoàn thiện) */}
+          <div className="flex flex-col items-center gap-3">
+            <NavCard
+              icon="/thife.png"
+              glowColor="#f59e0b"
+              disabled
+            />
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-bold text-gray-200">Ôn thi FE</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/12 border border-amber-500/25 text-amber-400 text-[9px] font-bold uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                đang hoàn thiện
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ===== FOX + CTA ===== */}
-      <section className="relative z-10 max-w-md mx-auto px-6 pb-24 md:pb-32">
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col items-center gap-5 text-center"
-        >
-          {/* Fox + message */}
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 md:w-16 md:h-16">
-              <FoxMascot animation="Sit" />
-            </div>
-            <div className="text-left">
-              <p className="text-gray-300 text-sm font-medium">
-                Sẵn sàng khám phá?
-              </p>
-              <p className="text-gray-500 text-xs">
-                11 chủ đề — 72 bài học tương tác
-              </p>
-            </div>
-          </div>
-
-          <button
-            onClick={() => navigate('/home')}
-            className="group relative px-8 py-3.5 rounded-2xl 
-                       bg-gradient-to-r from-purple-600 to-indigo-600 
-                       hover:from-purple-500 hover:to-indigo-500 
-                       text-white font-bold text-base
-                       transition-all duration-300 ease-out
-                       shadow-lg shadow-purple-600/20 hover:shadow-purple-500/35
-                       active:scale-[0.97]"
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Bắt đầu hành trình
-              <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </span>
-            {/* Shine */}
-            <div className="absolute inset-0 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out" />
-            </div>
-          </button>
-        </motion.div>
-      </section>
-
       {/* ===== FOOTER ===== */}
-      <footer className="relative z-10 text-center px-6 py-8 border-t border-gray-800/30">
+      <footer className="relative z-10 text-center px-6 py-8 border-t border-gray-800/30 mt-auto">
         <p className="text-xs text-gray-600">
           SWD392 — Software Design & Architecture © FPT University
         </p>
