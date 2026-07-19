@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
 import CourseMap from './pages/CourseMap';
 import LessonPage from './pages/LessonPage';
 import ReviewPage from './pages/ReviewPage';
@@ -18,7 +19,8 @@ function AnimatedRoutes() {
   return (
     <ErrorBoundary resetKey={location.pathname}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><CourseMap /></PageTransition>} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<PageTransition><CourseMap /></PageTransition>} />
         <Route path="/lesson/:lessonId" element={<PageTransition><LessonPage /></PageTransition>} />
         <Route path="/review/:levelId" element={<PageTransition><ReviewPage /></PageTransition>} />
         <Route path="/pe-review" element={<PageTransition><PeReviewLanding /></PageTransition>} />
