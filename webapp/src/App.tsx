@@ -19,7 +19,7 @@ function AnimatedRoutes() {
   return (
     <ErrorBoundary resetKey={location.pathname}>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<PageTransition><LandingPage /></PageTransition>} />
         <Route path="/home" element={<PageTransition><CourseMap /></PageTransition>} />
         <Route path="/lesson/:lessonId" element={<PageTransition><LessonPage /></PageTransition>} />
         <Route path="/review/:levelId" element={<PageTransition><ReviewPage /></PageTransition>} />
