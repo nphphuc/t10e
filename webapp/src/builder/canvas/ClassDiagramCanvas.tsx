@@ -30,7 +30,17 @@ function uid(prefix: string): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
-function PaletteChip({ item, index }: { item: PaletteItem; index: number }) {
+function PaletteChip({
+  item,
+  index,
+  isLifted,
+  onToggleLift,
+}: {
+  item: PaletteItem;
+  index: number;
+  isLifted: boolean;
+  onToggleLift: (index: number) => void;
+}) {
   const { attributes, listeners, setNodeRef, transform, isDragging } = useDraggable({
     id: `palette-${index}`,
     data: { kind: 'palette-item', item },
@@ -55,8 +65,14 @@ function PaletteChip({ item, index }: { item: PaletteItem; index: number }) {
       {...attributes}
       tabIndex={0}
       role="button"
-      aria-label={`Palette item ${item.label} (${item.kind})`}
-      className={`px-3 py-2 rounded-xl border text-xs font-semibold cursor-grab active:cursor-grabbing select-none transition-shadow ${kindStyles[item.kind]} ${isDragging ? 'opacity-60 shadow-lg' : ''}`}
+      aria-label={`Palette item ${item.label} (${item.kind})${isLifted ? ' — đã nhấc, chọn nơi thả bên dưới' : ''}`}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onToggleLift(index);
+        }
+      }}
+      className={`canvas-focusable px-3 py-2 rounded-xl border text-xs font-semibold cursor-grab active:cursor-grabbing select-none transition-shadow ${kindStyles[item.kind]} ${isDragging ? 'opacity-60 shadow-lg' : ''} ${isLifted ? 'ring-2 ring-success' : ''}`}
     >
       {item.label}
     </div>
@@ -77,6 +93,11 @@ function CanvasSurface({
   onEditorClose,
   onRemoveAttribute,
   onToggleAssociationClass,
+  onStartConnectFromToolbar,
+  onDeleteSelected,
+  focusedNodeId,
+  onFocusNode,
+  onBlurNode,
   containerRef,
 }: {
   diagram: DiagramState;
@@ -92,6 +113,11 @@ function CanvasSurface({
   onEditorClose: () => void;
   onRemoveAttribute: (nodeId: string, attributeId: string) => void;
   onToggleAssociationClass: (nodeId: string) => void;
+  onStartConnectFromToolbar: (nodeId: string) => void;
+  onDeleteSelected: (nodeId: string) => void;
+  focusedNodeId: string | null;
+  onFocusNode: (id: string) => void;
+  onBlurNode: () => void;
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
@@ -120,6 +146,13 @@ function CanvasSurface({
           return { left: (from.cx + to.cx) / 2, top: (from.cy + to.cy) / 2 };
         })()
       : null;
+
+  // The toolbar (Nối quan hệ / Xóa) should appear as soon as a node is reachable via
+  // keyboard (Tab focus) — not only after a click, since a mouse click already arms
+  // connect-mode immediately (see handleNodeClick), which would make a "not yet armed"
+  // condition unreachable by mouse.
+  const toolbarNodeId = focusedNodeId ?? (selectedId && diagram.nodes.some((n) => n.id === selectedId) ? selectedId : null);
+  const toolbarNode = toolbarNodeId ? nodesById.get(toolbarNodeId) : undefined;
 
   return (
     <div
@@ -171,6 +204,8 @@ function CanvasSurface({
             isConnectSource={connectSourceId === node.id}
             onRemoveAttribute={onRemoveAttribute}
             onToggleAssociationClass={onToggleAssociationClass}
+            onFocusNode={onFocusNode}
+            onBlurNode={onBlurNode}
           />
         ))}
       </svg>
@@ -185,6 +220,29 @@ function CanvasSurface({
             onDelete={onEdgeDelete}
             onClose={onEditorClose}
           />
+        </div>
+      )}
+
+      {toolbarNode && (
+        <div
+          style={{ position: 'absolute', left: toolbarNode.x, top: Math.max(toolbarNode.y - 34, 0) }}
+          className="flex gap-1.5"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {connectSourceId !== toolbarNode.id && (
+            <button
+              onClick={() => onStartConnectFromToolbar(toolbarNode.id)}
+              className="canvas-focusable px-2 py-1 rounded-lg bg-success/90 hover:bg-success text-white text-[10px] font-bold shadow"
+            >
+              🔗 Nối quan hệ
+            </button>
+          )}
+          <button
+            onClick={() => onDeleteSelected(toolbarNode.id)}
+            className="canvas-focusable px-2 py-1 rounded-lg bg-error/90 hover:bg-error text-white text-[10px] font-bold shadow"
+          >
+            🗑️ Xóa
+          </button>
         </div>
       )}
     </div>
@@ -205,6 +263,9 @@ export default function ClassDiagramCanvas({
   const [newClassName, setNewClassName] = useState('');
   const [connectSourceId, setConnectSourceId] = useState<string | null>(null);
   const [editingEdgeId, setEditingEdgeId] = useState<string | null>(null);
+  const [liftedPaletteIndex, setLiftedPaletteIndex] = useState<number | null>(null);
+  const [announcement, setAnnouncement] = useState('');
+  const [focusedNodeId, setFocusedNodeId] = useState<string | null>(null);
   const undoSnapshotRef = useRef<DiagramState | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
@@ -223,8 +284,11 @@ export default function ClassDiagramCanvas({
 
   function handleNodeClick(nodeId: string) {
     if (connectSourceId && connectSourceId !== nodeId) {
+      const sourceName = diagram.nodes.find((n) => n.id === connectSourceId)?.name;
+      const targetName = diagram.nodes.find((n) => n.id === nodeId)?.name;
       const newEdge: DiagramEdge = { id: uid('edge'), from: connectSourceId, to: nodeId, type: 'association' };
       commit({ ...diagram, edges: [...diagram.edges, newEdge] });
+      setAnnouncement(`Đã nối ${sourceName} với ${targetName}`);
       setConnectSourceId(null);
       onSelect(newEdge.id);
       setEditingEdgeId(newEdge.id);
@@ -248,6 +312,7 @@ export default function ClassDiagramCanvas({
           ...diagram,
           edges: diagram.edges.map((e) => (e.id === edgeId ? { ...e, attachedClassId: connectSourceId } : e)),
         });
+        setAnnouncement(`Đã gắn ${sourceNode.name} vào quan hệ đã chọn`);
         setConnectSourceId(null);
         onSelect(edgeId);
         return;
@@ -259,12 +324,17 @@ export default function ClassDiagramCanvas({
   }
 
   function handleToggleAssociationClass(nodeId: string) {
+    const node = diagram.nodes.find((n) => n.id === nodeId);
+    const willBeAssociationClass = node?.type !== 'associationClass';
     commit({
       ...diagram,
       nodes: diagram.nodes.map((n) =>
         n.id === nodeId ? { ...n, type: n.type === 'associationClass' ? 'class' : 'associationClass' } : n
       ),
     });
+    setAnnouncement(
+      willBeAssociationClass ? `Đã đánh dấu ${node?.name} là association class` : `Đã bỏ đánh dấu association class cho ${node?.name}`
+    );
   }
 
   function handleBackgroundClick() {
@@ -289,27 +359,39 @@ export default function ClassDiagramCanvas({
   }
 
   function handleRemoveAttribute(nodeId: string, attributeId: string) {
+    const node = diagram.nodes.find((n) => n.id === nodeId);
+    const attr = node?.attributes.find((a) => a.id === attributeId);
     commit({
       ...diagram,
       nodes: diagram.nodes.map((n) =>
         n.id === nodeId ? { ...n, attributes: n.attributes.filter((a) => a.id !== attributeId) } : n
       ),
     });
+    setAnnouncement(`Đã xóa attribute ${attr?.name} khỏi ${node?.name}`);
+  }
+
+  function removeNode(nodeId: string) {
+    const node = diagram.nodes.find((n) => n.id === nodeId);
+    commit({
+      nodes: diagram.nodes.filter((n) => n.id !== nodeId),
+      edges: diagram.edges
+        .filter((e) => e.from !== nodeId && e.to !== nodeId)
+        .map((e) => (e.attachedClassId === nodeId ? { ...e, attachedClassId: undefined } : e)),
+    });
+    setAnnouncement(`Đã xóa ${node?.name}`);
+    if (selectedId === nodeId) setSelectedIdAfterDelete();
+    if (connectSourceId === nodeId) setConnectSourceId(null);
   }
 
   function removeSelected() {
     if (!selectedId) return;
     const isNode = diagram.nodes.some((n) => n.id === selectedId);
     if (isNode) {
-      commit({
-        nodes: diagram.nodes.filter((n) => n.id !== selectedId),
-        edges: diagram.edges
-          .filter((e) => e.from !== selectedId && e.to !== selectedId)
-          .map((e) => (e.attachedClassId === selectedId ? { ...e, attachedClassId: undefined } : e)),
-      });
-    } else {
-      commit({ ...diagram, edges: diagram.edges.filter((e) => e.id !== selectedId) });
+      removeNode(selectedId);
+      return;
     }
+    commit({ ...diagram, edges: diagram.edges.filter((e) => e.id !== selectedId) });
+    setAnnouncement('Đã xóa quan hệ');
     setSelectedIdAfterDelete();
   }
 
@@ -324,7 +406,13 @@ export default function ClassDiagramCanvas({
       const target = e.target as HTMLElement;
       const isEditable = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
       if (isEditable) return;
-      if ((e.key === 'Delete' || e.key === 'Backspace') && selectedId) {
+      if (e.key === 'Escape' && liftedPaletteIndex !== null) {
+        e.preventDefault();
+        setLiftedPaletteIndex(null);
+      } else if (e.key === 'Escape' && connectSourceId) {
+        e.preventDefault();
+        setConnectSourceId(null);
+      } else if ((e.key === 'Delete' || e.key === 'Backspace') && selectedId) {
         e.preventDefault();
         removeSelected();
       } else if (e.key === 'z' && (e.ctrlKey || e.metaKey)) {
@@ -336,6 +424,31 @@ export default function ClassDiagramCanvas({
     return () => window.removeEventListener('keydown', onKeyDown);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
+
+  // Shared by mouse drag-end and the keyboard lift/drop flow below.
+  function addAttributeToNode(nodeId: string, item: PaletteItem) {
+    const node = diagram.nodes.find((n) => n.id === nodeId);
+    commit({
+      ...diagram,
+      nodes: diagram.nodes.map((n) =>
+        n.id === nodeId ? { ...n, attributes: [...n.attributes, { id: uid('attr'), name: item.label }] } : n
+      ),
+    });
+    setAnnouncement(`Đã thêm attribute ${item.label} vào ${node?.name}`);
+  }
+
+  function createNodeAt(item: PaletteItem, x: number, y: number) {
+    const bounds = containerRef.current?.getBoundingClientRect();
+    const maxX = Math.max((bounds?.width ?? 900) - NODE_WIDTH, 0);
+    const maxY = Math.max((bounds?.height ?? 520) - nodeHeight(0), 0);
+    const clampedX = Math.min(Math.max(x, 0), maxX);
+    const clampedY = Math.min(Math.max(y, 0), maxY);
+    commit({
+      ...diagram,
+      nodes: [...diagram.nodes, { id: uid('node'), type: 'class', name: item.label, attributes: [], x: clampedX, y: clampedY }],
+    });
+    setAnnouncement(`Đã thêm ${item.label} vào canvas`);
+  }
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
@@ -370,27 +483,40 @@ export default function ClassDiagramCanvas({
         (n) => dropX >= n.x && dropX <= n.x + NODE_WIDTH && dropY >= n.y && dropY <= n.y + nodeHeight(n.attributes.length)
       );
 
-      if (item.kind === 'attribute') {
-        if (!targetNode) return;
-        commit({
-          ...diagram,
-          nodes: diagram.nodes.map((n) =>
-            n.id === targetNode.id ? { ...n, attributes: [...n.attributes, { id: uid('attr'), name: item.label }] } : n
-          ),
-        });
+      if (item.kind === 'attribute' && targetNode) {
+        addAttributeToNode(targetNode.id, item);
         return;
       }
 
-      if (item.kind === 'class' || item.kind === 'verb-trap' || item.kind === 'attribute-trap') {
-        const x = Math.min(Math.max(dropX - NODE_WIDTH / 2, 0), bounds.width - NODE_WIDTH);
-        const y = Math.min(Math.max(dropY - nodeHeight(0) / 2, 0), Math.max(bounds.height - nodeHeight(0), 0));
-
-        commit({
-          ...diagram,
-          nodes: [...diagram.nodes, { id: uid('node'), type: 'class', name: item.label, attributes: [], x, y }],
-        });
-      }
+      // Either a class/trap item, or an attribute dropped on empty canvas (not onto any
+      // class box) — the latter still becomes a node so V2's find-classes validator can
+      // hint "this looks like an attribute, not a class" instead of silently doing nothing.
+      createNodeAt(item, dropX - NODE_WIDTH / 2, dropY - nodeHeight(0) / 2);
     }
+  }
+
+  function handleKeyboardDrop(paletteIndex: number, target: { kind: 'canvas' } | { kind: 'node'; nodeId: string }) {
+    const item = palette[paletteIndex];
+    if (!item) return;
+    setLiftedPaletteIndex(null);
+
+    if (target.kind === 'node') {
+      if (item.kind === 'attribute') {
+        addAttributeToNode(target.nodeId, item);
+      } else {
+        const targetNode = diagram.nodes.find((n) => n.id === target.nodeId);
+        createNodeAt(item, (targetNode?.x ?? 0) + 24, (targetNode?.y ?? 0) + 24);
+      }
+      return;
+    }
+
+    const idx = diagram.nodes.length;
+    createNodeAt(item, 24 + (idx % 4) * 40, 24 + (idx % 5) * 30);
+  }
+
+  function toggleLift(index: number) {
+    setLiftedPaletteIndex((current) => (current === index ? null : index));
+    setConnectSourceId(null);
   }
 
   function addTypedClass() {
@@ -410,11 +536,47 @@ export default function ClassDiagramCanvas({
 
   return (
     <DndContext sensors={sensors} collisionDetection={pointerWithin} onDragEnd={handleDragEnd}>
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .transition-colors, .transition-shadow, .transition-all { transition: none !important; }
+        }
+        .canvas-focusable:focus-visible, [tabindex]:focus-visible {
+          outline: 2px solid #60a5fa;
+          outline-offset: 2px;
+        }
+      `}</style>
+      <div className="sr-only" aria-live="polite">
+        {announcement}
+      </div>
       <div className="flex flex-col md:flex-row gap-4 w-full">
         <div className="md:w-40 flex-shrink-0 flex flex-row md:flex-col flex-wrap gap-2">
           {palette.map((item, idx) => (
-            <PaletteChip key={idx} item={item} index={idx} />
+            <PaletteChip key={idx} item={item} index={idx} isLifted={liftedPaletteIndex === idx} onToggleLift={toggleLift} />
           ))}
+          {liftedPaletteIndex !== null && (
+            <div
+              role="group"
+              aria-label="Chọn nơi thả"
+              className="flex flex-col gap-1.5 p-2 rounded-xl border border-success/40 bg-success/5"
+            >
+              <div className="text-[10px] font-bold text-emerald-300">Chọn nơi thả (Enter), Esc để hủy:</div>
+              <button
+                className="canvas-focusable px-2 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-200 text-left"
+                onClick={() => handleKeyboardDrop(liftedPaletteIndex, { kind: 'canvas' })}
+              >
+                🖐️ Vùng canvas trống
+              </button>
+              {diagram.nodes.map((n) => (
+                <button
+                  key={n.id}
+                  className="canvas-focusable px-2 py-1.5 rounded-lg bg-gray-800 hover:bg-gray-700 text-[11px] text-gray-200 text-left"
+                  onClick={() => handleKeyboardDrop(liftedPaletteIndex, { kind: 'node', nodeId: n.id })}
+                >
+                  📦 {n.name}
+                </button>
+              ))}
+            </div>
+          )}
           {mode === 'pe' && (
             <div className="flex flex-col gap-2">
               {addingClass ? (
@@ -471,6 +633,11 @@ export default function ClassDiagramCanvas({
             onEditorClose={() => setEditingEdgeId(null)}
             onRemoveAttribute={handleRemoveAttribute}
             onToggleAssociationClass={handleToggleAssociationClass}
+            onStartConnectFromToolbar={handleNodeClick}
+            onDeleteSelected={removeNode}
+            focusedNodeId={focusedNodeId}
+            onFocusNode={setFocusedNodeId}
+            onBlurNode={() => setFocusedNodeId(null)}
             containerRef={containerRef}
           />
         </div>

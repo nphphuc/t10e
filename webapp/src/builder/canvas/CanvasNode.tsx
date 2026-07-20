@@ -12,6 +12,8 @@ interface CanvasNodeProps {
   isConnectSource?: boolean;
   onRemoveAttribute?: (nodeId: string, attributeId: string) => void;
   onToggleAssociationClass?: (nodeId: string) => void;
+  onFocusNode?: (id: string) => void;
+  onBlurNode?: () => void;
 }
 
 export default function CanvasNode({
@@ -23,6 +25,8 @@ export default function CanvasNode({
   isConnectSource,
   onRemoveAttribute,
   onToggleAssociationClass,
+  onFocusNode,
+  onBlurNode,
 }: CanvasNodeProps) {
   const { attributes, listeners, setNodeRef: setDragRef, transform, isDragging } = useDraggable({
     id: node.id,
@@ -50,6 +54,8 @@ export default function CanvasNode({
         e.stopPropagation();
         onSelect(node.id);
       }}
+      onFocus={() => onFocusNode?.(node.id)}
+      onBlur={() => onBlurNode?.()}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();

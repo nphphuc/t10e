@@ -27,14 +27,14 @@ export default function DeleteWholeSim({ wholeLabel, partLabel, relationship }: 
       </div>
       <div className="flex items-center justify-center gap-8 h-16">
         <div
-          className={`px-3 py-2 rounded-lg border-2 text-center text-[10px] font-bold transition-all duration-500 ${
+          className={`px-3 py-2 rounded-lg border-2 text-center text-[10px] font-bold transition-all duration-300 ${
             deleted ? 'opacity-0 scale-90' : 'opacity-100'
           } border-boundary bg-boundary/10 text-violet-200`}
         >
           :{wholeLabel}
         </div>
         <div
-          className={`px-3 py-2 rounded-lg border-2 text-center text-[10px] font-bold transition-all duration-500 ${
+          className={`px-3 py-2 rounded-lg border-2 text-center text-[10px] font-bold transition-all duration-300 ${
             deleted
               ? isComposition
                 ? 'opacity-0 scale-90'
