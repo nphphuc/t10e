@@ -75,6 +75,8 @@ function CanvasSurface({
   onEdgeUpdate,
   onEdgeDelete,
   onEditorClose,
+  onRemoveAttribute,
+  onToggleAssociationClass,
   containerRef,
 }: {
   diagram: DiagramState;
@@ -88,6 +90,8 @@ function CanvasSurface({
   onEdgeUpdate: (patch: Partial<DiagramEdge>) => void;
   onEdgeDelete: () => void;
   onEditorClose: () => void;
+  onRemoveAttribute: (nodeId: string, attributeId: string) => void;
+  onToggleAssociationClass: (nodeId: string) => void;
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
@@ -132,7 +136,9 @@ function CanvasSurface({
           aria-live="polite"
           className="absolute top-2 left-1/2 -translate-x-1/2 z-30 px-3 py-1.5 rounded-full bg-success/90 text-white text-[11px] font-bold shadow-lg"
         >
-          Chọn class đích...
+          {nodesById.get(connectSourceId)?.type === 'associationClass'
+            ? 'Chọn quan hệ (đường nối) để gắn association class...'
+            : 'Chọn class đích...'}
         </div>
       )}
       <svg width={size.width} height={size.height} viewBox={`0 0 ${size.width} ${size.height}`}>
@@ -163,6 +169,8 @@ function CanvasSurface({
             onSelect={onNodeClick}
             onStartConnect={onNodeClick}
             isConnectSource={connectSourceId === node.id}
+            onRemoveAttribute={onRemoveAttribute}
+            onToggleAssociationClass={onToggleAssociationClass}
           />
         ))}
       </svg>
@@ -233,9 +241,30 @@ export default function ClassDiagramCanvas({
   }
 
   function handleEdgeClick(edgeId: string) {
-    setConnectSourceId(null);
+    if (connectSourceId) {
+      const sourceNode = diagram.nodes.find((n) => n.id === connectSourceId);
+      if (sourceNode?.type === 'associationClass') {
+        commit({
+          ...diagram,
+          edges: diagram.edges.map((e) => (e.id === edgeId ? { ...e, attachedClassId: connectSourceId } : e)),
+        });
+        setConnectSourceId(null);
+        onSelect(edgeId);
+        return;
+      }
+      setConnectSourceId(null);
+    }
     onSelect(edgeId);
     setEditingEdgeId(edgeId);
+  }
+
+  function handleToggleAssociationClass(nodeId: string) {
+    commit({
+      ...diagram,
+      nodes: diagram.nodes.map((n) =>
+        n.id === nodeId ? { ...n, type: n.type === 'associationClass' ? 'class' : 'associationClass' } : n
+      ),
+    });
   }
 
   function handleBackgroundClick() {
@@ -257,6 +286,15 @@ export default function ClassDiagramCanvas({
     commit({ ...diagram, edges: diagram.edges.filter((e) => e.id !== editingEdgeId) });
     setEditingEdgeId(null);
     onSelect(null);
+  }
+
+  function handleRemoveAttribute(nodeId: string, attributeId: string) {
+    commit({
+      ...diagram,
+      nodes: diagram.nodes.map((n) =>
+        n.id === nodeId ? { ...n, attributes: n.attributes.filter((a) => a.id !== attributeId) } : n
+      ),
+    });
   }
 
   function removeSelected() {
@@ -431,6 +469,8 @@ export default function ClassDiagramCanvas({
             onEdgeUpdate={handleEdgeUpdate}
             onEdgeDelete={handleEdgeDelete}
             onEditorClose={() => setEditingEdgeId(null)}
+            onRemoveAttribute={handleRemoveAttribute}
+            onToggleAssociationClass={handleToggleAssociationClass}
             containerRef={containerRef}
           />
         </div>

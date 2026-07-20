@@ -1,0 +1,143 @@
+{
+  "id": "cdb-fos-guided",
+  "mode": "guided",
+  "title": "FOS — Đặt hàng (Class Diagram)",
+  "brief": [
+    "Customer đặt nhiều Order.",
+    "Mỗi Order gồm nhiều OrderLine, mỗi OrderLine tham chiếu đúng 1 Product.",
+    "quantity và priceAtPurchase (giá tại thời điểm mua) thuộc về mối quan hệ giữa Order và Product — không phải riêng của Order hay Product — nên OrderLine đóng vai trò association class gắn vào quan hệ đó.",
+    "Mỗi Customer có thể có 1 ShippingAddress (địa chỉ giao hàng) riêng, tồn tại gắn liền với Customer đó."
+  ],
+  "palette": [
+    { "label": "Customer", "kind": "class" },
+    { "label": "Order", "kind": "class" },
+    { "label": "Product", "kind": "class" },
+    { "label": "OrderLine", "kind": "class" },
+    { "label": "ShippingAddress", "kind": "class" },
+    { "label": "name", "kind": "attribute", "targetClassKey": "Customer" },
+    { "label": "orderDate", "kind": "attribute", "targetClassKey": "Order" },
+    { "label": "name", "kind": "attribute", "targetClassKey": "Product" },
+    { "label": "price", "kind": "attribute", "targetClassKey": "Product" },
+    { "label": "quantity", "kind": "attribute", "targetClassKey": "OrderLine" },
+    { "label": "priceAtPurchase", "kind": "attribute", "targetClassKey": "OrderLine" },
+    { "label": "street", "kind": "attribute", "targetClassKey": "ShippingAddress" },
+    { "label": "city", "kind": "attribute", "targetClassKey": "ShippingAddress" },
+    {
+      "label": "Đặt hàng",
+      "kind": "verb-trap",
+      "trapTag": "class-is-object",
+      "trapMessage": "'Đặt hàng' là một hành vi (sẽ thành tên quan hệ hoặc operation), không phải class."
+    },
+    {
+      "label": "Tên khách hàng",
+      "kind": "attribute-trap",
+      "targetClassKey": "Customer",
+      "trapMessage": "'Tên khách hàng' nên là attribute 'name' của Customer, không phải một class riêng."
+    }
+  ],
+  "steps": [
+    "find-classes",
+    "place-attributes",
+    "draw-associations",
+    "set-multiplicity",
+    "choose-edge-types",
+    "association-class",
+    "compare"
+  ],
+  "target": {
+    "classes": [
+      {
+        "key": "Customer",
+        "name": { "canonical": "Customer", "accepted": ["khach hang", "khachhang"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "name", "accepted": ["ten"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "Order",
+        "name": { "canonical": "Order", "accepted": ["don hang", "donhang", "orders"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "orderDate", "accepted": ["ngay dat", "ngaydat"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "Product",
+        "name": { "canonical": "Product", "accepted": ["san pham", "sanpham"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "name", "accepted": ["ten"] }, "requirement": "required" },
+          { "name": { "canonical": "price", "accepted": ["gia", "gia ban"] }, "requirement": "required" },
+          {
+            "name": { "canonical": "quantity", "accepted": ["so luong", "soluong"] },
+            "requirement": "forbidden",
+            "forbiddenTag": "relationship-data",
+            "forbiddenReason": "'quantity' thuộc về mối quan hệ giữa Order và Product (association class OrderLine), không phải riêng của Product — mỗi Product có 1 giá, nhưng số lượng thì khác nhau ở từng đơn hàng."
+          },
+          {
+            "name": { "canonical": "priceAtPurchase", "accepted": ["gia luc mua", "gialucmua"] },
+            "requirement": "forbidden",
+            "forbiddenTag": "relationship-data",
+            "forbiddenReason": "'priceAtPurchase' là giá tại thời điểm MUA của một đơn hàng cụ thể — thuộc về quan hệ Order–Product (OrderLine), không phải giá niêm yết cố định của Product."
+          }
+        ]
+      },
+      {
+        "key": "OrderLine",
+        "name": { "canonical": "OrderLine", "accepted": ["dong don hang", "chi tiet don hang", "orderline"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "quantity", "accepted": ["so luong", "soluong"] }, "requirement": "required" },
+          { "name": { "canonical": "priceAtPurchase", "accepted": ["gia luc mua", "gialucmua"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "ShippingAddress",
+        "name": { "canonical": "ShippingAddress", "accepted": ["dia chi giao hang", "diachigiaohang", "dia chi"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "street", "accepted": ["duong", "dia chi duong"] }, "requirement": "required" },
+          { "name": { "canonical": "city", "accepted": ["thanh pho", "thanhpho"] }, "requirement": "optional" }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "fromKey": "Customer",
+        "toKey": "Order",
+        "type": "association",
+        "name": { "canonical": "places", "accepted": ["dat", "dat hang"] },
+        "multiplicity": { "from": "1", "to": "0..*" },
+        "requirement": "required"
+      },
+      {
+        "fromKey": "Order",
+        "toKey": "Product",
+        "type": "association",
+        "name": { "canonical": "includes", "accepted": ["gom", "bao gom", "chua"] },
+        "multiplicity": { "from": "0..*", "to": "0..*" },
+        "requirement": "required",
+        "associationClassKey": "OrderLine"
+      },
+      {
+        "fromKey": "Customer",
+        "toKey": "ShippingAddress",
+        "type": "composition",
+        "multiplicity": { "from": "1", "to": "0..1" },
+        "requirement": "required",
+        "wrongTypeTag": "aggregation-equals-composition",
+        "reason": "ShippingAddress chỉ tồn tại gắn liền với đúng 1 Customer và bị xóa theo khi Customer bị xóa — đây là Composition, không phải Aggregation."
+      }
+    ]
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "slide_texts/Ch07_Static_Modeling.txt — Slide 11 (Association Classes)",
+    "slide_texts/Ch07_Static_Modeling.txt — Slide 12-14 (Composition & Aggregation)",
+    "content/lessons/L04-01.json — misconception 'class-is-object'",
+    "content/lessons/L04-02.json — Customer 1 — Order 0..* association/multiplicity, FOS exit ticket Product/OrderItem",
+    "content/lessons/L04-04.json — Order/OrderItem composition example",
+    "Product owner decision (this conversation): OrderLine modeled as association class on Order–Product edge; Customer–ShippingAddress added as the composition example for the whole-part step"
+  ]
+}

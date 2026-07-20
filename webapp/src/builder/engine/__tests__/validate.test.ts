@@ -9,11 +9,13 @@ describe('V2 findClasses', () => {
     expect(items.filter((i) => i.severity === 'warn' || i.severity === 'error')).toHaveLength(0);
   });
 
-  it('reports the missing class by name when one is absent', () => {
+  it('reports the missing class by name when one is absent, blocking (warn) not just hinting', () => {
     const d = perfectDiagram();
     d.nodes = d.nodes.filter((n) => n.name !== 'Project');
     const items = findClasses(d, lesson);
-    expect(items.some((i) => i.message.includes('Project'))).toBe(true);
+    const missing = items.find((i) => i.message.includes('Project'));
+    expect(missing).toBeDefined();
+    expect(missing?.severity).toBe('warn');
   });
 
   it('tags a dragged verb-trap with its misconception tag', () => {
@@ -41,14 +43,25 @@ describe('V3 placeAttributes', () => {
     const items = placeAttributes(d, lesson);
     expect(items.some((i) => i.tag === 'relationship-data')).toBe(true);
   });
+
+  it('blocks (warn, not hint) when a required attribute is missing', () => {
+    const d = perfectDiagram();
+    const employee = d.nodes.find((n) => n.name === 'Employee')!;
+    employee.attributes = [];
+    const items = placeAttributes(d, lesson);
+    const missing = items.find((i) => i.message.includes('name'));
+    expect(missing?.severity).toBe('warn');
+  });
 });
 
 describe('V4 drawAssociations', () => {
-  it('reports the missing class pair when a required edge is absent', () => {
+  it('reports the missing class pair when a required edge is absent, blocking (warn)', () => {
     const d = perfectDiagram();
     d.edges = d.edges.filter((e) => e.id !== 'e-worksIn');
     const items = drawAssociations(d, lesson);
-    expect(items.some((i) => i.message.includes('Employee') && i.message.includes('Department'))).toBe(true);
+    const missing = items.find((i) => i.message.includes('Employee') && i.message.includes('Department'));
+    expect(missing).toBeDefined();
+    expect(missing?.severity).toBe('warn');
   });
 
   it('flags an extra edge not present in the target', () => {
@@ -76,6 +89,14 @@ describe('V5 setMultiplicity', () => {
     const items = setMultiplicity(d, lesson);
     expect(items).toHaveLength(2);
     expect(items.every((i) => i.tag === 'department-fk')).toBe(true);
+  });
+
+  it('blocks when the edge exists but multiplicity has not been set yet (regression: freshly click-to-connected edges have no multiplicity)', () => {
+    const d = perfectDiagram();
+    const worksIn = d.edges.find((e) => e.id === 'e-worksIn')!;
+    delete worksIn.multiplicity;
+    const items = setMultiplicity(d, lesson);
+    expect(items.some((i) => i.severity === 'warn' && i.subjectId === 'e-worksIn')).toBe(true);
   });
 
   it('falls back to the generic multiplicity-fk tag when no override is set', () => {
@@ -111,6 +132,43 @@ describe('V7 associationClassStep', () => {
   it('passes when the association class is correctly attached', () => {
     const items = associationClassStep(perfectDiagram(), lesson);
     expect(items.filter((i) => i.severity === 'warn' || i.severity === 'error')).toHaveLength(0);
+  });
+
+  it('blocks (warn, not hint) when the association class node is missing entirely', () => {
+    const d = perfectDiagram();
+    d.nodes = d.nodes.filter((n) => n.name !== 'Staffing');
+    const items = associationClassStep(d, lesson);
+    const missing = items.find((i) => i.message.includes('Staffing'));
+    expect(missing?.severity).toBe('warn');
+  });
+});
+
+describe('guided step gating (regression: a step must not be skippable while its own requirement is unmet)', () => {
+  const isBlocked = (items: ReturnType<typeof findClasses>) => items.some((i) => i.severity === 'warn' || i.severity === 'error');
+
+  it('find-classes blocks on an empty diagram, and clears once all required classes are placed', () => {
+    expect(isBlocked(findClasses(emptyDiagram(), lesson))).toBe(true);
+    const classesOnly: DiagramState = { nodes: perfectDiagram().nodes, edges: [] };
+    expect(isBlocked(findClasses(classesOnly, lesson))).toBe(false);
+  });
+
+  it('place-attributes still blocks with classes present but attributes missing (V2 passing must not fake V3 passing)', () => {
+    const classesOnly: DiagramState = {
+      nodes: perfectDiagram().nodes.map((n) => ({ ...n, attributes: [] })),
+      edges: [],
+    };
+    expect(isBlocked(placeAttributes(classesOnly, lesson))).toBe(true);
+  });
+
+  it('draw-associations still blocks with classes+attributes present but no edges drawn (regression for the bug found in manual QA)', () => {
+    const noEdges: DiagramState = { nodes: perfectDiagram().nodes, edges: [] };
+    expect(isBlocked(drawAssociations(noEdges, lesson))).toBe(true);
+  });
+
+  it('association-class still blocks with everything else present but the association class node missing', () => {
+    const d = perfectDiagram();
+    d.nodes = d.nodes.filter((n) => n.name !== 'Staffing');
+    expect(isBlocked(associationClassStep(d, lesson))).toBe(true);
   });
 });
 

@@ -32,7 +32,7 @@ function attributeFeedback(node: DiagramNode, targetClass: TargetClass, subjectI
     const found = node.attributes.find((a) => match(a.name, attr.name));
     if (attr.requirement === 'required' && !found) {
       items.push({
-        severity: 'hint',
+        severity: 'warn',
         message: `Class '${targetClass.name.canonical}' còn thiếu attribute '${attr.name.canonical}'.`,
         subjectId,
       });
@@ -58,7 +58,7 @@ export function findClasses(d: DiagramState, t: BuilderLesson): FeedbackItem[] {
   for (const tc of requiredClasses) {
     const node = d.nodes.find((n) => n.type === 'class' && match(n.name, tc.name));
     if (!node) {
-      items.push({ severity: 'hint', message: `Còn thiếu class '${tc.name.canonical}' trên canvas.` });
+      items.push({ severity: 'warn', message: `Còn thiếu class '${tc.name.canonical}' trên canvas.` });
     }
   }
 
@@ -119,7 +119,7 @@ export function drawAssociations(d: DiagramState, t: BuilderLesson): FeedbackIte
     const edge = findEdgeForPair(d, resolved.fromNode, resolved.toNode, directed);
     if (!edge) {
       items.push({
-        severity: 'hint',
+        severity: 'warn',
         message: `Giữa '${resolved.fromTc.name.canonical}' và '${resolved.toTc.name.canonical}' còn thiếu một quan hệ.`,
       });
       continue;
@@ -179,7 +179,17 @@ export function setMultiplicity(d: DiagramState, t: BuilderLesson): FeedbackItem
     const resolved = resolveEdgeEndpoints(d, t, te);
     if (!resolved || !resolved.fromNode || !resolved.toNode || !te.multiplicity) continue;
     const edge = findEdgeForPair(d, resolved.fromNode, resolved.toNode, te.type === 'generalization');
-    if (!edge || !edge.multiplicity) continue;
+    if (!edge) continue;
+
+    if (!edge.multiplicity) {
+      items.push({
+        severity: 'warn',
+        message: `Quan hệ giữa '${resolved.fromTc.name.canonical}' và '${resolved.toTc.name.canonical}' chưa chọn multiplicity.`,
+        tag: te.wrongMultiplicityTag || 'multiplicity-fk',
+        subjectId: edge.id,
+      });
+      continue;
+    }
 
     const sameDirection = edge.from === resolved.fromNode.id;
     const actualFrom = sameDirection ? edge.multiplicity.from : edge.multiplicity.to;
@@ -285,7 +295,7 @@ export function associationClassStep(d: DiagramState, t: BuilderLesson): Feedbac
 
     if (!acNode) {
       items.push({
-        severity: 'hint',
+        severity: 'warn',
         message: `Còn thiếu association class '${acTarget.name.canonical}' gắn vào quan hệ giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}'.`,
       });
       continue;
