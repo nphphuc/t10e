@@ -10,10 +10,11 @@ import {
   PointerSensor,
 } from '@dnd-kit/core';
 import type { DragEndEvent } from '@dnd-kit/core';
-import type { DiagramState, PaletteItem } from '../engine/types';
+import type { DiagramEdge, DiagramState, PaletteItem } from '../engine/types';
 import CanvasNode from './CanvasNode';
 import CanvasEdge from './CanvasEdge';
-import { NODE_WIDTH, nodeHeight } from './layout';
+import EdgeEndEditor from './EdgeEndEditor';
+import { NODE_WIDTH, nodeCenter, nodeHeight } from './layout';
 
 export interface ClassDiagramCanvasProps {
   diagram: DiagramState;
@@ -23,8 +24,6 @@ export interface ClassDiagramCanvasProps {
   onSelect: (id: string | null) => void;
   highlightSubjectId?: string | null;
   mode: 'guided' | 'pe';
-  onStartConnect?: (nodeId: string) => void;
-  connectSourceId?: string | null;
 }
 
 function uid(prefix: string): string {
@@ -66,19 +65,29 @@ function PaletteChip({ item, index }: { item: PaletteItem; index: number }) {
 
 function CanvasSurface({
   diagram,
-  onSelect,
   selectedId,
   highlightSubjectId,
-  onStartConnect,
   connectSourceId,
+  editingEdge,
+  onNodeClick,
+  onEdgeClick,
+  onBackgroundClick,
+  onEdgeUpdate,
+  onEdgeDelete,
+  onEditorClose,
   containerRef,
 }: {
   diagram: DiagramState;
-  onSelect: (id: string | null) => void;
   selectedId: string | null;
   highlightSubjectId?: string | null;
-  onStartConnect?: (nodeId: string) => void;
-  connectSourceId?: string | null;
+  connectSourceId: string | null;
+  editingEdge: DiagramEdge | null;
+  onNodeClick: (id: string) => void;
+  onEdgeClick: (id: string) => void;
+  onBackgroundClick: () => void;
+  onEdgeUpdate: (patch: Partial<DiagramEdge>) => void;
+  onEdgeDelete: () => void;
+  onEditorClose: () => void;
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
@@ -97,6 +106,16 @@ function CanvasSurface({
   }, [containerRef]);
 
   const nodesById = new Map(diagram.nodes.map((n) => [n.id, n]));
+  const editorFromNode = editingEdge ? nodesById.get(editingEdge.from) : undefined;
+  const editorToNode = editingEdge ? nodesById.get(editingEdge.to) : undefined;
+  const editorPos =
+    editingEdge && editorFromNode && editorToNode
+      ? (() => {
+          const from = nodeCenter(editorFromNode.x, editorFromNode.y, editorFromNode.attributes.length);
+          const to = nodeCenter(editorToNode.x, editorToNode.y, editorToNode.attributes.length);
+          return { left: (from.cx + to.cx) / 2, top: (from.cy + to.cy) / 2 };
+        })()
+      : null;
 
   return (
     <div
@@ -105,8 +124,17 @@ function CanvasSurface({
         setNodeRef(el);
       }}
       className="w-full h-[520px] bg-[#090a0c]/60 border border-gray-800 rounded-2xl overflow-hidden relative"
-      onClick={() => onSelect(null)}
+      onClick={onBackgroundClick}
     >
+      {connectSourceId && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="absolute top-2 left-1/2 -translate-x-1/2 z-30 px-3 py-1.5 rounded-full bg-success/90 text-white text-[11px] font-bold shadow-lg"
+        >
+          Chọn class đích...
+        </div>
+      )}
       <svg width={size.width} height={size.height} viewBox={`0 0 ${size.width} ${size.height}`}>
         {diagram.edges.map((edge) => {
           const fromNode = nodesById.get(edge.from);
@@ -122,7 +150,7 @@ function CanvasSurface({
               attachedNode={attachedNode}
               selected={selectedId === edge.id}
               highlighted={highlightSubjectId === edge.id}
-              onSelect={onSelect}
+              onSelect={onEdgeClick}
             />
           );
         })}
@@ -132,12 +160,25 @@ function CanvasSurface({
             node={node}
             selected={selectedId === node.id}
             highlighted={highlightSubjectId === node.id}
-            onSelect={onSelect}
-            onStartConnect={onStartConnect}
+            onSelect={onNodeClick}
+            onStartConnect={onNodeClick}
             isConnectSource={connectSourceId === node.id}
           />
         ))}
       </svg>
+
+      {editingEdge && editorFromNode && editorToNode && editorPos && (
+        <div style={{ position: 'absolute', left: editorPos.left, top: editorPos.top }}>
+          <EdgeEndEditor
+            edge={editingEdge}
+            fromNode={editorFromNode}
+            toNode={editorToNode}
+            onUpdate={onEdgeUpdate}
+            onDelete={onEdgeDelete}
+            onClose={onEditorClose}
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -150,13 +191,113 @@ export default function ClassDiagramCanvas({
   onSelect,
   highlightSubjectId,
   mode,
-  onStartConnect,
-  connectSourceId,
 }: ClassDiagramCanvasProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [addingClass, setAddingClass] = useState(false);
   const [newClassName, setNewClassName] = useState('');
+  const [connectSourceId, setConnectSourceId] = useState<string | null>(null);
+  const [editingEdgeId, setEditingEdgeId] = useState<string | null>(null);
+  const undoSnapshotRef = useRef<DiagramState | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
+
+  function commit(next: DiagramState) {
+    undoSnapshotRef.current = diagram;
+    onChange(next);
+  }
+
+  function undo() {
+    if (!undoSnapshotRef.current) return;
+    onChange(undoSnapshotRef.current);
+    undoSnapshotRef.current = null;
+  }
+
+  const editingEdge = editingEdgeId ? diagram.edges.find((e) => e.id === editingEdgeId) ?? null : null;
+
+  function handleNodeClick(nodeId: string) {
+    if (connectSourceId && connectSourceId !== nodeId) {
+      const newEdge: DiagramEdge = { id: uid('edge'), from: connectSourceId, to: nodeId, type: 'association' };
+      commit({ ...diagram, edges: [...diagram.edges, newEdge] });
+      setConnectSourceId(null);
+      onSelect(newEdge.id);
+      setEditingEdgeId(newEdge.id);
+      return;
+    }
+    if (connectSourceId === nodeId) {
+      setConnectSourceId(null);
+      onSelect(nodeId);
+      return;
+    }
+    setConnectSourceId(nodeId);
+    setEditingEdgeId(null);
+    onSelect(nodeId);
+  }
+
+  function handleEdgeClick(edgeId: string) {
+    setConnectSourceId(null);
+    onSelect(edgeId);
+    setEditingEdgeId(edgeId);
+  }
+
+  function handleBackgroundClick() {
+    setConnectSourceId(null);
+    setEditingEdgeId(null);
+    onSelect(null);
+  }
+
+  function handleEdgeUpdate(patch: Partial<DiagramEdge>) {
+    if (!editingEdgeId) return;
+    commit({
+      ...diagram,
+      edges: diagram.edges.map((e) => (e.id === editingEdgeId ? { ...e, ...patch } : e)),
+    });
+  }
+
+  function handleEdgeDelete() {
+    if (!editingEdgeId) return;
+    commit({ ...diagram, edges: diagram.edges.filter((e) => e.id !== editingEdgeId) });
+    setEditingEdgeId(null);
+    onSelect(null);
+  }
+
+  function removeSelected() {
+    if (!selectedId) return;
+    const isNode = diagram.nodes.some((n) => n.id === selectedId);
+    if (isNode) {
+      commit({
+        nodes: diagram.nodes.filter((n) => n.id !== selectedId),
+        edges: diagram.edges
+          .filter((e) => e.from !== selectedId && e.to !== selectedId)
+          .map((e) => (e.attachedClassId === selectedId ? { ...e, attachedClassId: undefined } : e)),
+      });
+    } else {
+      commit({ ...diagram, edges: diagram.edges.filter((e) => e.id !== selectedId) });
+    }
+    setSelectedIdAfterDelete();
+  }
+
+  function setSelectedIdAfterDelete() {
+    setConnectSourceId(null);
+    setEditingEdgeId(null);
+    onSelect(null);
+  }
+
+  useEffect(() => {
+    function onKeyDown(e: KeyboardEvent) {
+      const target = e.target as HTMLElement;
+      const isEditable = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable;
+      if (isEditable) return;
+      if ((e.key === 'Delete' || e.key === 'Backspace') && selectedId) {
+        e.preventDefault();
+        removeSelected();
+      } else if (e.key === 'z' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        undo();
+      }
+    }
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  });
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event;
@@ -165,7 +306,7 @@ export default function ClassDiagramCanvas({
 
     if (activeData.kind === 'move-node' && activeData.nodeId) {
       const nodeId = activeData.nodeId;
-      onChange({
+      commit({
         ...diagram,
         nodes: diagram.nodes.map((n) =>
           n.id === nodeId ? { ...n, x: Math.max(0, n.x + event.delta.x), y: Math.max(0, n.y + event.delta.y) } : n
@@ -193,7 +334,7 @@ export default function ClassDiagramCanvas({
 
       if (item.kind === 'attribute') {
         if (!targetNode) return;
-        onChange({
+        commit({
           ...diagram,
           nodes: diagram.nodes.map((n) =>
             n.id === targetNode.id ? { ...n, attributes: [...n.attributes, { id: uid('attr'), name: item.label }] } : n
@@ -206,7 +347,7 @@ export default function ClassDiagramCanvas({
         const x = Math.min(Math.max(dropX - NODE_WIDTH / 2, 0), bounds.width - NODE_WIDTH);
         const y = Math.min(Math.max(dropY - nodeHeight(0) / 2, 0), Math.max(bounds.height - nodeHeight(0), 0));
 
-        onChange({
+        commit({
           ...diagram,
           nodes: [...diagram.nodes, { id: uid('node'), type: 'class', name: item.label, attributes: [], x, y }],
         });
@@ -218,7 +359,7 @@ export default function ClassDiagramCanvas({
     const name = newClassName.trim();
     if (!name) return;
     const idx = diagram.nodes.length;
-    onChange({
+    commit({
       ...diagram,
       nodes: [
         ...diagram.nodes,
@@ -268,16 +409,28 @@ export default function ClassDiagramCanvas({
               )}
             </div>
           )}
+          <button
+            onClick={undo}
+            disabled={!undoSnapshotRef.current}
+            className="px-3 py-1.5 rounded-xl border border-gray-700 text-[11px] font-semibold text-gray-400 hover:text-gray-200 hover:border-gray-500 disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            ↺ Hoàn tác
+          </button>
         </div>
 
         <div className="flex-1 min-w-0">
           <CanvasSurface
             diagram={diagram}
-            onSelect={onSelect}
             selectedId={selectedId}
             highlightSubjectId={highlightSubjectId}
-            onStartConnect={onStartConnect}
             connectSourceId={connectSourceId}
+            editingEdge={editingEdge}
+            onNodeClick={handleNodeClick}
+            onEdgeClick={handleEdgeClick}
+            onBackgroundClick={handleBackgroundClick}
+            onEdgeUpdate={handleEdgeUpdate}
+            onEdgeDelete={handleEdgeDelete}
+            onEditorClose={() => setEditingEdgeId(null)}
             containerRef={containerRef}
           />
         </div>
