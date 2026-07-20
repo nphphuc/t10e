@@ -264,9 +264,15 @@ export default function LandingPage() {
             <NavCard
               icon="/thipe.png"
               glowColor="#06b6d4"
-              onClick={() => navigate('/pe-review')}
+              disabled
             />
-            <span className="text-lg font-bold text-gray-200">Ôn thi PE</span>
+            <div className="flex items-center gap-2">
+              <span className="text-lg font-bold text-gray-200">Ôn thi PE</span>
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/12 border border-amber-500/25 text-amber-400 text-[9px] font-bold uppercase tracking-wider">
+                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                đang hoàn thiện
+              </span>
+            </div>
           </div>
 
           {/* Card 3: Ôn thi FE (đang hoàn thiện) */}
