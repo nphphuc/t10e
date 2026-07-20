@@ -98,6 +98,8 @@ function CanvasSurface({
   focusedNodeId,
   onFocusNode,
   onBlurNode,
+  mode,
+  onAddAttributeTyped,
   containerRef,
 }: {
   diagram: DiagramState;
@@ -118,6 +120,8 @@ function CanvasSurface({
   focusedNodeId: string | null;
   onFocusNode: (id: string) => void;
   onBlurNode: () => void;
+  mode: 'guided' | 'pe';
+  onAddAttributeTyped: (nodeId: string, name: string) => void;
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
@@ -200,7 +204,7 @@ function CanvasSurface({
             selected={selectedId === node.id}
             highlighted={highlightSubjectId === node.id}
             onSelect={onNodeClick}
-            onStartConnect={onNodeClick}
+            onStartConnect={onStartConnectFromToolbar}
             isConnectSource={connectSourceId === node.id}
             onRemoveAttribute={onRemoveAttribute}
             onToggleAssociationClass={onToggleAssociationClass}
@@ -243,9 +247,31 @@ function CanvasSurface({
           >
             🗑️ Xóa
           </button>
+          {mode === 'pe' && (
+            <AttributeAddForm nodeId={toolbarNode.id} onAdd={onAddAttributeTyped} />
+          )}
         </div>
       )}
     </div>
+  );
+}
+
+function AttributeAddForm({ nodeId, onAdd }: { nodeId: string; onAdd: (nodeId: string, name: string) => void }) {
+  const [value, setValue] = useState('');
+  return (
+    <input
+      value={value}
+      onChange={(e) => setValue(e.target.value)}
+      onKeyDown={(e) => {
+        e.stopPropagation();
+        if (e.key === 'Enter' && value.trim()) {
+          onAdd(nodeId, value.trim());
+          setValue('');
+        }
+      }}
+      placeholder="+ attribute..."
+      className="canvas-focusable px-2 py-1 rounded-lg bg-gray-800 border border-gray-600 text-[10px] text-gray-200 w-24 focus:outline-none"
+    />
   );
 }
 
@@ -282,6 +308,12 @@ export default function ClassDiagramCanvas({
 
   const editingEdge = editingEdgeId ? diagram.edges.find((e) => e.id === editingEdgeId) ?? null : null;
 
+  function armConnect(nodeId: string) {
+    setConnectSourceId(nodeId);
+    setEditingEdgeId(null);
+    onSelect(nodeId);
+  }
+
   function handleNodeClick(nodeId: string) {
     if (connectSourceId && connectSourceId !== nodeId) {
       const sourceName = diagram.nodes.find((n) => n.id === connectSourceId)?.name;
@@ -299,7 +331,16 @@ export default function ClassDiagramCanvas({
       onSelect(nodeId);
       return;
     }
-    setConnectSourceId(nodeId);
+    // Guided mode's mouse flow arms connect-mode on the very first click of a node
+    // (per handoff §6.2: "click nguồn → click đích"). PE mode's primary node
+    // interaction is typing attributes via the toolbar, so a plain click there must
+    // only select — arming requires the explicit "🔗 Nối quan hệ" button or N key
+    // (armConnect below), otherwise clicking a second node to add ITS attribute would
+    // instead complete an unwanted edge from the first.
+    if (mode === 'guided') {
+      armConnect(nodeId);
+      return;
+    }
     setEditingEdgeId(null);
     onSelect(nodeId);
   }
@@ -425,16 +466,16 @@ export default function ClassDiagramCanvas({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
 
-  // Shared by mouse drag-end and the keyboard lift/drop flow below.
-  function addAttributeToNode(nodeId: string, item: PaletteItem) {
+  // Shared by mouse drag-end, the keyboard lift/drop flow, and PE mode's typed input.
+  function addAttributeToNode(nodeId: string, name: string) {
     const node = diagram.nodes.find((n) => n.id === nodeId);
     commit({
       ...diagram,
       nodes: diagram.nodes.map((n) =>
-        n.id === nodeId ? { ...n, attributes: [...n.attributes, { id: uid('attr'), name: item.label }] } : n
+        n.id === nodeId ? { ...n, attributes: [...n.attributes, { id: uid('attr'), name }] } : n
       ),
     });
-    setAnnouncement(`Đã thêm attribute ${item.label} vào ${node?.name}`);
+    setAnnouncement(`Đã thêm attribute ${name} vào ${node?.name}`);
   }
 
   function createNodeAt(item: PaletteItem, x: number, y: number) {
@@ -484,7 +525,7 @@ export default function ClassDiagramCanvas({
       );
 
       if (item.kind === 'attribute' && targetNode) {
-        addAttributeToNode(targetNode.id, item);
+        addAttributeToNode(targetNode.id, item.label);
         return;
       }
 
@@ -502,7 +543,7 @@ export default function ClassDiagramCanvas({
 
     if (target.kind === 'node') {
       if (item.kind === 'attribute') {
-        addAttributeToNode(target.nodeId, item);
+        addAttributeToNode(target.nodeId, item.label);
       } else {
         const targetNode = diagram.nodes.find((n) => n.id === target.nodeId);
         createNodeAt(item, (targetNode?.x ?? 0) + 24, (targetNode?.y ?? 0) + 24);
@@ -633,11 +674,13 @@ export default function ClassDiagramCanvas({
             onEditorClose={() => setEditingEdgeId(null)}
             onRemoveAttribute={handleRemoveAttribute}
             onToggleAssociationClass={handleToggleAssociationClass}
-            onStartConnectFromToolbar={handleNodeClick}
+            onStartConnectFromToolbar={armConnect}
             onDeleteSelected={removeNode}
             focusedNodeId={focusedNodeId}
             onFocusNode={setFocusedNodeId}
             onBlurNode={() => setFocusedNodeId(null)}
+            mode={mode}
+            onAddAttributeTyped={addAttributeToNode}
             containerRef={containerRef}
           />
         </div>

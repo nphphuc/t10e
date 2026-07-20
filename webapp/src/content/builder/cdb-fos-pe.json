@@ -1,0 +1,107 @@
+{
+  "id": "cdb-fos-pe",
+  "mode": "pe",
+  "title": "FOS — Đặt hàng (PE Mode)",
+  "brief": [
+    "Hệ thống FOS cho phép một khách hàng lập nhiều đơn hàng theo thời gian.",
+    "Một đơn hàng bao gồm nhiều dòng, mỗi dòng ứng với đúng một sản phẩm trong catalog.",
+    "Số lượng mua và đơn giá tại thời điểm giao dịch KHÔNG cố định theo sản phẩm — chúng gắn liền với từng lần một sản phẩm cụ thể xuất hiện trong một đơn hàng cụ thể.",
+    "Khách hàng có thể lưu sẵn một địa chỉ giao hàng; địa chỉ này không có ý nghĩa gì nếu tách rời khỏi khách hàng sở hữu nó.",
+    "Hãy tự dựng class diagram đầy đủ cho mô tả trên: class, attribute, association, multiplicity, loại quan hệ và association class (nếu cần)."
+  ],
+  "palette": [],
+  "steps": ["free-build", "review"],
+  "target": {
+    "classes": [
+      {
+        "key": "Customer",
+        "name": { "canonical": "Customer", "accepted": ["khach hang", "khachhang"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "name", "accepted": ["ten"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "Order",
+        "name": { "canonical": "Order", "accepted": ["don hang", "donhang", "orders"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "orderDate", "accepted": ["ngay dat", "ngaydat"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "Product",
+        "name": { "canonical": "Product", "accepted": ["san pham", "sanpham"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "name", "accepted": ["ten"] }, "requirement": "required" },
+          { "name": { "canonical": "price", "accepted": ["gia", "gia ban"] }, "requirement": "required" },
+          {
+            "name": { "canonical": "quantity", "accepted": ["so luong", "soluong"] },
+            "requirement": "forbidden",
+            "forbiddenTag": "relationship-data",
+            "forbiddenReason": "'quantity' thuộc về mối quan hệ giữa Order và Product (association class OrderLine), không phải riêng của Product."
+          },
+          {
+            "name": { "canonical": "priceAtPurchase", "accepted": ["gia luc mua", "gialucmua"] },
+            "requirement": "forbidden",
+            "forbiddenTag": "relationship-data",
+            "forbiddenReason": "'priceAtPurchase' là giá tại thời điểm giao dịch cụ thể — thuộc về quan hệ Order–Product, không phải giá niêm yết cố định của Product."
+          }
+        ]
+      },
+      {
+        "key": "OrderLine",
+        "name": { "canonical": "OrderLine", "accepted": ["dong don hang", "chi tiet don hang", "orderline"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "quantity", "accepted": ["so luong", "soluong"] }, "requirement": "required" },
+          { "name": { "canonical": "priceAtPurchase", "accepted": ["gia luc mua", "gialucmua"] }, "requirement": "required" }
+        ]
+      },
+      {
+        "key": "ShippingAddress",
+        "name": { "canonical": "ShippingAddress", "accepted": ["dia chi giao hang", "diachigiaohang", "dia chi"] },
+        "requirement": "required",
+        "attributes": [
+          { "name": { "canonical": "street", "accepted": ["duong", "dia chi duong"] }, "requirement": "required" },
+          { "name": { "canonical": "city", "accepted": ["thanh pho", "thanhpho"] }, "requirement": "optional" }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "fromKey": "Customer",
+        "toKey": "Order",
+        "type": "association",
+        "name": { "canonical": "places", "accepted": ["dat", "dat hang"] },
+        "multiplicity": { "from": "1", "to": "0..*" },
+        "requirement": "required"
+      },
+      {
+        "fromKey": "Order",
+        "toKey": "Product",
+        "type": "association",
+        "name": { "canonical": "includes", "accepted": ["gom", "bao gom", "chua"] },
+        "multiplicity": { "from": "0..*", "to": "0..*" },
+        "requirement": "required",
+        "associationClassKey": "OrderLine"
+      },
+      {
+        "fromKey": "Customer",
+        "toKey": "ShippingAddress",
+        "type": "composition",
+        "multiplicity": { "from": "1", "to": "0..1" },
+        "requirement": "required",
+        "wrongTypeTag": "aggregation-equals-composition",
+        "reason": "ShippingAddress chỉ tồn tại gắn liền với đúng 1 Customer và bị xóa theo khi Customer bị xóa — đây là Composition, không phải Aggregation."
+      }
+    ]
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "slide_texts/Ch07_Static_Modeling.txt — Slide 11 (Association Classes), Slide 12-14 (Composition & Aggregation)",
+    "content/lessons/L04-02.json, L04-04.json — cùng cấu trúc miền FOS đã dùng cho cdb-fos-guided.json",
+    "Product owner decision (this conversation): dùng chung target spec với bản Guided, chỉ viết lại brief cho PE mode"
+  ]
+}
