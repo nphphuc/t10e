@@ -170,6 +170,23 @@ describe('guided step gating (regression: a step must not be skippable while its
     d.nodes = d.nodes.filter((n) => n.name !== 'Staffing');
     expect(isBlocked(associationClassStep(d, lesson))).toBe(true);
   });
+
+  // Regression: a real user reported reaching a later step (place-attributes,
+  // draw-associations, set-multiplicity, choose-edge-types), deleting everything on
+  // the canvas, and still being able to click "Tiếp" through. Root cause: each of
+  // those validators only iterated diagram.nodes/edges that *existed*, so an empty
+  // diagram gave them literally nothing to loop over and they returned zero
+  // warnings. The canvas is live/editable regardless of which step is displayed —
+  // nothing stops a learner from deleting a class while parked on any step — so
+  // every validator must independently detect its own missing prerequisites rather
+  // than assuming an earlier step already guaranteed them.
+  it('every per-step validator blocks standalone on a totally empty diagram (not just find-classes)', () => {
+    const validators = [findClasses, placeAttributes, drawAssociations, setMultiplicity, chooseEdgeTypes, associationClassStep];
+    for (const validator of validators) {
+      const items = validator(emptyDiagram(), lesson);
+      expect(isBlocked(items), `${validator.name} must block on an empty diagram`).toBe(true);
+    }
+  });
 });
 
 describe('diffDiagram', () => {

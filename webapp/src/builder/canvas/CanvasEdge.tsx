@@ -1,5 +1,23 @@
 import type { DiagramEdge, DiagramNode } from '../engine/types';
-import { nodeCenter, NODE_WIDTH } from './layout';
+import { nodeCenter, nodeHeight, NODE_WIDTH } from './layout';
+
+// Where a line from `center` toward `target` crosses the border of the axis-aligned
+// box centered at `center` — so edges visually touch the box frame instead of
+// piercing through to the class name in the middle of it.
+function clipToBoxBorder(
+  center: { cx: number; cy: number },
+  target: { cx: number; cy: number },
+  halfWidth: number,
+  halfHeight: number
+): { x: number; y: number } {
+  const dx = target.cx - center.cx;
+  const dy = target.cy - center.cy;
+  if (dx === 0 && dy === 0) return { x: center.cx, y: center.cy };
+  const scaleX = dx !== 0 ? halfWidth / Math.abs(dx) : Infinity;
+  const scaleY = dy !== 0 ? halfHeight / Math.abs(dy) : Infinity;
+  const scale = Math.min(scaleX, scaleY, 1);
+  return { x: center.cx + dx * scale, y: center.cy + dy * scale };
+}
 
 interface CanvasEdgeProps {
   edge: DiagramEdge;
@@ -22,22 +40,29 @@ function diamondPoints(cx: number, cy: number, angle: number, size = 8): string 
 }
 
 export default function CanvasEdge({ edge, fromNode, toNode, attachedNode, selected, highlighted, onSelect }: CanvasEdgeProps) {
-  const from = nodeCenter(fromNode.x, fromNode.y, fromNode.attributes.length);
-  const to = nodeCenter(toNode.x, toNode.y, toNode.attributes.length);
-  const angle = Math.atan2(to.cy - from.cy, to.cx - from.cx);
+  const fromCenter = nodeCenter(fromNode.x, fromNode.y, fromNode.attributes.length);
+  const toCenter = nodeCenter(toNode.x, toNode.y, toNode.attributes.length);
+  const fromHalfHeight = nodeHeight(fromNode.attributes.length) / 2;
+  const toHalfHeight = nodeHeight(toNode.attributes.length) / 2;
+
+  // Clip the center-to-center line to each box's border so it visually touches the
+  // frame instead of piercing through to the class name in the middle.
+  const from = clipToBoxBorder(fromCenter, toCenter, NODE_WIDTH / 2, fromHalfHeight);
+  const to = clipToBoxBorder(toCenter, fromCenter, NODE_WIDTH / 2, toHalfHeight);
+  const angle = Math.atan2(to.y - from.y, to.x - from.x);
 
   const strokeColor = highlighted ? '#EF4444' : selected ? '#F59E0B' : '#6b7280';
-  const midX = (from.cx + to.cx) / 2;
-  const midY = (from.cy + to.cy) / 2;
+  const midX = (from.x + to.x) / 2;
+  const midY = (from.y + to.y) / 2;
 
   const labelOffset = 14;
   const fromLabelPos = {
-    x: from.cx + Math.cos(angle) * labelOffset,
-    y: from.cy + Math.sin(angle) * labelOffset - 4,
+    x: from.x + Math.cos(angle) * labelOffset,
+    y: from.y + Math.sin(angle) * labelOffset - 4,
   };
   const toLabelPos = {
-    x: to.cx - Math.cos(angle) * labelOffset,
-    y: to.cy - Math.sin(angle) * labelOffset - 4,
+    x: to.x - Math.cos(angle) * labelOffset,
+    y: to.y - Math.sin(angle) * labelOffset - 4,
   };
 
   return (
@@ -58,10 +83,10 @@ export default function CanvasEdge({ edge, fromNode, toNode, attachedNode, selec
       style={{ cursor: 'pointer' }}
     >
       <line
-        x1={from.cx}
-        y1={from.cy}
-        x2={to.cx}
-        y2={to.cy}
+        x1={from.x}
+        y1={from.y}
+        x2={to.x}
+        y2={to.y}
         stroke={strokeColor}
         strokeWidth={selected || highlighted ? 2.5 : 1.5}
         strokeDasharray={edge.type === 'generalization' ? undefined : undefined}
@@ -69,7 +94,7 @@ export default function CanvasEdge({ edge, fromNode, toNode, attachedNode, selec
 
       {edge.type === 'generalization' && (
         <polygon
-          points={`${to.cx - Math.cos(angle) * 14 + Math.sin(angle) * 7},${to.cy - Math.sin(angle) * 14 - Math.cos(angle) * 7} ${to.cx - Math.cos(angle) * 14 - Math.sin(angle) * 7},${to.cy - Math.sin(angle) * 14 + Math.cos(angle) * 7} ${to.cx},${to.cy}`}
+          points={`${to.x - Math.cos(angle) * 14 + Math.sin(angle) * 7},${to.y - Math.sin(angle) * 14 - Math.cos(angle) * 7} ${to.x - Math.cos(angle) * 14 - Math.sin(angle) * 7},${to.y - Math.sin(angle) * 14 + Math.cos(angle) * 7} ${to.x},${to.y}`}
           fill="#0c0d0e"
           stroke={strokeColor}
           strokeWidth={1.5}
@@ -78,7 +103,7 @@ export default function CanvasEdge({ edge, fromNode, toNode, attachedNode, selec
 
       {(edge.type === 'composition' || edge.type === 'aggregation') && (
         <polygon
-          points={diamondPoints(from.cx + Math.cos(angle) * 10, from.cy + Math.sin(angle) * 10, angle)}
+          points={diamondPoints(from.x + Math.cos(angle) * 10, from.y + Math.sin(angle) * 10, angle)}
           fill={edge.type === 'composition' ? strokeColor : '#0c0d0e'}
           stroke={strokeColor}
           strokeWidth={1.5}

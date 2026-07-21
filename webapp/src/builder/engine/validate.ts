@@ -91,9 +91,21 @@ export function findClasses(d: DiagramState, t: BuilderLesson): FeedbackItem[] {
 
 export function placeAttributes(d: DiagramState, t: BuilderLesson): FeedbackItem[] {
   const items: FeedbackItem[] = [];
-  for (const node of d.nodes) {
-    const tc = findTargetClassForNode(t.target, node);
-    if (!tc) continue;
+  for (const tc of t.target.classes) {
+    const expectedType = isAssociationClassKey(t.target, tc.key) ? 'associationClass' : 'class';
+    const node = d.nodes.find((n) => n.type === expectedType && match(n.name, tc.name));
+    if (!node) {
+      // The class itself is missing (e.g. deleted after an earlier step already let it
+      // through) — nothing to flag if it has no required attributes anyway, otherwise
+      // this step must block instead of silently having nothing to iterate over.
+      if (tc.attributes.some((a) => a.requirement === 'required')) {
+        items.push({
+          severity: 'warn',
+          message: `Class '${tc.name.canonical}' chưa có trên canvas nên chưa thể đặt attribute.`,
+        });
+      }
+      continue;
+    }
     items.push(...attributeFeedback(node, tc, node.id));
   }
   return items;
@@ -114,13 +126,24 @@ export function drawAssociations(d: DiagramState, t: BuilderLesson): FeedbackIte
 
   for (const te of requiredEdges) {
     const resolved = resolveEdgeEndpoints(d, t, te);
-    if (!resolved || !resolved.fromNode || !resolved.toNode) continue;
+    if (!resolved) continue;
+    const { fromTc, toTc, fromNode, toNode } = resolved;
+    // Endpoint class(es) missing entirely (e.g. deleted while parked on this step) is
+    // still "a relationship is missing" from this step's point of view — must block,
+    // not silently skip just because we can't resolve node ids yet.
+    if (!fromNode || !toNode) {
+      items.push({
+        severity: 'warn',
+        message: `Giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' còn thiếu một quan hệ.`,
+      });
+      continue;
+    }
     const directed = te.type === 'generalization';
-    const edge = findEdgeForPair(d, resolved.fromNode, resolved.toNode, directed);
+    const edge = findEdgeForPair(d, fromNode, toNode, directed);
     if (!edge) {
       items.push({
         severity: 'warn',
-        message: `Giữa '${resolved.fromTc.name.canonical}' và '${resolved.toTc.name.canonical}' còn thiếu một quan hệ.`,
+        message: `Giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' còn thiếu một quan hệ.`,
       });
       continue;
     }
@@ -177,21 +200,38 @@ export function setMultiplicity(d: DiagramState, t: BuilderLesson): FeedbackItem
 
   for (const te of requiredEdges) {
     const resolved = resolveEdgeEndpoints(d, t, te);
-    if (!resolved || !resolved.fromNode || !resolved.toNode || !te.multiplicity) continue;
-    const edge = findEdgeForPair(d, resolved.fromNode, resolved.toNode, te.type === 'generalization');
-    if (!edge) continue;
+    if (!resolved || !te.multiplicity) continue;
+    const { fromTc, toTc, fromNode, toNode } = resolved;
+
+    if (!fromNode || !toNode) {
+      items.push({
+        severity: 'warn',
+        message: `Chưa thể kiểm tra multiplicity giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' vì còn thiếu class.`,
+        tag: te.wrongMultiplicityTag || 'multiplicity-fk',
+      });
+      continue;
+    }
+    const edge = findEdgeForPair(d, fromNode, toNode, te.type === 'generalization');
+    if (!edge) {
+      items.push({
+        severity: 'warn',
+        message: `Giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' chưa có quan hệ để đặt multiplicity.`,
+        tag: te.wrongMultiplicityTag || 'multiplicity-fk',
+      });
+      continue;
+    }
 
     if (!edge.multiplicity) {
       items.push({
         severity: 'warn',
-        message: `Quan hệ giữa '${resolved.fromTc.name.canonical}' và '${resolved.toTc.name.canonical}' chưa chọn multiplicity.`,
+        message: `Quan hệ giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' chưa chọn multiplicity.`,
         tag: te.wrongMultiplicityTag || 'multiplicity-fk',
         subjectId: edge.id,
       });
       continue;
     }
 
-    const sameDirection = edge.from === resolved.fromNode.id;
+    const sameDirection = edge.from === fromNode.id;
     const actualFrom = sameDirection ? edge.multiplicity.from : edge.multiplicity.to;
     const actualTo = sameDirection ? edge.multiplicity.to : edge.multiplicity.from;
 
@@ -222,9 +262,26 @@ export function chooseEdgeTypes(d: DiagramState, t: BuilderLesson): FeedbackItem
 
   for (const te of requiredEdges) {
     const resolved = resolveEdgeEndpoints(d, t, te);
-    if (!resolved || !resolved.fromNode || !resolved.toNode) continue;
-    const edge = findEdgeForPair(d, resolved.fromNode, resolved.toNode, te.type === 'generalization');
-    if (!edge) continue;
+    if (!resolved) continue;
+    const { fromTc, toTc, fromNode, toNode } = resolved;
+
+    if (!fromNode || !toNode) {
+      items.push({
+        severity: 'warn',
+        message: `Chưa thể kiểm tra loại quan hệ giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' vì còn thiếu class.`,
+        tag: te.wrongTypeTag,
+      });
+      continue;
+    }
+    const edge = findEdgeForPair(d, fromNode, toNode, te.type === 'generalization');
+    if (!edge) {
+      items.push({
+        severity: 'warn',
+        message: `Giữa '${fromTc.name.canonical}' và '${toTc.name.canonical}' chưa có quan hệ để xác định loại.`,
+        tag: te.wrongTypeTag,
+      });
+      continue;
+    }
 
     const accepted = te.acceptedTypes ?? [te.type];
     if (!accepted.includes(edge.type)) {
@@ -301,7 +358,15 @@ export function associationClassStep(d: DiagramState, t: BuilderLesson): Feedbac
       continue;
     }
 
-    if (fromNode && toNode) {
+    if (!fromNode || !toNode) {
+      // acNode exists but the classes it's supposed to attach between are gone —
+      // can't possibly be attached to the right edge right now.
+      items.push({
+        severity: 'warn',
+        message: `Chưa thể kiểm tra việc gắn '${acTarget.name.canonical}' vì còn thiếu class '${fromTc.name.canonical}' hoặc '${toTc.name.canonical}'.`,
+        subjectId: acNode.id,
+      });
+    } else {
       const edge = findEdgeForPair(d, fromNode, toNode, false);
       if (!edge || edge.attachedClassId !== acNode.id) {
         items.push({
