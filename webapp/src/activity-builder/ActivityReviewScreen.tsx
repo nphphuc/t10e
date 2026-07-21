@@ -40,12 +40,17 @@ function ReadOnlyNode({ node, highlighted, onSelect }: { node: ActivityNode; hig
         </>
       )}
       {(node.type === 'decision' || node.type === 'merge') && (
-        <polygon
-          points={`${box.width / 2},0 ${box.width},${box.height / 2} ${box.width / 2},${box.height} 0,${box.height / 2}`}
-          fill="rgba(139,92,246,0.08)"
-          stroke={strokeColor}
-          strokeWidth={highlighted ? 2.5 : 1.5}
-        />
+        <>
+          <polygon
+            points={`${box.width / 2},0 ${box.width},${box.height / 2} ${box.width / 2},${box.height} 0,${box.height / 2}`}
+            fill="rgba(139,92,246,0.08)"
+            stroke={strokeColor}
+            strokeWidth={highlighted ? 2.5 : 1.5}
+          />
+          <text x={box.width / 2} y={box.height / 2 + 3} textAnchor="middle" fontSize={8} fill="#6b7280">
+            {node.type}
+          </text>
+        </>
       )}
       {(node.type === 'fork' || node.type === 'join') && (
         <rect width={box.width} height={box.height} rx={2} fill={strokeColor} />

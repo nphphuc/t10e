@@ -110,16 +110,9 @@ function ActivityNodeShape({
             stroke={strokeColor}
             strokeWidth={strokeWidth}
           />
-          {node.name && (
-            <text x={half} y={half + 4} textAnchor="middle" fontSize={9} fill="#c4b5fd">
-              {node.name}
-            </text>
-          )}
-          {!node.name && (
-            <text x={half} y={half - DECISION_SIZE / 2 - 4} textAnchor="middle" fontSize={8} fill="#6b7280">
-              {isDecision ? 'decision' : 'merge'}
-            </text>
-          )}
+          <text x={half} y={half + 3} textAnchor="middle" fontSize={8} fill={node.name ? '#c4b5fd' : '#6b7280'}>
+            {node.name ?? (isDecision ? 'decision' : 'merge')}
+          </text>
         </g>
       );
     }
