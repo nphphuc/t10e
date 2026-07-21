@@ -1,0 +1,62 @@
+{
+  "id": "cdb-fos-guided",
+  "mode": "guided",
+  "title": "FOS — Từ brief đến Class Diagram",
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "brief": [
+    "Một khách hàng có thể đặt nhiều đơn hàng theo thời gian.",
+    "Mỗi đơn hàng gồm các sản phẩm trong catalog; số lượng và đơn giá tại lúc mua chỉ có nghĩa trong từng lần sản phẩm xuất hiện trong đơn.",
+    "Mỗi sản phẩm có tên và giá catalog riêng.",
+    "Khách hàng có thể lưu một địa chỉ giao hàng thuộc vòng đời hồ sơ khách hàng."
+  ],
+  "palette": [
+    { "label": "Customer", "kind": "class" },
+    { "label": "Order", "kind": "class" },
+    { "label": "Product", "kind": "class" },
+    { "label": "ShippingAddress", "kind": "class" },
+    { "label": "name", "kind": "attribute", "targetClassKey": "Customer" },
+    { "label": "orderDate", "kind": "attribute", "targetClassKey": "Order" },
+    { "label": "productName", "kind": "attribute", "targetClassKey": "Product" },
+    { "label": "price", "kind": "attribute", "targetClassKey": "Product" },
+    { "label": "street", "kind": "attribute", "targetClassKey": "ShippingAddress" },
+    { "label": "city", "kind": "attribute", "targetClassKey": "ShippingAddress" },
+    { "label": "quantity", "kind": "attribute-trap", "targetClassKey": "OrderLine", "trapTag": "relationship-data", "trapMessage": "quantity mô tả một sản phẩm trong một đơn cụ thể; hãy giữ nó cho association class." },
+    { "label": "priceAtPurchase", "kind": "attribute", "targetClassKey": "OrderLine" },
+    { "label": "Đặt hàng", "kind": "verb-trap", "trapTag": "class-is-object", "trapMessage": "'Đặt hàng' là hành vi; hãy dùng làm tên association thay vì class." }
+  ],
+  "steps": ["find-classes", "place-attributes", "draw-associations", "set-multiplicity", "choose-edge-types", "association-class", "compare"],
+  "target": {
+    "classes": [
+      { "key": "Customer", "name": { "canonical": "Customer", "accepted": ["customer", "khách hàng", "khachhang", "customers"] }, "requirement": "required", "attributes": [{ "name": { "canonical": "name", "accepted": ["customerName", "tên"] }, "requirement": "required" }] },
+      { "key": "Order", "name": { "canonical": "Order", "accepted": ["order", "đơn hàng", "donhang", "orders"] }, "requirement": "required", "attributes": [{ "name": { "canonical": "orderDate", "accepted": ["date", "ngày đặt"] }, "requirement": "required" }] },
+      { "key": "Product", "name": { "canonical": "Product", "accepted": ["product", "sản phẩm", "sanpham", "products"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "productName", "accepted": ["name", "tên sản phẩm"] }, "requirement": "required" },
+        { "name": { "canonical": "price", "accepted": ["catalogPrice", "giá"] }, "requirement": "required" },
+        { "name": { "canonical": "quantity", "accepted": ["số lượng"] }, "requirement": "forbidden", "forbiddenTag": "relationship-data", "forbiddenReason": "quantity thay đổi theo từng giao dịch, không phải thuộc tính cố định của Product." },
+        { "name": { "canonical": "priceAtPurchase", "accepted": ["unitPrice", "giá lúc mua"] }, "requirement": "forbidden", "forbiddenTag": "relationship-data", "forbiddenReason": "Giá tại lúc mua thuộc dòng giao dịch, không phải giá catalog cố định của Product." }
+      ] },
+      { "key": "ShippingAddress", "name": { "canonical": "ShippingAddress", "accepted": ["shipping address", "địa chỉ giao hàng"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "street", "accepted": ["đường"] }, "requirement": "required" },
+        { "name": { "canonical": "city", "accepted": ["thành phố"] }, "requirement": "required" }
+      ] },
+      { "key": "OrderLine", "name": { "canonical": "OrderLine", "accepted": ["order item", "orderitem", "dòng đơn hàng"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "quantity", "accepted": ["số lượng"] }, "requirement": "required" },
+        { "name": { "canonical": "priceAtPurchase", "accepted": ["unitPrice", "giá lúc mua"] }, "requirement": "required" }
+      ] }
+    ],
+    "edges": [
+      { "fromKey": "Customer", "toKey": "Order", "type": "association", "name": { "canonical": "places", "accepted": ["đặt"] }, "multiplicity": { "from": "1", "to": "0..*" }, "requirement": "required", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "0..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "Địa chỉ giao hàng trong draft này thuộc vòng đời hồ sơ Customer; hãy dùng composition." }
+    ]
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "slide_texts/Ch07_Static_Modeling.txt — class/association, multiplicity, aggregation/composition, association class",
+    "content/lessons/L04-01.json — class và attribute từ danh từ/giá trị nghiệp vụ",
+    "content/lessons/L04-02.json — Customer 1 ↔ Order 0..*",
+    "content/lessons/L04-03.json — dữ liệu giao dịch thuộc association class",
+    "content/lessons/L04-04.json — lifetime của composition"
+  ]
+}

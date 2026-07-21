@@ -1,0 +1,44 @@
+{
+  "id": "cdb-fos-pe",
+  "mode": "pe",
+  "title": "FOS — Class Diagram PE Mode",
+  "status": "draft-from-slide",
+  "needsReview": true,
+  "brief": [
+    "FOS lưu khách hàng, các đơn do họ tạo và catalog sản phẩm.",
+    "Một khách hàng phát sinh nhiều đơn; một sản phẩm có thể xuất hiện trong nhiều đơn.",
+    "Với mỗi lần sản phẩm xuất hiện trong đơn, hệ thống cần giữ số lượng và giá tại thời điểm mua.",
+    "Địa chỉ giao hàng trong hồ sơ khách hàng không tồn tại độc lập sau khi hồ sơ bị xóa."
+  ],
+  "palette": [],
+  "steps": ["free-build", "review"],
+  "target": {
+    "classes": [
+      { "key": "Customer", "name": { "canonical": "Customer", "accepted": ["customer", "khách hàng", "khachhang", "customers"] }, "requirement": "required", "attributes": [{ "name": { "canonical": "name", "accepted": ["customerName", "tên"] }, "requirement": "required" }] },
+      { "key": "Order", "name": { "canonical": "Order", "accepted": ["order", "đơn hàng", "donhang", "orders"] }, "requirement": "required", "attributes": [{ "name": { "canonical": "orderDate", "accepted": ["date", "ngày đặt"] }, "requirement": "required" }] },
+      { "key": "Product", "name": { "canonical": "Product", "accepted": ["product", "sản phẩm", "sanpham", "products"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "productName", "accepted": ["name", "tên sản phẩm"] }, "requirement": "required" },
+        { "name": { "canonical": "price", "accepted": ["catalogPrice", "giá"] }, "requirement": "required" },
+        { "name": { "canonical": "quantity", "accepted": ["số lượng"] }, "requirement": "forbidden", "forbiddenTag": "relationship-data", "forbiddenReason": "quantity thay đổi theo từng giao dịch, không phải thuộc tính cố định của Product." }
+      ] },
+      { "key": "ShippingAddress", "name": { "canonical": "ShippingAddress", "accepted": ["shipping address", "địa chỉ giao hàng"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "street", "accepted": ["đường"] }, "requirement": "required" },
+        { "name": { "canonical": "city", "accepted": ["thành phố"] }, "requirement": "required" }
+      ] },
+      { "key": "OrderLine", "name": { "canonical": "OrderLine", "accepted": ["order item", "orderitem", "dòng đơn hàng"] }, "requirement": "required", "attributes": [
+        { "name": { "canonical": "quantity", "accepted": ["số lượng"] }, "requirement": "required" },
+        { "name": { "canonical": "priceAtPurchase", "accepted": ["unitPrice", "giá lúc mua"] }, "requirement": "required" }
+      ] }
+    ],
+    "edges": [
+      { "fromKey": "Customer", "toKey": "Order", "type": "association", "name": { "canonical": "places", "accepted": ["đặt"] }, "multiplicity": { "from": "1", "to": "0..*" }, "requirement": "required", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "0..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "Địa chỉ giao hàng trong draft này thuộc vòng đời hồ sơ Customer; hãy dùng composition." }
+    ]
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "slide_texts/Ch07_Static_Modeling.txt — static modeling rules",
+    "content/lessons/L04-01.json through L04-04.json — class, multiplicity, association class, composition"
+  ]
+}
