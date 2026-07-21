@@ -44,6 +44,19 @@ function uid(prefix: string): string {
   return `${prefix}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
+// Default placement for a new node when it isn't dropped at a specific point (typed
+// "+ Thêm hành động", or keyboard-drop onto "vùng canvas trống"). A tight modulo-based
+// grid whose step is smaller than the node's own box just stacks nodes on top of each
+// other once there are more than a handful — space columns/rows by the actual action
+// box size (plus a margin) instead, and never wrap rows so it keeps growing downward.
+const GRID_COLS = 5;
+function defaultGridPlacement(idx: number): { x: number; y: number } {
+  const box = nodeBox('action');
+  const col = idx % GRID_COLS;
+  const row = Math.floor(idx / GRID_COLS);
+  return { x: 24 + col * (box.width + 24), y: 24 + row * (box.height + 40) };
+}
+
 function PaletteChip({
   label,
   dragId,
@@ -131,7 +144,7 @@ function CanvasSurface({
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
-  const [size, setSize] = useState({ width: 900, height: 560 });
+  const [viewport, setViewport] = useState({ width: 900, height: 560 });
 
   useEffect(() => {
     const el = containerRef.current;
@@ -139,11 +152,19 @@ function CanvasSurface({
     const ro = new ResizeObserver((entries) => {
       const entry = entries[0];
       if (!entry) return;
-      setSize({ width: Math.max(entry.contentRect.width, 320), height: Math.max(entry.contentRect.height, 420) });
+      setViewport({ width: Math.max(entry.contentRect.width, 320), height: Math.max(entry.contentRect.height, 420) });
     });
     ro.observe(el);
     return () => ro.disconnect();
   }, [containerRef]);
+
+  // The drawing surface grows to fit however far the diagram actually extends —
+  // otherwise a handful of nodes fill the fixed-size box and everything after
+  // that overlaps with no way to reach it. `viewport` stays the minimum visible
+  // window; the container scrolls once content exceeds it.
+  const contentWidth = Math.max(0, ...diagram.nodes.map((n) => n.x + nodeBox(n.type).width + 60));
+  const contentHeight = Math.max(0, ...diagram.nodes.map((n) => n.y + nodeBox(n.type).height + 60));
+  const size = { width: Math.max(viewport.width, contentWidth), height: Math.max(viewport.height, contentHeight) };
 
   const nodesById = new Map(diagram.nodes.map((n) => [n.id, n]));
   const editorFromNode = editingEdge ? nodesById.get(editingEdge.from) : undefined;
@@ -166,14 +187,14 @@ function CanvasSurface({
         containerRef.current = el;
         setNodeRef(el);
       }}
-      className="w-full h-[560px] bg-[#090a0c]/60 border border-gray-800 rounded-2xl overflow-hidden relative"
+      className="w-full h-[560px] bg-[#090a0c]/60 border border-gray-800 rounded-2xl overflow-auto relative"
       onClick={onBackgroundClick}
     >
       {connectSourceId && (
         <div
           role="status"
           aria-live="polite"
-          className="absolute top-2 left-1/2 -translate-x-1/2 z-30 px-3 py-1.5 rounded-full bg-success/90 text-white text-[11px] font-bold shadow-lg"
+          className="sticky top-2 left-1/2 -translate-x-1/2 z-30 w-fit px-3 py-1.5 rounded-full bg-success/90 text-white text-[11px] font-bold shadow-lg"
         >
           Chọn node đích để nối luồng...
         </div>
@@ -392,12 +413,13 @@ export default function ActivityCanvas({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
 
-  function clampToCanvas(x: number, y: number, type: ActivityNodeType): { x: number; y: number } {
-    const box = nodeBox(type);
-    const bounds = containerRef.current?.getBoundingClientRect();
-    const maxX = Math.max((bounds?.width ?? 900) - box.width, 0);
-    const maxY = Math.max((bounds?.height ?? 560) - box.height, 0);
-    return { x: Math.min(Math.max(x, 0), maxX), y: Math.min(Math.max(y, 0), maxY) };
+  // Only clamps the lower bound (never place a node off the top/left edge). No upper
+  // bound: the canvas grows and scrolls to fit its content, so there's no fixed
+  // viewport size to cap positions against — capping to the visible height was
+  // exactly what caused new nodes to pile up on top of existing ones once there
+  // were more than fit in one screenful.
+  function clampToCanvas(x: number, y: number, _type: ActivityNodeType): { x: number; y: number } {
+    return { x: Math.max(x, 0), y: Math.max(y, 0) };
   }
 
   function createActionAt(label: string, x: number, y: number) {
@@ -454,8 +476,9 @@ export default function ActivityCanvas({
     if (!liftedItem) return;
     const idx = diagram.nodes.length;
     const basePos = target.kind === 'node' ? diagram.nodes.find((n) => n.id === target.nodeId) : undefined;
-    const x = basePos ? basePos.x + 24 : 24 + (idx % 4) * 40;
-    const y = basePos ? basePos.y + 24 : 24 + (idx % 5) * 30;
+    const grid = defaultGridPlacement(idx);
+    const x = basePos ? basePos.x + 24 : grid.x;
+    const y = basePos ? basePos.y + 24 : grid.y;
     setLiftedItem(null);
 
     if (liftedItem.source === 'lesson') {
@@ -475,8 +498,8 @@ export default function ActivityCanvas({
   function addTypedAction() {
     const name = newActionName.trim();
     if (!name) return;
-    const idx = diagram.nodes.length;
-    createActionAt(name, 24 + (idx % 4) * 40, 24 + (idx % 5) * 30);
+    const grid = defaultGridPlacement(diagram.nodes.length);
+    createActionAt(name, grid.x, grid.y);
     setNewActionName('');
     setAddingAction(false);
   }
