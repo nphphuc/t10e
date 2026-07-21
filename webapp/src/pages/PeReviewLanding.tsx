@@ -11,10 +11,11 @@ const TOPICS = [
   {
     id: 'class-diagram',
     title: 'Class Diagram',
-    desc: 'Luyện tập về Class, Object, Association, Multiplicity, Composition và Kế thừa.',
+    desc: 'Tự dựng class diagram bằng kéo-thả — Guided từng bước hoặc PE mode tự do, chấm theo cấu trúc.',
     icon: '📊',
     color: 'from-emerald-500 to-teal-600',
     data: classData,
+    isBuilder: true,
   },
   {
     id: 'sequence',
@@ -83,7 +84,7 @@ export default function PeReviewLanding() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {TOPICS.map((topic) => {
             const questionCount = topic.data.questions.length;
-            const isAvailable = questionCount > 0;
+            const isAvailable = topic.isBuilder ? true : questionCount > 0;
 
             const cardContent = (
               <div className="p-6 flex flex-col justify-between h-full gap-4">
@@ -92,7 +93,11 @@ export default function PeReviewLanding() {
                     <span className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${topic.color} flex items-center justify-center text-xl shadow-inner`}>
                       {topic.icon}
                     </span>
-                    {isAvailable ? (
+                    {topic.isBuilder ? (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        🎨 Kéo-thả
+                      </span>
+                    ) : isAvailable ? (
                       <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
                         {questionCount} Câu hỏi
                       </span>

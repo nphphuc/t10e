@@ -93,8 +93,15 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolean }) {
-  const { levelId } = useParams<{ levelId: string }>();
+export default function ReviewPage({
+  isPeReview = false,
+  levelIdOverride,
+}: {
+  isPeReview?: boolean;
+  levelIdOverride?: string;
+}) {
+  const { levelId: levelIdParam } = useParams<{ levelId: string }>();
+  const levelId = levelIdOverride ?? levelIdParam;
   const navigate = useNavigate();
 
   let reviewData = null;
