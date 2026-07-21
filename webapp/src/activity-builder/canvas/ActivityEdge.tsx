@@ -50,10 +50,14 @@ export default function ActivityEdge({ edge, fromNode, toNode, selected, highlig
     y: to.y - Math.sin(angle + 0.5) * arrowSize,
   };
 
-  const labelOffset = 14;
+  // Offset both along the line (so it doesn't sit right on the source node's
+  // border) and perpendicular to it (so it doesn't sit directly on the line
+  // itself, which tends to overlap a nearby node on short decision->merge hops).
+  const labelAlong = 22;
+  const labelSide = 12;
   const guardLabelPos = {
-    x: from.x + Math.cos(angle) * labelOffset,
-    y: from.y + Math.sin(angle) * labelOffset - 6,
+    x: from.x + Math.cos(angle) * labelAlong - Math.sin(angle) * labelSide,
+    y: from.y + Math.sin(angle) * labelAlong + Math.cos(angle) * labelSide,
   };
 
   const nodeLabel = (n: ActivityNode) => n.name ?? n.type;
