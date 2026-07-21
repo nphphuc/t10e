@@ -1,0 +1,69 @@
+{
+  "id": "adb-fos-pe",
+  "mode": "pe",
+  "title": "Activity Diagram Builder — PE Mode: Online Shopping (Make Order Request)",
+  "needsReview": true,
+  "brief": [
+    "Case: Online Shopping System (SOA). Customer duyệt catalog, chọn sản phẩm, hệ thống kiểm tra tồn kho.",
+    "Nếu còn hàng: xác thực thẻ tín dụng rồi tạo delivery order, xác nhận giao hàng, và (song song) gửi email + cập nhật tài khoản khách hàng.",
+    "Nếu hết hàng: báo cho khách và kết thúc — không tạo delivery order.",
+    "Tự dựng toàn bộ activity diagram cho luồng Make Order Request này."
+  ],
+  "palette": [],
+  "steps": ["free-build", "review"],
+  "target": {
+    "actions": [
+      { "key": "browse_catalog", "name": { "canonical": "Xem danh mục sản phẩm", "accepted": ["xem danh muc san pham", "browse catalog"] }, "requirement": "required" },
+      { "key": "select_items", "name": { "canonical": "Chọn sản phẩm", "accepted": ["chon san pham", "select items"] }, "requirement": "required" },
+      { "key": "check_inventory", "name": { "canonical": "Kiểm tra tồn kho", "accepted": ["kiem tra ton kho", "check inventory"] }, "requirement": "required" },
+      { "key": "authorize_credit_card", "name": { "canonical": "Xác thực thẻ tín dụng", "accepted": ["xac thuc the tin dung", "authorize credit card"] }, "requirement": "required" },
+      { "key": "notify_out_of_stock", "name": { "canonical": "Báo hết hàng", "accepted": ["bao het hang", "notify out of stock"] }, "requirement": "required" },
+      { "key": "create_delivery_order", "name": { "canonical": "Tạo lệnh giao hàng", "accepted": ["tao lenh giao hang", "create delivery order"] }, "requirement": "required" },
+      { "key": "confirm_shipment", "name": { "canonical": "Xác nhận giao hàng", "accepted": ["xac nhan giao hang", "confirm shipment"] }, "requirement": "required" },
+      { "key": "send_order_email", "name": { "canonical": "Gửi email xác nhận đơn", "accepted": ["gui email xac nhan don", "send order email"] }, "requirement": "required" },
+      { "key": "update_customer_account", "name": { "canonical": "Cập nhật tài khoản khách hàng", "accepted": ["cap nhat tai khoan khach hang", "update customer account"] }, "requirement": "required" },
+      { "key": "close_request", "name": { "canonical": "Kết thúc yêu cầu", "accepted": ["ket thuc yeu cau", "close request"] }, "requirement": "required" },
+      {
+        "key": "catalog_noun_trap",
+        "name": { "canonical": "Danh mục sản phẩm (Catalog)", "accepted": ["danh muc san pham", "catalog"] },
+        "requirement": "forbidden",
+        "forbiddenTag": "noun-not-verb",
+        "forbiddenReason": "Catalog là một entity class (dữ liệu), không phải một hành động trong luồng."
+      }
+    ],
+    "mainSequence": [
+      "browse_catalog",
+      "select_items",
+      "check_inventory",
+      "create_delivery_order",
+      "confirm_shipment",
+      "close_request"
+    ],
+    "branches": [
+      {
+        "decisionAfter": "check_inventory",
+        "guards": [
+          {
+            "guard": { "canonical": "Còn hàng", "accepted": ["con hang", "in stock"] },
+            "sequence": ["authorize_credit_card"],
+            "rejoinAt": "create_delivery_order"
+          },
+          {
+            "guard": { "canonical": "Hết hàng", "accepted": ["het hang", "out of stock"] },
+            "sequence": ["notify_out_of_stock"]
+          }
+        ]
+      }
+    ],
+    "concurrent": {
+      "forkAfter": "confirm_shipment",
+      "join": "close_request",
+      "lanes": [["send_order_email"], ["update_customer_account"]]
+    }
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "slide_texts/Ch22_SOA_Case_Study-Online_Shopping_System.txt — Slide 4 (actors: Customer, Supplier), Slide 5 (Browse Catalog use case description), Slide 6 (Make Order Request use case + activity diagram — caption only, the actual diagram is a slide image not captured by text extraction), Slide 3 (services: catalog, inventory, customer account, delivery order, email, credit card authorization), Slide 9 (Delivery Order = aggregation of Item)",
+    "needsReview: TOÀN BỘ cấu trúc luồng (thứ tự action, nhánh decision, fork/join) là suy luận từ tên use case/service được liệt kê trong slide, KHÔNG phải trích trực tiếp từ activity diagram thật của Make Order Request (hình ảnh đó không có trong bản trích xuất text) — bắt buộc cần Nguyên duyệt trước khi dùng chính thức, có thể cần đối chiếu lại với slide gốc (hình ảnh) hoặc case study đầy đủ nếu có bản PDF/PPTX."
+  ]
+}

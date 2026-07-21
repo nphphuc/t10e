@@ -76,9 +76,11 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
 
     branch.guards.forEach((gb, gi) => {
       let branchCursor: ActivityNode = decisionNode;
+      let guardAttached = false;
       gb.sequence.forEach((sKey, si) => {
         const sNode = actionNode(sKey, TRUNK_X + (gi + 1) * BRANCH_X_STEP);
         addEdge(branchCursor.id, sNode.id, si === 0 ? gb.guard.canonical : undefined);
+        guardAttached = true;
         branchCursor = sNode;
       });
 
@@ -88,7 +90,10 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
           nodes.push(mergeNode);
           addEdge(mergeNode.id, actionNode(gb.rejoinAt).id);
         }
-        addEdge(branchCursor.id, mergeNode.id);
+        // An empty sequence (guard rejoins immediately, no intermediate action) never
+        // got a chance to carry the guard text via the loop above — attach it here
+        // instead so the decision-outgoing edge is never left unguarded.
+        addEdge(branchCursor.id, mergeNode.id, guardAttached ? undefined : gb.guard.canonical);
       } else {
         danglingEnds.push(branchCursor);
       }

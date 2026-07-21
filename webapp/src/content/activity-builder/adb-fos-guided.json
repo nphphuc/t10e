@@ -1,0 +1,71 @@
+{
+  "id": "adb-fos-guided",
+  "mode": "guided",
+  "title": "Activity Diagram Builder — FOS Đặt hàng (Place Order)",
+  "needsReview": true,
+  "brief": [
+    "Khách hàng xem sản phẩm rồi đặt hàng. Trước khi đặt hàng được xử lý, hệ thống luôn phải xác thực người dùng (Authenticate User) — đây là bước bắt buộc.",
+    "Nếu tổng đơn hàng lớn hơn 1.000.000đ, hệ thống áp dụng giảm giá (Apply Discount) — đây là bước có điều kiện (extend point), chỉ xảy ra khi thỏa điều kiện.",
+    "Sau khi xác nhận đơn hàng, hai việc có thể chạy song song: gửi email xác nhận cho khách và cập nhật kho hàng — cả hai xong thì mới hoàn tất đơn."
+  ],
+  "palette": [
+    { "label": "Đặt hàng", "kind": "action", "targetActionKey": "place_order" },
+    { "label": "Xác thực người dùng", "kind": "action", "targetActionKey": "authenticate_user" },
+    { "label": "Cập nhật kho", "kind": "action", "targetActionKey": "update_inventory" },
+    { "label": "Hóa đơn", "kind": "noun-trap", "trapTag": "noun-not-verb", "trapMessage": "'Hóa đơn' là một danh từ tĩnh (một loại giấy tờ), không phải một hành động trong luồng — activity diagram chỉ mô tả các bước hành động (verb), không mô tả các đối tượng dữ liệu." },
+    { "label": "Xem sản phẩm", "kind": "action", "targetActionKey": "browse_products" },
+    { "label": "Áp dụng giảm giá", "kind": "action", "targetActionKey": "apply_discount" },
+    { "label": "Xác nhận đơn hàng", "kind": "action", "targetActionKey": "confirm_order" },
+    { "label": "Gửi email xác nhận", "kind": "action", "targetActionKey": "send_confirmation_email" },
+    { "label": "Hoàn tất đơn hàng", "kind": "action", "targetActionKey": "close_order" }
+  ],
+  "steps": ["place-actions", "main-sequence", "decisions-guards", "fork-join", "compare"],
+  "target": {
+    "actions": [
+      { "key": "browse_products", "name": { "canonical": "Xem sản phẩm", "accepted": ["xem san pham", "duyệt sản phẩm", "browse products"] }, "requirement": "required" },
+      { "key": "authenticate_user", "name": { "canonical": "Xác thực người dùng", "accepted": ["xac thuc nguoi dung", "authenticate user", "xác thực"] }, "requirement": "required" },
+      { "key": "place_order", "name": { "canonical": "Đặt hàng", "accepted": ["dat hang", "place order"] }, "requirement": "required" },
+      { "key": "apply_discount", "name": { "canonical": "Áp dụng giảm giá", "accepted": ["ap dung giam gia", "apply discount", "giảm giá"] }, "requirement": "required" },
+      { "key": "confirm_order", "name": { "canonical": "Xác nhận đơn hàng", "accepted": ["xac nhan don hang", "confirm order"] }, "requirement": "required" },
+      { "key": "send_confirmation_email", "name": { "canonical": "Gửi email xác nhận", "accepted": ["gui email xac nhan", "send confirmation email"] }, "requirement": "required" },
+      { "key": "update_inventory", "name": { "canonical": "Cập nhật kho", "accepted": ["cap nhat kho", "update inventory"] }, "requirement": "required" },
+      { "key": "close_order", "name": { "canonical": "Hoàn tất đơn hàng", "accepted": ["hoan tat don hang", "close order"] }, "requirement": "required" },
+      {
+        "key": "invoice_noun_trap",
+        "name": { "canonical": "Hóa đơn", "accepted": ["hoa don", "invoice"] },
+        "requirement": "forbidden",
+        "forbiddenTag": "noun-not-verb",
+        "forbiddenReason": "'Hóa đơn' là danh từ tĩnh, không phải hành động."
+      }
+    ],
+    "mainSequence": ["browse_products", "authenticate_user", "place_order", "confirm_order", "close_order"],
+    "branches": [
+      {
+        "decisionAfter": "place_order",
+        "guards": [
+          {
+            "guard": { "canonical": "Tổng đơn > 1.000.000", "accepted": ["tong don > 1000000", "trên 1 triệu", "order total > 1,000,000"] },
+            "sequence": ["apply_discount"],
+            "rejoinAt": "confirm_order"
+          },
+          {
+            "guard": { "canonical": "Tổng đơn ≤ 1.000.000", "accepted": ["tong don <= 1000000", "dưới hoặc bằng 1 triệu", "order total <= 1,000,000"] },
+            "sequence": [],
+            "rejoinAt": "confirm_order"
+          }
+        ]
+      }
+    ],
+    "concurrent": {
+      "forkAfter": "confirm_order",
+      "join": "close_order",
+      "lanes": [["send_confirmation_email"], ["update_inventory"]]
+    }
+  },
+  "passThreshold": 75,
+  "sourceRefs": [
+    "webapp/src/content/lessons/L03-06.json (seed: Place Order includes Authenticate User; Apply Discount extends Place Order khi order total > 1,000,000)",
+    "slide_texts/Ch06_Use_Case_Modeling.txt — Slide 19-20 (Activity Diagrams 1/2, 2/2: main sequence, alternative sequences, decision nodes, concurrent activities)",
+    "needsReview: browse_products, confirm_order, close_order, và toàn bộ fork/join (send_confirmation_email ∥ update_inventory) không có trong slide/L03-06 gốc — soạn thêm để hoàn thiện luồng đầy đủ theo gợi ý ví dụ trong handoff mục 5, cần Nguyên duyệt trước khi dùng chính thức."
+  ]
+}
