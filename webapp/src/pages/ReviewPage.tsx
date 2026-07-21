@@ -93,15 +93,16 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolean }) {
+export default function ReviewPage({ isPeReview = false, levelIdOverride }: { isPeReview?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
+  const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
   let reviewLessonXp = 0;
   if (isPeReview) {
-    reviewData = levelId ? peReviewMap[levelId] : null;
+    reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -220,7 +221,7 @@ export default function ReviewPage({ isPeReview = false }: { isPeReview?: boolea
 
       track('review_completed', {
         score,
-        levelId,
+        levelId: resolvedLevelId,
         correctCount,
         totalQuestions: questions.length,
         passed,

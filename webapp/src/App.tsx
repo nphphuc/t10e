@@ -5,6 +5,7 @@ import LessonPage from './pages/LessonPage';
 import ReviewPage from './pages/ReviewPage';
 import PeReviewLanding from './pages/PeReviewLanding';
 import PracticePage from './pages/PracticePage';
+import ClassDiagramBuilderPage from './pages/ClassDiagramBuilderPage';
 import PageTransition from './components/PageTransition';
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -24,6 +25,8 @@ function AnimatedRoutes() {
         <Route path="/lesson/:lessonId" element={<PageTransition><LessonPage /></PageTransition>} />
         <Route path="/review/:levelId" element={<PageTransition><ReviewPage /></PageTransition>} />
         <Route path="/pe-review" element={<PageTransition><PeReviewLanding /></PageTransition>} />
+        <Route path="/pe-review/class-diagram/quiz" element={<PageTransition><ReviewPage isPeReview={true} levelIdOverride="class-diagram" /></PageTransition>} />
+        <Route path="/pe-review/class-diagram" element={<PageTransition><ClassDiagramBuilderPage /></PageTransition>} />
         <Route path="/pe-review/:levelId" element={<PageTransition><ReviewPage isPeReview={true} /></PageTransition>} />
         <Route path="/practice" element={<PageTransition><PracticePage /></PageTransition>} />
       </Routes>

@@ -15,6 +15,7 @@ const TOPICS = [
     icon: '📊',
     color: 'from-emerald-500 to-teal-600',
     data: classData,
+    builder: true,
   },
   {
     id: 'sequence',
@@ -92,7 +93,11 @@ export default function PeReviewLanding() {
                     <span className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${topic.color} flex items-center justify-center text-xl shadow-inner`}>
                       {topic.icon}
                     </span>
-                    {isAvailable ? (
+                    {topic.builder ? (
+                      <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                        Builder · Guided + PE
+                      </span>
+                    ) : isAvailable ? (
                       <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-blue-500/10 text-blue-400 border border-blue-500/20">
                         {questionCount} Câu hỏi
                       </span>
@@ -116,7 +121,7 @@ export default function PeReviewLanding() {
                 {isAvailable && (
                   <div className="pt-2 flex justify-end">
                     <span className="text-xs font-bold text-blue-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                      Bắt đầu luyện tập ➔
+                      {topic.builder ? 'Mở Class Diagram Builder ➔' : 'Bắt đầu luyện tập ➔'}
                     </span>
                   </div>
                 )}
