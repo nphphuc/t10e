@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { BuilderStepId, FeedbackItem } from './engine/types';
 
 interface LessonContentPanelProps {
@@ -53,9 +54,28 @@ export default function LessonContentPanel({
   onFeedbackItemClick,
 }: LessonContentPanelProps) {
   const blockingItem = feedback.find((f) => f.severity === 'warn' || f.severity === 'error');
+  // Mobile (<768px): panel collapses into a bottom drawer so the canvas gets full
+  // screen by default — a fixed handle bar stays visible, tapping it expands the
+  // full brief/feedback/next-button content. Desktop keeps the normal side column.
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="w-full md:w-[360px] flex-shrink-0 flex flex-col gap-4 bg-gray-900/40 border border-gray-800 rounded-2xl p-5">
+    <div
+      className={`fixed md:static bottom-0 inset-x-0 md:inset-auto z-40 md:z-auto w-full md:w-[360px] flex-shrink-0 flex flex-col gap-3 md:gap-4 bg-gray-900/95 md:bg-gray-900/40 border-t md:border border-gray-800 rounded-t-2xl md:rounded-2xl p-4 md:p-5 shadow-2xl md:shadow-none transition-transform duration-300 max-h-[85vh] md:max-h-none overflow-y-auto ${
+        mobileOpen ? 'translate-y-0' : 'translate-y-[calc(100%-64px)] md:translate-y-0'
+      }`}
+    >
+      <button
+        onClick={() => setMobileOpen((o) => !o)}
+        className="md:hidden w-full flex items-center justify-between text-left"
+        aria-expanded={mobileOpen}
+      >
+        <span className="text-xs font-bold text-gray-200">
+          Bước {stepIndex + 1}/{totalSteps} {blockingItem ? '⚠️' : '✓'}
+        </span>
+        <span className="text-gray-400">{mobileOpen ? '▼ Thu gọn' : '▲ Xem hướng dẫn'}</span>
+      </button>
+
       <div>
         <h2 className="text-sm font-extrabold text-gray-100">{title}</h2>
         <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">

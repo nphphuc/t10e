@@ -49,7 +49,12 @@ export default function ClassDiagramBuilderScreen({
     return validator(diagram, lesson);
   }, [diagram, lesson, stepId, isUngated]);
 
-  const canAdvance = isUngated || feedback.every((f) => f.severity !== 'warn' && f.severity !== 'error');
+  // PE's 'review' step is diagnostic, not a gate ("máy chấm là gợi ý, không phải phán
+  // quyết") — the learner decides when they're done, regardless of remaining diff
+  // items. Guided's 'compare' step keeps requiring a clean diff before "Hoàn thành",
+  // since guided mode's whole premise is steering the learner to full correctness.
+  const isUngatedCompletion = isUngated || (lesson.mode === 'pe' && stepId === 'review');
+  const canAdvance = isUngatedCompletion || feedback.every((f) => f.severity !== 'warn' && f.severity !== 'error');
   const highlightSubjectId = feedback.find((f) => f.subjectId)?.subjectId ?? null;
 
   const referenceDiagram = useMemo(() => buildReferenceDiagram(lesson), [lesson]);
@@ -97,6 +102,15 @@ export default function ClassDiagramBuilderScreen({
 
   return (
     <div className="flex flex-col md:flex-row gap-4 w-full max-w-6xl mx-auto p-4 md:p-6">
+      <style>{`
+        @media (prefers-reduced-motion: reduce) {
+          .transition-colors, .transition-shadow, .transition-all, .transition-transform { transition: none !important; }
+        }
+        .canvas-focusable:focus-visible, [tabindex]:focus-visible {
+          outline: 2px solid #60a5fa;
+          outline-offset: 2px;
+        }
+      `}</style>
       <LessonContentPanel
         title={lesson.title}
         brief={lesson.brief}
@@ -109,7 +123,7 @@ export default function ClassDiagramBuilderScreen({
         onNext={handleNext}
         onFeedbackItemClick={handleFeedbackItemClick}
       />
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-0 pb-20 md:pb-0">
         {isReviewStep ? (
           <div className="space-y-3">
             {stepIndex > 0 && (

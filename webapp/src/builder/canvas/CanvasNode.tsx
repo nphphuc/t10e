@@ -89,6 +89,8 @@ export default function CanvasNode({
           textAnchor="end"
           fill={isAssociationClass ? '#34d399' : '#6b7280'}
           role="button"
+          tabIndex={0}
+          className="canvas-focusable"
           aria-label={
             isAssociationClass ? `Bỏ đánh dấu association class cho ${node.name}` : `Đánh dấu ${node.name} là association class`
           }
@@ -96,6 +98,13 @@ export default function CanvasNode({
           onClick={(e) => {
             e.stopPropagation();
             onToggleAssociationClass(node.id);
+          }}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              e.stopPropagation();
+              onToggleAssociationClass(node.id);
+            }
           }}
         >
           {isAssociationClass ? '◇AC' : '◇'}
@@ -121,11 +130,20 @@ export default function CanvasNode({
               fill="#f87171"
               textAnchor="middle"
               role="button"
+              tabIndex={0}
+              className="canvas-focusable"
               aria-label={`Xóa attribute ${attr.name}`}
               style={{ cursor: 'pointer' }}
               onClick={(e) => {
                 e.stopPropagation();
                 onRemoveAttribute(node.id, attr.id);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  onRemoveAttribute(node.id, attr.id);
+                }
               }}
             >
               ✕

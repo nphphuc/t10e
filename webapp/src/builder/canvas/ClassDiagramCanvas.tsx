@@ -577,15 +577,6 @@ export default function ClassDiagramCanvas({
 
   return (
     <DndContext sensors={sensors} collisionDetection={pointerWithin} onDragEnd={handleDragEnd}>
-      <style>{`
-        @media (prefers-reduced-motion: reduce) {
-          .transition-colors, .transition-shadow, .transition-all { transition: none !important; }
-        }
-        .canvas-focusable:focus-visible, [tabindex]:focus-visible {
-          outline: 2px solid #60a5fa;
-          outline-offset: 2px;
-        }
-      `}</style>
       <div className="sr-only" aria-live="polite">
         {announcement}
       </div>
