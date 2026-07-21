@@ -144,7 +144,7 @@ function CanvasSurface({
   containerRef: MutableRefObject<HTMLDivElement | null>;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
-  const [viewport, setViewport] = useState({ width: 900, height: 560 });
+  const [viewport, setViewport] = useState({ width: 1100, height: 780 });
 
   useEffect(() => {
     const el = containerRef.current;
@@ -152,7 +152,7 @@ function CanvasSurface({
     const ro = new ResizeObserver((entries) => {
       const entry = entries[0];
       if (!entry) return;
-      setViewport({ width: Math.max(entry.contentRect.width, 320), height: Math.max(entry.contentRect.height, 420) });
+      setViewport({ width: Math.max(entry.contentRect.width, 320), height: Math.max(entry.contentRect.height, 780) });
     });
     ro.observe(el);
     return () => ro.disconnect();
@@ -187,7 +187,7 @@ function CanvasSurface({
         containerRef.current = el;
         setNodeRef(el);
       }}
-      className="w-full h-[560px] bg-[#090a0c]/60 border border-gray-800 rounded-2xl overflow-auto relative"
+      className="w-full h-[780px] bg-[#090a0c]/60 border border-gray-800 rounded-2xl overflow-auto relative"
       onClick={onBackgroundClick}
     >
       {connectSourceId && (
