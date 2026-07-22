@@ -106,6 +106,27 @@ function PaletteChip({
   );
 }
 
+// Generous margin so there's always room to keep dragging/dropping past the last node —
+// dnd-kit's built-in autoScroll then scrolls the now-scrollable container as the pointer
+// nears its edge, echoing draw.io's "drag near the edge to reveal more canvas". Used for
+// the drawable SVG size, NOT for "Fit" zoom (see tightContentBounds below) — folding this
+// same generous padding into the fit calculation would zoom out much further than needed
+// to actually see the diagram, since it'd treat 300px of empty drag-room per node as
+// content that has to fit on screen too.
+const CANVAS_MARGIN = 300;
+function contentBounds(diagram: ActivityDiagramState): { width: number; height: number } {
+  const width = Math.max(0, ...diagram.nodes.map((n) => n.x + nodeBox(n.type).width + CANVAS_MARGIN));
+  const height = Math.max(0, ...diagram.nodes.map((n) => n.y + nodeBox(n.type).height + CANVAS_MARGIN));
+  return { width, height };
+}
+
+const FIT_MARGIN = 60;
+function tightContentBounds(diagram: ActivityDiagramState): { width: number; height: number } {
+  const width = Math.max(1, ...diagram.nodes.map((n) => n.x + nodeBox(n.type).width + FIT_MARGIN));
+  const height = Math.max(1, ...diagram.nodes.map((n) => n.y + nodeBox(n.type).height + FIT_MARGIN));
+  return { width, height };
+}
+
 function CanvasSurface({
   diagram,
   selectedId,
@@ -124,6 +145,7 @@ function CanvasSurface({
   onFocusNode,
   onBlurNode,
   containerRef,
+  zoom,
 }: {
   diagram: ActivityDiagramState;
   selectedId: string | null;
@@ -142,6 +164,7 @@ function CanvasSurface({
   onFocusNode: (id: string) => void;
   onBlurNode: () => void;
   containerRef: MutableRefObject<HTMLDivElement | null>;
+  zoom: number;
 }) {
   const { setNodeRef } = useDroppable({ id: 'canvas-root', data: { kind: 'canvas' } });
   const [viewport, setViewport] = useState({ width: 1100, height: 780 });
@@ -162,9 +185,8 @@ function CanvasSurface({
   // otherwise a handful of nodes fill the fixed-size box and everything after
   // that overlaps with no way to reach it. `viewport` stays the minimum visible
   // window; the container scrolls once content exceeds it.
-  const contentWidth = Math.max(0, ...diagram.nodes.map((n) => n.x + nodeBox(n.type).width + 60));
-  const contentHeight = Math.max(0, ...diagram.nodes.map((n) => n.y + nodeBox(n.type).height + 60));
-  const size = { width: Math.max(viewport.width, contentWidth), height: Math.max(viewport.height, contentHeight) };
+  const content = contentBounds(diagram);
+  const size = { width: Math.max(viewport.width, content.width), height: Math.max(viewport.height, content.height) };
 
   const nodesById = new Map(diagram.nodes.map((n) => [n.id, n]));
   const editorFromNode = editingEdge ? nodesById.get(editingEdge.from) : undefined;
@@ -199,7 +221,7 @@ function CanvasSurface({
           Chọn node đích để nối luồng...
         </div>
       )}
-      <svg width={size.width} height={size.height} viewBox={`0 0 ${size.width} ${size.height}`}>
+      <svg width={size.width * zoom} height={size.height * zoom} viewBox={`0 0 ${size.width} ${size.height}`}>
         {diagram.edges.map((edge) => {
           const fromNode = nodesById.get(edge.from);
           const toNode = nodesById.get(edge.to);
@@ -232,7 +254,7 @@ function CanvasSurface({
       </svg>
 
       {editingEdge && editorFromNode && editorToNode && editorPos && (
-        <div style={{ position: 'absolute', left: editorPos.left, top: editorPos.top }}>
+        <div style={{ position: 'absolute', left: editorPos.left * zoom, top: editorPos.top * zoom }}>
           <GuardEditor
             edge={editingEdge}
             fromNode={editorFromNode}
@@ -247,7 +269,7 @@ function CanvasSurface({
 
       {toolbarNode && (
         <div
-          style={{ position: 'absolute', left: toolbarNode.x, top: Math.max(toolbarNode.y - 34, 0) }}
+          style={{ position: 'absolute', left: toolbarNode.x * zoom, top: Math.max(toolbarNode.y - 34, 0) * zoom }}
           className="flex gap-1.5"
           onClick={(e) => e.stopPropagation()}
         >
@@ -288,6 +310,7 @@ export default function ActivityCanvas({
   const [liftedItem, setLiftedItem] = useState<LiftedItem | null>(null);
   const [announcement, setAnnouncement] = useState('');
   const [focusedNodeId, setFocusedNodeId] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
   const undoSnapshotRef = useRef<ActivityDiagramState | null>(null);
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 4 } }));
 
@@ -450,7 +473,9 @@ export default function ActivityCanvas({
       commit({
         ...diagram,
         nodes: diagram.nodes.map((n) =>
-          n.id === nodeId ? { ...n, x: Math.max(0, n.x + event.delta.x), y: Math.max(0, n.y + event.delta.y) } : n
+          n.id === nodeId
+            ? { ...n, x: Math.max(0, n.x + event.delta.x / zoom), y: Math.max(0, n.y + event.delta.y / zoom) }
+            : n
         ),
       });
       return;
@@ -461,8 +486,12 @@ export default function ActivityCanvas({
     const canvasEl = containerRef.current;
     if (!activeRect || !canvasEl) return;
     const bounds = canvasEl.getBoundingClientRect();
-    const dropX = activeRect.left + activeRect.width / 2 - bounds.left;
-    const dropY = activeRect.top + activeRect.height / 2 - bounds.top;
+    // Screen-space offset within the visible viewport, PLUS however far the container
+    // is currently scrolled, converted from screen pixels back to diagram coordinates
+    // by dividing out the zoom factor — without the scroll term this silently placed
+    // nodes at the wrong spot any time the canvas was scrolled away from the top-left.
+    const dropX = (activeRect.left + activeRect.width / 2 - bounds.left + canvasEl.scrollLeft) / zoom;
+    const dropY = (activeRect.top + activeRect.height / 2 - bounds.top + canvasEl.scrollTop) / zoom;
 
     if (activeData.kind === 'palette-action') {
       createActionAt(activeData.item.label, dropX - nodeBox('action').width / 2, dropY - nodeBox('action').height / 2);
@@ -502,6 +531,25 @@ export default function ActivityCanvas({
     createActionAt(name, grid.x, grid.y);
     setNewActionName('');
     setAddingAction(false);
+  }
+
+  const ZOOM_MIN = 0.25;
+  const ZOOM_MAX = 2;
+
+  function zoomBy(delta: number) {
+    setZoom((z) => Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, Math.round((z + delta) * 100) / 100)));
+  }
+
+  function zoomToFit() {
+    const el = containerRef.current;
+    if (!el || diagram.nodes.length === 0) {
+      setZoom(1);
+      return;
+    }
+    const content = tightContentBounds(diagram);
+    const fitW = el.clientWidth / content.width;
+    const fitH = el.clientHeight / content.height;
+    setZoom(Math.min(ZOOM_MAX, Math.max(ZOOM_MIN, Math.min(fitW, fitH))));
   }
 
   return (
@@ -606,7 +654,7 @@ export default function ActivityCanvas({
           </button>
         </div>
 
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 relative">
           <CanvasSurface
             diagram={diagram}
             selectedId={selectedId}
@@ -625,7 +673,46 @@ export default function ActivityCanvas({
             onFocusNode={setFocusedNodeId}
             onBlurNode={() => setFocusedNodeId(null)}
             containerRef={containerRef}
+            zoom={zoom}
           />
+
+          {/* Anchored to the top (not bottom) of the canvas box — on mobile the box is
+              taller than the viewport, so a bottom-anchored control would sit below the
+              fold until the user scrolls all the way down just to find the zoom buttons. */}
+          <div className="absolute top-3 right-3 z-30 flex items-center gap-1 px-1.5 py-1 rounded-xl bg-gray-900/90 border border-gray-700 shadow-lg">
+            <button
+              onClick={() => zoomBy(-0.1)}
+              disabled={zoom <= ZOOM_MIN}
+              aria-label="Thu nhỏ"
+              className="w-7 h-7 rounded-lg text-gray-300 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed font-bold"
+            >
+              −
+            </button>
+            <button
+              onClick={() => setZoom(1)}
+              aria-label="Đặt lại 100%"
+              className="px-2 h-7 rounded-lg text-[11px] font-bold text-gray-300 hover:bg-gray-800 tabular-nums"
+            >
+              {Math.round(zoom * 100)}%
+            </button>
+            <button
+              onClick={() => zoomBy(0.1)}
+              disabled={zoom >= ZOOM_MAX}
+              aria-label="Phóng to"
+              className="w-7 h-7 rounded-lg text-gray-300 hover:bg-gray-800 disabled:opacity-30 disabled:cursor-not-allowed font-bold"
+            >
+              +
+            </button>
+            <div className="w-px h-5 bg-gray-700 mx-0.5" />
+            <button
+              onClick={zoomToFit}
+              aria-label="Thu phóng vừa khung hình"
+              title="Xem toàn bộ diagram"
+              className="px-2 h-7 rounded-lg text-[11px] font-bold text-gray-300 hover:bg-gray-800"
+            >
+              ⤢ Fit
+            </button>
+          </div>
         </div>
       </div>
     </DndContext>
