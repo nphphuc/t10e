@@ -170,10 +170,17 @@ export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): Fee
       continue;
     }
 
-    const decisionEdge = d.edges.find(
+    const decisionEdges = d.edges.filter(
       (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'decision'
     );
-    const decisionNode = decisionEdge && d.nodes.find((n) => n.id === decisionEdge.to);
+    if (decisionEdges.length > 1) {
+      items.push({
+        severity: 'warn',
+        message: `Có ${decisionEdges.length} node decision cùng nối sau '${afterTa!.name.canonical}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+        tag: 'duplicate-decision',
+      });
+    }
+    const decisionNode = decisionEdges[0] && d.nodes.find((n) => n.id === decisionEdges[0].to);
     if (!decisionNode) {
       items.push({ severity: 'warn', message: `Chưa có decision ngay sau '${afterTa!.name.canonical}'.` });
       continue;
@@ -286,10 +293,17 @@ export function forkJoinAndReachability(d: ActivityDiagramState, t: ActivityLess
         message: `Hành động '${afterTa?.name.canonical ?? c.forkAfter}' chưa có trên canvas nên chưa thể kiểm tra fork/join.`,
       });
     } else {
-      const forkEdge = d.edges.find(
+      const forkEdges = d.edges.filter(
         (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'fork'
       );
-      const forkNode = forkEdge && d.nodes.find((n) => n.id === forkEdge.to);
+      if (forkEdges.length > 1) {
+        items.push({
+          severity: 'warn',
+          message: `Có ${forkEdges.length} node fork cùng nối sau '${afterTa!.name.canonical}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+          tag: 'duplicate-fork',
+        });
+      }
+      const forkNode = forkEdges[0] && d.nodes.find((n) => n.id === forkEdges[0].to);
       if (!forkNode) {
         items.push({ severity: 'warn', message: `Chưa có fork ngay sau '${afterTa!.name.canonical}'.` });
       } else {

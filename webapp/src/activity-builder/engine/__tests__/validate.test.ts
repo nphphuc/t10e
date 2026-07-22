@@ -79,6 +79,16 @@ describe('V4 decisionsGuards', () => {
     const items = decisionsGuards(d, lesson);
     expect(items.some((i) => i.tag === 'missing-guard')).toBe(true);
   });
+
+  it('flags two decision nodes both connected from the same "after" action, since only the first is ever checked', () => {
+    const d = perfectDiagram();
+    const inspect = d.nodes.find((n) => n.name === 'Kiểm tra tình trạng')!;
+    const dupDecision = { id: 'dup-decision', type: 'decision' as const, x: 999, y: 999 };
+    d.nodes.push(dupDecision);
+    d.edges.push({ id: 'dup-decision-edge', from: inspect.id, to: dupDecision.id });
+    const items = decisionsGuards(d, lesson);
+    expect(items.some((i) => i.tag === 'duplicate-decision')).toBe(true);
+  });
 });
 
 describe('V5 forkJoinAndReachability', () => {
@@ -105,6 +115,16 @@ describe('V5 forkJoinAndReachability', () => {
     d.nodes = d.nodes.filter((n) => n.type !== 'join');
     const items = forkJoinAndReachability(d, lesson);
     expect(items.some((i) => i.message.includes('hội tụ'))).toBe(true);
+  });
+
+  it('flags two fork nodes both connected from the same "after" action, since only the first is ever checked', () => {
+    const d = perfectDiagram();
+    const updateCatalog = d.nodes.find((n) => n.name === 'Cập nhật kho')!;
+    const dupFork = { id: 'dup-fork', type: 'fork' as const, x: 999, y: 999 };
+    d.nodes.push(dupFork);
+    d.edges.push({ id: 'dup-fork-edge', from: updateCatalog.id, to: dupFork.id });
+    const items = forkJoinAndReachability(d, lesson);
+    expect(items.some((i) => i.tag === 'duplicate-fork')).toBe(true);
   });
 });
 
