@@ -29,6 +29,16 @@ describe('V2 placeActions', () => {
     const items = placeActions(d, lesson);
     expect(items.some((i) => i.tag === 'noun-not-verb')).toBe(true);
   });
+
+  it('flags two nodes sharing the same action name, since findActionNode only ever resolves the first one', () => {
+    const d = perfectDiagram();
+    const original = d.nodes.find((n) => n.name === 'Trả sách')!;
+    d.nodes.push({ id: 'dup1', type: 'action', name: original.name, x: 999, y: 999 });
+    const items = placeActions(d, lesson);
+    const dup = items.find((i) => i.tag === 'duplicate-action-name');
+    expect(dup?.severity).toBe('warn');
+    expect(dup?.message).toContain('Trả sách');
+  });
 });
 
 describe('V3 checkMainSequence', () => {

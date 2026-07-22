@@ -82,16 +82,28 @@ export function verifySequencePath(
 export function placeActions(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
   const items: FeedbackItem[] = [];
   for (const ta of t.target.actions) {
-    const node = findActionNode(d, ta);
-    if (ta.requirement === 'required' && !node) {
+    const matches = d.nodes.filter((n) => n.type === 'action' && n.name && match(n.name, ta.name));
+    if (ta.requirement === 'required' && matches.length === 0) {
       items.push({ severity: 'warn', message: `Hành động '${ta.name.canonical}' chưa có trên canvas.` });
     }
-    if (ta.requirement === 'forbidden' && node) {
+    if (ta.requirement === 'forbidden' && matches.length > 0) {
       items.push({
         severity: 'warn',
         message: `'${ta.name.canonical}' không phải là hành động cần có ở đây.`,
         tag: ta.forbiddenTag,
-        subjectId: node.id,
+        subjectId: matches[0].id,
+      });
+    }
+    // Two nodes sharing the same name silently confuses every other validator —
+    // findActionNode() always resolves to whichever one comes first in the array,
+    // so the OTHER copy's edges are invisible to grading no matter how correctly
+    // it's wired up. Catch it here with a message that names the actual problem,
+    // instead of leaving the learner staring at seemingly-wrong order warnings.
+    if (matches.length > 1) {
+      items.push({
+        severity: 'warn',
+        message: `Có ${matches.length} node cùng tên '${ta.name.canonical}' trên canvas — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+        tag: 'duplicate-action-name',
       });
     }
   }
