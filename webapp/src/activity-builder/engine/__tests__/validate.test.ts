@@ -39,6 +39,15 @@ describe('V2 placeActions', () => {
     expect(dup?.severity).toBe('warn');
     expect(dup?.message).toContain('Trả sách');
   });
+
+  it('flags a second initial node even while still on the place-actions step (regression: this used to only surface at fork-join/compare)', () => {
+    const d = perfectDiagram();
+    d.nodes.push({ id: 'dup-initial', type: 'initial', x: 999, y: 999 });
+    const items = placeActions(d, lesson);
+    const dup = items.find((i) => i.tag === 'duplicate-initial');
+    expect(dup?.severity).toBe('warn');
+    expect(dup?.message).toContain('2');
+  });
 });
 
 describe('V3 checkMainSequence', () => {

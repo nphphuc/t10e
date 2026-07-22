@@ -128,6 +128,22 @@ function duplicateNodeWarnings(d: ActivityDiagramState, t: ActivityLesson): Feed
       }
     }
   }
+  // initial is checked by COUNT (not name/edge matching), so unlike the cases above it
+  // was never at risk of one copy silently hiding another — but the "must be exactly 1"
+  // check previously only lived inside forkJoinAndReachability, i.e. only surfaced at the
+  // fork-join/compare steps. A second initial dropped by accident while still on an
+  // earlier step (the structural palette is available from step 1 onward) went
+  // unflagged until much later. Surface the "too many" half of that check everywhere;
+  // forkJoinAndReachability still separately owns the "must have at least 1" half, since
+  // that's expected/normal to be unmet on every step before the diagram is finished.
+  const initials = d.nodes.filter((n) => n.type === 'initial');
+  if (initials.length > 1) {
+    items.push({
+      severity: 'warn',
+      message: `Có ${initials.length} node bắt đầu (initial) trên canvas — chỉ được có đúng 1, hãy xóa bớt node thừa.`,
+      tag: 'duplicate-initial',
+    });
+  }
   return items;
 }
 
