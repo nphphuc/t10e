@@ -98,6 +98,17 @@ describe('V4 decisionsGuards', () => {
     const items = decisionsGuards(d, lesson);
     expect(items.some((i) => i.tag === 'duplicate-decision')).toBe(true);
   });
+
+  it('flags a leftover plain edge straight from the decision-after action to the rejoin action once the decision structure already reconnects them (structurally wrong: a second unconditional outgoing edge on a non-fork action)', () => {
+    const d = perfectDiagram();
+    const inspect = d.nodes.find((n) => n.name === 'Kiểm tra tình trạng')!;
+    const updateCatalog = d.nodes.find((n) => n.name === 'Cập nhật kho')!;
+    d.edges.push({ id: 'leftover-direct-edge', from: inspect.id, to: updateCatalog.id });
+    const items = decisionsGuards(d, lesson);
+    const redundant = items.find((i) => i.tag === 'redundant-direct-edge');
+    expect(redundant?.severity).toBe('warn');
+    expect(redundant?.subjectId).toBe('leftover-direct-edge');
+  });
 });
 
 describe('V5 forkJoinAndReachability', () => {
@@ -134,6 +145,17 @@ describe('V5 forkJoinAndReachability', () => {
     d.edges.push({ id: 'dup-fork-edge', from: updateCatalog.id, to: dupFork.id });
     const items = forkJoinAndReachability(d, lesson);
     expect(items.some((i) => i.tag === 'duplicate-fork')).toBe(true);
+  });
+
+  it('flags a leftover plain edge straight from the fork-after action to the join action once fork/join already reconnects them', () => {
+    const d = perfectDiagram();
+    const updateCatalog = d.nodes.find((n) => n.name === 'Cập nhật kho')!;
+    const closeSession = d.nodes.find((n) => n.name === 'Đóng phiên trả sách')!;
+    d.edges.push({ id: 'leftover-direct-edge', from: updateCatalog.id, to: closeSession.id });
+    const items = forkJoinAndReachability(d, lesson);
+    const redundant = items.find((i) => i.tag === 'redundant-direct-edge');
+    expect(redundant?.severity).toBe('warn');
+    expect(redundant?.subjectId).toBe('leftover-direct-edge');
   });
 });
 

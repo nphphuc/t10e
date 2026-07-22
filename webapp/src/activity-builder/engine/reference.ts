@@ -9,13 +9,14 @@ const ROW_HEIGHT = 110;
 // Pure and deterministic: same lesson always produces the same reference diagram.
 //
 // Design notes:
-// - The main-sequence trunk is always wired with direct, unconditional edges
-//   (initial -> seq[0] -> seq[1] -> ... -> final). Decision/guard and fork/join
-//   structure is layered on as an ADDITIONAL path alongside the trunk (decision
-//   hangs off the "after" action, its merge reconnects into the declared
-//   rejoinAt action) rather than replacing a trunk edge. That keeps
-//   main-sequence reachability correct even if a branch's rejoinAt isn't
-//   literally the very next trunk step.
+// - The main-sequence trunk is wired with direct, unconditional edges (initial ->
+//   seq[0] -> seq[1] -> ... -> final) EXCEPT for a hop whose source action has a
+//   decision/fork hanging off it AND whose merge/join demonstrably reconnects to
+//   the very next trunk action — in that case the direct edge is skipped, since
+//   keeping both would give that action two unconditional outgoing edges (a
+//   structurally-wrong implication of unintended concurrency, not valid UML for a
+//   simple conditional branch). If a branch's rejoinAt ISN'T literally the next
+//   trunk step, the direct edge is kept so main-sequence reachability still holds.
 // - Layout uses ONE monotonically-increasing vertical cursor shared across the
 //   trunk and every branch/concurrent block hanging off it, so a decision's
 //   merge and a nearby fork/join never land on the same coordinates — each
@@ -56,12 +57,20 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
   let trunkCursor: ActivityNode = initial;
   let y = ROW_HEIGHT;
   const mainSeq = lesson.target.mainSequence;
+  // Set true when a branch/concurrent block hanging off the CURRENT key already
+  // reconnects into the NEXT trunk key — skips the redundant direct trunk edge for
+  // that one hop (see design notes above).
+  let skipNextTrunkEdge = false;
 
-  mainSeq.forEach((key) => {
+  mainSeq.forEach((key, i) => {
     const node = actionNode(key, TRUNK_X, y);
-    addEdge(trunkCursor.id, node.id);
+    if (!skipNextTrunkEdge) {
+      addEdge(trunkCursor.id, node.id);
+    }
     trunkCursor = node;
+    skipNextTrunkEdge = false;
     y += ROW_HEIGHT;
+    const nextKey = mainSeq[i + 1];
 
     const branch = branchByDecisionAfter.get(key);
     if (branch) {
@@ -107,6 +116,9 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
           addEdge(mergeNode.id, actionNode(rk, TRUNK_X, mergeNode.y + ROW_HEIGHT).id);
         }
         branchBottom = mergeNode.y + ROW_HEIGHT;
+        if (nextKey && rejoinKeys.has(nextKey)) {
+          skipNextTrunkEdge = true;
+        }
       }
 
       y = branchBottom + ROW_HEIGHT / 2;
@@ -139,6 +151,9 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
       nodes.push(joinNode);
       for (const lc of laneEndCursors) addEdge(lc.id, joinNode.id);
       addEdge(joinNode.id, actionNode(concurrent.join, TRUNK_X, joinNode.y + ROW_HEIGHT).id);
+      if (nextKey && concurrent.join === nextKey) {
+        skipNextTrunkEdge = true;
+      }
 
       y = joinNode.y + ROW_HEIGHT * 2;
     }
@@ -146,7 +161,9 @@ export function buildReferenceDiagram(lesson: ActivityLesson): ActivityDiagramSt
 
   const final: ActivityNode = { id: nextId('final'), type: 'final', x: TRUNK_X, y: Math.max(trunkCursor.y + ROW_HEIGHT, y) };
   nodes.push(final);
-  addEdge(trunkCursor.id, final.id);
+  if (!skipNextTrunkEdge) {
+    addEdge(trunkCursor.id, final.id);
+  }
   for (const dangling of danglingEnds) {
     addEdge(dangling.id, final.id);
   }

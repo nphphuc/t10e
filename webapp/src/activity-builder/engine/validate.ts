@@ -144,6 +144,20 @@ function duplicateNodeWarnings(d: ActivityDiagramState, t: ActivityLesson): Feed
       tag: 'duplicate-initial',
     });
   }
+  // UML in general allows more than one activity-final node (a flow can legitimately
+  // terminate at more than one point) — but none of THIS engine's target specs model
+  // multiple intended endings: mainSequence/branches/concurrent always reconverge into
+  // one continuous trunk ending at a single final. TargetSpec has no field to say
+  // "this lesson expects N endings", so for every lesson this validates today, a second
+  // final is a stray node from clicking/dragging the wrong thing, not a valid design.
+  const finals = d.nodes.filter((n) => n.type === 'final');
+  if (finals.length > 1) {
+    items.push({
+      severity: 'warn',
+      message: `Có ${finals.length} node kết thúc (final) trên canvas — bài này chỉ có 1 luồng kết thúc, hãy xóa bớt node thừa.`,
+      tag: 'duplicate-final',
+    });
+  }
   return items;
 }
 
@@ -215,6 +229,11 @@ export function checkMainSequence(d: ActivityDiagramState, t: ActivityLesson): F
 
 export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
   const items: FeedbackItem[] = [...duplicateNodeWarnings(d, t)];
+  // Multiple guards on the same branch commonly share one rejoinAt (e.g. both the
+  // "> 1.000.000" and "≤ 1.000.000" branches here rejoin at the same next action) — the
+  // redundant-direct-edge check below would otherwise fire once per guard that shares
+  // it, repeating an identical warning.
+  const reportedRedundantEdges = new Set<string>();
   for (const branch of t.target.branches) {
     const afterTa = findActionByKey(t.target, branch.decisionAfter);
     const afterNode = findActionNode(d, afterTa);
@@ -284,6 +303,25 @@ export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): Fee
               message: `Nhánh guard '${gb.guard.canonical}' chưa nối lại (qua merge) tới '${rejoinTa!.name.canonical}'.`,
               tag: 'missing-rejoin',
             });
+          } else {
+            // Once the decision->guard->merge structure genuinely reconnects to
+            // rejoinAt, a LEFTOVER plain edge straight from afterNode to that same
+            // action is a second unconditional path out of a non-fork action node —
+            // that's not just redundant, it's structurally wrong UML (it implies
+            // unintended concurrency instead of a conditional branch). This is
+            // exactly the "Đặt hàng" -> "Xác nhận đơn hàng" edge a learner draws at
+            // the main-sequence step, before the decision exists yet — once the
+            // decision is built, that earlier edge needs to go.
+            const redundantEdge = d.edges.find((e) => e.from === afterNode.id && e.to === rejoinNode.id);
+            if (redundantEdge && !reportedRedundantEdges.has(redundantEdge.id)) {
+              reportedRedundantEdges.add(redundantEdge.id);
+              items.push({
+                severity: 'warn',
+                message: `Luồng nối thẳng từ '${afterTa!.name.canonical}' tới '${rejoinTa!.name.canonical}' không cần thiết nữa — mọi đường đi nên qua decision, hãy xóa luồng nối thẳng đó.`,
+                subjectId: redundantEdge.id,
+                tag: 'redundant-direct-edge',
+              });
+            }
           }
         }
       }
@@ -389,6 +427,20 @@ export function forkJoinAndReachability(d: ActivityDiagramState, t: ActivityLess
               severity: 'warn',
               message: `Các nhánh song song chưa hội tụ đúng tại 1 node join trước khi tới '${joinTa!.name.canonical}'.`,
             });
+          } else {
+            // Same issue as the decision/merge case: once fork->lanes->join genuinely
+            // reconnects to concurrent.join, a leftover plain edge straight from the
+            // fork-after action to that same action is a second, structurally-wrong
+            // unconditional path (on top of the fork's own split) — clean it up.
+            const redundantEdge = d.edges.find((e) => e.from === afterNode.id && e.to === joinActionNode.id);
+            if (redundantEdge) {
+              items.push({
+                severity: 'warn',
+                message: `Luồng nối thẳng từ '${afterTa!.name.canonical}' tới '${joinTa!.name.canonical}' không cần thiết nữa — mọi đường đi nên qua fork/join, hãy xóa luồng nối thẳng đó.`,
+                subjectId: redundantEdge.id,
+                tag: 'redundant-direct-edge',
+              });
+            }
           }
         }
       }
