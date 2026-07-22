@@ -36,10 +36,11 @@ const TOPICS = [
   {
     id: 'activity',
     title: 'Activity Diagram',
-    desc: 'Luyện tập về quy trình nghiệp vụ (control flow, fork/join và partition).',
+    desc: 'Luyện tập về quy trình nghiệp vụ (control flow, decision/guard, fork/join).',
     icon: '🗺️',
-    color: 'from-gray-600 to-gray-700',
+    color: 'from-indigo-500 to-purple-600',
     data: activityData,
+    builder: true,
   },
   {
     id: 'conceptual-db',
@@ -84,7 +85,7 @@ export default function PeReviewLanding() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {TOPICS.map((topic) => {
             const questionCount = topic.data.questions.length;
-            const isAvailable = questionCount > 0;
+            const isAvailable = topic.builder || questionCount > 0;
 
             const cardContent = (
               <div className="p-6 flex flex-col justify-between h-full gap-4">
@@ -121,7 +122,7 @@ export default function PeReviewLanding() {
                 {isAvailable && (
                   <div className="pt-2 flex justify-end">
                     <span className="text-xs font-bold text-blue-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
-                      {topic.builder ? 'Mở Class Diagram Builder ➔' : 'Bắt đầu luyện tập ➔'}
+                      {topic.builder ? `Mở ${topic.title} Builder ➔` : 'Bắt đầu luyện tập ➔'}
                     </span>
                   </div>
                 )}

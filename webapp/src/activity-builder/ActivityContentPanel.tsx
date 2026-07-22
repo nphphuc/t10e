@@ -1,0 +1,126 @@
+import { useState } from 'react';
+import type { ActivityStepId, FeedbackItem } from './engine/types';
+
+interface ActivityContentPanelProps {
+  title: string;
+  brief: string[];
+  stepId: ActivityStepId;
+  stepIndex: number;
+  totalSteps: number;
+  feedback: FeedbackItem[];
+  canAdvance: boolean;
+  isLastStep: boolean;
+  onNext: () => void;
+  onFeedbackItemClick?: (subjectId?: string) => void;
+}
+
+const STEP_INSTRUCTIONS: Record<ActivityStepId, string> = {
+  'place-actions': 'Kéo các hành động cần thiết từ palette vào canvas. Cẩn thận: không phải mọi thẻ đều là hành động!',
+  'main-sequence': 'Nối các hành động theo đúng thứ tự luồng chính, bắt đầu từ node ● Bắt đầu.',
+  'decisions-guards':
+    'Thêm node ◆ Decision ngay sau hành động rẽ nhánh, nối các nhánh ra với điều kiện (guard) tương ứng, rồi dùng ◇ Merge để hội tụ lại đúng chỗ.',
+  'fork-join':
+    'Thêm ▬ Fork để tách nhánh song song, nối các hành động chạy đồng thời, rồi ▬ Join để gộp lại trước khi tiếp tục. Đừng quên node ◉ Kết thúc.',
+  compare: 'So sánh bài làm của bạn với bản tham chiếu bên dưới.',
+  'free-build': 'Tự dựng toàn bộ activity diagram theo mô tả nghiệp vụ.',
+  review: 'Xem điểm và đối chiếu với bản tham chiếu.',
+};
+
+const SEVERITY_STYLES: Record<FeedbackItem['severity'], string> = {
+  ok: 'border-success/40 bg-success/5 text-emerald-300',
+  hint: 'border-blue-500/40 bg-blue-500/5 text-blue-300',
+  warn: 'border-control/50 bg-control/10 text-amber-300',
+  error: 'border-error/50 bg-error/10 text-red-300',
+};
+
+const SEVERITY_ICON: Record<FeedbackItem['severity'], string> = {
+  ok: '✓',
+  hint: '💡',
+  warn: '⚠️',
+  error: '✕',
+};
+
+export default function ActivityContentPanel({
+  title,
+  brief,
+  stepId,
+  stepIndex,
+  totalSteps,
+  feedback,
+  canAdvance,
+  isLastStep,
+  onNext,
+  onFeedbackItemClick,
+}: ActivityContentPanelProps) {
+  const blockingItem = feedback.find((f) => f.severity === 'warn' || f.severity === 'error');
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  return (
+    <div
+      className={`fixed md:static bottom-0 inset-x-0 md:inset-auto z-40 md:z-auto w-full md:w-[360px] flex-shrink-0 flex flex-col gap-3 md:gap-4 bg-gray-900/95 md:bg-gray-900/40 border-t md:border border-gray-800 rounded-t-2xl md:rounded-2xl p-4 md:p-5 shadow-2xl md:shadow-none transition-transform duration-300 max-h-[85vh] md:max-h-none overflow-y-auto ${
+        mobileOpen ? 'translate-y-0' : 'translate-y-[calc(100%-64px)] md:translate-y-0'
+      }`}
+    >
+      <button
+        onClick={() => setMobileOpen((o) => !o)}
+        className="md:hidden w-full flex items-center justify-between text-left"
+        aria-expanded={mobileOpen}
+      >
+        <span className="text-xs font-bold text-gray-200">
+          Bước {stepIndex + 1}/{totalSteps} {blockingItem ? '⚠️' : '✓'}
+        </span>
+        <span className="text-gray-400">{mobileOpen ? '▼ Thu gọn' : '▲ Xem hướng dẫn'}</span>
+      </button>
+
+      <div>
+        <h2 className="text-sm font-extrabold text-gray-100">{title}</h2>
+        <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">
+          Bước {stepIndex + 1} / {totalSteps}
+        </span>
+      </div>
+
+      <div className="space-y-1.5">
+        {brief.map((line, idx) => (
+          <p key={idx} className="text-xs text-gray-400 leading-relaxed">
+            {line}
+          </p>
+        ))}
+      </div>
+
+      <div className="p-3 rounded-xl bg-blue-950/10 border border-blue-900/20 text-xs text-blue-200 leading-relaxed">
+        {STEP_INSTRUCTIONS[stepId]}
+      </div>
+
+      <div className="flex-1 min-h-0 overflow-y-auto space-y-1.5" aria-live="polite">
+        {feedback.length === 0 && (
+          <div className="text-xs text-gray-500 italic p-2">Chưa có phản hồi — hãy bắt đầu dựng diagram.</div>
+        )}
+        {feedback.map((item, idx) => (
+          <button
+            key={idx}
+            onClick={() => onFeedbackItemClick?.(item.subjectId)}
+            className={`w-full text-left px-3 py-2 rounded-xl border text-[11px] leading-relaxed transition-colors ${SEVERITY_STYLES[item.severity]}`}
+          >
+            <span className="mr-1.5" aria-hidden="true">
+              {SEVERITY_ICON[item.severity]}
+            </span>
+            {item.message}
+          </button>
+        ))}
+      </div>
+
+      <button
+        onClick={onNext}
+        disabled={!canAdvance}
+        title={!canAdvance && blockingItem ? blockingItem.message : undefined}
+        className={`w-full py-3 rounded-xl font-bold text-sm transition-all ${
+          canAdvance
+            ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'
+            : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+        }`}
+      >
+        {isLastStep ? 'Hoàn thành' : 'Tiếp ➔'}
+      </button>
+    </div>
+  );
+}
