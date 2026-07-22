@@ -79,8 +79,60 @@ export function verifySequencePath(
   return { ok: true, items, lastNodeId: cur };
 }
 
-export function placeActions(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
+// Two nodes sharing the same name/role silently confuse every validator that resolves
+// them via findActionNode()/find() on edges — those always resolve to whichever match
+// comes first, so the OTHER copy (however correctly it's wired up) is invisible to
+// grading. Runs from EVERY step's validator (not just place-actions) so a duplicate
+// created while parked on a later step — the canvas stays live/editable regardless of
+// which step is displayed — gets flagged immediately instead of staying silent until
+// the learner happens to step back to place-actions or reaches the orphan-node check.
+function duplicateNodeWarnings(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
   const items: FeedbackItem[] = [];
+  for (const ta of t.target.actions) {
+    const matches = d.nodes.filter((n) => n.type === 'action' && n.name && match(n.name, ta.name));
+    if (matches.length > 1) {
+      items.push({
+        severity: 'warn',
+        message: `Có ${matches.length} node cùng tên '${ta.name.canonical}' trên canvas — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+        tag: 'duplicate-action-name',
+      });
+    }
+  }
+  for (const branch of t.target.branches) {
+    const afterNode = findActionNode(d, findActionByKey(t.target, branch.decisionAfter));
+    if (!afterNode) continue;
+    const decisionEdges = d.edges.filter(
+      (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'decision'
+    );
+    if (decisionEdges.length > 1) {
+      items.push({
+        severity: 'warn',
+        message: `Có ${decisionEdges.length} node decision cùng nối sau '${afterNode.name}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+        tag: 'duplicate-decision',
+      });
+    }
+  }
+  const c = t.target.concurrent;
+  if (c) {
+    const afterNode = findActionNode(d, findActionByKey(t.target, c.forkAfter));
+    if (afterNode) {
+      const forkEdges = d.edges.filter(
+        (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'fork'
+      );
+      if (forkEdges.length > 1) {
+        items.push({
+          severity: 'warn',
+          message: `Có ${forkEdges.length} node fork cùng nối sau '${afterNode.name}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
+          tag: 'duplicate-fork',
+        });
+      }
+    }
+  }
+  return items;
+}
+
+export function placeActions(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
+  const items: FeedbackItem[] = [...duplicateNodeWarnings(d, t)];
   for (const ta of t.target.actions) {
     const matches = d.nodes.filter((n) => n.type === 'action' && n.name && match(n.name, ta.name));
     if (ta.requirement === 'required' && matches.length === 0) {
@@ -94,24 +146,12 @@ export function placeActions(d: ActivityDiagramState, t: ActivityLesson): Feedba
         subjectId: matches[0].id,
       });
     }
-    // Two nodes sharing the same name silently confuses every other validator —
-    // findActionNode() always resolves to whichever one comes first in the array,
-    // so the OTHER copy's edges are invisible to grading no matter how correctly
-    // it's wired up. Catch it here with a message that names the actual problem,
-    // instead of leaving the learner staring at seemingly-wrong order warnings.
-    if (matches.length > 1) {
-      items.push({
-        severity: 'warn',
-        message: `Có ${matches.length} node cùng tên '${ta.name.canonical}' trên canvas — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
-        tag: 'duplicate-action-name',
-      });
-    }
   }
   return items;
 }
 
 export function checkMainSequence(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
-  const items: FeedbackItem[] = [];
+  const items: FeedbackItem[] = [...duplicateNodeWarnings(d, t)];
   const seq = t.target.mainSequence;
   const initial = d.nodes.find((n) => n.type === 'initial');
   if (!initial) {
@@ -158,7 +198,7 @@ export function checkMainSequence(d: ActivityDiagramState, t: ActivityLesson): F
 }
 
 export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
-  const items: FeedbackItem[] = [];
+  const items: FeedbackItem[] = [...duplicateNodeWarnings(d, t)];
   for (const branch of t.target.branches) {
     const afterTa = findActionByKey(t.target, branch.decisionAfter);
     const afterNode = findActionNode(d, afterTa);
@@ -173,13 +213,6 @@ export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): Fee
     const decisionEdges = d.edges.filter(
       (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'decision'
     );
-    if (decisionEdges.length > 1) {
-      items.push({
-        severity: 'warn',
-        message: `Có ${decisionEdges.length} node decision cùng nối sau '${afterTa!.name.canonical}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
-        tag: 'duplicate-decision',
-      });
-    }
     const decisionNode = decisionEdges[0] && d.nodes.find((n) => n.id === decisionEdges[0].to);
     if (!decisionNode) {
       items.push({ severity: 'warn', message: `Chưa có decision ngay sau '${afterTa!.name.canonical}'.` });
@@ -244,7 +277,7 @@ export function decisionsGuards(d: ActivityDiagramState, t: ActivityLesson): Fee
 }
 
 export function forkJoinAndReachability(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
-  const items: FeedbackItem[] = [];
+  const items: FeedbackItem[] = [...duplicateNodeWarnings(d, t)];
   const initials = d.nodes.filter((n) => n.type === 'initial');
   const finals = d.nodes.filter((n) => n.type === 'final');
 
@@ -296,13 +329,6 @@ export function forkJoinAndReachability(d: ActivityDiagramState, t: ActivityLess
       const forkEdges = d.edges.filter(
         (e) => e.from === afterNode.id && d.nodes.find((n) => n.id === e.to)?.type === 'fork'
       );
-      if (forkEdges.length > 1) {
-        items.push({
-          severity: 'warn',
-          message: `Có ${forkEdges.length} node fork cùng nối sau '${afterTa!.name.canonical}' — hệ thống chỉ nhận diện 1, hãy xóa bớt node thừa.`,
-          tag: 'duplicate-fork',
-        });
-      }
       const forkNode = forkEdges[0] && d.nodes.find((n) => n.id === forkEdges[0].to);
       if (!forkNode) {
         items.push({ severity: 'warn', message: `Chưa có fork ngay sau '${afterTa!.name.canonical}'.` });
@@ -357,12 +383,22 @@ export function forkJoinAndReachability(d: ActivityDiagramState, t: ActivityLess
 }
 
 export function diffDiagram(d: ActivityDiagramState, t: ActivityLesson): FeedbackItem[] {
-  return [
+  const combined = [
     ...placeActions(d, t),
     ...checkMainSequence(d, t),
     ...decisionsGuards(d, t),
     ...forkJoinAndReachability(d, t),
   ];
+  // Every validator independently runs duplicateNodeWarnings() so it fires no matter
+  // which step is on screen — combining all 4 for the full diff would otherwise repeat
+  // the exact same "2 node cùng tên..." message up to 4 times.
+  const seen = new Set<string>();
+  return combined.filter((item) => {
+    const key = `${item.tag ?? ''}::${item.message}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 export const STEP_VALIDATORS: Record<string, StepValidator> = {

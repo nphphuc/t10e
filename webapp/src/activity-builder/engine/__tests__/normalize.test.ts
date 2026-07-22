@@ -13,6 +13,18 @@ describe('normalizeName', () => {
   it('treats different casing/spacing of the same word as equal', () => {
     expect(normalizeName('CẬP NHẬT KHO')).toBe(normalizeName('cập nhật kho'));
   });
+
+  it('treats "<=" as equivalent to "≤" (easier to type on a normal keyboard)', () => {
+    expect(normalizeName('Tổng đơn <= 1000000')).toBe(normalizeName('Tổng đơn ≤ 1000000'));
+  });
+
+  it('treats ">=" as equivalent to "≥"', () => {
+    expect(normalizeName('Tổng đơn >= 1000000')).toBe(normalizeName('Tổng đơn ≥ 1000000'));
+  });
+
+  it('ignores thousands-separator punctuation ("1.000.000" vs "1000000")', () => {
+    expect(normalizeName('Tổng đơn > 1.000.000')).toBe(normalizeName('Tổng đơn > 1000000'));
+  });
 });
 
 describe('match', () => {
