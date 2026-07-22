@@ -63,7 +63,7 @@ export function findClasses(diagram: DiagramState, lesson: BuilderLesson): Feedb
 
   for (const targetClass of expected) {
     if (!diagram.nodes.some((node) => node.type === 'class' && match(node.name, targetClass.name))) {
-      result.push({ severity: 'warn', message: `Còn thiếu class '${targetClass.name.canonical}' trên canvas.` });
+      result.push({ severity: 'warn', message: `Còn thiếu class '${targetClass.name.canonical}'. Hãy nhập tên class ở thanh tạo phần tử rồi bấm Thêm.` });
     }
   }
 
@@ -72,12 +72,12 @@ export function findClasses(diagram: DiagramState, lesson: BuilderLesson): Feedb
     const trap = trapForNode(lesson, node);
     result.push(trap ? {
       severity: trap.kind === 'verb-trap' ? 'warn' : 'hint',
-      message: trap.trapMessage ?? `'${trap.label}' chưa phải là một class trong brief.`,
+      message: `${trap.trapMessage ?? `'${trap.label}' chưa phải là một class trong brief.`} Hãy xóa class này hoặc đổi sang một danh từ miền nghiệp vụ.`,
       tag: trap.trapTag,
       subjectId: node.id,
     } : {
       severity: 'warn',
-      message: `Class '${node.name}' không khớp brief; hãy kiểm tra lại danh từ miền nghiệp vụ.`,
+      message: `Class '${node.name}' không khớp brief. Hãy xóa class này hoặc đổi tên theo một danh từ miền nghiệp vụ trong brief.`,
       tag: 'class-is-object',
       subjectId: node.id,
     });
@@ -92,15 +92,15 @@ function requiredAttributeFeedback(node: DiagramNode, targetClass: TargetClass):
     if (attribute.requirement === 'required' && !found) {
       result.push({
         severity: 'warn',
-        message: `Class '${targetClass.name.canonical}' còn thiếu attribute '${attribute.name.canonical}'.`,
+        message: `Class '${targetClass.name.canonical}' còn thiếu attribute '${attribute.name.canonical}'. Hãy nhập attribute trong thẻ class rồi nhấn Enter hoặc nút +.`,
         subjectId: node.id,
       });
     }
     if (attribute.requirement === 'forbidden' && found) {
       result.push({
         severity: 'warn',
-        message: attribute.forbiddenReason
-          ?? `Attribute '${attribute.name.canonical}' không thuộc class '${targetClass.name.canonical}'.`,
+        message: `${attribute.forbiddenReason
+          ?? `Attribute '${attribute.name.canonical}' không thuộc class '${targetClass.name.canonical}'.`} Hãy xóa attribute này khỏi class.`,
         tag: attribute.forbiddenTag,
         subjectId: node.id,
       });
@@ -123,8 +123,8 @@ export function placeAttributes(diagram: DiagramState, lesson: BuilderLesson): F
       result.push({
         severity: 'warn',
         message: expectedOwner
-          ? `Attribute '${attribute.name}' đang ở '${owner.name.canonical}', nhưng thuộc '${expectedOwner.name.canonical}'.`
-          : `Attribute '${attribute.name}' chưa có căn cứ trong brief của '${owner.name.canonical}'.`,
+          ? `Attribute '${attribute.name}' đang ở '${owner.name.canonical}', nhưng thuộc '${expectedOwner.name.canonical}'. Hãy xóa tại đây và thêm vào '${expectedOwner.name.canonical}'.`
+          : `Attribute '${attribute.name}' chưa có căn cứ trong brief của '${owner.name.canonical}'. Hãy xóa attribute này hoặc đối chiếu lại brief.`,
         tag: expectedOwner && isAssociationClassKey(lesson.target, expectedOwner.key)
           ? 'relationship-data'
           : 'attribute-owner',
@@ -143,7 +143,7 @@ export function drawAssociations(diagram: DiagramState, lesson: BuilderLesson): 
     if (!resolved.fromNode || !resolved.toNode) {
       result.push({
         severity: 'warn',
-        message: `Giữa '${resolved.fromTarget.name.canonical}' và '${resolved.toTarget.name.canonical}' còn thiếu một quan hệ.`,
+        message: `Giữa '${resolved.fromTarget.name.canonical}' và '${resolved.toTarget.name.canonical}' còn thiếu quan hệ. Hãy bấm Nối ở class thứ nhất rồi chọn class thứ hai.`,
       });
       continue;
     }
@@ -151,12 +151,12 @@ export function drawAssociations(diagram: DiagramState, lesson: BuilderLesson): 
     if (!edge) {
       result.push({
         severity: 'warn',
-        message: `Giữa '${resolved.fromTarget.name.canonical}' và '${resolved.toTarget.name.canonical}' còn thiếu một quan hệ.`,
+        message: `Giữa '${resolved.fromTarget.name.canonical}' và '${resolved.toTarget.name.canonical}' còn thiếu quan hệ. Hãy bấm Nối ở class thứ nhất rồi chọn class thứ hai.`,
       });
     } else if (targetEdge.name && !edge.name?.trim()) {
       result.push({
         severity: 'hint',
-        message: `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' nên có tên động từ, ví dụ '${targetEdge.name.canonical}'.`,
+        message: `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' chưa có tên. Hãy chọn đường nối và nhập một động từ, ví dụ '${targetEdge.name.canonical}'.`,
         subjectId: edge.id,
       });
     }
@@ -178,8 +178,8 @@ export function drawAssociations(diagram: DiagramState, lesson: BuilderLesson): 
       result.push({
         severity: 'warn',
         message: reverseGeneralization
-          ? `Generalization '${fromTarget.name.canonical} → ${toTarget.name.canonical}' đang ngược chiều subclass → superclass.`
-          : targetEdge?.reason ?? `Quan hệ '${fromTarget.name.canonical}–${toTarget.name.canonical}' không có trong brief.`,
+          ? `Generalization '${fromTarget.name.canonical} → ${toTarget.name.canonical}' đang ngược chiều subclass → superclass. Hãy chọn đường nối và bấm Đảo chiều.`
+          : `${targetEdge?.reason ?? `Quan hệ '${fromTarget.name.canonical}–${toTarget.name.canonical}' không có trong brief.`} Hãy xóa quan hệ này hoặc đối chiếu lại brief.`,
         tag: reverseGeneralization?.wrongTypeTag ?? targetEdge?.wrongTypeTag ?? 'association-is-link',
         subjectId: edge.id,
       });
@@ -203,8 +203,8 @@ export function chooseEdgeTypes(diagram: DiagramState, lesson: BuilderLesson): F
     }
     result.push({
       severity: 'warn',
-      message: targetEdge.reason
-        ?? `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' cần loại '${targetEdge.type}', không phải '${edge.type}'.`,
+      message: `${targetEdge.reason
+        ?? `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' cần loại '${targetEdge.type}', không phải '${edge.type}'.`} Hãy chọn đường nối và đổi Loại quan hệ trong bảng chỉnh sửa.`,
       tag,
       subjectId: edge.id,
     });
@@ -225,7 +225,7 @@ export function setMultiplicity(diagram: DiagramState, lesson: BuilderLesson): F
     if (actualFrom !== targetEdge.multiplicity.from) {
       result.push({
         severity: 'warn',
-        message: `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}': multiplicity phía '${resolved.fromTarget.name.canonical}' là '${actualFrom ?? 'chưa đặt'}', cần '${targetEdge.multiplicity.from}'.`,
+        message: `Multiplicity phía '${resolved.fromTarget.name.canonical}' của quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' đang là '${actualFrom ?? 'chưa đặt'}'. Hãy chọn đường nối và đặt đầu này thành '${targetEdge.multiplicity.from}'.`,
         tag: targetEdge.wrongMultiplicityTag ?? 'multiplicity-fk',
         subjectId: edge.id,
       });
@@ -233,7 +233,7 @@ export function setMultiplicity(diagram: DiagramState, lesson: BuilderLesson): F
     if (actualTo !== targetEdge.multiplicity.to) {
       result.push({
         severity: 'warn',
-        message: `Quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}': multiplicity phía '${resolved.toTarget.name.canonical}' là '${actualTo ?? 'chưa đặt'}', cần '${targetEdge.multiplicity.to}'.`,
+        message: `Multiplicity phía '${resolved.toTarget.name.canonical}' của quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}' đang là '${actualTo ?? 'chưa đặt'}'. Hãy chọn đường nối và đặt đầu này thành '${targetEdge.multiplicity.to}'.`,
         tag: targetEdge.wrongMultiplicityTag ?? 'multiplicity-fk',
         subjectId: edge.id,
       });
@@ -248,15 +248,23 @@ export function associationClassStep(diagram: DiagramState, lesson: BuilderLesso
     const associationTarget = lesson.target.classes.find((candidate) => candidate.key === targetEdge.associationClassKey);
     const resolved = resolveEdgeEndpoints(diagram, lesson, targetEdge);
     if (!associationTarget || !resolved) continue;
+    const relationshipEdge = resolved.fromNode && resolved.toNode
+      ? findEdgeForPair(diagram, resolved.fromNode, resolved.toNode)
+      : undefined;
+    const requiredNames = associationTarget.attributes
+      .filter((candidate) => candidate.requirement === 'required')
+      .map((candidate) => `'${candidate.name.canonical}'`)
+      .join(', ');
+    const buildInstructions = `Dữ liệu như ${requiredNames} thuộc về CHÍNH quan hệ ${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical} — không thuộc riêng ${resolved.fromTarget.name.canonical} hay ${resolved.toTarget.name.canonical}. Cách dựng: (1) tạo node loại Association class tên ${associationTarget.name.canonical} (ô 'Tên class…' → chọn loại), (2) click đường nối ${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}, (3) trong bảng chỉnh quan hệ, mục Association class → chọn ${associationTarget.name.canonical}.`;
 
     for (const endpoint of [resolved.fromNode, resolved.toNode].filter(Boolean) as DiagramNode[]) {
       for (const attribute of associationTarget.attributes.filter((candidate) => candidate.requirement === 'required')) {
         if (endpoint.attributes.some((candidate) => match(candidate.name, attribute.name))) {
           result.push({
             severity: 'warn',
-            message: `Attribute '${attribute.name.canonical}' mô tả quan hệ, nên thuộc association class '${associationTarget.name.canonical}', không thuộc '${endpoint.name}'.`,
+            message: buildInstructions,
             tag: 'relationship-data',
-            subjectId: endpoint.id,
+            subjectId: relationshipEdge?.id ?? endpoint.id,
           });
         }
       }
@@ -267,24 +275,25 @@ export function associationClassStep(diagram: DiagramState, lesson: BuilderLesso
     if (!associationNode) {
       result.push({
         severity: 'warn',
-        message: `Còn thiếu association class '${associationTarget.name.canonical}' gắn vào quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}'.`,
+        message: buildInstructions,
+        tag: 'relationship-data',
+        subjectId: relationshipEdge?.id,
       });
       continue;
     }
     if (resolved.fromNode && resolved.toNode) {
-      const edge = findEdgeForPair(diagram, resolved.fromNode, resolved.toNode);
-      if (!edge || edge.attachedClassId !== associationNode.id) {
+      if (!relationshipEdge || relationshipEdge.attachedClassId !== associationNode.id) {
         result.push({
           severity: 'warn',
-          message: `'${associationTarget.name.canonical}' cần gắn vào đúng quan hệ '${resolved.fromTarget.name.canonical}–${resolved.toTarget.name.canonical}'.`,
+          message: buildInstructions,
           tag: 'relationship-data',
-          subjectId: associationNode.id,
+          subjectId: relationshipEdge?.id ?? associationNode.id,
         });
       }
     }
     result.push(...requiredAttributeFeedback(associationNode, associationTarget));
   }
-  return result;
+  return dedupe(result);
 }
 
 function dedupe(items: FeedbackItem[]) {

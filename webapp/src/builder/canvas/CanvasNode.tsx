@@ -7,8 +7,10 @@ interface CanvasNodeProps {
   node: DiagramNode;
   selected: boolean;
   connecting: boolean;
+  connectionActive: boolean;
   readOnly?: boolean;
   compact?: boolean;
+  edgeCount: number;
   onSelect: () => void;
   onStartConnect: () => void;
   onDelete: () => void;
@@ -18,12 +20,43 @@ interface CanvasNodeProps {
   onSizeChange: (nodeId: string, size: NodeSize) => void;
 }
 
+function EditableAttribute({ nodeName, attributeId, name, onCommit }: {
+  nodeName: string;
+  attributeId: string;
+  name: string;
+  onCommit: (attributeId: string, name: string) => void;
+}) {
+  const [draft, setDraft] = useState(name);
+  const cancelNextCommit = useRef(false);
+  useEffect(() => setDraft(name), [name]);
+  const commit = () => {
+    if (cancelNextCommit.current) { cancelNextCommit.current = false; return; }
+    const nextName = draft.trim();
+    if (!nextName) { setDraft(name); return; }
+    if (nextName !== name) onCommit(attributeId, nextName);
+  };
+  return <input
+    aria-label={`Sửa attribute ${name} của ${nodeName}`}
+    value={draft}
+    onClick={(event) => event.stopPropagation()}
+    onBlur={commit}
+    onKeyDown={(event) => {
+      event.stopPropagation();
+      if (event.key === 'Enter') event.currentTarget.blur();
+      if (event.key === 'Escape') { cancelNextCommit.current = true; setDraft(name); event.currentTarget.blur(); }
+    }}
+    onChange={(event) => setDraft(event.target.value)}
+  />;
+}
+
 export default function CanvasNode({
   node,
   selected,
   connecting,
+  connectionActive,
   readOnly,
   compact,
+  edgeCount,
   onSelect,
   onStartConnect,
   onDelete,
@@ -33,6 +66,7 @@ export default function CanvasNode({
   onSizeChange,
 }: CanvasNodeProps) {
   const [draft, setDraft] = useState('');
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
   const elementRef = useRef<HTMLElement | null>(null);
   const draggable = useDraggable({
     id: `move:${node.id}`,
@@ -46,6 +80,13 @@ export default function CanvasNode({
     if (!value) return;
     onAddAttribute(value);
     setDraft('');
+  };
+  const requestDelete = () => {
+    if (edgeCount > 0) {
+      setConfirmingDelete(true);
+      return;
+    }
+    onDelete();
   };
 
   useEffect(() => {
@@ -67,12 +108,28 @@ export default function CanvasNode({
       aria-label={`${node.type === 'associationClass' ? 'Association class' : 'Class'} ${node.name}, ${node.attributes.length} thuộc tính`}
       tabIndex={0}
       onClick={(event) => { event.stopPropagation(); onSelect(); }}
+      onKeyDownCapture={(event) => {
+        if (event.key !== 'Enter' || !connectionActive || connecting) return;
+        const tagName = (event.target as HTMLElement).tagName;
+        if (tagName === 'INPUT' || tagName === 'BUTTON' || tagName === 'SELECT') return;
+        event.preventDefault();
+        event.stopPropagation();
+        onSelect();
+      }}
       onKeyDown={(event) => {
         if ((event.key === 'n' || event.key === 'N') && !readOnly) { event.preventDefault(); onStartConnect(); }
-        if ((event.key === 'Delete' || event.key === 'Backspace') && !readOnly && event.target === event.currentTarget) { event.preventDefault(); onDelete(); }
-        if (event.key === 'Enter' && connecting) { event.preventDefault(); onSelect(); }
+        if ((event.key === 'Delete' || event.key === 'Backspace') && !readOnly && event.target === event.currentTarget) {
+          event.preventDefault();
+          event.stopPropagation();
+          requestDelete();
+        }
       }}
     >
+      {!readOnly && <button type="button" className="cdb-node__delete-trigger" aria-label={`Xóa class ${node.name}`} title="Xóa class" onClick={(event) => { event.stopPropagation(); requestDelete(); }}>🗑</button>}
+      {confirmingDelete && <div className="cdb-node__delete-confirm" role="alertdialog" aria-label={`Xác nhận xóa class ${node.name}`} onClick={(event) => event.stopPropagation()}>
+        <p>Xóa {node.name}? {edgeCount} quan hệ nối vào sẽ bị xóa theo.</p>
+        <div><button type="button" className="cdb-danger-button" onClick={onDelete}>Xóa</button><button type="button" onClick={() => setConfirmingDelete(false)}>Hủy</button></div>
+      </div>}
       <header className="cdb-node__header" {...(!readOnly ? draggable.listeners : {})} {...(!readOnly ? draggable.attributes : {})}>
         <span><small>{node.type === 'associationClass' ? '«association class»' : 'class'}</small>{node.name}</span>
         {!readOnly && <span className="cdb-drag-hint" aria-hidden="true">⠿ Kéo</span>}
@@ -83,13 +140,7 @@ export default function CanvasNode({
           <div className="cdb-attribute-row" key={attribute.id}>
             <span aria-hidden="true">+</span>
             {readOnly ? <span>{attribute.name}</span> : (
-              <input
-                aria-label={`Sửa attribute ${attribute.name} của ${node.name}`}
-                value={attribute.name}
-                onClick={(event) => event.stopPropagation()}
-                onKeyDown={(event) => event.stopPropagation()}
-                onChange={(event) => onRenameAttribute(attribute.id, event.target.value)}
-              />
+              <EditableAttribute nodeName={node.name} attributeId={attribute.id} name={attribute.name} onCommit={onRenameAttribute} />
             )}
             {!readOnly && (
               <button type="button" className="cdb-icon-button" aria-label={`Xóa attribute ${attribute.name}`} onClick={(event) => { event.stopPropagation(); onDeleteAttribute(attribute.id); }}>×</button>
@@ -108,7 +159,6 @@ export default function CanvasNode({
             onKeyDown={(event) => { event.stopPropagation(); if (event.key === 'Enter') add(); }}
           />
           <button type="button" onClick={add} aria-label={`Thêm attribute vào ${node.name}`}>+</button>
-          <button type="button" className="cdb-danger-button" onClick={onDelete} aria-label={`Xóa class ${node.name}`}>⌫</button>
         </div>
       )}
     </article>
