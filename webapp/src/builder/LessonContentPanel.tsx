@@ -20,6 +20,7 @@ export default function LessonContentPanel({
   canContinue,
   onContinue,
   onExit,
+  onFeedbackSelect,
 }: {
   lesson: BuilderLesson;
   step: BuilderStepId;
@@ -28,6 +29,7 @@ export default function LessonContentPanel({
   canContinue: boolean;
   onContinue: () => void;
   onExit: () => void;
+  onFeedbackSelect: (subjectId: string) => void;
 }) {
   const meta = STEP_META[step];
   const blockers = feedback.filter((item) => item.severity === 'warn' || item.severity === 'error');
@@ -41,9 +43,37 @@ export default function LessonContentPanel({
       <details open className="cdb-brief"><summary>Brief nghiệp vụ</summary><ul>{lesson.brief.map((line) => <li key={line}>{line}</li>)}</ul></details>
       <section className="cdb-feedback" aria-live="polite">
         <header><span>Live structural feedback</span><span>{blockers.length ? `${blockers.length} việc cần xử lý` : 'Sẵn sàng tiếp tục'}</span></header>
-        {feedback.length === 0 ? <div className="cdb-feedback-item is-ok"><b>✓ Principle đã đứng vững</b><p>Cấu trúc hiện tại đáp ứng yêu cầu của bước này.</p></div> : feedback.map((item, index) => <div className={`cdb-feedback-item is-${item.severity}`} key={`${item.tag ?? 'item'}-${item.subjectId ?? 'none'}-${item.message}-${index}`}><b>{item.severity === 'hint' ? 'Gợi ý' : item.severity === 'warn' ? 'Cần xem lại' : 'Thông tin'}</b><p>{item.message}</p>{item.tag && <code>{item.tag}</code>}</div>)}
+        {feedback.length === 0 ? (
+          <div className="cdb-feedback-item is-ok"><b>✓ Principle đã đứng vững</b><p>Cấu trúc hiện tại đáp ứng yêu cầu của bước này.</p></div>
+        ) : feedback.map((item, index) => {
+          const content = <><b>{item.severity === 'hint' ? 'Gợi ý' : item.severity === 'warn' ? 'Cần xem lại' : 'Thông tin'}</b><p>{item.message}</p>{item.tag && <code>{item.tag}</code>}</>;
+          return item.subjectId ? (
+            <button
+              type="button"
+              className={`cdb-feedback-item is-${item.severity}`}
+              key={`${item.tag ?? 'item'}-${item.subjectId}-${item.message}-${index}`}
+              onClick={() => onFeedbackSelect(item.subjectId!)}
+              title="Hiển thị phần tử này trên canvas"
+            >
+              {content}
+            </button>
+          ) : (
+            <div className={`cdb-feedback-item is-${item.severity}`} key={`${item.tag ?? 'item'}-none-${item.message}-${index}`}>{content}</div>
+          );
+        })}
       </section>
-      <button type="button" className="cdb-primary-action" disabled={!canContinue} title={!canContinue ? blockers[0]?.message : undefined} onClick={onContinue}>
+      <button
+        type="button"
+        className="cdb-primary-action"
+        disabled={!canContinue}
+        title={!canContinue ? blockers[0]?.message : undefined}
+        onClick={onContinue}
+        onKeyDown={(event) => {
+          if (event.key !== 'Enter') return;
+          event.preventDefault();
+          onContinue();
+        }}
+      >
         {step === 'free-build' ? 'Chấm theo rubric →' : step === 'review' || step === 'compare' ? 'Hoàn thành →' : 'Tiếp tục với artifact này →'}
       </button>
       {!canContinue && blockers[0] && <p className="cdb-lock-note">Nút đang khóa: {blockers[0].message}</p>}

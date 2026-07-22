@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
+import guidedData from '../../content/builder/cdb-fos-guided.json';
+import peData from '../../content/builder/cdb-fos-pe.json';
 import { match, normalizeName } from './normalize';
+import { createDiagramHistoryState, diagramHistoryReducer, HISTORY_LIMIT } from './history';
 import { passesThreshold, scoreDiagram } from './scoring';
 import type { BuilderLesson, DiagramState } from './types';
 import {
@@ -41,7 +44,7 @@ const fixture: BuilderLesson = {
     ],
     edges: [
       { fromKey: 'Customer', toKey: 'Order', type: 'association', name: { canonical: 'places', accepted: ['đặt'] }, multiplicity: { from: '1', to: '0..*' }, requirement: 'required', wrongMultiplicityTag: 'multiplicity-fk' },
-      { fromKey: 'Order', toKey: 'Product', type: 'association', multiplicity: { from: '0..*', to: '0..*' }, requirement: 'required', associationClassKey: 'OrderLine' },
+      { fromKey: 'Order', toKey: 'Product', type: 'association', multiplicity: { from: '0..*', to: '1..*' }, requirement: 'required', associationClassKey: 'OrderLine' },
       { fromKey: 'Customer', toKey: 'Address', type: 'composition', multiplicity: { from: '1', to: '0..1' }, requirement: 'required', wrongTypeTag: 'aggregation-equals-composition' },
       { fromKey: 'VipCustomer', toKey: 'Customer', type: 'generalization', requirement: 'required', wrongTypeTag: 'inheritance-for-reuse-only' },
       { fromKey: 'Product', toKey: 'Customer', type: 'association', requirement: 'forbidden', wrongTypeTag: 'association-is-link', reason: 'Brief không mô tả liên kết trực tiếp này.' },
@@ -60,7 +63,7 @@ const perfect: DiagramState = {
   ],
   edges: [
     { id: 'customer-order', from: 'customer', to: 'order', type: 'association', name: 'places', multiplicity: { from: '1', to: '0..*' } },
-    { id: 'order-product', from: 'order', to: 'product', type: 'association', multiplicity: { from: '0..*', to: '0..*' }, attachedClassId: 'line' },
+    { id: 'order-product', from: 'order', to: 'product', type: 'association', multiplicity: { from: '0..*', to: '1..*' }, attachedClassId: 'line' },
     { id: 'customer-address', from: 'customer', to: 'address', type: 'composition', multiplicity: { from: '1', to: '0..1' } },
     { id: 'vip-customer', from: 'vip', to: 'customer', type: 'generalization' },
   ],
@@ -74,6 +77,36 @@ describe('normalize', () => {
     expect(match(' KHÁCH HÀNG ', fixture.target.classes[0].name)).toBe(true);
     expect(match('customer', fixture.target.classes[0].name)).toBe(true);
     expect(match('supplier', fixture.target.classes[0].name)).toBe(false);
+  });
+});
+
+describe('diagram history', () => {
+  it('undoes each logical mutation once and never toggles into redo', () => {
+    const empty: DiagramState = { nodes: [], edges: [] };
+    const withClass: DiagramState = { nodes: [{ id: 'customer', type: 'class', name: 'Customer', attributes: [], x: 0, y: 0 }], edges: [] };
+    const withEdge: DiagramState = { ...withClass, nodes: [...withClass.nodes, { id: 'order', type: 'class', name: 'Order', attributes: [], x: 300, y: 0 }], edges: [{ id: 'places', from: 'customer', to: 'order', type: 'association' }] };
+    const withMultiplicity: DiagramState = { ...withEdge, edges: [{ ...withEdge.edges[0], multiplicity: { from: '1', to: '0..*' } }] };
+    const withName: DiagramState = { ...withMultiplicity, edges: [{ ...withMultiplicity.edges[0], name: 'places' }] };
+
+    let state = createDiagramHistoryState(empty);
+    for (const next of [withClass, withEdge, withMultiplicity, withName]) state = diagramHistoryReducer(state, { type: 'commit', next });
+    expect(state.history).toHaveLength(4);
+    for (const expected of [withMultiplicity, withEdge, withClass, empty]) {
+      state = diagramHistoryReducer(state, { type: 'undo' });
+      expect(state.present).toEqual(expected);
+    }
+    const exhausted = diagramHistoryReducer(state, { type: 'undo' });
+    expect(exhausted).toBe(state);
+    expect(exhausted.present).toEqual(empty);
+  });
+
+  it('caps snapshots with FIFO eviction', () => {
+    let state = createDiagramHistoryState({ nodes: [], edges: [] });
+    for (let index = 0; index < HISTORY_LIMIT + 5; index += 1) {
+      state = diagramHistoryReducer(state, { type: 'commit', next: { nodes: [], edges: [], marker: index } as unknown as DiagramState });
+    }
+    expect(state.history).toHaveLength(HISTORY_LIMIT);
+    expect((state.history[0] as DiagramState & { marker?: number }).marker).toBe(4);
   });
 });
 
@@ -126,6 +159,38 @@ describe('step validators', () => {
     const wrong = copy();
     wrong.nodes.find((node) => node.id === 'product')!.attributes.push({ id: 'q', name: 'quantity' });
     expect(associationClassStep(wrong, fixture).some((item) => item.tag === 'relationship-data')).toBe(true);
+  });
+
+  it('V7 gives a three-step action and points feedback at the Order–Product edge', () => {
+    const missing = copy();
+    missing.nodes = missing.nodes.filter((node) => node.id !== 'line');
+    const item = associationClassStep(missing, fixture)[0];
+    expect(item).toMatchInlineSnapshot(`
+      {
+        "message": "Dữ liệu như 'quantity', 'priceAtPurchase' thuộc về CHÍNH quan hệ Order–Product — không thuộc riêng Order hay Product. Cách dựng: (1) tạo node loại Association class tên OrderLine (ô 'Tên class…' → chọn loại), (2) click đường nối Order–Product, (3) trong bảng chỉnh quan hệ, mục Association class → chọn OrderLine.",
+        "severity": "warn",
+        "subjectId": "order-product",
+        "tag": "relationship-data",
+      }
+    `);
+  });
+});
+
+describe('approved FOS target content', () => {
+  it.each([guidedData, peData])('matches the approved target and source references for $id', (data) => {
+    expect(data).not.toHaveProperty('needsReview');
+    expect(data).not.toHaveProperty('status');
+    expect(data.sourceRefs).toEqual([
+      'slide_texts/Ch07_Static_Modeling.txt#slide-11',
+      'slide_texts/Ch07_Static_Modeling.txt#slide-13',
+      'slide_texts/Ch07_Static_Modeling.txt#slide-14',
+      'content/lessons/L04-03.json',
+    ]);
+    expect(data.target.edges).toEqual(expect.arrayContaining([
+      expect.objectContaining({ fromKey: 'Customer', toKey: 'Order', type: 'association', multiplicity: { from: '1', to: '0..*' } }),
+      expect.objectContaining({ fromKey: 'Order', toKey: 'Product', type: 'association', multiplicity: { from: '0..*', to: '1..*' }, associationClassKey: 'OrderLine' }),
+      expect.objectContaining({ fromKey: 'Customer', toKey: 'ShippingAddress', type: 'composition', multiplicity: { from: '1', to: '0..1' } }),
+    ]));
   });
 });
 

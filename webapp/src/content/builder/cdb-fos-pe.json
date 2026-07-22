@@ -2,8 +2,6 @@
   "id": "cdb-fos-pe",
   "mode": "pe",
   "title": "FOS — Class Diagram PE Mode",
-  "status": "draft-from-slide",
-  "needsReview": true,
   "brief": [
     "FOS lưu khách hàng, các đơn do họ tạo và catalog sản phẩm.",
     "Một khách hàng phát sinh nhiều đơn; một sản phẩm có thể xuất hiện trong nhiều đơn.",
@@ -32,13 +30,15 @@
     ],
     "edges": [
       { "fromKey": "Customer", "toKey": "Order", "type": "association", "name": { "canonical": "places", "accepted": ["đặt"] }, "multiplicity": { "from": "1", "to": "0..*" }, "requirement": "required", "wrongMultiplicityTag": "multiplicity-fk" },
-      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "0..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
-      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "Địa chỉ giao hàng trong draft này thuộc vòng đời hồ sơ Customer; hãy dùng composition." }
+      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "1..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "ShippingAddress sống và mất cùng hồ sơ Customer; hãy dùng composition với diamond ở phía Customer." }
     ]
   },
   "passThreshold": 75,
   "sourceRefs": [
-    "slide_texts/Ch07_Static_Modeling.txt — static modeling rules",
-    "content/lessons/L04-01.json through L04-04.json — class, multiplicity, association class, composition"
+    "slide_texts/Ch07_Static_Modeling.txt#slide-11",
+    "slide_texts/Ch07_Static_Modeling.txt#slide-13",
+    "slide_texts/Ch07_Static_Modeling.txt#slide-14",
+    "content/lessons/L04-03.json"
   ]
 }

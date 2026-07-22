@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { useMistakesStore } from '../store/mistakes';
 import { EMPTY_DIAGRAM, useBuilderProgress } from '../store/builderProgress';
 import ClassDiagramCanvas from './canvas/ClassDiagramCanvas';
 import { buildReferenceDiagram } from './engine/reference';
+import { createDiagramHistoryState, diagramHistoryReducer } from './engine/history';
 import { scoreDiagram } from './engine/scoring';
 import type { BuilderLesson, DiagramState, FeedbackItem } from './engine/types';
 import { canAdvance, STEP_VALIDATORS } from './engine/validate';
@@ -33,8 +34,13 @@ export default function ClassDiagramBuilderScreen({ lesson, onExit }: { lesson: 
   const save = useBuilderProgress((state) => state.save);
   const complete = useBuilderProgress((state) => state.complete);
   const reset = useBuilderProgress((state) => state.reset);
-  const [diagram, setDiagram] = useState<DiagramState>(() => saved?.diagram ?? EMPTY_DIAGRAM);
+  const [{ present: diagram, history }, dispatchDiagram] = useReducer(
+    diagramHistoryReducer,
+    saved?.diagram ?? EMPTY_DIAGRAM,
+    createDiagramHistoryState,
+  );
   const [stepIndex, setStepIndex] = useState(() => Math.min(saved?.stepIndex ?? 0, lesson.steps.length - 1));
+  const [focusSubject, setFocusSubject] = useState<{ id: string; request: number }>();
   const recorded = useRef(new Set<string>());
   const step = lesson.steps[stepIndex];
   const validator = STEP_VALIDATORS[step];
@@ -43,21 +49,27 @@ export default function ClassDiagramBuilderScreen({ lesson, onExit }: { lesson: 
   const isReview = step === 'compare' || step === 'review';
   const reference = useMemo(() => fitForReview(buildReferenceDiagram(lesson)), [lesson]);
   const fittedUser = useMemo(() => fitForReview(diagram), [diagram]);
+  const commitDiagram = useCallback((next: DiagramState) => dispatchDiagram({ type: 'commit', next }), []);
+  const undoDiagram = useCallback(() => dispatchDiagram({ type: 'undo' }), []);
 
   useEffect(() => {
     const root = document.documentElement;
     const body = document.body;
+    const forceReducedMotion = import.meta.env.DEV
+      && new URLSearchParams(window.location.search).get('testReducedMotion') === '1';
 
     // The builder owns the desktop viewport and scrolls each pane independently.
     // Locking the document prevents a second page scrollbar from exposing the
     // body background when the browser restores an old scroll position.
     root.classList.add('cdb-builder-active');
     body.classList.add('cdb-builder-active');
+    if (forceReducedMotion) root.classList.add('cdb-test-reduced-motion');
     root.scrollTop = 0;
     body.scrollTop = 0;
 
     return () => {
       root.classList.remove('cdb-builder-active');
+      root.classList.remove('cdb-test-reduced-motion');
       body.classList.remove('cdb-builder-active');
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     };
@@ -104,13 +116,12 @@ export default function ClassDiagramBuilderScreen({ lesson, onExit }: { lesson: 
 
   return (
     <main className="cdb-builder-screen">
-      <LessonContentPanel lesson={lesson} step={step} stepIndex={stepIndex} feedback={feedback} canContinue={canContinue} onContinue={continueLesson} onExit={onExit} />
+      <LessonContentPanel lesson={lesson} step={step} stepIndex={stepIndex} feedback={feedback} canContinue={canContinue} onContinue={continueLesson} onExit={onExit} onFeedbackSelect={(id) => setFocusSubject((current) => ({ id, request: (current?.request ?? 0) + 1 }))} />
       <section className="cdb-workspace">
         <header className="cdb-workspace-header">
           <div><span>{lesson.mode === 'pe' ? 'PE FREE BUILD' : 'GUIDED MODE'}</span><strong>{lesson.title}</strong></div>
-          <button type="button" onClick={() => { reset(lesson.id); setDiagram(EMPTY_DIAGRAM); setStepIndex(0); }}>Làm mới</button>
+          <button type="button" onClick={() => { reset(lesson.id); dispatchDiagram({ type: 'reset', next: EMPTY_DIAGRAM }); setStepIndex(0); }}>Làm mới</button>
         </header>
-        {lesson.needsReview && <div className="cdb-draft-banner" role="note">Nội dung target FOS đang ở trạng thái draft và cần owner duyệt trước khi merge.</div>}
         {isReview ? (
           <div className="cdb-review-area">
             {lesson.mode === 'pe' && <section className="cdb-score-card">
@@ -125,7 +136,7 @@ export default function ClassDiagramBuilderScreen({ lesson, onExit }: { lesson: 
             <section className="cdb-diff-list"><header><strong>Diff cụ thể</strong><span>{score.feedback.length} mục</span></header>{score.feedback.length === 0 ? <p className="is-perfect">✓ Không còn warn/error; cấu trúc khớp target.</p> : score.feedback.map((item, index) => <article key={`${item.message}-${index}`}><b>{item.severity.toUpperCase()}</b><span>{item.message}</span>{item.tag && <code>{item.tag}</code>}</article>)}</section>
           </div>
         ) : (
-          <ClassDiagramCanvas value={diagram} onChange={setDiagram} palette={lesson.palette} title={`${lesson.title}, bước ${stepIndex + 1}`} />
+          <ClassDiagramCanvas value={diagram} onChange={commitDiagram} onUndo={undoDiagram} undoCount={history.length} focusSubjectId={focusSubject?.id} focusRequest={focusSubject?.request} palette={lesson.palette} title={`${lesson.title}, bước ${stepIndex + 1}`} />
         )}
       </section>
     </main>

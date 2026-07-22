@@ -8,7 +8,7 @@ import {
   useSensors,
   type DragEndEvent,
 } from '@dnd-kit/core';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { DiagramEdge, DiagramNode, DiagramState, NodeType, PaletteItem } from '../engine/types';
 import CanvasEdge from './CanvasEdge';
 import type { NodeSize } from './CanvasEdge';
@@ -28,6 +28,12 @@ function PaletteButton({ item, onAdd }: { item: PaletteItem; onAdd: () => void }
       {...draggable.listeners}
       {...draggable.attributes}
       onClick={onAdd}
+      onKeyDownCapture={(event) => {
+        if (event.key !== 'Enter') return;
+        event.preventDefault();
+        event.stopPropagation();
+        onAdd();
+      }}
       aria-label={`${item.kind === 'class' ? 'Class' : 'Attribute'} ${item.label}. Kéo thả hoặc nhấn để thêm.`}
     >
       <span>{item.kind === 'class' ? '▣' : item.kind.includes('trap') ? '◇' : '+'}</span>{item.label}
@@ -42,9 +48,13 @@ export interface ClassDiagramCanvasProps {
   readOnly?: boolean;
   compact?: boolean;
   title?: string;
+  onUndo?: () => void;
+  undoCount?: number;
+  focusSubjectId?: string;
+  focusRequest?: number;
 }
 
-export default function ClassDiagramCanvas({ value, onChange, palette = [], readOnly = false, compact = false, title = 'Class diagram canvas' }: ClassDiagramCanvasProps) {
+export default function ClassDiagramCanvas({ value, onChange, palette = [], readOnly = false, compact = false, title = 'Class diagram canvas', onUndo, undoCount = 0, focusSubjectId, focusRequest }: ClassDiagramCanvasProps) {
   const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 5 } }), useSensor(KeyboardSensor));
   const canvas = useDroppable({ id: 'diagram-canvas', data: { kind: 'canvas' } });
   const [selectedId, setSelectedId] = useState<string>();
@@ -53,7 +63,6 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
   const [manualName, setManualName] = useState('');
   const [manualType, setManualType] = useState<NodeType>('class');
   const [nodeSizes, setNodeSizes] = useState<Record<string, NodeSize>>({});
-  const previous = useRef<DiagramState>();
   const selectedNode = value.nodes.find((node) => node.id === selectedId);
   const selectedEdge = value.edges.find((edge) => edge.id === selectedId);
 
@@ -66,7 +75,6 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
   }, []);
 
   const commit = (next: DiagramState, message: string) => {
-    previous.current = structuredClone(value);
     onChange(next);
     setAnnouncement(message);
   };
@@ -116,10 +124,21 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
     const item = data.item as PaletteItem;
     const overId = String(event.over?.id ?? '');
     if (item.kind === 'class' || item.kind === 'verb-trap') {
-      if (!event.over) return;
-      const rect = event.active.rect.current.translated;
+      const translatedRect = event.active.rect.current.translated;
+      const initialRect = event.active.rect.current.initial;
       const canvasRect = canvas.node.current?.getBoundingClientRect();
-      const position = rect && canvasRect ? { x: Math.max(10, rect.left - canvasRect.left), y: Math.max(10, rect.top - canvasRect.top) } : nextPosition();
+      const effectiveRect = initialRect ? {
+        left: initialRect.left + event.delta.x,
+        top: initialRect.top + event.delta.y,
+        width: initialRect.width,
+        height: initialRect.height,
+      } : translatedRect;
+      const center = effectiveRect ? { x: effectiveRect.left + effectiveRect.width / 2, y: effectiveRect.top + effectiveRect.height / 2 } : undefined;
+      const isInsideCanvas = Boolean(center && canvasRect
+        && center.x >= canvasRect.left && center.x <= canvasRect.right
+        && center.y >= canvasRect.top && center.y <= canvasRect.bottom);
+      if (!event.over && !isInsideCanvas) return;
+      const position = effectiveRect && canvasRect ? { x: Math.max(10, effectiveRect.left - canvasRect.left), y: Math.max(10, effectiveRect.top - canvasRect.top) } : nextPosition();
       addNode(item.label, 'class', position);
     } else if (overId.startsWith('node:')) {
       addAttribute(overId.slice(5), item.label);
@@ -143,6 +162,12 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
     if (!value.nodes.some((node) => node.id === selectedId) && !value.edges.some((edge) => edge.id === selectedId)) setSelectedId(undefined);
   }, [selectedId, value]);
 
+  useEffect(() => {
+    if (focusSubjectId && (value.nodes.some((node) => node.id === focusSubjectId) || value.edges.some((edge) => edge.id === focusSubjectId))) {
+      setSelectedId(focusSubjectId);
+    }
+  }, [focusRequest, focusSubjectId]);
+
   return (
     <DndContext sensors={sensors} onDragEnd={onDragEnd}>
       <section className={`cdb-canvas-shell ${readOnly ? 'is-readonly' : ''}`} aria-label={title}>
@@ -156,7 +181,7 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
             <input value={manualName} onChange={(event) => setManualName(event.target.value)} onKeyDown={(event) => { if (event.key === 'Enter' && manualName.trim()) { addNode(manualName.trim(), manualType); setManualName(''); } }} placeholder="Tên class…" aria-label="Tên phần tử mới" />
             <select value={manualType} onChange={(event) => setManualType(event.target.value as NodeType)} aria-label="Loại phần tử"><option value="class">Class</option><option value="associationClass">Association class</option></select>
             <button type="button" onClick={() => { if (manualName.trim()) { addNode(manualName.trim(), manualType); setManualName(''); } }}>Thêm</button>
-            <button type="button" disabled={!previous.current} onClick={() => { if (previous.current) { const snapshot = previous.current; previous.current = structuredClone(value); onChange(snapshot); setAnnouncement('Đã hoàn tác một bước.'); } }}>↶ Undo</button>
+            <button type="button" disabled={undoCount === 0} aria-label={`Hoàn tác (còn ${undoCount} bước)`} onClick={() => { onUndo?.(); setAnnouncement('Đã hoàn tác một bước.'); }}>↶ Undo</button>
             {connectingFrom && <button type="button" onClick={() => setConnectingFrom(undefined)}>Hủy nối</button>}
           </div>
         </div>}
@@ -190,6 +215,8 @@ export default function ClassDiagramCanvas({ value, onChange, palette = [], read
             compact={compact}
             selected={selectedId === node.id}
             connecting={connectingFrom === node.id}
+            connectionActive={Boolean(connectingFrom)}
+            edgeCount={value.edges.filter((edge) => edge.from === node.id || edge.to === node.id).length}
             onSelect={() => selectNode(node.id)}
             onStartConnect={() => { setSelectedId(node.id); setConnectingFrom(node.id); setAnnouncement(`Đã chọn ${node.name} làm nguồn. Chọn class đích.`); }}
             onDelete={() => deleteNode(node.id)}

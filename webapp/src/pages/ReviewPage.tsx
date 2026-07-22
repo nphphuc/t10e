@@ -136,6 +136,21 @@ export default function ReviewPage({ isPeReview = false, levelIdOverride }: { is
   }
 
   const questions = reviewData.questions || [];
+  if (questions.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0c0d0e] p-6 text-center space-y-4">
+        <h2 className="text-2xl font-bold text-gray-200">Chủ đề đang được cập nhật</h2>
+        <p className="text-gray-400">Bộ câu hỏi cho chủ đề này chưa có nội dung. Hãy chọn một chủ đề khác trên trang Ôn thi PE.</p>
+        <button
+          type="button"
+          onClick={() => navigate(exitPath)}
+          className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all"
+        >
+          Quay lại Ôn thi PE
+        </button>
+      </div>
+    );
+  }
   const currentQuestion = questions[currentIdx];
   const selectedAnswer = answers[currentQuestion?.id] ?? null;
   const isUnsupportedQuestion = Boolean(currentQuestion && !SUPPORTED_REVIEW_TYPES.has(currentQuestion.type));
