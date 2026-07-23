@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { track } from '../engine/analytics';
 import { useProgressStore } from '../store/progress';
+import { playCorrect, playWrong } from '../engine/sound';
 import ChoiceWidget from '../widgets/ChoiceWidget';
 import MultiWidget from '../widgets/MultiWidget';
 import OrderWidget from '../widgets/OrderWidget';
@@ -196,6 +197,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
   const [currentIdx, setCurrentIdx] = useState(0);
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isFinished, setIsFinished] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const exitPath = isPeReview ? '/pe-review' : isTermBank ? '/term-bank' : '/home';
 
@@ -220,6 +222,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
   const isUnsupportedQuestion = Boolean(currentQuestion && !SUPPORTED_REVIEW_TYPES.has(currentQuestion.type));
 
   const handleAnswerSelect = (value: any) => {
+    if (submitted) return;
     setAnswers((prev) => ({
       ...prev,
       [currentQuestion.id]: value,
@@ -274,7 +277,21 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
     return null;
   };
 
-  const handleNext = () => {
+  // Bước 1: người dùng bấm "Kiểm Tra" — chấm điểm câu hiện tại và hiện feedback + giải thích ngay
+  const handleCheck = () => {
+    if (selectedAnswer === null || selectedAnswer === undefined) return;
+    setSubmitted(true);
+    const isCorrect = checkQuestionCorrect(currentQuestion, selectedAnswer);
+    if (isCorrect) {
+      playCorrect();
+    } else {
+      playWrong();
+    }
+  };
+
+  // Bước 2: người dùng đã xem feedback, bấm "Tiếp Tục" — sang câu kế hoặc nộp bài
+  const handleContinue = () => {
+    setSubmitted(false);
     if (currentIdx < questions.length - 1) {
       setCurrentIdx((prev) => prev + 1);
     } else {
@@ -327,6 +344,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
     setAnswers({});
     setCurrentIdx(0);
     setIsFinished(false);
+    setSubmitted(false);
   };
 
   // Render final result screen
@@ -463,7 +481,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
             </h2>
           </div>
 
-          {/* Render corresponding widget with isSubmitted=false to keep it interactive without grading feedback */}
+          {/* Widget hiện isSubmitted=true sau khi bấm Kiểm Tra để tô màu đúng/sai ngay */}
           <div className="p-1">
             {isUnsupportedQuestion && (
               <div role="status" className="rounded-2xl border border-amber-700/50 bg-amber-950/20 p-4 text-sm text-amber-100">
@@ -476,7 +494,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
                 data={currentQuestion}
                 selectedAnswer={selectedAnswer}
                 onAnswer={handleAnswerSelect}
-                isSubmitted={false}
+                isSubmitted={submitted}
                 disabledOptions={[]}
               />
             )}
@@ -486,7 +504,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
                 data={currentQuestion}
                 selectedAnswer={selectedAnswer}
                 onAnswer={handleAnswerSelect}
-                isSubmitted={false}
+                isSubmitted={submitted}
                 disabledOptions={[]}
               />
             )}
@@ -496,7 +514,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
                 data={currentQuestion}
                 selectedAnswer={selectedAnswer}
                 onAnswer={handleAnswerSelect}
-                isSubmitted={false}
+                isSubmitted={submitted}
               />
             )}
 
@@ -505,7 +523,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
                 data={currentQuestion}
                 selectedAnswer={selectedAnswer}
                 onAnswer={handleAnswerSelect}
-                isSubmitted={false}
+                isSubmitted={submitted}
               />
             )}
 
@@ -518,27 +536,66 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
                 }}
                 selectedAnswer={selectedAnswer === null ? null : selectedAnswer ? 0 : 1}
                 onAnswer={(idx) => handleAnswerSelect(idx === 0)}
-                isSubmitted={false}
+                isSubmitted={submitted}
                 disabledOptions={[]}
               />
             )}
           </div>
+
+          {/* Feedback + giải thích — hiện ngay sau khi bấm Kiểm Tra */}
+          {submitted && !isUnsupportedQuestion && (() => {
+            const isCorrectNow = checkQuestionCorrect(currentQuestion, selectedAnswer);
+            const tagNow = !isCorrectNow ? getQuestionMisconception(currentQuestion, selectedAnswer) : null;
+            const mInfoNow = tagNow ? MISCONCEPTION_INFO[tagNow] : null;
+            return (
+              <div
+                className={`p-4 rounded-2xl border space-y-2 ${
+                  isCorrectNow
+                    ? 'bg-green-950/30 border-green-700/40 text-green-300'
+                    : 'bg-red-950/30 border-red-700/40 text-red-300'
+                }`}
+              >
+                <div className="font-bold flex items-center gap-1.5">
+                  {isCorrectNow ? '✓ Chính xác!' : '✗ Chưa đúng'}
+                </div>
+                {currentQuestion.explanation && (
+                  <p className="text-sm opacity-90 leading-relaxed">{currentQuestion.explanation}</p>
+                )}
+                {mInfoNow && (
+                  <div className="mt-2 pt-2 border-t border-white/10 space-y-1">
+                    <div className="text-[10px] font-bold uppercase tracking-wider opacity-70">{mInfoNow.title}</div>
+                    <p className="text-xs opacity-80 leading-relaxed">{mInfoNow.advice}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })()}
         </div>
 
         {/* Bottom Actions */}
         <div className="pt-10 pb-6">
-          <button
-            disabled={!isAnswered}
-            onClick={handleNext}
-            className={`w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 ${
-              isAnswered
-                ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'
-                : 'bg-gray-800 text-gray-500 cursor-not-allowed'
-            }`}
-          >
-            <span>{isUnsupportedQuestion ? 'Bỏ Qua & Tiếp Tục' : currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Xác Nhận & Tiếp Tục'}</span>
-            <span>➔</span>
-          </button>
+          {!submitted ? (
+            <button
+              disabled={!isAnswered}
+              onClick={isUnsupportedQuestion ? handleContinue : handleCheck}
+              className={`w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 ${
+                isAnswered
+                  ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'
+                  : 'bg-gray-800 text-gray-500 cursor-not-allowed'
+              }`}
+            >
+              <span>{isUnsupportedQuestion ? 'Bỏ Qua & Tiếp Tục' : 'Kiểm Tra'}</span>
+              <span>➔</span>
+            </button>
+          ) : (
+            <button
+              onClick={handleContinue}
+              className="w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+            >
+              <span>{currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Tiếp Tục'}</span>
+              <span>➔</span>
+            </button>
+          )}
         </div>
       </main>
     </div>
