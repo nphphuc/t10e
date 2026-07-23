@@ -1,0 +1,366 @@
+{
+  "id": "TB-04",
+  "title": "Cấu trúc Class/Object (Boundary-Entity-Control)",
+  "questions": [
+    {
+      "id": "TB-04-047",
+      "type": "choice",
+      "prompt": "What is a class?",
+      "options": [
+        "A course",
+        "An object instance",
+        "A client or server in the system",
+        "A collection of objects with the same characteristics"
+      ],
+      "correct": 3,
+      "explanation": "Class là tập hợp các object có chung đặc điểm (attribute, operation) — không phải một môn học hay một client/server cụ thể.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-04-048",
+      "type": "choice",
+      "prompt": "What is an attribute?",
+      "options": [
+        "A relationship between two classes",
+        "A parameter of an operation or method",
+        "A data value held by an object in a class",
+        "The return value from an operation"
+      ],
+      "correct": 2,
+      "explanation": "Attribute là một GIÁ TRỊ dữ liệu mà từng object của class đang nắm giữ (khác nhau giữa các object).",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-04-049",
+      "type": "choice",
+      "prompt": "What is an association?",
+      "options": [
+        "A relationship between two classes",
+        "A relationship between two objects",
+        "A link between two classes",
+        "A link between two objects"
+      ],
+      "correct": 0,
+      "explanation": "Association là mối quan hệ ở mức CLASS giữa hai class; Link mới là kết nối cụ thể giữa hai OBJECT tại runtime.",
+      "distractorTags": {
+        "1": "association-is-link",
+        "2": "association-is-link",
+        "3": "association-is-link"
+      }
+    },
+    {
+      "id": "TB-04-050",
+      "type": "choice",
+      "prompt": "What is meant by the multiplicity of an association?",
+      "options": [
+        "The number of associations in a class",
+        "The number of associations between two classes",
+        "How many instances of one class relate to how many instances of another class",
+        "How many instances of one class relate to a single instance of another class."
+      ],
+      "correct": 3,
+      "explanation": "Multiplicity cho biết một instance của class này liên kết được với BAO NHIÊU instance của class kia (ví dụ 1, 0..*, 1..*).",
+      "distractorTags": {
+        "0": "association-is-link",
+        "1": "association-is-link",
+        "2": "association-is-link"
+      }
+    },
+    {
+      "id": "TB-04-051",
+      "type": "choice",
+      "prompt": "What is an association class?",
+      "options": [
+        "A class with multiple associations",
+        "A class with one association",
+        "A class that models an association between two or more classes",
+        "A class that models an association between two or more objects"
+      ],
+      "correct": 2,
+      "explanation": "Association class là một class đặc biệt mô hình hóa CHÍNH mối quan hệ (association) giữa hai hay nhiều class, thường chứa thuộc tính riêng của quan hệ đó.",
+      "distractorTags": {
+        "0": "association-is-link",
+        "1": "association-is-link",
+        "3": "association-is-link"
+      }
+    },
+    {
+      "id": "TB-04-052",
+      "type": "choice",
+      "prompt": "What is a generalization/specialization hierarchy?",
+      "options": [
+        "A whole/part relationship",
+        "An inheritance relationship",
+        "An association between a generalized class and a specialized class",
+        "A layered hierarchy"
+      ],
+      "correct": 1,
+      "explanation": "Generalization/specialization chính là quan hệ KẾ THỪA (inheritance) — class con (specialized) kế thừa từ class cha (generalized).",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "2": "aggregation-equals-composition",
+        "3": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "TB-04-053",
+      "type": "choice",
+      "prompt": "What is a composition hierarchy?",
+      "options": [
+        "A weak form of a generalization/ specialization hierarchy",
+        "A strong form of a generalization/ specialization hierarchy",
+        "A weak form of a whole/part relationship",
+        "A strong form of a whole/part relationship"
+      ],
+      "correct": 3,
+      "explanation": "Composition là dạng MẠNH của quan hệ whole/part: part KHÔNG tồn tại độc lập, vòng đời gắn chặt với whole.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "1": "aggregation-equals-composition",
+        "2": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "TB-04-054",
+      "type": "choice",
+      "prompt": "What is an aggregation hierarchy?",
+      "options": [
+        "A weak form of a generalization/ specialization hierarchy",
+        "A strong form of a generalization/specialization hierarchy",
+        "A weak form of a whole/part relationship",
+        "A strong form of a whole/part relationship"
+      ],
+      "correct": 2,
+      "explanation": "Aggregation là dạng YẾU của quan hệ whole/part: part CÓ THỂ tồn tại độc lập, không gắn chặt vòng đời với whole như composition.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "1": "aggregation-equals-composition",
+        "3": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "TB-04-055",
+      "type": "choice",
+      "prompt": "What does the system context class diagram define?",
+      "options": [
+        "The entity classes in the system",
+        "How the system interfaces to other systems",
+        "The boundary between the system and the external environment",
+        "The context classes in the system"
+      ],
+      "correct": 2,
+      "explanation": "System context class diagram xác định RANH GIỚI giữa hệ thống phần mềm và môi trường bên ngoài (actor), không mô tả chi tiết entity bên trong.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-04-056",
+      "type": "choice",
+      "prompt": "What is an entity class?",
+      "options": [
+        "A class on an entity/relationship diagram",
+        "A class that stores data",
+        "A class that interfaces to an external entity",
+        "An external class"
+      ],
+      "correct": 1,
+      "explanation": "Entity class là class chịu trách nhiệm LƯU TRỮ dữ liệu bền vững của hệ thống (thường ánh xạ tới bảng dữ liệu).",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-057",
+      "type": "choice",
+      "prompt": "What is a boundary object?",
+      "options": [
+        "An external object",
+        "An object that stores data",
+        "An object that communicates with an external object",
+        "An object that controls other objects (c) An object that communicates with"
+      ],
+      "correct": 0,
+      "explanation": "Boundary object đóng vai trò GIAO TIẾP với actor/hệ thống bên ngoài (UI, API gateway...) — cửa ngõ vào/ra của hệ thống.",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-058",
+      "type": "choice",
+      "prompt": "What is a control object? Object and Class Structuring 131",
+      "options": [
+        "An object that depends on other objects",
+        "An object that communicates with an external object",
+        "An object that controls other objects",
+        "An object that is controlled by other objects"
+      ],
+      "correct": 2,
+      "explanation": "Control object ĐIỀU PHỐI, ra lệnh cho các object khác (boundary, entity) để hoàn thành một luồng nghiệp vụ; bản thân nó thường không lưu dữ liệu.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-059",
+      "type": "choice",
+      "prompt": "What is a state-dependent control object?",
+      "options": [
+        "An object that depends on a state machine",
+        "An object that communicates with a state machine",
+        "An object that controls a state machine",
+        "An object that executes a state machine"
+      ],
+      "correct": 3,
+      "explanation": "State-dependent control object là control object có hành vi phụ thuộc vào MỘT STATE MACHINE nội tại — nó 'chạy' statechart để quyết định phản ứng.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-060",
+      "type": "choice",
+      "prompt": "What is a coordinator object?",
+      "options": [
+        "A manager object",
+        "An object that makes decisions based on a state machine",
+        "A decision-making object",
+        "An object that decides which entity object to interact with"
+      ],
+      "correct": 2,
+      "explanation": "Coordinator object là loại control object RA QUYẾT ĐỊNH nên tương tác với entity/object nào tiếp theo, dựa trên logic điều phối chứ không dựa statechart.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-061",
+      "type": "choice",
+      "prompt": "How would you determine a boundary class from the context diagram?",
+      "options": [
+        "By looking at it",
+        "By selecting the external classes on the context diagram",
+        "By determining the software classes that communicate with the external classes",
+        "By drawing the boundary between the hardware and software classes"
+      ],
+      "correct": 2,
+      "explanation": "Boundary class được xác định bằng cách tìm các class phần mềm GIAO TIẾP TRỰC TIẾP với các class/actor bên ngoài trên context diagram.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-062",
+      "type": "choice",
+      "prompt": "What is a timer object?",
+      "options": [
+        "An external clock",
+        "An internal clock",
+        "An object that is awakened by an external timer",
+        "An object that interacts with a clock"
+      ],
+      "correct": 2,
+      "explanation": "Timer object là object được 'ĐÁNH THỨC' bởi một bộ đếm thời gian bên ngoài để thực hiện hành động định kỳ (ví dụ gửi thông báo hết hạn).",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-063",
+      "type": "choice",
+      "prompt": "What do class structuring criteria help with?",
+      "options": [
+        "Structuring an application into classes",
+        "Defining the attributes of a class",
+        "Defining the associations of a class",
+        "Defining the operations of a class"
+      ],
+      "correct": 0,
+      "explanation": "Class structuring criteria là tiêu chí giúp chia một ứng dụng thành các CLASS hợp lý (theo vai trò boundary/entity/control...), không dùng để định nghĩa attribute/operation.",
+      "distractorTags": {
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-04-064",
+      "type": "choice",
+      "prompt": "What is the classification process for application classes analogous to?",
+      "options": [
+        "Categorizing books in a library",
+        "Deciding how many copies of a book are needed",
+        "Finding the classrooms in a school",
+        "Identifying what labs the school has"
+      ],
+      "correct": 0,
+      "explanation": "Việc phân loại class giống như phân loại sách trong THƯ VIỆN theo chủ đề — nhóm các đối tượng có đặc điểm chung vào cùng một 'thể loại' (class).",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-065",
+      "type": "choice",
+      "prompt": "What is the purpose of a stereotype in class structuring?",
+      "options": [
+        "To label a class according to its class structuring criterion",
+        "To identify the objects that belong to the same class",
+        "To distinguish between external objects and software objects",
+        "To identify the association between two classes"
+      ],
+      "correct": 0,
+      "explanation": "Stereotype (ví dụ «boundary», «entity», «control») dùng để GẮN NHÃN cho class theo vai trò cấu trúc của nó, giúp dễ nhận diện trên diagram.",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-04-066",
+      "type": "choice",
+      "prompt": "What is a business logic object?",
+      "options": [
+        "An object used in business applications",
+        "An object that defines business specific application logic",
+        "The internal logic of an object",
+        "A business object that determines whether a client request is logical"
+      ],
+      "correct": 1,
+      "explanation": "Business logic object chứa các QUY TẮC NGHIỆP VỤ đặc thù của ứng dụng (ví dụ: từ chối rút tiền nếu số dư dưới ngưỡng), tách biệt với entity và boundary.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    }
+  ]
+}

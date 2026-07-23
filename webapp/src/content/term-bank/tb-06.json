@@ -1,0 +1,366 @@
+{
+  "id": "TB-06",
+  "title": "State Machine (Statechart)",
+  "questions": [
+    {
+      "id": "TB-06-087",
+      "type": "choice",
+      "prompt": "What is a state in a state machine?",
+      "options": [
+        "A recognizable situation that exists over an interval of time",
+        "A condition that is True or False",
+        "An input from the external environment",
+        "An output from the system"
+      ],
+      "correct": 0,
+      "explanation": "State là một tình huống có thể nhận biết được, TỒN TẠI trong một khoảng thời gian — khác với action diễn ra tức thời.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-088",
+      "type": "choice",
+      "prompt": "What is an event in a state machine?",
+      "options": [
+        "A discrete signal that causes a change of state",
+        "An input from the external environment",
+        "An input that is True or False",
+        "The result of a state transition"
+      ],
+      "correct": 0,
+      "explanation": "Event là một tín hiệu rời rạc, xảy ra tại MỘT THỜI ĐIỂM, gây ra chuyển đổi (transition) từ state này sang state khác.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-089",
+      "type": "choice",
+      "prompt": "What is an action in a state machine?",
+      "options": [
+        "An occurrence at a point in time",
+        "A cause of a state transition",
+        "An interval between two successive events",
+        "A computation that executes as a result of a state transition"
+      ],
+      "correct": 3,
+      "explanation": "Action là một phép tính/xử lý thực thi NGAY khi có transition xảy ra — diễn ra tức thời, không kéo dài như state.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "2": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-090",
+      "type": "choice",
+      "prompt": "What is an entry action in a state machine?",
+      "options": [
+        "An action that is performed when the state is entered",
+        "An action that is performed when the state is left",
+        "An action that starts executing when the state is entered and completes executing when the state is left",
+        "An action that executes as a result of a state transition"
+      ],
+      "correct": 0,
+      "explanation": "Entry action là hành động LUÔN được thực hiện ngay khi object vừa BƯỚC VÀO một state, bất kể đến từ transition nào.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-091",
+      "type": "choice",
+      "prompt": "What is an exit action in a state machine?",
+      "options": [
+        "An action that is performed when the state is entered",
+        "An action that is performed when the state is left",
+        "An action that starts executing when the state is entered and completes executing when the state is left",
+        "An action that executes as a result of a state transition"
+      ],
+      "correct": 1,
+      "explanation": "Exit action là hành động được thực hiện ngay khi object RỜI KHỎI một state, trước khi chuyển sang state kế tiếp.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-092",
+      "type": "choice",
+      "prompt": "What is a condition used for in a state machine?",
+      "options": [
+        "A conditional action",
+        "A conditional state",
+        "A conditional state transition",
+        "A conditional event"
+      ],
+      "correct": 2,
+      "explanation": "Condition (guard) dùng để làm cho một transition chỉ xảy ra khi ĐIỀU KIỆN đó đúng — kiểm soát có chuyển trạng thái hay không.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-093",
+      "type": "choice",
+      "prompt": "What is a state transition into a composite state equivalent to?",
+      "options": [
+        "A transition into only one of the substates",
+        "A transition into each of the substates",
+        "A transition into none of the substates",
+        "A transition into any one of the substates"
+      ],
+      "correct": 0,
+      "explanation": "Một transition đi vào composite state thực chất chỉ đi vào MỘT substate cụ thể bên trong nó (thường là substate khởi đầu), không phải tất cả.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-094",
+      "type": "choice",
+      "prompt": "What is a state transition out of a composite state equivalent to?",
+      "options": [
+        "A transition out of only one of the substates",
+        "A transition out of each of the substates",
+        "A transition out of none of the substates",
+        "A transition out of any one of the substates"
+      ],
+      "correct": 1,
+      "explanation": "Một transition rời khỏi composite state áp dụng cho TẤT CẢ các substate bên trong — dù object đang ở substate nào cũng bị đưa ra ngoài.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-095",
+      "type": "choice",
+      "prompt": "How does a composite state relate to a substate?",
+      "options": [
+        "A composite state is decomposed into substates.",
+        "Composite states are composed into substates.",
+        "A composite state transitions to a substate.",
+        "A substate transitions to a composite state."
+      ],
+      "correct": 0,
+      "explanation": "Composite state được PHÂN RÃ (decompose) thành các substate nhỏ hơn bên trong nó, thể hiện cấu trúc phân cấp trạng thái.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-096",
+      "type": "choice",
+      "prompt": "If two actions are shown on a given state transition, which of the following is true?",
+      "options": [
+        "The two actions are dependent on each other.",
+        "The two actions are independent of each other.",
+        "One action provides an input to the other action.",
+        "The second action executes when the first action completes execution"
+      ],
+      "correct": 1,
+      "explanation": "Khi hai action cùng gắn trên một transition, chúng thực thi ĐỘC LẬP với nhau (không có quan hệ tuần tự bắt buộc giữa hai action đó).",
+      "distractorTags": {
+        "0": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-097",
+      "type": "choice",
+      "prompt": "What does a state-dependent interaction involve?",
+      "options": [
+        "A control object",
+        "A state-dependent entity object",
+        "A state-dependent control object",
+        "A state-dependent user interaction object"
+      ],
+      "correct": 2,
+      "explanation": "Tương tác phụ thuộc trạng thái (state-dependent interaction) luôn gắn với một STATE-DEPENDENT CONTROL OBJECT — object chạy statechart để quyết định phản ứng.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-098",
+      "type": "choice",
+      "prompt": "Which kind of object executes a state machine",
+      "options": [
+        "Any software object",
+        "An entity object",
+        "A state-dependent control object",
+        "A statechart"
+      ],
+      "correct": 2,
+      "explanation": "Chỉ state-dependent control object mới THỰC THI (execute) một state machine — entity hay boundary object thông thường không có statechart riêng.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-099",
+      "type": "choice",
+      "prompt": "An input message to a state-dependent control object corresponds to:",
+      "options": [
+        "An event on the internal state machine",
+        "An action on the internal state machine",
+        "A condition on the internal state machine",
+        "A state on the internal state machine"
+      ],
+      "correct": 0,
+      "explanation": "Một message đầu vào gửi tới state-dependent control object tương ứng với một EVENT kích hoạt statechart nội bộ của nó.",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-06-100",
+      "type": "choice",
+      "prompt": "An output message from a state dependent control object corresponds to:",
+      "options": [
+        "An event on the internal state machine",
+        "An action on the internal state machine",
+        "A condition on the internal state machine",
+        "A state on the internal state machine"
+      ],
+      "correct": 1,
+      "explanation": "Một message đầu ra từ state-dependent control object tương ứng với một ACTION được thực thi bởi statechart nội bộ (thường là entry/exit/transition action).",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-06-101",
+      "type": "choice",
+      "prompt": "An interaction diagram should be developed for:",
+      "options": [
+        "Only the main sequence of the use case",
+        "The main sequence and every alternative sequence of the use case",
+        "The main sequence and a representative alternative sequence of the use case",
+        "The alternative sequences of the use case"
+      ],
+      "correct": 1,
+      "explanation": "Cần vẽ interaction diagram cho CẢ luồng chính LẪN mọi luồng thay thế của use case, không chỉ luồng chính.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-06-102",
+      "type": "choice",
+      "prompt": "Which of the following could happen on an interaction diagram?",
+      "options": [
+        "A state-dependent control object sends a message to an entity object.",
+        "A state-dependent control object sends a message to a coordinator object.",
+        "A state-dependent control object sends a message to a printer object.",
+        "All of the above"
+      ],
+      "correct": 3,
+      "explanation": "Một state-dependent control object có thể gửi message tới entity object, coordinator object, hay cả object điều khiển thiết bị ngoài (như printer) — tùy vào action của statechart.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "2": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-06-103",
+      "type": "choice",
+      "prompt": "If the same state machine is used in more than one use case, how is this modeled on interaction diagrams?",
+      "options": [
+        "Develop one state-dependent control object for each use case.",
+        "Develop one state-dependent control object containing states from each use case.",
+        "Develop a hierarchical state machine.",
+        "Develop a coordinator object."
+      ],
+      "correct": 1,
+      "explanation": "Nếu nhiều use case dùng chung một state machine, nên gộp thành MỘT state-dependent control object chứa các state liên quan từ mọi use case đó, tránh trùng lặp logic.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-06-104",
+      "type": "choice",
+      "prompt": "How would two state-dependent control objects communicate with each other?",
+      "options": [
+        "By sending messages to each other",
+        "By transitioning to the same state",
+        "Through an entity object",
+        "Through a proxy object"
+      ],
+      "correct": 0,
+      "explanation": "Hai state-dependent control object giao tiếp bằng cách GỬI MESSAGE qua lại — message của bên này trở thành event kích hoạt statechart bên kia.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-06-105",
+      "type": "choice",
+      "prompt": "An object can send alternative messages a or b to a state-dependent control object. How is this handled in the state machine?",
+      "options": [
+        "One state with a different transition out of it for each incoming message",
+        "One state for each of the alternative messages",
+        "A composite state to handle the alternative messages",
+        "A substate for each alternative message"
+      ],
+      "correct": 0,
+      "explanation": "Khi một object có thể nhận message a HOẶC b, cách mô hình hóa chuẩn là đặt MỘT state với hai transition đi ra khác nhau ứng với từng message.",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-06-106",
+      "type": "choice",
+      "prompt": "In a system in which a client object executes a state machine and communicates with a service, which of the following is true?",
+      "options": [
+        "The client has a state-dependent control object but the service does not.",
+        "The service has a state-dependent control object but the client does not.",
+        "Both the client and the service have state-dependent control objects.",
+        "Neither the client nor the service has a state-dependent control object."
+      ],
+      "correct": 0,
+      "explanation": "Trong quan hệ client/service, nếu client chủ động điều khiển hội thoại theo trạng thái thì CLIENT mới cần state-dependent control object, service thường không cần.",
+      "distractorTags": {
+        "1": "state-is-action",
+        "2": "state-is-action",
+        "3": "state-is-action"
+      }
+    }
+  ]
+}

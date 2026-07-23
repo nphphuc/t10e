@@ -1,0 +1,366 @@
+{
+  "id": "TB-05",
+  "title": "Interaction Diagram & Use Case",
+  "questions": [
+    {
+      "id": "TB-05-067",
+      "type": "choice",
+      "prompt": "What does an interaction diagram depict?",
+      "options": [
+        "The state and transitions inside a control object",
+        "Classes and their relationships",
+        "Software objects and the sequence of their interactions",
+        "The external objects communicating with the system"
+      ],
+      "correct": 2,
+      "explanation": "Interaction diagram thể hiện các object phần mềm và TRÌNH TỰ chúng trao đổi thông điệp với nhau để thực hiện một use case.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-068",
+      "type": "choice",
+      "prompt": "How is an actor depicted on an interaction diagram?",
+      "options": [
+        "An actor has an association with the interaction diagram.",
+        "An actor can provide input to or receive output from a boundary object.",
+        "An actor can provide input to or receive output from a boundary class.",
+        "An instance of an actor can provide input to or receive output from a boundary object."
+      ],
+      "correct": 3,
+      "explanation": "Trên interaction diagram, MỘT INSTANCE cụ thể của actor gửi input/nhận output qua một BOUNDARY OBJECT cụ thể (không phải class hay association chung chung).",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "2": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-069",
+      "type": "choice",
+      "prompt": "What does a sequence diagram depict?",
+      "options": [
+        "The sequence of external objects communicating with each other",
+        "Classes and their relationships",
+        "Software objects and the sequence of their interactions",
+        "The external objects communicating with the system"
+      ],
+      "correct": 2,
+      "explanation": "Sequence diagram nhấn mạnh trình tự THỜI GIAN của các thông điệp trao đổi giữa các object phần mềm.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-070",
+      "type": "choice",
+      "prompt": "What does a communication diagram depict?",
+      "options": [
+        "The sequence of external objects communicating with each other",
+        "Classes and their relationships",
+        "Software objects and the sequence of their interactions",
+        "The external objects communicating with the system"
+      ],
+      "correct": 2,
+      "explanation": "Communication diagram cũng thể hiện object và trình tự tương tác, nhưng nhấn mạnh cấu trúc LIÊN KẾT (topology) giữa các object hơn là trình tự thời gian.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-071",
+      "type": "choice",
+      "prompt": "What is the instance form of an interaction diagram?",
+      "options": [
+        "Depicts several object instances interacting with each other",
+        "Depicts one possible sequence of interactions among object instances",
+        "Depicts all possible interactions among object instances",
+        "Depicts all object instances and their links to each other"
+      ],
+      "correct": 1,
+      "explanation": "Dạng instance của interaction diagram chỉ mô tả MỘT kịch bản cụ thể (một luồng) giữa các instance thực tế, không phải mọi khả năng có thể xảy ra.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-072",
+      "type": "choice",
+      "prompt": "What is the generic form of an interaction diagram?",
+      "options": [
+        "Depicts several objects interacting with each other",
+        "Depicts one possible sequence of interactions among objects",
+        "Depicts all possible interactions among objects",
+        "Depicts all classes and their associations with each other"
+      ],
+      "correct": 2,
+      "explanation": "Dạng generic mô tả TẤT CẢ các khả năng tương tác có thể xảy ra giữa các object (bao gồm cả nhánh rẽ điều kiện), tổng quát hơn dạng instance.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-073",
+      "type": "choice",
+      "prompt": "During dynamic interaction modeling, use cases are realized as follows:",
+      "options": [
+        "Determine objects that participate in each use case and the sequence of interactions among them.",
+        "Determine external objects and the sequence in which they provide inputs to and receive outputs from each use case.",
+        "Determine sequence of interactions among use cases.",
+        "Determine how a use case is depicted through internal states and transitions between them"
+      ],
+      "correct": 0,
+      "explanation": "Khi hiện thực hóa use case bằng interaction diagram, cần xác định NHỮNG OBJECT NÀO tham gia và trình tự chúng tương tác với nhau.",
+      "distractorTags": {
+        "1": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-05-074",
+      "type": "choice",
+      "prompt": "Which of the following interactions could happen on an interaction diagram?",
+      "options": [
+        "An external user sends a message to a user interaction object.",
+        "An external user sends a message to an entity object.",
+        "An external user sends a message to an I/O object.",
+        "An external user sends a message to a printer object."
+      ],
+      "correct": 0,
+      "explanation": "Một actor bên ngoài chỉ gửi message tới object giao tiếp người dùng (boundary/user interaction object) — không gửi trực tiếp tới entity hay object nội bộ khác.",
+      "distractorTags": {
+        "1": "sequence-equals-communication",
+        "2": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-075",
+      "type": "choice",
+      "prompt": "Which of the following interactions is NOT likely to happen on an interaction diagram?",
+      "options": [
+        "A user interaction object sends a message to an entity object.",
+        "An input object sends a message to a state-dependent control object.",
+        "An input object sends a message to a printer object.",
+        "A user interaction object sends a message to a proxy object"
+      ],
+      "correct": 2,
+      "explanation": "Một input object (nhận dữ liệu vào) thường KHÔNG gửi thẳng message tới một printer object (thiết bị xuất) — không hợp lý về luồng dữ liệu.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-05-076",
+      "type": "choice",
+      "prompt": "What kind of object would be the first object to receive an input from an external object?",
+      "options": [
+        "A user interaction object",
+        "A proxy object",
+        "An entity object",
+        "A boundary object"
+      ],
+      "correct": 3,
+      "explanation": "Object đầu tiên nhận input từ bên ngoài luôn là một BOUNDARY OBJECT — vì boundary chính là cửa ngõ giao tiếp với môi trường ngoài.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-05-077",
+      "type": "choice",
+      "prompt": "What is a use case?",
+      "options": [
+        "A case study involving users",
+        "A sequence of interactions between the user and the system",
+        "A sequence of interactions between the user and the objects in the system",
+        "A sequence of user inputs to the system"
+      ],
+      "correct": 2,
+      "explanation": "Use case là một chuỗi tương tác giữa actor và các OBJECT bên trong hệ thống nhằm đạt một mục tiêu cụ thể.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "1": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-05-078",
+      "type": "choice",
+      "prompt": "What is an actor in a use case?",
+      "options": [
+        "An object inside the system",
+        "A person who performs on stage",
+        "An external entity that interacts with the system",
+        "The customer to whom the system will be delivered"
+      ],
+      "correct": 2,
+      "explanation": "Actor là một thực thể BÊN NGOÀI hệ thống (người, hệ thống khác, thiết bị) tương tác với hệ thống — không phải object bên trong.",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "1": "actor-is-internal",
+        "3": "actor-is-internal"
+      }
+    },
+    {
+      "id": "TB-05-079",
+      "type": "choice",
+      "prompt": "What is a primary actor?",
+      "options": [
+        "The actor who goes on stage first",
+        "The actor that starts the use case",
+        "An actor that participates in the use case",
+        "An object inside the system"
+      ],
+      "correct": 1,
+      "explanation": "Primary actor là actor KHỞI ĐỘNG (bắt đầu) use case, ví dụ Customer khởi tạo use case Đặt hàng.",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "2": "actor-is-internal",
+        "3": "actor-is-internal"
+      }
+    },
+    {
+      "id": "TB-05-080",
+      "type": "choice",
+      "prompt": "What is a secondary actor?",
+      "options": [
+        "The actor who goes on stage second",
+        "The actor that starts the use case",
+        "An actor that participates in the use case",
+        "An object inside the system"
+      ],
+      "correct": 2,
+      "explanation": "Secondary actor chỉ THAM GIA vào use case (được hệ thống gọi tới) mà không phải người khởi tạo, ví dụ hệ thống thanh toán bên thứ ba.",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "1": "actor-is-internal",
+        "3": "actor-is-internal"
+      }
+    },
+    {
+      "id": "TB-05-081",
+      "type": "choice",
+      "prompt": "What is an alternative sequence in a use case?",
+      "options": [
+        "A sequence that describes an error case",
+        "A sequence that is different from the main sequence",
+        "A sequence that describes interactions with a secondary actor",
+        "A sequence that describes interactions with a primary actor"
+      ],
+      "correct": 1,
+      "explanation": "Alternative sequence là một luồng KHÁC với luồng chính (main sequence), không nhất thiết là lỗi — có thể là một nhánh hợp lệ khác.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-05-082",
+      "type": "choice",
+      "prompt": "What can an inclusion use case be used for?",
+      "options": [
+        "To describe an inclusive use case",
+        "To describe a lengthy interaction with an actor",
+        "To describe functionality that is common to more than one use case",
+        "To describe a use case that includes other use cases"
+      ],
+      "correct": 2,
+      "explanation": "Include dùng để tách phần chức năng DÙNG CHUNG, bắt buộc xảy ra ở nhiều use case khác nhau (ví dụ Login được include bởi nhiều use case).",
+      "distractorTags": {
+        "0": "include-vs-extend",
+        "1": "include-vs-extend",
+        "3": "include-vs-extend"
+      }
+    },
+    {
+      "id": "TB-05-083",
+      "type": "choice",
+      "prompt": "What can an extension use case be used for?",
+      "options": [
+        "To describe a lengthy interaction with an actor",
+        "To describe functionality that is common to more than one use case",
+        "To describe the functionality of a use case that is extended by another use case(s)",
+        "To describe a conditional part of a different use case that is only executed under certain circumstances"
+      ],
+      "correct": 3,
+      "explanation": "Extend mô tả một phần hành vi CHỈ xảy ra trong một số điều kiện nhất định, mở rộng thêm cho use case gốc — không bắt buộc như include.",
+      "distractorTags": {
+        "0": "include-vs-extend",
+        "1": "include-vs-extend",
+        "2": "include-vs-extend"
+      }
+    },
+    {
+      "id": "TB-05-084",
+      "type": "choice",
+      "prompt": "What can an activity diagram be used for in use case modeling?",
+      "options": [
+        "To depict the sequence of activities executed by all the use cases in the system",
+        "To depict the sequence of external activities that the use case interacts with",
+        "To depict the sequence of active objects in a use case",
+        "To depict the activities in the main and alternative sequences of a use case"
+      ],
+      "correct": 3,
+      "explanation": "Activity diagram dùng để vẽ chi tiết các hoạt động trong CẢ luồng chính lẫn luồng thay thế của MỘT use case, không phải toàn bộ hệ thống.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "1": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-05-085",
+      "type": "choice",
+      "prompt": "How can a nonfunctional requirement be described in a use case model?",
+      "options": [
+        "In a separate section of the use case description",
+        "As a use case precondition",
+        "As a use case postcondition",
+        "In a separate document"
+      ],
+      "correct": 0,
+      "explanation": "Yêu cầu phi chức năng (NFR) thường được ghi trong MỘT MỤC RIÊNG của bản mô tả use case, tách biệt với các bước (step) chức năng.",
+      "distractorTags": {
+        "1": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-05-086",
+      "type": "choice",
+      "prompt": "What is a use case package?",
+      "options": [
+        "A package describing the actors in the system",
+        "A package describing the use cases in the system",
+        "A group of related use cases",
+        "The package of objects that participate in the use case"
+      ],
+      "correct": 2,
+      "explanation": "Use case package là một nhóm các use case có liên quan được gom lại để dễ quản lý, giống package trong class diagram nhưng chứa use case.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "1": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    }
+  ]
+}

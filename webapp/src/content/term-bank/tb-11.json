@@ -1,0 +1,366 @@
+{
+  "id": "TB-11",
+  "title": "Software Product Line & Quality Attributes",
+  "questions": [
+    {
+      "id": "TB-11-179",
+      "type": "choice",
+      "prompt": "What is a software product line (SPL)?",
+      "options": [
+        "A family of systems with some common components and some variable components",
+        "An assembly line",
+        "A family of identical systems",
+        "The software products marketed by a company"
+      ],
+      "correct": 0,
+      "explanation": "Software Product Line (SPL) là một họ hệ thống có phần CHUNG (common) và phần THAY ĐỔI được (variable) giữa các thành viên trong họ.",
+      "distractorTags": {
+        "1": "spl-feature-confusion",
+        "2": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-180",
+      "type": "choice",
+      "prompt": "What is an optional use case?",
+      "options": [
+        "A use case with some optional steps",
+        "A use case that does not need to be developed",
+        "A use case that is required by some product line members but not others",
+        "A use case that can be chosen in place of a different use case in a SPL member"
+      ],
+      "correct": 2,
+      "explanation": "Optional use case là use case chỉ BẮT BUỘC với một số thành viên SPL nhất định, không phải mọi thành viên đều cần.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "1": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-11-181",
+      "type": "choice",
+      "prompt": "What is a use case variation point?",
+      "options": [
+        "A variable use case",
+        "A location in the use case at which change can occur",
+        "An alternative use case",
+        "A location in the use case where an alternative path can start"
+      ],
+      "correct": 1,
+      "explanation": "Variation point là VỊ TRÍ trong use case nơi có thể xảy ra sự thay đổi/tùy biến giữa các thành viên SPL khác nhau.",
+      "distractorTags": {
+        "0": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-11-182",
+      "type": "choice",
+      "prompt": "What is a SPL feature?",
+      "options": [
+        "A requirement or characteristic that is provided by one or more SPL members",
+        "A marketing need",
+        "A class provided by the SPL",
+        "A SPL use case"
+      ],
+      "correct": 0,
+      "explanation": "Feature là một yêu cầu/đặc điểm mà một hoặc nhiều thành viên trong SPL sở hữu — đơn vị cơ bản mô tả sự khác biệt giữa các sản phẩm.",
+      "distractorTags": {
+        "1": "spl-feature-confusion",
+        "2": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-183",
+      "type": "choice",
+      "prompt": "What is a SPL feature group?",
+      "options": [
+        "A collection of features",
+        "A group of features with a particular constraint on their usage in a SPL member",
+        "A group of mutually exclusive features",
+        "A group of optional features with a particular constraint on their usage in a SPL member"
+      ],
+      "correct": 1,
+      "explanation": "Feature group là một nhóm feature có RÀNG BUỘC sử dụng cụ thể (ví dụ chọn đúng 1, chọn ít nhất 1...) khi cấu hình một thành viên SPL.",
+      "distractorTags": {
+        "0": "spl-feature-confusion",
+        "2": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-184",
+      "type": "choice",
+      "prompt": "What is a kernel class in a SPL?",
+      "options": [
+        "An entity class in the SPL",
+        "A SPL class that stores essential data",
+        "A class that is required by all members of the SPL",
+        "An external class to the SPL"
+      ],
+      "correct": 2,
+      "explanation": "Kernel class là class BẮT BUỘC phải có ở MỌI thành viên của SPL, không phụ thuộc feature nào được chọn.",
+      "distractorTags": {
+        "0": "spl-feature-confusion",
+        "1": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-185",
+      "type": "choice",
+      "prompt": "What two categories of stereotypes are used in modeling SPL classes?",
+      "options": [
+        "Kernel and optional stereotypes",
+        "Optional and variant stereotypes",
+        "Common and variant stereotypes",
+        "Reuse and application role stereotypes"
+      ],
+      "correct": 3,
+      "explanation": "Class trong SPL được gắn 2 loại stereotype: nhóm liên quan khả năng TÁI SỬ DỤNG (reuse) và nhóm liên quan VAI TRÒ ỨNG DỤNG (application role).",
+      "distractorTags": {
+        "0": "spl-feature-confusion",
+        "1": "spl-feature-confusion",
+        "2": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-186",
+      "type": "choice",
+      "prompt": "How are feature conditions used in a SPL state machine?",
+      "options": [
+        "A guard condition",
+        "A condition that is True or False",
+        "To identify if a feature is selected or not in the state machine",
+        "To allow state machine inheritance"
+      ],
+      "correct": 2,
+      "explanation": "Feature condition trong statechart của SPL dùng để kiểm tra một feature CÓ ĐƯỢC CHỌN hay không, từ đó quyết định state machine có đi theo nhánh liên quan không.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-11-187",
+      "type": "choice",
+      "prompt": "What is a kernel system in a SPL?",
+      "options": [
+        "A member of the SPL only composed of kernel classes",
+        "A member of the SPL composed of kernel classes and possibly some default classes",
+        "A member of the SPL composed of kernel classes and possibly some optional classes",
+        "A member of the SPL composed of kernel classes and possibly some entity classes"
+      ],
+      "correct": 1,
+      "explanation": "Kernel system là thành viên 'tối giản' của SPL, chỉ gồm kernel class bắt buộc và có thể thêm một số class mặc định (default), chưa có feature tùy chọn.",
+      "distractorTags": {
+        "0": "spl-feature-confusion",
+        "2": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-188",
+      "type": "choice",
+      "prompt": "What does the SPL software architecture describe?",
+      "options": [
+        "The software inside a family of buildings",
+        "The structure of a client/server product family",
+        "The overall structure of the software product line",
+        "The software product line classes and their relationships"
+      ],
+      "correct": 2,
+      "explanation": "Kiến trúc SPL mô tả cấu trúc tổng thể của CẢ HỌ sản phẩm (product line), bao gồm cả phần chung và phần biến đổi được.",
+      "distractorTags": {
+        "0": "spl-feature-confusion",
+        "1": "spl-feature-confusion",
+        "3": "spl-feature-confusion"
+      }
+    },
+    {
+      "id": "TB-11-189",
+      "type": "choice",
+      "prompt": "What do software quality attributes address?",
+      "options": [
+        "Software functional requirements",
+        "Software nonfunctional requirements",
+        "Software performance requirements",
+        "Software availability requirements"
+      ],
+      "correct": 1,
+      "explanation": "Quality attribute (maintainability, performance, security...) chính là cách cụ thể hóa các YÊU CẦU PHI CHỨC NĂNG của phần mềm.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-190",
+      "type": "choice",
+      "prompt": "What is maintainability?",
+      "options": [
+        "The extent to which software is capable of being changed before deployment",
+        "The extent to which software is capable of being changed after deployment",
+        "The extent to which software is capable of being changed during development",
+        "The extent to which software is capable of being changed after development"
+      ],
+      "correct": 1,
+      "explanation": "Maintainability là mức độ phần mềm có thể được sửa đổi/bảo trì SAU KHI đã triển khai (deployment), ví dụ sửa lỗi hay cập nhật.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-191",
+      "type": "choice",
+      "prompt": "What is modifiability?",
+      "options": [
+        "The extent to which software is capable of being modified after deployment",
+        "The extent to which software is capable of being modified after initial development",
+        "The extent to which software is capable of being modified during and after initial development",
+        "The extent to which software is capable of being changed before deployment"
+      ],
+      "correct": 2,
+      "explanation": "Modifiability rộng hơn maintainability: đo khả năng thay đổi CẢ trong lẫn sau giai đoạn phát triển ban đầu, không chỉ sau khi deploy.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "1": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-192",
+      "type": "choice",
+      "prompt": "What is testability?",
+      "options": [
+        "The extent to which software is capable of being developed",
+        "The extent to which software is capable of being tested before deployment",
+        "The extent to which software is capable of being tested after deployment",
+        "The extent which the software is understood"
+      ],
+      "correct": 1,
+      "explanation": "Testability là mức độ dễ dàng kiểm thử phần mềm TRƯỚC KHI triển khai — thiết kế càng dễ test thì testability càng cao.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-193",
+      "type": "choice",
+      "prompt": "Traceability is the extent to which a product:",
+      "options": [
+        "Can be traced back to products of previous phases",
+        "Traced back to the requirements",
+        "Traced forward to implementation",
+        "Deployed to a hardware configuration"
+      ],
+      "correct": 0,
+      "explanation": "Traceability là khả năng truy vết một sản phẩm NGƯỢC VỀ các sản phẩm của giai đoạn trước đó (ví dụ yêu cầu, thiết kế) để biết nó xuất phát từ đâu.",
+      "distractorTags": {
+        "1": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-194",
+      "type": "choice",
+      "prompt": "What is scalability?",
+      "options": [
+        "The extent to which an application can grow",
+        "The extent to which the system is capable of growing after its initial deployment",
+        "The extent to which the system is capable of growing during development",
+        "The extent to which the system is capable of being scaled"
+      ],
+      "correct": 1,
+      "explanation": "Scalability là khả năng hệ thống MỞ RỘNG (tăng tải, tăng quy mô) SAU KHI đã triển khai lần đầu.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-195",
+      "type": "choice",
+      "prompt": "What is reusability?",
+      "options": [
+        "The extent to which software implementation is reusable",
+        "The extent to which software is capable of being reused",
+        "The extent to which SPL technology can be introduced",
+        "The extent to which the software is common among a program family"
+      ],
+      "correct": 1,
+      "explanation": "Reusability là mức độ một thành phần phần mềm có thể được TÁI SỬ DỤNG trong ngữ cảnh/dự án khác.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-196",
+      "type": "choice",
+      "prompt": "Which of the following is not performance-related?",
+      "options": [
+        "System response time",
+        "System throughput",
+        "System availability",
+        "System capacity"
+      ],
+      "correct": 2,
+      "explanation": "Availability (tính sẵn sàng) không thuộc nhóm performance (response time, throughput, capacity) — nó là một quality attribute riêng.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "1": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-197",
+      "type": "choice",
+      "prompt": "Which of the following is not addressed by a secure system?",
+      "options": [
+        "System penetration",
+        "Denial of service",
+        "System scalability",
+        "System authorization"
+      ],
+      "correct": 2,
+      "explanation": "Scalability (khả năng mở rộng) không phải mối quan tâm của tính bảo mật — bảo mật lo về penetration, denial of service, authorization.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "1": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    },
+    {
+      "id": "TB-11-198",
+      "type": "choice",
+      "prompt": "Which of the following system problems does availability address?",
+      "options": [
+        "Denial of service",
+        "Single point of failure",
+        "System throughput",
+        "System penetration"
+      ],
+      "correct": 1,
+      "explanation": "Availability chủ yếu giải quyết vấn đề ĐIỂM LỖI DUY NHẤT (single point of failure) — đảm bảo hệ thống vẫn hoạt động dù một phần bị hỏng.",
+      "distractorTags": {
+        "0": "nfr-is-vague",
+        "2": "nfr-is-vague",
+        "3": "nfr-is-vague"
+      }
+    }
+  ]
+}

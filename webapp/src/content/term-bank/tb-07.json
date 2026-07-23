@@ -1,0 +1,366 @@
+{
+  "id": "TB-07",
+  "title": "Kiến trúc phần mềm & Subsystem",
+  "questions": [
+    {
+      "id": "TB-07-107",
+      "type": "choice",
+      "prompt": "What does the software architecture describe?",
+      "options": [
+        "The software inside a building",
+        "The structure of a client/server system",
+        "The overall structure of a software system",
+        "The software classes and their relationships"
+      ],
+      "correct": 2,
+      "explanation": "Kiến trúc phần mềm là cấu trúc TỔNG THỂ của toàn hệ thống — bao gồm các thành phần và quan hệ giữa chúng.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-07-108",
+      "type": "choice",
+      "prompt": "Which of the following statements is NOT true for a component?",
+      "options": [
+        "A composite object composed of other objects",
+        "An operation",
+        "A simple object",
+        "Provides an interface"
+      ],
+      "correct": 1,
+      "explanation": "Một component KHÔNG PHẢI là một operation đơn lẻ — nó là một object phức hợp (có thể chứa object khác) và cung cấp interface; operation chỉ là một phần bên trong nó.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "2": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-07-109",
+      "type": "choice",
+      "prompt": "What is a structural view of a software architecture?",
+      "options": [
+        "A view in terms of a module hierarchy",
+        "A view in terms of components and connectors",
+        "A view of the physical configuration in terms of nodes and interconnections",
+        "A view in terms of objects and messages"
+      ],
+      "correct": 1,
+      "explanation": "Structural view mô tả kiến trúc dưới dạng các COMPONENT và CONNECTOR kết nối chúng — góc nhìn tĩnh.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-110",
+      "type": "choice",
+      "prompt": "What is a dynamic view of a software architecture?",
+      "options": [
+        "A view in terms of a module hierarchy",
+        "A view in terms of components and connectors",
+        "A view of the physical configuration in terms of nodes and interconnections",
+        "A view in terms of objects and messages"
+      ],
+      "correct": 3,
+      "explanation": "Dynamic view mô tả kiến trúc qua các OBJECT và MESSAGE trao đổi khi hệ thống chạy — góc nhìn hành vi thời gian thực.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-111",
+      "type": "choice",
+      "prompt": "What is a deployment view of a software architecture?",
+      "options": [
+        "A static view in terms of a module hierarchy",
+        "A static view in terms of components and connectors",
+        "A view of the physical configuration in terms of nodes and interconnections",
+        "A dynamic interaction view in terms of objects and messages"
+      ],
+      "correct": 2,
+      "explanation": "Deployment view mô tả cấu hình VẬT LÝ: các node phần cứng và kết nối vật lý giữa chúng.",
+      "distractorTags": {
+        "0": "distribution-is-free",
+        "1": "distribution-is-free",
+        "3": "distribution-is-free"
+      }
+    },
+    {
+      "id": "TB-07-112",
+      "type": "choice",
+      "prompt": "What is a software architectural pattern?",
+      "options": [
+        "The structure of the major subsystems of a system",
+        "The components and connectors in a software architecture",
+        "A small group of collaborating objects",
+        "A recurring architecture used in a variety of systems"
+      ],
+      "correct": 0,
+      "explanation": "Architectural pattern là một cấu trúc lặp lại, đã được kiểm chứng, mô tả cách tổ chức các SUBSYSTEM chính của hệ thống.",
+      "distractorTags": {
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-113",
+      "type": "choice",
+      "prompt": "What happens in a Layers of Abstraction pattern?",
+      "options": [
+        "Each layer uses services in the layer immediately below it.",
+        "Each layer uses services in the layer immediately above it.",
+        "Each layer uses services in the layers immediately above it and below it.",
+        "Each layer is independent of the other layers."
+      ],
+      "correct": 0,
+      "explanation": "Trong pattern Layers of Abstraction, mỗi tầng chỉ dùng dịch vụ của tầng NGAY BÊN DƯỚI nó, tạo sự phân tách rõ ràng theo chiều dọc.",
+      "distractorTags": {
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-114",
+      "type": "choice",
+      "prompt": "What happens in a Call/Return pattern?",
+      "options": [
+        "A calling operation in the calling object sends a message to an operation (a.k.a. method) in the called object.",
+        "A calling operation in the calling object invokes an operation (a.k.a. method) in the called object.",
+        "The calling object waits for a response from the called object.",
+        "The calling object does not wait for a response from the called object."
+      ],
+      "correct": 1,
+      "explanation": "Call/Return là pattern cơ bản nhất: object gọi (caller) invoke trực tiếp một operation của object được gọi (callee), giống lời gọi hàm thông thường.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-115",
+      "type": "choice",
+      "prompt": "A producer sends a message to a consumer. Which one of the following is asynchronous message communication?",
+      "options": [
+        "The producer waits for a response from the consumer.",
+        "The producer does not wait for a response from the consumer.",
+        "The producer goes to sleep.",
+        "The producer waits for a timeout."
+      ],
+      "correct": 1,
+      "explanation": "Giao tiếp bất đồng bộ (asynchronous): bên gửi (producer) KHÔNG chờ phản hồi từ bên nhận (consumer), gửi xong tiếp tục xử lý việc khác ngay.",
+      "distractorTags": {
+        "0": "async-is-faster",
+        "2": "async-is-faster",
+        "3": "async-is-faster"
+      }
+    },
+    {
+      "id": "TB-07-116",
+      "type": "choice",
+      "prompt": "A producer sends a message to a consumer. Which one of the following is synchronous message communication with reply?",
+      "options": [
+        "The producer waits for a response from the consumer.",
+        "The producer does not wait for a response from the consumer.",
+        "The producer goes to sleep.",
+        "The producer waits for a timeout."
+      ],
+      "correct": 0,
+      "explanation": "Giao tiếp đồng bộ có phản hồi (synchronous with reply): bên gửi PHẢI chờ đến khi nhận được response từ bên nhận mới tiếp tục.",
+      "distractorTags": {
+        "1": "async-is-faster",
+        "2": "async-is-faster",
+        "3": "async-is-faster"
+      }
+    },
+    {
+      "id": "TB-07-117",
+      "type": "choice",
+      "prompt": "What is an integrated communication diagram?",
+      "options": [
+        "A communication diagram formed by combining objects",
+        "A synthesis of all the communication diagrams developed to support the use cases",
+        "A communication diagram depicting the objects that realize a use case",
+        "A communication diagram that integrates the entity objects from the static model"
+      ],
+      "correct": 1,
+      "explanation": "Integrated communication diagram là bản TỔNG HỢP tất cả communication diagram của các use case lại thành một bức tranh chung về giao tiếp giữa các object.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "2": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-07-118",
+      "type": "choice",
+      "prompt": "Which of the following objects should be assigned to the same subsystem?",
+      "options": [
+        "Objects that are part of the same composite object",
+        "Client and server objects",
+        "User interface and entity objects",
+        "Objects that are associated with each other"
+      ],
+      "correct": 0,
+      "explanation": "Các object thuộc CÙNG một composite object (object cha chứa object con) nên được gom vào cùng một subsystem để giữ tính toàn vẹn.",
+      "distractorTags": {
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-119",
+      "type": "choice",
+      "prompt": "Objects that are in geographically different locations should be:",
+      "options": [
+        "In the same subsystem",
+        "In different subsystems",
+        "In a composite subsystem",
+        "In layered subsystems"
+      ],
+      "correct": 1,
+      "explanation": "Các object ở vị trí địa lý khác nhau nên tách vào các subsystem KHÁC NHAU, phản ánh sự phân tán vật lý thực tế.",
+      "distractorTags": {
+        "0": "distribution-is-free",
+        "2": "distribution-is-free",
+        "3": "distribution-is-free"
+      }
+    },
+    {
+      "id": "TB-07-120",
+      "type": "choice",
+      "prompt": "If scope of control is used in subsystem structuring, then:",
+      "options": [
+        "A user interface object is placed in the same subsystem as an entity object it updates.",
+        "A state-dependent control object is placed in the same subsystem as the objects it controls.",
+        "A state-dependent control object is placed in a different subsystem from the objects it controls.",
+        "A user interface object is placed in a different subsystem from an entity object it updates."
+      ],
+      "correct": 1,
+      "explanation": "Theo tiêu chí 'phạm vi điều khiển' (scope of control), state-dependent control object nên nằm CÙNG subsystem với các object mà nó điều khiển.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-121",
+      "type": "choice",
+      "prompt": "How should an external object be designed to interface to the system?",
+      "options": [
+        "It should interface to one subsystem.",
+        "It should interface to several subsystems.",
+        "It should interface to every subsystem.",
+        "It should interface to none of the subsystems."
+      ],
+      "correct": 0,
+      "explanation": "Một object bên ngoài nên chỉ giao tiếp với MỘT subsystem duy nhất của hệ thống (thường là subsystem giao diện), giúp giảm coupling.",
+      "distractorTags": {
+        "1": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-07-122",
+      "type": "choice",
+      "prompt": "A user interface subsystem is a type of:",
+      "options": [
+        "Control subsystem",
+        "Service subsystem",
+        "Client subsystem",
+        "I/O subsystem"
+      ],
+      "correct": 2,
+      "explanation": "Subsystem giao diện người dùng đóng vai trò một CLIENT subsystem — nó gửi yêu cầu tới các subsystem dịch vụ khác.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "1": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-07-123",
+      "type": "choice",
+      "prompt": "Which of the following objects are NOT likely to be in the same subsystem?",
+      "options": [
+        "User interface object and entity object",
+        "State-dependent control object and coordinator object",
+        "Business logic object and entity object",
+        "I/O object and state-dependent control object"
+      ],
+      "correct": 1,
+      "explanation": "State-dependent control object (điều khiển theo statechart) và coordinator object (ra quyết định điều phối) đảm nhiệm vai trò khác nhau nên ít khi ở chung một subsystem.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-124",
+      "type": "choice",
+      "prompt": "Which of the following subsystems is NOT likely to be a client subsystem?",
+      "options": [
+        "Control subsystem",
+        "User interaction subsystem",
+        "Service subsystem",
+        "I/O subsystem"
+      ],
+      "correct": 2,
+      "explanation": "Service subsystem đóng vai trò PHỤC VỤ (bị gọi), nên nó không phải là một client subsystem — ngược vai trò.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "1": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-125",
+      "type": "choice",
+      "prompt": "When is a coordinator subsystem required?",
+      "options": [
+        "If the subsystem needs to coordinate several internal objects",
+        "If the subsystem needs to coordinate multiple I/O devices",
+        "If the subsystem receives messages from multiple client subsystems",
+        "If the subsystem needs to coordinate the execution of other subsystems"
+      ],
+      "correct": 3,
+      "explanation": "Cần một coordinator subsystem khi phải điều phối HOẠT ĐỘNG của các subsystem KHÁC với nhau (ở mức hệ thống), không chỉ điều phối object nội bộ.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-07-126",
+      "type": "choice",
+      "prompt": "When is a control subsystem required?",
+      "options": [
+        "If the subsystem needs to control several internal objects",
+        "If the subsystem needs to control multiple I/O devices",
+        "If the subsystem needs to control multiple client subsystems",
+        "If the subsystem needs to control the execution of other subsystems"
+      ],
+      "correct": 0,
+      "explanation": "Cần một control subsystem khi bản thân subsystem đó cần điều khiển NHIỀU OBJECT NỘI BỘ của chính nó.",
+      "distractorTags": {
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    }
+  ]
+}

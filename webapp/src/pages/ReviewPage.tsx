@@ -20,12 +20,39 @@ import stateData from '../content/pe-review/pe-state.json';
 import activityData from '../content/pe-review/pe-activity.json';
 import dbData from '../content/pe-review/pe-conceptual-db.json';
 
+// Ngân Hàng Thuật Ngữ — 198 câu convert từ flashcard OOAD (Bahrami) do chủ dự án cung cấp
+import tb01 from '../content/term-bank/tb-01.json';
+import tb02 from '../content/term-bank/tb-02.json';
+import tb03 from '../content/term-bank/tb-03.json';
+import tb04 from '../content/term-bank/tb-04.json';
+import tb05 from '../content/term-bank/tb-05.json';
+import tb06 from '../content/term-bank/tb-06.json';
+import tb07 from '../content/term-bank/tb-07.json';
+import tb08 from '../content/term-bank/tb-08.json';
+import tb09 from '../content/term-bank/tb-09.json';
+import tb10 from '../content/term-bank/tb-10.json';
+import tb11 from '../content/term-bank/tb-11.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
   'state': stateData,
   'activity': activityData,
   'conceptual-db': dbData,
+};
+
+export const termBankMap: Record<string, any> = {
+  'tb-01': tb01,
+  'tb-02': tb02,
+  'tb-03': tb03,
+  'tb-04': tb04,
+  'tb-05': tb05,
+  'tb-06': tb06,
+  'tb-07': tb07,
+  'tb-08': tb08,
+  'tb-09': tb09,
+  'tb-10': tb10,
+  'tb-11': tb11,
 };
 
 const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: string }> = {
@@ -88,12 +115,62 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
     title: 'Bỏ qua trạng thái hiện tại',
     desc: 'Bạn nghĩ rằng một Event bất kỳ luôn dẫn đến cùng một kết quả mà không cần quan tâm đến trạng thái xuất phát hiện tại.',
     advice: 'Trạng thái tiếp theo luôn phụ thuộc vào cả trạng thái hiện tại, sự kiện kích hoạt và điều kiện bảo vệ: nextState = f(currentState, event, guard).'
+  },
+  'uml-notation-confusion': {
+    title: 'Nhầm ký hiệu và thuật ngữ mô hình hóa cơ bản',
+    desc: 'Bạn đang nhầm giữa các thuật ngữ nền tảng của mô hình hóa (modeling, architecture, notation, design concept/strategy/method) hoặc ký hiệu UML (actor, use case, class, association...).',
+    advice: 'Ôn lại định nghĩa gốc của từng thuật ngữ: notation là cách biểu diễn, concept là ý tưởng nền tảng, strategy là định hướng, method là quy trình có hệ thống.'
+  },
+  'lifecycle-model-confusion': {
+    title: 'Nhầm mô hình vòng đời hoặc kỹ thuật kiểm thử',
+    desc: 'Bạn chưa phân biệt rõ waterfall, prototyping, spiral, hoặc verification/validation, white-box/black-box testing.',
+    advice: 'Verification = "xây đúng cách" (building the system right); Validation = "xây đúng thứ" (building the right system). White-box cần biết nội bộ, black-box thì không.'
+  },
+  'oo-term-confusion': {
+    title: 'Nhầm thuật ngữ hướng đối tượng cơ bản',
+    desc: 'Bạn đang nhầm giữa object, class, attribute, operation, signature, encapsulation, data abstraction.',
+    advice: 'Class là khuôn mẫu định nghĩa các object cùng đặc điểm; attribute là dữ liệu; operation/method là hành vi; signature gồm tên + tham số + kiểu trả về.'
+  },
+  'bce-role-confusion': {
+    title: 'Nhầm vai trò Boundary/Entity/Control',
+    desc: 'Bạn đang nhầm trách nhiệm của Boundary object (giao tiếp ngoài), Entity object (lưu dữ liệu), Control/Coordinator object (điều phối) hoặc Timer object.',
+    advice: 'Boundary giao tiếp với actor bên ngoài, Entity lưu trữ dữ liệu bền vững, Control điều phối logic nghiệp vụ, Coordinator ra quyết định nên tương tác entity nào.'
+  },
+  'usecase-concept-confusion': {
+    title: 'Nhầm khái niệm use case',
+    desc: 'Bạn đang nhầm giữa actor, primary/secondary actor, alternative sequence, use case package.',
+    advice: 'Primary actor là actor khởi tạo use case; secondary actor chỉ tham gia. Alternative sequence là luồng khác luồng chính, không nhất thiết là lỗi.'
+  },
+  'architecture-view-confusion': {
+    title: 'Nhầm các view và pattern kiến trúc',
+    desc: 'Bạn đang nhầm structural view (component/connector), dynamic view (object/message), deployment view (node vật lý), hoặc tiêu chí gom subsystem.',
+    advice: 'Structural = tĩnh, mô tả thành phần; Dynamic = chạy thời gian thực, mô tả tương tác; Deployment = vật lý, mô tả nơi cài đặt.'
+  },
+  'client-service-role-confusion': {
+    title: 'Nhầm vai trò client/server/service',
+    desc: 'Bạn đang nhầm ai gửi yêu cầu (client), ai xử lý và trả kết quả (service/server), đặc biệt ở kiến trúc nhiều tầng.',
+    advice: 'Một tier trung gian (intermediate tier) vừa là client (gọi tầng dưới) vừa là service (phục vụ tầng trên).'
+  },
+  'component-interface-confusion': {
+    title: 'Nhầm provided/required interface của component',
+    desc: 'Bạn đang nhầm interface mà component cung cấp (provided) với interface mà nó cần dùng từ bên ngoài (required), hoặc vai trò connector/port.',
+    advice: 'Provided interface = component hứa thực hiện; Required interface = component cần component khác cung cấp. Connector nối required port của một component với provided port của component khác.'
+  },
+  'task-activation-confusion': {
+    title: 'Nhầm cơ chế kích hoạt task',
+    desc: 'Bạn đang nhầm giữa task kích hoạt bởi sự kiện ngoài (event-driven), theo chu kỳ thời gian (periodic), hay theo yêu cầu từ task khác (demand-driven).',
+    advice: 'Event-driven task chờ interrupt từ thiết bị ngoài; periodic task chờ timer; demand-driven task chờ message/event nội bộ từ task khác.'
+  },
+  'spl-feature-confusion': {
+    title: 'Nhầm khái niệm Software Product Line',
+    desc: 'Bạn đang nhầm feature, kernel class/system, variation point trong một họ sản phẩm phần mềm (SPL).',
+    advice: 'Kernel class là thành phần bắt buộc ở mọi thành viên SPL; feature là đặc điểm có thể chọn/không chọn; variation point là nơi trong use case cho phép thay đổi.'
   }
 };
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, levelIdOverride }: { isPeReview?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -103,6 +180,8 @@ export default function ReviewPage({ isPeReview = false, levelIdOverride }: { is
   let reviewLessonXp = 0;
   if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
+  } else if (isTermBank) {
+    reviewData = resolvedLevelId ? termBankMap[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -118,7 +197,7 @@ export default function ReviewPage({ isPeReview = false, levelIdOverride }: { is
   const [answers, setAnswers] = useState<Record<string, any>>({});
   const [isFinished, setIsFinished] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : '/home';
+  const exitPath = isPeReview ? '/pe-review' : isTermBank ? '/term-bank' : '/home';
 
   if (!reviewData) {
     return (

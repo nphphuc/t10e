@@ -440,6 +440,19 @@ export default function CourseMap() {
               </Link>
             )}
 
+            {/* Ngân Hàng Thuật Ngữ — 198 câu OOAD, luôn hiện */}
+            <Link
+              to="/term-bank"
+              className="block w-full py-3 px-4 rounded-2xl bg-gradient-to-r from-sky-900/20 to-cyan-900/20 border border-sky-700/40 hover:border-sky-600/60 text-center transition-all duration-200 group"
+            >
+              <span className="block text-xs font-extrabold text-sky-400 group-hover:text-sky-300 uppercase tracking-wider">
+                📚 Ngân Hàng Thuật Ngữ
+              </span>
+              <span className="block text-[9px] text-gray-500 mt-0.5">
+                198 câu trắc nghiệm OOAD (11 bộ chủ đề)
+              </span>
+            </Link>
+
             {/* Reset progress */}
             <div className="text-center pt-2">
               <button

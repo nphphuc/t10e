@@ -1,0 +1,294 @@
+{
+  "id": "TB-03",
+  "title": "Khái niệm hướng đối tượng & Các pha mô hình hóa",
+  "questions": [
+    {
+      "id": "TB-03-031",
+      "type": "choice",
+      "prompt": "Which of the following are object-oriented concepts?",
+      "options": [
+        "Modules and interfaces",
+        "Modules and information hiding",
+        "Classes, information hiding, and inheritance",
+        "Concurrency and information hiding"
+      ],
+      "correct": 2,
+      "explanation": "Các khái niệm cốt lõi của hướng đối tượng gồm class, information hiding (che giấu thông tin) và inheritance (kế thừa) — không phải module hay concurrency.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-032",
+      "type": "choice",
+      "prompt": "Which of the following is a characteristic of an object?",
+      "options": [
+        "A function or subroutine",
+        "A module",
+        "Groups data and procedures that operate on the data",
+        "Groups a function and an algorithm"
+      ],
+      "correct": 2,
+      "explanation": "Một object gói (encapsulate) cả DỮ LIỆU và các THỦ TỤC thao tác trên dữ liệu đó vào làm một — đặc trưng cốt lõi của OOP.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-033",
+      "type": "choice",
+      "prompt": "What is a class?",
+      "options": [
+        "An object instance",
+        "The implementation of the object",
+        "A collection of objects with the same characteristics",
+        "A collection of objects with different characteristics"
+      ],
+      "correct": 2,
+      "explanation": "Class là một tập hợp các object có CHUNG đặc điểm (thuộc tính, hành vi); object là instance cụ thể được tạo ra từ class.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-034",
+      "type": "choice",
+      "prompt": "What is an operation (also known as method) of a class?",
+      "options": [
+        "Specification and the implementation of a function performed by a class",
+        "Specification and the implementation of a subroutine provided by a class",
+        "Specification and the implementation of a function or procedure provided by a class",
+        "Specification and the implementation of an interface provided by a class"
+      ],
+      "correct": 2,
+      "explanation": "Operation (method) gồm cả phần đặc tả (signature) và phần HIỆN THỰC (implementation) của một hàm/thủ tục mà class cung cấp.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-035",
+      "type": "choice",
+      "prompt": "What is the signature of an operation?",
+      "options": [
+        "The operation's name",
+        "The operation's function or subroutine",
+        "The operation's name, parameters, and return value",
+        "The object's interface"
+      ],
+      "correct": 2,
+      "explanation": "Signature của operation gồm TÊN, danh sách THAM SỐ và KIỂU TRẢ VỀ — phần khai báo công khai, chưa gồm cách hiện thực bên trong.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-036",
+      "type": "choice",
+      "prompt": "What is the interface of a class?",
+      "options": [
+        "The signature of a class",
+        "The specification of operations provided by the class",
+        "The internals of the class",
+        "The implementation of the class"
+      ],
+      "correct": 1,
+      "explanation": "Interface của class là bản đặc tả các operation mà class CUNG CẤP ra bên ngoài, không bao gồm chi tiết cài đặt bên trong.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-03-037",
+      "type": "choice",
+      "prompt": "What is an attribute?",
+      "options": [
+        "A description of a class",
+        "An internal property of a class",
+        "A data item held by a class",
+        "A parameter of a class"
+      ],
+      "correct": 2,
+      "explanation": "Attribute là một dữ liệu (thuộc tính) mà class/object nắm giữ, ví dụ tên, tuổi, số dư tài khoản.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-038",
+      "type": "choice",
+      "prompt": "What is information hiding in software design?",
+      "options": [
+        "Hiding information so that it cannot be found",
+        "Hiding a design decision that is considered likely to change",
+        "Hiding information to make it secure",
+        "Encapsulating data in a class"
+      ],
+      "correct": 1,
+      "explanation": "Information hiding là che giấu một QUYẾT ĐỊNH THIẾT KẾ có khả năng thay đổi trong tương lai, để giảm ảnh hưởng lan ra phần khác khi sửa đổi.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-039",
+      "type": "choice",
+      "prompt": "What is data abstraction?",
+      "options": [
+        "Another name for information hiding",
+        "Encapsulating data so that its structure is hidden",
+        "Storing data in a database",
+        "Storing data in a data structure"
+      ],
+      "correct": 1,
+      "explanation": "Data abstraction là đóng gói dữ liệu sao cho CẤU TRÚC bên trong bị ẩn đi — người dùng chỉ thấy giao diện thao tác, không thấy cách lưu trữ.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-03-040",
+      "type": "choice",
+      "prompt": "What is inheritance?",
+      "options": [
+        "A mechanism for inheriting characteristics from a parent",
+        "A mechanism for sharing and reusing code between classes",
+        "A mechanism for sharing data between classes",
+        "A mechanism for hiding information between classes"
+      ],
+      "correct": 1,
+      "explanation": "Inheritance là cơ chế cho phép các class CHIA SẺ và TÁI SỬ DỤNG code từ class cha, không chỉ đơn thuần 'thừa hưởng đặc điểm' mơ hồ.",
+      "distractorTags": {
+        "0": "inheritance-for-reuse-only",
+        "2": "inheritance-for-reuse-only",
+        "3": "inheritance-for-reuse-only"
+      }
+    },
+    {
+      "id": "TB-03-041",
+      "type": "choice",
+      "prompt": "What is carried out during requirements modeling?",
+      "options": [
+        "Functional requirements of the system are described in terms of functions, inputs, and outputs.",
+        "Functional requirements of the system are described in terms of actors and use cases.",
+        "Functional requirements of the system are described textually.",
+        "Functional requirements of the system are determined by interviewing users."
+      ],
+      "correct": 1,
+      "explanation": "Ở giai đoạn requirements modeling, yêu cầu chức năng được mô tả bằng ACTOR và USE CASE — mô tả hệ thống làm gì cho ai, chưa đi vào chi tiết kỹ thuật.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "2": "analysis-is-design",
+        "3": "analysis-is-design"
+      }
+    },
+    {
+      "id": "TB-03-042",
+      "type": "choice",
+      "prompt": "What is carried out during analysis modeling?",
+      "options": [
+        "Developing use case models",
+        "Developing data flow and entity relationship diagrams",
+        "Developing static and dynamic models",
+        "Developing software architectures"
+      ],
+      "correct": 2,
+      "explanation": "Analysis modeling xây dựng cả mô hình TĨNH (class, object) lẫn mô hình ĐỘNG (interaction, state) để hiểu sâu use case, chưa bàn tới kiến trúc triển khai.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "1": "analysis-is-design",
+        "3": "analysis-is-design"
+      }
+    },
+    {
+      "id": "TB-03-043",
+      "type": "choice",
+      "prompt": "What is carried out during design modeling?",
+      "options": [
+        "Developing use case models",
+        "Developing data flow and entityrelationship diagrams",
+        "Developing static and dynamic models",
+        "Developing software architectures"
+      ],
+      "correct": 3,
+      "explanation": "Design modeling là giai đoạn phát triển KIẾN TRÚC PHẦN MỀM cụ thể (component, deployment...) — biến mô hình phân tích thành thiết kế có thể hiện thực.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "1": "analysis-is-design",
+        "2": "analysis-is-design"
+      }
+    },
+    {
+      "id": "TB-03-044",
+      "type": "choice",
+      "prompt": "What is carried out during incremental software construction?",
+      "options": [
+        "Detailed design and coding of the classes in a subset of the system",
+        "Detailed design, coding, and unit testing of the classes in a subset of the system",
+        "Coding and unit testing of the classes in a subset of the system",
+        "Unit and integration testing of the classes in a subset of the system"
+      ],
+      "correct": 1,
+      "explanation": "Xây dựng tăng dần (incremental construction) gồm đủ 3 bước: thiết kế chi tiết, code, và UNIT TEST cho một tập con class — không chỉ code đơn thuần.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "2": "analysis-is-design",
+        "3": "analysis-is-design"
+      }
+    },
+    {
+      "id": "TB-03-045",
+      "type": "choice",
+      "prompt": "What is carried out during incremental software integration?",
+      "options": [
+        "Implementation of the classes in each software increment",
+        "Unit testing of the classes in each software increment",
+        "Integration testing of the classes in each software increment",
+        "System testing of the classes in each software increment"
+      ],
+      "correct": 2,
+      "explanation": "Tích hợp tăng dần (incremental integration) là kiểm thử TÍCH HỢP các class trong từng increment sau khi đã xây dựng xong.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "1": "analysis-is-design",
+        "3": "analysis-is-design"
+      }
+    },
+    {
+      "id": "TB-03-046",
+      "type": "choice",
+      "prompt": "What is carried out during system testing?",
+      "options": [
+        "White box testing",
+        "Black box testing",
+        "Unit testing",
+        "Integration testing"
+      ],
+      "correct": 1,
+      "explanation": "System testing kiểm thử toàn hệ thống theo góc nhìn BLACK-BOX — dựa trên yêu cầu/hành vi mong đợi, không quan tâm chi tiết code nội bộ.",
+      "distractorTags": {
+        "0": "analysis-is-design",
+        "2": "analysis-is-design",
+        "3": "analysis-is-design"
+      }
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "id": "TB-09",
+  "title": "Persistence, SOA & Component-based Design",
+  "questions": [
+    {
+      "id": "TB-09-146",
+      "type": "choice",
+      "prompt": "When designing an entity class as a relational table, which of the following is NOT true?",
+      "options": [
+        "The relational table has multiple primary keys.",
+        "The relational table has multiple foreign keys.",
+        "The relational table has a primary key.",
+        "The relational table has a concatenated primary key."
+      ],
+      "correct": 0,
+      "explanation": "Một bảng quan hệ CHỈ có MỘT primary key (có thể là khóa ghép), không thể có nhiều primary key riêng biệt — đây là điều KHÔNG đúng.",
+      "distractorTags": {
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion",
+        "3": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-09-147",
+      "type": "choice",
+      "prompt": "When mapping an aggregation hierarchy to a relational table, which of the following is NOT true?",
+      "options": [
+        "The aggregate and part tables have different primary keys.",
+        "The aggregate and part tables have the same primary key",
+        "The primary key of the aggregate table is a foreign key of the part table.",
+        "The primary key of the part table is a foreign key of the aggregate table."
+      ],
+      "correct": 3,
+      "explanation": "Khi ánh xạ aggregation sang bảng quan hệ, khóa chính của bảng AGGREGATE (whole) trở thành khóa ngoại trong bảng PART — chiều ngược lại là KHÔNG đúng.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "1": "aggregation-equals-composition",
+        "2": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "TB-09-148",
+      "type": "choice",
+      "prompt": "When mapping a generalization/specialization relationship to a relational database, which of the following is NOT possible?",
+      "options": [
+        "The superclass and each subclass are designed as relational tables.",
+        "Only subclasses are designed as relational tables.",
+        "The aggregate and part classes are designed as relational tables.",
+        "Only the superclass is designed as a relational table."
+      ],
+      "correct": 2,
+      "explanation": "Câu hỏi này nói về generalization/specialization (kế thừa), nên phương án về 'aggregate và part class' (thuộc composition/aggregation) là LẠC ĐỀ — không áp dụng.",
+      "distractorTags": {
+        "0": "aggregation-equals-composition",
+        "1": "aggregation-equals-composition",
+        "3": "aggregation-equals-composition"
+      }
+    },
+    {
+      "id": "TB-09-149",
+      "type": "choice",
+      "prompt": "What is a service-oriented architecture (SOA)?",
+      "options": [
+        "A distributed software architecture consisting of multiple related services",
+        "A distributed software architecture consisting of multiple autonomous services",
+        "A distributed client/service architecture",
+        "A distributed software architecture"
+      ],
+      "correct": 1,
+      "explanation": "SOA là kiến trúc phần mềm phân tán gồm nhiều service TỰ TRỊ (autonomous) — mỗi service độc lập, không phụ thuộc chặt vào nhau.",
+      "distractorTags": {
+        "0": "soa-is-microservices",
+        "2": "soa-is-microservices",
+        "3": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-150",
+      "type": "choice",
+      "prompt": "Which of the following properties DOES NOT apply to a service?",
+      "options": [
+        "Reusable",
+        "Discoverable",
+        "Fixed",
+        "Autonomous"
+      ],
+      "correct": 2,
+      "explanation": "Một service trong SOA phải linh hoạt (reusable, discoverable, autonomous) — 'Fixed' (cố định) đi ngược bản chất linh hoạt của service.",
+      "distractorTags": {
+        "0": "client-service-role-confusion",
+        "1": "client-service-role-confusion",
+        "3": "client-service-role-confusion"
+      }
+    },
+    {
+      "id": "TB-09-151",
+      "type": "choice",
+      "prompt": "In a SOA, which of the following is NOT true?",
+      "options": [
+        "A client communicates with a specific service provided on a fixed server configuration.",
+        "A client discovers and links to a service.",
+        "Multiple clients communicate with a service.",
+        "Standard protocols are provided to allow clients to communicate with services"
+      ],
+      "correct": 0,
+      "explanation": "Trong SOA, client KHÔNG gắn cứng với một service/server cố định — client discover service qua broker/registry, nên 'fixed server configuration' là sai.",
+      "distractorTags": {
+        "1": "soa-is-microservices",
+        "2": "soa-is-microservices",
+        "3": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-152",
+      "type": "choice",
+      "prompt": "What is an object broker?",
+      "options": [
+        "An object that breaks into a system",
+        "An object that sends requests to other objects",
+        "An object that handles requests sent by other objects",
+        "An object that mediates interactions between clients and services"
+      ],
+      "correct": 3,
+      "explanation": "Object broker đóng vai trò TRUNG GIAN, kết nối và điều phối giao tiếp giữa client và service, giúp chúng không cần biết vị trí cụ thể của nhau.",
+      "distractorTags": {
+        "0": "soa-is-microservices",
+        "1": "soa-is-microservices",
+        "2": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-153",
+      "type": "choice",
+      "prompt": "Why does a service register with a broker?",
+      "options": [
+        "So that service requesters can discover it",
+        "So that a service can interrogate the broker",
+        "So that the registry is up to date",
+        "So that the service can relocate"
+      ],
+      "correct": 0,
+      "explanation": "Service đăng ký với broker để các bên có nhu cầu (client) có thể TÌM THẤY (discover) nó thông qua broker.",
+      "distractorTags": {
+        "1": "soa-is-microservices",
+        "2": "soa-is-microservices",
+        "3": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-154",
+      "type": "choice",
+      "prompt": "When is it particularly useful to use the Broker Handle pattern in place of the Broker Forwarding pattern?",
+      "options": [
+        "If the client only communicates with the service once",
+        "If the client needs to have a dialog with the service",
+        "If the client knows the type of service required but not the specific service",
+        "If the client needs to provide the broker with a handle"
+      ],
+      "correct": 1,
+      "explanation": "Broker Handle pattern hữu ích khi client cần trao đổi NHIỀU LẦN (dialog) trực tiếp với cùng một service sau lần liên hệ đầu qua broker.",
+      "distractorTags": {
+        "0": "soa-is-microservices",
+        "2": "soa-is-microservices",
+        "3": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-155",
+      "type": "choice",
+      "prompt": "Yellow pages brokering is useful when a service requester:",
+      "options": [
+        "Needs to discover the location of the service",
+        "Knows the type of service required but not the specific service",
+        "Knows the specific service required but not the type of service",
+        "Needs to discover the broker"
+      ],
+      "correct": 1,
+      "explanation": "Yellow pages brokering hữu ích khi client biết LOẠI dịch vụ cần (ví dụ dịch vụ thanh toán) nhưng chưa biết CỤ THỂ service nào sẽ cung cấp.",
+      "distractorTags": {
+        "0": "soa-is-microservices",
+        "2": "soa-is-microservices",
+        "3": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-156",
+      "type": "choice",
+      "prompt": "What is a transaction?",
+      "options": [
+        "Consists of two or more operations",
+        "Consists of one operation",
+        "Consists of two or more operations that are indivisible",
+        "Consists of two or more operations that are divisible"
+      ],
+      "correct": 2,
+      "explanation": "Transaction là một nhóm gồm hai hay nhiều operation được xem là KHÔNG THỂ CHIA NHỎ (indivisible/atomic) — tất cả cùng thành công hoặc cùng thất bại.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "1": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-157",
+      "type": "choice",
+      "prompt": "What is a compound transaction?",
+      "options": [
+        "The compound transaction is indivisible.",
+        "The compound transaction is atomic.",
+        "The compound transaction is decomposed into atomic transactions.",
+        "The compound transaction is decomposed into subatomic transactions."
+      ],
+      "correct": 2,
+      "explanation": "Compound transaction (giao dịch phức hợp) được phân rã thành các ATOMIC TRANSACTION nhỏ hơn để quản lý.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "1": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-158",
+      "type": "choice",
+      "prompt": "With a Negotiation pattern, which of the following is NOT true?",
+      "options": [
+        "The client agent can propose a service.",
+        "The service agent can offer a service in response to a client agent proposal.",
+        "The client agent can request a service.",
+        "The service agent can offer a service in response to a client agent request."
+      ],
+      "correct": 3,
+      "explanation": "Trong Negotiation pattern, service agent chỉ offer để đáp lại một PROPOSAL (đề xuất) từ client, không đáp lại một REQUEST trực tiếp — đây là điểm KHÔNG đúng.",
+      "distractorTags": {
+        "0": "soa-is-microservices",
+        "1": "soa-is-microservices",
+        "2": "soa-is-microservices"
+      }
+    },
+    {
+      "id": "TB-09-159",
+      "type": "choice",
+      "prompt": "In a distributed component-based software architecture, which of the following statements is the most complete description of component deployment?",
+      "options": [
+        "Component instances can be deployed to different nodes in a geographically distributed environment.",
+        "Component instances can be deployed to different nodes in a geographically distributed environment before design.",
+        "Component instances can be deployed to different nodes in a geographically distributed environment before implementation.",
+        "Component instances can be deployed to different nodes in a geographically distributed environment after design and implementation."
+      ],
+      "correct": 3,
+      "explanation": "Việc triển khai (deploy) instance của component tới các node phân tán chỉ diễn ra SAU KHI đã thiết kế và hiện thực xong.",
+      "distractorTags": {
+        "0": "distribution-is-free",
+        "1": "distribution-is-free",
+        "2": "distribution-is-free"
+      }
+    },
+    {
+      "id": "TB-09-160",
+      "type": "choice",
+      "prompt": "What does a component interface consist of?",
+      "options": [
+        "The externally visible operations of a component",
+        "The operations provided by a component",
+        "The operations required by a component",
+        "The operations that a component supports"
+      ],
+      "correct": 0,
+      "explanation": "Interface của component gồm các operation NHÌN THẤY ĐƯỢC từ bên ngoài mà component đó công khai.",
+      "distractorTags": {
+        "1": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-09-161",
+      "type": "choice",
+      "prompt": "What does a component's provided interface consist of?",
+      "options": [
+        "The operations that a component must fulfill",
+        "The operations inside a component",
+        "The operations that a component uses",
+        "The operations of a component"
+      ],
+      "correct": 0,
+      "explanation": "Provided interface là các operation mà component CAM KẾT thực hiện (cung cấp) cho các component khác sử dụng.",
+      "distractorTags": {
+        "1": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-09-162",
+      "type": "choice",
+      "prompt": "What does a component's required interface consist of?",
+      "options": [
+        "The operations that a component must fulfill",
+        "The operations inside a component",
+        "The operations that a component uses",
+        "The visible operations of a component"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Đáp án gốc trong flashcard ghi 'operation bên trong component'. Theo UML chuẩn, required interface thường được hiểu là các operation mà component CẦN từ component khác — bạn nên đối chiếu lại với slide môn học trước khi học thuộc câu này.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-09-163",
+      "type": "choice",
+      "prompt": "What does a connector join?",
+      "options": [
+        "The provided port of one component to the required port of another component",
+        "The provided port of one component to the provided port of another component",
+        "The required port of one component to the provided port of another component",
+        "The required port of one component to the required port of another component"
+      ],
+      "correct": 2,
+      "explanation": "Connector nối CỔNG REQUIRED của component này với CỔNG PROVIDED của component kia — thể hiện quan hệ 'cần dịch vụ' và 'cung cấp dịch vụ'.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "1": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-164",
+      "type": "choice",
+      "prompt": "What does a delegation connector join?",
+      "options": [
+        "An outer provided port to an inner provided port",
+        "An outer provided port to an inner required port",
+        "An outer required port to an inner provided port",
+        "An outer provided port to an outer required port"
+      ],
+      "correct": 0,
+      "explanation": "Delegation connector nối cổng PROVIDED của component ngoài (composite) với cổng PROVIDED của component con bên trong — 'ủy quyền' thực hiện dịch vụ ra component con.",
+      "distractorTags": {
+        "1": "component-interface-confusion",
+        "2": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-165",
+      "type": "choice",
+      "prompt": "What is broadcast message communication?",
+      "options": [
+        "A message sent to several recipients",
+        "A message sent to a specific recipient",
+        "A message sent to all recipients",
+        "A message sent to recipients who are members of a group"
+      ],
+      "correct": 2,
+      "explanation": "Broadcast là gửi một message tới TẤT CẢ các bên nhận có thể có, không phân biệt ai đã đăng ký hay chưa.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "1": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-166",
+      "type": "choice",
+      "prompt": "What are the communication characteristics of subscription/notification?",
+      "options": [
+        "A message sent to several recipients",
+        "A message sent to a specific recipient",
+        "A message sent to all recipients",
+        "A message sent to recipients who have joined a group"
+      ],
+      "correct": 3,
+      "explanation": "Subscription/notification chỉ gửi message tới những bên đã ĐĂNG KÝ (subscribe) tham gia nhóm nhận tin, khác broadcast gửi cho tất cả.",
+      "distractorTags": {
+        "0": "component-interface-confusion",
+        "1": "component-interface-confusion",
+        "2": "component-interface-confusion"
+      }
+    },
+    {
+      "id": "TB-09-167",
+      "type": "choice",
+      "prompt": "During application deployment:",
+      "options": [
+        "The application is executed.",
+        "Component instances are executed.",
+        "Component instances are assigned to hardware nodes.",
+        "Component instances are instantiated."
+      ],
+      "correct": 2,
+      "explanation": "Deployment (triển khai) là bước GÁN các instance của component vào các node phần cứng cụ thể, chưa phải chạy (execute) ứng dụng.",
+      "distractorTags": {
+        "0": "distribution-is-free",
+        "1": "distribution-is-free",
+        "3": "distribution-is-free"
+      }
+    },
+    {
+      "id": "TB-09-168",
+      "type": "choice",
+      "prompt": "What is an advantage of localized autonomy in component-based design?",
+      "options": [
+        "If a component goes down, other components can continue to execute.",
+        "Components execute concurrently.",
+        "Components are distributed.",
+        "Components communicate using messages."
+      ],
+      "correct": 0,
+      "explanation": "Tính tự trị cục bộ (localized autonomy) giúp hệ thống chịu lỗi tốt hơn: một component gặp sự cố không làm sập toàn bộ, các component khác vẫn hoạt động.",
+      "distractorTags": {
+        "1": "component-interface-confusion",
+        "2": "component-interface-confusion",
+        "3": "component-interface-confusion"
+      }
+    }
+  ]
+}

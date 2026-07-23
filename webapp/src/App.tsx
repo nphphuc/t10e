@@ -4,6 +4,7 @@ import CourseMap from './pages/CourseMap';
 import LessonPage from './pages/LessonPage';
 import ReviewPage from './pages/ReviewPage';
 import PeReviewLanding from './pages/PeReviewLanding';
+import TermBankLanding from './pages/TermBankLanding';
 import PracticePage from './pages/PracticePage';
 import ClassDiagramBuilderPage from './pages/ClassDiagramBuilderPage';
 import ActivityBuilderPage from './pages/ActivityBuilderPage';
@@ -30,6 +31,8 @@ function AnimatedRoutes() {
         <Route path="/pe-review/class-diagram" element={<PageTransition><ClassDiagramBuilderPage /></PageTransition>} />
         <Route path="/pe-review/activity" element={<PageTransition><ActivityBuilderPage /></PageTransition>} />
         <Route path="/pe-review/:levelId" element={<PageTransition><ReviewPage isPeReview={true} /></PageTransition>} />
+        <Route path="/term-bank" element={<PageTransition><TermBankLanding /></PageTransition>} />
+        <Route path="/term-bank/:levelId" element={<PageTransition><ReviewPage isTermBank={true} /></PageTransition>} />
         <Route path="/practice" element={<PageTransition><PracticePage /></PageTransition>} />
       </Routes>
     </ErrorBoundary>

@@ -1,0 +1,186 @@
+{
+  "id": "TB-02",
+  "title": "Vòng đời phần mềm & Kiểm thử",
+  "questions": [
+    {
+      "id": "TB-02-021",
+      "type": "choice",
+      "prompt": "What is a software life cycle?",
+      "options": [
+        "The life of the software",
+        "A cyclic approach to developing software",
+        "A phased approach to developing software",
+        "The life of software developed in cycles"
+      ],
+      "correct": 2,
+      "explanation": "Vòng đời phần mềm (life cycle) là cách tiếp cận phát triển theo các GIAI ĐOẠN (phase) nối tiếp, không phải 'chu trình lặp' hay 'tuổi thọ' phần mềm.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-022",
+      "type": "choice",
+      "prompt": "What is the waterfall life cycle model?",
+      "options": [
+        "Software developed under a waterfall",
+        "A process model in which each phase is completed before the next phase is started",
+        "A process model in which phases are overlapped",
+        "A process model in which phases are cyclic"
+      ],
+      "correct": 1,
+      "explanation": "Waterfall là mô hình mà mỗi giai đoạn phải HOÀN TẤT mới chuyển sang giai đoạn kế tiếp — tuần tự, không lặp hay chồng lấn.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-023",
+      "type": "choice",
+      "prompt": "Which of the following is a limitation of the waterfall life cycle model?",
+      "options": [
+        "Software is developed in phases.",
+        "Each phase is completed before the next phase is started.",
+        "Software development is cyclic.",
+        "Software requirements are not properly tested until a working system is available."
+      ],
+      "correct": 3,
+      "explanation": "Hạn chế lớn nhất của waterfall: yêu cầu phần mềm chỉ được kiểm chứng thực sự khi ĐÃ CÓ hệ thống chạy được — phát hiện lỗi requirement quá muộn.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-024",
+      "type": "choice",
+      "prompt": "Which of the following approaches can overcome the limitation in the previous question?",
+      "options": [
+        "Phased software development",
+        "Throwaway prototyping",
+        "Evolutionary prototyping",
+        "Incremental development"
+      ],
+      "correct": 1,
+      "explanation": "Throwaway prototyping (làm bản mẫu để kiểm chứng rồi bỏ) giúp xác nhận yêu cầu sớm, khắc phục nhược điểm phát hiện lỗi trễ của waterfall.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-025",
+      "type": "choice",
+      "prompt": "What is evolutionary prototyping?",
+      "options": [
+        "Phased software development",
+        "Throwaway prototyping",
+        "Risk-driven development",
+        "Incremental development"
+      ],
+      "correct": 3,
+      "explanation": "Evolutionary prototyping thực chất là một dạng phát triển TĂNG DẦN (incremental) — bản mẫu ban đầu được hoàn thiện dần thành sản phẩm cuối, không bị vứt bỏ.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-026",
+      "type": "choice",
+      "prompt": "What approach does the spiral model emphasize?",
+      "options": [
+        "Phased software development",
+        "Throwaway prototyping",
+        "Risk-driven development",
+        "Incremental development"
+      ],
+      "correct": 2,
+      "explanation": "Mô hình spiral nhấn mạnh phát triển theo hướng QUẢN LÝ RỦI RO (risk-driven) — mỗi vòng lặp đều đánh giá rủi ro trước khi tiếp tục.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-027",
+      "type": "choice",
+      "prompt": "What is the goal of software validation?",
+      "options": [
+        "Building the system",
+        "Building the right system",
+        "Building the system right",
+        "Testing the system"
+      ],
+      "correct": 1,
+      "explanation": "Validation trả lời câu hỏi: có đang xây ĐÚNG THỨ khách hàng cần không (building the right system).",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-028",
+      "type": "choice",
+      "prompt": "What is the goal of software verification?",
+      "options": [
+        "Building the system",
+        "Building the right system",
+        "Building the system right",
+        "Testing the system"
+      ],
+      "correct": 2,
+      "explanation": "Verification trả lời câu hỏi: hệ thống có được xây ĐÚNG CÁCH theo đặc tả không (building the system right).",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-029",
+      "type": "choice",
+      "prompt": "What is \"white box\" testing?",
+      "options": [
+        "Unit testing",
+        "Integration testing",
+        "Testing with knowledge of the system internals",
+        "Testing without knowledge of the software internals"
+      ],
+      "correct": 2,
+      "explanation": "White-box testing kiểm thử dựa trên hiểu biết về cấu trúc/code NỘI BỘ hệ thống (ví dụ kiểm tra từng nhánh logic).",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "3": "lifecycle-model-confusion"
+      }
+    },
+    {
+      "id": "TB-02-030",
+      "type": "choice",
+      "prompt": "What is \"black box\" testing?",
+      "options": [
+        "System testing",
+        "Integration testing",
+        "Testing with knowledge of the system internals",
+        "Testing without knowledge of the software internals"
+      ],
+      "correct": 3,
+      "explanation": "Black-box testing kiểm thử chỉ dựa vào input/output mong đợi, KHÔNG cần biết cấu trúc code bên trong.",
+      "distractorTags": {
+        "0": "lifecycle-model-confusion",
+        "1": "lifecycle-model-confusion",
+        "2": "lifecycle-model-confusion"
+      }
+    }
+  ]
+}

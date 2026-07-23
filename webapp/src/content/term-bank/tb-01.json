@@ -1,0 +1,366 @@
+{
+  "id": "TB-01",
+  "title": "Mô hình hóa & Ký hiệu UML cơ bản",
+  "questions": [
+    {
+      "id": "TB-01-001",
+      "type": "choice",
+      "prompt": "What is software modeling?",
+      "options": [
+        "Developing models of software.",
+        "Designing software applications before coding.",
+        "Developing software diagrams.",
+        "Developing software prototypes"
+      ],
+      "correct": 1,
+      "explanation": "Mô hình hóa phần mềm là thiết kế ứng dụng (qua diagram/abstraction) TRƯỚC KHI viết code, giúp phát hiện vấn đề sớm — không phải chỉ vẽ tài liệu sau khi code xong.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "2": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-002",
+      "type": "choice",
+      "prompt": "What is the Unified Modeling Language",
+      "options": [
+        "A programming language for describing object-oriented models.",
+        "A diagramming tool for drawing object-oriented models.",
+        "A graphical language for describing object-oriented models.",
+        "A standardized graphical language and notation for describing object-oriented models."
+      ],
+      "correct": 3,
+      "explanation": "UML là ngôn ngữ đồ họa và ký hiệu đã CHUẨN HÓA để mô tả mô hình hướng đối tượng, không phải ngôn ngữ lập trình hay chỉ là công cụ vẽ đơn thuần.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "2": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-003",
+      "type": "choice",
+      "prompt": "What is a software architecture?",
+      "options": [
+        "The software inside a building.",
+        "The structure of a client/server system.",
+        "The overall structure of a software system.",
+        "The software classes and their relationships."
+      ],
+      "correct": 2,
+      "explanation": "Kiến trúc phần mềm là cấu trúc TỔNG THỂ của toàn hệ thống (thành phần + quan hệ giữa chúng), không chỉ riêng kiến trúc client/server hay danh sách class.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-004",
+      "type": "choice",
+      "prompt": "What is a software design notation?",
+      "options": [
+        "Notes about the software design.",
+        "A graphical or textual description of the software.",
+        "Documentation of the software.",
+        "A systematic approach for producing a design."
+      ],
+      "correct": 1,
+      "explanation": "Notation (ký hiệu thiết kế) là cách biểu diễn phần mềm bằng hình vẽ hoặc văn bản — công cụ thể hiện ý tưởng, khác với 'concept' (ý tưởng) hay 'method' (quy trình).",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "2": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-005",
+      "type": "choice",
+      "prompt": "What is a software design concept?",
+      "options": [
+        "A graphical or textual description of the software.",
+        "Documentation of the software.",
+        "A fundamental idea that can be applied to designing a system.",
+        "A systematic approach for producing a design."
+      ],
+      "correct": 2,
+      "explanation": "Design concept là một ý tưởng nền tảng áp dụng được khi thiết kế hệ thống (ví dụ: information hiding), không phải bản thân bản vẽ hay tài liệu.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-006",
+      "type": "choice",
+      "prompt": "What is a software design strategy?",
+      "options": [
+        "A graphical or textual description of the software.",
+        "A fundamental idea that can be applied to designing a system.",
+        "A systematic approach for producing a design.",
+        "An overall plan and direction for developing a design"
+      ],
+      "correct": 3,
+      "explanation": "Design strategy là định hướng và kế hoạch tổng thể để phát triển thiết kế (ví dụ top-down/bottom-up), khác với method (quy trình chi tiết từng bước).",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "2": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-007",
+      "type": "choice",
+      "prompt": "What are software structuring criteria?",
+      "options": [
+        "Fundamental ideas that can be applied to designing a system.",
+        "Systematic approaches for producing a design.",
+        "Guidelines used to help in structuring a software system into its components.",
+        "Overall plans for developing a design."
+      ],
+      "correct": 2,
+      "explanation": "Structuring criteria là các nguyên tắc/tiêu chí giúp chia hệ thống thành các thành phần (class/component), không phải bản thân ý tưởng hay kế hoạch thiết kế.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-008",
+      "type": "choice",
+      "prompt": "What is a software design method?",
+      "options": [
+        "A systematic approach for producing a design.",
+        "Guidelines used to help in structuring a software system into its components.",
+        "An overall plan for developing a design.",
+        "A graphical or textual description of the software."
+      ],
+      "correct": 0,
+      "explanation": "Design method là một quy trình CÓ HỆ THỐNG (các bước cụ thể) để tạo ra bản thiết kế, khác với concept (ý tưởng) hay notation (ký hiệu).",
+      "distractorTags": {
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-01-009",
+      "type": "choice",
+      "prompt": "What is a platform-independent model (PIM)?",
+      "options": [
+        "A software platform before a commitment is made to a specific hardware platform.",
+        "A precise model of the software architecture before a commitment is made to a specific platform.",
+        "A precise model of the software architecture mapped to a specific platform.",
+        "A graphical or textual description of the software"
+      ],
+      "correct": 1,
+      "explanation": "Platform-Independent Model (PIM) là mô hình kiến trúc chính xác nhưng CHƯA gắn với nền tảng cụ thể — khác PSM đã ánh xạ vào nền tảng cụ thể.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "2": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-010",
+      "type": "choice",
+      "prompt": "What is a platform-specific model (PSM)?",
+      "options": [
+        "A specific hardware platform.",
+        "A precise model of the software architecture before a commitment is made to a specific platform.",
+        "A precise model of the software architecture mapped to a specific platform.",
+        "A graphical or textual description of the software."
+      ],
+      "correct": 2,
+      "explanation": "Platform-Specific Model (PSM) là mô hình đã ánh xạ (map) vào MỘT nền tảng công nghệ cụ thể — bước sau PIM trong quy trình MDA.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-011",
+      "type": "choice",
+      "prompt": "How is an actor depicted on a use case diagram?",
+      "options": [
+        "An oval",
+        "A stick figure",
+        "A box",
+        "A dashed line"
+      ],
+      "correct": 1,
+      "explanation": "Trong use case diagram, actor luôn vẽ bằng HÌNH QUE (stick figure), thể hiện vai trò bên ngoài tương tác với hệ thống.",
+      "distractorTags": {
+        "0": "actor-is-internal",
+        "2": "actor-is-internal",
+        "3": "actor-is-internal"
+      }
+    },
+    {
+      "id": "TB-01-012",
+      "type": "choice",
+      "prompt": "How is a use case depicted on a use case diagram?",
+      "options": [
+        "An oval",
+        "A stick figure",
+        "A box",
+        "A dashed line"
+      ],
+      "correct": 0,
+      "explanation": "Use case được vẽ bằng HÌNH OVAL (ellipse), thể hiện một chức năng/mục tiêu mà actor đạt được khi tương tác với hệ thống.",
+      "distractorTags": {
+        "1": "usecase-concept-confusion",
+        "2": "usecase-concept-confusion",
+        "3": "usecase-concept-confusion"
+      }
+    },
+    {
+      "id": "TB-01-013",
+      "type": "choice",
+      "prompt": "How is a class depicted on a class diagram?",
+      "options": [
+        "A box with one compartment",
+        "A box with one or two compartments",
+        "A box with one, two, or three compartments",
+        "An oval"
+      ],
+      "correct": 2,
+      "explanation": "Class được vẽ bằng hình chữ nhật có TỐI ĐA 3 ngăn: tên class, attribute, operation — có thể ẩn bớt ngăn nếu không cần thiết.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-01-014",
+      "type": "choice",
+      "prompt": "How is an association depicted on a class diagram?",
+      "options": [
+        "A solid line joining two class boxes",
+        "A dashed line joining two class boxes",
+        "A diamond touching the upper class box",
+        "An arrowhead touching the upper class box"
+      ],
+      "correct": 0,
+      "explanation": "Association giữa hai class được vẽ bằng ĐƯỜNG THẲNG LIỀN nối hai class box, không phải nét đứt hay hình thoi (đó là ký hiệu khác).",
+      "distractorTags": {
+        "1": "association-is-link",
+        "2": "association-is-link",
+        "3": "association-is-link"
+      }
+    },
+    {
+      "id": "TB-01-015",
+      "type": "choice",
+      "prompt": "How is public visibility depicted for a class element on a class diagram?",
+      "options": [
+        "+ sign",
+        "− sign",
+        "# sign",
+        "∗sign"
+      ],
+      "correct": 0,
+      "explanation": "Dấu cộng (+) biểu thị visibility public; dấu trừ (−) là private; dấu thăng (#) là protected trong class diagram.",
+      "distractorTags": {
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-01-016",
+      "type": "choice",
+      "prompt": "What are the two kinds of UML interaction diagrams?",
+      "options": [
+        "Class diagram and sequence diagram",
+        "Sequence diagram and communication diagram",
+        "Class diagram and communication diagram",
+        "Statechart and communication diagram"
+      ],
+      "correct": 1,
+      "explanation": "Hai loại interaction diagram trong UML là Sequence Diagram (theo trình tự thời gian) và Communication Diagram (theo liên kết/topology giữa object).",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "2": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-017",
+      "type": "choice",
+      "prompt": "What does an interaction diagram depict?",
+      "options": [
+        "Objects and links",
+        "Classes and relationships",
+        "Objects and messages",
+        "States and events"
+      ],
+      "correct": 2,
+      "explanation": "Interaction diagram mô tả các object và MESSAGE (thông điệp) trao đổi giữa chúng khi thực hiện một use case.",
+      "distractorTags": {
+        "0": "sequence-equals-communication",
+        "1": "sequence-equals-communication",
+        "3": "sequence-equals-communication"
+      }
+    },
+    {
+      "id": "TB-01-018",
+      "type": "choice",
+      "prompt": "What does a statechart diagram depict?",
+      "options": [
+        "Objects and links",
+        "Classes and relationships",
+        "Objects and messages",
+        "States and events"
+      ],
+      "correct": 3,
+      "explanation": "Statechart diagram mô tả các STATE (trạng thái) và EVENT (sự kiện) gây chuyển trạng thái của một object có vòng đời phức tạp.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "1": "uml-notation-confusion",
+        "2": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-019",
+      "type": "choice",
+      "prompt": "What is a UML package?",
+      "options": [
+        "A box",
+        "A grouping of classes",
+        "A grouping of use cases",
+        "A grouping of model elements"
+      ],
+      "correct": 1,
+      "explanation": "Package trong UML là cách gom nhóm các phần tử mô hình (class, use case...) lại với nhau để quản lý hệ thống lớn — không giới hạn ở class hay use case.",
+      "distractorTags": {
+        "0": "uml-notation-confusion",
+        "2": "uml-notation-confusion",
+        "3": "uml-notation-confusion"
+      }
+    },
+    {
+      "id": "TB-01-020",
+      "type": "choice",
+      "prompt": "What does a deployment diagram depict?",
+      "options": [
+        "The physical configuration of the system in terms of physical classes and physical connections between the classes",
+        "The physical configuration of the system in terms of physical objects and physical connections between the objects",
+        "The physical configuration of the system in terms of physical nodes and physical connections between the nodes",
+        "The physical configuration of the system in terms of physical computers and physical networks between the computers"
+      ],
+      "correct": 2,
+      "explanation": "Deployment diagram mô tả cấu hình VẬT LÝ của hệ thống: các node phần cứng và kết nối vật lý giữa chúng.",
+      "distractorTags": {
+        "0": "distribution-is-free",
+        "1": "distribution-is-free",
+        "3": "distribution-is-free"
+      }
+    }
+  ]
+}

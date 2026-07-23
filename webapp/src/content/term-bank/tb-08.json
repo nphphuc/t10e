@@ -1,0 +1,348 @@
+{
+  "id": "TB-08",
+  "title": "Thiết kế OO nâng cao & Client/Service",
+  "questions": [
+    {
+      "id": "TB-08-127",
+      "type": "choice",
+      "prompt": "What is an information hiding object?",
+      "options": [
+        "An active object that encapsulates data",
+        "A passive object that encapsulates data",
+        "A class that encapsulates data",
+        "A task that encapsulates data"
+      ],
+      "correct": 1,
+      "explanation": "Information hiding object là một object THỤ ĐỘNG (passive, không có luồng thực thi riêng) chỉ đóng gói và bảo vệ dữ liệu.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-128",
+      "type": "choice",
+      "prompt": "What is a class interface?",
+      "options": [
+        "Specifies the internals of the operations of a class",
+        "Specifies the externally visible operations of a class",
+        "Specifies the parameters of a class operation.",
+        "Specifies the signature of a class operation"
+      ],
+      "correct": 1,
+      "explanation": "Class interface chỉ đặc tả các operation NHÌN THẤY ĐƯỢC từ bên ngoài, không mô tả cách hiện thực nội bộ.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "2": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-08-129",
+      "type": "choice",
+      "prompt": "Which of the following is NOT an object-oriented concept?",
+      "options": [
+        "Information hiding",
+        "Class",
+        "Subclass",
+        "Subroutine"
+      ],
+      "correct": 3,
+      "explanation": "Subroutine (chương trình con truyền thống) không phải là khái niệm hướng đối tượng — thuộc lập trình thủ tục, khác class/subclass/information hiding.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-130",
+      "type": "choice",
+      "prompt": "Which of the following is a class that realizes an interface?",
+      "options": [
+        "The class calls the interface.",
+        "The class implements the interface.",
+        "The class is called by the interface.",
+        "The class is independent of the interface."
+      ],
+      "correct": 2,
+      "explanation": "⚠️ Đáp án gốc trong flashcard ghi 'class được INTERFACE gọi tới'. Theo UML chuẩn, 'realizes an interface' thường nghĩa là class ĐÓ HIỆN THỰC (implements) interface — bạn nên đối chiếu lại với giáo trình/slide môn học trước khi học thuộc câu này.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "1": "interface-is-implementation",
+        "3": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-08-131",
+      "type": "choice",
+      "prompt": "Which of the following is an entity class?",
+      "options": [
+        "An information hiding class",
+        "A subclass",
+        "A control class",
+        "A data abstraction class"
+      ],
+      "correct": 3,
+      "explanation": "Entity class được xem như một dạng data abstraction class — vai trò chính là trừu tượng hóa và lưu trữ dữ liệu bền vững.",
+      "distractorTags": {
+        "0": "bce-role-confusion",
+        "1": "bce-role-confusion",
+        "2": "bce-role-confusion"
+      }
+    },
+    {
+      "id": "TB-08-132",
+      "type": "choice",
+      "prompt": "What does a state machine class encapsulate?",
+      "options": [
+        "A state transition table",
+        "A statechart",
+        "The current state of the machine",
+        "A state transition table and the current state of the machine"
+      ],
+      "correct": 3,
+      "explanation": "Một state machine class đóng gói cả BẢNG CHUYỂN TRẠNG THÁI (transition table) lẫn TRẠNG THÁI HIỆN TẠI (current state) của máy trạng thái.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "2": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-08-133",
+      "type": "choice",
+      "prompt": "Which of the following is unlikely to be a graphical user interface class?",
+      "options": [
+        "A menu",
+        "A window",
+        "A button",
+        "A pin"
+      ],
+      "correct": 3,
+      "explanation": "'Pin' (chân kết nối phần cứng) không phải là một class giao diện người dùng — khác menu, window, button vốn là thành phần UI phổ biến.",
+      "distractorTags": {
+        "0": "interface-is-implementation",
+        "1": "interface-is-implementation",
+        "2": "interface-is-implementation"
+      }
+    },
+    {
+      "id": "TB-08-134",
+      "type": "choice",
+      "prompt": "Which of the following is unlikely to be encapsulated in a business logic class?",
+      "options": [
+        "A business rule",
+        "Calls to operations of an entity class",
+        "Deny cash withdrawal if balance of account is less than $10",
+        "A dialog box"
+      ],
+      "correct": 3,
+      "explanation": "Dialog box thuộc về giao diện người dùng (UI), không phải logic nghiệp vụ — business logic class chỉ chứa quy tắc nghiệp vụ và lời gọi tới entity.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-135",
+      "type": "choice",
+      "prompt": "Which of the following is NOT allowed through inheritance?",
+      "options": [
+        "Subclass inherits attributes from superclass.",
+        "Subclass inherits operations from superclass.",
+        "Subclass redefines attributes inherited from superclass.",
+        "Subclass redefines operations inherited from superclass."
+      ],
+      "correct": 2,
+      "explanation": "Subclass được phép định nghĩa lại (override) OPERATION kế thừa, nhưng KHÔNG được định nghĩa lại ATTRIBUTE đã kế thừa từ superclass.",
+      "distractorTags": {
+        "0": "inheritance-for-reuse-only",
+        "1": "inheritance-for-reuse-only",
+        "3": "inheritance-for-reuse-only"
+      }
+    },
+    {
+      "id": "TB-08-136",
+      "type": "choice",
+      "prompt": "Which of the following is true for an abstract class?",
+      "options": [
+        "It is used as a template for creating objects.",
+        "It is used as a template for creating subclasses.",
+        "It is used as a template for creating classes.",
+        "It is used as a template for creating superclasses."
+      ],
+      "correct": 1,
+      "explanation": "Abstract class là khuôn mẫu để tạo ra các SUBCLASS cụ thể — bản thân nó không được khởi tạo trực tiếp thành object.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "2": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-137",
+      "type": "choice",
+      "prompt": "In object-oriented design, polymorphism means that:",
+      "options": [
+        "Different classes may have the same name.",
+        "Different classes may have the same interface name.",
+        "Different classes may have the same superclass name.",
+        "Different classes may have the same operation name."
+      ],
+      "correct": 3,
+      "explanation": "Polymorphism nghĩa là các class khác nhau có thể có OPERATION CÙNG TÊN nhưng hành vi (implementation) khác nhau.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-138",
+      "type": "choice",
+      "prompt": "With polymorphism and dynamic binding, an object can:",
+      "options": [
+        "Invoke operation of different names on the same objects.",
+        "Invoke operations of different names on different objects.",
+        "Invoke an operation of the same name on the same object.",
+        "Invoke an operation of the same name on different objects."
+      ],
+      "correct": 3,
+      "explanation": "Với polymorphism và dynamic binding, ta có thể gọi MỘT operation cùng tên trên các object khác nhau, hệ thống tự chọn đúng implementation lúc runtime.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "2": "oo-term-confusion"
+      }
+    },
+    {
+      "id": "TB-08-139",
+      "type": "choice",
+      "prompt": "What is a server?",
+      "options": [
+        "A hardware/software system that serves customers",
+        "A subsystem that makes requests and waits for the responses",
+        "A subsystem that responds to requests from clients",
+        "A hardware/software system that provides one or more services for multiple clients"
+      ],
+      "correct": 3,
+      "explanation": "Server là hệ thống phần cứng/phần mềm cung cấp một hay nhiều dịch vụ, phục vụ ĐỒNG THỜI nhiều client.",
+      "distractorTags": {
+        "0": "client-service-role-confusion",
+        "1": "client-service-role-confusion",
+        "2": "client-service-role-confusion"
+      }
+    },
+    {
+      "id": "TB-08-140",
+      "type": "choice",
+      "prompt": "The basic client/single service architectural pattern states that:",
+      "options": [
+        "Multiple clients request services, and multiple services fulfill client requests.",
+        "Multiple clients request services, and a service fulfills client requests.",
+        "A client requests services, and a service fulfills client requests.",
+        "A client requests services, and multiple services fulfill client requests"
+      ],
+      "correct": 1,
+      "explanation": "Pattern Client/Single-Service cơ bản: có thể có NHIỀU client gửi yêu cầu, nhưng chỉ MỘT service duy nhất xử lý tất cả yêu cầu đó.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-08-141",
+      "type": "choice",
+      "prompt": "In a Multi-tier Client/Service architectural pattern, which of the following is true about an intermediate tier?",
+      "options": [
+        "An intermediate tier is a client tier.",
+        "An intermediate tier is a service tier.",
+        "An intermediate tier is both a control tier and a service tier.",
+        "An intermediate tier is both a client tier and a service tier."
+      ],
+      "correct": 3,
+      "explanation": "Tầng trung gian (intermediate tier) trong kiến trúc nhiều tầng vừa là CLIENT (gọi tầng dưới) vừa là SERVICE (phục vụ tầng trên).",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "1": "architecture-view-confusion",
+        "2": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-08-142",
+      "type": "choice",
+      "prompt": "How is Multiple Client/Multiple Service architectural pattern different from a Multiple Client/Single Service architectural pattern?",
+      "options": [
+        "A service can receive requests from multiple clients.",
+        "A client can send requests to multiple services.",
+        "A client can send requests to other clients.",
+        "A service can respond to requests from multiple clients."
+      ],
+      "correct": 1,
+      "explanation": "Khác biệt: trong Multiple Client/Multiple Service, MỘT client có thể gửi yêu cầu tới NHIỀU service khác nhau, thay vì chỉ một service duy nhất.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-08-143",
+      "type": "choice",
+      "prompt": "How is a sequential service designed?",
+      "options": [
+        "One object that responds to requests from clients",
+        "Multiple objects that respond to requests from clients",
+        "One subsystem that responds to requests from clients",
+        "Multiple subsystems that respond to requests from clients"
+      ],
+      "correct": 0,
+      "explanation": "Sequential service chỉ dùng MỘT object duy nhất để xử lý lần lượt từng yêu cầu — không xử lý song song.",
+      "distractorTags": {
+        "1": "client-service-role-confusion",
+        "2": "client-service-role-confusion",
+        "3": "client-service-role-confusion"
+      }
+    },
+    {
+      "id": "TB-08-144",
+      "type": "choice",
+      "prompt": "How is a concurrent service designed?",
+      "options": [
+        "One object that responds to requests from clients",
+        "Multiple objects that respond to requests from clients",
+        "One subsystem that responds to requests from clients",
+        "Multiple subsystems that respond to requests from clients"
+      ],
+      "correct": 1,
+      "explanation": "Concurrent service dùng NHIỀU object (mỗi object xử lý một yêu cầu) để phục vụ đồng thời nhiều client cùng lúc.",
+      "distractorTags": {
+        "0": "client-service-role-confusion",
+        "2": "client-service-role-confusion",
+        "3": "client-service-role-confusion"
+      }
+    },
+    {
+      "id": "TB-08-145",
+      "type": "choice",
+      "prompt": "What is a database wrapper class?",
+      "options": [
+        "A class that encapsulates a data structure",
+        "A class that encapsulates a database",
+        "A class that encapsulates the details of how to access data in a database",
+        "A class that encapsulates a relational table"
+      ],
+      "correct": 2,
+      "explanation": "Database wrapper class che giấu chi tiết kỹ thuật truy cập cơ sở dữ liệu (SQL, kết nối...), cung cấp interface đơn giản hơn cho phần còn lại của hệ thống.",
+      "distractorTags": {
+        "0": "oo-term-confusion",
+        "1": "oo-term-confusion",
+        "3": "oo-term-confusion"
+      }
+    }
+  ]
+}

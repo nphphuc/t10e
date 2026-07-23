@@ -1,0 +1,186 @@
+{
+  "id": "TB-10",
+  "title": "Concurrent Tasks & Control Pattern",
+  "questions": [
+    {
+      "id": "TB-10-169",
+      "type": "choice",
+      "prompt": "What is the difference between an active object and a passive object?",
+      "options": [
+        "An active object controls a passive object.",
+        "An active object does not have a thread of control; a passive object has a thread of control.",
+        "An active object executes in a distributed system; a passive object executes in a centralized system.",
+        "An active object has a thread of control; a passive object does not have a thread of control."
+      ],
+      "correct": 3,
+      "explanation": "Active object có LUỒNG THỰC THI (thread) riêng, tự chạy độc lập; passive object không có thread riêng, chỉ được gọi/thao tác bởi object khác.",
+      "distractorTags": {
+        "0": "task-activation-confusion",
+        "1": "task-activation-confusion",
+        "2": "task-activation-confusion"
+      }
+    },
+    {
+      "id": "TB-10-170",
+      "type": "choice",
+      "prompt": "What is an event-driven input task?",
+      "options": [
+        "A task that executes every few seconds",
+        "A task that controls other tasks",
+        "A task that receives inputs from an external device when it generates interrupts",
+        "A task that checks whether there is new input from an external device"
+      ],
+      "correct": 2,
+      "explanation": "Event-driven task được kích hoạt khi thiết bị ngoài phát sinh ngắt (interrupt) — task 'thức dậy' ngay khi có sự kiện phần cứng xảy ra.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "3": "state-is-action"
+      }
+    },
+    {
+      "id": "TB-10-171",
+      "type": "choice",
+      "prompt": "What is a periodic task?",
+      "options": [
+        "A task that responds to each message it receives",
+        "A task that is activated by a timer event",
+        "A task that is activated by an external event",
+        "A task that is activated by an input event"
+      ],
+      "correct": 1,
+      "explanation": "Periodic task được kích hoạt định kỳ bởi một bộ đếm thời gian (timer), lặp lại theo chu kỳ cố định.",
+      "distractorTags": {
+        "0": "task-activation-confusion",
+        "2": "task-activation-confusion",
+        "3": "task-activation-confusion"
+      }
+    },
+    {
+      "id": "TB-10-172",
+      "type": "choice",
+      "prompt": "What is a demand-driven task?",
+      "options": [
+        "A task that responds to each message it receives",
+        "A task that is activated by an internal message or event from another task",
+        "A task that is activated by an external event",
+        "A task that is activated by an input event"
+      ],
+      "correct": 1,
+      "explanation": "Demand-driven task chỉ được kích hoạt khi nhận message/event từ MỘT TASK KHÁC bên trong hệ thống, không phải từ thiết bị ngoài hay timer.",
+      "distractorTags": {
+        "0": "task-activation-confusion",
+        "2": "task-activation-confusion",
+        "3": "task-activation-confusion"
+      }
+    },
+    {
+      "id": "TB-10-173",
+      "type": "choice",
+      "prompt": "What is a control task?",
+      "options": [
+        "A task that control other tasks",
+        "A task that executes a statechart",
+        "A task that executes on demand",
+        "A task that controls I/O devices"
+      ],
+      "correct": 1,
+      "explanation": "Control task là task thực thi một STATECHART để điều khiển hành vi hệ thống dựa trên trạng thái.",
+      "distractorTags": {
+        "0": "task-activation-confusion",
+        "2": "task-activation-confusion",
+        "3": "task-activation-confusion"
+      }
+    },
+    {
+      "id": "TB-10-174",
+      "type": "choice",
+      "prompt": "What is a user interaction task?",
+      "options": [
+        "A task that interacts with I/O devices",
+        "A task that interacts with users",
+        "A task that interacts with a user sequentially",
+        "A task that interacts with a user concurrently"
+      ],
+      "correct": 2,
+      "explanation": "User interaction task giao tiếp với NGƯỜI DÙNG theo trình tự (sequentially) — xử lý từng yêu cầu người dùng lần lượt.",
+      "distractorTags": {
+        "0": "task-activation-confusion",
+        "1": "task-activation-confusion",
+        "3": "task-activation-confusion"
+      }
+    },
+    {
+      "id": "TB-10-175",
+      "type": "choice",
+      "prompt": "Which of the following is true for a Centralized Control architectural pattern?",
+      "options": [
+        "Control is divided among various control components.",
+        "It provides the overall control and sequencing of the system.",
+        "It provides overall control by coordinating several control components.",
+        "It provides overall control over various I/O objects"
+      ],
+      "correct": 1,
+      "explanation": "Centralized Control: có MỘT thành phần trung tâm duy nhất điều khiển và sắp xếp trình tự (sequencing) toàn hệ thống.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "2": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-10-176",
+      "type": "choice",
+      "prompt": "Which of the following is true for a Distributed Control architectural pattern?",
+      "options": [
+        "Control is divided among various control components.",
+        "It responds to multiple requests from client subsystems.",
+        "It provides overall control by coordinating several control components.",
+        "It provides distributed control over various I/O objects"
+      ],
+      "correct": 0,
+      "explanation": "Distributed Control: quyền điều khiển được CHIA SẺ ra nhiều control component khác nhau, không tập trung vào một nơi.",
+      "distractorTags": {
+        "1": "distribution-is-free",
+        "2": "distribution-is-free",
+        "3": "distribution-is-free"
+      }
+    },
+    {
+      "id": "TB-10-177",
+      "type": "choice",
+      "prompt": "Which of the following is true for a Hierarchical Control architectural pattern?",
+      "options": [
+        "Control is divided among various control components.",
+        "It provides overall control over several client subsystems.",
+        "It provides overall control by coordinating several control components.",
+        "It provides overall control over various I/O objects."
+      ],
+      "correct": 2,
+      "explanation": "Hierarchical Control: có một control component cấp cao ĐIỀU PHỐI nhiều control component cấp thấp hơn theo cấu trúc phân tầng.",
+      "distractorTags": {
+        "0": "architecture-view-confusion",
+        "1": "architecture-view-confusion",
+        "3": "architecture-view-confusion"
+      }
+    },
+    {
+      "id": "TB-10-178",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a case of event synchronization?",
+      "options": [
+        "External event",
+        "Internal event",
+        "Timer event",
+        "User event"
+      ],
+      "correct": 3,
+      "explanation": "Trong danh sách external/internal/timer/user event, 'user event' KHÔNG được xem là một loại đồng bộ hóa sự kiện chuẩn — ba loại còn lại mới là các case chính.",
+      "distractorTags": {
+        "0": "state-is-action",
+        "1": "state-is-action",
+        "2": "state-is-action"
+      }
+    }
+  ]
+}
