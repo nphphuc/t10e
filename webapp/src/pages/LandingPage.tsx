@@ -269,20 +269,14 @@ export default function LandingPage() {
             <span className="text-lg font-bold text-gray-200">Ôn thi PE</span>
           </div>
 
-          {/* Card 3: Ôn thi FE (đang hoàn thiện) */}
+          {/* Card 3: Ôn thi FE — Ngân Hàng Thuật Ngữ (198 câu OOAD) */}
           <div className="flex flex-col items-center gap-3">
             <NavCard
               icon="/thife.png"
               glowColor="#f59e0b"
-              disabled
+              onClick={() => navigate('/term-bank')}
             />
-            <div className="flex items-center gap-2">
-              <span className="text-lg font-bold text-gray-200">Ôn thi FE</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-500/12 border border-amber-500/25 text-amber-400 text-[9px] font-bold uppercase tracking-wider">
-                <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                đang hoàn thiện
-              </span>
-            </div>
+            <span className="text-lg font-bold text-gray-200">Ôn thi FE</span>
           </div>
         </div>
       </section>
