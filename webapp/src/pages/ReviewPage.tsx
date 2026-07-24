@@ -56,6 +56,49 @@ export const termBankMap: Record<string, any> = {
   'tb-11': tb11,
 };
 
+// Phân bố 60 câu đề thi thử theo 11 chương — gần đều, dư 5 câu rải vào chương
+// có nhiều câu gốc nhất (TB-09) và 4 chương kế tiếp theo thứ tự chương.
+// Tổng: 6+5+5+6+6+6+5+5+6+5+5 = 60.
+const MOCK_EXAM_PLAN: Record<string, number> = {
+  'tb-01': 6,
+  'tb-02': 5,
+  'tb-03': 5,
+  'tb-04': 6,
+  'tb-05': 6,
+  'tb-06': 6,
+  'tb-07': 5,
+  'tb-08': 5,
+  'tb-09': 6,
+  'tb-10': 5,
+  'tb-11': 5,
+};
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Random N câu/chương (không lặp), rồi trộn thứ tự xuất hiện giữa các chương.
+// KHÔNG đảo vị trí đáp án bên trong mỗi câu — options giữ nguyên như JSON gốc.
+function buildMockExam() {
+  const selected: any[] = [];
+  Object.entries(MOCK_EXAM_PLAN).forEach(([key, count]) => {
+    const bank = termBankMap[key];
+    if (!bank) return;
+    const pool = shuffleArray(bank.questions);
+    selected.push(...pool.slice(0, count));
+  });
+  return {
+    id: 'MOCK-EXAM',
+    title: 'Đề Thi Thử — 60 câu ngẫu nhiên',
+    questions: shuffleArray(selected),
+  };
+}
+
 const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: string }> = {
   'actor-is-internal': {
     title: 'Nhầm lẫn thành phần nội bộ là Actor',
@@ -171,15 +214,21 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
 
+  // Đề thi thử: random 1 lần khi vào trang, và random lại mỗi lần bấm "Làm Lại"
+  // (xem handleRetry) — không random lại khi component re-render bình thường.
+  const [mockExamData, setMockExamData] = useState<any>(() => (isMockExam ? buildMockExam() : null));
+
   let reviewData = null;
   let reviewLessonId: string | null = null;
   let reviewLessonXp = 0;
-  if (isPeReview) {
+  if (isMockExam) {
+    reviewData = mockExamData;
+  } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
     reviewData = resolvedLevelId ? termBankMap[resolvedLevelId] : null;
@@ -199,7 +248,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : isTermBank ? '/term-bank' : '/home';
+  const exitPath = isPeReview ? '/pe-review' : (isTermBank || isMockExam) ? '/term-bank' : '/home';
 
   if (!reviewData) {
     return (
@@ -345,6 +394,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, lev
     setCurrentIdx(0);
     setIsFinished(false);
     setSubmitted(false);
+    // Đề thi thử: mỗi lần "Làm Lại" ra một bộ 60 câu random mới (giống bấm đề mới)
+    if (isMockExam) {
+      setMockExamData(buildMockExam());
+    }
   };
 
   // Render final result screen

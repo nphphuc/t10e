@@ -33,6 +33,7 @@ function AnimatedRoutes() {
         <Route path="/pe-review/:levelId" element={<PageTransition><ReviewPage isPeReview={true} /></PageTransition>} />
         <Route path="/term-bank" element={<PageTransition><TermBankLanding /></PageTransition>} />
         <Route path="/term-bank/:levelId" element={<PageTransition><ReviewPage isTermBank={true} /></PageTransition>} />
+        <Route path="/exam" element={<PageTransition><ReviewPage isMockExam={true} /></PageTransition>} />
         <Route path="/practice" element={<PageTransition><PracticePage /></PageTransition>} />
       </Routes>
     </ErrorBoundary>

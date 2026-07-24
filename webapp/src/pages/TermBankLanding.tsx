@@ -43,6 +43,27 @@ export default function TermBankLanding() {
           </p>
         </div>
 
+        {/* Đề Thi Thử — 60 câu random đều theo 11 chương */}
+        <Link
+          to="/exam"
+          className="block rounded-3xl border border-amber-700/40 bg-gradient-to-r from-amber-950/20 to-orange-950/10 hover:border-amber-600/60 hover:from-amber-950/30 transition-all duration-200 hover:scale-[1.005] group p-6"
+        >
+          <div className="flex items-center justify-between gap-4 flex-wrap">
+            <div className="space-y-1">
+              <h3 className="font-extrabold text-lg text-amber-300 flex items-center gap-2">
+                🎯 Đề Thi Thử — 60 câu
+              </h3>
+              <p className="text-xs text-gray-400 leading-relaxed max-w-md">
+                Random đều theo 11 chương, trộn thứ tự xuất hiện (không theo chương), giữ nguyên thứ tự đáp án.
+                Mỗi lần vào/làm lại là một đề mới.
+              </p>
+            </div>
+            <span className="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+              Vào làm đề ➔
+            </span>
+          </div>
+        </Link>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {TOPICS.map((topic) => {
             const data = termBankMap[topic.id];
