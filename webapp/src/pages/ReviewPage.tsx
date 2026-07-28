@@ -37,6 +37,16 @@ import tb11 from '../content/term-bank/tb-11.json';
 // Quiz môn PRU213 (Unity & C#) — mục riêng, độc lập với SWD392
 import pru213Quiz from '../content/pru213/pru213-quiz.json';
 
+// Bộ 2: quiz từ thầy dạy (Unity Editor, GameObject, Physics, Animation, UI, Input, Data)
+import pru213B2Editor from '../content/pru213/pru213-b2-01-editor.json';
+import pru213B2GameObject from '../content/pru213/pru213-b2-02-gameobject.json';
+import pru213B2Physics from '../content/pru213/pru213-b2-03-physics.json';
+import pru213B2Animation from '../content/pru213/pru213-b2-04-animation.json';
+import pru213B2Ui from '../content/pru213/pru213-b2-05-ui.json';
+import pru213B2Input from '../content/pru213/pru213-b2-06-input.json';
+import pru213B2Data from '../content/pru213/pru213-b2-07-data.json';
+import pru213B2Comprehensive from '../content/pru213/pru213-b2-comprehensive.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -61,6 +71,14 @@ export const termBankMap: Record<string, any> = {
 
 export const pru213Map: Record<string, any> = {
   'quiz': pru213Quiz,
+  'b2-editor': pru213B2Editor,
+  'b2-gameobject': pru213B2GameObject,
+  'b2-physics': pru213B2Physics,
+  'b2-animation': pru213B2Animation,
+  'b2-ui': pru213B2Ui,
+  'b2-input': pru213B2Input,
+  'b2-data': pru213B2Data,
+  'b2-comprehensive': pru213B2Comprehensive,
 };
 
 // Phân bố 60 câu đề thi thử theo 11 chương — gần đều, dư 5 câu rải vào chương

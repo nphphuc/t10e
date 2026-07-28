@@ -1,0 +1,306 @@
+{
+  "id": "PRU213-B2-ED",
+  "title": "PRU213 (Bộ 2) — Unity Editor & Workspace",
+  "questions": [
+    {
+      "id": "PRU213-B2-ED-01",
+      "type": "choice",
+      "prompt": "Which tool is used for selecting, moving, rotating, and scaling objects in Unity?",
+      "options": [
+        "Physics Tools",
+        "Transform Tools",
+        "Hierarchy Tools",
+        "Shader Tools"
+      ],
+      "correct": 1,
+      "explanation": "Transform Tools (Move/Rotate/Scale/Rect) là bộ công cụ chuẩn để chọn và biến đổi object trong Scene View."
+    },
+    {
+      "id": "PRU213-B2-ED-02",
+      "type": "choice",
+      "prompt": "What is the purpose of the Scene View in Unity?",
+      "options": [
+        "To edit properties of selected GameObjects",
+        "To preview the game as a player would see it",
+        "To display a hierarchical list of GameObjects",
+        "To visually manipulate and navigate the game world"
+      ],
+      "correct": 3,
+      "explanation": "Scene View là nơi bạn thao tác trực quan: di chuyển, xoay, phóng to/thu nhỏ, sắp đặt object trong không gian game."
+    },
+    {
+      "id": "PRU213-B2-ED-03",
+      "type": "choice",
+      "prompt": "What is the function of the Inspector Window in Unity?",
+      "options": [
+        "To view and edit properties of selected GameObjects",
+        "To display a list of all objects in a scene",
+        "To navigate and manipulate GameObjects visually",
+        "To organize assets within a project"
+      ],
+      "correct": 0,
+      "explanation": "Inspector Window hiển thị và cho phép chỉnh mọi property/component của GameObject đang được chọn."
+    },
+    {
+      "id": "PRU213-B2-ED-04",
+      "type": "choice",
+      "prompt": "What is Unity primarily used for?",
+      "options": [
+        "Word processing",
+        "Game development",
+        "Video editing",
+        "Database management"
+      ],
+      "correct": 1,
+      "explanation": "Unity là game engine — công cụ chính để phát triển game."
+    },
+    {
+      "id": "PRU213-B2-ED-05",
+      "type": "choice",
+      "prompt": "Which Unity window displays all GameObjects in the current scene?",
+      "options": [
+        "Game View",
+        "Inspector Window",
+        "Project Window",
+        "Hierarchy Window"
+      ],
+      "correct": 3,
+      "explanation": "Hierarchy Window liệt kê toàn bộ GameObject đang có trong scene hiện tại, theo cấu trúc cha-con."
+    },
+    {
+      "id": "PRU213-B2-ED-06",
+      "type": "choice",
+      "prompt": "Which coordinate space is relative to the GameObject's parent?",
+      "options": [
+        "Local Coordinate Space",
+        "Physics Space",
+        "World Coordinate Space",
+        "Global Coordinate System"
+      ],
+      "correct": 0,
+      "explanation": "Local Coordinate Space tính theo gốc tọa độ của GameObject cha; World Space mới là hệ tọa độ tuyệt đối toàn scene."
+    },
+    {
+      "id": "PRU213-B2-ED-07",
+      "type": "choice",
+      "prompt": "Which of the following statements about the Game View is TRUE?",
+      "options": [
+        "It displays assets and scripts available in the project.",
+        "It provides a list of all GameObjects in the scene.",
+        "It allows users to edit GameObjects directly.",
+        "It shows what the player will see when playing the game."
+      ],
+      "correct": 3,
+      "explanation": "Game View mô phỏng chính xác những gì người chơi sẽ thấy khi chạy game — khác Scene View (view của người làm game)."
+    },
+    {
+      "id": "PRU213-B2-ED-08",
+      "type": "choice",
+      "prompt": "Which of the following platforms is NOT natively supported by Unity?",
+      "options": [
+        "PC",
+        "Android",
+        "iOS",
+        "Mainframe computers"
+      ],
+      "correct": 3,
+      "explanation": "Unity hỗ trợ PC, mobile (Android/iOS), console, WebGL... nhưng không hỗ trợ build cho Mainframe computers."
+    },
+    {
+      "id": "PRU213-B2-ED-09",
+      "type": "choice",
+      "prompt": "What file extension do Unity scenes use?",
+      "options": [
+        ".unity",
+        ".unityproj",
+        ".scene",
+        ".unity (scene files)"
+      ],
+      "correct": 0,
+      "explanation": "File scene của Unity có đuôi .unity."
+    },
+    {
+      "id": "PRU213-B2-ED-10",
+      "type": "choice",
+      "prompt": "What does \"Build Settings\" allow you to do with scenes?",
+      "options": [
+        "Edit scene lighting",
+        "Delete unused scenes",
+        "Add scenes to the build and set build order",
+        "Create new scenes"
+      ],
+      "correct": 2,
+      "explanation": "Build Settings cho phép thêm scene vào danh sách build và sắp xếp thứ tự load của chúng."
+    },
+    {
+      "id": "PRU213-B2-ED-11",
+      "type": "choice",
+      "prompt": "How can you switch between multiple scenes in the Unity Editor?",
+      "options": [
+        "Cannot switch scenes in editor",
+        "Double-click the scene in the Project Window",
+        "File > Switch Scene",
+        "View > Change Scene"
+      ],
+      "correct": 1,
+      "explanation": "Trong Editor, chuyển scene bằng cách double-click file scene trong Project Window (không có menu 'Switch Scene' riêng)."
+    },
+    {
+      "id": "PRU213-B2-ED-12",
+      "type": "choice",
+      "prompt": "What is the keyboard shortcut to enter Play mode in Unity?",
+      "options": [
+        "F5",
+        "Ctrl+P (Windows) or Cmd+P (Mac)",
+        "Spacebar",
+        "Ctrl+R"
+      ],
+      "correct": 1,
+      "explanation": "Unity mặc định gán Ctrl+P (Windows)/Cmd+P (Mac) để bật/tắt Play mode. ⚠️ Unity mặc định gán Ctrl+P (Windows)/Cmd+P (Mac) để vào Play mode, nhưng một số bản Unity/layout có thể khác — nên kiểm tra lại trong Edit > Shortcuts.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ED-13",
+      "type": "choice",
+      "prompt": "What does snapping do in Unity?",
+      "options": [
+        "Creates duplicates of objects",
+        "Deletes objects automatically",
+        "Rotates objects 90 degrees",
+        "Aligns objects to a grid or incremental values"
+      ],
+      "correct": 3,
+      "explanation": "Snapping giúp căn object vào lưới hoặc bước giá trị cố định, hỗ trợ đặt vị trí chính xác."
+    },
+    {
+      "id": "PRU213-B2-ED-14",
+      "type": "choice",
+      "prompt": "How do you duplicate a GameObject in Unity?",
+      "options": [
+        "Ctrl+C then Ctrl+V",
+        "Right-click > Copy",
+        "Ctrl+D (Windows) or Cmd+D (Mac)",
+        "Alt+D"
+      ],
+      "correct": 2,
+      "explanation": "Ctrl+D (Windows)/Cmd+D (Mac) là phím tắt nhân bản GameObject đang chọn."
+    },
+    {
+      "id": "PRU213-B2-ED-15",
+      "type": "choice",
+      "prompt": "What is the purpose of the Lighting settings in a scene?",
+      "options": [
+        "To organize GameObjects",
+        "To control illumination, shadows, and ambient lighting",
+        "To add physics",
+        "To manage audio"
+      ],
+      "correct": 1,
+      "explanation": "Lighting settings quản lý ánh sáng, đổ bóng và ánh sáng môi trường (ambient) của scene."
+    },
+    {
+      "id": "PRU213-B2-ED-16",
+      "type": "choice",
+      "prompt": "Which view allows you to pan, zoom, and rotate around your scene?",
+      "options": [
+        "Project View",
+        "Scene View",
+        "Game View",
+        "Inspector View"
+      ],
+      "correct": 1,
+      "explanation": "Scene View cho phép pan/zoom/xoay góc nhìn để quan sát và chỉnh sửa scene."
+    },
+    {
+      "id": "PRU213-B2-ED-17",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'W' in Unity?",
+      "options": [
+        "Move Tool",
+        "Rotate Tool",
+        "Rect Tool",
+        "Scale Tool"
+      ],
+      "correct": 0,
+      "explanation": "Phím tắt 'W' kích hoạt Move Tool (di chuyển); E = Rotate, R = Scale, T = Rect."
+    },
+    {
+      "id": "PRU213-B2-ED-18",
+      "type": "choice",
+      "prompt": "Which window in Unity is used to manage project assets like scripts, textures, and models?",
+      "options": [
+        "Hierarchy Window",
+        "Console Window",
+        "Inspector Window",
+        "Project Window"
+      ],
+      "correct": 3,
+      "explanation": "Project Window quản lý toàn bộ asset của dự án: script, texture, model, prefab..."
+    },
+    {
+      "id": "PRU213-B2-ED-19",
+      "type": "choice",
+      "prompt": "What does the Console Window display in Unity?",
+      "options": [
+        "Error messages, warnings, and debug logs",
+        "Project assets",
+        "Scene hierarchy",
+        "GameObject properties"
+      ],
+      "correct": 0,
+      "explanation": "Console Window hiển thị log lỗi (error), cảnh báo (warning), và debug log từ script."
+    },
+    {
+      "id": "PRU213-B2-ED-20",
+      "type": "choice",
+      "prompt": "How do you create a new Scene in Unity?",
+      "options": [
+        "File > New Scene or Ctrl+N",
+        "Tools > Scene Manager",
+        "GameObject > New Scene",
+        "Edit > Create Scene"
+      ],
+      "correct": 0,
+      "explanation": "Tạo scene mới qua File > New Scene hoặc phím tắt Ctrl+N."
+    },
+    {
+      "id": "PRU213-B2-ED-21",
+      "type": "choice",
+      "prompt": "How can you create a new empty GameObject in Unity?",
+      "options": [
+        "File > New GameObject",
+        "Tools > Create Object",
+        "Edit > Add Object",
+        "Right-click in Hierarchy > Create Empty or GameObject > Create Empty"
+      ],
+      "correct": 3,
+      "explanation": "Tạo GameObject rỗng qua chuột phải trong Hierarchy > Create Empty, hoặc menu GameObject > Create Empty."
+    },
+    {
+      "id": "PRU213-B2-ED-22",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'E' in Unity?",
+      "options": [
+        "Scale Tool",
+        "Hand Tool",
+        "Rotate Tool",
+        "Move Tool"
+      ],
+      "correct": 2,
+      "explanation": "Phím tắt 'E' kích hoạt Rotate Tool (xoay object)."
+    },
+    {
+      "id": "PRU213-B2-ED-23",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'R' in Unity?",
+      "options": [
+        "Scale Tool",
+        "View Tool",
+        "Move Tool",
+        "Rotate Tool"
+      ],
+      "correct": 3,
+      "explanation": "Phím tắt 'R' kích hoạt Scale Tool (co giãn object)."
+    }
+  ]
+}

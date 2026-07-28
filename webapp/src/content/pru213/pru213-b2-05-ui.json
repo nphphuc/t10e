@@ -1,0 +1,333 @@
+{
+  "id": "PRU213-B2-UI",
+  "title": "PRU213 (Bộ 2) — UI System (uGUI)",
+  "questions": [
+    {
+      "id": "PRU213-B2-UI-01",
+      "type": "choice",
+      "prompt": "Which Unity UI system is based on GameObject and is recommended for games?",
+      "options": [
+        "IMGUI",
+        "Canvas System",
+        "Unity UI (uGUI)",
+        "UI Toolkit"
+      ],
+      "correct": 2,
+      "explanation": "Unity UI (uGUI) là hệ UI dựa trên GameObject/Canvas, được khuyến nghị dùng cho hầu hết game."
+    },
+    {
+      "id": "PRU213-B2-UI-02",
+      "type": "choice",
+      "prompt": "What does the Unity UI Mask component do?",
+      "options": [
+        "Disables UI elements temporarily",
+        "Groups UI elements together",
+        "Crops UI elements to the shape of the mask",
+        "Changes the color of UI elements"
+      ],
+      "correct": 2,
+      "explanation": "Mask component cắt (crop) các UI con theo đúng hình dạng của mask, ẩn phần nằm ngoài."
+    },
+    {
+      "id": "PRU213-B2-UI-03",
+      "type": "choice",
+      "prompt": "Which Unity UI system is primarily used for editor extensions?",
+      "options": [
+        "UI Toolkit",
+        "IMGUI",
+        "Event System",
+        "Unity UI (uGUI)"
+      ],
+      "correct": 1,
+      "explanation": "IMGUI (Immediate Mode GUI) chủ yếu dùng để viết công cụ/mở rộng Editor, không khuyến khích cho UI trong game thật."
+    },
+    {
+      "id": "PRU213-B2-UI-04",
+      "type": "choice",
+      "prompt": "What is the function of the Standalone Input Module in Unity's Event System?",
+      "options": [
+        "It handles network communication",
+        "It optimizes UI rendering",
+        "It processes input from keyboard, mouse, and gamepad for UI interaction",
+        "It manages animation states"
+      ],
+      "correct": 2,
+      "explanation": "Standalone Input Module xử lý input từ bàn phím/chuột/gamepad để tương tác với UI thông qua Event System."
+    },
+    {
+      "id": "PRU213-B2-UI-05",
+      "type": "choice",
+      "prompt": "Which method is called when a user releases a UI element they were dragging?",
+      "options": [
+        "OnReleaseDrag",
+        "OnDragEnd",
+        "OnEndDrag",
+        "OnStopDrag"
+      ],
+      "correct": 2,
+      "explanation": "OnEndDrag() được gọi khi người dùng thả (kết thúc kéo) một UI element — thuộc interface IEndDragHandler."
+    },
+    {
+      "id": "PRU213-B2-UI-06",
+      "type": "choice",
+      "prompt": "Which UI component in Unity is used to display a list of options that users can select from?",
+      "options": [
+        "ComboBox",
+        "SelectionMenu",
+        "Dropdown",
+        "List"
+      ],
+      "correct": 2,
+      "explanation": "Dropdown hiển thị danh sách lựa chọn để người dùng chọn một trong số đó."
+    },
+    {
+      "id": "PRU213-B2-UI-07",
+      "type": "choice",
+      "prompt": "Which of these is NOT a principle of effective UI design mentioned in the document?",
+      "options": [
+        "Consistency",
+        "Simplicity",
+        "Maximum Complexity",
+        "Visibility"
+      ],
+      "correct": 2,
+      "explanation": "'Maximum Complexity' đi ngược nguyên tắc thiết kế UI tốt — các nguyên tắc chuẩn là Consistency, Simplicity, Visibility (và Feedback, Guidance...)."
+    },
+    {
+      "id": "PRU213-B2-UI-08",
+      "type": "choice",
+      "prompt": "What is Adaptive UI in Unity?",
+      "options": [
+        "UI that translates to different languages",
+        "UI that automatically adjusts to different screen sizes and resolutions",
+        "UI that responds to user preferences",
+        "UI that changes based on game progress"
+      ],
+      "correct": 1,
+      "explanation": "Adaptive UI tự động điều chỉnh theo các kích thước/độ phân giải màn hình khác nhau."
+    },
+    {
+      "id": "PRU213-B2-UI-09",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a basic UI component in Unity's UI system?",
+      "options": [
+        "Button",
+        "Image",
+        "Text",
+        "Rigidbody"
+      ],
+      "correct": 3,
+      "explanation": "Rigidbody là component vật lý, không phải một UI component cơ bản (khác Button/Image/Text)."
+    },
+    {
+      "id": "PRU213-B2-UI-10",
+      "type": "choice",
+      "prompt": "Which interface should be implemented to handle click events on UI elements in Unity?",
+      "options": [
+        "IMouseClickHandler",
+        "IClickHandler",
+        "IEventClickHandler",
+        "IPointerClickHandler"
+      ],
+      "correct": 3,
+      "explanation": "IPointerClickHandler là interface chuẩn dùng để nhận sự kiện click trên UI element trong Unity Event System."
+    },
+    {
+      "id": "PRU213-B2-UI-11",
+      "type": "choice",
+      "prompt": "How do you toggle the visibility of a UI element in Unity using C#?",
+      "options": [
+        "gameObject.SetActive(!gameObject.activeSelf);",
+        "!gameObject.visible;",
+        "gameObject.ToggleVisibility();",
+        "!gameObject.isVisible;"
+      ],
+      "correct": 0,
+      "explanation": "gameObject.SetActive(!gameObject.activeSelf) là cách chuẩn để bật/tắt hiển thị GameObject bằng script."
+    },
+    {
+      "id": "PRU213-B2-UI-12",
+      "type": "choice",
+      "prompt": "Which layout group component arranges UI elements in a grid pattern?",
+      "options": [
+        "Horizontal Layout Group",
+        "Vertical Layout Group",
+        "Radial Layout Group",
+        "Grid Layout Group"
+      ],
+      "correct": 3,
+      "explanation": "Grid Layout Group tự động sắp xếp các UI element theo dạng lưới (hàng x cột)."
+    },
+    {
+      "id": "PRU213-B2-UI-13",
+      "type": "choice",
+      "prompt": "Which UI component in Unity allows for text input from the user?",
+      "options": [
+        "Button",
+        "Text",
+        "Dropdown",
+        "Input Field"
+      ],
+      "correct": 3,
+      "explanation": "Input Field là component UI cho phép người dùng nhập văn bản."
+    },
+    {
+      "id": "PRU213-B2-UI-14",
+      "type": "choice",
+      "prompt": "In Unity's UI system, what is the primary purpose of the Panel component?",
+      "options": [
+        "To display text",
+        "To handle scrolling content",
+        "To create buttons",
+        "To group UI elements together"
+      ],
+      "correct": 3,
+      "explanation": "Panel dùng để nhóm các UI element lại với nhau, thường làm nền/khung chứa."
+    },
+    {
+      "id": "PRU213-B2-UI-15",
+      "type": "choice",
+      "prompt": "Which Unity component is used to create a slider control in the UI?",
+      "options": [
+        "Slider",
+        "ScrollBar",
+        "Range",
+        "ProgressBar"
+      ],
+      "correct": 0,
+      "explanation": "Slider là component UI chuẩn để tạo thanh trượt (chọn giá trị trong khoảng)."
+    },
+    {
+      "id": "PRU213-B2-UI-16",
+      "type": "choice",
+      "prompt": "Which component allows a UI element to be scrollable when content exceeds its boundaries?",
+      "options": [
+        "Grid Layout",
+        "Panel",
+        "Scroll View",
+        "Canvas Group"
+      ],
+      "correct": 2,
+      "explanation": "Scroll View cho phép cuộn nội dung khi nó vượt quá khung hiển thị — dùng cho danh sách dài."
+    },
+    {
+      "id": "PRU213-B2-UI-17",
+      "type": "choice",
+      "prompt": "What is the main purpose of the Canvas Scaler in Unity UI?",
+      "options": [
+        "To manage the drawing order of UI elements",
+        "To handle user input on UI elements",
+        "To automatically adjust UI elements to fit different screen sizes",
+        "To create animation for UI elements"
+      ],
+      "correct": 2,
+      "explanation": "Canvas Scaler tự động điều chỉnh UI để hiển thị đúng tỉ lệ trên nhiều kích thước màn hình khác nhau."
+    },
+    {
+      "id": "PRU213-B2-UI-18",
+      "type": "choice",
+      "prompt": "Which UI component would you use to create a movable window in a game interface?",
+      "options": [
+        "A Canvas with Movable property enabled",
+        "A Button with Navigation disabled",
+        "A Panel with Draggable option checked",
+        "A Drag Area with EventTrigger components"
+      ],
+      "correct": 3,
+      "explanation": "Tạo cửa sổ có thể kéo di chuyển thường dùng EventTrigger gắn trên vùng kéo (Drag Area) để bắt sự kiện kéo-thả. ⚠️ Không có component tên chính xác 'Drag Area' trong Unity — đáp án dựa trên suy luận hợp lý nhất (EventTrigger + kéo thả), nên đối chiếu lại tài liệu môn học.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-UI-19",
+      "type": "choice",
+      "prompt": "What is the role of the Event System in Unity's UI?",
+      "options": [
+        "To create visual effects for UI elements",
+        "To manage and process user input interactions with the UI",
+        "To organize the hierarchy of UI elements",
+        "To optimize UI performance"
+      ],
+      "correct": 1,
+      "explanation": "Event System quản lý và xử lý mọi tương tác input của người dùng với UI (click, drag, hover...)."
+    },
+    {
+      "id": "PRU213-B2-UI-20",
+      "type": "choice",
+      "prompt": "What is the role of the Canvas in Unity's UI system?",
+      "options": [
+        "It's a text component",
+        "It's used to handle user input",
+        "It's the container for all UI elements",
+        "It's used to display images"
+      ],
+      "correct": 2,
+      "explanation": "Canvas là 'vùng chứa' bắt buộc cho mọi UI element trong Unity UI — mọi UI phải nằm trong một Canvas."
+    },
+    {
+      "id": "PRU213-B2-UI-21",
+      "type": "choice",
+      "prompt": "How are UI elements positioned within a Canvas in Unity?",
+      "options": [
+        "Using Layout components only",
+        "Using RectTransform components with anchors and pivots",
+        "Using Transform components with world coordinates",
+        "Using PositionHandler components"
+      ],
+      "correct": 1,
+      "explanation": "UI element được định vị trong Canvas thông qua RectTransform với cơ chế anchor (neo) và pivot (điểm gốc)."
+    },
+    {
+      "id": "PRU213-B2-UI-22",
+      "type": "choice",
+      "prompt": "Which Unity UI component is used to create a toggle (on/off) control?",
+      "options": [
+        "Binary Control",
+        "Toggle",
+        "Checkbox",
+        "Switch"
+      ],
+      "correct": 1,
+      "explanation": "Toggle là component UI chuẩn để tạo control bật/tắt (checkbox)."
+    },
+    {
+      "id": "PRU213-B2-UI-23",
+      "type": "choice",
+      "prompt": "What is the difference between Text and TextMeshPro in Unity?",
+      "options": [
+        "Text is for 3D games while TextMeshPro is for 2D games",
+        "TextMeshPro offers higher quality text rendering and more customization options",
+        "Text is newer than TextMeshPro",
+        "Text supports more languages than TextMeshPro"
+      ],
+      "correct": 1,
+      "explanation": "TextMeshPro (TMP) cho chất lượng hiển thị chữ tốt hơn và nhiều tùy chỉnh hơn so với Text (UI) cũ."
+    },
+    {
+      "id": "PRU213-B2-UI-24",
+      "type": "choice",
+      "prompt": "How do you update UI text content dynamically using a script in Unity?",
+      "options": [
+        "textComponent.text",
+        "textComponent.SetText(\"New Content\");",
+        "textComponent.UpdateText(\"New Content\");",
+        "textComponent.content"
+      ],
+      "correct": 0,
+      "explanation": "Cách đơn giản và phổ biến nhất để cập nhật nội dung text bằng script là gán trực tiếp qua thuộc tính .text. ⚠️ textComponent.SetText(...) (TextMeshPro) cũng là cách hợp lệ để cập nhật text — cả 2 đáp án đều đúng tùy loại Text component dùng.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-UI-25",
+      "type": "choice",
+      "prompt": "What would you set to true to make an object start falling when a button is pressed?",
+      "options": [
+        "Collider.isTrigger",
+        "GameObject.activeInHierarchy",
+        "Rigidbody.useGravity",
+        "Transform.position.y"
+      ],
+      "correct": 2,
+      "explanation": "Đặt Rigidbody.useGravity = true khiến object bắt đầu rơi theo trọng lực."
+    }
+  ]
+}

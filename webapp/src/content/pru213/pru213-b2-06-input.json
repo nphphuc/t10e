@@ -1,0 +1,126 @@
+{
+  "id": "PRU213-B2-INPUT",
+  "title": "PRU213 (Bộ 2) — Input & Navigation",
+  "questions": [
+    {
+      "id": "PRU213-B2-INPUT-01",
+      "type": "choice",
+      "prompt": "What is the main advantage of using the new Input System over the old Input Manager in Unity?",
+      "options": [
+        "Lower memory usage",
+        "Built-in support for custom hardware",
+        "Better support for multiple devices and easier configuration",
+        "Faster processing of inputs"
+      ],
+      "correct": 2,
+      "explanation": "Input System mới hỗ trợ nhiều loại thiết bị tốt hơn và cấu hình linh hoạt hơn Input Manager cũ."
+    },
+    {
+      "id": "PRU213-B2-INPUT-02",
+      "type": "choice",
+      "prompt": "Which Unity feature is used to create virtual on-screen joysticks for mobile games?",
+      "options": [
+        "Mobile Input Module",
+        "Touch Controller",
+        "Virtual Input Manager",
+        "On-Screen Stick Component"
+      ],
+      "correct": 3,
+      "explanation": "Gói Input System của Unity có sẵn component 'On-Screen Stick' để tạo joystick ảo cho game mobile. ⚠️ 'On-Screen Stick'/'On-Screen Button' là component thật trong gói Input System của Unity cho joystick ảo trên mobile, nhưng tên gọi trong đề hơi khác cách Unity đặt tên chính thức.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-INPUT-03",
+      "type": "choice",
+      "prompt": "How do you access the first touch input in Unity?",
+      "options": [
+        "Input.touches[0]",
+        "Input.GetTouch(0)",
+        "Input.GetFirstTouch()",
+        "Input.touchInput(0)"
+      ],
+      "correct": 1,
+      "explanation": "Input.GetTouch(0) trả về touch đầu tiên đang hoạt động trên màn hình cảm ứng. ⚠️ Input.touches[0] cũng là cách hợp lệ (tương đương) để lấy touch đầu tiên trong Input Manager cũ — cả 2 đáp án a và b đều đúng về mặt kỹ thuật.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-INPUT-04",
+      "type": "choice",
+      "prompt": "How do you handle multiple touch inputs simultaneously in Unity?",
+      "options": [
+        "Using Input.GetMultiTouch()",
+        "Using Input.GetAllTouches()",
+        "Using TouchHandler.GetTouches()",
+        "Using a foreach loop with Input.touches"
+      ],
+      "correct": 3,
+      "explanation": "Cách phổ biến để xử lý nhiều touch cùng lúc là lặp qua mảng Input.touches bằng vòng foreach."
+    },
+    {
+      "id": "PRU213-B2-INPUT-05",
+      "type": "choice",
+      "prompt": "What method is used in Unity to determine if a specific key is pressed?",
+      "options": [
+        "Input.GetKeyDown()",
+        "Input.PressKey()",
+        "Input.IsKeyPressed()",
+        "Input.KeyDown()"
+      ],
+      "correct": 0,
+      "explanation": "Trong 4 lựa chọn, chỉ Input.GetKeyDown() là API thật của Unity để kiểm tra phím vừa được nhấn. ⚠️ Input.GetKeyDown() chỉ đúng 1 frame khi vừa nhấn; để kiểm tra phím ĐANG được giữ liên tục phải dùng Input.GetKey(). Trong 4 lựa chọn chỉ GetKeyDown có thật nên chọn theo phương pháp loại trừ.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-INPUT-06",
+      "type": "choice",
+      "prompt": "What is a Navigation Mesh used for in Unity?",
+      "options": [
+        "User interface navigation",
+        "AI pathfinding for non-player characters",
+        "Physics object movement",
+        "Camera movement paths"
+      ],
+      "correct": 1,
+      "explanation": "Navigation Mesh (NavMesh) dùng cho AI pathfinding — giúp NPC tìm đường di chuyển trong scene."
+    },
+    {
+      "id": "PRU213-B2-INPUT-07",
+      "type": "choice",
+      "prompt": "In Unity's Input System, what is the purpose of Input Actions?",
+      "options": [
+        "To define mappings between user inputs and game actions",
+        "To optimize input processing",
+        "To handle multiple player inputs",
+        "To create animation for input feedback"
+      ],
+      "correct": 0,
+      "explanation": "Input Actions định nghĩa ánh xạ giữa input thực tế (phím, nút) và hành động trong game (Jump, Move...)."
+    },
+    {
+      "id": "PRU213-B2-INPUT-08",
+      "type": "choice",
+      "prompt": "Which input handling system in Unity supports VR devices out of the box?",
+      "options": [
+        "Direct Input",
+        "XInput",
+        "Input System (new)",
+        "Input Manager (old)"
+      ],
+      "correct": 2,
+      "explanation": "Input System (mới) của Unity có hỗ trợ sẵn cho thiết bị VR, khác Input Manager cũ."
+    },
+    {
+      "id": "PRU213-B2-INPUT-09",
+      "type": "choice",
+      "prompt": "Which property returns the total number of touches currently active?",
+      "options": [
+        "Input.touchesCount",
+        "Input.touchCount",
+        "Input.touches.length",
+        "Input.GetTouchCount()"
+      ],
+      "correct": 1,
+      "explanation": "Input.touchCount trả về tổng số lượt chạm đang hoạt động."
+    }
+  ]
+}

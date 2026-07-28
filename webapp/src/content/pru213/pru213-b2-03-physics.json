@@ -1,0 +1,559 @@
+{
+  "id": "PRU213-B2-PHYS",
+  "title": "PRU213 (Bộ 2) — Physics: Rigidbody, Collider & Joints",
+  "questions": [
+    {
+      "id": "PRU213-B2-PHYS-01",
+      "type": "choice",
+      "prompt": "Which component is required for physics interactions in Unity?",
+      "options": [
+        "Camera",
+        "Renderer",
+        "Rigidbody",
+        "Script"
+      ],
+      "correct": 2,
+      "explanation": "Rigidbody là component bắt buộc để object tham gia mô phỏng vật lý (chịu lực, va chạm...)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-02",
+      "type": "choice",
+      "prompt": "What is the difference between a Collider and a Rigidbody?",
+      "options": [
+        "Collider defines collision shape, Rigidbody adds physics behavior",
+        "There is no difference",
+        "Collider adds gravity, Rigidbody detects collisions",
+        "Both do the same thing"
+      ],
+      "correct": 0,
+      "explanation": "Collider định nghĩa HÌNH DẠNG va chạm; Rigidbody thêm HÀNH VI vật lý (lực, trọng lực, khối lượng...) — hai vai trò tách biệt và bổ trợ nhau."
+    },
+    {
+      "id": "PRU213-B2-PHYS-03",
+      "type": "choice",
+      "prompt": "What is a Collider in Unity?",
+      "options": [
+        "A component that defines the shape for physical collisions",
+        "A rendering component",
+        "A lighting element",
+        "A type of script"
+      ],
+      "correct": 0,
+      "explanation": "Collider là component định nghĩa hình dạng vật lý dùng để phát hiện va chạm."
+    },
+    {
+      "id": "PRU213-B2-PHYS-04",
+      "type": "choice",
+      "prompt": "Which collider is most efficient for performance?",
+      "options": [
+        "All colliders have the same performance",
+        "Mesh Collider",
+        "Primitive colliders (Box, Sphere, Capsule)",
+        "Compound Colliders"
+      ],
+      "correct": 2,
+      "explanation": "Primitive collider (Box/Sphere/Capsule) tính toán đơn giản, hiệu năng tốt hơn nhiều so với Mesh Collider (tính theo từng tam giác mesh)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-05",
+      "type": "choice",
+      "prompt": "Which type of collider should you use for complex mesh shapes?",
+      "options": [
+        "Capsule Collider",
+        "Box Collider",
+        "Mesh Collider",
+        "Sphere Collider"
+      ],
+      "correct": 2,
+      "explanation": "Mesh Collider dùng chính hình dạng mesh 3D phức tạp làm biên va chạm — phù hợp cho địa hình/vật thể không đối xứng."
+    },
+    {
+      "id": "PRU213-B2-PHYS-06",
+      "type": "choice",
+      "prompt": "What happens when two objects with Rigidbodies and Colliders interact?",
+      "options": [
+        "They disappear",
+        "They collide and respond according to physics",
+        "They pass through each other",
+        "Nothing happens"
+      ],
+      "correct": 1,
+      "explanation": "Khi cả hai object có Rigidbody + Collider, chúng va chạm và phản ứng theo đúng quy luật vật lý (bật lại, dừng, trượt...)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-07",
+      "type": "choice",
+      "prompt": "Which physics property determines if a Rigidbody is affected by gravity?",
+      "options": [
+        "Mass",
+        "Use Gravity checkbox",
+        "Is Kinematic",
+        "Drag"
+      ],
+      "correct": 1,
+      "explanation": "'Use Gravity' checkbox trên Rigidbody quyết định object có chịu tác động trọng lực hay không."
+    },
+    {
+      "id": "PRU213-B2-PHYS-08",
+      "type": "choice",
+      "prompt": "What does setting a Collider as \"Is Trigger\" do?",
+      "options": [
+        "Increases collision force",
+        "Disables the collider",
+        "Allows objects to pass through while still detecting overlap",
+        "Makes it invisible"
+      ],
+      "correct": 2,
+      "explanation": "'Is Trigger' làm Collider không còn chặn vật lý — vật vẫn đi xuyên qua nhưng vẫn phát sự kiện khi có overlap."
+    },
+    {
+      "id": "PRU213-B2-PHYS-09",
+      "type": "choice",
+      "prompt": "What is the purpose of a Sphere Collider?",
+      "options": [
+        "To create spherical objects",
+        "To define a spherical collision boundary",
+        "To render sphere meshes",
+        "To add lighting"
+      ],
+      "correct": 1,
+      "explanation": "Sphere Collider định nghĩa vùng va chạm hình cầu, phù hợp cho object dạng tròn/bóng."
+    },
+    {
+      "id": "PRU213-B2-PHYS-10",
+      "type": "choice",
+      "prompt": "What is the Mass property in a Rigidbody used for?",
+      "options": [
+        "To scale the object",
+        "To determine how forces affect the object",
+        "To set the color",
+        "To enable gravity"
+      ],
+      "correct": 1,
+      "explanation": "Mass quyết định vật nặng/nhẹ ra sao khi chịu lực — cùng một lực, vật khối lượng lớn sẽ di chuyển ít hơn."
+    },
+    {
+      "id": "PRU213-B2-PHYS-11",
+      "type": "choice",
+      "prompt": "What does setting a Rigidbody to \"Is Kinematic\" do?",
+      "options": [
+        "Makes the object unaffected by physics forces (controlled by Transform or animation)",
+        "Makes the object invisible",
+        "Removes all components",
+        "Increases gravity"
+      ],
+      "correct": 0,
+      "explanation": "'Is Kinematic' khiến Rigidbody không còn bị ảnh hưởng bởi lực vật lý — object chỉ di chuyển khi bạn tự set qua Transform/animation."
+    },
+    {
+      "id": "PRU213-B2-PHYS-12",
+      "type": "choice",
+      "prompt": "Which component is required for an object to respond to gravity?",
+      "options": [
+        "Transform",
+        "Rigidbody",
+        "Renderer",
+        "Collider"
+      ],
+      "correct": 1,
+      "explanation": "Cần có Rigidbody để object phản hồi với trọng lực — nếu không có Rigidbody, object 'đứng yên' bất kể trọng lực."
+    },
+    {
+      "id": "PRU213-B2-PHYS-13",
+      "type": "choice",
+      "prompt": "Which function is used to trigger a specific animation in the Animator Controller?",
+      "options": [
+        "StartAnimation()",
+        "SetTrigger()",
+        "PlayAnimation()",
+        "TriggerAnimation()"
+      ],
+      "correct": 1,
+      "explanation": "SetTrigger() trên Animator kích hoạt transition sang animation tương ứng."
+    },
+    {
+      "id": "PRU213-B2-PHYS-14",
+      "type": "choice",
+      "prompt": "What property must be enabled on a Rigidbody for an object to be affected by gravity?",
+      "options": [
+        "useGravity",
+        "Mass",
+        "Is Kinematic",
+        "Drag"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody.useGravity phải được bật (true) để object chịu tác động của trọng lực."
+    },
+    {
+      "id": "PRU213-B2-PHYS-15",
+      "type": "choice",
+      "prompt": "What component is used to adjust friction and bounciness between objects?",
+      "options": [
+        "Shader",
+        "Texture",
+        "Physics Material",
+        "Material"
+      ],
+      "correct": 2,
+      "explanation": "Physics Material điều chỉnh ma sát (friction) và độ nảy (bounciness) giữa các bề mặt va chạm."
+    },
+    {
+      "id": "PRU213-B2-PHYS-16",
+      "type": "choice",
+      "prompt": "What is the primary purpose of a Collider in Unity's physics system?",
+      "options": [
+        "To add gravity to game objects",
+        "To control animation states",
+        "To define the physical boundaries for collision detection",
+        "To render the object on screen"
+      ],
+      "correct": 2,
+      "explanation": "Collider định nghĩa ranh giới vật lý để phát hiện va chạm giữa các object."
+    },
+    {
+      "id": "PRU213-B2-PHYS-17",
+      "type": "choice",
+      "prompt": "How do you create a detection zone that doesn't cause physical collisions?",
+      "options": [
+        "Disable the Collider component",
+        "Remove the Rigidbody",
+        "Enable \"Is Trigger\" on a Collider",
+        "Set the collision layer to \"Ignore Raycast\""
+      ],
+      "correct": 2,
+      "explanation": "Bật 'Is Trigger' trên Collider để tạo vùng phát hiện (detection zone) mà không gây va chạm vật lý thật."
+    },
+    {
+      "id": "PRU213-B2-PHYS-18",
+      "type": "choice",
+      "prompt": "Can Triggers be used within UI elements in Unity?",
+      "options": [
+        "No, triggers only work with 3D objects",
+        "Yes, through the Event System",
+        "Yes, but only with Canvas objects",
+        "No, UI requires a different system"
+      ],
+      "correct": 1,
+      "explanation": "Theo đề (mục điền khuyết cùng chủ đề khẳng định), Event System cho phép Trigger hoạt động với UI element. ⚠️ Về bản chất UI dùng Event System + Graphic Raycaster, không dùng Trigger vật lý thật sự — nhưng đề gốc (câu điền khuyết cùng chủ đề) khẳng định đáp án là 'Event System', nên chọn theo đó cho nhất quán.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-PHYS-19",
+      "type": "choice",
+      "prompt": "A Rigidbody helps Unity calculate collisions more accurately.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody giúp Unity's physics engine tính toán va chạm chính xác hơn (thay vì chỉ dựa vào Transform di chuyển thủ công)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-20",
+      "type": "choice",
+      "prompt": "Which method is recommended for applying physics-based movement to an object?",
+      "options": [
+        "transform.Translate()",
+        "AddForce()",
+        "position",
+        "velocity"
+      ],
+      "correct": 1,
+      "explanation": "AddForce() là cách được khuyến nghị để di chuyển object theo đúng quy luật vật lý (thay vì set trực tiếp position/velocity)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-21",
+      "type": "choice",
+      "prompt": "Which Unity system allows Triggers to be used with UI elements?",
+      "options": [
+        "Event System",
+        "Physics System",
+        "Rigidbody",
+        "Collider System"
+      ],
+      "correct": 0,
+      "explanation": "Event System là hệ thống Unity dùng để cho phép Trigger/sự kiện hoạt động với các UI element."
+    },
+    {
+      "id": "PRU213-B2-PHYS-22",
+      "type": "choice",
+      "prompt": "All colliders must have a Rigidbody attached to function properly.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Collider vẫn hoạt động (chặn va chạm tĩnh) mà không cần Rigidbody — ví dụ tường/mặt đất tĩnh chỉ cần Collider."
+    },
+    {
+      "id": "PRU213-B2-PHYS-23",
+      "type": "choice",
+      "prompt": "Triggers can detect when objects enter their space but don't cause physical reactions.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Trigger phát hiện khi có object đi vào vùng của nó, nhưng không tạo phản ứng vật lý (không chặn/đẩy)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-24",
+      "type": "choice",
+      "prompt": "Using AddForce() is generally better than directly setting velocity for physics simulation.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "AddForce() tôn trọng khối lượng và các lực khác đang tác động, cho chuyển động vật lý tự nhiên hơn so với set velocity trực tiếp."
+    },
+    {
+      "id": "PRU213-B2-PHYS-25",
+      "type": "choice",
+      "prompt": "Name the component that controls how objects are affected by gravity and forces in Unity.",
+      "options": [
+        "Rigidbody",
+        "Collider",
+        "Physics Material",
+        "Transform"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody là component điều khiển cách object chịu tác động của trọng lực và lực trong Unity."
+    },
+    {
+      "id": "PRU213-B2-PHYS-26",
+      "type": "choice",
+      "prompt": "What property must be checked on a Collider to make it function as a trigger rather than a physical collider?",
+      "options": [
+        "Trigger",
+        "Is Kinematic",
+        "Use Gravity",
+        "Interpolate"
+      ],
+      "correct": 0,
+      "explanation": "Thuộc tính 'Is Trigger' trên Collider quyết định nó hoạt động như trigger (bắn sự kiện) thay vì rào cản vật lý."
+    },
+    {
+      "id": "PRU213-B2-PHYS-27",
+      "type": "choice",
+      "prompt": "Which Animator method is used to trigger transitions between animation states?",
+      "options": [
+        "SetBool()",
+        "SetTrigger()",
+        "SetState()",
+        "SetAnimation()"
+      ],
+      "correct": 1,
+      "explanation": "SetTrigger() là phương thức của Animator dùng để kích hoạt transition giữa các animation state."
+    },
+    {
+      "id": "PRU213-B2-PHYS-28",
+      "type": "choice",
+      "prompt": "Which component is necessary to create a door hinge in Unity?",
+      "options": [
+        "Hinge Joint",
+        "Character Joint",
+        "Fixed Joint",
+        "Spring Joint"
+      ],
+      "correct": 0,
+      "explanation": "Hinge Joint mô phỏng bản lề — cần thiết để tạo cửa xoay (door hinge)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-29",
+      "type": "choice",
+      "prompt": "What component would you use to create a swinging door mechanism?",
+      "options": [
+        "Hinge Joint",
+        "Fixed Joint",
+        "Spring Joint",
+        "Character Joint"
+      ],
+      "correct": 0,
+      "explanation": "Hinge Joint là component tạo cơ chế cửa xoay qua lại (swinging door)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-30",
+      "type": "choice",
+      "prompt": "Physics Materials are used to adjust the visual appearance of objects.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Physics Material điều chỉnh ma sát/độ nảy — KHÔNG liên quan tới hình ảnh/màu sắc hiển thị."
+    },
+    {
+      "id": "PRU213-B2-PHYS-31",
+      "type": "choice",
+      "prompt": "Which method is called when two physical Colliders make contact?",
+      "options": [
+        "OnCollisionEnter()",
+        "OnContact()",
+        "OnCollision()",
+        "OnTriggerEnter()"
+      ],
+      "correct": 0,
+      "explanation": "OnCollisionEnter() được gọi khi hai Collider va chạm vật lý thật sự (không phải trigger)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-32",
+      "type": "choice",
+      "prompt": "What is the correct way to apply an impulse force that pushes an object forward?",
+      "options": [
+        "AddForce(Vector3.forward * 10f, ForceMode.Impulse)",
+        "AddForce(Vector3.up * 10f)",
+        "velocity",
+        "Vector3.forward * 10f"
+      ],
+      "correct": 0,
+      "explanation": "AddForce(Vector3.forward * 10f, ForceMode.Impulse) là cú pháp chuẩn để đẩy một lực tức thời (impulse) về phía trước."
+    },
+    {
+      "id": "PRU213-B2-PHYS-33",
+      "type": "choice",
+      "prompt": "How would you typically create a pressure plate that activates when a player stands on it?",
+      "options": [
+        "Using Animation only",
+        "Using Audio Source components",
+        "Using particle effects",
+        "Using a Trigger and OnTriggerEnter/Exit events"
+      ],
+      "correct": 3,
+      "explanation": "Pressure plate (bệ áp lực) thường hiện thực bằng Trigger Collider + sự kiện OnTriggerEnter/OnTriggerExit khi có object đứng lên."
+    },
+    {
+      "id": "PRU213-B2-PHYS-34",
+      "type": "choice",
+      "prompt": "Which joint type simulates a spring force between two objects?",
+      "options": [
+        "Fixed Joint",
+        "Spring Joint",
+        "Character Joint",
+        "Hinge Joint"
+      ],
+      "correct": 1,
+      "explanation": "Spring Joint mô phỏng lực đàn hồi (lò xo) kéo giữa hai object."
+    },
+    {
+      "id": "PRU213-B2-PHYS-35",
+      "type": "choice",
+      "prompt": "A Rigidbody is required for an object to be affected by Unity's physics system.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Cần có Rigidbody để object thực sự tham gia và bị ảnh hưởng bởi hệ mô phỏng vật lý của Unity."
+    },
+    {
+      "id": "PRU213-B2-PHYS-36",
+      "type": "choice",
+      "prompt": "Which component in Unity allows an object to be affected by gravity and forces?",
+      "options": [
+        "Renderer",
+        "Transform",
+        "Rigidbody",
+        "Collider"
+      ],
+      "correct": 2,
+      "explanation": "Rigidbody là component cho phép object chịu tác động của trọng lực và các lực vật lý khác."
+    },
+    {
+      "id": "PRU213-B2-PHYS-37",
+      "type": "choice",
+      "prompt": "Spring Joints can be used to create rope-like mechanisms in Unity.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Spring Joint có thể dùng để mô phỏng cơ chế dạng dây/rope nhờ lực đàn hồi kéo giữa các điểm nối."
+    },
+    {
+      "id": "PRU213-B2-PHYS-38",
+      "type": "choice",
+      "prompt": "Constraints in Rigidbody can be used to limit movement along specific axes.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Constraints trên Rigidbody (Freeze Position/Rotation theo từng trục X/Y/Z) dùng để giới hạn chuyển động theo trục cụ thể."
+    },
+    {
+      "id": "PRU213-B2-PHYS-39",
+      "type": "choice",
+      "prompt": "Which of these is NOT a fundamental component of Unity's physics system?",
+      "options": [
+        "Particle System",
+        "Collider",
+        "Joints",
+        "Rigidbody"
+      ],
+      "correct": 0,
+      "explanation": "Particle System không phải thành phần cốt lõi của hệ physics — nó thuộc hệ hiệu ứng hình ảnh (VFX), khác Collider/Joints/Rigidbody."
+    },
+    {
+      "id": "PRU213-B2-PHYS-40",
+      "type": "choice",
+      "prompt": "OnCollisionEnter() and OnTriggerEnter() can be used interchangeably.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "OnCollisionEnter() dùng cho va chạm vật lý thật; OnTriggerEnter() dùng cho vùng trigger — hai cơ chế khác nhau, không thể dùng thay thế nhau."
+    },
+    {
+      "id": "PRU213-B2-PHYS-41",
+      "type": "choice",
+      "prompt": "Which parameter is passed to the OnTriggerEnter method?",
+      "options": [
+        "Collider",
+        "GameObject",
+        "Transform",
+        "Collision"
+      ],
+      "correct": 0,
+      "explanation": "Phương thức OnTriggerEnter(Collider other) nhận tham số kiểu Collider của object vừa đi vào vùng trigger."
+    },
+    {
+      "id": "PRU213-B2-PHYS-42",
+      "type": "choice",
+      "prompt": "Colliders affect how an object responds to gravity in Unity.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Collider chỉ định nghĩa hình dạng va chạm, không quyết định object có chịu trọng lực hay không — đó là vai trò của Rigidbody (useGravity)."
+    },
+    {
+      "id": "PRU213-B2-PHYS-43",
+      "type": "choice",
+      "prompt": "What is the primary difference between a Collision and a Trigger in Unity?",
+      "options": [
+        "Collisions are faster to process than Triggers",
+        "Collisions only work with specific object types",
+        "Triggers can only be used with static objects",
+        "Triggers detect collisions without causing physical interaction"
+      ],
+      "correct": 3,
+      "explanation": "Collision (va chạm vật lý thật) sẽ chặn object; Trigger chỉ phát hiện việc đi qua mà không gây phản ứng vật lý."
+    },
+    {
+      "id": "PRU213-B2-PHYS-44",
+      "type": "choice",
+      "prompt": "What allows animations to trigger methods at specific points in their timeline?",
+      "options": [
+        "Animation Events",
+        "Animation Callbacks",
+        "Animation Signals",
+        "Animation Triggers"
+      ],
+      "correct": 0,
+      "explanation": "Animation Event cho phép gọi hàm cụ thể tại đúng thời điểm được đánh dấu trên timeline của animation clip."
+    }
+  ]
+}

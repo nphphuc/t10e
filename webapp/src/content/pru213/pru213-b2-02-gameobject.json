@@ -1,0 +1,240 @@
+{
+  "id": "PRU213-B2-GO",
+  "title": "PRU213 (Bộ 2) — GameObject, Component & Transform",
+  "questions": [
+    {
+      "id": "PRU213-B2-GO-01",
+      "type": "choice",
+      "prompt": "What does the Transform component of a GameObject control?",
+      "options": [
+        "Position, Rotation, and Scale",
+        "Script execution",
+        "Physics interactions",
+        "Material properties"
+      ],
+      "correct": 0,
+      "explanation": "Transform luôn gồm 3 thuộc tính: Position (vị trí), Rotation (xoay), Scale (tỉ lệ)."
+    },
+    {
+      "id": "PRU213-B2-GO-02",
+      "type": "choice",
+      "prompt": "What is a Prefab in Unity?",
+      "options": [
+        "A script template",
+        "A type of component",
+        "A reusable GameObject template stored as an asset",
+        "A scene file"
+      ],
+      "correct": 2,
+      "explanation": "Prefab là một GameObject template được lưu thành asset, dùng để tái sử dụng nhiều lần trong scene."
+    },
+    {
+      "id": "PRU213-B2-GO-03",
+      "type": "choice",
+      "prompt": "What is a Component in Unity?",
+      "options": [
+        "A functional module that can be attached to GameObjects to add behavior",
+        "A type of GameObject",
+        "A scene element",
+        "A project folder"
+      ],
+      "correct": 0,
+      "explanation": "Component là module chức năng gắn vào GameObject để thêm hành vi (Transform, Rigidbody, Script... đều là component)."
+    },
+    {
+      "id": "PRU213-B2-GO-04",
+      "type": "choice",
+      "prompt": "What is a GameObject in Unity?",
+      "options": [
+        "The fundamental object in Unity scenes that can represent characters, props, scenery, etc.",
+        "A Unity editor window",
+        "A piece of code",
+        "A type of asset file"
+      ],
+      "correct": 0,
+      "explanation": "GameObject là đối tượng nền tảng trong Unity scene, đại diện cho nhân vật, vật phẩm, khung cảnh..."
+    },
+    {
+      "id": "PRU213-B2-GO-05",
+      "type": "choice",
+      "prompt": "What are the three main properties of the Transform component?",
+      "options": [
+        "X, Y, and Z coordinates only",
+        "Position, Rotation, and Scale",
+        "Width, Height, and Depth",
+        "Mass, Velocity, and Force"
+      ],
+      "correct": 1,
+      "explanation": "Ba thuộc tính chính của Transform: Position, Rotation, Scale."
+    },
+    {
+      "id": "PRU213-B2-GO-06",
+      "type": "choice",
+      "prompt": "Can a single GameObject have multiple components?",
+      "options": [
+        "Only components of the same type",
+        "Only three components maximum",
+        "No, only one component per GameObject",
+        "Yes, GameObjects can have multiple components"
+      ],
+      "correct": 3,
+      "explanation": "Một GameObject có thể gắn nhiều component khác nhau cùng lúc (Transform + Rigidbody + Script + ...)."
+    },
+    {
+      "id": "PRU213-B2-GO-07",
+      "type": "choice",
+      "prompt": "What is a Scene in Unity?",
+      "options": [
+        "A texture asset",
+        "A collection of GameObjects that represents a level or area in your game",
+        "A script file",
+        "A type of component"
+      ],
+      "correct": 1,
+      "explanation": "Scene là một tập hợp GameObject đại diện cho một màn/khu vực trong game."
+    },
+    {
+      "id": "PRU213-B2-GO-08",
+      "type": "choice",
+      "prompt": "What is the purpose of a Material in Unity?",
+      "options": [
+        "To manage scripts",
+        "To store mesh data",
+        "To define the surface properties and appearance of objects",
+        "To control physics"
+      ],
+      "correct": 2,
+      "explanation": "Material định nghĩa bề mặt và ngoại hình (màu, texture, độ bóng...) của object."
+    },
+    {
+      "id": "PRU213-B2-GO-09",
+      "type": "choice",
+      "prompt": "Which component must every GameObject have?",
+      "options": [
+        "Rigidbody",
+        "Collider",
+        "Transform",
+        "Renderer"
+      ],
+      "correct": 2,
+      "explanation": "Mọi GameObject luôn có sẵn Transform — đây là component duy nhất bắt buộc, không thể gỡ bỏ."
+    },
+    {
+      "id": "PRU213-B2-GO-10",
+      "type": "choice",
+      "prompt": "What is the purpose of the Camera component?",
+      "options": [
+        "To render the scene from a specific viewpoint",
+        "To detect collisions",
+        "To add lighting to the scene",
+        "To play audio"
+      ],
+      "correct": 0,
+      "explanation": "Camera component render scene từ một góc nhìn cụ thể để hiển thị lên màn hình người chơi."
+    },
+    {
+      "id": "PRU213-B2-GO-11",
+      "type": "choice",
+      "prompt": "What does parenting mean in Unity's Hierarchy?",
+      "options": [
+        "Merging two objects",
+        "Deleting child objects",
+        "Creating a relationship where child objects move with their parent",
+        "Copying object properties"
+      ],
+      "correct": 2,
+      "explanation": "Parenting tạo quan hệ cha-con: khi cha di chuyển/xoay/scale, các con đi theo tương ứng."
+    },
+    {
+      "id": "PRU213-B2-GO-12",
+      "type": "choice",
+      "prompt": "How do you add a component to a GameObject?",
+      "options": [
+        "Select GameObject > Inspector > Add Component button",
+        "Tools > Component Manager",
+        "File > Add Component",
+        "Edit > Insert Component"
+      ],
+      "correct": 0,
+      "explanation": "Thêm component: chọn GameObject > vào Inspector > bấm nút 'Add Component'."
+    },
+    {
+      "id": "PRU213-B2-GO-13",
+      "type": "choice",
+      "prompt": "Which component is responsible for rendering a GameObject visible?",
+      "options": [
+        "Transform",
+        "Rigidbody",
+        "Collider",
+        "Renderer (MeshRenderer, SpriteRenderer, etc.)"
+      ],
+      "correct": 3,
+      "explanation": "Renderer (MeshRenderer, SpriteRenderer...) là component chịu trách nhiệm khiến object thực sự hiển thị lên màn hình."
+    },
+    {
+      "id": "PRU213-B2-GO-14",
+      "type": "choice",
+      "prompt": "What does the MeshFilter component do?",
+      "options": [
+        "Applies materials to objects",
+        "Holds the mesh geometry for 3D objects",
+        "Detects collisions",
+        "Controls physics"
+      ],
+      "correct": 1,
+      "explanation": "MeshFilter lưu trữ dữ liệu hình học (mesh) của object 3D — kết hợp với MeshRenderer để hiển thị."
+    },
+    {
+      "id": "PRU213-B2-GO-15",
+      "type": "choice",
+      "prompt": "What happens when you move a parent GameObject?",
+      "options": [
+        "Child objects move in the opposite direction",
+        "Only the parent moves",
+        "Nothing happens",
+        "All child GameObjects move with it"
+      ],
+      "correct": 3,
+      "explanation": "Khi cha di chuyển, TẤT CẢ GameObject con (children) đều di chuyển theo — đây là bản chất của quan hệ parent-child."
+    },
+    {
+      "id": "PRU213-B2-GO-16",
+      "type": "choice",
+      "prompt": "What are the four states of a Button component in Unity?",
+      "options": [
+        "Idle, Hover, Click, Release",
+        "Active, Inactive, Hover, Click",
+        "Enabled, Disabled, Selected, Deselected",
+        "Normal, Highlighted, Pressed, Disabled"
+      ],
+      "correct": 3,
+      "explanation": "Button có 4 trạng thái hiển thị: Normal, Highlighted, Pressed, Disabled."
+    },
+    {
+      "id": "PRU213-B2-GO-17",
+      "type": "choice",
+      "prompt": "What is the purpose of the RecTransform component in Unity UI?",
+      "options": [
+        "To position, scale, and rotate UI elements",
+        "To render UI graphics",
+        "To process UI input events",
+        "To handle UI animations"
+      ],
+      "correct": 0,
+      "explanation": "RectTransform thay thế Transform cho UI, quản lý vị trí/scale/xoay của UI element theo hệ anchor-pivot."
+    },
+    {
+      "id": "PRU213-B2-GO-18",
+      "type": "choice",
+      "prompt": "What is the primary purpose of the Sprite Renderer component in Unity?",
+      "options": [
+        "To animate 3D models",
+        "To render UI elements",
+        "To display 2D sprites in the game world",
+        "To create lighting effects"
+      ],
+      "correct": 2,
+      "explanation": "Sprite Renderer hiển thị hình ảnh 2D (sprite) trong không gian game — dùng cho game 2D."
+    }
+  ]
+}

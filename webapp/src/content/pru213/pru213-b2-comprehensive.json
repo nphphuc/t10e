@@ -1,0 +1,1935 @@
+{
+  "id": "PRU213-B2-COMPREHENSIVE",
+  "title": "PRU213 (Bộ 2) — Quiz Tổng Hợp (150 câu)",
+  "questions": [
+    {
+      "id": "PRU213-B2-ALL-001",
+      "type": "choice",
+      "prompt": "Which tool is used for selecting, moving, rotating, and scaling objects in Unity?",
+      "options": [
+        "Physics Tools",
+        "Transform Tools",
+        "Hierarchy Tools",
+        "Shader Tools"
+      ],
+      "correct": 1,
+      "explanation": "Transform Tools (Move/Rotate/Scale/Rect) là bộ công cụ chuẩn để chọn và biến đổi object trong Scene View."
+    },
+    {
+      "id": "PRU213-B2-ALL-002",
+      "type": "choice",
+      "prompt": "What is the purpose of the Scene View in Unity?",
+      "options": [
+        "To edit properties of selected GameObjects",
+        "To preview the game as a player would see it",
+        "To display a hierarchical list of GameObjects",
+        "To visually manipulate and navigate the game world"
+      ],
+      "correct": 3,
+      "explanation": "Scene View là nơi bạn thao tác trực quan: di chuyển, xoay, phóng to/thu nhỏ, sắp đặt object trong không gian game."
+    },
+    {
+      "id": "PRU213-B2-ALL-003",
+      "type": "choice",
+      "prompt": "What is the function of the Inspector Window in Unity?",
+      "options": [
+        "To view and edit properties of selected GameObjects",
+        "To display a list of all objects in a scene",
+        "To navigate and manipulate GameObjects visually",
+        "To organize assets within a project"
+      ],
+      "correct": 0,
+      "explanation": "Inspector Window hiển thị và cho phép chỉnh mọi property/component của GameObject đang được chọn."
+    },
+    {
+      "id": "PRU213-B2-ALL-004",
+      "type": "choice",
+      "prompt": "What is Unity primarily used for?",
+      "options": [
+        "Word processing",
+        "Game development",
+        "Video editing",
+        "Database management"
+      ],
+      "correct": 1,
+      "explanation": "Unity là game engine — công cụ chính để phát triển game."
+    },
+    {
+      "id": "PRU213-B2-ALL-005",
+      "type": "choice",
+      "prompt": "Which Unity window displays all GameObjects in the current scene?",
+      "options": [
+        "Game View",
+        "Inspector Window",
+        "Project Window",
+        "Hierarchy Window"
+      ],
+      "correct": 3,
+      "explanation": "Hierarchy Window liệt kê toàn bộ GameObject đang có trong scene hiện tại, theo cấu trúc cha-con."
+    },
+    {
+      "id": "PRU213-B2-ALL-006",
+      "type": "choice",
+      "prompt": "Which coordinate space is relative to the GameObject's parent?",
+      "options": [
+        "Local Coordinate Space",
+        "Physics Space",
+        "World Coordinate Space",
+        "Global Coordinate System"
+      ],
+      "correct": 0,
+      "explanation": "Local Coordinate Space tính theo gốc tọa độ của GameObject cha; World Space mới là hệ tọa độ tuyệt đối toàn scene."
+    },
+    {
+      "id": "PRU213-B2-ALL-007",
+      "type": "choice",
+      "prompt": "Which of the following statements about the Game View is TRUE?",
+      "options": [
+        "It displays assets and scripts available in the project.",
+        "It provides a list of all GameObjects in the scene.",
+        "It allows users to edit GameObjects directly.",
+        "It shows what the player will see when playing the game."
+      ],
+      "correct": 3,
+      "explanation": "Game View mô phỏng chính xác những gì người chơi sẽ thấy khi chạy game — khác Scene View (view của người làm game)."
+    },
+    {
+      "id": "PRU213-B2-ALL-008",
+      "type": "choice",
+      "prompt": "Which of the following platforms is NOT natively supported by Unity?",
+      "options": [
+        "PC",
+        "Android",
+        "iOS",
+        "Mainframe computers"
+      ],
+      "correct": 3,
+      "explanation": "Unity hỗ trợ PC, mobile (Android/iOS), console, WebGL... nhưng không hỗ trợ build cho Mainframe computers."
+    },
+    {
+      "id": "PRU213-B2-ALL-009",
+      "type": "choice",
+      "prompt": "What file extension do Unity scenes use?",
+      "options": [
+        ".unity",
+        ".unityproj",
+        ".scene",
+        ".unity (scene files)"
+      ],
+      "correct": 0,
+      "explanation": "File scene của Unity có đuôi .unity."
+    },
+    {
+      "id": "PRU213-B2-ALL-010",
+      "type": "choice",
+      "prompt": "What does \"Build Settings\" allow you to do with scenes?",
+      "options": [
+        "Edit scene lighting",
+        "Delete unused scenes",
+        "Add scenes to the build and set build order",
+        "Create new scenes"
+      ],
+      "correct": 2,
+      "explanation": "Build Settings cho phép thêm scene vào danh sách build và sắp xếp thứ tự load của chúng."
+    },
+    {
+      "id": "PRU213-B2-ALL-011",
+      "type": "choice",
+      "prompt": "How can you switch between multiple scenes in the Unity Editor?",
+      "options": [
+        "Cannot switch scenes in editor",
+        "Double-click the scene in the Project Window",
+        "File > Switch Scene",
+        "View > Change Scene"
+      ],
+      "correct": 1,
+      "explanation": "Trong Editor, chuyển scene bằng cách double-click file scene trong Project Window (không có menu 'Switch Scene' riêng)."
+    },
+    {
+      "id": "PRU213-B2-ALL-012",
+      "type": "choice",
+      "prompt": "What is the keyboard shortcut to enter Play mode in Unity?",
+      "options": [
+        "F5",
+        "Ctrl+P (Windows) or Cmd+P (Mac)",
+        "Spacebar",
+        "Ctrl+R"
+      ],
+      "correct": 1,
+      "explanation": "Unity mặc định gán Ctrl+P (Windows)/Cmd+P (Mac) để bật/tắt Play mode. ⚠️ Unity mặc định gán Ctrl+P (Windows)/Cmd+P (Mac) để vào Play mode, nhưng một số bản Unity/layout có thể khác — nên kiểm tra lại trong Edit > Shortcuts.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-013",
+      "type": "choice",
+      "prompt": "What does snapping do in Unity?",
+      "options": [
+        "Creates duplicates of objects",
+        "Deletes objects automatically",
+        "Rotates objects 90 degrees",
+        "Aligns objects to a grid or incremental values"
+      ],
+      "correct": 3,
+      "explanation": "Snapping giúp căn object vào lưới hoặc bước giá trị cố định, hỗ trợ đặt vị trí chính xác."
+    },
+    {
+      "id": "PRU213-B2-ALL-014",
+      "type": "choice",
+      "prompt": "How do you duplicate a GameObject in Unity?",
+      "options": [
+        "Ctrl+C then Ctrl+V",
+        "Right-click > Copy",
+        "Ctrl+D (Windows) or Cmd+D (Mac)",
+        "Alt+D"
+      ],
+      "correct": 2,
+      "explanation": "Ctrl+D (Windows)/Cmd+D (Mac) là phím tắt nhân bản GameObject đang chọn."
+    },
+    {
+      "id": "PRU213-B2-ALL-015",
+      "type": "choice",
+      "prompt": "What is the purpose of the Lighting settings in a scene?",
+      "options": [
+        "To organize GameObjects",
+        "To control illumination, shadows, and ambient lighting",
+        "To add physics",
+        "To manage audio"
+      ],
+      "correct": 1,
+      "explanation": "Lighting settings quản lý ánh sáng, đổ bóng và ánh sáng môi trường (ambient) của scene."
+    },
+    {
+      "id": "PRU213-B2-ALL-016",
+      "type": "choice",
+      "prompt": "Which view allows you to pan, zoom, and rotate around your scene?",
+      "options": [
+        "Project View",
+        "Scene View",
+        "Game View",
+        "Inspector View"
+      ],
+      "correct": 1,
+      "explanation": "Scene View cho phép pan/zoom/xoay góc nhìn để quan sát và chỉnh sửa scene."
+    },
+    {
+      "id": "PRU213-B2-ALL-017",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'W' in Unity?",
+      "options": [
+        "Move Tool",
+        "Rotate Tool",
+        "Rect Tool",
+        "Scale Tool"
+      ],
+      "correct": 0,
+      "explanation": "Phím tắt 'W' kích hoạt Move Tool (di chuyển); E = Rotate, R = Scale, T = Rect."
+    },
+    {
+      "id": "PRU213-B2-ALL-018",
+      "type": "choice",
+      "prompt": "Which window in Unity is used to manage project assets like scripts, textures, and models?",
+      "options": [
+        "Hierarchy Window",
+        "Console Window",
+        "Inspector Window",
+        "Project Window"
+      ],
+      "correct": 3,
+      "explanation": "Project Window quản lý toàn bộ asset của dự án: script, texture, model, prefab..."
+    },
+    {
+      "id": "PRU213-B2-ALL-019",
+      "type": "choice",
+      "prompt": "What does the Console Window display in Unity?",
+      "options": [
+        "Error messages, warnings, and debug logs",
+        "Project assets",
+        "Scene hierarchy",
+        "GameObject properties"
+      ],
+      "correct": 0,
+      "explanation": "Console Window hiển thị log lỗi (error), cảnh báo (warning), và debug log từ script."
+    },
+    {
+      "id": "PRU213-B2-ALL-020",
+      "type": "choice",
+      "prompt": "How do you create a new Scene in Unity?",
+      "options": [
+        "File > New Scene or Ctrl+N",
+        "Tools > Scene Manager",
+        "GameObject > New Scene",
+        "Edit > Create Scene"
+      ],
+      "correct": 0,
+      "explanation": "Tạo scene mới qua File > New Scene hoặc phím tắt Ctrl+N."
+    },
+    {
+      "id": "PRU213-B2-ALL-021",
+      "type": "choice",
+      "prompt": "How can you create a new empty GameObject in Unity?",
+      "options": [
+        "File > New GameObject",
+        "Tools > Create Object",
+        "Edit > Add Object",
+        "Right-click in Hierarchy > Create Empty or GameObject > Create Empty"
+      ],
+      "correct": 3,
+      "explanation": "Tạo GameObject rỗng qua chuột phải trong Hierarchy > Create Empty, hoặc menu GameObject > Create Empty."
+    },
+    {
+      "id": "PRU213-B2-ALL-022",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'E' in Unity?",
+      "options": [
+        "Scale Tool",
+        "Hand Tool",
+        "Rotate Tool",
+        "Move Tool"
+      ],
+      "correct": 2,
+      "explanation": "Phím tắt 'E' kích hoạt Rotate Tool (xoay object)."
+    },
+    {
+      "id": "PRU213-B2-ALL-023",
+      "type": "choice",
+      "prompt": "Which tool is represented by the shortcut key 'R' in Unity?",
+      "options": [
+        "Scale Tool",
+        "View Tool",
+        "Move Tool",
+        "Rotate Tool"
+      ],
+      "correct": 3,
+      "explanation": "Phím tắt 'R' kích hoạt Scale Tool (co giãn object)."
+    },
+    {
+      "id": "PRU213-B2-ALL-024",
+      "type": "choice",
+      "prompt": "What does the Transform component of a GameObject control?",
+      "options": [
+        "Position, Rotation, and Scale",
+        "Script execution",
+        "Physics interactions",
+        "Material properties"
+      ],
+      "correct": 0,
+      "explanation": "Transform luôn gồm 3 thuộc tính: Position (vị trí), Rotation (xoay), Scale (tỉ lệ)."
+    },
+    {
+      "id": "PRU213-B2-ALL-025",
+      "type": "choice",
+      "prompt": "What is a Prefab in Unity?",
+      "options": [
+        "A script template",
+        "A type of component",
+        "A reusable GameObject template stored as an asset",
+        "A scene file"
+      ],
+      "correct": 2,
+      "explanation": "Prefab là một GameObject template được lưu thành asset, dùng để tái sử dụng nhiều lần trong scene."
+    },
+    {
+      "id": "PRU213-B2-ALL-026",
+      "type": "choice",
+      "prompt": "What is a Component in Unity?",
+      "options": [
+        "A functional module that can be attached to GameObjects to add behavior",
+        "A type of GameObject",
+        "A scene element",
+        "A project folder"
+      ],
+      "correct": 0,
+      "explanation": "Component là module chức năng gắn vào GameObject để thêm hành vi (Transform, Rigidbody, Script... đều là component)."
+    },
+    {
+      "id": "PRU213-B2-ALL-027",
+      "type": "choice",
+      "prompt": "What is a GameObject in Unity?",
+      "options": [
+        "The fundamental object in Unity scenes that can represent characters, props, scenery, etc.",
+        "A Unity editor window",
+        "A piece of code",
+        "A type of asset file"
+      ],
+      "correct": 0,
+      "explanation": "GameObject là đối tượng nền tảng trong Unity scene, đại diện cho nhân vật, vật phẩm, khung cảnh..."
+    },
+    {
+      "id": "PRU213-B2-ALL-028",
+      "type": "choice",
+      "prompt": "What are the three main properties of the Transform component?",
+      "options": [
+        "X, Y, and Z coordinates only",
+        "Position, Rotation, and Scale",
+        "Width, Height, and Depth",
+        "Mass, Velocity, and Force"
+      ],
+      "correct": 1,
+      "explanation": "Ba thuộc tính chính của Transform: Position, Rotation, Scale."
+    },
+    {
+      "id": "PRU213-B2-ALL-029",
+      "type": "choice",
+      "prompt": "Can a single GameObject have multiple components?",
+      "options": [
+        "Only components of the same type",
+        "Only three components maximum",
+        "No, only one component per GameObject",
+        "Yes, GameObjects can have multiple components"
+      ],
+      "correct": 3,
+      "explanation": "Một GameObject có thể gắn nhiều component khác nhau cùng lúc (Transform + Rigidbody + Script + ...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-030",
+      "type": "choice",
+      "prompt": "What is a Scene in Unity?",
+      "options": [
+        "A texture asset",
+        "A collection of GameObjects that represents a level or area in your game",
+        "A script file",
+        "A type of component"
+      ],
+      "correct": 1,
+      "explanation": "Scene là một tập hợp GameObject đại diện cho một màn/khu vực trong game."
+    },
+    {
+      "id": "PRU213-B2-ALL-031",
+      "type": "choice",
+      "prompt": "What is the purpose of a Material in Unity?",
+      "options": [
+        "To manage scripts",
+        "To store mesh data",
+        "To define the surface properties and appearance of objects",
+        "To control physics"
+      ],
+      "correct": 2,
+      "explanation": "Material định nghĩa bề mặt và ngoại hình (màu, texture, độ bóng...) của object."
+    },
+    {
+      "id": "PRU213-B2-ALL-032",
+      "type": "choice",
+      "prompt": "Which component must every GameObject have?",
+      "options": [
+        "Rigidbody",
+        "Collider",
+        "Transform",
+        "Renderer"
+      ],
+      "correct": 2,
+      "explanation": "Mọi GameObject luôn có sẵn Transform — đây là component duy nhất bắt buộc, không thể gỡ bỏ."
+    },
+    {
+      "id": "PRU213-B2-ALL-033",
+      "type": "choice",
+      "prompt": "What is the purpose of the Camera component?",
+      "options": [
+        "To render the scene from a specific viewpoint",
+        "To detect collisions",
+        "To add lighting to the scene",
+        "To play audio"
+      ],
+      "correct": 0,
+      "explanation": "Camera component render scene từ một góc nhìn cụ thể để hiển thị lên màn hình người chơi."
+    },
+    {
+      "id": "PRU213-B2-ALL-034",
+      "type": "choice",
+      "prompt": "What does parenting mean in Unity's Hierarchy?",
+      "options": [
+        "Merging two objects",
+        "Deleting child objects",
+        "Creating a relationship where child objects move with their parent",
+        "Copying object properties"
+      ],
+      "correct": 2,
+      "explanation": "Parenting tạo quan hệ cha-con: khi cha di chuyển/xoay/scale, các con đi theo tương ứng."
+    },
+    {
+      "id": "PRU213-B2-ALL-035",
+      "type": "choice",
+      "prompt": "How do you add a component to a GameObject?",
+      "options": [
+        "Select GameObject > Inspector > Add Component button",
+        "Tools > Component Manager",
+        "File > Add Component",
+        "Edit > Insert Component"
+      ],
+      "correct": 0,
+      "explanation": "Thêm component: chọn GameObject > vào Inspector > bấm nút 'Add Component'."
+    },
+    {
+      "id": "PRU213-B2-ALL-036",
+      "type": "choice",
+      "prompt": "Which component is responsible for rendering a GameObject visible?",
+      "options": [
+        "Transform",
+        "Rigidbody",
+        "Collider",
+        "Renderer (MeshRenderer, SpriteRenderer, etc.)"
+      ],
+      "correct": 3,
+      "explanation": "Renderer (MeshRenderer, SpriteRenderer...) là component chịu trách nhiệm khiến object thực sự hiển thị lên màn hình."
+    },
+    {
+      "id": "PRU213-B2-ALL-037",
+      "type": "choice",
+      "prompt": "What does the MeshFilter component do?",
+      "options": [
+        "Applies materials to objects",
+        "Holds the mesh geometry for 3D objects",
+        "Detects collisions",
+        "Controls physics"
+      ],
+      "correct": 1,
+      "explanation": "MeshFilter lưu trữ dữ liệu hình học (mesh) của object 3D — kết hợp với MeshRenderer để hiển thị."
+    },
+    {
+      "id": "PRU213-B2-ALL-038",
+      "type": "choice",
+      "prompt": "What happens when you move a parent GameObject?",
+      "options": [
+        "Child objects move in the opposite direction",
+        "Only the parent moves",
+        "Nothing happens",
+        "All child GameObjects move with it"
+      ],
+      "correct": 3,
+      "explanation": "Khi cha di chuyển, TẤT CẢ GameObject con (children) đều di chuyển theo — đây là bản chất của quan hệ parent-child."
+    },
+    {
+      "id": "PRU213-B2-ALL-039",
+      "type": "choice",
+      "prompt": "What are the four states of a Button component in Unity?",
+      "options": [
+        "Idle, Hover, Click, Release",
+        "Active, Inactive, Hover, Click",
+        "Enabled, Disabled, Selected, Deselected",
+        "Normal, Highlighted, Pressed, Disabled"
+      ],
+      "correct": 3,
+      "explanation": "Button có 4 trạng thái hiển thị: Normal, Highlighted, Pressed, Disabled."
+    },
+    {
+      "id": "PRU213-B2-ALL-040",
+      "type": "choice",
+      "prompt": "What is the purpose of the RecTransform component in Unity UI?",
+      "options": [
+        "To position, scale, and rotate UI elements",
+        "To render UI graphics",
+        "To process UI input events",
+        "To handle UI animations"
+      ],
+      "correct": 0,
+      "explanation": "RectTransform thay thế Transform cho UI, quản lý vị trí/scale/xoay của UI element theo hệ anchor-pivot."
+    },
+    {
+      "id": "PRU213-B2-ALL-041",
+      "type": "choice",
+      "prompt": "What is the primary purpose of the Sprite Renderer component in Unity?",
+      "options": [
+        "To animate 3D models",
+        "To render UI elements",
+        "To display 2D sprites in the game world",
+        "To create lighting effects"
+      ],
+      "correct": 2,
+      "explanation": "Sprite Renderer hiển thị hình ảnh 2D (sprite) trong không gian game — dùng cho game 2D."
+    },
+    {
+      "id": "PRU213-B2-ALL-042",
+      "type": "choice",
+      "prompt": "Which component is required for physics interactions in Unity?",
+      "options": [
+        "Camera",
+        "Renderer",
+        "Rigidbody",
+        "Script"
+      ],
+      "correct": 2,
+      "explanation": "Rigidbody là component bắt buộc để object tham gia mô phỏng vật lý (chịu lực, va chạm...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-043",
+      "type": "choice",
+      "prompt": "What is the difference between a Collider and a Rigidbody?",
+      "options": [
+        "Collider defines collision shape, Rigidbody adds physics behavior",
+        "There is no difference",
+        "Collider adds gravity, Rigidbody detects collisions",
+        "Both do the same thing"
+      ],
+      "correct": 0,
+      "explanation": "Collider định nghĩa HÌNH DẠNG va chạm; Rigidbody thêm HÀNH VI vật lý (lực, trọng lực, khối lượng...) — hai vai trò tách biệt và bổ trợ nhau."
+    },
+    {
+      "id": "PRU213-B2-ALL-044",
+      "type": "choice",
+      "prompt": "What is a Collider in Unity?",
+      "options": [
+        "A component that defines the shape for physical collisions",
+        "A rendering component",
+        "A lighting element",
+        "A type of script"
+      ],
+      "correct": 0,
+      "explanation": "Collider là component định nghĩa hình dạng vật lý dùng để phát hiện va chạm."
+    },
+    {
+      "id": "PRU213-B2-ALL-045",
+      "type": "choice",
+      "prompt": "Which collider is most efficient for performance?",
+      "options": [
+        "All colliders have the same performance",
+        "Mesh Collider",
+        "Primitive colliders (Box, Sphere, Capsule)",
+        "Compound Colliders"
+      ],
+      "correct": 2,
+      "explanation": "Primitive collider (Box/Sphere/Capsule) tính toán đơn giản, hiệu năng tốt hơn nhiều so với Mesh Collider (tính theo từng tam giác mesh)."
+    },
+    {
+      "id": "PRU213-B2-ALL-046",
+      "type": "choice",
+      "prompt": "Which type of collider should you use for complex mesh shapes?",
+      "options": [
+        "Capsule Collider",
+        "Box Collider",
+        "Mesh Collider",
+        "Sphere Collider"
+      ],
+      "correct": 2,
+      "explanation": "Mesh Collider dùng chính hình dạng mesh 3D phức tạp làm biên va chạm — phù hợp cho địa hình/vật thể không đối xứng."
+    },
+    {
+      "id": "PRU213-B2-ALL-047",
+      "type": "choice",
+      "prompt": "What happens when two objects with Rigidbodies and Colliders interact?",
+      "options": [
+        "They disappear",
+        "They collide and respond according to physics",
+        "They pass through each other",
+        "Nothing happens"
+      ],
+      "correct": 1,
+      "explanation": "Khi cả hai object có Rigidbody + Collider, chúng va chạm và phản ứng theo đúng quy luật vật lý (bật lại, dừng, trượt...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-048",
+      "type": "choice",
+      "prompt": "Which physics property determines if a Rigidbody is affected by gravity?",
+      "options": [
+        "Mass",
+        "Use Gravity checkbox",
+        "Is Kinematic",
+        "Drag"
+      ],
+      "correct": 1,
+      "explanation": "'Use Gravity' checkbox trên Rigidbody quyết định object có chịu tác động trọng lực hay không."
+    },
+    {
+      "id": "PRU213-B2-ALL-049",
+      "type": "choice",
+      "prompt": "What does setting a Collider as \"Is Trigger\" do?",
+      "options": [
+        "Increases collision force",
+        "Disables the collider",
+        "Allows objects to pass through while still detecting overlap",
+        "Makes it invisible"
+      ],
+      "correct": 2,
+      "explanation": "'Is Trigger' làm Collider không còn chặn vật lý — vật vẫn đi xuyên qua nhưng vẫn phát sự kiện khi có overlap."
+    },
+    {
+      "id": "PRU213-B2-ALL-050",
+      "type": "choice",
+      "prompt": "What is the purpose of a Sphere Collider?",
+      "options": [
+        "To create spherical objects",
+        "To define a spherical collision boundary",
+        "To render sphere meshes",
+        "To add lighting"
+      ],
+      "correct": 1,
+      "explanation": "Sphere Collider định nghĩa vùng va chạm hình cầu, phù hợp cho object dạng tròn/bóng."
+    },
+    {
+      "id": "PRU213-B2-ALL-051",
+      "type": "choice",
+      "prompt": "What is the Mass property in a Rigidbody used for?",
+      "options": [
+        "To scale the object",
+        "To determine how forces affect the object",
+        "To set the color",
+        "To enable gravity"
+      ],
+      "correct": 1,
+      "explanation": "Mass quyết định vật nặng/nhẹ ra sao khi chịu lực — cùng một lực, vật khối lượng lớn sẽ di chuyển ít hơn."
+    },
+    {
+      "id": "PRU213-B2-ALL-052",
+      "type": "choice",
+      "prompt": "What does setting a Rigidbody to \"Is Kinematic\" do?",
+      "options": [
+        "Makes the object unaffected by physics forces (controlled by Transform or animation)",
+        "Makes the object invisible",
+        "Removes all components",
+        "Increases gravity"
+      ],
+      "correct": 0,
+      "explanation": "'Is Kinematic' khiến Rigidbody không còn bị ảnh hưởng bởi lực vật lý — object chỉ di chuyển khi bạn tự set qua Transform/animation."
+    },
+    {
+      "id": "PRU213-B2-ALL-053",
+      "type": "choice",
+      "prompt": "Which component is required for an object to respond to gravity?",
+      "options": [
+        "Transform",
+        "Rigidbody",
+        "Renderer",
+        "Collider"
+      ],
+      "correct": 1,
+      "explanation": "Cần có Rigidbody để object phản hồi với trọng lực — nếu không có Rigidbody, object 'đứng yên' bất kể trọng lực."
+    },
+    {
+      "id": "PRU213-B2-ALL-054",
+      "type": "choice",
+      "prompt": "Which function is used to trigger a specific animation in the Animator Controller?",
+      "options": [
+        "StartAnimation()",
+        "SetTrigger()",
+        "PlayAnimation()",
+        "TriggerAnimation()"
+      ],
+      "correct": 1,
+      "explanation": "SetTrigger() trên Animator kích hoạt transition sang animation tương ứng."
+    },
+    {
+      "id": "PRU213-B2-ALL-055",
+      "type": "choice",
+      "prompt": "What property must be enabled on a Rigidbody for an object to be affected by gravity?",
+      "options": [
+        "useGravity",
+        "Mass",
+        "Is Kinematic",
+        "Drag"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody.useGravity phải được bật (true) để object chịu tác động của trọng lực."
+    },
+    {
+      "id": "PRU213-B2-ALL-056",
+      "type": "choice",
+      "prompt": "What component is used to adjust friction and bounciness between objects?",
+      "options": [
+        "Shader",
+        "Texture",
+        "Physics Material",
+        "Material"
+      ],
+      "correct": 2,
+      "explanation": "Physics Material điều chỉnh ma sát (friction) và độ nảy (bounciness) giữa các bề mặt va chạm."
+    },
+    {
+      "id": "PRU213-B2-ALL-057",
+      "type": "choice",
+      "prompt": "What is the primary purpose of a Collider in Unity's physics system?",
+      "options": [
+        "To add gravity to game objects",
+        "To control animation states",
+        "To define the physical boundaries for collision detection",
+        "To render the object on screen"
+      ],
+      "correct": 2,
+      "explanation": "Collider định nghĩa ranh giới vật lý để phát hiện va chạm giữa các object."
+    },
+    {
+      "id": "PRU213-B2-ALL-058",
+      "type": "choice",
+      "prompt": "How do you create a detection zone that doesn't cause physical collisions?",
+      "options": [
+        "Disable the Collider component",
+        "Remove the Rigidbody",
+        "Enable \"Is Trigger\" on a Collider",
+        "Set the collision layer to \"Ignore Raycast\""
+      ],
+      "correct": 2,
+      "explanation": "Bật 'Is Trigger' trên Collider để tạo vùng phát hiện (detection zone) mà không gây va chạm vật lý thật."
+    },
+    {
+      "id": "PRU213-B2-ALL-059",
+      "type": "choice",
+      "prompt": "Can Triggers be used within UI elements in Unity?",
+      "options": [
+        "No, triggers only work with 3D objects",
+        "Yes, through the Event System",
+        "Yes, but only with Canvas objects",
+        "No, UI requires a different system"
+      ],
+      "correct": 1,
+      "explanation": "Theo đề (mục điền khuyết cùng chủ đề khẳng định), Event System cho phép Trigger hoạt động với UI element. ⚠️ Về bản chất UI dùng Event System + Graphic Raycaster, không dùng Trigger vật lý thật sự — nhưng đề gốc (câu điền khuyết cùng chủ đề) khẳng định đáp án là 'Event System', nên chọn theo đó cho nhất quán.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-060",
+      "type": "choice",
+      "prompt": "A Rigidbody helps Unity calculate collisions more accurately.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody giúp Unity's physics engine tính toán va chạm chính xác hơn (thay vì chỉ dựa vào Transform di chuyển thủ công)."
+    },
+    {
+      "id": "PRU213-B2-ALL-061",
+      "type": "choice",
+      "prompt": "Which method is recommended for applying physics-based movement to an object?",
+      "options": [
+        "transform.Translate()",
+        "AddForce()",
+        "position",
+        "velocity"
+      ],
+      "correct": 1,
+      "explanation": "AddForce() là cách được khuyến nghị để di chuyển object theo đúng quy luật vật lý (thay vì set trực tiếp position/velocity)."
+    },
+    {
+      "id": "PRU213-B2-ALL-062",
+      "type": "choice",
+      "prompt": "Which Unity system allows Triggers to be used with UI elements?",
+      "options": [
+        "Event System",
+        "Physics System",
+        "Rigidbody",
+        "Collider System"
+      ],
+      "correct": 0,
+      "explanation": "Event System là hệ thống Unity dùng để cho phép Trigger/sự kiện hoạt động với các UI element."
+    },
+    {
+      "id": "PRU213-B2-ALL-063",
+      "type": "choice",
+      "prompt": "All colliders must have a Rigidbody attached to function properly.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Collider vẫn hoạt động (chặn va chạm tĩnh) mà không cần Rigidbody — ví dụ tường/mặt đất tĩnh chỉ cần Collider."
+    },
+    {
+      "id": "PRU213-B2-ALL-064",
+      "type": "choice",
+      "prompt": "Triggers can detect when objects enter their space but don't cause physical reactions.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Trigger phát hiện khi có object đi vào vùng của nó, nhưng không tạo phản ứng vật lý (không chặn/đẩy)."
+    },
+    {
+      "id": "PRU213-B2-ALL-065",
+      "type": "choice",
+      "prompt": "Using AddForce() is generally better than directly setting velocity for physics simulation.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "AddForce() tôn trọng khối lượng và các lực khác đang tác động, cho chuyển động vật lý tự nhiên hơn so với set velocity trực tiếp."
+    },
+    {
+      "id": "PRU213-B2-ALL-066",
+      "type": "choice",
+      "prompt": "Name the component that controls how objects are affected by gravity and forces in Unity.",
+      "options": [
+        "Rigidbody",
+        "Collider",
+        "Physics Material",
+        "Transform"
+      ],
+      "correct": 0,
+      "explanation": "Rigidbody là component điều khiển cách object chịu tác động của trọng lực và lực trong Unity."
+    },
+    {
+      "id": "PRU213-B2-ALL-067",
+      "type": "choice",
+      "prompt": "What property must be checked on a Collider to make it function as a trigger rather than a physical collider?",
+      "options": [
+        "Trigger",
+        "Is Kinematic",
+        "Use Gravity",
+        "Interpolate"
+      ],
+      "correct": 0,
+      "explanation": "Thuộc tính 'Is Trigger' trên Collider quyết định nó hoạt động như trigger (bắn sự kiện) thay vì rào cản vật lý."
+    },
+    {
+      "id": "PRU213-B2-ALL-068",
+      "type": "choice",
+      "prompt": "Which Animator method is used to trigger transitions between animation states?",
+      "options": [
+        "SetBool()",
+        "SetTrigger()",
+        "SetState()",
+        "SetAnimation()"
+      ],
+      "correct": 1,
+      "explanation": "SetTrigger() là phương thức của Animator dùng để kích hoạt transition giữa các animation state."
+    },
+    {
+      "id": "PRU213-B2-ALL-069",
+      "type": "choice",
+      "prompt": "Which component is necessary to create a door hinge in Unity?",
+      "options": [
+        "Hinge Joint",
+        "Character Joint",
+        "Fixed Joint",
+        "Spring Joint"
+      ],
+      "correct": 0,
+      "explanation": "Hinge Joint mô phỏng bản lề — cần thiết để tạo cửa xoay (door hinge)."
+    },
+    {
+      "id": "PRU213-B2-ALL-070",
+      "type": "choice",
+      "prompt": "What component would you use to create a swinging door mechanism?",
+      "options": [
+        "Hinge Joint",
+        "Fixed Joint",
+        "Spring Joint",
+        "Character Joint"
+      ],
+      "correct": 0,
+      "explanation": "Hinge Joint là component tạo cơ chế cửa xoay qua lại (swinging door)."
+    },
+    {
+      "id": "PRU213-B2-ALL-071",
+      "type": "choice",
+      "prompt": "Physics Materials are used to adjust the visual appearance of objects.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Physics Material điều chỉnh ma sát/độ nảy — KHÔNG liên quan tới hình ảnh/màu sắc hiển thị."
+    },
+    {
+      "id": "PRU213-B2-ALL-072",
+      "type": "choice",
+      "prompt": "Which method is called when two physical Colliders make contact?",
+      "options": [
+        "OnCollisionEnter()",
+        "OnContact()",
+        "OnCollision()",
+        "OnTriggerEnter()"
+      ],
+      "correct": 0,
+      "explanation": "OnCollisionEnter() được gọi khi hai Collider va chạm vật lý thật sự (không phải trigger)."
+    },
+    {
+      "id": "PRU213-B2-ALL-073",
+      "type": "choice",
+      "prompt": "What is the correct way to apply an impulse force that pushes an object forward?",
+      "options": [
+        "AddForce(Vector3.forward * 10f, ForceMode.Impulse)",
+        "AddForce(Vector3.up * 10f)",
+        "velocity",
+        "Vector3.forward * 10f"
+      ],
+      "correct": 0,
+      "explanation": "AddForce(Vector3.forward * 10f, ForceMode.Impulse) là cú pháp chuẩn để đẩy một lực tức thời (impulse) về phía trước."
+    },
+    {
+      "id": "PRU213-B2-ALL-074",
+      "type": "choice",
+      "prompt": "How would you typically create a pressure plate that activates when a player stands on it?",
+      "options": [
+        "Using Animation only",
+        "Using Audio Source components",
+        "Using particle effects",
+        "Using a Trigger and OnTriggerEnter/Exit events"
+      ],
+      "correct": 3,
+      "explanation": "Pressure plate (bệ áp lực) thường hiện thực bằng Trigger Collider + sự kiện OnTriggerEnter/OnTriggerExit khi có object đứng lên."
+    },
+    {
+      "id": "PRU213-B2-ALL-075",
+      "type": "choice",
+      "prompt": "Which joint type simulates a spring force between two objects?",
+      "options": [
+        "Fixed Joint",
+        "Spring Joint",
+        "Character Joint",
+        "Hinge Joint"
+      ],
+      "correct": 1,
+      "explanation": "Spring Joint mô phỏng lực đàn hồi (lò xo) kéo giữa hai object."
+    },
+    {
+      "id": "PRU213-B2-ALL-076",
+      "type": "choice",
+      "prompt": "A Rigidbody is required for an object to be affected by Unity's physics system.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Cần có Rigidbody để object thực sự tham gia và bị ảnh hưởng bởi hệ mô phỏng vật lý của Unity."
+    },
+    {
+      "id": "PRU213-B2-ALL-077",
+      "type": "choice",
+      "prompt": "Which component in Unity allows an object to be affected by gravity and forces?",
+      "options": [
+        "Renderer",
+        "Transform",
+        "Rigidbody",
+        "Collider"
+      ],
+      "correct": 2,
+      "explanation": "Rigidbody là component cho phép object chịu tác động của trọng lực và các lực vật lý khác."
+    },
+    {
+      "id": "PRU213-B2-ALL-078",
+      "type": "choice",
+      "prompt": "Spring Joints can be used to create rope-like mechanisms in Unity.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Spring Joint có thể dùng để mô phỏng cơ chế dạng dây/rope nhờ lực đàn hồi kéo giữa các điểm nối."
+    },
+    {
+      "id": "PRU213-B2-ALL-079",
+      "type": "choice",
+      "prompt": "Constraints in Rigidbody can be used to limit movement along specific axes.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Constraints trên Rigidbody (Freeze Position/Rotation theo từng trục X/Y/Z) dùng để giới hạn chuyển động theo trục cụ thể."
+    },
+    {
+      "id": "PRU213-B2-ALL-080",
+      "type": "choice",
+      "prompt": "Which of these is NOT a fundamental component of Unity's physics system?",
+      "options": [
+        "Particle System",
+        "Collider",
+        "Joints",
+        "Rigidbody"
+      ],
+      "correct": 0,
+      "explanation": "Particle System không phải thành phần cốt lõi của hệ physics — nó thuộc hệ hiệu ứng hình ảnh (VFX), khác Collider/Joints/Rigidbody."
+    },
+    {
+      "id": "PRU213-B2-ALL-081",
+      "type": "choice",
+      "prompt": "OnCollisionEnter() and OnTriggerEnter() can be used interchangeably.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "OnCollisionEnter() dùng cho va chạm vật lý thật; OnTriggerEnter() dùng cho vùng trigger — hai cơ chế khác nhau, không thể dùng thay thế nhau."
+    },
+    {
+      "id": "PRU213-B2-ALL-082",
+      "type": "choice",
+      "prompt": "Which parameter is passed to the OnTriggerEnter method?",
+      "options": [
+        "Collider",
+        "GameObject",
+        "Transform",
+        "Collision"
+      ],
+      "correct": 0,
+      "explanation": "Phương thức OnTriggerEnter(Collider other) nhận tham số kiểu Collider của object vừa đi vào vùng trigger."
+    },
+    {
+      "id": "PRU213-B2-ALL-083",
+      "type": "choice",
+      "prompt": "Colliders affect how an object responds to gravity in Unity.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Collider chỉ định nghĩa hình dạng va chạm, không quyết định object có chịu trọng lực hay không — đó là vai trò của Rigidbody (useGravity)."
+    },
+    {
+      "id": "PRU213-B2-ALL-084",
+      "type": "choice",
+      "prompt": "What is the primary difference between a Collision and a Trigger in Unity?",
+      "options": [
+        "Collisions are faster to process than Triggers",
+        "Collisions only work with specific object types",
+        "Triggers can only be used with static objects",
+        "Triggers detect collisions without causing physical interaction"
+      ],
+      "correct": 3,
+      "explanation": "Collision (va chạm vật lý thật) sẽ chặn object; Trigger chỉ phát hiện việc đi qua mà không gây phản ứng vật lý."
+    },
+    {
+      "id": "PRU213-B2-ALL-085",
+      "type": "choice",
+      "prompt": "What allows animations to trigger methods at specific points in their timeline?",
+      "options": [
+        "Animation Events",
+        "Animation Callbacks",
+        "Animation Signals",
+        "Animation Triggers"
+      ],
+      "correct": 0,
+      "explanation": "Animation Event cho phép gọi hàm cụ thể tại đúng thời điểm được đánh dấu trên timeline của animation clip."
+    },
+    {
+      "id": "PRU213-B2-ALL-086",
+      "type": "choice",
+      "prompt": "What does an Animation Event do in Unity?",
+      "options": [
+        "Automatically creates a new animation state",
+        "Changes the animation speed",
+        "Ends the animation sequence",
+        "Calls a specified function at a specific point in an animation"
+      ],
+      "correct": 3,
+      "explanation": "Animation Event gọi một hàm C# cụ thể tại đúng thời điểm đã đánh dấu trên timeline của animation clip."
+    },
+    {
+      "id": "PRU213-B2-ALL-087",
+      "type": "choice",
+      "prompt": "What is Keyframe Animation?",
+      "options": [
+        "A method of creating animation automatically based on physics",
+        "A method of creating animation using programming code",
+        "A method of creating motion by defining important points and letting the software interpolate between them",
+        "A method of creating animation by importing from other 3D software"
+      ],
+      "correct": 2,
+      "explanation": "Keyframe Animation tạo chuyển động bằng cách đặt các điểm mốc quan trọng, phần mềm tự nội suy (interpolate) giữa chúng."
+    },
+    {
+      "id": "PRU213-B2-ALL-088",
+      "type": "choice",
+      "prompt": "Which animation system is no longer recommended for use in Unity?",
+      "options": [
+        "Legacy Animation System",
+        "Mecanim Animation System",
+        "State Machine System",
+        "Blend Trees"
+      ],
+      "correct": 0,
+      "explanation": "Legacy Animation System là hệ thống animation cũ, không còn được khuyến nghị — Unity hiện dùng Mecanim/Animator."
+    },
+    {
+      "id": "PRU213-B2-ALL-089",
+      "type": "choice",
+      "prompt": "In Unity's animation system, what does a State Machine consist of?",
+      "options": [
+        "A set of scripts that control animation timing",
+        "A collection of animation states and transitions between them",
+        "A group of animation events that trigger actions",
+        "A series of keyframes that define an animation"
+      ],
+      "correct": 1,
+      "explanation": "State Machine gồm tập hợp các animation state và các transition (chuyển đổi) giữa chúng."
+    },
+    {
+      "id": "PRU213-B2-ALL-090",
+      "type": "choice",
+      "prompt": "What is the role of Animation Layers in Unity's animation system?",
+      "options": [
+        "To play multiple animations on different parts of a character simultaneously",
+        "To sequence animations in order",
+        "To optimize animation performance",
+        "To create animation transitions"
+      ],
+      "correct": 0,
+      "explanation": "Animation Layers cho phép chạy nhiều animation cùng lúc trên các phần khác nhau của nhân vật (ví dụ: tay bắn súng trong khi chân chạy)."
+    },
+    {
+      "id": "PRU213-B2-ALL-091",
+      "type": "choice",
+      "prompt": "What is the modern animation system in Unity called?",
+      "options": [
+        "Legacy Animation System",
+        "Mecanim Animation System",
+        "Keyframe Animation",
+        "Animation Controller"
+      ],
+      "correct": 1,
+      "explanation": "Mecanim là tên hệ thống animation hiện đại của Unity (khác Legacy Animation System cũ)."
+    },
+    {
+      "id": "PRU213-B2-ALL-092",
+      "type": "choice",
+      "prompt": "What method does Unity use to manage animations?",
+      "options": [
+        "Pipeline System",
+        "Event Flow",
+        "State Machine",
+        "Scripting System"
+      ],
+      "correct": 2,
+      "explanation": "Unity quản lý animation qua cơ chế State Machine (Animator Controller) — chuyển đổi giữa các state animation."
+    },
+    {
+      "id": "PRU213-B2-ALL-093",
+      "type": "choice",
+      "prompt": "Which component is required to play animations on a 3D model in Unity?",
+      "options": [
+        "ModelPlayer",
+        "Animation",
+        "StateMachine",
+        "Animator"
+      ],
+      "correct": 3,
+      "explanation": "Animator Component là bắt buộc để phát animation lên một model 3D, dựa theo Animator Controller được gán."
+    },
+    {
+      "id": "PRU213-B2-ALL-094",
+      "type": "choice",
+      "prompt": "In Unity, what are Blend Trees used for?",
+      "options": [
+        "Managing resources",
+        "Smoothly transitioning between animation states",
+        "Creating lighting effects",
+        "Optimizing graphics"
+      ],
+      "correct": 1,
+      "explanation": "Blend Tree cho phép chuyển tiếp mượt mà giữa nhiều animation dựa trên giá trị tham số (ví dụ tốc độ di chuyển)."
+    },
+    {
+      "id": "PRU213-B2-ALL-095",
+      "type": "choice",
+      "prompt": "Which method is used to change a Boolean parameter in an Animator Controller?",
+      "options": [
+        "UpdateBool()",
+        "SetBool()",
+        "ModifyBool()",
+        "ChangeBool()"
+      ],
+      "correct": 1,
+      "explanation": "SetBool() dùng để thay đổi giá trị một tham số kiểu Boolean trên Animator Controller."
+    },
+    {
+      "id": "PRU213-B2-ALL-096",
+      "type": "choice",
+      "prompt": "Which statement about Animation Events in Unity is TRUE?",
+      "options": [
+        "They require JavaScript to implement",
+        "They automatically generate particle effects",
+        "They can only be used with 3D animations",
+        "They can call specific functions at exact points during an animation"
+      ],
+      "correct": 3,
+      "explanation": "Animation Event cho phép gọi hàm C# cụ thể tại đúng thời điểm trên timeline animation — không giới hạn chỉ 3D, không cần JavaScript."
+    },
+    {
+      "id": "PRU213-B2-ALL-097",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a main component of Unity's Animation system?",
+      "options": [
+        "Animator Component",
+        "Animation Clips",
+        "Physics Material",
+        "Animator Controller"
+      ],
+      "correct": 2,
+      "explanation": "Physics Material không phải thành phần của hệ Animation — nó thuộc hệ Physics (điều chỉnh ma sát/độ nảy)."
+    },
+    {
+      "id": "PRU213-B2-ALL-098",
+      "type": "choice",
+      "prompt": "How do Animator Component and Animation Clips differ?",
+      "options": [
+        "Animator Component is only for 3D, while Animation Clips are only for 2D",
+        "Animator Component is for character animations, while Animation Clips are for UI animations",
+        "Animator Component is a tool that assigns animations to GameObjects, while Animation Clips contain the movement data",
+        "Animator Component creates animations, while Animation Clips play them"
+      ],
+      "correct": 2,
+      "explanation": "Animator Component là công cụ gán và phát animation lên GameObject; Animation Clips mới là nơi chứa dữ liệu chuyển động thực tế."
+    },
+    {
+      "id": "PRU213-B2-ALL-099",
+      "type": "choice",
+      "prompt": "What feature would you use to animate a character's upper body independently from the lower body?",
+      "options": [
+        "Animation Layers",
+        "Blend Trees",
+        "Animation Events",
+        "State Machine"
+      ],
+      "correct": 0,
+      "explanation": "Animation Layers cho phép animate độc lập phần trên và phần dưới cơ thể nhân vật cùng lúc."
+    },
+    {
+      "id": "PRU213-B2-ALL-100",
+      "type": "choice",
+      "prompt": "What method is used to continuously update a float parameter in an Animator Controller?",
+      "options": [
+        "Animator.SetFloat",
+        "Animator.SetBool",
+        "Animator.SetTrigger",
+        "Animator.SetInteger"
+      ],
+      "correct": 0,
+      "explanation": "Animator.SetFloat() dùng để cập nhật liên tục giá trị một tham số kiểu float trên Animator."
+    },
+    {
+      "id": "PRU213-B2-ALL-101",
+      "type": "choice",
+      "prompt": "What method would you call to activate an animation when a physical interaction occurs?",
+      "options": [
+        "Animator.SetTrigger",
+        "Animator.SetBool",
+        "Animator.Play",
+        "Animator.SetFloat"
+      ],
+      "correct": 0,
+      "explanation": "Animator.SetTrigger() dùng để kích hoạt một animation một lần, ví dụ khi có va chạm vật lý xảy ra."
+    },
+    {
+      "id": "PRU213-B2-ALL-102",
+      "type": "choice",
+      "prompt": "A State Machine helps make code more maintainable by organizing game states.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "State Machine giúp code dễ bảo trì hơn bằng cách tổ chức rõ ràng các trạng thái game (Menu, Playing, GameOver...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-103",
+      "type": "choice",
+      "prompt": "Which feature allows blending between different animations based on parameters?",
+      "options": [
+        "Animation Curves",
+        "Animation Clips",
+        "State Machines",
+        "Blend Trees"
+      ],
+      "correct": 3,
+      "explanation": "Blend Tree cho phép trộn (blend) nhiều animation khác nhau dựa theo giá trị tham số đầu vào."
+    },
+    {
+      "id": "PRU213-B2-ALL-104",
+      "type": "choice",
+      "prompt": "What Unity component manages animation states and transitions?",
+      "options": [
+        "Animator Controller",
+        "Particle System",
+        "Animation",
+        "Timeline"
+      ],
+      "correct": 0,
+      "explanation": "Animator Controller quản lý các animation state và transition giữa chúng cho một GameObject."
+    },
+    {
+      "id": "PRU213-B2-ALL-105",
+      "type": "choice",
+      "prompt": "What is a potential issue when using both physics and animation systems on the same object?",
+      "options": [
+        "The game will always crash",
+        "They will automatically synchronize",
+        "They may conflict with each other and cause unexpected behavior",
+        "Physics will always override animation"
+      ],
+      "correct": 2,
+      "explanation": "Khi cả physics và animation cùng điều khiển một object, chúng có thể xung đột và gây hành vi không mong muốn nếu không cấu hình đúng (ví dụ animation ghi đè vị trí do physics tính toán)."
+    },
+    {
+      "id": "PRU213-B2-ALL-106",
+      "type": "choice",
+      "prompt": "What is a State Machine most useful for in game development?",
+      "options": [
+        "Collision detection",
+        "Memory management",
+        "Rendering graphics",
+        "Managing game states like Menu, Playing, and Game Over"
+      ],
+      "correct": 3,
+      "explanation": "State Machine rất hữu ích để quản lý các trạng thái tổng thể của game như Menu, Playing, Game Over."
+    },
+    {
+      "id": "PRU213-B2-ALL-107",
+      "type": "choice",
+      "prompt": "Blend Trees can only blend between two animations at a time.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Blend Tree (đặc biệt loại 2D) có thể trộn nhiều hơn 2 animation cùng lúc dựa trên nhiều tham số."
+    },
+    {
+      "id": "PRU213-B2-ALL-108",
+      "type": "choice",
+      "prompt": "Animation and physics systems can sometimes conflict if not properly configured.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Animation và physics có thể xung đột nhau (ví dụ animation ghi đè Transform mà physics đang tính toán) nếu không cấu hình đúng cách (Root Motion, Kinematic...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-109",
+      "type": "choice",
+      "prompt": "What feature allows multiple animations to play simultaneously on different body parts?",
+      "options": [
+        "Animation Groups",
+        "Animation Masks",
+        "Animation Blending",
+        "Animation Layers"
+      ],
+      "correct": 3,
+      "explanation": "Animation Layers cho phép nhiều animation chạy đồng thời trên các phần khác nhau của cơ thể nhân vật."
+    },
+    {
+      "id": "PRU213-B2-ALL-110",
+      "type": "choice",
+      "prompt": "Which Unity UI system is based on GameObject and is recommended for games?",
+      "options": [
+        "IMGUI",
+        "Canvas System",
+        "Unity UI (uGUI)",
+        "UI Toolkit"
+      ],
+      "correct": 2,
+      "explanation": "Unity UI (uGUI) là hệ UI dựa trên GameObject/Canvas, được khuyến nghị dùng cho hầu hết game."
+    },
+    {
+      "id": "PRU213-B2-ALL-111",
+      "type": "choice",
+      "prompt": "What does the Unity UI Mask component do?",
+      "options": [
+        "Disables UI elements temporarily",
+        "Groups UI elements together",
+        "Crops UI elements to the shape of the mask",
+        "Changes the color of UI elements"
+      ],
+      "correct": 2,
+      "explanation": "Mask component cắt (crop) các UI con theo đúng hình dạng của mask, ẩn phần nằm ngoài."
+    },
+    {
+      "id": "PRU213-B2-ALL-112",
+      "type": "choice",
+      "prompt": "Which Unity UI system is primarily used for editor extensions?",
+      "options": [
+        "UI Toolkit",
+        "IMGUI",
+        "Event System",
+        "Unity UI (uGUI)"
+      ],
+      "correct": 1,
+      "explanation": "IMGUI (Immediate Mode GUI) chủ yếu dùng để viết công cụ/mở rộng Editor, không khuyến khích cho UI trong game thật."
+    },
+    {
+      "id": "PRU213-B2-ALL-113",
+      "type": "choice",
+      "prompt": "What is the function of the Standalone Input Module in Unity's Event System?",
+      "options": [
+        "It handles network communication",
+        "It optimizes UI rendering",
+        "It processes input from keyboard, mouse, and gamepad for UI interaction",
+        "It manages animation states"
+      ],
+      "correct": 2,
+      "explanation": "Standalone Input Module xử lý input từ bàn phím/chuột/gamepad để tương tác với UI thông qua Event System."
+    },
+    {
+      "id": "PRU213-B2-ALL-114",
+      "type": "choice",
+      "prompt": "Which method is called when a user releases a UI element they were dragging?",
+      "options": [
+        "OnReleaseDrag",
+        "OnDragEnd",
+        "OnEndDrag",
+        "OnStopDrag"
+      ],
+      "correct": 2,
+      "explanation": "OnEndDrag() được gọi khi người dùng thả (kết thúc kéo) một UI element — thuộc interface IEndDragHandler."
+    },
+    {
+      "id": "PRU213-B2-ALL-115",
+      "type": "choice",
+      "prompt": "Which UI component in Unity is used to display a list of options that users can select from?",
+      "options": [
+        "ComboBox",
+        "SelectionMenu",
+        "Dropdown",
+        "List"
+      ],
+      "correct": 2,
+      "explanation": "Dropdown hiển thị danh sách lựa chọn để người dùng chọn một trong số đó."
+    },
+    {
+      "id": "PRU213-B2-ALL-116",
+      "type": "choice",
+      "prompt": "Which of these is NOT a principle of effective UI design mentioned in the document?",
+      "options": [
+        "Consistency",
+        "Simplicity",
+        "Maximum Complexity",
+        "Visibility"
+      ],
+      "correct": 2,
+      "explanation": "'Maximum Complexity' đi ngược nguyên tắc thiết kế UI tốt — các nguyên tắc chuẩn là Consistency, Simplicity, Visibility (và Feedback, Guidance...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-117",
+      "type": "choice",
+      "prompt": "What is Adaptive UI in Unity?",
+      "options": [
+        "UI that translates to different languages",
+        "UI that automatically adjusts to different screen sizes and resolutions",
+        "UI that responds to user preferences",
+        "UI that changes based on game progress"
+      ],
+      "correct": 1,
+      "explanation": "Adaptive UI tự động điều chỉnh theo các kích thước/độ phân giải màn hình khác nhau."
+    },
+    {
+      "id": "PRU213-B2-ALL-118",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a basic UI component in Unity's UI system?",
+      "options": [
+        "Button",
+        "Image",
+        "Text",
+        "Rigidbody"
+      ],
+      "correct": 3,
+      "explanation": "Rigidbody là component vật lý, không phải một UI component cơ bản (khác Button/Image/Text)."
+    },
+    {
+      "id": "PRU213-B2-ALL-119",
+      "type": "choice",
+      "prompt": "Which interface should be implemented to handle click events on UI elements in Unity?",
+      "options": [
+        "IMouseClickHandler",
+        "IClickHandler",
+        "IEventClickHandler",
+        "IPointerClickHandler"
+      ],
+      "correct": 3,
+      "explanation": "IPointerClickHandler là interface chuẩn dùng để nhận sự kiện click trên UI element trong Unity Event System."
+    },
+    {
+      "id": "PRU213-B2-ALL-120",
+      "type": "choice",
+      "prompt": "How do you toggle the visibility of a UI element in Unity using C#?",
+      "options": [
+        "gameObject.SetActive(!gameObject.activeSelf);",
+        "!gameObject.visible;",
+        "gameObject.ToggleVisibility();",
+        "!gameObject.isVisible;"
+      ],
+      "correct": 0,
+      "explanation": "gameObject.SetActive(!gameObject.activeSelf) là cách chuẩn để bật/tắt hiển thị GameObject bằng script."
+    },
+    {
+      "id": "PRU213-B2-ALL-121",
+      "type": "choice",
+      "prompt": "Which layout group component arranges UI elements in a grid pattern?",
+      "options": [
+        "Horizontal Layout Group",
+        "Vertical Layout Group",
+        "Radial Layout Group",
+        "Grid Layout Group"
+      ],
+      "correct": 3,
+      "explanation": "Grid Layout Group tự động sắp xếp các UI element theo dạng lưới (hàng x cột)."
+    },
+    {
+      "id": "PRU213-B2-ALL-122",
+      "type": "choice",
+      "prompt": "Which UI component in Unity allows for text input from the user?",
+      "options": [
+        "Button",
+        "Text",
+        "Dropdown",
+        "Input Field"
+      ],
+      "correct": 3,
+      "explanation": "Input Field là component UI cho phép người dùng nhập văn bản."
+    },
+    {
+      "id": "PRU213-B2-ALL-123",
+      "type": "choice",
+      "prompt": "In Unity's UI system, what is the primary purpose of the Panel component?",
+      "options": [
+        "To display text",
+        "To handle scrolling content",
+        "To create buttons",
+        "To group UI elements together"
+      ],
+      "correct": 3,
+      "explanation": "Panel dùng để nhóm các UI element lại với nhau, thường làm nền/khung chứa."
+    },
+    {
+      "id": "PRU213-B2-ALL-124",
+      "type": "choice",
+      "prompt": "Which Unity component is used to create a slider control in the UI?",
+      "options": [
+        "Slider",
+        "ScrollBar",
+        "Range",
+        "ProgressBar"
+      ],
+      "correct": 0,
+      "explanation": "Slider là component UI chuẩn để tạo thanh trượt (chọn giá trị trong khoảng)."
+    },
+    {
+      "id": "PRU213-B2-ALL-125",
+      "type": "choice",
+      "prompt": "Which component allows a UI element to be scrollable when content exceeds its boundaries?",
+      "options": [
+        "Grid Layout",
+        "Panel",
+        "Scroll View",
+        "Canvas Group"
+      ],
+      "correct": 2,
+      "explanation": "Scroll View cho phép cuộn nội dung khi nó vượt quá khung hiển thị — dùng cho danh sách dài."
+    },
+    {
+      "id": "PRU213-B2-ALL-126",
+      "type": "choice",
+      "prompt": "What is the main purpose of the Canvas Scaler in Unity UI?",
+      "options": [
+        "To manage the drawing order of UI elements",
+        "To handle user input on UI elements",
+        "To automatically adjust UI elements to fit different screen sizes",
+        "To create animation for UI elements"
+      ],
+      "correct": 2,
+      "explanation": "Canvas Scaler tự động điều chỉnh UI để hiển thị đúng tỉ lệ trên nhiều kích thước màn hình khác nhau."
+    },
+    {
+      "id": "PRU213-B2-ALL-127",
+      "type": "choice",
+      "prompt": "Which UI component would you use to create a movable window in a game interface?",
+      "options": [
+        "A Canvas with Movable property enabled",
+        "A Button with Navigation disabled",
+        "A Panel with Draggable option checked",
+        "A Drag Area with EventTrigger components"
+      ],
+      "correct": 3,
+      "explanation": "Tạo cửa sổ có thể kéo di chuyển thường dùng EventTrigger gắn trên vùng kéo (Drag Area) để bắt sự kiện kéo-thả. ⚠️ Không có component tên chính xác 'Drag Area' trong Unity — đáp án dựa trên suy luận hợp lý nhất (EventTrigger + kéo thả), nên đối chiếu lại tài liệu môn học.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-128",
+      "type": "choice",
+      "prompt": "What is the role of the Event System in Unity's UI?",
+      "options": [
+        "To create visual effects for UI elements",
+        "To manage and process user input interactions with the UI",
+        "To organize the hierarchy of UI elements",
+        "To optimize UI performance"
+      ],
+      "correct": 1,
+      "explanation": "Event System quản lý và xử lý mọi tương tác input của người dùng với UI (click, drag, hover...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-129",
+      "type": "choice",
+      "prompt": "What is the role of the Canvas in Unity's UI system?",
+      "options": [
+        "It's a text component",
+        "It's used to handle user input",
+        "It's the container for all UI elements",
+        "It's used to display images"
+      ],
+      "correct": 2,
+      "explanation": "Canvas là 'vùng chứa' bắt buộc cho mọi UI element trong Unity UI — mọi UI phải nằm trong một Canvas."
+    },
+    {
+      "id": "PRU213-B2-ALL-130",
+      "type": "choice",
+      "prompt": "How are UI elements positioned within a Canvas in Unity?",
+      "options": [
+        "Using Layout components only",
+        "Using RectTransform components with anchors and pivots",
+        "Using Transform components with world coordinates",
+        "Using PositionHandler components"
+      ],
+      "correct": 1,
+      "explanation": "UI element được định vị trong Canvas thông qua RectTransform với cơ chế anchor (neo) và pivot (điểm gốc)."
+    },
+    {
+      "id": "PRU213-B2-ALL-131",
+      "type": "choice",
+      "prompt": "Which Unity UI component is used to create a toggle (on/off) control?",
+      "options": [
+        "Binary Control",
+        "Toggle",
+        "Checkbox",
+        "Switch"
+      ],
+      "correct": 1,
+      "explanation": "Toggle là component UI chuẩn để tạo control bật/tắt (checkbox)."
+    },
+    {
+      "id": "PRU213-B2-ALL-132",
+      "type": "choice",
+      "prompt": "What is the difference between Text and TextMeshPro in Unity?",
+      "options": [
+        "Text is for 3D games while TextMeshPro is for 2D games",
+        "TextMeshPro offers higher quality text rendering and more customization options",
+        "Text is newer than TextMeshPro",
+        "Text supports more languages than TextMeshPro"
+      ],
+      "correct": 1,
+      "explanation": "TextMeshPro (TMP) cho chất lượng hiển thị chữ tốt hơn và nhiều tùy chỉnh hơn so với Text (UI) cũ."
+    },
+    {
+      "id": "PRU213-B2-ALL-133",
+      "type": "choice",
+      "prompt": "How do you update UI text content dynamically using a script in Unity?",
+      "options": [
+        "textComponent.text",
+        "textComponent.SetText(\"New Content\");",
+        "textComponent.UpdateText(\"New Content\");",
+        "textComponent.content"
+      ],
+      "correct": 0,
+      "explanation": "Cách đơn giản và phổ biến nhất để cập nhật nội dung text bằng script là gán trực tiếp qua thuộc tính .text. ⚠️ textComponent.SetText(...) (TextMeshPro) cũng là cách hợp lệ để cập nhật text — cả 2 đáp án đều đúng tùy loại Text component dùng.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-134",
+      "type": "choice",
+      "prompt": "What would you set to true to make an object start falling when a button is pressed?",
+      "options": [
+        "Collider.isTrigger",
+        "GameObject.activeInHierarchy",
+        "Rigidbody.useGravity",
+        "Transform.position.y"
+      ],
+      "correct": 2,
+      "explanation": "Đặt Rigidbody.useGravity = true khiến object bắt đầu rơi theo trọng lực."
+    },
+    {
+      "id": "PRU213-B2-ALL-135",
+      "type": "choice",
+      "prompt": "What is the main advantage of using the new Input System over the old Input Manager in Unity?",
+      "options": [
+        "Lower memory usage",
+        "Built-in support for custom hardware",
+        "Better support for multiple devices and easier configuration",
+        "Faster processing of inputs"
+      ],
+      "correct": 2,
+      "explanation": "Input System mới hỗ trợ nhiều loại thiết bị tốt hơn và cấu hình linh hoạt hơn Input Manager cũ."
+    },
+    {
+      "id": "PRU213-B2-ALL-136",
+      "type": "choice",
+      "prompt": "Which Unity feature is used to create virtual on-screen joysticks for mobile games?",
+      "options": [
+        "Mobile Input Module",
+        "Touch Controller",
+        "Virtual Input Manager",
+        "On-Screen Stick Component"
+      ],
+      "correct": 3,
+      "explanation": "Gói Input System của Unity có sẵn component 'On-Screen Stick' để tạo joystick ảo cho game mobile. ⚠️ 'On-Screen Stick'/'On-Screen Button' là component thật trong gói Input System của Unity cho joystick ảo trên mobile, nhưng tên gọi trong đề hơi khác cách Unity đặt tên chính thức.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-137",
+      "type": "choice",
+      "prompt": "How do you access the first touch input in Unity?",
+      "options": [
+        "Input.touches[0]",
+        "Input.GetTouch(0)",
+        "Input.GetFirstTouch()",
+        "Input.touchInput(0)"
+      ],
+      "correct": 1,
+      "explanation": "Input.GetTouch(0) trả về touch đầu tiên đang hoạt động trên màn hình cảm ứng. ⚠️ Input.touches[0] cũng là cách hợp lệ (tương đương) để lấy touch đầu tiên trong Input Manager cũ — cả 2 đáp án a và b đều đúng về mặt kỹ thuật.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-138",
+      "type": "choice",
+      "prompt": "How do you handle multiple touch inputs simultaneously in Unity?",
+      "options": [
+        "Using Input.GetMultiTouch()",
+        "Using Input.GetAllTouches()",
+        "Using TouchHandler.GetTouches()",
+        "Using a foreach loop with Input.touches"
+      ],
+      "correct": 3,
+      "explanation": "Cách phổ biến để xử lý nhiều touch cùng lúc là lặp qua mảng Input.touches bằng vòng foreach."
+    },
+    {
+      "id": "PRU213-B2-ALL-139",
+      "type": "choice",
+      "prompt": "What method is used in Unity to determine if a specific key is pressed?",
+      "options": [
+        "Input.GetKeyDown()",
+        "Input.PressKey()",
+        "Input.IsKeyPressed()",
+        "Input.KeyDown()"
+      ],
+      "correct": 0,
+      "explanation": "Trong 4 lựa chọn, chỉ Input.GetKeyDown() là API thật của Unity để kiểm tra phím vừa được nhấn. ⚠️ Input.GetKeyDown() chỉ đúng 1 frame khi vừa nhấn; để kiểm tra phím ĐANG được giữ liên tục phải dùng Input.GetKey(). Trong 4 lựa chọn chỉ GetKeyDown có thật nên chọn theo phương pháp loại trừ.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-B2-ALL-140",
+      "type": "choice",
+      "prompt": "What is a Navigation Mesh used for in Unity?",
+      "options": [
+        "User interface navigation",
+        "AI pathfinding for non-player characters",
+        "Physics object movement",
+        "Camera movement paths"
+      ],
+      "correct": 1,
+      "explanation": "Navigation Mesh (NavMesh) dùng cho AI pathfinding — giúp NPC tìm đường di chuyển trong scene."
+    },
+    {
+      "id": "PRU213-B2-ALL-141",
+      "type": "choice",
+      "prompt": "In Unity's Input System, what is the purpose of Input Actions?",
+      "options": [
+        "To define mappings between user inputs and game actions",
+        "To optimize input processing",
+        "To handle multiple player inputs",
+        "To create animation for input feedback"
+      ],
+      "correct": 0,
+      "explanation": "Input Actions định nghĩa ánh xạ giữa input thực tế (phím, nút) và hành động trong game (Jump, Move...)."
+    },
+    {
+      "id": "PRU213-B2-ALL-142",
+      "type": "choice",
+      "prompt": "Which input handling system in Unity supports VR devices out of the box?",
+      "options": [
+        "Direct Input",
+        "XInput",
+        "Input System (new)",
+        "Input Manager (old)"
+      ],
+      "correct": 2,
+      "explanation": "Input System (mới) của Unity có hỗ trợ sẵn cho thiết bị VR, khác Input Manager cũ."
+    },
+    {
+      "id": "PRU213-B2-ALL-143",
+      "type": "choice",
+      "prompt": "Which property returns the total number of touches currently active?",
+      "options": [
+        "Input.touchesCount",
+        "Input.touchCount",
+        "Input.touches.length",
+        "Input.GetTouchCount()"
+      ],
+      "correct": 1,
+      "explanation": "Input.touchCount trả về tổng số lượt chạm đang hoạt động."
+    },
+    {
+      "id": "PRU213-B2-ALL-144",
+      "type": "choice",
+      "prompt": "What design pattern is often used to track scores globally in a game?",
+      "options": [
+        "Observer Pattern",
+        "Command Pattern",
+        "Factory Pattern",
+        "Singleton Pattern"
+      ],
+      "correct": 3,
+      "explanation": "Singleton Pattern thường dùng để có MỘT instance duy nhất quản lý dữ liệu toàn cục như điểm số (score) xuyên suốt game."
+    },
+    {
+      "id": "PRU213-B2-ALL-145",
+      "type": "choice",
+      "prompt": "What system helps reduce dependencies between different components in a game?",
+      "options": [
+        "Render System",
+        "Input System",
+        "Event System",
+        "Animation System"
+      ],
+      "correct": 2,
+      "explanation": "Event System (kiến trúc sự kiện, khác Unity's UI Event System) giúp các component giao tiếp lỏng lẻo, giảm phụ thuộc trực tiếp giữa nhau."
+    },
+    {
+      "id": "PRU213-B2-ALL-146",
+      "type": "choice",
+      "prompt": "What format is commonly used to store complex data structures before saving them?",
+      "options": [
+        "JSON",
+        "XML",
+        "Binary",
+        "CSV"
+      ],
+      "correct": 0,
+      "explanation": "JSON là định dạng phổ biến để chuyển cấu trúc dữ liệu phức tạp (object, list...) thành dạng text trước khi lưu."
+    },
+    {
+      "id": "PRU213-B2-ALL-147",
+      "type": "choice",
+      "prompt": "PlayerPrefs can directly store complex data structures like arrays and dictionaries.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "PlayerPrefs chỉ lưu được kiểu dữ liệu đơn giản (int/float/string) — mảng/dictionary phức tạp phải serialize riêng (ví dụ qua JSON) trước khi lưu."
+    },
+    {
+      "id": "PRU213-B2-ALL-148",
+      "type": "choice",
+      "prompt": "Which Unity API is commonly used to save player scores between game sessions?",
+      "options": [
+        "SaveSystem",
+        "PlayerPrefs",
+        "ScoreManager",
+        "GameData"
+      ],
+      "correct": 1,
+      "explanation": "PlayerPrefs là API tiêu chuẩn của Unity để lưu dữ liệu nhỏ (như điểm số) giữa các phiên chơi."
+    },
+    {
+      "id": "PRU213-B2-ALL-149",
+      "type": "choice",
+      "prompt": "What Unity method would you use to save an integer score value between game sessions?",
+      "options": [
+        "PlayerPrefs.SetInt",
+        "PlayerPrefs.SetFloat",
+        "PlayerPrefs.SetString",
+        "PlayerPrefs.Save"
+      ],
+      "correct": 0,
+      "explanation": "PlayerPrefs.SetInt(key, value) là phương thức chuẩn để lưu một giá trị số nguyên (như điểm số) giữa các phiên chơi."
+    },
+    {
+      "id": "PRU213-B2-ALL-150",
+      "type": "choice",
+      "prompt": "Which of the following data types CANNOT be directly saved using PlayerPrefs?",
+      "options": [
+        "Floats",
+        "Integers",
+        "Strings",
+        "Arrays"
+      ],
+      "correct": 3,
+      "explanation": "PlayerPrefs chỉ lưu trực tiếp được kiểu int/float/string — Arrays (mảng/list phức tạp) phải tự serialize (ví dụ qua JSON) trước khi lưu."
+    }
+  ]
+}

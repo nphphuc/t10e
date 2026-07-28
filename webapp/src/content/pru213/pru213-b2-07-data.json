@@ -1,0 +1,95 @@
+{
+  "id": "PRU213-B2-DATA",
+  "title": "PRU213 (Bộ 2) — Data, Patterns & Persistence",
+  "questions": [
+    {
+      "id": "PRU213-B2-DATA-01",
+      "type": "choice",
+      "prompt": "What design pattern is often used to track scores globally in a game?",
+      "options": [
+        "Observer Pattern",
+        "Command Pattern",
+        "Factory Pattern",
+        "Singleton Pattern"
+      ],
+      "correct": 3,
+      "explanation": "Singleton Pattern thường dùng để có MỘT instance duy nhất quản lý dữ liệu toàn cục như điểm số (score) xuyên suốt game."
+    },
+    {
+      "id": "PRU213-B2-DATA-02",
+      "type": "choice",
+      "prompt": "What system helps reduce dependencies between different components in a game?",
+      "options": [
+        "Render System",
+        "Input System",
+        "Event System",
+        "Animation System"
+      ],
+      "correct": 2,
+      "explanation": "Event System (kiến trúc sự kiện, khác Unity's UI Event System) giúp các component giao tiếp lỏng lẻo, giảm phụ thuộc trực tiếp giữa nhau."
+    },
+    {
+      "id": "PRU213-B2-DATA-03",
+      "type": "choice",
+      "prompt": "What format is commonly used to store complex data structures before saving them?",
+      "options": [
+        "JSON",
+        "XML",
+        "Binary",
+        "CSV"
+      ],
+      "correct": 0,
+      "explanation": "JSON là định dạng phổ biến để chuyển cấu trúc dữ liệu phức tạp (object, list...) thành dạng text trước khi lưu."
+    },
+    {
+      "id": "PRU213-B2-DATA-04",
+      "type": "choice",
+      "prompt": "PlayerPrefs can directly store complex data structures like arrays and dictionaries.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "PlayerPrefs chỉ lưu được kiểu dữ liệu đơn giản (int/float/string) — mảng/dictionary phức tạp phải serialize riêng (ví dụ qua JSON) trước khi lưu."
+    },
+    {
+      "id": "PRU213-B2-DATA-05",
+      "type": "choice",
+      "prompt": "Which Unity API is commonly used to save player scores between game sessions?",
+      "options": [
+        "SaveSystem",
+        "PlayerPrefs",
+        "ScoreManager",
+        "GameData"
+      ],
+      "correct": 1,
+      "explanation": "PlayerPrefs là API tiêu chuẩn của Unity để lưu dữ liệu nhỏ (như điểm số) giữa các phiên chơi."
+    },
+    {
+      "id": "PRU213-B2-DATA-06",
+      "type": "choice",
+      "prompt": "What Unity method would you use to save an integer score value between game sessions?",
+      "options": [
+        "PlayerPrefs.SetInt",
+        "PlayerPrefs.SetFloat",
+        "PlayerPrefs.SetString",
+        "PlayerPrefs.Save"
+      ],
+      "correct": 0,
+      "explanation": "PlayerPrefs.SetInt(key, value) là phương thức chuẩn để lưu một giá trị số nguyên (như điểm số) giữa các phiên chơi."
+    },
+    {
+      "id": "PRU213-B2-DATA-07",
+      "type": "choice",
+      "prompt": "Which of the following data types CANNOT be directly saved using PlayerPrefs?",
+      "options": [
+        "Floats",
+        "Integers",
+        "Strings",
+        "Arrays"
+      ],
+      "correct": 3,
+      "explanation": "PlayerPrefs chỉ lưu trực tiếp được kiểu int/float/string — Arrays (mảng/list phức tạp) phải tự serialize (ví dụ qua JSON) trước khi lưu."
+    }
+  ]
+}

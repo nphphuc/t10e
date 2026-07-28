@@ -1,0 +1,312 @@
+{
+  "id": "PRU213-B2-ANIM",
+  "title": "PRU213 (Bộ 2) — Animation System",
+  "questions": [
+    {
+      "id": "PRU213-B2-ANIM-01",
+      "type": "choice",
+      "prompt": "What does an Animation Event do in Unity?",
+      "options": [
+        "Automatically creates a new animation state",
+        "Changes the animation speed",
+        "Ends the animation sequence",
+        "Calls a specified function at a specific point in an animation"
+      ],
+      "correct": 3,
+      "explanation": "Animation Event gọi một hàm C# cụ thể tại đúng thời điểm đã đánh dấu trên timeline của animation clip."
+    },
+    {
+      "id": "PRU213-B2-ANIM-02",
+      "type": "choice",
+      "prompt": "What is Keyframe Animation?",
+      "options": [
+        "A method of creating animation automatically based on physics",
+        "A method of creating animation using programming code",
+        "A method of creating motion by defining important points and letting the software interpolate between them",
+        "A method of creating animation by importing from other 3D software"
+      ],
+      "correct": 2,
+      "explanation": "Keyframe Animation tạo chuyển động bằng cách đặt các điểm mốc quan trọng, phần mềm tự nội suy (interpolate) giữa chúng."
+    },
+    {
+      "id": "PRU213-B2-ANIM-03",
+      "type": "choice",
+      "prompt": "Which animation system is no longer recommended for use in Unity?",
+      "options": [
+        "Legacy Animation System",
+        "Mecanim Animation System",
+        "State Machine System",
+        "Blend Trees"
+      ],
+      "correct": 0,
+      "explanation": "Legacy Animation System là hệ thống animation cũ, không còn được khuyến nghị — Unity hiện dùng Mecanim/Animator."
+    },
+    {
+      "id": "PRU213-B2-ANIM-04",
+      "type": "choice",
+      "prompt": "In Unity's animation system, what does a State Machine consist of?",
+      "options": [
+        "A set of scripts that control animation timing",
+        "A collection of animation states and transitions between them",
+        "A group of animation events that trigger actions",
+        "A series of keyframes that define an animation"
+      ],
+      "correct": 1,
+      "explanation": "State Machine gồm tập hợp các animation state và các transition (chuyển đổi) giữa chúng."
+    },
+    {
+      "id": "PRU213-B2-ANIM-05",
+      "type": "choice",
+      "prompt": "What is the role of Animation Layers in Unity's animation system?",
+      "options": [
+        "To play multiple animations on different parts of a character simultaneously",
+        "To sequence animations in order",
+        "To optimize animation performance",
+        "To create animation transitions"
+      ],
+      "correct": 0,
+      "explanation": "Animation Layers cho phép chạy nhiều animation cùng lúc trên các phần khác nhau của nhân vật (ví dụ: tay bắn súng trong khi chân chạy)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-06",
+      "type": "choice",
+      "prompt": "What is the modern animation system in Unity called?",
+      "options": [
+        "Legacy Animation System",
+        "Mecanim Animation System",
+        "Keyframe Animation",
+        "Animation Controller"
+      ],
+      "correct": 1,
+      "explanation": "Mecanim là tên hệ thống animation hiện đại của Unity (khác Legacy Animation System cũ)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-07",
+      "type": "choice",
+      "prompt": "What method does Unity use to manage animations?",
+      "options": [
+        "Pipeline System",
+        "Event Flow",
+        "State Machine",
+        "Scripting System"
+      ],
+      "correct": 2,
+      "explanation": "Unity quản lý animation qua cơ chế State Machine (Animator Controller) — chuyển đổi giữa các state animation."
+    },
+    {
+      "id": "PRU213-B2-ANIM-08",
+      "type": "choice",
+      "prompt": "Which component is required to play animations on a 3D model in Unity?",
+      "options": [
+        "ModelPlayer",
+        "Animation",
+        "StateMachine",
+        "Animator"
+      ],
+      "correct": 3,
+      "explanation": "Animator Component là bắt buộc để phát animation lên một model 3D, dựa theo Animator Controller được gán."
+    },
+    {
+      "id": "PRU213-B2-ANIM-09",
+      "type": "choice",
+      "prompt": "In Unity, what are Blend Trees used for?",
+      "options": [
+        "Managing resources",
+        "Smoothly transitioning between animation states",
+        "Creating lighting effects",
+        "Optimizing graphics"
+      ],
+      "correct": 1,
+      "explanation": "Blend Tree cho phép chuyển tiếp mượt mà giữa nhiều animation dựa trên giá trị tham số (ví dụ tốc độ di chuyển)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-10",
+      "type": "choice",
+      "prompt": "Which method is used to change a Boolean parameter in an Animator Controller?",
+      "options": [
+        "UpdateBool()",
+        "SetBool()",
+        "ModifyBool()",
+        "ChangeBool()"
+      ],
+      "correct": 1,
+      "explanation": "SetBool() dùng để thay đổi giá trị một tham số kiểu Boolean trên Animator Controller."
+    },
+    {
+      "id": "PRU213-B2-ANIM-11",
+      "type": "choice",
+      "prompt": "Which statement about Animation Events in Unity is TRUE?",
+      "options": [
+        "They require JavaScript to implement",
+        "They automatically generate particle effects",
+        "They can only be used with 3D animations",
+        "They can call specific functions at exact points during an animation"
+      ],
+      "correct": 3,
+      "explanation": "Animation Event cho phép gọi hàm C# cụ thể tại đúng thời điểm trên timeline animation — không giới hạn chỉ 3D, không cần JavaScript."
+    },
+    {
+      "id": "PRU213-B2-ANIM-12",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a main component of Unity's Animation system?",
+      "options": [
+        "Animator Component",
+        "Animation Clips",
+        "Physics Material",
+        "Animator Controller"
+      ],
+      "correct": 2,
+      "explanation": "Physics Material không phải thành phần của hệ Animation — nó thuộc hệ Physics (điều chỉnh ma sát/độ nảy)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-13",
+      "type": "choice",
+      "prompt": "How do Animator Component and Animation Clips differ?",
+      "options": [
+        "Animator Component is only for 3D, while Animation Clips are only for 2D",
+        "Animator Component is for character animations, while Animation Clips are for UI animations",
+        "Animator Component is a tool that assigns animations to GameObjects, while Animation Clips contain the movement data",
+        "Animator Component creates animations, while Animation Clips play them"
+      ],
+      "correct": 2,
+      "explanation": "Animator Component là công cụ gán và phát animation lên GameObject; Animation Clips mới là nơi chứa dữ liệu chuyển động thực tế."
+    },
+    {
+      "id": "PRU213-B2-ANIM-14",
+      "type": "choice",
+      "prompt": "What feature would you use to animate a character's upper body independently from the lower body?",
+      "options": [
+        "Animation Layers",
+        "Blend Trees",
+        "Animation Events",
+        "State Machine"
+      ],
+      "correct": 0,
+      "explanation": "Animation Layers cho phép animate độc lập phần trên và phần dưới cơ thể nhân vật cùng lúc."
+    },
+    {
+      "id": "PRU213-B2-ANIM-15",
+      "type": "choice",
+      "prompt": "What method is used to continuously update a float parameter in an Animator Controller?",
+      "options": [
+        "Animator.SetFloat",
+        "Animator.SetBool",
+        "Animator.SetTrigger",
+        "Animator.SetInteger"
+      ],
+      "correct": 0,
+      "explanation": "Animator.SetFloat() dùng để cập nhật liên tục giá trị một tham số kiểu float trên Animator."
+    },
+    {
+      "id": "PRU213-B2-ANIM-16",
+      "type": "choice",
+      "prompt": "What method would you call to activate an animation when a physical interaction occurs?",
+      "options": [
+        "Animator.SetTrigger",
+        "Animator.SetBool",
+        "Animator.Play",
+        "Animator.SetFloat"
+      ],
+      "correct": 0,
+      "explanation": "Animator.SetTrigger() dùng để kích hoạt một animation một lần, ví dụ khi có va chạm vật lý xảy ra."
+    },
+    {
+      "id": "PRU213-B2-ANIM-17",
+      "type": "choice",
+      "prompt": "A State Machine helps make code more maintainable by organizing game states.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "State Machine giúp code dễ bảo trì hơn bằng cách tổ chức rõ ràng các trạng thái game (Menu, Playing, GameOver...)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-18",
+      "type": "choice",
+      "prompt": "Which feature allows blending between different animations based on parameters?",
+      "options": [
+        "Animation Curves",
+        "Animation Clips",
+        "State Machines",
+        "Blend Trees"
+      ],
+      "correct": 3,
+      "explanation": "Blend Tree cho phép trộn (blend) nhiều animation khác nhau dựa theo giá trị tham số đầu vào."
+    },
+    {
+      "id": "PRU213-B2-ANIM-19",
+      "type": "choice",
+      "prompt": "What Unity component manages animation states and transitions?",
+      "options": [
+        "Animator Controller",
+        "Particle System",
+        "Animation",
+        "Timeline"
+      ],
+      "correct": 0,
+      "explanation": "Animator Controller quản lý các animation state và transition giữa chúng cho một GameObject."
+    },
+    {
+      "id": "PRU213-B2-ANIM-20",
+      "type": "choice",
+      "prompt": "What is a potential issue when using both physics and animation systems on the same object?",
+      "options": [
+        "The game will always crash",
+        "They will automatically synchronize",
+        "They may conflict with each other and cause unexpected behavior",
+        "Physics will always override animation"
+      ],
+      "correct": 2,
+      "explanation": "Khi cả physics và animation cùng điều khiển một object, chúng có thể xung đột và gây hành vi không mong muốn nếu không cấu hình đúng (ví dụ animation ghi đè vị trí do physics tính toán)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-21",
+      "type": "choice",
+      "prompt": "What is a State Machine most useful for in game development?",
+      "options": [
+        "Collision detection",
+        "Memory management",
+        "Rendering graphics",
+        "Managing game states like Menu, Playing, and Game Over"
+      ],
+      "correct": 3,
+      "explanation": "State Machine rất hữu ích để quản lý các trạng thái tổng thể của game như Menu, Playing, Game Over."
+    },
+    {
+      "id": "PRU213-B2-ANIM-22",
+      "type": "choice",
+      "prompt": "Blend Trees can only blend between two animations at a time.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 1,
+      "explanation": "Blend Tree (đặc biệt loại 2D) có thể trộn nhiều hơn 2 animation cùng lúc dựa trên nhiều tham số."
+    },
+    {
+      "id": "PRU213-B2-ANIM-23",
+      "type": "choice",
+      "prompt": "Animation and physics systems can sometimes conflict if not properly configured.",
+      "options": [
+        "Đúng (True)",
+        "Sai (False)"
+      ],
+      "correct": 0,
+      "explanation": "Animation và physics có thể xung đột nhau (ví dụ animation ghi đè Transform mà physics đang tính toán) nếu không cấu hình đúng cách (Root Motion, Kinematic...)."
+    },
+    {
+      "id": "PRU213-B2-ANIM-24",
+      "type": "choice",
+      "prompt": "What feature allows multiple animations to play simultaneously on different body parts?",
+      "options": [
+        "Animation Groups",
+        "Animation Masks",
+        "Animation Blending",
+        "Animation Layers"
+      ],
+      "correct": 3,
+      "explanation": "Animation Layers cho phép nhiều animation chạy đồng thời trên các phần khác nhau của cơ thể nhân vật."
+    }
+  ]
+}
