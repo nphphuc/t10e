@@ -281,6 +281,26 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* ===== PRU213 SECTION (môn khác, tách riêng khỏi SWD392) ===== */}
+      <section className="relative z-10 max-w-3xl mx-auto px-6 pb-10">
+        <div className="text-center mb-4">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Môn khác</span>
+        </div>
+        <button
+          onClick={() => navigate('/pru213')}
+          className="w-full flex items-center gap-4 p-5 rounded-3xl border border-emerald-800/30 bg-emerald-950/10 hover:border-emerald-600/50 hover:bg-emerald-950/20 transition-all duration-200 text-left group"
+        >
+          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+            🎮
+          </span>
+          <div className="flex-1">
+            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PRU213 — Unity &amp; C#</div>
+            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+          </div>
+          <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
+        </button>
+      </section>
+
       {/* ===== FOOTER ===== */}
       <footer className="relative z-10 text-center px-6 py-8 border-t border-gray-800/30 mt-auto">
         <p className="text-xs text-gray-600">

@@ -1,0 +1,649 @@
+{
+  "id": "PRU213-QUIZ",
+  "title": "PRU213 — Quiz Ôn Tập (Unity & C#)",
+  "questions": [
+    {
+      "id": "PRU213-01",
+      "type": "choice",
+      "prompt": "How can you create engaging effects for buttons in Unity?",
+      "options": [
+        "By using sprite atlases or sprite sheets for optimization",
+        "Through scripting to define custom behaviors",
+        "By assigning functions or methods to buttons",
+        "Using Unity's animation system or event triggers"
+      ],
+      "correct": 3,
+      "explanation": "Hiệu ứng sinh động cho nút thường dùng Animation system (Animator) hoặc Event Trigger — sprite atlas chỉ tối ưu hiệu năng, không tạo hiệu ứng."
+    },
+    {
+      "id": "PRU213-02",
+      "type": "choice",
+      "prompt": "What is the primary function of a rig when animating a model?",
+      "options": [
+        "To create realistic textures",
+        "To determine the model's color palette",
+        "To specify which parts of the model can move",
+        "To generate environmental effects"
+      ],
+      "correct": 2,
+      "explanation": "Rig (bộ khung xương) xác định những phần nào của model có thể cử động được."
+    },
+    {
+      "id": "PRU213-03",
+      "type": "choice",
+      "prompt": "How does the principle of Immediate Feedback enhance user experience in UI design?",
+      "options": [
+        "By providing extensive tutorials",
+        "By giving users instant responses to their actions",
+        "By making the interface visually complex",
+        "By maintaining uniformity in design elements"
+      ],
+      "correct": 1,
+      "explanation": "Immediate Feedback nghĩa là phản hồi NGAY LẬP TỨC cho hành động của người dùng."
+    },
+    {
+      "id": "PRU213-04",
+      "type": "choice",
+      "prompt": "How can you trigger a transition between states using a script?",
+      "options": [
+        "By directly changing the animation clip.",
+        "By setting a parameter in the Animator.",
+        "By enabling is Transitioning property of the Animator.",
+        "By calling Animator.TransitionToState()."
+      ],
+      "correct": 1,
+      "explanation": "Cách chuẩn để kích hoạt transition bằng script là set parameter (Trigger/Bool/Float/Int) trên Animator — không có API TransitionToState()."
+    },
+    {
+      "id": "PRU213-05",
+      "type": "choice",
+      "prompt": "How does the principle of Guidance help users in UI design?",
+      "options": [
+        "By making the interface visually complex within the interface",
+        "By providing clear instructions, cues, or assistance within the interface",
+        "By allowing users to customize the interface extensively",
+        "By focusing solely on aesthetic appeal within the interface"
+      ],
+      "correct": 1,
+      "explanation": "Guidance là cung cấp hướng dẫn/gợi ý rõ ràng để người dùng biết phải làm gì tiếp theo."
+    },
+    {
+      "id": "PRU213-06",
+      "type": "choice",
+      "prompt": "What is the function of Rigidbody's 'drag' property in Unity?",
+      "options": [
+        "To adjust the gravitational pull on the object.",
+        "To simulate air or fluid resistance, affecting how quickly an object slows down when moving through space.",
+        "To apply a constant force in a specific direction.",
+        "To control the rotational speed of the object."
+      ],
+      "correct": 1,
+      "explanation": "'Drag' mô phỏng lực cản không khí/chất lỏng, làm vật chậm dần khi di chuyển — không liên quan trọng lực (đó là Gravity Scale/Use Gravity)."
+    },
+    {
+      "id": "PRU213-07",
+      "type": "choice",
+      "prompt": "Analyze the code: GameObject enters trigger zone tagged \"Checkpoint\" — checkpointEffect.SetActive(true); Debug.Log(\"Checkpoint Reached!\")",
+      "options": [
+        "The GameObject will change color",
+        "A particle effect will be activated and a message logged",
+        "The GameObject will stop moving",
+        "The GameObject will increase in size"
+      ],
+      "correct": 1,
+      "explanation": "SetActive(true) kích hoạt object hiệu ứng (checkpointEffect), đồng thời Debug.Log in thông báo ra Console."
+    },
+    {
+      "id": "PRU213-08",
+      "type": "choice",
+      "prompt": "Script attached to GameObject with Rigidbody: rb.AddForce(Vector3.up * 500f) khi nhấn Space — điều gì xảy ra?",
+      "options": [
+        "The GameObject will move downward with a force of 500 Newtons.",
+        "The GameObject will rotate around the Y-axis.",
+        "The GameObject will move upward with a force of 500 Newtons",
+        "The GameObject's velocity will decrease by 500 units per second."
+      ],
+      "correct": 2,
+      "explanation": "Vector3.up là hướng +Y (lên trên), AddForce với lực 500 đẩy vật bay lên."
+    },
+    {
+      "id": "PRU213-09",
+      "type": "choice",
+      "prompt": "What is the primary function of a Fixed joint in Unity?",
+      "options": [
+        "Simulating a door hinge or swinging pendulum",
+        "Applying a spring-like force between connected bodies",
+        "Preventing relative motion between connected bodies",
+        "Providing customizable constraints for defining complex object relationships and motion"
+      ],
+      "correct": 2,
+      "explanation": "Fixed Joint 'hàn cứng' hai object lại, ngăn mọi chuyển động tương đối giữa chúng (khác Hinge = bản lề, Spring = lực đàn hồi, Configurable = tùy biến)."
+    },
+    {
+      "id": "PRU213-10",
+      "type": "choice",
+      "prompt": "What is the primary role of the Rigidbody component in Unity when creating physics-based puzzles?",
+      "options": [
+        "To add visual effects to objects during collisions",
+        "To enable objects to respond to physics simulations, such as gravity and collisions, affecting their movement and rotation.",
+        "To define the graphical representation of objects in the game world.",
+        "To play audio effects when objects interact with the environment."
+      ],
+      "correct": 1,
+      "explanation": "Rigidbody cho phép object chịu tác động của physics engine: trọng lực, va chạm, lực — ảnh hưởng tới di chuyển/xoay."
+    },
+    {
+      "id": "PRU213-11",
+      "type": "choice",
+      "prompt": "Why might you choose to use a component-based design in Unity over an inheritance-based design?",
+      "options": [
+        "Component-based design simplifies debugging and reduces the complexity of your scripts",
+        "Component-based design allows for greater flexibility and reusability of GameObject functionalities",
+        "Component-based design is more familiar to developers than inheritance-based design from GameObject",
+        "Component-based design ensures better performance across different platforms"
+      ],
+      "correct": 1,
+      "explanation": "Ưu điểm cốt lõi của component-based design là tính linh hoạt và khả năng tái sử dụng chức năng giữa các GameObject khác nhau."
+    },
+    {
+      "id": "PRU213-12",
+      "type": "choice",
+      "prompt": "What is the first step in implementing a data saving and loading system in Unity?",
+      "options": [
+        "Serialization",
+        "Data Collection",
+        "Storage Management",
+        "Loading Process"
+      ],
+      "correct": 0,
+      "explanation": "Bước đầu tiên là Serialization — chuyển dữ liệu (object/state) thành định dạng có thể lưu trữ được (ví dụ JSON, binary)."
+    },
+    {
+      "id": "PRU213-13",
+      "type": "choice",
+      "prompt": "Which of the following is NOT a common method to implement player movement in a 2D game?",
+      "options": [
+        "Rigidbody2D with forces",
+        "Transform.Translate",
+        "Custom C# script for movement",
+        "Particle System"
+      ],
+      "correct": 3,
+      "explanation": "Particle System dùng để tạo hiệu ứng hạt (khói, lửa...), không phải công cụ di chuyển nhân vật.",
+      "image": "/pru213/q13.png"
+    },
+    {
+      "id": "PRU213-14",
+      "type": "choice",
+      "prompt": "Which tool in Unity allows you to set breakpoints, inspect variables, and step through code execution?",
+      "options": [
+        "Console Window",
+        "Profiler",
+        "Debugger",
+        "Remote Debugging"
+      ],
+      "correct": 2,
+      "explanation": "Debugger (tích hợp qua IDE như Visual Studio/Rider) mới cho phép đặt breakpoint, xem biến, step qua từng dòng code."
+    },
+    {
+      "id": "PRU213-15",
+      "type": "choice",
+      "prompt": "What is the primary function of an Animator Controller in Unity?",
+      "options": [
+        "To store animation data for game objects",
+        "To create visual effects for animations",
+        "To organize animation states and transitions",
+        "To manage physics interactions between animated objects"
+      ],
+      "correct": 2,
+      "explanation": "Animator Controller là sơ đồ trạng thái (state machine) tổ chức các animation state và transition giữa chúng."
+    },
+    {
+      "id": "PRU213-16",
+      "type": "choice",
+      "prompt": "What does the Profiler in Unity provide?",
+      "options": [
+        "Log messages and warnings",
+        "Properties and components of game objects",
+        "Performance metrics and analysis to identify bottlenecks",
+        "Debugging for remote devices"
+      ],
+      "correct": 2,
+      "explanation": "Profiler cung cấp số liệu hiệu năng (CPU, GPU, Memory...) để tìm điểm nghẽn (bottleneck)."
+    },
+    {
+      "id": "PRU213-17",
+      "type": "choice",
+      "prompt": "Which of the following is a Unity-specific class used for representing rotations?",
+      "options": [
+        "Vector3",
+        "Quaternion",
+        "Rigidbody",
+        "Transform"
+      ],
+      "correct": 1,
+      "explanation": "Quaternion là kiểu dữ liệu Unity dùng để biểu diễn phép xoay (rotation), tránh hiện tượng gimbal lock của Euler angles."
+    },
+    {
+      "id": "PRU213-18",
+      "type": "choice",
+      "prompt": "In Unity, what is the primary purpose of the Update function within a MonoBehaviour script?",
+      "options": [
+        "Handling initialization tasks before gameplay",
+        "Controlling GameObject actions for each frame during gameplay",
+        "Responding to user input during gameplay",
+        "Executing actions triggered by collisions"
+      ],
+      "correct": 1,
+      "explanation": "Update() chạy mỗi frame, dùng để cập nhật hành vi GameObject liên tục trong lúc chơi."
+    },
+    {
+      "id": "PRU213-19",
+      "type": "choice",
+      "prompt": "How does a script operate in Unity compared to a traditional program?",
+      "options": [
+        "Unity runs the script continuously in a loop like a traditional program",
+        "Unity intermittently passes control to the script by calling specific event functions",
+        "Unity executes the script only once at the start of the game",
+        "Unity requires manual updates every frame to run script"
+      ],
+      "correct": 1,
+      "explanation": "Unity theo mô hình event-driven: engine tự gọi các hàm vòng đời (Awake, Start, Update...) theo đúng thời điểm, script không tự chạy vòng lặp riêng."
+    },
+    {
+      "id": "PRU213-20",
+      "type": "choice",
+      "prompt": "How can mouse input be customized in Unity?",
+      "options": [
+        "By adding Rigidbody components to the mouse",
+        "By using the Transform component",
+        "By modifying Input Actions to adjust sensitivity",
+        "By enabling Sprite Renderer on the mouse pointer"
+      ],
+      "correct": 2,
+      "explanation": "Với New Input System, tùy biến input chuột thực hiện qua Input Actions (binding, sensitivity, processors)."
+    },
+    {
+      "id": "PRU213-21",
+      "type": "choice",
+      "prompt": "What is the primary purpose of Unity's Input System?",
+      "options": [
+        "To manage the appearance of game objects",
+        "To control lighting in the scene",
+        "To handle user input from devices, touch, or gestures",
+        "To define the physics behavior of objects"
+      ],
+      "correct": 2,
+      "explanation": "Input System xử lý input từ nhiều loại thiết bị: bàn phím, chuột, cảm ứng, gamepad..."
+    },
+    {
+      "id": "PRU213-22",
+      "type": "choice",
+      "prompt": "How would you make the character jump only when the \"W\" key is pressed once?",
+      "options": [
+        "Use Input.GetKey(KeyCode.W) in FixedUpdate().",
+        "Use Input.GetKeyDown(KeyCode.W) in Update().",
+        "Use Input.GetKey(KeyCode.W) in Update().",
+        "Use Input.GetKeyDown(KeyCode.W) in FixedUpdate()."
+      ],
+      "correct": 1,
+      "explanation": "GetKeyDown chỉ trả true đúng 1 frame khi vừa nhấn phím, và nên đọc input trong Update() (không phải FixedUpdate) để không bỏ lỡ input."
+    },
+    {
+      "id": "PRU213-23",
+      "type": "choice",
+      "prompt": "When adjusting the Transform properties of a GameObject, how does parent-child relationship affect child Transform values if the parent Transform is modified?",
+      "options": [
+        "The Transform values of the child GameObjects are not affected by changes to the parent GameObject.",
+        "The Transform values of the child GameObjects automatically update to match the parent GameObject's Transform values.",
+        "The Transform values of the child GameObjects change relative to their original values, depending on the modification applied to the parent GameObject.",
+        "The Transform values of the child GameObjects reset to (0, 0, 0) regardless of the parent GameObject's Transform modifications."
+      ],
+      "correct": 2,
+      "explanation": "⚠️ Câu này khá mơ hồ về wording — local Transform của con giữ nguyên, nhưng vị trí/xoay THẾ GIỚI của con thay đổi tương ứng theo thay đổi của cha. Đáp án C khớp gần nhất với ý đó; bạn nên đối chiếu lại slide gốc.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-24",
+      "type": "choice",
+      "prompt": "When managing multiple scenes, which Unity class provides functionalities for loading and unloading scenes?",
+      "options": [
+        "GameObject",
+        "MonoBehaviour",
+        "UnityEngine.SceneManagement",
+        "Transform"
+      ],
+      "correct": 2,
+      "explanation": "UnityEngine.SceneManagement (class SceneManager) cung cấp LoadScene/UnloadScene."
+    },
+    {
+      "id": "PRU213-25",
+      "type": "choice",
+      "prompt": "Which of the following allows us to view and edit the properties of the currently selected game object?",
+      "options": [
+        "Inspector window",
+        "Overlays",
+        "Project window",
+        "Status bar"
+      ],
+      "correct": 0,
+      "explanation": "Inspector window hiển thị và cho phép chỉnh sửa mọi property/component của GameObject đang chọn."
+    },
+    {
+      "id": "PRU213-26",
+      "type": "choice",
+      "prompt": "In Unity C# scripting, what is the purpose of the MonoBehaviour class that all Unity scripts inherit from?",
+      "options": [
+        "To define the main game mechanics and rules.",
+        "To provide a base class with methods and properties essential for scripting GameObject behavior in Unity.",
+        "To act as the main entry point for Unity applications.",
+        "To manage the user interface elements of a Unity game."
+      ],
+      "correct": 1,
+      "explanation": "MonoBehaviour là base class cung cấp vòng đời (Awake/Start/Update...) và API cần thiết để viết behavior cho GameObject."
+    },
+    {
+      "id": "PRU213-27",
+      "type": "choice",
+      "prompt": "When implementing mouse dragging with InputAction callbacks, which combination would you use?",
+      "options": [
+        "Use OnMouseDrag(InputAction.CallbackContext context) and check context.performed/context.canceled for start/end drag.",
+        "Implement OnMouseDown() and OnMouseUp() methods, and calculate the drag distance in Update()",
+        "Register callbacks for OnMouseDown(InputAction.CallbackContext context) and OnMousePosition(InputAction.CallbackContext context), starting the drag on context.performed and tracking the mouse position until the button is released.",
+        "Utilize OnLeftClick(InputAction.CallbackContext context) for detecting drag start, and track movement in OnMouseMovement(InputAction.CallbackContext context) until context.canceled is true."
+      ],
+      "correct": 2,
+      "explanation": "⚠️ Các tên hàm trong 4 lựa chọn đều không phải API dựng sẵn của Unity (đều là tên tự đặt minh họa) — đáp án C được chọn vì mô tả ĐẦY ĐỦ nhất luồng: 1 action bắt đầu (performed) + 1 action theo dõi vị trí liên tục tới khi thả nút. Độ tin cậy thấp, nên đối chiếu slide gốc.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-28",
+      "type": "choice",
+      "prompt": "In Unity, how are GameObjects' behavior primarily controlled?",
+      "options": [
+        "Through built-in Components exclusively",
+        "Through attached Scripts",
+        "Through external plugins",
+        "Through visual scripting tools"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Về bản chất hành vi GameObject do Component quyết định (Script chỉ là 1 loại Component), nhưng trong 4 lựa chọn thì 'Through attached Scripts' là đáp án hợp lý nhất theo hướng học lập trình C# của môn — nên đối chiếu lại slide.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-29",
+      "type": "choice",
+      "prompt": "What is the primary purpose of the FixedUpdate function in Unity scripts?",
+      "options": [
+        "Initializing variables for script execution",
+        "Executing game logic updates once per frame",
+        "Handling frame updates for physics-related updates",
+        "Executing late updates after all other functions have been called"
+      ],
+      "correct": 2,
+      "explanation": "FixedUpdate() dùng cho các cập nhật liên quan tới physics (chạy theo bước thời gian cố định, không theo frame rate)."
+    },
+    {
+      "id": "PRU213-30",
+      "type": "choice",
+      "prompt": "When is the FixedUpdate() method called in Unity?",
+      "options": [
+        "At a fixed time interval",
+        "Once per frame",
+        "When the object becomes enabled",
+        "After LateUpdate()"
+      ],
+      "correct": 0,
+      "explanation": "FixedUpdate() được gọi theo khoảng thời gian CỐ ĐỊNH (Time.fixedDeltaTime), độc lập với tốc độ khung hình."
+    },
+    {
+      "id": "PRU213-31",
+      "type": "choice",
+      "prompt": "What is the purpose of the OnEnable() method in Unity?",
+      "options": [
+        "To perform actions when the object becomes disabled",
+        "To initialize variables when the object becomes enabled",
+        "To perform actions when the object becomes enabled and active",
+        "To update game logic continuously after the object becomes enabled"
+      ],
+      "correct": 2,
+      "explanation": "OnEnable() được gọi khi object chuyển sang trạng thái enabled và active — đúng theo định nghĩa của Unity docs."
+    },
+    {
+      "id": "PRU213-32",
+      "type": "choice",
+      "prompt": "How do Animation Events enhance interactivity within Unity's Animation System?",
+      "options": [
+        "By allowing animations to loop indefinitely until stopped by a script.",
+        "By triggering specific C# script functions at designated points in an animation clip's timeline.",
+        "By automatically adjusting the animation's frame rate based on the game's performance.",
+        "By enabling the Animator Controller to switch between different animation layers."
+      ],
+      "correct": 1,
+      "explanation": "Animation Event cho phép gọi 1 hàm C# cụ thể tại đúng thời điểm (frame) đã đánh dấu trên timeline của animation clip."
+    },
+    {
+      "id": "PRU213-33",
+      "type": "choice",
+      "prompt": "What feature in Unity allows you to create a visual distinction between different button states such as Normal, Highlighted, Pressed, and Disabled?",
+      "options": [
+        "Animation Controller",
+        "State Transitions",
+        "Canvas Renderer",
+        "Scriptable Objects"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Trong Unity, thuộc tính 'Transition' của component Selectable (nút bấm) quản lý các trạng thái Normal/Highlighted/Pressed/Disabled — khớp gần nhất với 'State Transitions'. Nên đối chiếu slide vì tên chính thức là 'Transition' chứ không hẳn 'State Transitions'.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-34",
+      "type": "choice",
+      "prompt": "Which uGUI component is useful for handling scrollable content, particularly for long lists?",
+      "options": [
+        "Slider",
+        "Dropdown",
+        "Toggle",
+        "Scroll View"
+      ],
+      "correct": 3,
+      "explanation": "Scroll View là component chuẩn để hiển thị nội dung dài, cho phép cuộn."
+    },
+    {
+      "id": "PRU213-35",
+      "type": "choice",
+      "prompt": "What are the bendable parts of a model called?",
+      "options": [
+        "Rigid parts",
+        "Texture maps",
+        "Bones",
+        "Joints"
+      ],
+      "correct": 2,
+      "explanation": "Bones (xương) trong rig là các phần có thể uốn/cử động của model."
+    },
+    {
+      "id": "PRU213-36",
+      "type": "choice",
+      "prompt": "What is a recommended optimization technique for button assets in Unity?",
+      "options": [
+        "Using Unity's animation system to animate buttons",
+        "Scripting custom button behaviors",
+        "Assigning functions or methods to buttons for specific actions",
+        "Using sprite atlases or sprite sheets to minimize draw calls and improve performance"
+      ],
+      "correct": 3,
+      "explanation": "Sprite atlas/sprite sheet gộp nhiều ảnh nhỏ lại để giảm số draw call, tối ưu hiệu năng render UI."
+    },
+    {
+      "id": "PRU213-37",
+      "type": "choice",
+      "prompt": "What is an example of a scripted animation transition in Unity?",
+      "options": [
+        "Triggering the transition from idle to walk state when the player presses the forward key",
+        "Automatically switching between camera views when the game starts",
+        "Making the object rotate continuously without player input",
+        "Changing the background music based on the game's progress"
+      ],
+      "correct": 0,
+      "explanation": "Đây là ví dụ điển hình: input người chơi (nhấn phím) kích hoạt transition giữa 2 animation state (idle → walk)."
+    },
+    {
+      "id": "PRU213-38",
+      "type": "choice",
+      "prompt": "What are animation triggers used for in Unity?",
+      "options": [
+        "To manage the camera view during gameplay",
+        "To control animations based on button interactions",
+        "To handle player movement and physics",
+        "To save and load game data"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Trigger parameter trong Animator dùng để kích hoạt transition một lần (thường do input người chơi, có thể qua phím hoặc nút UI) — B là lựa chọn gần đúng nhất trong 4 phương án, nên đối chiếu slide.",
+      "lowConfidence": true
+    },
+    {
+      "id": "PRU213-39",
+      "type": "choice",
+      "prompt": "In Unity's physics system, what purpose do colliders serve when developing interactive physics-based puzzles?",
+      "options": [
+        "They act as triggers for starting or stopping animations on game objects.",
+        "They define the physical shape of an object for collision detection, enabling objects to interact with each other physically in the game world.",
+        "They are used exclusively for rendering realistic lighting effects on game objects.",
+        "They control the audio volume level when two objects collide in the game environment."
+      ],
+      "correct": 1,
+      "explanation": "Collider định nghĩa hình dạng vật lý dùng để phát hiện va chạm, cho phép các object tương tác vật lý với nhau."
+    },
+    {
+      "id": "PRU213-40",
+      "type": "choice",
+      "prompt": "What is the primary difference between using a Collider as a physical barrier and using it as a Trigger?",
+      "options": [
+        "Colliders can only be used for 3D objects, whereas Triggers are exclusively for 2D objects.",
+        "Triggers can physically interact and apply forces to objects, while Colliders cannot.",
+        "Colliders act as physical barriers that objects cannot pass through, whereas Triggers do not physically stop objects but instead fire events when an object passes through.",
+        "There is no difference; both Colliders and Triggers serve the same purpose in Unity."
+      ],
+      "correct": 2,
+      "explanation": "Collider (không tick Is Trigger) chặn vật lý thật sự; Trigger (tick Is Trigger) không chặn mà chỉ bắn sự kiện OnTriggerEnter/Exit."
+    },
+    {
+      "id": "PRU213-41",
+      "type": "choice",
+      "prompt": "Which Collider component in Unity is best suited for objects like balls or other round entities?",
+      "options": [
+        "Box Collider",
+        "Sphere Collider",
+        "Capsule Collider",
+        "Cylinder Collider"
+      ],
+      "correct": 1,
+      "explanation": "Sphere Collider khớp hình dạng tròn/cầu, phù hợp nhất cho quả bóng."
+    },
+    {
+      "id": "PRU213-42",
+      "type": "choice",
+      "prompt": "What is the primary purpose of Broad-Phase Collision Detection in Unity?",
+      "options": [
+        "To efficiently identify potential collisions among a large number of objects",
+        "To determine if potential collision pairs are indeed colliding",
+        "To check the precise shapes defined by the colliders",
+        "To detect collisions without physically interacting with other objects"
+      ],
+      "correct": 0,
+      "explanation": "Broad-phase lọc nhanh các cặp object CÓ KHẢ NĂNG va chạm (dùng bounding volume), giảm tải cho bước kiểm tra chi tiết."
+    },
+    {
+      "id": "PRU213-43",
+      "type": "choice",
+      "prompt": "What does Narrow-Phase Collision Detection in Unity involve?",
+      "options": [
+        "A detailed examination of potential collision pairs to determine if they are indeed colliding",
+        "Quickly identifying potential collisions among a large number of objects",
+        "Detecting collisions without physically interacting with other objects",
+        "Checking the precise shapes defined by the colliders"
+      ],
+      "correct": 0,
+      "explanation": "Narrow-phase kiểm tra CHI TIẾT các cặp đã lọc ở broad-phase để xác nhận có thực sự va chạm hay không."
+    },
+    {
+      "id": "PRU213-44",
+      "type": "choice",
+      "prompt": "What purpose do Layers and Masks serve in Unity Physics?",
+      "options": [
+        "They simulate the force of gravity on objects",
+        "They limit the movement of objects with Constraints and Joints",
+        "They control which objects interact with each other",
+        "They identify when two objects intersect and respond to collisions"
+      ],
+      "correct": 2,
+      "explanation": "Layer + Collision Matrix (Layer Collision Mask) quyết định layer nào được phép va chạm/tương tác với layer nào."
+    },
+    {
+      "id": "PRU213-45",
+      "type": "choice",
+      "prompt": "Which type of joint in Unity restricts rotation around a single axis, simulating a door hinge or swinging pendulum?",
+      "options": [
+        "Hinge joint",
+        "Fixed joint",
+        "Spring joint",
+        "Configurable joint"
+      ],
+      "correct": 0,
+      "explanation": "Hinge Joint mô phỏng bản lề — chỉ cho xoay quanh một trục duy nhất, giống cửa hoặc con lắc."
+    },
+    {
+      "id": "PRU213-46",
+      "type": "choice",
+      "prompt": "Which of the following best describes events in C#?",
+      "options": [
+        "Objects that hold data and methods that operate on the data",
+        "Special methods used for asynchronous programming and store data",
+        "Type definitions that specify the methods signature",
+        "Delegate that enables one object to notify other objects about actions"
+      ],
+      "correct": 3,
+      "explanation": "Event trong C# xây trên delegate, cho phép một object thông báo cho các object khác khi có hành động/sự kiện xảy ra."
+    },
+    {
+      "id": "PRU213-47",
+      "type": "choice",
+      "prompt": "Which of the following statements about delegates in C# is NOT true?",
+      "options": [
+        "Delegates are essentially a reference type that holds the reference to a method.",
+        "Delegates can be used to create callback mechanisms.",
+        "Delegates cannot be invoked like a regular method.",
+        "Delegates allow one object to call methods on another object without knowing its specific type."
+      ],
+      "correct": 2,
+      "explanation": "Delegate HOÀN TOÀN có thể được gọi như một hàm bình thường (myDelegate()) — nên phát biểu 'không thể gọi như hàm thường' là SAI, đây là đáp án cần chọn cho câu hỏi 'NOT true'."
+    },
+    {
+      "id": "PRU213-48",
+      "type": "choice",
+      "prompt": "What is the role of the Animator Component in Unity?",
+      "options": [
+        "To store animation data, including keyframes, curves, and events",
+        "To organize animation states and transitions based on the assigned Animator Controller",
+        "To control animation playback based on the assigned Animator Controller",
+        "To create audio effects for animations based on the assigned Animator Controller"
+      ],
+      "correct": 2,
+      "explanation": "Animator Component (gắn trên GameObject) điều khiển việc PHÁT animation dựa theo Animator Controller được gán — khác với Controller (vốn tổ chức state/transition)."
+    },
+    {
+      "id": "PRU213-49",
+      "type": "choice",
+      "prompt": "Where are UI elements placed in Unity?",
+      "options": [
+        "On a Sprite folder",
+        "In a Scene Manager",
+        "On a Canvas component",
+        "In a Transform component"
+      ],
+      "correct": 2,
+      "explanation": "Mọi UI element (uGUI) đều phải nằm trong một Canvas component để được render."
+    }
+  ]
+}

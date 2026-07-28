@@ -34,6 +34,9 @@ import tb09 from '../content/term-bank/tb-09.json';
 import tb10 from '../content/term-bank/tb-10.json';
 import tb11 from '../content/term-bank/tb-11.json';
 
+// Quiz môn PRU213 (Unity & C#) — mục riêng, độc lập với SWD392
+import pru213Quiz from '../content/pru213/pru213-quiz.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -54,6 +57,10 @@ export const termBankMap: Record<string, any> = {
   'tb-09': tb09,
   'tb-10': tb10,
   'tb-11': tb11,
+};
+
+export const pru213Map: Record<string, any> = {
+  'quiz': pru213Quiz,
 };
 
 // Phân bố 60 câu đề thi thử theo 11 chương — gần đều, dư 5 câu rải vào chương
@@ -214,7 +221,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -232,6 +239,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
     reviewData = resolvedLevelId ? termBankMap[resolvedLevelId] : null;
+  } else if (isPru213) {
+    reviewData = resolvedLevelId ? pru213Map[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -248,7 +257,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isTermBank || isMockExam) ? '/term-bank' : '/home';
+  const exitPath = isPeReview ? '/pe-review' : isPru213 ? '/pru213' : (isTermBank || isMockExam) ? '/term-bank' : '/home';
 
   if (!reviewData) {
     return (
@@ -532,6 +541,13 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
             <h2 className="text-md md:text-lg font-bold text-gray-100 leading-snug">
               {currentQuestion.prompt}
             </h2>
+            {currentQuestion.image && (
+              <img
+                src={`${import.meta.env.BASE_URL}${String(currentQuestion.image).replace(/^\//, '')}`}
+                alt=""
+                className="w-full max-w-sm mx-auto rounded-2xl border border-gray-800 mt-3"
+              />
+            )}
           </div>
 
           {/* Widget hiện isSubmitted=true sau khi bấm Kiểm Tra để tô màu đúng/sai ngay */}
