@@ -1,0 +1,308 @@
+{
+  "id": "PRN222-T-MVC",
+  "title": "PRN222 — MVC & Razor Pages",
+  "questions": [
+    {
+      "id": "PRN222-T-MVC-01",
+      "type": "choice",
+      "prompt": "Which directive is used for two-way data binding?",
+      "options": [
+        "@bind",
+        "@twoWay",
+        "@model",
+        "@dataBind"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-MVC-02",
+      "type": "choice",
+      "prompt": "Which folder typically contains static files (CSS, JavaScript, images) in an ASP.NET Core MVC project?",
+      "options": [
+        "\"Views\"",
+        "\"Models\"",
+        "\"Controllers\"",
+        "\"wwwroot\""
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-MVC-03",
+      "type": "choice",
+      "prompt": "Which of the following attributes validates that two properties in a model match?",
+      "options": [
+        "[Compare]",
+        "[Required]",
+        "[StringLength]",
+        "[Range]"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-MVC-04",
+      "type": "choice",
+      "prompt": "What happens?",
+      "options": [
+        "Displays 15",
+        "Displays 105",
+        "InvalidCastException",
+        "Nothing"
+      ],
+      "code": "public IActionResult Index()\n{\nViewData[\"Count\"] = \"10\";\nreturn View();\n}\n// In Razor:\n<p>@((int)ViewData[\"Count\"]+5)</p>",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-05",
+      "type": "choice",
+      "prompt": "What is the purpose of the [Bind] attribute in ASP.NET Core MVC?",
+      "options": [
+        "To specify which properties of a model should be bound from the request.",
+        "To encrypt data.",
+        "To manage database connections.",
+        "To manage user sessions."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-MVC-06",
+      "type": "choice",
+      "prompt": "Which statement is correct about Model Binding?",
+      "options": [
+        "It only works with query strings",
+        "It maps HTTP request data to controller action parameters",
+        "It must always use TempData",
+        "It cannot bind complex types"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-07",
+      "type": "choice",
+      "prompt": "What is the purpose of the @ symbol in Razor syntax?",
+      "options": [
+        "To define a CSS rule.",
+        "To indicate a JavaScript block.",
+        "To switch between HTML and C# code.",
+        "To define a database query."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-08",
+      "type": "choice",
+      "prompt": "By default, Razor Pages uses which folder as the root for routing?",
+      "options": [
+        "/Controllers",
+        "/Views",
+        "/Pages",
+        "/Models"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-09",
+      "type": "choice",
+      "prompt": "What is the purpose of the @model directive in a Razor Page?",
+      "options": [
+        "To define a database connection.",
+        "To specify the PageModel type for the Razor Page.",
+        "To encrypt data.",
+        "To manage user sessions."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-10",
+      "type": "choice",
+      "prompt": "Which statement is true about Model Binding in Razor Pages?",
+      "options": [
+        "Only works with GET requests",
+        "Maps HTTP request data to PageModel properties",
+        "Must always use TempData",
+        "Cannot bind form values"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-11",
+      "type": "choice",
+      "prompt": "Which directive defines the page model in a Razor Page?",
+      "options": [
+        "@page",
+        "@model",
+        "@pagemodel",
+        "@controller"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-12",
+      "type": "choice",
+      "prompt": "In a Razor Page handler method, how do you check if the model is valid after form submission?",
+      "options": [
+        "Model.Check()",
+        "ModelState.IsValid",
+        "ValidateModel()",
+        "Model.IsValid()"
+      ],
+      "code": "public IActionResult OnPost()\n{\nif ( ??? )\n{\n// process data\n}\nreturn Page();\n}",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-13",
+      "type": "choice",
+      "prompt": "Which method should NOT be used for long-running background work in controllers?",
+      "options": [
+        "Task.Run()",
+        "IHostedService",
+        "BackgroundService",
+        "Worker Service"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-MVC-14",
+      "type": "choice",
+      "prompt": "Which interface must a class implement to be registered as a hosted service in .NET?",
+      "options": [
+        "IController",
+        "IDbContext",
+        "IHostedService",
+        "IViewComponent"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-15",
+      "type": "choice",
+      "prompt": "What is \"Model Binding\" in ASP.NET Core MVC?",
+      "options": [
+        "The process of managing user sessions.",
+        "The process of encrypting data.",
+        "The process of mapping HTTP request data to model objects.",
+        "The process of validating user input."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-16",
+      "type": "choice",
+      "prompt": "View Components are preferred over Partial Pages when:",
+      "options": [
+        "You want smaller HTML snippets",
+        "No logic is required",
+        "The page is static",
+        "Logic and data retrieval are required"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-MVC-17",
+      "type": "choice",
+      "prompt": "Which of the following is a Tag Helper in ASP.NET Core?",
+      "options": [
+        "<span asp-code=\"C#\">",
+        "<div data-tag=\"helper\">",
+        "<script asp-helper=\"true\">",
+        "<form asp-action=\"Create\">"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-MVC-18",
+      "type": "choice",
+      "prompt": "How long does data stored in TempData typically persist?",
+      "options": [
+        "Until explicitly removed.",
+        "For the duration of the current request and the next request.",
+        "Until the application is restarted.",
+        "Until the user closes the browser."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-19",
+      "type": "choice",
+      "prompt": "How are handler methods typically named in a Razor PageModel?",
+      "options": [
+        "OnGet(), OnPost()",
+        "GetHandler(), PostHandler()",
+        "ProcessGet(), ProcessPost()",
+        "HandleGet(), HandlePost()"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-MVC-20",
+      "type": "choice",
+      "prompt": "What is the purpose of the RedirectToAction action result?",
+      "options": [
+        "To return a file download.",
+        "To return a JSON response.",
+        "To return a view.",
+        "To redirect the user to another action within the same controller or a different one."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-MVC-21",
+      "type": "choice",
+      "prompt": "What is the primary purpose of ASP.NET Core Razor Pages?",
+      "options": [
+        "Building desktop applications.",
+        "Building page-centric web applications with simplified development.",
+        "Building database management systems.",
+        "Building mobile applications."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-22",
+      "type": "choice",
+      "prompt": "What is the purpose of the JsonResult action result?",
+      "options": [
+        "To redirect to another action.",
+        "To return a file download.",
+        "To return data in JSON format.",
+        "To return a view."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-MVC-23",
+      "type": "choice",
+      "prompt": "What is the purpose of the [BindProperty] attribute in Razor Pages?",
+      "options": [
+        "To define a database connection.",
+        "To encrypt data.",
+        "To manage user sessions.",
+        "To bind form data to a PageModel property."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-MVC-24",
+      "type": "choice",
+      "prompt": "The PageModel in Razor Pages is best described as:",
+      "options": [
+        "A replacement for HTML",
+        "A combination of Controller and ViewModel",
+        "A database entity",
+        "An Entity Framework class"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-MVC-25",
+      "type": "choice",
+      "prompt": "Which role does the Controller play in MVC?",
+      "options": [
+        "Storing domain-specific logic",
+        "Handling requests and orchestrating logic",
+        "Rendering HTML",
+        "Maintaining session state"
+      ],
+      "correct": 1
+    }
+  ]
+}

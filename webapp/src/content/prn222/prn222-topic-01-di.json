@@ -1,0 +1,238 @@
+{
+  "id": "PRN222-T-DI",
+  "title": "PRN222 — Dependency Injection & Design Principles",
+  "questions": [
+    {
+      "id": "PRN222-T-DI-01",
+      "type": "choice",
+      "prompt": "In .NET, what class is used to register services for Dependency Injection?",
+      "options": [
+        "DbContext",
+        "ServiceCollection",
+        "WebRequest",
+        "Task"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-02",
+      "type": "choice",
+      "prompt": "What is \"Property Injection\"?",
+      "options": [
+        "Injecting dependencies via constructors.",
+        "Injecting dependencies via method parameters.",
+        "Injecting dependencies by setting public properties.",
+        "Injecting dependencies at compile time."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-DI-03",
+      "type": "choice",
+      "prompt": "What happens when ILogger is injected into multiple classes?",
+      "options": [
+        "A new instance of FileLogger is created each time",
+        "The same FileLogger instance is shared across the application",
+        "A new FileLogger instance is created per request",
+        "The instance is disposed immediately"
+      ],
+      "code": "services.AddSingleton<ILogger, FileLogger>();",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-04",
+      "type": "choice",
+      "prompt": "Which built-in container does .NET Core provide for DI?",
+      "options": [
+        "Autofac",
+        "Unity",
+        "Microsoft.Extensions.DependencyInjection",
+        "Ninject"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-DI-05",
+      "type": "choice",
+      "prompt": "What happens when IEmailService is requested multiple times?",
+      "options": [
+        "Only one instance is ever created",
+        "A new instance is created each time it's requested",
+        "One instance per request is created",
+        "The DI container throws an exception"
+      ],
+      "code": "services.AddTransient<IEmailService, SmtpEmailService>();",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-06",
+      "type": "choice",
+      "prompt": "In an ASP.NET Core web app, how often is CustomerRepository created?",
+      "options": [
+        "Once per application",
+        "Once per request",
+        "Once per controller",
+        "Every time it's injected"
+      ],
+      "code": "services.AddScoped<IRepository, CustomerRepository>();",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-07",
+      "type": "choice",
+      "prompt": "What is the purpose of the @inject directive in Blazor?",
+      "options": [
+        "To define a database connection.",
+        "To inject dependencies into a component.",
+        "To encrypt data.",
+        "To manage user sessions."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-08",
+      "type": "choice",
+      "prompt": "Which method is used to add SignalR services to the DI container?",
+      "options": [
+        "AddSignalR()",
+        "UseSignalR()",
+        "ConfigureSignalR()",
+        "EnableSignalR()"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-DI-09",
+      "type": "choice",
+      "prompt": "Which of the following is an example of an \"Action Result\" in ASP.NET Core MVC?",
+      "options": [
+        "DbContext",
+        "ViewResult",
+        "ServiceCollection",
+        "Task"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-10",
+      "type": "choice",
+      "prompt": "Which method is used in Program.cs to register Razor Pages services into the DI container?",
+      "options": [
+        "builder.Services.AddControllers()",
+        "builder.Services.AddRazorPages()",
+        "builder.Services.AddMvc()",
+        "builder.Services.AddViews()"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-11",
+      "type": "choice",
+      "prompt": "Who coined the acronym SOLID?",
+      "options": [
+        "Michael Feathers",
+        "Robert C. Martin",
+        "Martin Fowle",
+        "Kent Beck"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-DI-12",
+      "type": "choice",
+      "prompt": "Which principle is emphasized by DI in Razor Pages?",
+      "options": [
+        "Don't Repeat Yourself (DRY)",
+        "Procedural Programming",
+        "Maximum Reuse",
+        "Loose Session Coupling"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-DI-13",
+      "type": "choice",
+      "prompt": "What is Dependency Injection (DI)?",
+      "options": [
+        "A design pattern where objects receive their dependencies from external sources.",
+        "A method for encrypting data.",
+        "A technique for optimizing database queries.",
+        "A way to manage network connections."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-DI-14",
+      "type": "choice",
+      "prompt": "With AddTransient<IEmailService, EmailService>(), injecting into a controller twice will produce:",
+      "options": [
+        "Different instances",
+        "Runtime error",
+        "The same instance",
+        "Null references"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-DI-15",
+      "type": "choice",
+      "prompt": "Dependency Inversion Principle states:",
+      "options": [
+        "High-level modules should depend on low-level modules",
+        "Both high-level and low-level modules should depend on abstractions",
+        "Interfaces should depend on classes",
+        "Abstractions should depend on details"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-DI-16",
+      "type": "choice",
+      "prompt": "How will OrderService behave?",
+      "options": [
+        "Same instance for the entire application",
+        "Thread-local instance",
+        "New instance for each HTTP request",
+        "New instance every time injected"
+      ],
+      "code": "builder.Services.AddScoped<IOrderService, OrderService>();",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-DI-17",
+      "type": "choice",
+      "prompt": "What is a benefit of Blazor's component model?",
+      "options": [
+        "Promotes reusability",
+        "Requires JavaScript interop for Ul updates",
+        "Avoids dependency injection",
+        "Eliminates Razor syntax"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-DI-18",
+      "type": "choice",
+      "prompt": "Which are the three service lifetimes in .NET Core DI?",
+      "options": [
+        "Static, Dynamic, ThreadLocal",
+        "Session, Application, Request",
+        "Singleton, Scoped, Transient",
+        "Short, Medium, Long"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-DI-19",
+      "type": "choice",
+      "prompt": "How do you inject a service into a Razor PageModel?",
+      "options": [
+        "By directly creating an instance of the service.",
+        "By using static methods.",
+        "By adding the service as a constructor parameter.",
+        "By using global variables."
+      ],
+      "correct": 2
+    }
+  ]
+}

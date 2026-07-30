@@ -1,0 +1,115 @@
+{
+  "id": "PRN222-T-WORKER",
+  "title": "PRN222 — Worker Service",
+  "questions": [
+    {
+      "id": "PRN222-T-WORKER-01",
+      "type": "choice",
+      "prompt": "Where is the Worker Service configured in a .NET Core application?",
+      "options": [
+        "Program.cs",
+        "App.cs",
+        "appsettings.json",
+        "launchSettings.json"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-WORKER-02",
+      "type": "choice",
+      "prompt": "What does this service do?",
+      "options": [
+        "Sends emails every minute.",
+        "Sends emails once.",
+        "Logs emails only.",
+        "Ignores shutdown signals."
+      ],
+      "code": "public class EmailWorker : BackgroundService\n{\nprotected override async Task ExecuteAsync(CancellationToken stoppingToken)\n{\nwhile (!stoppingToken.IsCancellationRequested)\n{\nSendEmails();\nawait Task.Delay(60000, stoppingToken);\n}\n}\n}",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-WORKER-03",
+      "type": "choice",
+      "prompt": "Which namespace contains the BackgroundService class?",
+      "options": [
+        "System.Threading",
+        "Microsoft.Extensions.Hosting",
+        "Microsoft.Extensions.Logging",
+        "System.ServiceProcess"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-WORKER-04",
+      "type": "choice",
+      "prompt": "What is the primary purpose of a .NET Worker Service?",
+      "options": [
+        "To build web applications.",
+        "To build desktop applications.",
+        "To build long-running background tasks or services.",
+        "To build mobile applications."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-WORKER-05",
+      "type": "choice",
+      "prompt": "What is the purpose of logging in a Worker Service?",
+      "options": [
+        "To manage database connections.",
+        "To encrypt data.",
+        "To record information, errors, and warnings during the service's execution.",
+        "To manage user sessions."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-WORKER-06",
+      "type": "choice",
+      "prompt": "What is the advantage of using a Worker Service over a console application for background tasks?",
+      "options": [
+        "Console applications can be deployed to mobile devices.",
+        "Console applications have better performance.",
+        "Worker Services integrate seamlessly with ASP.NET Core's hosting and configuration.",
+        "Console applications can run in the browser."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-WORKER-07",
+      "type": "choice",
+      "prompt": "What does the Worker Service template provide in .NET?",
+      "options": [
+        "A pre-configured database project.",
+        "A pre-configured mobile application.",
+        "A pre-configured background service project.",
+        "A pre-configured web application."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-WORKER-08",
+      "type": "choice",
+      "prompt": "What is the typical lifetime of a Worker Service?",
+      "options": [
+        "Only for the duration of a user session.",
+        "Only for the duration of a database transaction.",
+        "Only for the duration of an HTTP request.",
+        "Until the application is manually stopped."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-WORKER-09",
+      "type": "choice",
+      "prompt": "What is a Worker Service in .NET?",
+      "options": [
+        "A replacement for Windows Forms",
+        "A project type for building background services",
+        "A frontend Ul framework",
+        "A Visual Studio extension"
+      ],
+      "correct": 1
+    }
+  ]
+}

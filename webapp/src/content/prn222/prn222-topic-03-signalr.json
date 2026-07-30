@@ -1,0 +1,165 @@
+{
+  "id": "PRN222-T-SIGNALR",
+  "title": "PRN222 — SignalR",
+  "questions": [
+    {
+      "id": "PRN222-T-SIGNALR-01",
+      "type": "choice",
+      "prompt": "What is MessagePack?",
+      "options": [
+        "A database query language.",
+        "A binary serialization format used by SignalR.",
+        "A JavaScript library.",
+        "A network protocol."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-02",
+      "type": "multi",
+      "prompt": "Which of the following statements about hubs in SignalR are true? (More than one correct answer).",
+      "options": [
+        "They manage client connections",
+        "They can call methods on clients",
+        "They store persistent messages",
+        "They require HTTPS"
+      ],
+      "correctSet": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "PRN222-T-SIGNALR-03",
+      "type": "choice",
+      "prompt": "Which method is used to start a SignalR connection on the client-side?",
+      "options": [
+        "connect()",
+        "start()",
+        "open()",
+        "init()"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-04",
+      "type": "choice",
+      "prompt": "In the context of real-time web applications, what does \"real-time\" primarily mean?",
+      "options": [
+        "Data is updated once a day.",
+        "Immediate response from server to client.",
+        "Client periodically requests updates.",
+        "Data is processed only after user refreshes the page."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-05",
+      "type": "choice",
+      "prompt": "Which of the following is a key feature of SignalR for ASP.NET Core?",
+      "options": [
+        "Server-side rendering only.",
+        "Automatic reconnection handling.",
+        "Limited support for modern web standards.",
+        "Dependency on Internet Explorer."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-06",
+      "type": "choice",
+      "prompt": "What is the main purpose of a SignalR hub?",
+      "options": [
+        "To refresh the client browser automatically.",
+        "To act as a high-level pipeline allowing clients and servers to call methods on each other.",
+        "To send HTTP requests only from server to client.",
+        "To replace all API controllers in ASP.NET Core."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-07",
+      "type": "choice",
+      "prompt": "What is the purpose of the Group feature in SignalR?",
+      "options": [
+        "To encrypt data.",
+        "To manage user sessions.",
+        "To send messages to a specific subset of connected clients.",
+        "To manage database connections."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-SIGNALR-08",
+      "type": "choice",
+      "prompt": "SignalR was created by:",
+      "options": [
+        "Anders Hejlsberg",
+        "Scott Guthrie",
+        "David Fowler & Damian Edwards",
+        "Satya Nadella"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-SIGNALR-09",
+      "type": "choice",
+      "prompt": "Why is MessagePack often preferred over JSON in SignalR?",
+      "options": [
+        "Easier to read",
+        "Produces smaller, faster messages",
+        "Requires no serialization",
+        "Uses XML format"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-SIGNALR-10",
+      "type": "choice",
+      "prompt": "What is the primary difference between real-time web applications and traditional web applications?",
+      "options": [
+        "Real-time apps enable immediate, bidirectional communication, traditional apps rely on request-response cycles.",
+        "Real-time apps use static HTML, traditional apps use dynamic content.",
+        "Real-time apps are slower than traditional apps.",
+        "Real-time apps use databases, traditional apps do not."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-SIGNALR-11",
+      "type": "choice",
+      "prompt": "What is the purpose of the User feature in SignalR?",
+      "options": [
+        "To manage user sessions.",
+        "To encrypt data.",
+        "To send messages to clients based on their authenticated user identity.",
+        "To manage database connections."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-SIGNALR-12",
+      "type": "choice",
+      "prompt": "How do you handle events for a SignalR connection on the client-side?",
+      "options": [
+        "By using static HTML files.",
+        "By using database queries.",
+        "By using JavaScript event listeners on the connection object.",
+        "By writing CSS styles."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-SIGNALR-13",
+      "type": "choice",
+      "prompt": "What happens when a SignalR client disconnects?",
+      "options": [
+        "The database connection is closed.",
+        "The server can detect the disconnection and handle it.",
+        "The data is encrypted.",
+        "The user session is terminated."
+      ],
+      "correct": 1
+    }
+  ]
+}

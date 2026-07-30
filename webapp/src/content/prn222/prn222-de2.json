@@ -1,0 +1,608 @@
+{
+  "id": "PRN222-D2",
+  "title": "PRN222 — Đề 2 (FE Bl3w Fall25)",
+  "questions": [
+    {
+      "id": "PRN222-D2-01",
+      "prompt": "What is a Blazor Component?",
+      "options": [
+        "A network protocol.",
+        "A database query.",
+        "A reusable Ul element written in C# and HTML.",
+        "A JavaScript function."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-02",
+      "prompt": "In .NET, which class is used to make HTTP requests and retrieve HTTP responses?",
+      "options": [
+        "TcpClient",
+        "HttpClient",
+        "UdpClient",
+        "Socket"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-03",
+      "prompt": "What is \"Model Binding\" in ASP.NET Core MVC?",
+      "options": [
+        "The process of managing user sessions.",
+        "The process of encrypting data.",
+        "The process of mapping HTTP request data to model objects.",
+        "The process of validating user input."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-04",
+      "prompt": "What does the term \"IP address\" represent?",
+      "options": [
+        "A network security measure.",
+        "A network protocol.",
+        "A unique identifier for a network interface.",
+        "A type of network cable."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-05",
+      "prompt": "What is Blazor?",
+      "options": [
+        "A server-side scripting language.",
+        "A database management system.",
+        "A framework for building interactive web Uls using C# instead of JavaScript.",
+        "A JavaScript framework."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-06",
+      "prompt": "What is the root component of a Blazor app?",
+      "options": [
+        "MainLayout.razor",
+        "Routes.razor",
+        "App.razor",
+        "Index.razor"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-07",
+      "prompt": "What is the purpose of logging in a Worker Service?",
+      "options": [
+        "To manage database connections.",
+        "To encrypt data.",
+        "To record information, errors, and warnings during the service's execution.",
+        "To manage user sessions."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-08",
+      "prompt": "What is the primary purpose of a network socket?",
+      "options": [
+        "To manage IP addresses.",
+        "To provide a communication endpoint between two applications.",
+        "To encrypt network traffic.",
+        "To route network packets."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-09",
+      "prompt": "Which code will block the current thread?",
+      "options": [
+        "task.ContinueWith( ... )",
+        "task.Wait();",
+        "await Task.WhenAll(tasks);",
+        "await task;"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-10",
+      "prompt": "View Components are preferred over Partial Pages when:",
+      "options": [
+        "You want smaller HTML snippets",
+        "No logic is required",
+        "The page is static",
+        "Logic and data retrieval are required"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-11",
+      "prompt": "Which of the following is an example of a valid IP address?",
+      "options": [
+        "HTTP/1.1",
+        "192.168.1.1",
+        "myaccount@gmail.com",
+        "www.example.com.vn"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-12",
+      "prompt": "When writing parallel programs, which principle should be prioritized?",
+      "options": [
+        "Splitting tasks without control",
+        "Avoiding synchronization at all costs",
+        "Low coupling, high cohesion",
+        "Using as many threads as possible"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-13",
+      "prompt": "What is the advantage of using a Worker Service over a console application for background tasks?",
+      "options": [
+        "Console applications can be deployed to mobile devices.",
+        "Console applications have better performance.",
+        "Worker Services integrate seamlessly with ASP.NET Core's hosting and configuration.",
+        "Console applications can run in the browser."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-14",
+      "prompt": "Asynchronous programming improves applications by:",
+      "options": [
+        "Improving performance for l/O-bound operations",
+        "Never blocking a thread",
+        "Automatically turning them into multi-threaded",
+        "Always running faster than synchronous code"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-15",
+      "prompt": "Which scenarios are most suitable for Worker Services?",
+      "options": [
+        "Displaying Razor Pages",
+        "Hosting REST APIs only",
+        "Running Blazor UI",
+        "Processing queue messages"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-16",
+      "prompt": "async/await in C# is based on which pattern?",
+      "options": [
+        "Asynchronous Programming Model (APM)",
+        "Event-based Asynchronous Pattern (EAP)",
+        "Delegate pattern",
+        "Task-based Asynchronous Pattern (TAP)"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-17",
+      "prompt": "What does the Worker Service template provide in .NET?",
+      "options": [
+        "A pre-configured database project.",
+        "A pre-configured mobile application.",
+        "A pre-configured background service project.",
+        "A pre-configured web application."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-18",
+      "prompt": "Which of the following is a Tag Helper in ASP.NET Core?",
+      "options": [
+        "<span asp-code=\"C#\">",
+        "<div data-tag=\"helper\">",
+        "<script asp-helper=\"true\">",
+        "<form asp-action=\"Create\">"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-19",
+      "prompt": "What is the function of a DNS (Domain Name System)?",
+      "options": [
+        "To route network packets.",
+        "To translate hostnames into IP addresses.",
+        "To manage network security.",
+        "To encrypt network traffic."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-20",
+      "prompt": "What is the purpose of the Group feature in SignalR?",
+      "options": [
+        "To encrypt data.",
+        "To manage user sessions.",
+        "To send messages to a specific subset of connected clients.",
+        "To manage database connections."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-21",
+      "prompt": "How long does data stored in TempData typically persist?",
+      "options": [
+        "Until explicitly removed.",
+        "For the duration of the current request and the next request.",
+        "Until the application is restarted.",
+        "Until the user closes the browser."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-22",
+      "prompt": "SignalR was created by:",
+      "options": [
+        "Anders Hejlsberg",
+        "Scott Guthrie",
+        "David Fowler & Damian Edwards",
+        "Satya Nadella"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-23",
+      "prompt": "Who coined the acronym SOLID?",
+      "options": [
+        "Michael Feathers",
+        "Robert C. Martin",
+        "Martin Fowle",
+        "Kent Beck"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-24",
+      "prompt": "What does the name Blazor come from?",
+      "options": [
+        "Blended + Razor",
+        "Blaze + Razor",
+        "Basic + Razor",
+        "Browser + Razor"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-25",
+      "prompt": "Which principle is emphasized by DI in Razor Pages?",
+      "options": [
+        "Don't Repeat Yourself (DRY)",
+        "Procedural Programming",
+        "Maximum Reuse",
+        "Loose Session Coupling"
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-26",
+      "prompt": "What is Dependency Injection (DI)?",
+      "options": [
+        "A design pattern where objects receive their dependencies from external sources.",
+        "A method for encrypting data.",
+        "A technique for optimizing database queries.",
+        "A way to manage network connections."
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-27",
+      "prompt": "How are handler methods typically named in a Razor PageModel?",
+      "options": [
+        "OnGet(), OnPost()",
+        "GetHandler(), PostHandler()",
+        "ProcessGet(), ProcessPost()",
+        "HandleGet(), HandlePost()"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-28",
+      "prompt": "What is the purpose of the RedirectToAction action result?",
+      "options": [
+        "To return a file download.",
+        "To return a JSON response.",
+        "To return a view.",
+        "To redirect the user to another action within the same controller or a different one."
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-29",
+      "prompt": "What is the primary purpose of ASP.NET Core Razor Pages?",
+      "options": [
+        "Building desktop applications.",
+        "Building page-centric web applications with simplified development.",
+        "Building database management systems.",
+        "Building mobile applications."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-30",
+      "prompt": "Why is MessagePack often preferred over JSON in SignalR?",
+      "options": [
+        "Easier to read",
+        "Produces smaller, faster messages",
+        "Requires no serialization",
+        "Uses XML format"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-31",
+      "prompt": "What is the purpose of the JsonResult action result?",
+      "options": [
+        "To redirect to another action.",
+        "To return a file download.",
+        "To return data in JSON format.",
+        "To return a view."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-32",
+      "prompt": "How many tasks does the following code create?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "code": "for (int i= 0; i < 3; i++)\n{\nTask t = new Task(() =>Console.WriteLine(i));\nt.Start();\n}",
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-33",
+      "prompt": "What is the typical lifetime of a Worker Service?",
+      "options": [
+        "Only for the duration of a user session.",
+        "Only for the duration of a database transaction.",
+        "Only for the duration of an HTTP request.",
+        "Until the application is manually stopped."
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-34",
+      "prompt": "With AddTransient<IEmailService, EmailService>(), injecting into a controller twice will produce:",
+      "options": [
+        "Different instances",
+        "Runtime error",
+        "The same instance",
+        "Null references"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-35",
+      "prompt": "Dependency Inversion Principle states:",
+      "options": [
+        "High-level modules should depend on low-level modules",
+        "Both high-level and low-level modules should depend on abstractions",
+        "Interfaces should depend on classes",
+        "Abstractions should depend on details"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-36",
+      "prompt": "Which of the following is a drawback of Blazor WebAssembly?",
+      "options": [
+        "No component model",
+        "Larger initial download size",
+        "Requires .NET runtime installed on the client",
+        "No data binding support"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-37",
+      "prompt": "How will OrderService behave?",
+      "options": [
+        "Same instance for the entire application",
+        "Thread-local instance",
+        "New instance for each HTTP request",
+        "New instance every time injected"
+      ],
+      "code": "builder.Services.AddScoped<IOrderService, OrderService>();",
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-38",
+      "prompt": "What is the purpose of the method GetStream() of the TcpClient class?",
+      "options": [
+        "To get the IP address of the connected server.",
+        "To get the port number of the connected server.",
+        "To close the connection.",
+        "To get the network stream used for sending and receiving data."
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-39",
+      "prompt": "In PLINQ, which method converts a LINQ query into a parallel query?",
+      "options": [
+        "ToParallel()",
+        "AsParallel()",
+        "RunParallel()",
+        "Parallelize()"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-40",
+      "prompt": "What is a benefit of Blazor's component model?",
+      "options": [
+        "Promotes reusability",
+        "Requires JavaScript interop for Ul updates",
+        "Avoids dependency injection",
+        "Eliminates Razor syntax"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-41",
+      "prompt": "What is the primary difference between real-time web applications and traditional web applications?",
+      "options": [
+        "Real-time apps enable immediate, bidirectional communication, traditional apps rely on request-response cycles.",
+        "Real-time apps use static HTML, traditional apps use dynamic content.",
+        "Real-time apps are slower than traditional apps.",
+        "Real-time apps use databases, traditional apps do not."
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D2-42",
+      "prompt": "What is the purpose of the User feature in SignalR?",
+      "options": [
+        "To manage user sessions.",
+        "To encrypt data.",
+        "To send messages to clients based on their authenticated user identity.",
+        "To manage database connections."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-43",
+      "prompt": "What is a Worker Service in .NET?",
+      "options": [
+        "A replacement for Windows Forms",
+        "A project type for building background services",
+        "A frontend Ul framework",
+        "A Visual Studio extension"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-44",
+      "prompt": "Which are the three service lifetimes in .NET Core DI?",
+      "options": [
+        "Static, Dynamic, ThreadLocal",
+        "Session, Application, Request",
+        "Singleton, Scoped, Transient",
+        "Short, Medium, Long"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-45",
+      "prompt": "What is the purpose of the [BindProperty] attribute in Razor Pages?",
+      "options": [
+        "To define a database connection.",
+        "To encrypt data.",
+        "To manage user sessions.",
+        "To bind form data to a PageModel property."
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D2-46",
+      "prompt": "How do you handle events for a SignalR connection on the client-side?",
+      "options": [
+        "By using static HTML files.",
+        "By using database queries.",
+        "By using JavaScript event listeners on the connection object.",
+        "By writing CSS styles."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-47",
+      "prompt": "The PageModel in Razor Pages is best described as:",
+      "options": [
+        "A replacement for HTML",
+        "A combination of Controller and ViewModel",
+        "A database entity",
+        "An Entity Framework class"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-48",
+      "prompt": "What happens when a SignalR client disconnects?",
+      "options": [
+        "The database connection is closed.",
+        "The server can detect the disconnection and handle it.",
+        "The data is encrypted.",
+        "The user session is terminated."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D2-49",
+      "prompt": "How do you inject a service into a Razor PageModel?",
+      "options": [
+        "By directly creating an instance of the service.",
+        "By using static methods.",
+        "By adding the service as a constructor parameter.",
+        "By using global variables."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D2-50",
+      "prompt": "Which role does the Controller play in MVC?",
+      "options": [
+        "Storing domain-specific logic",
+        "Handling requests and orchestrating logic",
+        "Rendering HTML",
+        "Maintaining session state"
+      ],
+      "type": "choice",
+      "correct": 1
+    }
+  ]
+}

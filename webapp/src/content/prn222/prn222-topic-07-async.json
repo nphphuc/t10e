@@ -1,0 +1,139 @@
+{
+  "id": "PRN222-T-ASYNC",
+  "title": "PRN222 — Async, Parallel & Threading",
+  "questions": [
+    {
+      "id": "PRN222-T-ASYNC-01",
+      "type": "choice",
+      "prompt": "Which namespace does Task Parallel Library (TPL) belong to?",
+      "options": [
+        "System.Threading.Tasks",
+        "System.Linq",
+        "System.Collections",
+        "System.IO"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-ASYNC-02",
+      "type": "choice",
+      "prompt": "What is the purpose of the await keyword in C#?",
+      "options": [
+        "To define a constant.",
+        "To pause execution until an asynchronous operation completes.",
+        "To create a new thread.",
+        "To handle exceptions."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-ASYNC-03",
+      "type": "choice",
+      "prompt": "You need to write a WPF app that fetches data from the web without freezing the UI. Which technique should you use?",
+      "options": [
+        "Thread.Sleep()",
+        "Task.Run() + await",
+        "PLINQ",
+        "BackgroundWorker (obsolete)"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-ASYNC-04",
+      "type": "choice",
+      "prompt": "Which architecture does a mono-processor system use?",
+      "options": [
+        "Von Neumann architecture",
+        "Harvard architecture",
+        "MIMD",
+        "SIMD"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-ASYNC-05",
+      "type": "choice",
+      "prompt": "In C#, what is the primary role of the TaskScheduler class?",
+      "options": [
+        "To create new threads directly",
+        "To handle queuing of tasks onto threads",
+        "To manage garbage collection of tasks",
+        "To provide thread synchronization"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-ASYNC-06",
+      "type": "choice",
+      "prompt": "Which code will block the current thread?",
+      "options": [
+        "task.ContinueWith( ... )",
+        "task.Wait();",
+        "await Task.WhenAll(tasks);",
+        "await task;"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-ASYNC-07",
+      "type": "choice",
+      "prompt": "When writing parallel programs, which principle should be prioritized?",
+      "options": [
+        "Splitting tasks without control",
+        "Avoiding synchronization at all costs",
+        "Low coupling, high cohesion",
+        "Using as many threads as possible"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-ASYNC-08",
+      "type": "choice",
+      "prompt": "Asynchronous programming improves applications by:",
+      "options": [
+        "Improving performance for l/O-bound operations",
+        "Never blocking a thread",
+        "Automatically turning them into multi-threaded",
+        "Always running faster than synchronous code"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-ASYNC-09",
+      "type": "choice",
+      "prompt": "async/await in C# is based on which pattern?",
+      "options": [
+        "Asynchronous Programming Model (APM)",
+        "Event-based Asynchronous Pattern (EAP)",
+        "Delegate pattern",
+        "Task-based Asynchronous Pattern (TAP)"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-ASYNC-10",
+      "type": "choice",
+      "prompt": "How many tasks does the following code create?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "6"
+      ],
+      "code": "for (int i= 0; i < 3; i++)\n{\nTask t = new Task(() =>Console.WriteLine(i));\nt.Start();\n}",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-ASYNC-11",
+      "type": "choice",
+      "prompt": "In PLINQ, which method converts a LINQ query into a parallel query?",
+      "options": [
+        "ToParallel()",
+        "AsParallel()",
+        "RunParallel()",
+        "Parallelize()"
+      ],
+      "correct": 1
+    }
+  ]
+}

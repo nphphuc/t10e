@@ -1,0 +1,126 @@
+{
+  "id": "PRN222-T-BLAZOR",
+  "title": "PRN222 — Blazor",
+  "questions": [
+    {
+      "id": "PRN222-T-BLAZOR-01",
+      "type": "choice",
+      "prompt": "What are the two primary rendering modes in Blazor?",
+      "options": [
+        "Static and dynamic.",
+        "Client-side and server-side.",
+        "WebAssembly and Server.",
+        "Local and remote."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-BLAZOR-02",
+      "type": "choice",
+      "prompt": "What is a primary benefit of ASP.NET Core Blazor?",
+      "options": [
+        "Reduced code reusability.",
+        "Ability to write client-side logic in C#.",
+        "Increased reliance on JavaScript.",
+        "Limited cross-platform support."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-BLAZOR-03",
+      "type": "choice",
+      "prompt": "What is the purpose of the DbContext in a Blazor Web App with Entity Framework Core?",
+      "options": [
+        "To manage user sessions.",
+        "To represent a database session and provide methods for querying and saving data.",
+        "To encrypt data.",
+        "To render UI components."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-BLAZOR-04",
+      "type": "choice",
+      "prompt": "Which connection is used by Blazor Server for UI updates?",
+      "options": [
+        "HTTP",
+        "gRPC",
+        "SignalR",
+        "WebSocket only"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-BLAZOR-05",
+      "type": "choice",
+      "prompt": "What is a Blazor Component?",
+      "options": [
+        "A network protocol.",
+        "A database query.",
+        "A reusable Ul element written in C# and HTML.",
+        "A JavaScript function."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-BLAZOR-06",
+      "type": "choice",
+      "prompt": "What is Blazor?",
+      "options": [
+        "A server-side scripting language.",
+        "A database management system.",
+        "A framework for building interactive web Uls using C# instead of JavaScript.",
+        "A JavaScript framework."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-BLAZOR-07",
+      "type": "choice",
+      "prompt": "What is the root component of a Blazor app?",
+      "options": [
+        "MainLayout.razor",
+        "Routes.razor",
+        "App.razor",
+        "Index.razor"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-BLAZOR-08",
+      "type": "choice",
+      "prompt": "Which scenarios are most suitable for Worker Services?",
+      "options": [
+        "Displaying Razor Pages",
+        "Hosting REST APIs only",
+        "Running Blazor UI",
+        "Processing queue messages"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-BLAZOR-09",
+      "type": "choice",
+      "prompt": "What does the name Blazor come from?",
+      "options": [
+        "Blended + Razor",
+        "Blaze + Razor",
+        "Basic + Razor",
+        "Browser + Razor"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-BLAZOR-10",
+      "type": "choice",
+      "prompt": "Which of the following is a drawback of Blazor WebAssembly?",
+      "options": [
+        "No component model",
+        "Larger initial download size",
+        "Requires .NET runtime installed on the client",
+        "No data binding support"
+      ],
+      "correct": 1
+    }
+  ]
+}

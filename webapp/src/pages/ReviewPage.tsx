@@ -47,6 +47,17 @@ import pru213B2Input from '../content/pru213/pru213-b2-06-input.json';
 import pru213B2Data from '../content/pru213/pru213-b2-07-data.json';
 import pru213B2Comprehensive from '../content/pru213/pru213-b2-comprehensive.json';
 
+// Quiz môn PRN222 — 2 đề thi thật + trộn 2 đề + chia theo chủ đề
+import prn222De1 from '../content/prn222/prn222-de1.json';
+import prn222De2 from '../content/prn222/prn222-de2.json';
+import prn222TopicDi from '../content/prn222/prn222-topic-01-di.json';
+import prn222TopicBlazor from '../content/prn222/prn222-topic-02-blazor.json';
+import prn222TopicSignalr from '../content/prn222/prn222-topic-03-signalr.json';
+import prn222TopicNet from '../content/prn222/prn222-topic-04-networking.json';
+import prn222TopicMvc from '../content/prn222/prn222-topic-05-mvc-razor.json';
+import prn222TopicWorker from '../content/prn222/prn222-topic-06-worker.json';
+import prn222TopicAsync from '../content/prn222/prn222-topic-07-async.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -80,6 +91,30 @@ export const pru213Map: Record<string, any> = {
   'b2-data': pru213B2Data,
   'b2-comprehensive': pru213B2Comprehensive,
 };
+
+export const prn222Map: Record<string, any> = {
+  'de1': prn222De1,
+  'de2': prn222De2,
+  'topic-di': prn222TopicDi,
+  'topic-blazor': prn222TopicBlazor,
+  'topic-signalr': prn222TopicSignalr,
+  'topic-net': prn222TopicNet,
+  'topic-mvc': prn222TopicMvc,
+  'topic-worker': prn222TopicWorker,
+  'topic-async': prn222TopicAsync,
+};
+
+// Đề trộn PRN222: 25 câu random từ Đề 1 + 25 câu random từ Đề 2 = 50 câu,
+// trộn thứ tự xuất hiện — KHÔNG đảo vị trí đáp án bên trong mỗi câu.
+function buildPrn222Mix() {
+  const pool1 = shuffleArray(prn222De1.questions).slice(0, 25);
+  const pool2 = shuffleArray(prn222De2.questions).slice(0, 25);
+  return {
+    id: 'PRN222-MIX',
+    title: 'PRN222 — Đề Trộn (50 câu, mix Đề 1 + Đề 2)',
+    questions: shuffleArray([...pool1, ...pool2]),
+  };
+}
 
 // Phân bố 60 câu đề thi thử theo 11 chương — gần đều, dư 5 câu rải vào chương
 // có nhiều câu gốc nhất (TB-09) và 4 chương kế tiếp theo thứ tự chương.
@@ -239,7 +274,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -247,18 +282,23 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   // Đề thi thử: random 1 lần khi vào trang, và random lại mỗi lần bấm "Làm Lại"
   // (xem handleRetry) — không random lại khi component re-render bình thường.
   const [mockExamData, setMockExamData] = useState<any>(() => (isMockExam ? buildMockExam() : null));
+  const [prn222MixData, setPrn222MixData] = useState<any>(() => (isPrn222Mix ? buildPrn222Mix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
   let reviewLessonXp = 0;
   if (isMockExam) {
     reviewData = mockExamData;
+  } else if (isPrn222Mix) {
+    reviewData = prn222MixData;
   } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
     reviewData = resolvedLevelId ? termBankMap[resolvedLevelId] : null;
   } else if (isPru213) {
     reviewData = resolvedLevelId ? pru213Map[resolvedLevelId] : null;
+  } else if (isPrn222) {
+    reviewData = resolvedLevelId ? prn222Map[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -275,7 +315,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : isPru213 ? '/pru213' : (isTermBank || isMockExam) ? '/term-bank' : '/home';
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -425,6 +465,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     if (isMockExam) {
       setMockExamData(buildMockExam());
     }
+    // Đề trộn PRN222: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
+    if (isPrn222Mix) {
+      setPrn222MixData(buildPrn222Mix());
+    }
   };
 
   // Render final result screen
@@ -565,6 +609,13 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
                 alt=""
                 className="w-full max-w-sm mx-auto rounded-2xl border border-gray-800 mt-3"
               />
+            )}
+            {currentQuestion.code && (
+              <pre className="mt-3 p-4 rounded-2xl bg-[#1e1e1e] border border-gray-800 overflow-x-auto text-left">
+                <code className="font-mono text-[13px] leading-relaxed text-gray-200 whitespace-pre">
+                  {currentQuestion.code}
+                </code>
+              </pre>
             )}
           </div>
 

@@ -1,0 +1,162 @@
+{
+  "id": "PRN222-T-NET",
+  "title": "PRN222 — Networking",
+  "questions": [
+    {
+      "id": "PRN222-T-NET-01",
+      "type": "choice",
+      "prompt": "What is a \"firewall\" in network security?",
+      "options": [
+        "A device that routes network traffic.",
+        "A system designed to prevent unauthorized access to or from a private network.",
+        "A network protocol.",
+        "A type of network cable."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-02",
+      "type": "choice",
+      "prompt": "What is HttpClient designed for?",
+      "options": [
+        "Consuming HTTP web APIs",
+        "Handling low-level TCP sockets",
+        "Encrypting HTTP traffic",
+        "Serving static files"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-NET-03",
+      "type": "choice",
+      "prompt": "The WebRequest.Create(Uri) method is used to:",
+      "options": [
+        "a. Initialize a new WebRequest for a specific URI scheme",
+        "b. Open a database connection",
+        "c. Create a physical network cable",
+        "d. Define hardware IP addressing"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-NET-04",
+      "type": "choice",
+      "prompt": "Which .NET class is used for creating a UDP client?",
+      "options": [
+        "TcpListener",
+        "UdpClient",
+        "TcpClient",
+        "Socket"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-05",
+      "type": "choice",
+      "prompt": "What is the purpose of a port number in networking?",
+      "options": [
+        "To identify a specific network.",
+        "To identify a specific application or service on a host.",
+        "To route network traffic.",
+        "To encrypt network data."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-06",
+      "type": "choice",
+      "prompt": "Which protocol is typically included at the start of a URL?",
+      "options": [
+        "HTTP/HTTPS",
+        "TCP/UDP",
+        "FTP",
+        "All of the above"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "PRN222-T-NET-07",
+      "type": "choice",
+      "prompt": "What is the Parallel.For method used for?",
+      "options": [
+        "Asynchronous file operations.",
+        "Executing a loop in parallel.",
+        "Handling network requests.",
+        "Creating user interfaces."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-08",
+      "type": "choice",
+      "prompt": "In .NET, which class is used to make HTTP requests and retrieve HTTP responses?",
+      "options": [
+        "TcpClient",
+        "HttpClient",
+        "UdpClient",
+        "Socket"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-09",
+      "type": "choice",
+      "prompt": "What does the term \"IP address\" represent?",
+      "options": [
+        "A network security measure.",
+        "A network protocol.",
+        "A unique identifier for a network interface.",
+        "A type of network cable."
+      ],
+      "correct": 2
+    },
+    {
+      "id": "PRN222-T-NET-10",
+      "type": "choice",
+      "prompt": "What is the primary purpose of a network socket?",
+      "options": [
+        "To manage IP addresses.",
+        "To provide a communication endpoint between two applications.",
+        "To encrypt network traffic.",
+        "To route network packets."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-11",
+      "type": "choice",
+      "prompt": "Which of the following is an example of a valid IP address?",
+      "options": [
+        "HTTP/1.1",
+        "192.168.1.1",
+        "myaccount@gmail.com",
+        "www.example.com.vn"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "PRN222-T-NET-12",
+      "type": "choice",
+      "prompt": "What is the function of a DNS (Domain Name System)?",
+      "options": [
+        "To route network packets.",
+        "To translate hostnames into IP addresses.",
+        "To manage network security.",
+        "To encrypt network traffic."
+      ],
+      "correct": 1
+    },
+    {
+      "id": "PRN222-T-NET-13",
+      "type": "choice",
+      "prompt": "What is the purpose of the method GetStream() of the TcpClient class?",
+      "options": [
+        "To get the IP address of the connected server.",
+        "To get the port number of the connected server.",
+        "To close the connection.",
+        "To get the network stream used for sending and receiving data."
+      ],
+      "correct": 3
+    }
+  ]
+}

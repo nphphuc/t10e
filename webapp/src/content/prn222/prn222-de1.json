@@ -1,0 +1,615 @@
+{
+  "id": "PRN222-D1",
+  "title": "PRN222 — Đề 1 (FE SP26)",
+  "questions": [
+    {
+      "id": "PRN222-D1-01",
+      "prompt": "In .NET, what class is used to register services for Dependency Injection?",
+      "options": [
+        "DbContext",
+        "ServiceCollection",
+        "WebRequest",
+        "Task"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-02",
+      "prompt": "What is \"Property Injection\"?",
+      "options": [
+        "Injecting dependencies via constructors.",
+        "Injecting dependencies via method parameters.",
+        "Injecting dependencies by setting public properties.",
+        "Injecting dependencies at compile time."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-03",
+      "prompt": "What happens when ILogger is injected into multiple classes?",
+      "options": [
+        "A new instance of FileLogger is created each time",
+        "The same FileLogger instance is shared across the application",
+        "A new FileLogger instance is created per request",
+        "The instance is disposed immediately"
+      ],
+      "code": "services.AddSingleton<ILogger, FileLogger>();",
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-04",
+      "prompt": "Which built-in container does .NET Core provide for DI?",
+      "options": [
+        "Autofac",
+        "Unity",
+        "Microsoft.Extensions.DependencyInjection",
+        "Ninject"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-05",
+      "prompt": "What happens when IEmailService is requested multiple times?",
+      "options": [
+        "Only one instance is ever created",
+        "A new instance is created each time it's requested",
+        "One instance per request is created",
+        "The DI container throws an exception"
+      ],
+      "code": "services.AddTransient<IEmailService, SmtpEmailService>();",
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-06",
+      "prompt": "In an ASP.NET Core web app, how often is CustomerRepository created?",
+      "options": [
+        "Once per application",
+        "Once per request",
+        "Once per controller",
+        "Every time it's injected"
+      ],
+      "code": "services.AddScoped<IRepository, CustomerRepository>();",
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-07",
+      "prompt": "Which directive is used for two-way data binding?",
+      "options": [
+        "@bind",
+        "@twoWay",
+        "@model",
+        "@dataBind"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-08",
+      "prompt": "What are the two primary rendering modes in Blazor?",
+      "options": [
+        "Static and dynamic.",
+        "Client-side and server-side.",
+        "WebAssembly and Server.",
+        "Local and remote."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-09",
+      "prompt": "What is a primary benefit of ASP.NET Core Blazor?",
+      "options": [
+        "Reduced code reusability.",
+        "Ability to write client-side logic in C#.",
+        "Increased reliance on JavaScript.",
+        "Limited cross-platform support."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-10",
+      "prompt": "What is the purpose of the DbContext in a Blazor Web App with Entity Framework Core?",
+      "options": [
+        "To manage user sessions.",
+        "To represent a database session and provide methods for querying and saving data.",
+        "To encrypt data.",
+        "To render UI components."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-11",
+      "prompt": "Which connection is used by Blazor Server for UI updates?",
+      "options": [
+        "HTTP",
+        "gRPC",
+        "SignalR",
+        "WebSocket only"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-12",
+      "prompt": "What is the purpose of the @inject directive in Blazor?",
+      "options": [
+        "To define a database connection.",
+        "To inject dependencies into a component.",
+        "To encrypt data.",
+        "To manage user sessions."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-13",
+      "prompt": "What is MessagePack?",
+      "options": [
+        "A database query language.",
+        "A binary serialization format used by SignalR.",
+        "A JavaScript library.",
+        "A network protocol."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-14",
+      "prompt": "Which of the following statements about hubs in SignalR are true? (More than one correct answer).",
+      "options": [
+        "They manage client connections",
+        "They can call methods on clients",
+        "They store persistent messages",
+        "They require HTTPS"
+      ],
+      "type": "multi",
+      "correctSet": [
+        0,
+        1
+      ]
+    },
+    {
+      "id": "PRN222-D1-15",
+      "prompt": "Which method is used to start a SignalR connection on the client-side?",
+      "options": [
+        "connect()",
+        "start()",
+        "open()",
+        "init()"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-16",
+      "prompt": "Which method is used to add SignalR services to the DI container?",
+      "options": [
+        "AddSignalR()",
+        "UseSignalR()",
+        "ConfigureSignalR()",
+        "EnableSignalR()"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-17",
+      "prompt": "In the context of real-time web applications, what does \"real-time\" primarily mean?",
+      "options": [
+        "Data is updated once a day.",
+        "Immediate response from server to client.",
+        "Client periodically requests updates.",
+        "Data is processed only after user refreshes the page."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-18",
+      "prompt": "Which of the following is a key feature of SignalR for ASP.NET Core?",
+      "options": [
+        "Server-side rendering only.",
+        "Automatic reconnection handling.",
+        "Limited support for modern web standards.",
+        "Dependency on Internet Explorer."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-19",
+      "prompt": "What is the main purpose of a SignalR hub?",
+      "options": [
+        "To refresh the client browser automatically.",
+        "To act as a high-level pipeline allowing clients and servers to call methods on each other.",
+        "To send HTTP requests only from server to client.",
+        "To replace all API controllers in ASP.NET Core."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-20",
+      "prompt": "What is a \"firewall\" in network security?",
+      "options": [
+        "A device that routes network traffic.",
+        "A system designed to prevent unauthorized access to or from a private network.",
+        "A network protocol.",
+        "A type of network cable."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-21",
+      "prompt": "What is HttpClient designed for?",
+      "options": [
+        "Consuming HTTP web APIs",
+        "Handling low-level TCP sockets",
+        "Encrypting HTTP traffic",
+        "Serving static files"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-22",
+      "prompt": "The WebRequest.Create(Uri) method is used to:",
+      "options": [
+        "a. Initialize a new WebRequest for a specific URI scheme",
+        "b. Open a database connection",
+        "c. Create a physical network cable",
+        "d. Define hardware IP addressing"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-23",
+      "prompt": "Which .NET class is used for creating a UDP client?",
+      "options": [
+        "TcpListener",
+        "UdpClient",
+        "TcpClient",
+        "Socket"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-24",
+      "prompt": "What is the purpose of a port number in networking?",
+      "options": [
+        "To identify a specific network.",
+        "To identify a specific application or service on a host.",
+        "To route network traffic.",
+        "To encrypt network data."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-25",
+      "prompt": "Which protocol is typically included at the start of a URL?",
+      "options": [
+        "HTTP/HTTPS",
+        "TCP/UDP",
+        "FTP",
+        "All of the above"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-26",
+      "prompt": "Which folder typically contains static files (CSS, JavaScript, images) in an ASP.NET Core MVC project?",
+      "options": [
+        "\"Views\"",
+        "\"Models\"",
+        "\"Controllers\"",
+        "\"wwwroot\""
+      ],
+      "type": "choice",
+      "correct": 3
+    },
+    {
+      "id": "PRN222-D1-27",
+      "prompt": "Which of the following attributes validates that two properties in a model match?",
+      "options": [
+        "[Compare]",
+        "[Required]",
+        "[StringLength]",
+        "[Range]"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-28",
+      "prompt": "Which of the following is an example of an \"Action Result\" in ASP.NET Core MVC?",
+      "options": [
+        "DbContext",
+        "ViewResult",
+        "ServiceCollection",
+        "Task"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-29",
+      "prompt": "What happens?",
+      "options": [
+        "Displays 15",
+        "Displays 105",
+        "InvalidCastException",
+        "Nothing"
+      ],
+      "code": "public IActionResult Index()\n{\nViewData[\"Count\"] = \"10\";\nreturn View();\n}\n// In Razor:\n<p>@((int)ViewData[\"Count\"]+5)</p>",
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-30",
+      "prompt": "What is the purpose of the [Bind] attribute in ASP.NET Core MVC?",
+      "options": [
+        "To specify which properties of a model should be bound from the request.",
+        "To encrypt data.",
+        "To manage database connections.",
+        "To manage user sessions."
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-31",
+      "prompt": "Which statement is correct about Model Binding?",
+      "options": [
+        "It only works with query strings",
+        "It maps HTTP request data to controller action parameters",
+        "It must always use TempData",
+        "It cannot bind complex types"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-32",
+      "prompt": "Which method is used in Program.cs to register Razor Pages services into the DI container?",
+      "options": [
+        "builder.Services.AddControllers()",
+        "builder.Services.AddRazorPages()",
+        "builder.Services.AddMvc()",
+        "builder.Services.AddViews()"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-33",
+      "prompt": "What is the purpose of the @ symbol in Razor syntax?",
+      "options": [
+        "To define a CSS rule.",
+        "To indicate a JavaScript block.",
+        "To switch between HTML and C# code.",
+        "To define a database query."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-34",
+      "prompt": "By default, Razor Pages uses which folder as the root for routing?",
+      "options": [
+        "/Controllers",
+        "/Views",
+        "/Pages",
+        "/Models"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-35",
+      "prompt": "What is the purpose of the @model directive in a Razor Page?",
+      "options": [
+        "To define a database connection.",
+        "To specify the PageModel type for the Razor Page.",
+        "To encrypt data.",
+        "To manage user sessions."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-36",
+      "prompt": "Which statement is true about Model Binding in Razor Pages?",
+      "options": [
+        "Only works with GET requests",
+        "Maps HTTP request data to PageModel properties",
+        "Must always use TempData",
+        "Cannot bind form values"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-37",
+      "prompt": "Which directive defines the page model in a Razor Page?",
+      "options": [
+        "@page",
+        "@model",
+        "@pagemodel",
+        "@controller"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-38",
+      "prompt": "In a Razor Page handler method, how do you check if the model is valid after form submission?",
+      "options": [
+        "Model.Check()",
+        "ModelState.IsValid",
+        "ValidateModel()",
+        "Model.IsValid()"
+      ],
+      "code": "public IActionResult OnPost()\n{\nif ( ??? )\n{\n// process data\n}\nreturn Page();\n}",
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-39",
+      "prompt": "Which method should NOT be used for long-running background work in controllers?",
+      "options": [
+        "Task.Run()",
+        "IHostedService",
+        "BackgroundService",
+        "Worker Service"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-40",
+      "prompt": "Which interface must a class implement to be registered as a hosted service in .NET?",
+      "options": [
+        "IController",
+        "IDbContext",
+        "IHostedService",
+        "IViewComponent"
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-41",
+      "prompt": "Where is the Worker Service configured in a .NET Core application?",
+      "options": [
+        "Program.cs",
+        "App.cs",
+        "appsettings.json",
+        "launchSettings.json"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-42",
+      "prompt": "What does this service do?",
+      "options": [
+        "Sends emails every minute.",
+        "Sends emails once.",
+        "Logs emails only.",
+        "Ignores shutdown signals."
+      ],
+      "code": "public class EmailWorker : BackgroundService\n{\nprotected override async Task ExecuteAsync(CancellationToken stoppingToken)\n{\nwhile (!stoppingToken.IsCancellationRequested)\n{\nSendEmails();\nawait Task.Delay(60000, stoppingToken);\n}\n}\n}",
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-43",
+      "prompt": "Which namespace contains the BackgroundService class?",
+      "options": [
+        "System.Threading",
+        "Microsoft.Extensions.Hosting",
+        "Microsoft.Extensions.Logging",
+        "System.ServiceProcess"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-44",
+      "prompt": "What is the primary purpose of a .NET Worker Service?",
+      "options": [
+        "To build web applications.",
+        "To build desktop applications.",
+        "To build long-running background tasks or services.",
+        "To build mobile applications."
+      ],
+      "type": "choice",
+      "correct": 2
+    },
+    {
+      "id": "PRN222-D1-45",
+      "prompt": "What is the Parallel.For method used for?",
+      "options": [
+        "Asynchronous file operations.",
+        "Executing a loop in parallel.",
+        "Handling network requests.",
+        "Creating user interfaces."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-46",
+      "prompt": "Which namespace does Task Parallel Library (TPL) belong to?",
+      "options": [
+        "System.Threading.Tasks",
+        "System.Linq",
+        "System.Collections",
+        "System.IO"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-47",
+      "prompt": "What is the purpose of the await keyword in C#?",
+      "options": [
+        "To define a constant.",
+        "To pause execution until an asynchronous operation completes.",
+        "To create a new thread.",
+        "To handle exceptions."
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-48",
+      "prompt": "You need to write a WPF app that fetches data from the web without freezing the UI. Which technique should you use?",
+      "options": [
+        "Thread.Sleep()",
+        "Task.Run() + await",
+        "PLINQ",
+        "BackgroundWorker (obsolete)"
+      ],
+      "type": "choice",
+      "correct": 1
+    },
+    {
+      "id": "PRN222-D1-49",
+      "prompt": "Which architecture does a mono-processor system use?",
+      "options": [
+        "Von Neumann architecture",
+        "Harvard architecture",
+        "MIMD",
+        "SIMD"
+      ],
+      "type": "choice",
+      "correct": 0
+    },
+    {
+      "id": "PRN222-D1-50",
+      "prompt": "In C#, what is the primary role of the TaskScheduler class?",
+      "options": [
+        "To create new threads directly",
+        "To handle queuing of tasks onto threads",
+        "To manage garbage collection of tasks",
+        "To provide thread synchronization"
+      ],
+      "type": "choice",
+      "correct": 1
+    }
+  ]
+}
