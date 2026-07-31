@@ -12,7 +12,8 @@
         "A network protocol.",
         "A type of network cable."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Firewall là một hệ thống (phần cứng hoặc phần mềm) được thiết kế để giám sát và kiểm soát lưu lượng mạng ra/vào, nhằm ngăn chặn truy cập trái phép vào hoặc ra khỏi một mạng riêng, dựa trên các quy tắc bảo mật được cấu hình sẵn. Nó không phải là thiết bị định tuyến lưu lượng (đó là router), không phải một network protocol, và cũng không phải một loại cáp mạng vật lý."
     },
     {
       "id": "PRN222-T-NET-02",
@@ -24,7 +25,8 @@
         "Encrypting HTTP traffic",
         "Serving static files"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "HttpClient trong .NET được thiết kế chuyên biệt để gửi request và nhận response từ các HTTP/HTTPS web API, hỗ trợ các phương thức GET/POST/PUT/DELETE cùng nhiều tính năng như header, timeout, connection pooling. Nó không làm việc ở tầng socket TCP thấp (đó là việc của TcpClient/Socket), không có chức năng mã hoá traffic riêng (bảo mật dựa vào HTTPS/TLS bên dưới), và cũng không dùng để phục vụ file tĩnh (đó là việc của web server)."
     },
     {
       "id": "PRN222-T-NET-03",
@@ -36,7 +38,8 @@
         "c. Create a physical network cable",
         "d. Define hardware IP addressing"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "WebRequest.Create(Uri) khởi tạo (initialize) một đối tượng WebRequest tương ứng với scheme của URI được truyền vào (http, https, ftp...), chuẩn bị để gửi đi yêu cầu tới địa chỉ đó. Nó hoàn toàn không liên quan đến việc mở kết nối database, tạo cáp mạng vật lý hay định nghĩa địa chỉ IP phần cứng."
     },
     {
       "id": "PRN222-T-NET-04",
@@ -48,7 +51,8 @@
         "TcpClient",
         "Socket"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "UdpClient là lớp trong .NET chuyên dùng để gửi và nhận dữ liệu qua giao thức UDP (User Datagram Protocol) — một giao thức không kết nối, không đảm bảo thứ tự/độ tin cậy nhưng có tốc độ cao. TcpListener và TcpClient dùng cho giao thức TCP (có kết nối, đáng tin cậy hơn), còn Socket là lớp cấp thấp hơn có thể dùng cho cả TCP lẫn UDP nhưng không phải là câu trả lời chuyên biệt cho UDP trong câu hỏi này."
     },
     {
       "id": "PRN222-T-NET-05",
@@ -60,7 +64,8 @@
         "To route network traffic.",
         "To encrypt network data."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Port number giúp xác định một ứng dụng hoặc dịch vụ cụ thể đang chạy trên một host (ví dụ cổng 80 cho HTTP, 443 cho HTTPS, 5432 cho PostgreSQL) — nhờ đó nhiều dịch vụ có thể cùng hoạt động trên một địa chỉ IP mà không xung đột. Nó không dùng để định danh cả một network, không có chức năng định tuyến traffic (đó là vai trò của router/IP), và cũng không mã hoá dữ liệu."
     },
     {
       "id": "PRN222-T-NET-06",
@@ -72,7 +77,8 @@
         "FTP",
         "All of the above"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Một URL thường bắt đầu bằng scheme chỉ định giao thức được dùng để truy cập tài nguyên, phổ biến nhất là HTTP hoặc HTTPS (ví dụ https://example.com), cho trình duyệt biết cách thức giao tiếp với server. TCP/UDP là các giao thức tầng vận chuyển nằm bên dưới HTTP chứ không xuất hiện trực tiếp trong URL, còn FTP tuy cũng có thể xuất hiện ở đầu URL nhưng không phải là giao thức phổ biến/mặc định nhất được đề cập ở đây."
     },
     {
       "id": "PRN222-T-NET-07",
@@ -84,7 +90,8 @@
         "Handling network requests.",
         "Creating user interfaces."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Parallel.For là phương thức trong Task Parallel Library (TPL) của .NET dùng để thực thi một vòng lặp for với các lần lặp chạy song song trên nhiều thread, tận dụng đa lõi CPU để tăng tốc các tác vụ tính toán độc lập với nhau. Nó không phải dành cho thao tác file bất đồng bộ, không xử lý network request, và cũng không liên quan đến việc tạo giao diện người dùng."
     },
     {
       "id": "PRN222-T-NET-08",
@@ -96,7 +103,8 @@
         "UdpClient",
         "Socket"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "HttpClient là lớp chuẩn trong .NET để gửi HTTP request (GET, POST...) và nhận về HTTP response, được thiết kế để tái sử dụng (nên thường đăng ký như Singleton hoặc dùng IHttpClientFactory). TcpClient và UdpClient làm việc ở tầng vận chuyển thấp hơn (TCP/UDP), còn Socket là API cấp thấp nhất — không lớp nào trong số này chuyên biệt cho giao thức HTTP như HttpClient."
     },
     {
       "id": "PRN222-T-NET-09",
@@ -108,7 +116,8 @@
         "A unique identifier for a network interface.",
         "A type of network cable."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "IP address là một định danh (identifier) duy nhất được gán cho một network interface trên một mạng, cho phép các thiết bị định vị và giao tiếp với nhau qua giao thức Internet Protocol. Nó không phải là một biện pháp bảo mật, không phải bản thân một network protocol, và cũng không phải là một loại cáp mạng vật lý."
     },
     {
       "id": "PRN222-T-NET-10",
@@ -120,7 +129,8 @@
         "To encrypt network traffic.",
         "To route network packets."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Network socket đóng vai trò là một điểm cuối (communication endpoint) cho phép hai ứng dụng (thường trên hai máy khác nhau, hoặc cùng máy) trao đổi dữ liệu với nhau qua mạng, kết hợp giữa địa chỉ IP và port number để xác định endpoint đó. Nó không có chức năng quản lý IP address, mã hoá traffic hay định tuyến gói tin — đó là công việc của các thành phần mạng khác (DNS, TLS, router)."
     },
     {
       "id": "PRN222-T-NET-11",
@@ -132,7 +142,8 @@
         "myaccount@gmail.com",
         "www.example.com.vn"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "192.168.1.1 là một địa chỉ IPv4 hợp lệ, gồm 4 nhóm số từ 0-255 cách nhau bởi dấu chấm, và đây cũng là dải địa chỉ private thường dùng cho mạng nội bộ (LAN)/router gia đình. HTTP/1.1 là tên giao thức, myaccount@gmail.com là địa chỉ email, còn www.example.com.vn là một tên miền (domain name, cần DNS phân giải ra IP) — không cái nào trong ba cái này là một địa chỉ IP."
     },
     {
       "id": "PRN222-T-NET-12",
@@ -144,7 +155,8 @@
         "To manage network security.",
         "To encrypt network traffic."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "DNS có chức năng dịch (translate) các tên miền dễ nhớ (hostname, ví dụ www.google.com) thành địa chỉ IP tương ứng mà máy tính có thể dùng để định tuyến kết nối mạng, giúp con người không cần nhớ các dãy số IP phức tạp. Nó không tự định tuyến gói tin (đó là vai trò của router), không quản lý bảo mật mạng nói chung, và cũng không mã hoá traffic."
     },
     {
       "id": "PRN222-T-NET-13",
@@ -156,7 +168,8 @@
         "To close the connection.",
         "To get the network stream used for sending and receiving data."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "GetStream() trên đối tượng TcpClient trả về một NetworkStream, chính là luồng dữ liệu (network stream) được dùng để đọc (nhận) và ghi (gửi) dữ liệu qua kết nối TCP đã thiết lập. Nó không dùng để lấy địa chỉ IP hay port của server, và cũng không có nhiệm vụ đóng kết nối (đó là việc của Close()/Dispose())."
     }
   ]
 }

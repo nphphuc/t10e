@@ -12,7 +12,8 @@
         "A JavaScript function."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Một Blazor Component là một khối UI có thể tái sử dụng, được viết kết hợp giữa markup HTML và code C# (thường trong file .razor), đóng gói cả giao diện lẫn logic xử lý liên quan. Nó không phải là network protocol, câu truy vấn database, hay hàm JavaScript — dù component vẫn có thể tương tác với JavaScript qua JS interop khi cần."
     },
     {
       "id": "PRN222-D2-02",
@@ -24,7 +25,8 @@
         "Socket"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "HttpClient là lớp chuẩn trong .NET để gửi HTTP request (GET, POST...) và nhận về HTTP response, được thiết kế để tái sử dụng (nên thường đăng ký như Singleton hoặc dùng IHttpClientFactory). TcpClient và UdpClient làm việc ở tầng vận chuyển thấp hơn (TCP/UDP), còn Socket là API cấp thấp nhất — không lớp nào trong số này chuyên biệt cho giao thức HTTP như HttpClient."
     },
     {
       "id": "PRN222-D2-03",
@@ -36,7 +38,8 @@
         "The process of validating user input."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Model Binding là quá trình ASP.NET Core tự động lấy dữ liệu thô từ HTTP request (route values, query string, form data, request body...) và chuyển đổi nó thành các đối tượng .NET (model) để action method có thể sử dụng trực tiếp, giúp lập trình viên không cần tự parse request thủ công. Nó không phải là quá trình quản lý session, mã hoá dữ liệu hay validate input (dù validation thường diễn ra ngay sau bước binding)."
     },
     {
       "id": "PRN222-D2-04",
@@ -48,7 +51,8 @@
         "A type of network cable."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "IP address là một định danh (identifier) duy nhất được gán cho một network interface trên một mạng, cho phép các thiết bị định vị và giao tiếp với nhau qua giao thức Internet Protocol. Nó không phải là một biện pháp bảo mật, không phải bản thân một network protocol, và cũng không phải là một loại cáp mạng vật lý."
     },
     {
       "id": "PRN222-D2-05",
@@ -60,7 +64,8 @@
         "A JavaScript framework."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor là một framework của Microsoft cho phép xây dựng giao diện web tương tác (interactive UI) bằng ngôn ngữ C# và Razor thay vì JavaScript, chạy được cả trên server (Blazor Server) lẫn trực tiếp trên trình duyệt qua WebAssembly (Blazor WebAssembly). Nó không phải là ngôn ngữ scripting phía server thuần tuý, không phải hệ quản trị cơ sở dữ liệu, và cũng không phải một framework JavaScript."
     },
     {
       "id": "PRN222-D2-06",
@@ -72,7 +77,8 @@
         "Index.razor"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "App.razor là component gốc (root) của một ứng dụng Blazor — nó chứa Router chịu trách nhiệm khớp URL với các component trang tương ứng để hiển thị. MainLayout.razor định nghĩa layout chung (header, sidebar...), Routes.razor (ở các phiên bản mới) đóng vai trò định tuyến bên trong App.razor, còn Index.razor/Home.razor chỉ là một trang cụ thể, không phải gốc của toàn ứng dụng."
     },
     {
       "id": "PRN222-D2-07",
@@ -84,7 +90,8 @@
         "To manage user sessions."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Logging trong Worker Service dùng để ghi lại thông tin, lỗi và cảnh báo phát sinh trong quá trình service thực thi, giúp lập trình viên/vận hành theo dõi (monitor) tình trạng hoạt động và chẩn đoán sự cố của một tiến trình chạy nền không có giao diện trực quan để quan sát trực tiếp. Nó không liên quan đến quản lý kết nối database, mã hoá dữ liệu hay quản lý session người dùng."
     },
     {
       "id": "PRN222-D2-08",
@@ -96,7 +103,8 @@
         "To route network packets."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Network socket đóng vai trò là một điểm cuối (communication endpoint) cho phép hai ứng dụng (thường trên hai máy khác nhau, hoặc cùng máy) trao đổi dữ liệu với nhau qua mạng, kết hợp giữa địa chỉ IP và port number để xác định endpoint đó. Nó không có chức năng quản lý IP address, mã hoá traffic hay định tuyến gói tin — đó là công việc của các thành phần mạng khác (DNS, TLS, router)."
     },
     {
       "id": "PRN222-D2-09",
@@ -108,7 +116,8 @@
         "await task;"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "task.Wait() là một lời gọi đồng bộ (synchronous), nó chặn (block) thread hiện tại, buộc thread phải đứng chờ cho đến khi task hoàn thành mới được tiếp tục chạy — đây là nguyên nhân phổ biến gây deadlock nếu gọi trên UI thread hoặc trong ASP.NET context. Ngược lại, await task và await Task.WhenAll(tasks) đều không chặn thread (chúng trả quyền điều khiển về, để thread có thể làm việc khác trong lúc chờ), còn ContinueWith chỉ đăng ký một callback chạy sau khi task xong, không chặn thread ngay lập tức."
     },
     {
       "id": "PRN222-D2-10",
@@ -120,7 +129,8 @@
         "Logic and data retrieval are required"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "View Component được ưu tiên hơn Partial View khi phần giao diện cần có logic xử lý riêng và/hoặc cần tự truy xuất dữ liệu (ví dụ gọi service/database) trước khi render, vì View Component có một class C# đứng sau để xử lý logic đó — trong khi Partial View chỉ đơn thuần nhận model được truyền sẵn từ view cha, không tự lấy dữ liệu được. Nếu chỉ cần một đoạn HTML tĩnh, không có logic, Partial View sẽ đơn giản và nhẹ hơn."
     },
     {
       "id": "PRN222-D2-11",
@@ -132,7 +142,8 @@
         "www.example.com.vn"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "192.168.1.1 là một địa chỉ IPv4 hợp lệ, gồm 4 nhóm số từ 0-255 cách nhau bởi dấu chấm, và đây cũng là dải địa chỉ private thường dùng cho mạng nội bộ (LAN)/router gia đình. HTTP/1.1 là tên giao thức, myaccount@gmail.com là địa chỉ email, còn www.example.com.vn là một tên miền (domain name, cần DNS phân giải ra IP) — không cái nào trong ba cái này là một địa chỉ IP."
     },
     {
       "id": "PRN222-D2-12",
@@ -144,7 +155,8 @@
         "Using as many threads as possible"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Khi viết chương trình song song, nguyên tắc thiết kế phần mềm tốt vẫn cần được ưu tiên: low coupling (giảm sự phụ thuộc chặt giữa các phần công việc chạy song song) và high cohesion (mỗi tác vụ tập trung làm tốt một việc) — điều này giúp giảm rủi ro race condition và dễ debug hơn. Việc chia task một cách tuỳ tiện không kiểm soát, bỏ qua đồng bộ hoá hoàn toàn, hay cố dùng càng nhiều thread càng tốt đều là những cách tiếp cận sai lầm, dễ dẫn đến lỗi khó tái hiện và hiệu năng kém do overhead quản lý thread quá nhiều."
     },
     {
       "id": "PRN222-D2-13",
@@ -156,7 +168,8 @@
         "Console applications can run in the browser."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service được tích hợp sẵn với hạ tầng hosting và configuration của ASP.NET Core (Generic Host) — bao gồm dependency injection, logging, cấu hình từ appsettings.json, và quản lý vòng đời (start/stop/graceful shutdown) một cách nhất quán — điều mà một console application thông thường phải tự xây dựng lại từ đầu. Console application không hề có lợi thế về việc deploy lên mobile, hiệu năng, hay chạy trong trình duyệt như các lựa chọn sai gợi ý."
     },
     {
       "id": "PRN222-D2-14",
@@ -168,7 +181,8 @@
         "Always running faster than synchronous code"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lập trình bất đồng bộ giúp cải thiện hiệu năng chủ yếu cho các thao tác I/O-bound (đọc/ghi file, gọi mạng, truy vấn database) — trong lúc chờ I/O hoàn thành, thread không bị chặn mà có thể được giải phóng để phục vụ công việc khác, tăng khả năng đáp ứng và thông lượng của ứng dụng. Nó không đảm bảo 'không bao giờ chặn thread' trong mọi trường hợp (vẫn có thể lạm dụng sai cách), không tự động biến chương trình thành đa luồng, và cũng không có nghĩa là luôn chạy nhanh hơn code đồng bộ (với tác vụ CPU-bound nhẹ, async có thể còn thêm overhead)."
     },
     {
       "id": "PRN222-D2-15",
@@ -180,7 +194,8 @@
         "Processing queue messages"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "Worker Service phù hợp nhất cho các tác vụ nền chạy liên tục và độc lập với request, ví dụ như xử lý message trong hàng đợi (queue) một cách bất đồng bộ, không cần giao diện. Việc hiển thị Razor Pages hay chạy Blazor UI cần một web host xử lý HTTP request, còn việc host REST API thuần cũng thường dùng ASP.NET Core Web API thay vì Worker Service — Worker Service chuyên biệt cho công việc chạy nền lâu dài, không phục vụ trực tiếp HTTP."
     },
     {
       "id": "PRN222-D2-16",
@@ -192,7 +207,8 @@
         "Task-based Asynchronous Pattern (TAP)"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "async/await trong C# được xây dựng dựa trên Task-based Asynchronous Pattern (TAP) — mô hình chuẩn hiện đại của .NET, nơi một thao tác bất đồng bộ được đại diện bởi một đối tượng Task/Task<T> mà bạn có thể await. APM (dùng cặp BeginXxx/EndXxx) và EAP (dùng sự kiện Completed) là hai pattern bất đồng bộ cũ hơn, đã được TAP thay thế trong phần lớn API hiện đại; delegate pattern chỉ là cơ chế callback tổng quát, không phải nền tảng riêng của async/await."
     },
     {
       "id": "PRN222-D2-17",
@@ -204,7 +220,8 @@
         "A pre-configured web application."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service template cung cấp một project mẫu đã được cấu hình sẵn (pre-configured) khung sườn cho một background service — bao gồm Program.cs khởi tạo Generic Host và một lớp Worker kế thừa BackgroundService — giúp lập trình viên bắt đầu nhanh với các tác vụ chạy nền mà không cần thiết lập từ đầu. Nó không phải là project mẫu cho database, mobile app hay web application — các loại đó có template riêng."
     },
     {
       "id": "PRN222-D2-18",
@@ -216,7 +233,8 @@
         "<form asp-action=\"Create\">"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "<form asp-action=\"Create\"> là ví dụ về Tag Helper — thuộc tính asp-action là cú pháp đặc biệt của ASP.NET Core, cho phép server-side code can thiệp vào thẻ HTML để tự sinh ra action URL tương ứng khi render. Các thuộc tính asp-code, data-tag, asp-helper trong các đáp án còn lại chỉ là thuộc tính HTML tuỳ ý do người viết đề đặt ra, không phải Tag Helper thật sự được ASP.NET Core hỗ trợ."
     },
     {
       "id": "PRN222-D2-19",
@@ -228,7 +246,8 @@
         "To encrypt network traffic."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "DNS có chức năng dịch (translate) các tên miền dễ nhớ (hostname, ví dụ www.google.com) thành địa chỉ IP tương ứng mà máy tính có thể dùng để định tuyến kết nối mạng, giúp con người không cần nhớ các dãy số IP phức tạp. Nó không tự định tuyến gói tin (đó là vai trò của router), không quản lý bảo mật mạng nói chung, và cũng không mã hoá traffic."
     },
     {
       "id": "PRN222-D2-20",
@@ -240,7 +259,8 @@
         "To manage database connections."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Group trong SignalR cho phép gom một tập hợp con các connection lại với nhau (ví dụ tất cả người dùng trong cùng một phòng chat) để gửi message chỉ đến những client đó, thay vì phải gửi broadcast tới toàn bộ client đang kết nối. Nó không liên quan đến mã hoá dữ liệu, quản lý session hay quản lý kết nối database."
     },
     {
       "id": "PRN222-D2-21",
@@ -252,7 +272,8 @@
         "Until the user closes the browser."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "TempData được thiết kế để lưu dữ liệu tồn tại qua đúng một lần chuyển hướng (redirect) — nó có sẵn trong request hiện tại và request kế tiếp, sau đó tự động bị xoá (trừ khi bạn gọi Keep() hoặc Peek() để giữ lại). Nó không tồn tại vĩnh viễn cho đến khi bị xoá thủ công, không tồn tại tới khi ứng dụng restart, và cũng không gắn với vòng đời của trình duyệt như Session."
     },
     {
       "id": "PRN222-D2-22",
@@ -264,7 +285,8 @@
         "Satya Nadella"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "SignalR được tạo ra bởi David Fowler và Damian Edwards, hai kỹ sư của Microsoft, như một dự án mã nguồn mở nhằm đơn giản hoá việc xây dựng ứng dụng web real-time trên nền .NET. Anders Hejlsberg là cha đẻ của ngôn ngữ C#, Scott Guthrie là lãnh đạo cấp cao mảng Cloud+AI của Microsoft, còn Satya Nadella là CEO Microsoft — không ai trong số họ trực tiếp tạo ra SignalR."
     },
     {
       "id": "PRN222-D2-23",
@@ -276,7 +298,8 @@
         "Kent Beck"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Michael Feathers là người đã đặt ra thuật ngữ viết tắt SOLID để gom nhóm 5 nguyên lý thiết kế hướng đối tượng do Robert C. Martin (Uncle Bob) tổng hợp và phổ biến trước đó. Vì vậy tuy Robert C. Martin là người có công lớn nhất trong việc định hình và truyền bá các nguyên lý này, người thực sự 'coin' (đặt tên) ra acronym SOLID lại là Michael Feathers. Martin Fowler và Kent Beck là hai nhân vật nổi tiếng khác trong cộng đồng phần mềm (refactoring, Extreme Programming) nhưng không liên quan đến việc đặt tên SOLID."
     },
     {
       "id": "PRN222-D2-24",
@@ -288,7 +311,8 @@
         "Browser + Razor"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "Cái tên 'Blazor' là sự kết hợp giữa 'Browser' (trình duyệt — nơi ứng dụng cuối cùng chạy) và 'Razor' (engine cú pháp view của .NET mà Blazor sử dụng để viết markup). Các lựa chọn khác như Blended/Blaze/Basic + Razor chỉ là các phương án gây nhiễu, không phải nguồn gốc thật sự của tên gọi này."
     },
     {
       "id": "PRN222-D2-25",
@@ -300,7 +324,8 @@
         "Loose Session Coupling"
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "Đáp án của đề đưa ra là 'Loose Session Coupling' — nhấn mạnh rằng nhờ DI, các PageModel không bị ràng buộc chặt với cách tạo hay quản lý session/service cụ thể, mà phụ thuộc vào abstraction được container cung cấp, giúp giảm sự phụ thuộc trực tiếp. DRY nói về việc tránh lặp code chứ không phải mục tiêu chính của DI, còn 'Procedural Programming' và 'Maximum Reuse' không mô tả đúng bản chất của Dependency Injection."
     },
     {
       "id": "PRN222-D2-26",
@@ -312,7 +337,8 @@
         "A way to manage network connections."
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "DI là một design pattern trong đó một đối tượng không tự tạo ra các phụ thuộc (dependency) của nó, mà nhận chúng từ bên ngoài (thường qua constructor) — nhờ đó giảm sự ràng buộc chặt (tight coupling) giữa các lớp và dễ dàng thay thế/kiểm thử (unit test, mock). Nó không liên quan đến mã hoá dữ liệu, tối ưu truy vấn database hay quản lý kết nối mạng — đó là các mối quan tâm hoàn toàn khác."
     },
     {
       "id": "PRN222-D2-27",
@@ -324,7 +350,8 @@
         "HandleGet(), HandlePost()"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Theo quy ước đặt tên của Razor Pages, các handler method xử lý HTTP verb tương ứng được đặt tên theo mẫu OnGet(), OnPost(), OnGetAsync(), OnPostAsync()... — framework tự động ánh xạ tên phương thức này với HTTP method của request đến. Các tên như GetHandler/PostHandler, ProcessGet/ProcessPost hay HandleGet/HandlePost không phải là quy ước được Razor Pages nhận diện."
     },
     {
       "id": "PRN222-D2-28",
@@ -336,7 +363,8 @@
         "To redirect the user to another action within the same controller or a different one."
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "RedirectToAction trả về một HTTP redirect (302) để điều hướng trình duyệt đến một action khác — có thể trong cùng controller hoặc một controller khác — thường dùng theo mô hình Post-Redirect-Get để tránh submit lại form khi người dùng refresh trang. Nó không dùng để tải file, trả JSON hay render trực tiếp một view — đó là công dụng của FileResult, JsonResult và ViewResult tương ứng."
     },
     {
       "id": "PRN222-D2-29",
@@ -348,7 +376,8 @@
         "Building mobile applications."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Razor Pages được thiết kế theo mô hình page-centric (mỗi trang gắn với một file .cshtml và PageModel riêng), giúp đơn giản hoá việc xây dựng các ứng dụng web tập trung vào trang (page-focused), giảm bớt sự phức tạp của việc tách Controller/View/Route như MVC truyền thống. Nó không nhắm đến việc xây dựng ứng dụng desktop, hệ quản trị database hay ứng dụng di động — đó không phải là mục đích của công nghệ web này."
     },
     {
       "id": "PRN222-D2-30",
@@ -360,7 +389,8 @@
         "Uses XML format"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "MessagePack là định dạng binary nên khi serialize cùng một dữ liệu, kích thước message thường nhỏ hơn đáng kể so với JSON (dạng text), giúp truyền tải nhanh hơn và tiết kiệm băng thông — đặc biệt quan trọng với ứng dụng real-time cần gửi nhiều message liên tục. Nó không dễ đọc bằng mắt thường hơn JSON (ngược lại, JSON dễ đọc hơn vì là text), vẫn cần một bước serialization (không phải 'không cần serialization'), và không dùng định dạng XML."
     },
     {
       "id": "PRN222-D2-31",
@@ -372,7 +402,8 @@
         "To return a view."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "JsonResult trả dữ liệu về client dưới định dạng JSON, thường được dùng trong các API endpoint trả về dữ liệu (thay vì HTML) để client (ví dụ JavaScript, mobile app) có thể dễ dàng parse. Nó khác với RedirectResult (điều hướng), FileResult (tải file) và ViewResult (render HTML) — mỗi loại IActionResult phục vụ một định dạng phản hồi khác nhau."
     },
     {
       "id": "PRN222-D2-32",
@@ -385,7 +416,8 @@
       ],
       "code": "for (int i= 0; i < 3; i++)\n{\nTask t = new Task(() =>Console.WriteLine(i));\nt.Start();\n}",
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Vòng lặp for chạy 3 lần (i = 0, 1, 2), mỗi lần tạo một đối tượng Task mới bằng new Task(...) và gọi Start() ngay lập tức, nên tổng cộng có đúng 3 Task được tạo ra và khởi chạy — mỗi task in ra giá trị i tại thời điểm nó thực thi (lưu ý: do closure trên biến i, giá trị in ra thực tế có thể không theo thứ tự và cần cẩn trọng, nhưng số lượng task được tạo chắc chắn là 3, không phải 1, 2 hay 6)."
     },
     {
       "id": "PRN222-D2-33",
@@ -397,7 +429,8 @@
         "Until the application is manually stopped."
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "Một Worker Service thường được thiết kế để chạy liên tục cho đến khi bị dừng một cách thủ công (hoặc bởi hệ điều hành/orchestrator khi shutdown), không gắn với vòng đời của một user session, database transaction hay một HTTP request cụ thể nào — đó chính là bản chất của một tiến trình chạy nền dài hạn (long-running)."
     },
     {
       "id": "PRN222-D2-34",
@@ -409,7 +442,8 @@
         "Null references"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Vì AddTransient tạo một instance mới cho mỗi lần yêu cầu, nếu bạn inject IEmailService hai lần (kể cả trong cùng class hay cùng request), container sẽ trả về hai instance EmailService khác nhau, không chia sẻ state. Đây là điểm khác biệt cốt lõi so với Scoped/Singleton, và không có gì gây ra lỗi runtime hay giá trị null trong trường hợp này."
     },
     {
       "id": "PRN222-D2-35",
@@ -421,7 +455,8 @@
         "Abstractions should depend on details"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Nguyên lý Dependency Inversion (chữ D trong SOLID) phát biểu rằng cả module cấp cao (business logic) và module cấp thấp (chi tiết triển khai) đều nên phụ thuộc vào abstraction (interface/abstract class), thay vì module cấp cao phụ thuộc trực tiếp vào module cấp thấp. Ngoài ra, abstraction không nên phụ thuộc vào chi tiết cụ thể (details), mà ngược lại — chi tiết phải phụ thuộc vào abstraction. Đây chính là nền tảng lý thuyết cho việc áp dụng DI trong thực tế."
     },
     {
       "id": "PRN222-D2-36",
@@ -433,7 +468,8 @@
         "No data binding support"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Vì Blazor WebAssembly phải tải toàn bộ .NET runtime cùng các assembly cần thiết xuống trình duyệt trước khi ứng dụng có thể chạy, kích thước tải ban đầu (initial download) thường lớn hơn đáng kể so với các ứng dụng JavaScript thông thường, ảnh hưởng đến thời gian load lần đầu. Nó vẫn có component model đầy đủ, hỗ trợ data binding, và không cần cài .NET runtime trên máy client (runtime được tải kèm qua trình duyệt) — đó là các lựa chọn sai."
     },
     {
       "id": "PRN222-D2-37",
@@ -446,7 +482,8 @@
       ],
       "code": "builder.Services.AddScoped<IOrderService, OrderService>();",
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "AddScoped tạo một instance IOrderService mới cho mỗi HTTP request, và instance đó được tái sử dụng cho mọi nơi trong cùng request cần đến nó, nhưng một request khác sẽ nhận một instance hoàn toàn mới. Nó không tồn tại suốt toàn ứng dụng (đó là Singleton), không bị giới hạn theo thread, và cũng không tạo mới mỗi lần inject trong cùng request (đó là Transient)."
     },
     {
       "id": "PRN222-D2-38",
@@ -458,7 +495,8 @@
         "To get the network stream used for sending and receiving data."
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "GetStream() trên đối tượng TcpClient trả về một NetworkStream, chính là luồng dữ liệu (network stream) được dùng để đọc (nhận) và ghi (gửi) dữ liệu qua kết nối TCP đã thiết lập. Nó không dùng để lấy địa chỉ IP hay port của server, và cũng không có nhiệm vụ đóng kết nối (đó là việc của Close()/Dispose())."
     },
     {
       "id": "PRN222-D2-39",
@@ -470,7 +508,8 @@
         "Parallelize()"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "AsParallel() là extension method dùng để chuyển một truy vấn LINQ thông thường (chạy tuần tự) thành một truy vấn PLINQ (Parallel LINQ), cho phép các phần tử được xử lý song song trên nhiều thread nhằm tăng hiệu năng với tập dữ liệu lớn. ToParallel(), RunParallel() và Parallelize() không phải là các phương thức thật sự tồn tại trong API của PLINQ."
     },
     {
       "id": "PRN222-D2-40",
@@ -482,7 +521,8 @@
         "Eliminates Razor syntax"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Blazor xây dựng UI dựa trên các component tái sử dụng được (giống React/Angular), giúp bạn viết một component UI một lần và dùng lại nhiều nơi, giảm trùng lặp code và dễ bảo trì. Đáp án này trái ngược với các lựa chọn sai: Blazor Server không bắt buộc phải dùng nhiều JavaScript interop cho việc cập nhật UI (nó dùng SignalR để render lại từ server), Blazor vẫn hỗ trợ đầy đủ Dependency Injection, và vẫn dùng cú pháp Razor bình thường."
     },
     {
       "id": "PRN222-D2-41",
@@ -494,7 +534,8 @@
         "Real-time apps use databases, traditional apps do not."
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Ứng dụng real-time cho phép giao tiếp hai chiều (bidirectional) gần như tức thời giữa client và server (server có thể chủ động đẩy dữ liệu đến client bất cứ lúc nào), trong khi ứng dụng truyền thống hoạt động theo chu kỳ request-response — client phải chủ động gửi yêu cầu thì mới nhận được phản hồi mới. Sự khác biệt này không nằm ở việc dùng HTML tĩnh/động hay có dùng database hay không, và cũng không phải ứng dụng real-time chậm hơn — thực tế ngược lại."
     },
     {
       "id": "PRN222-D2-42",
@@ -506,7 +547,8 @@
         "To manage database connections."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tính năng User trong SignalR cho phép gửi message đến tất cả các connection thuộc về một người dùng cụ thể dựa trên định danh đã xác thực (authenticated user identity) của họ — hữu ích khi một người dùng có thể mở nhiều tab/thiết bị cùng lúc và bạn muốn gửi thông báo tới tất cả các phiên đó. Nó không liên quan đến quản lý session chung, mã hoá dữ liệu hay quản lý kết nối database."
     },
     {
       "id": "PRN222-D2-43",
@@ -518,7 +560,8 @@
         "A Visual Studio extension"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Worker Service là một loại project template trong .NET dùng để xây dựng các background service — những tiến trình chạy nền độc lập, không có giao diện, thường dùng cho xử lý hàng đợi, tác vụ định kỳ, hoặc dịch vụ nền dài hạn. Nó không phải là sự thay thế cho Windows Forms (một framework UI desktop), không phải là framework UI phía frontend, và cũng không phải một extension của Visual Studio."
     },
     {
       "id": "PRN222-D2-44",
@@ -530,7 +573,8 @@
         "Short, Medium, Long"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ba lifetime chuẩn trong DI container của .NET Core là Singleton (một instance cho toàn ứng dụng), Scoped (một instance cho mỗi request/scope) và Transient (một instance mới mỗi lần được yêu cầu). Các khái niệm như Static/Dynamic/ThreadLocal hay Session/Application/Request là thuật ngữ của các mô hình lập trình hoặc ASP.NET truyền thống khác, không phải là tên gọi lifetime chính thức trong DI container hiện đại."
     },
     {
       "id": "PRN222-D2-45",
@@ -542,7 +586,8 @@
         "To bind form data to a PageModel property."
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "[BindProperty] đánh dấu một property trong PageModel để nó tự động nhận giá trị từ dữ liệu form được submit (model binding), giúp bạn không cần khai báo tham số riêng lẻ trong handler method. Nó không liên quan đến kết nối database, mã hoá dữ liệu hay quản lý session — chỉ phục vụ mục đích ánh xạ dữ liệu form vào property."
     },
     {
       "id": "PRN222-D2-46",
@@ -554,7 +599,8 @@
         "By writing CSS styles."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Trên client-side (JavaScript SignalR client), bạn đăng ký các event listener bằng phương thức connection.on('TênPhươngThức', callback) để lắng nghe khi server gọi một phương thức cụ thể lên client, tương tự cách gắn event listener thông thường trong JavaScript. Cách này không dùng file HTML tĩnh, không dùng truy vấn database, và cũng không phải là CSS."
     },
     {
       "id": "PRN222-D2-47",
@@ -566,7 +612,8 @@
         "An Entity Framework class"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "PageModel đóng vai trò kết hợp giữa Controller (xử lý logic, nhận request qua các handler OnGet/OnPost) và ViewModel (chứa các property để binding dữ liệu ra trang), là điểm khác biệt cốt lõi giữa Razor Pages và mô hình MVC tách biệt hoàn toàn Controller/View. Nó không phải thứ thay thế HTML, không phải một entity database, và cũng không phải là một class của Entity Framework."
     },
     {
       "id": "PRN222-D2-48",
@@ -578,7 +625,8 @@
         "The user session is terminated."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khi một client SignalR ngắt kết nối (do đóng tab, mất mạng, hoặc chủ động gọi stop()), server có khả năng phát hiện sự kiện này (thông qua vòng đời của connection) và có thể xử lý theo logic tuỳ chỉnh, ví dụ thông báo cho các client khác trong cùng group, dọn dẹp tài nguyên liên quan đến connection đó. Việc này không tự động đóng kết nối database, không liên quan đến mã hoá dữ liệu, và không đồng nghĩa với việc kết thúc session xác thực của người dùng ở tầng ứng dụng."
     },
     {
       "id": "PRN222-D2-49",
@@ -590,7 +638,8 @@
         "By using global variables."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Cách chuẩn để inject service vào một Razor PageModel là khai báo nó như một tham số của constructor — DI container sẽ tự động phát hiện và truyền instance phù hợp vào khi khởi tạo PageModel. Việc tự tay new() service, dùng static method hay biến global đều đi ngược lại triết lý của DI (tạo sự ràng buộc chặt và khó kiểm thử), nên đều là các lựa chọn sai."
     },
     {
       "id": "PRN222-D2-50",
@@ -602,7 +651,8 @@
         "Maintaining session state"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Trong mô hình MVC, Controller có nhiệm vụ tiếp nhận HTTP request, điều phối (orchestrate) việc gọi các service/model cần thiết để xử lý logic, rồi chọn View phù hợp để trả kết quả về — nó là lớp trung gian kết nối Model và View. Việc lưu trữ logic nghiệp vụ chi tiết nên thuộc về Model/Service layer, việc render HTML thuộc về View, còn việc duy trì session không phải trách nhiệm chính của Controller."
     }
   ]
 }

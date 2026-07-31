@@ -12,7 +12,8 @@
         "WebAssembly and Server.",
         "Local and remote."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor có hai mô hình render chính: WebAssembly (chạy toàn bộ .NET runtime trực tiếp trên trình duyệt qua WASM, không cần kết nối liên tục tới server) và Server (chạy logic trên server, cập nhật UI qua kết nối SignalR real-time). Static/dynamic hay local/remote không phải là cách phân loại chính thức của Blazor."
     },
     {
       "id": "PRN222-T-BLAZOR-02",
@@ -24,7 +25,8 @@
         "Increased reliance on JavaScript.",
         "Limited cross-platform support."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lợi ích cốt lõi của Blazor là cho phép lập trình viên viết logic phía client bằng C# thay vì phải viết JavaScript, tận dụng lại kỹ năng và thư viện .NET đã có sẵn. Điều này trái ngược với các lựa chọn sai: Blazor thực chất tăng khả năng tái sử dụng code (component model) và giảm sự phụ thuộc vào JavaScript, đồng thời vẫn hỗ trợ đa nền tảng tốt."
     },
     {
       "id": "PRN222-T-BLAZOR-03",
@@ -36,7 +38,8 @@
         "To encrypt data.",
         "To render UI components."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "DbContext đại diện cho một phiên làm việc (session) với database trong Entity Framework Core, cung cấp các phương thức để truy vấn (query) và lưu (save) dữ liệu thông qua các DbSet ánh xạ tới các bảng. Nó không liên quan đến quản lý session người dùng, mã hoá dữ liệu hay render UI component — đó là những trách nhiệm của các thành phần khác trong ứng dụng."
     },
     {
       "id": "PRN222-T-BLAZOR-04",
@@ -48,7 +51,8 @@
         "SignalR",
         "WebSocket only"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor Server sử dụng SignalR để duy trì một kết nối real-time (thường qua WebSocket bên dưới) giữa trình duyệt và server — mọi tương tác UI được gửi lên server xử lý, sau đó server gửi lại các thay đổi DOM cần cập nhật qua kết nối SignalR này. Đây là lý do Blazor Server yêu cầu kết nối mạng liên tục, khác với Blazor WebAssembly chạy độc lập trên client sau khi tải xong."
     },
     {
       "id": "PRN222-T-BLAZOR-05",
@@ -60,7 +64,8 @@
         "A reusable Ul element written in C# and HTML.",
         "A JavaScript function."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Một Blazor Component là một khối UI có thể tái sử dụng, được viết kết hợp giữa markup HTML và code C# (thường trong file .razor), đóng gói cả giao diện lẫn logic xử lý liên quan. Nó không phải là network protocol, câu truy vấn database, hay hàm JavaScript — dù component vẫn có thể tương tác với JavaScript qua JS interop khi cần."
     },
     {
       "id": "PRN222-T-BLAZOR-06",
@@ -72,7 +77,8 @@
         "A framework for building interactive web Uls using C# instead of JavaScript.",
         "A JavaScript framework."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor là một framework của Microsoft cho phép xây dựng giao diện web tương tác (interactive UI) bằng ngôn ngữ C# và Razor thay vì JavaScript, chạy được cả trên server (Blazor Server) lẫn trực tiếp trên trình duyệt qua WebAssembly (Blazor WebAssembly). Nó không phải là ngôn ngữ scripting phía server thuần tuý, không phải hệ quản trị cơ sở dữ liệu, và cũng không phải một framework JavaScript."
     },
     {
       "id": "PRN222-T-BLAZOR-07",
@@ -84,7 +90,8 @@
         "App.razor",
         "Index.razor"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "App.razor là component gốc (root) của một ứng dụng Blazor — nó chứa Router chịu trách nhiệm khớp URL với các component trang tương ứng để hiển thị. MainLayout.razor định nghĩa layout chung (header, sidebar...), Routes.razor (ở các phiên bản mới) đóng vai trò định tuyến bên trong App.razor, còn Index.razor/Home.razor chỉ là một trang cụ thể, không phải gốc của toàn ứng dụng."
     },
     {
       "id": "PRN222-T-BLAZOR-08",
@@ -96,7 +103,8 @@
         "Running Blazor UI",
         "Processing queue messages"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Worker Service phù hợp nhất cho các tác vụ nền chạy liên tục và độc lập với request, ví dụ như xử lý message trong hàng đợi (queue) một cách bất đồng bộ, không cần giao diện. Việc hiển thị Razor Pages hay chạy Blazor UI cần một web host xử lý HTTP request, còn việc host REST API thuần cũng thường dùng ASP.NET Core Web API thay vì Worker Service — Worker Service chuyên biệt cho công việc chạy nền lâu dài, không phục vụ trực tiếp HTTP."
     },
     {
       "id": "PRN222-T-BLAZOR-09",
@@ -108,7 +116,8 @@
         "Basic + Razor",
         "Browser + Razor"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Cái tên 'Blazor' là sự kết hợp giữa 'Browser' (trình duyệt — nơi ứng dụng cuối cùng chạy) và 'Razor' (engine cú pháp view của .NET mà Blazor sử dụng để viết markup). Các lựa chọn khác như Blended/Blaze/Basic + Razor chỉ là các phương án gây nhiễu, không phải nguồn gốc thật sự của tên gọi này."
     },
     {
       "id": "PRN222-T-BLAZOR-10",
@@ -120,7 +129,8 @@
         "Requires .NET runtime installed on the client",
         "No data binding support"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Vì Blazor WebAssembly phải tải toàn bộ .NET runtime cùng các assembly cần thiết xuống trình duyệt trước khi ứng dụng có thể chạy, kích thước tải ban đầu (initial download) thường lớn hơn đáng kể so với các ứng dụng JavaScript thông thường, ảnh hưởng đến thời gian load lần đầu. Nó vẫn có component model đầy đủ, hỗ trợ data binding, và không cần cài .NET runtime trên máy client (runtime được tải kèm qua trình duyệt) — đó là các lựa chọn sai."
     }
   ]
 }

@@ -12,7 +12,8 @@
         "A JavaScript library.",
         "A network protocol."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "MessagePack là một định dạng serialization nhị phân (binary) nhỏ gọn, được SignalR hỗ trợ như một giao thức thay thế cho JSON để truyền dữ liệu giữa client và server, giúp giảm kích thước message và tăng tốc độ. Nó không phải ngôn ngữ truy vấn database, thư viện JavaScript hay một network protocol — nó chỉ là một định dạng mã hoá dữ liệu."
     },
     {
       "id": "PRN222-T-SIGNALR-02",
@@ -27,7 +28,8 @@
       "correctSet": [
         0,
         1
-      ]
+      ],
+      "explanation": "Hub trong SignalR có hai vai trò chính đúng như đề bài: quản lý các kết nối của client (theo dõi ai đang kết nối, ai ngắt kết nối) và cho phép gọi phương thức trên client từ phía server (cũng như ngược lại) một cách real-time — đây là hai đáp án đúng (A và B). Hub không có chức năng lưu trữ message lâu dài (persistent) như một message broker, và cũng không bắt buộc phải chạy trên HTTPS (dù được khuyến nghị vì lý do bảo mật)."
     },
     {
       "id": "PRN222-T-SIGNALR-03",
@@ -39,7 +41,8 @@
         "open()",
         "init()"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "start() là phương thức trên client-side (trong SignalR JavaScript client, cũng như các client .NET) dùng để khởi tạo và mở kết nối tới hub trên server. connect(), open() và init() không phải là tên phương thức thật sự trong API của SignalR client."
     },
     {
       "id": "PRN222-T-SIGNALR-04",
@@ -51,7 +54,8 @@
         "Client periodically requests updates.",
         "Data is processed only after user refreshes the page."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Real-time trong ngữ cảnh ứng dụng web nghĩa là server có thể phản hồi hoặc đẩy dữ liệu đến client gần như ngay lập tức khi có sự kiện xảy ra, không cần client phải chủ động yêu cầu lại (polling) hay đợi người dùng refresh trang. Đây chính là điểm khác biệt cốt lõi so với mô hình request-response truyền thống, nơi client phải chủ động gửi yêu cầu mỗi lần muốn cập nhật dữ liệu."
     },
     {
       "id": "PRN222-T-SIGNALR-05",
@@ -63,7 +67,8 @@
         "Limited support for modern web standards.",
         "Dependency on Internet Explorer."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "SignalR có khả năng tự động xử lý việc kết nối lại (automatic reconnection) khi kết nối giữa client và server bị gián đoạn tạm thời, giúp trải nghiệm real-time ổn định hơn mà lập trình viên không cần tự viết logic retry thủ công. Nó không chỉ hỗ trợ render phía server, không hề hạn chế hỗ trợ các chuẩn web hiện đại (ngược lại, nó dùng WebSocket khi có thể), và cũng không phụ thuộc vào Internet Explorer."
     },
     {
       "id": "PRN222-T-SIGNALR-06",
@@ -75,7 +80,8 @@
         "To send HTTP requests only from server to client.",
         "To replace all API controllers in ASP.NET Core."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hub là một high-level pipeline trong SignalR cho phép server và client gọi các phương thức trên nhau một cách trực tiếp và real-time (giống như gọi một remote procedure), trừu tượng hoá đi việc quản lý kết nối và giao thức truyền tải bên dưới (WebSocket, Server-Sent Events, Long Polling). Nó không chỉ đơn thuần refresh trình duyệt, không giới hạn chỉ gửi HTTP một chiều từ server, và không nhằm thay thế toàn bộ API controller — SignalR và Web API phục vụ hai mục đích bổ sung cho nhau."
     },
     {
       "id": "PRN222-T-SIGNALR-07",
@@ -87,7 +93,8 @@
         "To send messages to a specific subset of connected clients.",
         "To manage database connections."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Group trong SignalR cho phép gom một tập hợp con các connection lại với nhau (ví dụ tất cả người dùng trong cùng một phòng chat) để gửi message chỉ đến những client đó, thay vì phải gửi broadcast tới toàn bộ client đang kết nối. Nó không liên quan đến mã hoá dữ liệu, quản lý session hay quản lý kết nối database."
     },
     {
       "id": "PRN222-T-SIGNALR-08",
@@ -99,7 +106,8 @@
         "David Fowler & Damian Edwards",
         "Satya Nadella"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "SignalR được tạo ra bởi David Fowler và Damian Edwards, hai kỹ sư của Microsoft, như một dự án mã nguồn mở nhằm đơn giản hoá việc xây dựng ứng dụng web real-time trên nền .NET. Anders Hejlsberg là cha đẻ của ngôn ngữ C#, Scott Guthrie là lãnh đạo cấp cao mảng Cloud+AI của Microsoft, còn Satya Nadella là CEO Microsoft — không ai trong số họ trực tiếp tạo ra SignalR."
     },
     {
       "id": "PRN222-T-SIGNALR-09",
@@ -111,7 +119,8 @@
         "Requires no serialization",
         "Uses XML format"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "MessagePack là định dạng binary nên khi serialize cùng một dữ liệu, kích thước message thường nhỏ hơn đáng kể so với JSON (dạng text), giúp truyền tải nhanh hơn và tiết kiệm băng thông — đặc biệt quan trọng với ứng dụng real-time cần gửi nhiều message liên tục. Nó không dễ đọc bằng mắt thường hơn JSON (ngược lại, JSON dễ đọc hơn vì là text), vẫn cần một bước serialization (không phải 'không cần serialization'), và không dùng định dạng XML."
     },
     {
       "id": "PRN222-T-SIGNALR-10",
@@ -123,7 +132,8 @@
         "Real-time apps are slower than traditional apps.",
         "Real-time apps use databases, traditional apps do not."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Ứng dụng real-time cho phép giao tiếp hai chiều (bidirectional) gần như tức thời giữa client và server (server có thể chủ động đẩy dữ liệu đến client bất cứ lúc nào), trong khi ứng dụng truyền thống hoạt động theo chu kỳ request-response — client phải chủ động gửi yêu cầu thì mới nhận được phản hồi mới. Sự khác biệt này không nằm ở việc dùng HTML tĩnh/động hay có dùng database hay không, và cũng không phải ứng dụng real-time chậm hơn — thực tế ngược lại."
     },
     {
       "id": "PRN222-T-SIGNALR-11",
@@ -135,7 +145,8 @@
         "To send messages to clients based on their authenticated user identity.",
         "To manage database connections."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tính năng User trong SignalR cho phép gửi message đến tất cả các connection thuộc về một người dùng cụ thể dựa trên định danh đã xác thực (authenticated user identity) của họ — hữu ích khi một người dùng có thể mở nhiều tab/thiết bị cùng lúc và bạn muốn gửi thông báo tới tất cả các phiên đó. Nó không liên quan đến quản lý session chung, mã hoá dữ liệu hay quản lý kết nối database."
     },
     {
       "id": "PRN222-T-SIGNALR-12",
@@ -147,7 +158,8 @@
         "By using JavaScript event listeners on the connection object.",
         "By writing CSS styles."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Trên client-side (JavaScript SignalR client), bạn đăng ký các event listener bằng phương thức connection.on('TênPhươngThức', callback) để lắng nghe khi server gọi một phương thức cụ thể lên client, tương tự cách gắn event listener thông thường trong JavaScript. Cách này không dùng file HTML tĩnh, không dùng truy vấn database, và cũng không phải là CSS."
     },
     {
       "id": "PRN222-T-SIGNALR-13",
@@ -159,7 +171,8 @@
         "The data is encrypted.",
         "The user session is terminated."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khi một client SignalR ngắt kết nối (do đóng tab, mất mạng, hoặc chủ động gọi stop()), server có khả năng phát hiện sự kiện này (thông qua vòng đời của connection) và có thể xử lý theo logic tuỳ chỉnh, ví dụ thông báo cho các client khác trong cùng group, dọn dẹp tài nguyên liên quan đến connection đó. Việc này không tự động đóng kết nối database, không liên quan đến mã hoá dữ liệu, và không đồng nghĩa với việc kết thúc session xác thực của người dùng ở tầng ứng dụng."
     }
   ]
 }

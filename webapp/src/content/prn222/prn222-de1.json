@@ -12,7 +12,8 @@
         "Task"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Đáp án đúng là ServiceCollection (cụ thể là IServiceCollection). Đây là container tích hợp sẵn của .NET Core, nơi bạn gọi các phương thức như AddSingleton, AddScoped, AddTransient để đăng ký service trước khi build ứng dụng. DbContext là lớp đại diện cho phiên làm việc với database (Entity Framework), WebRequest dùng để gọi HTTP, còn Task đại diện cho một đơn vị công việc bất đồng bộ — cả ba đều không liên quan đến việc đăng ký DI."
     },
     {
       "id": "PRN222-D1-02",
@@ -24,7 +25,8 @@
         "Injecting dependencies at compile time."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Property Injection là kiểu tiêm phụ thuộc bằng cách gán giá trị trực tiếp vào một public property của đối tượng sau khi nó đã được khởi tạo, thay vì truyền qua constructor. Đây là lựa chọn thay thế cho Constructor Injection (tiêm qua tham số constructor, phổ biến và được khuyến nghị nhất) và Method Injection (tiêm qua tham số phương thức). .NET DI container mặc định chủ yếu hỗ trợ Constructor Injection, Property Injection thường cần container bên thứ ba hoặc code thủ công."
     },
     {
       "id": "PRN222-D1-03",
@@ -37,7 +39,8 @@
       ],
       "code": "services.AddSingleton<ILogger, FileLogger>();",
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Vì FileLogger được đăng ký bằng AddSingleton, container sẽ chỉ tạo đúng một instance duy nhất trong suốt vòng đời ứng dụng và instance đó được chia sẻ cho mọi class yêu cầu ILogger, bất kể request hay class nào. Điều này khác với Scoped (một instance mỗi request/scope) và Transient (một instance mới mỗi lần inject). Singleton phù hợp cho logger vì nó không giữ state riêng theo từng request và cần hiệu năng cao khi ghi log liên tục."
     },
     {
       "id": "PRN222-D1-04",
@@ -49,7 +52,8 @@
         "Ninject"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Microsoft.Extensions.DependencyInjection là container DI built-in, tích hợp sẵn trong .NET Core mà không cần cài thêm gói nào. Autofac, Unity và Ninject đều là các container DI của bên thứ ba (third-party), có thể thay thế container mặc định nếu cần tính năng nâng cao hơn (như tiêm theo module, interception...), nhưng không phải là thứ có sẵn ngay trong .NET Core."
     },
     {
       "id": "PRN222-D1-05",
@@ -62,7 +66,8 @@
       ],
       "code": "services.AddTransient<IEmailService, SmtpEmailService>();",
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "AddTransient nghĩa là mỗi lần có yêu cầu inject IEmailService, container sẽ tạo một instance SmtpEmailService hoàn toàn mới, kể cả trong cùng một request. Điều này khác Scoped (chỉ một instance trong cùng một request/scope) và Singleton (một instance duy nhất cho toàn ứng dụng). Transient phù hợp với các service nhẹ, không giữ trạng thái (stateless) và không tốn kém để khởi tạo."
     },
     {
       "id": "PRN222-D1-06",
@@ -75,7 +80,8 @@
       ],
       "code": "services.AddScoped<IRepository, CustomerRepository>();",
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "AddScoped tạo ra đúng một instance CustomerRepository cho mỗi HTTP request — mọi class trong cùng request đó (controller, service khác...) sẽ dùng chung instance này, nhưng request tiếp theo sẽ có instance mới. Đây là lựa chọn phổ biến cho các repository/DbContext vì đảm bảo tính nhất quán dữ liệu trong một request mà không giữ state xuyên suốt toàn ứng dụng như Singleton."
     },
     {
       "id": "PRN222-D1-07",
@@ -87,7 +93,8 @@
         "@dataBind"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "@bind là directive của Blazor dùng để tạo two-way data binding giữa một property C# và một phần tử UI (ví dụ input) — khi người dùng thay đổi giá trị trên UI, property cũng tự động cập nhật và ngược lại. @model chỉ dùng để khai báo kiểu dữ liệu cho View/Page (binding một chiều khi render), còn @twoWay và @dataBind không phải là directive có thật trong Blazor/Razor."
     },
     {
       "id": "PRN222-D1-08",
@@ -99,7 +106,8 @@
         "Local and remote."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor có hai mô hình render chính: WebAssembly (chạy toàn bộ .NET runtime trực tiếp trên trình duyệt qua WASM, không cần kết nối liên tục tới server) và Server (chạy logic trên server, cập nhật UI qua kết nối SignalR real-time). Static/dynamic hay local/remote không phải là cách phân loại chính thức của Blazor."
     },
     {
       "id": "PRN222-D1-09",
@@ -111,7 +119,8 @@
         "Limited cross-platform support."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lợi ích cốt lõi của Blazor là cho phép lập trình viên viết logic phía client bằng C# thay vì phải viết JavaScript, tận dụng lại kỹ năng và thư viện .NET đã có sẵn. Điều này trái ngược với các lựa chọn sai: Blazor thực chất tăng khả năng tái sử dụng code (component model) và giảm sự phụ thuộc vào JavaScript, đồng thời vẫn hỗ trợ đa nền tảng tốt."
     },
     {
       "id": "PRN222-D1-10",
@@ -123,7 +132,8 @@
         "To render UI components."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "DbContext đại diện cho một phiên làm việc (session) với database trong Entity Framework Core, cung cấp các phương thức để truy vấn (query) và lưu (save) dữ liệu thông qua các DbSet ánh xạ tới các bảng. Nó không liên quan đến quản lý session người dùng, mã hoá dữ liệu hay render UI component — đó là những trách nhiệm của các thành phần khác trong ứng dụng."
     },
     {
       "id": "PRN222-D1-11",
@@ -135,7 +145,8 @@
         "WebSocket only"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Blazor Server sử dụng SignalR để duy trì một kết nối real-time (thường qua WebSocket bên dưới) giữa trình duyệt và server — mọi tương tác UI được gửi lên server xử lý, sau đó server gửi lại các thay đổi DOM cần cập nhật qua kết nối SignalR này. Đây là lý do Blazor Server yêu cầu kết nối mạng liên tục, khác với Blazor WebAssembly chạy độc lập trên client sau khi tải xong."
     },
     {
       "id": "PRN222-D1-12",
@@ -147,7 +158,8 @@
         "To manage user sessions."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "@inject trong Blazor cho phép component lấy một service đã được đăng ký trong DI container (ví dụ HttpClient, một service nghiệp vụ tuỳ chỉnh...) và gán nó vào một property để dùng trực tiếp trong code phía sau (code-behind) hoặc trong markup. Nó không liên quan đến kết nối database, mã hoá dữ liệu hay quản lý session — chỉ đơn thuần là cầu nối giữa DI container và component."
     },
     {
       "id": "PRN222-D1-13",
@@ -159,7 +171,8 @@
         "A network protocol."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "MessagePack là một định dạng serialization nhị phân (binary) nhỏ gọn, được SignalR hỗ trợ như một giao thức thay thế cho JSON để truyền dữ liệu giữa client và server, giúp giảm kích thước message và tăng tốc độ. Nó không phải ngôn ngữ truy vấn database, thư viện JavaScript hay một network protocol — nó chỉ là một định dạng mã hoá dữ liệu."
     },
     {
       "id": "PRN222-D1-14",
@@ -174,7 +187,8 @@
       "correctSet": [
         0,
         1
-      ]
+      ],
+      "explanation": "Hub trong SignalR có hai vai trò chính đúng như đề bài: quản lý các kết nối của client (theo dõi ai đang kết nối, ai ngắt kết nối) và cho phép gọi phương thức trên client từ phía server (cũng như ngược lại) một cách real-time — đây là hai đáp án đúng (A và B). Hub không có chức năng lưu trữ message lâu dài (persistent) như một message broker, và cũng không bắt buộc phải chạy trên HTTPS (dù được khuyến nghị vì lý do bảo mật)."
     },
     {
       "id": "PRN222-D1-15",
@@ -186,7 +200,8 @@
         "init()"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "start() là phương thức trên client-side (trong SignalR JavaScript client, cũng như các client .NET) dùng để khởi tạo và mở kết nối tới hub trên server. connect(), open() và init() không phải là tên phương thức thật sự trong API của SignalR client."
     },
     {
       "id": "PRN222-D1-16",
@@ -198,7 +213,8 @@
         "EnableSignalR()"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "AddSignalR() là extension method gọi trong Program.cs (builder.Services.AddSignalR()) để đăng ký các service cần thiết cho SignalR (hub dispatcher, connection manager...) vào DI container. UseSignalR() từng được dùng trong pipeline middleware ở các phiên bản cũ để map endpoint hub, nhưng bước đăng ký service (Add...) và bước cấu hình middleware (Use...) là hai giai đoạn khác nhau; ConfigureSignalR() và EnableSignalR() không tồn tại."
     },
     {
       "id": "PRN222-D1-17",
@@ -210,7 +226,8 @@
         "Data is processed only after user refreshes the page."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Real-time trong ngữ cảnh ứng dụng web nghĩa là server có thể phản hồi hoặc đẩy dữ liệu đến client gần như ngay lập tức khi có sự kiện xảy ra, không cần client phải chủ động yêu cầu lại (polling) hay đợi người dùng refresh trang. Đây chính là điểm khác biệt cốt lõi so với mô hình request-response truyền thống, nơi client phải chủ động gửi yêu cầu mỗi lần muốn cập nhật dữ liệu."
     },
     {
       "id": "PRN222-D1-18",
@@ -222,7 +239,8 @@
         "Dependency on Internet Explorer."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "SignalR có khả năng tự động xử lý việc kết nối lại (automatic reconnection) khi kết nối giữa client và server bị gián đoạn tạm thời, giúp trải nghiệm real-time ổn định hơn mà lập trình viên không cần tự viết logic retry thủ công. Nó không chỉ hỗ trợ render phía server, không hề hạn chế hỗ trợ các chuẩn web hiện đại (ngược lại, nó dùng WebSocket khi có thể), và cũng không phụ thuộc vào Internet Explorer."
     },
     {
       "id": "PRN222-D1-19",
@@ -234,7 +252,8 @@
         "To replace all API controllers in ASP.NET Core."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hub là một high-level pipeline trong SignalR cho phép server và client gọi các phương thức trên nhau một cách trực tiếp và real-time (giống như gọi một remote procedure), trừu tượng hoá đi việc quản lý kết nối và giao thức truyền tải bên dưới (WebSocket, Server-Sent Events, Long Polling). Nó không chỉ đơn thuần refresh trình duyệt, không giới hạn chỉ gửi HTTP một chiều từ server, và không nhằm thay thế toàn bộ API controller — SignalR và Web API phục vụ hai mục đích bổ sung cho nhau."
     },
     {
       "id": "PRN222-D1-20",
@@ -246,7 +265,8 @@
         "A type of network cable."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Firewall là một hệ thống (phần cứng hoặc phần mềm) được thiết kế để giám sát và kiểm soát lưu lượng mạng ra/vào, nhằm ngăn chặn truy cập trái phép vào hoặc ra khỏi một mạng riêng, dựa trên các quy tắc bảo mật được cấu hình sẵn. Nó không phải là thiết bị định tuyến lưu lượng (đó là router), không phải một network protocol, và cũng không phải một loại cáp mạng vật lý."
     },
     {
       "id": "PRN222-D1-21",
@@ -258,7 +278,8 @@
         "Serving static files"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "HttpClient trong .NET được thiết kế chuyên biệt để gửi request và nhận response từ các HTTP/HTTPS web API, hỗ trợ các phương thức GET/POST/PUT/DELETE cùng nhiều tính năng như header, timeout, connection pooling. Nó không làm việc ở tầng socket TCP thấp (đó là việc của TcpClient/Socket), không có chức năng mã hoá traffic riêng (bảo mật dựa vào HTTPS/TLS bên dưới), và cũng không dùng để phục vụ file tĩnh (đó là việc của web server)."
     },
     {
       "id": "PRN222-D1-22",
@@ -270,7 +291,8 @@
         "d. Define hardware IP addressing"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "WebRequest.Create(Uri) khởi tạo (initialize) một đối tượng WebRequest tương ứng với scheme của URI được truyền vào (http, https, ftp...), chuẩn bị để gửi đi yêu cầu tới địa chỉ đó. Nó hoàn toàn không liên quan đến việc mở kết nối database, tạo cáp mạng vật lý hay định nghĩa địa chỉ IP phần cứng."
     },
     {
       "id": "PRN222-D1-23",
@@ -282,7 +304,8 @@
         "Socket"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "UdpClient là lớp trong .NET chuyên dùng để gửi và nhận dữ liệu qua giao thức UDP (User Datagram Protocol) — một giao thức không kết nối, không đảm bảo thứ tự/độ tin cậy nhưng có tốc độ cao. TcpListener và TcpClient dùng cho giao thức TCP (có kết nối, đáng tin cậy hơn), còn Socket là lớp cấp thấp hơn có thể dùng cho cả TCP lẫn UDP nhưng không phải là câu trả lời chuyên biệt cho UDP trong câu hỏi này."
     },
     {
       "id": "PRN222-D1-24",
@@ -294,7 +317,8 @@
         "To encrypt network data."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Port number giúp xác định một ứng dụng hoặc dịch vụ cụ thể đang chạy trên một host (ví dụ cổng 80 cho HTTP, 443 cho HTTPS, 5432 cho PostgreSQL) — nhờ đó nhiều dịch vụ có thể cùng hoạt động trên một địa chỉ IP mà không xung đột. Nó không dùng để định danh cả một network, không có chức năng định tuyến traffic (đó là vai trò của router/IP), và cũng không mã hoá dữ liệu."
     },
     {
       "id": "PRN222-D1-25",
@@ -306,7 +330,8 @@
         "All of the above"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Một URL thường bắt đầu bằng scheme chỉ định giao thức được dùng để truy cập tài nguyên, phổ biến nhất là HTTP hoặc HTTPS (ví dụ https://example.com), cho trình duyệt biết cách thức giao tiếp với server. TCP/UDP là các giao thức tầng vận chuyển nằm bên dưới HTTP chứ không xuất hiện trực tiếp trong URL, còn FTP tuy cũng có thể xuất hiện ở đầu URL nhưng không phải là giao thức phổ biến/mặc định nhất được đề cập ở đây."
     },
     {
       "id": "PRN222-D1-26",
@@ -318,7 +343,8 @@
         "\"wwwroot\""
       ],
       "type": "choice",
-      "correct": 3
+      "correct": 3,
+      "explanation": "Thư mục wwwroot là nơi mặc định ASP.NET Core phục vụ (serve) các tài nguyên tĩnh như CSS, JavaScript, hình ảnh, font... thông qua middleware UseStaticFiles(). Views chứa các file .cshtml để render giao diện động, Models chứa các lớp dữ liệu, còn Controllers chứa logic xử lý request — không thư mục nào trong ba cái đó dùng để chứa file tĩnh."
     },
     {
       "id": "PRN222-D1-27",
@@ -330,7 +356,8 @@
         "[Range]"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "[Compare] là data annotation dùng để so sánh giá trị của hai property trong cùng một model, thường gặp nhất khi xác nhận trường 'Confirm Password' phải khớp với trường 'Password'. [Required] chỉ kiểm tra property không được để trống, [StringLength] giới hạn độ dài chuỗi, còn [Range] kiểm tra giá trị số nằm trong khoảng cho phép — không cái nào trong số này so sánh hai property với nhau."
     },
     {
       "id": "PRN222-D1-28",
@@ -342,7 +369,8 @@
         "Task"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "ViewResult là một trong các loại IActionResult mà một action trong Controller có thể trả về, đại diện cho việc render một View (HTML) ra client. DbContext là lớp EF Core để truy vấn database, ServiceCollection dùng để đăng ký DI, Task là kiểu dữ liệu bất đồng bộ — không loại nào trong ba cái này là một dạng kết quả trả về từ action."
     },
     {
       "id": "PRN222-D1-29",
@@ -355,7 +383,8 @@
       ],
       "code": "public IActionResult Index()\n{\nViewData[\"Count\"] = \"10\";\nreturn View();\n}\n// In Razor:\n<p>@((int)ViewData[\"Count\"]+5)</p>",
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "ViewData lưu trữ dữ liệu dưới dạng object (kiểu weakly-typed), nên khi gán chuỗi \"10\" vào ViewData[\"Count\"] rồi ép kiểu về int bằng (int)ViewData[\"Count\"], .NET sẽ ném InvalidCastException vì không thể ép trực tiếp một string sang int (cần dùng Convert.ToInt32 hoặc int.Parse thay vì ép kiểu cứng). Đây là lỗi runtime rất phổ biến khi lạm dụng ViewData cho dữ liệu không phải string mà không cẩn thận về kiểu."
     },
     {
       "id": "PRN222-D1-30",
@@ -367,7 +396,8 @@
         "To manage user sessions."
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "[Bind] cho phép bạn chỉ định rõ những property nào của một model được phép nhận giá trị từ dữ liệu request khi thực hiện model binding — thường dùng để chống tấn công over-posting (người dùng gửi thêm field không mong muốn, ví dụ IsAdmin, để chiếm quyền). Nó không liên quan gì đến mã hoá dữ liệu, quản lý kết nối database hay quản lý session."
     },
     {
       "id": "PRN222-D1-31",
@@ -379,7 +409,8 @@
         "It cannot bind complex types"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Model Binding trong ASP.NET Core MVC có nhiệm vụ tự động ánh xạ (map) dữ liệu từ request HTTP (route data, query string, form data, JSON body...) vào các tham số của action method trong controller, hỗ trợ cả kiểu đơn giản lẫn kiểu phức tạp (complex type như object lồng nhau). Nó không chỉ giới hạn ở query string, không bắt buộc phải dùng TempData, và hoàn toàn có thể bind được các complex type."
     },
     {
       "id": "PRN222-D1-32",
@@ -391,7 +422,8 @@
         "builder.Services.AddViews()"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "builder.Services.AddRazorPages() là phương thức chuẩn để đăng ký các service cần thiết cho Razor Pages (routing theo trang, PageModel binding...) vào DI container. AddControllers() dùng cho Web API/MVC controllers thuần (không View), AddMvc() đăng ký đầy đủ cho mô hình MVC truyền thống (Controller + View), còn AddViews() không phải là một API thật sự tồn tại."
     },
     {
       "id": "PRN222-D1-33",
@@ -403,7 +435,8 @@
         "To define a database query."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ký hiệu @ trong Razor là dấu hiệu cho engine biết chuyển từ ngữ cảnh HTML sang ngữ cảnh C# (và ngược lại khi kết thúc biểu thức), cho phép nhúng code C# (biến, biểu thức, vòng lặp, điều kiện...) trực tiếp vào trong markup HTML. Nó không dùng để định nghĩa CSS, JavaScript hay truy vấn database — đó là công dụng của các cú pháp khác."
     },
     {
       "id": "PRN222-D1-34",
@@ -415,7 +448,8 @@
         "/Models"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Theo mặc định, Razor Pages dùng thư mục /Pages làm gốc (root) cho việc định tuyến — cấu trúc thư mục con bên trong /Pages sẽ tương ứng trực tiếp với URL route của trang đó (routing dựa trên file). /Controllers và /Views là cấu trúc thư mục của mô hình MVC truyền thống, còn /Models chỉ chứa các lớp dữ liệu, không liên quan đến routing."
     },
     {
       "id": "PRN222-D1-35",
@@ -427,7 +461,8 @@
         "To manage user sessions."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "@model khai báo kiểu PageModel (hoặc kiểu dữ liệu) mà trang Razor sẽ sử dụng, cho phép trang truy cập mạnh kiểu (strongly-typed) vào các property và phương thức của PageModel tương ứng ngay trong markup. Nó không liên quan đến kết nối database, mã hoá hay quản lý session — chỉ đơn thuần là khai báo kiểu cho view engine."
     },
     {
       "id": "PRN222-D1-36",
@@ -439,7 +474,8 @@
         "Cannot bind form values"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Model Binding trong Razor Pages có thể ánh xạ dữ liệu từ nhiều nguồn của HTTP request (route, query string, form...) vào các property của PageModel, không chỉ giới hạn ở GET request. Nó hỗ trợ đầy đủ cả GET và POST (đặc biệt phổ biến khi submit form qua POST), không bắt buộc dùng TempData, và hoàn toàn bind được giá trị từ form."
     },
     {
       "id": "PRN222-D1-37",
@@ -451,7 +487,8 @@
         "@controller"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "@model là directive dùng để khai báo/liên kết một Razor Page với lớp PageModel tương ứng của nó, cho phép truy cập các property/phương thức của PageModel trong file .cshtml. @page là directive bắt buộc để đánh dấu file là một Razor Page (kích hoạt routing), còn @pagemodel và @controller không phải là cú pháp hợp lệ trong Razor Pages."
     },
     {
       "id": "PRN222-D1-38",
@@ -464,7 +501,8 @@
       ],
       "code": "public IActionResult OnPost()\n{\nif ( ??? )\n{\n// process data\n}\nreturn Page();\n}",
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "ModelState.IsValid là thuộc tính chuẩn để kiểm tra xem dữ liệu người dùng nhập vào có thoả mãn tất cả các validation attribute (như [Required], [StringLength]...) được khai báo trên model hay không, sau khi model binding đã diễn ra. Model.Check(), ValidateModel() và Model.IsValid() đều không phải là API có thật trong ASP.NET Core Razor Pages."
     },
     {
       "id": "PRN222-D1-39",
@@ -476,7 +514,8 @@
         "Worker Service"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Task.Run() trong một controller action chỉ tạo một tác vụ chạy trên thread pool và bị gắn với vòng đời của request — nếu request kết thúc trước khi task hoàn thành, công việc có thể bị huỷ giữa chừng hoặc gây rò rỉ tài nguyên, nên đây không phải cách đúng để chạy việc nền lâu dài. IHostedService, BackgroundService và Worker Service đều được thiết kế đúng mục đích: chạy độc lập với vòng đời của từng request, do chính ASP.NET Core host quản lý."
     },
     {
       "id": "PRN222-D1-40",
@@ -488,7 +527,8 @@
         "IViewComponent"
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "IHostedService là interface chuẩn mà một class phải triển khai (thường thông qua lớp trừu tượng tiện lợi BackgroundService) để được host quản lý vòng đời như một background service trong ứng dụng .NET. IController, IDbContext và IViewComponent là các interface phục vụ những mục đích hoàn toàn khác (xử lý request MVC, truy cập EF Core, và render view component)."
     },
     {
       "id": "PRN222-D1-41",
@@ -500,7 +540,8 @@
         "launchSettings.json"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Program.cs là nơi Worker Service được cấu hình — sử dụng Host.CreateDefaultBuilder (hoặc WebApplication builder ở các phiên bản mới) để đăng ký các service, bao gồm cả BackgroundService/hosted service, vào DI container trước khi build và chạy host. App.cs không phải là file chuẩn của .NET, appsettings.json chỉ chứa cấu hình dạng key-value (không phải nơi đăng ký service bằng code), còn launchSettings.json chỉ dùng để cấu hình môi trường chạy khi debug."
     },
     {
       "id": "PRN222-D1-42",
@@ -513,7 +554,8 @@
       ],
       "code": "public class EmailWorker : BackgroundService\n{\nprotected override async Task ExecuteAsync(CancellationToken stoppingToken)\n{\nwhile (!stoppingToken.IsCancellationRequested)\n{\nSendEmails();\nawait Task.Delay(60000, stoppingToken);\n}\n}\n}",
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đoạn code định nghĩa một BackgroundService chạy vòng lặp while liên tục cho đến khi có yêu cầu huỷ (stoppingToken.IsCancellationRequested), mỗi vòng lặp gọi SendEmails() rồi chờ 60000ms (60 giây, dùng Task.Delay có truyền token để có thể huỷ giữa chừng) trước khi lặp lại — nghĩa là service này gửi email định kỳ mỗi phút, không phải chỉ gửi một lần. Việc dùng await Task.Delay thay vì Thread.Sleep cũng cho thấy đây là thiết kế bất đồng bộ, không chặn thread, và có tôn trọng tín hiệu shutdown chứ không bỏ qua nó."
     },
     {
       "id": "PRN222-D1-43",
@@ -525,7 +567,8 @@
         "System.ServiceProcess"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lớp BackgroundService (lớp trừu tượng tiện lợi để triển khai IHostedService) nằm trong namespace Microsoft.Extensions.Hosting, vốn là nơi chứa các thành phần liên quan đến việc host và quản lý vòng đời ứng dụng .NET. System.Threading chứa các nguyên hàm đa luồng cấp thấp, Microsoft.Extensions.Logging chứa các thành phần ghi log, còn System.ServiceProcess liên quan đến Windows Service truyền thống (khác với Worker Service hiện đại)."
     },
     {
       "id": "PRN222-D1-44",
@@ -537,7 +580,8 @@
         "To build mobile applications."
       ],
       "type": "choice",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service là một loại project template trong .NET được thiết kế chuyên biệt để xây dựng các tác vụ hoặc dịch vụ chạy nền lâu dài (long-running background tasks), không có giao diện người dùng và không xử lý trực tiếp HTTP request như ứng dụng web. Nó không nhằm mục đích xây dựng ứng dụng web, desktop hay di động — mỗi loại ứng dụng đó đã có project template riêng phù hợp hơn."
     },
     {
       "id": "PRN222-D1-45",
@@ -549,7 +593,8 @@
         "Creating user interfaces."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Parallel.For là phương thức trong Task Parallel Library (TPL) của .NET dùng để thực thi một vòng lặp for với các lần lặp chạy song song trên nhiều thread, tận dụng đa lõi CPU để tăng tốc các tác vụ tính toán độc lập với nhau. Nó không phải dành cho thao tác file bất đồng bộ, không xử lý network request, và cũng không liên quan đến việc tạo giao diện người dùng."
     },
     {
       "id": "PRN222-D1-46",
@@ -561,7 +606,8 @@
         "System.IO"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Task Parallel Library (TPL) — bao gồm các lớp như Task, Parallel, TaskScheduler — thuộc namespace System.Threading.Tasks, nơi tập trung các thành phần hỗ trợ lập trình bất đồng bộ và song song trong .NET. System.Linq phục vụ truy vấn dữ liệu, System.Collections chứa các cấu trúc dữ liệu, còn System.IO xử lý input/output file — không namespace nào trong ba cái đó chứa TPL."
     },
     {
       "id": "PRN222-D1-47",
@@ -573,7 +619,8 @@
         "To handle exceptions."
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "await được dùng để tạm dừng việc thực thi phương thức hiện tại (mà không chặn/block thread) cho đến khi một Task (đại diện cho một thao tác bất đồng bộ) hoàn thành, sau đó tiếp tục thực thi phần code còn lại — cơ chế này cho phép giữ ứng dụng phản hồi (responsive) trong khi chờ các thao tác I/O. Nó không dùng để định nghĩa hằng số, không tự tạo một thread mới (đó là việc của Task.Run hoặc Thread), và cũng không có chức năng xử lý ngoại lệ riêng (dù có thể kết hợp với try/catch)."
     },
     {
       "id": "PRN222-D1-48",
@@ -585,7 +632,8 @@
         "BackgroundWorker (obsolete)"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Kết hợp Task.Run() (để đẩy công việc nặng hoặc blocking sang thread pool) cùng với await (để chờ kết quả mà không chặn UI thread) là kỹ thuật chuẩn hiện đại giúp ứng dụng WPF tải dữ liệu từ mạng mà không làm đơ giao diện người dùng. Thread.Sleep() chặn hoàn toàn thread gọi nó (kể cả UI thread nếu gọi sai chỗ), PLINQ chỉ tối ưu cho xử lý dữ liệu song song chứ không phải I/O bất đồng bộ, còn BackgroundWorker là kỹ thuật cũ đã lỗi thời (obsolete) so với async/await."
     },
     {
       "id": "PRN222-D1-49",
@@ -597,7 +645,8 @@
         "SIMD"
       ],
       "type": "choice",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Hệ thống mono-processor (một bộ xử lý duy nhất) hoạt động theo kiến trúc Von Neumann — mô hình máy tính cổ điển với một CPU xử lý tuần tự các lệnh, chia sẻ chung một bộ nhớ cho cả dữ liệu và chương trình. Harvard architecture tách riêng bộ nhớ lệnh và dữ liệu (thường dùng trong vi điều khiển), còn MIMD và SIMD là các mô hình phân loại kiến trúc song song (đa xử lý), không phù hợp với hệ thống chỉ có một bộ xử lý."
     },
     {
       "id": "PRN222-D1-50",
@@ -609,7 +658,8 @@
         "To provide thread synchronization"
       ],
       "type": "choice",
-      "correct": 1
+      "correct": 1,
+      "explanation": "TaskScheduler chịu trách nhiệm quyết định cách các Task được đưa vào hàng đợi (queue) và phân phối để thực thi trên các thread — về cơ bản nó là lớp trừu tượng hoá việc lập lịch chạy Task, cho phép tuỳ biến hành vi này khi cần (ví dụ chạy tất cả trên một thread cụ thể). Nó không trực tiếp tạo thread mới (đó là việc của thread pool bên dưới), không quản lý garbage collection, và không phải là cơ chế đồng bộ hoá thread (đó là việc của lock, Monitor, SemaphoreSlim...)."
     }
   ]
 }

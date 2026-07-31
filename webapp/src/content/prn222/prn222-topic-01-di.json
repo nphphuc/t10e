@@ -12,7 +12,8 @@
         "WebRequest",
         "Task"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Đáp án đúng là ServiceCollection (cụ thể là IServiceCollection). Đây là container tích hợp sẵn của .NET Core, nơi bạn gọi các phương thức như AddSingleton, AddScoped, AddTransient để đăng ký service trước khi build ứng dụng. DbContext là lớp đại diện cho phiên làm việc với database (Entity Framework), WebRequest dùng để gọi HTTP, còn Task đại diện cho một đơn vị công việc bất đồng bộ — cả ba đều không liên quan đến việc đăng ký DI."
     },
     {
       "id": "PRN222-T-DI-02",
@@ -24,7 +25,8 @@
         "Injecting dependencies by setting public properties.",
         "Injecting dependencies at compile time."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Property Injection là kiểu tiêm phụ thuộc bằng cách gán giá trị trực tiếp vào một public property của đối tượng sau khi nó đã được khởi tạo, thay vì truyền qua constructor. Đây là lựa chọn thay thế cho Constructor Injection (tiêm qua tham số constructor, phổ biến và được khuyến nghị nhất) và Method Injection (tiêm qua tham số phương thức). .NET DI container mặc định chủ yếu hỗ trợ Constructor Injection, Property Injection thường cần container bên thứ ba hoặc code thủ công."
     },
     {
       "id": "PRN222-T-DI-03",
@@ -37,7 +39,8 @@
         "The instance is disposed immediately"
       ],
       "code": "services.AddSingleton<ILogger, FileLogger>();",
-      "correct": 1
+      "correct": 1,
+      "explanation": "Vì FileLogger được đăng ký bằng AddSingleton, container sẽ chỉ tạo đúng một instance duy nhất trong suốt vòng đời ứng dụng và instance đó được chia sẻ cho mọi class yêu cầu ILogger, bất kể request hay class nào. Điều này khác với Scoped (một instance mỗi request/scope) và Transient (một instance mới mỗi lần inject). Singleton phù hợp cho logger vì nó không giữ state riêng theo từng request và cần hiệu năng cao khi ghi log liên tục."
     },
     {
       "id": "PRN222-T-DI-04",
@@ -49,7 +52,8 @@
         "Microsoft.Extensions.DependencyInjection",
         "Ninject"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Microsoft.Extensions.DependencyInjection là container DI built-in, tích hợp sẵn trong .NET Core mà không cần cài thêm gói nào. Autofac, Unity và Ninject đều là các container DI của bên thứ ba (third-party), có thể thay thế container mặc định nếu cần tính năng nâng cao hơn (như tiêm theo module, interception...), nhưng không phải là thứ có sẵn ngay trong .NET Core."
     },
     {
       "id": "PRN222-T-DI-05",
@@ -62,7 +66,8 @@
         "The DI container throws an exception"
       ],
       "code": "services.AddTransient<IEmailService, SmtpEmailService>();",
-      "correct": 1
+      "correct": 1,
+      "explanation": "AddTransient nghĩa là mỗi lần có yêu cầu inject IEmailService, container sẽ tạo một instance SmtpEmailService hoàn toàn mới, kể cả trong cùng một request. Điều này khác Scoped (chỉ một instance trong cùng một request/scope) và Singleton (một instance duy nhất cho toàn ứng dụng). Transient phù hợp với các service nhẹ, không giữ trạng thái (stateless) và không tốn kém để khởi tạo."
     },
     {
       "id": "PRN222-T-DI-06",
@@ -75,7 +80,8 @@
         "Every time it's injected"
       ],
       "code": "services.AddScoped<IRepository, CustomerRepository>();",
-      "correct": 1
+      "correct": 1,
+      "explanation": "AddScoped tạo ra đúng một instance CustomerRepository cho mỗi HTTP request — mọi class trong cùng request đó (controller, service khác...) sẽ dùng chung instance này, nhưng request tiếp theo sẽ có instance mới. Đây là lựa chọn phổ biến cho các repository/DbContext vì đảm bảo tính nhất quán dữ liệu trong một request mà không giữ state xuyên suốt toàn ứng dụng như Singleton."
     },
     {
       "id": "PRN222-T-DI-07",
@@ -87,7 +93,8 @@
         "To encrypt data.",
         "To manage user sessions."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "@inject trong Blazor cho phép component lấy một service đã được đăng ký trong DI container (ví dụ HttpClient, một service nghiệp vụ tuỳ chỉnh...) và gán nó vào một property để dùng trực tiếp trong code phía sau (code-behind) hoặc trong markup. Nó không liên quan đến kết nối database, mã hoá dữ liệu hay quản lý session — chỉ đơn thuần là cầu nối giữa DI container và component."
     },
     {
       "id": "PRN222-T-DI-08",
@@ -99,7 +106,8 @@
         "ConfigureSignalR()",
         "EnableSignalR()"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "AddSignalR() là extension method gọi trong Program.cs (builder.Services.AddSignalR()) để đăng ký các service cần thiết cho SignalR (hub dispatcher, connection manager...) vào DI container. UseSignalR() từng được dùng trong pipeline middleware ở các phiên bản cũ để map endpoint hub, nhưng bước đăng ký service (Add...) và bước cấu hình middleware (Use...) là hai giai đoạn khác nhau; ConfigureSignalR() và EnableSignalR() không tồn tại."
     },
     {
       "id": "PRN222-T-DI-09",
@@ -111,7 +119,8 @@
         "ServiceCollection",
         "Task"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "ViewResult là một trong các loại IActionResult mà một action trong Controller có thể trả về, đại diện cho việc render một View (HTML) ra client. DbContext là lớp EF Core để truy vấn database, ServiceCollection dùng để đăng ký DI, Task là kiểu dữ liệu bất đồng bộ — không loại nào trong ba cái này là một dạng kết quả trả về từ action."
     },
     {
       "id": "PRN222-T-DI-10",
@@ -123,7 +132,8 @@
         "builder.Services.AddMvc()",
         "builder.Services.AddViews()"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "builder.Services.AddRazorPages() là phương thức chuẩn để đăng ký các service cần thiết cho Razor Pages (routing theo trang, PageModel binding...) vào DI container. AddControllers() dùng cho Web API/MVC controllers thuần (không View), AddMvc() đăng ký đầy đủ cho mô hình MVC truyền thống (Controller + View), còn AddViews() không phải là một API thật sự tồn tại."
     },
     {
       "id": "PRN222-T-DI-11",
@@ -135,7 +145,8 @@
         "Martin Fowle",
         "Kent Beck"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Michael Feathers là người đã đặt ra thuật ngữ viết tắt SOLID để gom nhóm 5 nguyên lý thiết kế hướng đối tượng do Robert C. Martin (Uncle Bob) tổng hợp và phổ biến trước đó. Vì vậy tuy Robert C. Martin là người có công lớn nhất trong việc định hình và truyền bá các nguyên lý này, người thực sự 'coin' (đặt tên) ra acronym SOLID lại là Michael Feathers. Martin Fowler và Kent Beck là hai nhân vật nổi tiếng khác trong cộng đồng phần mềm (refactoring, Extreme Programming) nhưng không liên quan đến việc đặt tên SOLID."
     },
     {
       "id": "PRN222-T-DI-12",
@@ -147,7 +158,8 @@
         "Maximum Reuse",
         "Loose Session Coupling"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Đáp án của đề đưa ra là 'Loose Session Coupling' — nhấn mạnh rằng nhờ DI, các PageModel không bị ràng buộc chặt với cách tạo hay quản lý session/service cụ thể, mà phụ thuộc vào abstraction được container cung cấp, giúp giảm sự phụ thuộc trực tiếp. DRY nói về việc tránh lặp code chứ không phải mục tiêu chính của DI, còn 'Procedural Programming' và 'Maximum Reuse' không mô tả đúng bản chất của Dependency Injection."
     },
     {
       "id": "PRN222-T-DI-13",
@@ -159,7 +171,8 @@
         "A technique for optimizing database queries.",
         "A way to manage network connections."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "DI là một design pattern trong đó một đối tượng không tự tạo ra các phụ thuộc (dependency) của nó, mà nhận chúng từ bên ngoài (thường qua constructor) — nhờ đó giảm sự ràng buộc chặt (tight coupling) giữa các lớp và dễ dàng thay thế/kiểm thử (unit test, mock). Nó không liên quan đến mã hoá dữ liệu, tối ưu truy vấn database hay quản lý kết nối mạng — đó là các mối quan tâm hoàn toàn khác."
     },
     {
       "id": "PRN222-T-DI-14",
@@ -171,7 +184,8 @@
         "The same instance",
         "Null references"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Vì AddTransient tạo một instance mới cho mỗi lần yêu cầu, nếu bạn inject IEmailService hai lần (kể cả trong cùng class hay cùng request), container sẽ trả về hai instance EmailService khác nhau, không chia sẻ state. Đây là điểm khác biệt cốt lõi so với Scoped/Singleton, và không có gì gây ra lỗi runtime hay giá trị null trong trường hợp này."
     },
     {
       "id": "PRN222-T-DI-15",
@@ -183,7 +197,8 @@
         "Interfaces should depend on classes",
         "Abstractions should depend on details"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Nguyên lý Dependency Inversion (chữ D trong SOLID) phát biểu rằng cả module cấp cao (business logic) và module cấp thấp (chi tiết triển khai) đều nên phụ thuộc vào abstraction (interface/abstract class), thay vì module cấp cao phụ thuộc trực tiếp vào module cấp thấp. Ngoài ra, abstraction không nên phụ thuộc vào chi tiết cụ thể (details), mà ngược lại — chi tiết phải phụ thuộc vào abstraction. Đây chính là nền tảng lý thuyết cho việc áp dụng DI trong thực tế."
     },
     {
       "id": "PRN222-T-DI-16",
@@ -196,7 +211,8 @@
         "New instance every time injected"
       ],
       "code": "builder.Services.AddScoped<IOrderService, OrderService>();",
-      "correct": 2
+      "correct": 2,
+      "explanation": "AddScoped tạo một instance IOrderService mới cho mỗi HTTP request, và instance đó được tái sử dụng cho mọi nơi trong cùng request cần đến nó, nhưng một request khác sẽ nhận một instance hoàn toàn mới. Nó không tồn tại suốt toàn ứng dụng (đó là Singleton), không bị giới hạn theo thread, và cũng không tạo mới mỗi lần inject trong cùng request (đó là Transient)."
     },
     {
       "id": "PRN222-T-DI-17",
@@ -208,7 +224,8 @@
         "Avoids dependency injection",
         "Eliminates Razor syntax"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Blazor xây dựng UI dựa trên các component tái sử dụng được (giống React/Angular), giúp bạn viết một component UI một lần và dùng lại nhiều nơi, giảm trùng lặp code và dễ bảo trì. Đáp án này trái ngược với các lựa chọn sai: Blazor Server không bắt buộc phải dùng nhiều JavaScript interop cho việc cập nhật UI (nó dùng SignalR để render lại từ server), Blazor vẫn hỗ trợ đầy đủ Dependency Injection, và vẫn dùng cú pháp Razor bình thường."
     },
     {
       "id": "PRN222-T-DI-18",
@@ -220,7 +237,8 @@
         "Singleton, Scoped, Transient",
         "Short, Medium, Long"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ba lifetime chuẩn trong DI container của .NET Core là Singleton (một instance cho toàn ứng dụng), Scoped (một instance cho mỗi request/scope) và Transient (một instance mới mỗi lần được yêu cầu). Các khái niệm như Static/Dynamic/ThreadLocal hay Session/Application/Request là thuật ngữ của các mô hình lập trình hoặc ASP.NET truyền thống khác, không phải là tên gọi lifetime chính thức trong DI container hiện đại."
     },
     {
       "id": "PRN222-T-DI-19",
@@ -232,7 +250,8 @@
         "By adding the service as a constructor parameter.",
         "By using global variables."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Cách chuẩn để inject service vào một Razor PageModel là khai báo nó như một tham số của constructor — DI container sẽ tự động phát hiện và truyền instance phù hợp vào khi khởi tạo PageModel. Việc tự tay new() service, dùng static method hay biến global đều đi ngược lại triết lý của DI (tạo sự ràng buộc chặt và khó kiểm thử), nên đều là các lựa chọn sai."
     }
   ]
 }

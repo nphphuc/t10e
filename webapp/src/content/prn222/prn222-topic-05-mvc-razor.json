@@ -12,7 +12,8 @@
         "@model",
         "@dataBind"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "@bind là directive của Blazor dùng để tạo two-way data binding giữa một property C# và một phần tử UI (ví dụ input) — khi người dùng thay đổi giá trị trên UI, property cũng tự động cập nhật và ngược lại. @model chỉ dùng để khai báo kiểu dữ liệu cho View/Page (binding một chiều khi render), còn @twoWay và @dataBind không phải là directive có thật trong Blazor/Razor."
     },
     {
       "id": "PRN222-T-MVC-02",
@@ -24,7 +25,8 @@
         "\"Controllers\"",
         "\"wwwroot\""
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Thư mục wwwroot là nơi mặc định ASP.NET Core phục vụ (serve) các tài nguyên tĩnh như CSS, JavaScript, hình ảnh, font... thông qua middleware UseStaticFiles(). Views chứa các file .cshtml để render giao diện động, Models chứa các lớp dữ liệu, còn Controllers chứa logic xử lý request — không thư mục nào trong ba cái đó dùng để chứa file tĩnh."
     },
     {
       "id": "PRN222-T-MVC-03",
@@ -36,7 +38,8 @@
         "[StringLength]",
         "[Range]"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "[Compare] là data annotation dùng để so sánh giá trị của hai property trong cùng một model, thường gặp nhất khi xác nhận trường 'Confirm Password' phải khớp với trường 'Password'. [Required] chỉ kiểm tra property không được để trống, [StringLength] giới hạn độ dài chuỗi, còn [Range] kiểm tra giá trị số nằm trong khoảng cho phép — không cái nào trong số này so sánh hai property với nhau."
     },
     {
       "id": "PRN222-T-MVC-04",
@@ -49,7 +52,8 @@
         "Nothing"
       ],
       "code": "public IActionResult Index()\n{\nViewData[\"Count\"] = \"10\";\nreturn View();\n}\n// In Razor:\n<p>@((int)ViewData[\"Count\"]+5)</p>",
-      "correct": 2
+      "correct": 2,
+      "explanation": "ViewData lưu trữ dữ liệu dưới dạng object (kiểu weakly-typed), nên khi gán chuỗi \"10\" vào ViewData[\"Count\"] rồi ép kiểu về int bằng (int)ViewData[\"Count\"], .NET sẽ ném InvalidCastException vì không thể ép trực tiếp một string sang int (cần dùng Convert.ToInt32 hoặc int.Parse thay vì ép kiểu cứng). Đây là lỗi runtime rất phổ biến khi lạm dụng ViewData cho dữ liệu không phải string mà không cẩn thận về kiểu."
     },
     {
       "id": "PRN222-T-MVC-05",
@@ -61,7 +65,8 @@
         "To manage database connections.",
         "To manage user sessions."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "[Bind] cho phép bạn chỉ định rõ những property nào của một model được phép nhận giá trị từ dữ liệu request khi thực hiện model binding — thường dùng để chống tấn công over-posting (người dùng gửi thêm field không mong muốn, ví dụ IsAdmin, để chiếm quyền). Nó không liên quan gì đến mã hoá dữ liệu, quản lý kết nối database hay quản lý session."
     },
     {
       "id": "PRN222-T-MVC-06",
@@ -73,7 +78,8 @@
         "It must always use TempData",
         "It cannot bind complex types"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Model Binding trong ASP.NET Core MVC có nhiệm vụ tự động ánh xạ (map) dữ liệu từ request HTTP (route data, query string, form data, JSON body...) vào các tham số của action method trong controller, hỗ trợ cả kiểu đơn giản lẫn kiểu phức tạp (complex type như object lồng nhau). Nó không chỉ giới hạn ở query string, không bắt buộc phải dùng TempData, và hoàn toàn có thể bind được các complex type."
     },
     {
       "id": "PRN222-T-MVC-07",
@@ -85,7 +91,8 @@
         "To switch between HTML and C# code.",
         "To define a database query."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ký hiệu @ trong Razor là dấu hiệu cho engine biết chuyển từ ngữ cảnh HTML sang ngữ cảnh C# (và ngược lại khi kết thúc biểu thức), cho phép nhúng code C# (biến, biểu thức, vòng lặp, điều kiện...) trực tiếp vào trong markup HTML. Nó không dùng để định nghĩa CSS, JavaScript hay truy vấn database — đó là công dụng của các cú pháp khác."
     },
     {
       "id": "PRN222-T-MVC-08",
@@ -97,7 +104,8 @@
         "/Pages",
         "/Models"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Theo mặc định, Razor Pages dùng thư mục /Pages làm gốc (root) cho việc định tuyến — cấu trúc thư mục con bên trong /Pages sẽ tương ứng trực tiếp với URL route của trang đó (routing dựa trên file). /Controllers và /Views là cấu trúc thư mục của mô hình MVC truyền thống, còn /Models chỉ chứa các lớp dữ liệu, không liên quan đến routing."
     },
     {
       "id": "PRN222-T-MVC-09",
@@ -109,7 +117,8 @@
         "To encrypt data.",
         "To manage user sessions."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "@model khai báo kiểu PageModel (hoặc kiểu dữ liệu) mà trang Razor sẽ sử dụng, cho phép trang truy cập mạnh kiểu (strongly-typed) vào các property và phương thức của PageModel tương ứng ngay trong markup. Nó không liên quan đến kết nối database, mã hoá hay quản lý session — chỉ đơn thuần là khai báo kiểu cho view engine."
     },
     {
       "id": "PRN222-T-MVC-10",
@@ -121,7 +130,8 @@
         "Must always use TempData",
         "Cannot bind form values"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Model Binding trong Razor Pages có thể ánh xạ dữ liệu từ nhiều nguồn của HTTP request (route, query string, form...) vào các property của PageModel, không chỉ giới hạn ở GET request. Nó hỗ trợ đầy đủ cả GET và POST (đặc biệt phổ biến khi submit form qua POST), không bắt buộc dùng TempData, và hoàn toàn bind được giá trị từ form."
     },
     {
       "id": "PRN222-T-MVC-11",
@@ -133,7 +143,8 @@
         "@pagemodel",
         "@controller"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "@model là directive dùng để khai báo/liên kết một Razor Page với lớp PageModel tương ứng của nó, cho phép truy cập các property/phương thức của PageModel trong file .cshtml. @page là directive bắt buộc để đánh dấu file là một Razor Page (kích hoạt routing), còn @pagemodel và @controller không phải là cú pháp hợp lệ trong Razor Pages."
     },
     {
       "id": "PRN222-T-MVC-12",
@@ -146,7 +157,8 @@
         "Model.IsValid()"
       ],
       "code": "public IActionResult OnPost()\n{\nif ( ??? )\n{\n// process data\n}\nreturn Page();\n}",
-      "correct": 1
+      "correct": 1,
+      "explanation": "ModelState.IsValid là thuộc tính chuẩn để kiểm tra xem dữ liệu người dùng nhập vào có thoả mãn tất cả các validation attribute (như [Required], [StringLength]...) được khai báo trên model hay không, sau khi model binding đã diễn ra. Model.Check(), ValidateModel() và Model.IsValid() đều không phải là API có thật trong ASP.NET Core Razor Pages."
     },
     {
       "id": "PRN222-T-MVC-13",
@@ -158,7 +170,8 @@
         "BackgroundService",
         "Worker Service"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Task.Run() trong một controller action chỉ tạo một tác vụ chạy trên thread pool và bị gắn với vòng đời của request — nếu request kết thúc trước khi task hoàn thành, công việc có thể bị huỷ giữa chừng hoặc gây rò rỉ tài nguyên, nên đây không phải cách đúng để chạy việc nền lâu dài. IHostedService, BackgroundService và Worker Service đều được thiết kế đúng mục đích: chạy độc lập với vòng đời của từng request, do chính ASP.NET Core host quản lý."
     },
     {
       "id": "PRN222-T-MVC-14",
@@ -170,7 +183,8 @@
         "IHostedService",
         "IViewComponent"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "IHostedService là interface chuẩn mà một class phải triển khai (thường thông qua lớp trừu tượng tiện lợi BackgroundService) để được host quản lý vòng đời như một background service trong ứng dụng .NET. IController, IDbContext và IViewComponent là các interface phục vụ những mục đích hoàn toàn khác (xử lý request MVC, truy cập EF Core, và render view component)."
     },
     {
       "id": "PRN222-T-MVC-15",
@@ -182,7 +196,8 @@
         "The process of mapping HTTP request data to model objects.",
         "The process of validating user input."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Model Binding là quá trình ASP.NET Core tự động lấy dữ liệu thô từ HTTP request (route values, query string, form data, request body...) và chuyển đổi nó thành các đối tượng .NET (model) để action method có thể sử dụng trực tiếp, giúp lập trình viên không cần tự parse request thủ công. Nó không phải là quá trình quản lý session, mã hoá dữ liệu hay validate input (dù validation thường diễn ra ngay sau bước binding)."
     },
     {
       "id": "PRN222-T-MVC-16",
@@ -194,7 +209,8 @@
         "The page is static",
         "Logic and data retrieval are required"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "View Component được ưu tiên hơn Partial View khi phần giao diện cần có logic xử lý riêng và/hoặc cần tự truy xuất dữ liệu (ví dụ gọi service/database) trước khi render, vì View Component có một class C# đứng sau để xử lý logic đó — trong khi Partial View chỉ đơn thuần nhận model được truyền sẵn từ view cha, không tự lấy dữ liệu được. Nếu chỉ cần một đoạn HTML tĩnh, không có logic, Partial View sẽ đơn giản và nhẹ hơn."
     },
     {
       "id": "PRN222-T-MVC-17",
@@ -206,7 +222,8 @@
         "<script asp-helper=\"true\">",
         "<form asp-action=\"Create\">"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "<form asp-action=\"Create\"> là ví dụ về Tag Helper — thuộc tính asp-action là cú pháp đặc biệt của ASP.NET Core, cho phép server-side code can thiệp vào thẻ HTML để tự sinh ra action URL tương ứng khi render. Các thuộc tính asp-code, data-tag, asp-helper trong các đáp án còn lại chỉ là thuộc tính HTML tuỳ ý do người viết đề đặt ra, không phải Tag Helper thật sự được ASP.NET Core hỗ trợ."
     },
     {
       "id": "PRN222-T-MVC-18",
@@ -218,7 +235,8 @@
         "Until the application is restarted.",
         "Until the user closes the browser."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "TempData được thiết kế để lưu dữ liệu tồn tại qua đúng một lần chuyển hướng (redirect) — nó có sẵn trong request hiện tại và request kế tiếp, sau đó tự động bị xoá (trừ khi bạn gọi Keep() hoặc Peek() để giữ lại). Nó không tồn tại vĩnh viễn cho đến khi bị xoá thủ công, không tồn tại tới khi ứng dụng restart, và cũng không gắn với vòng đời của trình duyệt như Session."
     },
     {
       "id": "PRN222-T-MVC-19",
@@ -230,7 +248,8 @@
         "ProcessGet(), ProcessPost()",
         "HandleGet(), HandlePost()"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Theo quy ước đặt tên của Razor Pages, các handler method xử lý HTTP verb tương ứng được đặt tên theo mẫu OnGet(), OnPost(), OnGetAsync(), OnPostAsync()... — framework tự động ánh xạ tên phương thức này với HTTP method của request đến. Các tên như GetHandler/PostHandler, ProcessGet/ProcessPost hay HandleGet/HandlePost không phải là quy ước được Razor Pages nhận diện."
     },
     {
       "id": "PRN222-T-MVC-20",
@@ -242,7 +261,8 @@
         "To return a view.",
         "To redirect the user to another action within the same controller or a different one."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "RedirectToAction trả về một HTTP redirect (302) để điều hướng trình duyệt đến một action khác — có thể trong cùng controller hoặc một controller khác — thường dùng theo mô hình Post-Redirect-Get để tránh submit lại form khi người dùng refresh trang. Nó không dùng để tải file, trả JSON hay render trực tiếp một view — đó là công dụng của FileResult, JsonResult và ViewResult tương ứng."
     },
     {
       "id": "PRN222-T-MVC-21",
@@ -254,7 +274,8 @@
         "Building database management systems.",
         "Building mobile applications."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Razor Pages được thiết kế theo mô hình page-centric (mỗi trang gắn với một file .cshtml và PageModel riêng), giúp đơn giản hoá việc xây dựng các ứng dụng web tập trung vào trang (page-focused), giảm bớt sự phức tạp của việc tách Controller/View/Route như MVC truyền thống. Nó không nhắm đến việc xây dựng ứng dụng desktop, hệ quản trị database hay ứng dụng di động — đó không phải là mục đích của công nghệ web này."
     },
     {
       "id": "PRN222-T-MVC-22",
@@ -266,7 +287,8 @@
         "To return data in JSON format.",
         "To return a view."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "JsonResult trả dữ liệu về client dưới định dạng JSON, thường được dùng trong các API endpoint trả về dữ liệu (thay vì HTML) để client (ví dụ JavaScript, mobile app) có thể dễ dàng parse. Nó khác với RedirectResult (điều hướng), FileResult (tải file) và ViewResult (render HTML) — mỗi loại IActionResult phục vụ một định dạng phản hồi khác nhau."
     },
     {
       "id": "PRN222-T-MVC-23",
@@ -278,7 +300,8 @@
         "To manage user sessions.",
         "To bind form data to a PageModel property."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "[BindProperty] đánh dấu một property trong PageModel để nó tự động nhận giá trị từ dữ liệu form được submit (model binding), giúp bạn không cần khai báo tham số riêng lẻ trong handler method. Nó không liên quan đến kết nối database, mã hoá dữ liệu hay quản lý session — chỉ phục vụ mục đích ánh xạ dữ liệu form vào property."
     },
     {
       "id": "PRN222-T-MVC-24",
@@ -290,7 +313,8 @@
         "A database entity",
         "An Entity Framework class"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "PageModel đóng vai trò kết hợp giữa Controller (xử lý logic, nhận request qua các handler OnGet/OnPost) và ViewModel (chứa các property để binding dữ liệu ra trang), là điểm khác biệt cốt lõi giữa Razor Pages và mô hình MVC tách biệt hoàn toàn Controller/View. Nó không phải thứ thay thế HTML, không phải một entity database, và cũng không phải là một class của Entity Framework."
     },
     {
       "id": "PRN222-T-MVC-25",
@@ -302,7 +326,8 @@
         "Rendering HTML",
         "Maintaining session state"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Trong mô hình MVC, Controller có nhiệm vụ tiếp nhận HTTP request, điều phối (orchestrate) việc gọi các service/model cần thiết để xử lý logic, rồi chọn View phù hợp để trả kết quả về — nó là lớp trung gian kết nối Model và View. Việc lưu trữ logic nghiệp vụ chi tiết nên thuộc về Model/Service layer, việc render HTML thuộc về View, còn việc duy trì session không phải trách nhiệm chính của Controller."
     }
   ]
 }

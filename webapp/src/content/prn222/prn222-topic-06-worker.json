@@ -12,7 +12,8 @@
         "appsettings.json",
         "launchSettings.json"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Program.cs là nơi Worker Service được cấu hình — sử dụng Host.CreateDefaultBuilder (hoặc WebApplication builder ở các phiên bản mới) để đăng ký các service, bao gồm cả BackgroundService/hosted service, vào DI container trước khi build và chạy host. App.cs không phải là file chuẩn của .NET, appsettings.json chỉ chứa cấu hình dạng key-value (không phải nơi đăng ký service bằng code), còn launchSettings.json chỉ dùng để cấu hình môi trường chạy khi debug."
     },
     {
       "id": "PRN222-T-WORKER-02",
@@ -25,7 +26,8 @@
         "Ignores shutdown signals."
       ],
       "code": "public class EmailWorker : BackgroundService\n{\nprotected override async Task ExecuteAsync(CancellationToken stoppingToken)\n{\nwhile (!stoppingToken.IsCancellationRequested)\n{\nSendEmails();\nawait Task.Delay(60000, stoppingToken);\n}\n}\n}",
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đoạn code định nghĩa một BackgroundService chạy vòng lặp while liên tục cho đến khi có yêu cầu huỷ (stoppingToken.IsCancellationRequested), mỗi vòng lặp gọi SendEmails() rồi chờ 60000ms (60 giây, dùng Task.Delay có truyền token để có thể huỷ giữa chừng) trước khi lặp lại — nghĩa là service này gửi email định kỳ mỗi phút, không phải chỉ gửi một lần. Việc dùng await Task.Delay thay vì Thread.Sleep cũng cho thấy đây là thiết kế bất đồng bộ, không chặn thread, và có tôn trọng tín hiệu shutdown chứ không bỏ qua nó."
     },
     {
       "id": "PRN222-T-WORKER-03",
@@ -37,7 +39,8 @@
         "Microsoft.Extensions.Logging",
         "System.ServiceProcess"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lớp BackgroundService (lớp trừu tượng tiện lợi để triển khai IHostedService) nằm trong namespace Microsoft.Extensions.Hosting, vốn là nơi chứa các thành phần liên quan đến việc host và quản lý vòng đời ứng dụng .NET. System.Threading chứa các nguyên hàm đa luồng cấp thấp, Microsoft.Extensions.Logging chứa các thành phần ghi log, còn System.ServiceProcess liên quan đến Windows Service truyền thống (khác với Worker Service hiện đại)."
     },
     {
       "id": "PRN222-T-WORKER-04",
@@ -49,7 +52,8 @@
         "To build long-running background tasks or services.",
         "To build mobile applications."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service là một loại project template trong .NET được thiết kế chuyên biệt để xây dựng các tác vụ hoặc dịch vụ chạy nền lâu dài (long-running background tasks), không có giao diện người dùng và không xử lý trực tiếp HTTP request như ứng dụng web. Nó không nhằm mục đích xây dựng ứng dụng web, desktop hay di động — mỗi loại ứng dụng đó đã có project template riêng phù hợp hơn."
     },
     {
       "id": "PRN222-T-WORKER-05",
@@ -61,7 +65,8 @@
         "To record information, errors, and warnings during the service's execution.",
         "To manage user sessions."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Logging trong Worker Service dùng để ghi lại thông tin, lỗi và cảnh báo phát sinh trong quá trình service thực thi, giúp lập trình viên/vận hành theo dõi (monitor) tình trạng hoạt động và chẩn đoán sự cố của một tiến trình chạy nền không có giao diện trực quan để quan sát trực tiếp. Nó không liên quan đến quản lý kết nối database, mã hoá dữ liệu hay quản lý session người dùng."
     },
     {
       "id": "PRN222-T-WORKER-06",
@@ -73,7 +78,8 @@
         "Worker Services integrate seamlessly with ASP.NET Core's hosting and configuration.",
         "Console applications can run in the browser."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service được tích hợp sẵn với hạ tầng hosting và configuration của ASP.NET Core (Generic Host) — bao gồm dependency injection, logging, cấu hình từ appsettings.json, và quản lý vòng đời (start/stop/graceful shutdown) một cách nhất quán — điều mà một console application thông thường phải tự xây dựng lại từ đầu. Console application không hề có lợi thế về việc deploy lên mobile, hiệu năng, hay chạy trong trình duyệt như các lựa chọn sai gợi ý."
     },
     {
       "id": "PRN222-T-WORKER-07",
@@ -85,7 +91,8 @@
         "A pre-configured background service project.",
         "A pre-configured web application."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Worker Service template cung cấp một project mẫu đã được cấu hình sẵn (pre-configured) khung sườn cho một background service — bao gồm Program.cs khởi tạo Generic Host và một lớp Worker kế thừa BackgroundService — giúp lập trình viên bắt đầu nhanh với các tác vụ chạy nền mà không cần thiết lập từ đầu. Nó không phải là project mẫu cho database, mobile app hay web application — các loại đó có template riêng."
     },
     {
       "id": "PRN222-T-WORKER-08",
@@ -97,7 +104,8 @@
         "Only for the duration of an HTTP request.",
         "Until the application is manually stopped."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Một Worker Service thường được thiết kế để chạy liên tục cho đến khi bị dừng một cách thủ công (hoặc bởi hệ điều hành/orchestrator khi shutdown), không gắn với vòng đời của một user session, database transaction hay một HTTP request cụ thể nào — đó chính là bản chất của một tiến trình chạy nền dài hạn (long-running)."
     },
     {
       "id": "PRN222-T-WORKER-09",
@@ -109,7 +117,8 @@
         "A frontend Ul framework",
         "A Visual Studio extension"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Worker Service là một loại project template trong .NET dùng để xây dựng các background service — những tiến trình chạy nền độc lập, không có giao diện, thường dùng cho xử lý hàng đợi, tác vụ định kỳ, hoặc dịch vụ nền dài hạn. Nó không phải là sự thay thế cho Windows Forms (một framework UI desktop), không phải là framework UI phía frontend, và cũng không phải một extension của Visual Studio."
     }
   ]
 }

@@ -12,7 +12,8 @@
         "System.Collections",
         "System.IO"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Task Parallel Library (TPL) — bao gồm các lớp như Task, Parallel, TaskScheduler — thuộc namespace System.Threading.Tasks, nơi tập trung các thành phần hỗ trợ lập trình bất đồng bộ và song song trong .NET. System.Linq phục vụ truy vấn dữ liệu, System.Collections chứa các cấu trúc dữ liệu, còn System.IO xử lý input/output file — không namespace nào trong ba cái đó chứa TPL."
     },
     {
       "id": "PRN222-T-ASYNC-02",
@@ -24,7 +25,8 @@
         "To create a new thread.",
         "To handle exceptions."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "await được dùng để tạm dừng việc thực thi phương thức hiện tại (mà không chặn/block thread) cho đến khi một Task (đại diện cho một thao tác bất đồng bộ) hoàn thành, sau đó tiếp tục thực thi phần code còn lại — cơ chế này cho phép giữ ứng dụng phản hồi (responsive) trong khi chờ các thao tác I/O. Nó không dùng để định nghĩa hằng số, không tự tạo một thread mới (đó là việc của Task.Run hoặc Thread), và cũng không có chức năng xử lý ngoại lệ riêng (dù có thể kết hợp với try/catch)."
     },
     {
       "id": "PRN222-T-ASYNC-03",
@@ -36,7 +38,8 @@
         "PLINQ",
         "BackgroundWorker (obsolete)"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Kết hợp Task.Run() (để đẩy công việc nặng hoặc blocking sang thread pool) cùng với await (để chờ kết quả mà không chặn UI thread) là kỹ thuật chuẩn hiện đại giúp ứng dụng WPF tải dữ liệu từ mạng mà không làm đơ giao diện người dùng. Thread.Sleep() chặn hoàn toàn thread gọi nó (kể cả UI thread nếu gọi sai chỗ), PLINQ chỉ tối ưu cho xử lý dữ liệu song song chứ không phải I/O bất đồng bộ, còn BackgroundWorker là kỹ thuật cũ đã lỗi thời (obsolete) so với async/await."
     },
     {
       "id": "PRN222-T-ASYNC-04",
@@ -48,7 +51,8 @@
         "MIMD",
         "SIMD"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Hệ thống mono-processor (một bộ xử lý duy nhất) hoạt động theo kiến trúc Von Neumann — mô hình máy tính cổ điển với một CPU xử lý tuần tự các lệnh, chia sẻ chung một bộ nhớ cho cả dữ liệu và chương trình. Harvard architecture tách riêng bộ nhớ lệnh và dữ liệu (thường dùng trong vi điều khiển), còn MIMD và SIMD là các mô hình phân loại kiến trúc song song (đa xử lý), không phù hợp với hệ thống chỉ có một bộ xử lý."
     },
     {
       "id": "PRN222-T-ASYNC-05",
@@ -60,7 +64,8 @@
         "To manage garbage collection of tasks",
         "To provide thread synchronization"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "TaskScheduler chịu trách nhiệm quyết định cách các Task được đưa vào hàng đợi (queue) và phân phối để thực thi trên các thread — về cơ bản nó là lớp trừu tượng hoá việc lập lịch chạy Task, cho phép tuỳ biến hành vi này khi cần (ví dụ chạy tất cả trên một thread cụ thể). Nó không trực tiếp tạo thread mới (đó là việc của thread pool bên dưới), không quản lý garbage collection, và không phải là cơ chế đồng bộ hoá thread (đó là việc của lock, Monitor, SemaphoreSlim...)."
     },
     {
       "id": "PRN222-T-ASYNC-06",
@@ -72,7 +77,8 @@
         "await Task.WhenAll(tasks);",
         "await task;"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "task.Wait() là một lời gọi đồng bộ (synchronous), nó chặn (block) thread hiện tại, buộc thread phải đứng chờ cho đến khi task hoàn thành mới được tiếp tục chạy — đây là nguyên nhân phổ biến gây deadlock nếu gọi trên UI thread hoặc trong ASP.NET context. Ngược lại, await task và await Task.WhenAll(tasks) đều không chặn thread (chúng trả quyền điều khiển về, để thread có thể làm việc khác trong lúc chờ), còn ContinueWith chỉ đăng ký một callback chạy sau khi task xong, không chặn thread ngay lập tức."
     },
     {
       "id": "PRN222-T-ASYNC-07",
@@ -84,7 +90,8 @@
         "Low coupling, high cohesion",
         "Using as many threads as possible"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Khi viết chương trình song song, nguyên tắc thiết kế phần mềm tốt vẫn cần được ưu tiên: low coupling (giảm sự phụ thuộc chặt giữa các phần công việc chạy song song) và high cohesion (mỗi tác vụ tập trung làm tốt một việc) — điều này giúp giảm rủi ro race condition và dễ debug hơn. Việc chia task một cách tuỳ tiện không kiểm soát, bỏ qua đồng bộ hoá hoàn toàn, hay cố dùng càng nhiều thread càng tốt đều là những cách tiếp cận sai lầm, dễ dẫn đến lỗi khó tái hiện và hiệu năng kém do overhead quản lý thread quá nhiều."
     },
     {
       "id": "PRN222-T-ASYNC-08",
@@ -96,7 +103,8 @@
         "Automatically turning them into multi-threaded",
         "Always running faster than synchronous code"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lập trình bất đồng bộ giúp cải thiện hiệu năng chủ yếu cho các thao tác I/O-bound (đọc/ghi file, gọi mạng, truy vấn database) — trong lúc chờ I/O hoàn thành, thread không bị chặn mà có thể được giải phóng để phục vụ công việc khác, tăng khả năng đáp ứng và thông lượng của ứng dụng. Nó không đảm bảo 'không bao giờ chặn thread' trong mọi trường hợp (vẫn có thể lạm dụng sai cách), không tự động biến chương trình thành đa luồng, và cũng không có nghĩa là luôn chạy nhanh hơn code đồng bộ (với tác vụ CPU-bound nhẹ, async có thể còn thêm overhead)."
     },
     {
       "id": "PRN222-T-ASYNC-09",
@@ -108,7 +116,8 @@
         "Delegate pattern",
         "Task-based Asynchronous Pattern (TAP)"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "async/await trong C# được xây dựng dựa trên Task-based Asynchronous Pattern (TAP) — mô hình chuẩn hiện đại của .NET, nơi một thao tác bất đồng bộ được đại diện bởi một đối tượng Task/Task<T> mà bạn có thể await. APM (dùng cặp BeginXxx/EndXxx) và EAP (dùng sự kiện Completed) là hai pattern bất đồng bộ cũ hơn, đã được TAP thay thế trong phần lớn API hiện đại; delegate pattern chỉ là cơ chế callback tổng quát, không phải nền tảng riêng của async/await."
     },
     {
       "id": "PRN222-T-ASYNC-10",
@@ -121,7 +130,8 @@
         "6"
       ],
       "code": "for (int i= 0; i < 3; i++)\n{\nTask t = new Task(() =>Console.WriteLine(i));\nt.Start();\n}",
-      "correct": 2
+      "correct": 2,
+      "explanation": "Vòng lặp for chạy 3 lần (i = 0, 1, 2), mỗi lần tạo một đối tượng Task mới bằng new Task(...) và gọi Start() ngay lập tức, nên tổng cộng có đúng 3 Task được tạo ra và khởi chạy — mỗi task in ra giá trị i tại thời điểm nó thực thi (lưu ý: do closure trên biến i, giá trị in ra thực tế có thể không theo thứ tự và cần cẩn trọng, nhưng số lượng task được tạo chắc chắn là 3, không phải 1, 2 hay 6)."
     },
     {
       "id": "PRN222-T-ASYNC-11",
@@ -133,7 +143,8 @@
         "RunParallel()",
         "Parallelize()"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "AsParallel() là extension method dùng để chuyển một truy vấn LINQ thông thường (chạy tuần tự) thành một truy vấn PLINQ (Parallel LINQ), cho phép các phần tử được xử lý song song trên nhiều thread nhằm tăng hiệu năng với tập dữ liệu lớn. ToParallel(), RunParallel() và Parallelize() không phải là các phương thức thật sự tồn tại trong API của PLINQ."
     }
   ]
 }
