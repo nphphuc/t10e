@@ -1,0 +1,242 @@
+{
+  "id": "PMG201C-TOPIC-HR",
+  "title": "PMG201c — Nhân Sự & Xung Đột",
+  "questions": [
+    {
+      "id": "PMG201C-T-HR-01",
+      "type": "choice",
+      "prompt": "Which one is not project manager’s role?",
+      "options": [
+        "A builder of teams",
+        "A motivator of people",
+        "A conflict resolution expert",
+        "A skilled communicator",
+        "A great solution architect"
+      ],
+      "correct": 4,
+      "explanation": "Vai trò của Project Manager tập trung vào các kỹ năng lãnh đạo và quản lý con người: xây dựng đội nhóm (team builder), tạo động lực (motivator), giải quyết xung đột (conflict resolution expert), và giao tiếp hiệu quả (skilled communicator). 'A great solution architect' (kiến trúc sư giải pháp kỹ thuật) là vai trò chuyên môn kỹ thuật, không phải trọng tâm vai trò của PM — PM không nhất thiết phải là chuyên gia kỹ thuật sâu về giải pháp."
+    },
+    {
+      "id": "PMG201C-T-HR-02",
+      "type": "choice",
+      "prompt": "Which of the following best describes the project manager’s role as an integrator?",
+      "options": [
+        "Help team members become familiar with the project",
+        "Put all the pieces of a project into a cohesive whole",
+        "Put all the pieces of a project into a program",
+        "Get all team members together into a cohesive whole"
+      ],
+      "correct": 1,
+      "explanation": "Vai trò 'integrator' (người tích hợp) của PM là khả năng kết nối và ghép nối tất cả các mảnh ghép rời rạc của dự án (con người, quy trình, hệ thống, thông tin...) thành một tổng thể gắn kết, mạch lạc (cohesive whole) — chứ không chỉ đơn thuần là giúp thành viên làm quen với dự án hay gộp các phần vào một chương trình (program)."
+    },
+    {
+      "id": "PMG201C-T-HR-03",
+      "type": "choice",
+      "prompt": "True or False: Influence means you have the right to apply resources, make decisions and give approvals.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — mô tả 'có quyền áp dụng nguồn lực, ra quyết định và phê duyệt' chính là định nghĩa của AUTHORITY (quyền hạn chính thức), không phải INFLUENCE (ảnh hưởng — khả năng tác động đến người khác mà không cần quyền lực chính thức, ví dụ qua uy tín, mối quan hệ, chuyên môn)."
+    },
+    {
+      "id": "PMG201C-T-HR-04",
+      "type": "choice",
+      "prompt": "True or False: Project Human Resource Management includes the processes that organize, manage, and lead the project team.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Project Human Resource Management bao gồm các quy trình tổ chức (organize), quản lý (manage) và dẫn dắt (lead) đội dự án, từ việc lập kế hoạch nhân sự, xây dựng đội nhóm, đến phát triển và quản lý hiệu suất của các thành viên."
+    },
+    {
+      "id": "PMG201C-T-HR-05",
+      "type": "choice",
+      "prompt": "Which one of these is correct view of conflict?",
+      "options": [
+        "Caused by troublemakers",
+        "Always bad",
+        "Should be avoided",
+        "Can (and should) be managed"
+      ],
+      "correct": 3,
+      "explanation": "Góc nhìn hiện đại và đúng đắn về xung đột trong dự án là: xung đột CÓ THỂ VÀ NÊN được quản lý (can and should be managed) một cách chủ động, thay vì xem nó là điều xấu tuyệt đối cần tránh né hay do 'kẻ gây rối' tạo ra. Xung đột là điều tự nhiên và có thể mang lại giá trị tích cực nếu được xử lý đúng cách."
+    },
+    {
+      "id": "PMG201C-T-HR-06",
+      "type": "choice",
+      "prompt": "Which one of below situations is not correct when discussing about Responsibility Assignment Matrix?",
+      "options": [
+        "Two team members are consulted about the same task.",
+        "Two team members are informed about the same task.",
+        "Two team members are responsible for the same task.",
+        "Two team members are accountable for the same task."
+      ],
+      "correct": 3,
+      "explanation": "Trong RACI/RAM, mỗi công việc chỉ nên có DUY NHẤT một người Accountable (chịu trách nhiệm giải trình cuối cùng, ra quyết định) — nếu hai người cùng được gán vai trò Accountable cho cùng một công việc sẽ gây ra tình trạng không rõ ai thực sự chịu trách nhiệm cuối cùng, dẫn đến nhầm lẫn trong quản lý. Ngược lại, việc có nhiều người cùng được Consulted, Informed hay thậm chí Responsible cho cùng một task là hoàn toàn bình thường và hợp lý."
+    },
+    {
+      "id": "PMG201C-T-HR-07",
+      "type": "choice",
+      "prompt": "Some of the major sources of conflict that a project manager may influence are:",
+      "options": [
+        "Project management, project priorities, project team",
+        "Priorities, schedules, resources",
+        "Project charter, schedules, resources",
+        "Personality conflict, network diagram, resources"
+      ],
+      "correct": 1,
+      "explanation": "Các nguồn xung đột chính mà PM có thể tác động/ảnh hưởng thường liên quan đến các yếu tố quản lý dự án cụ thể như priorities (ưu tiên công việc), schedules (lịch trình) và resources (nguồn lực) — đây là những khía cạnh PM có thể chủ động điều chỉnh. Các yếu tố như xung đột tính cách cá nhân (personality conflict) thường nằm ngoài khả năng ảnh hưởng trực tiếp của PM."
+    },
+    {
+      "id": "PMG201C-T-HR-08",
+      "type": "choice",
+      "prompt": "What are the 5 approaches to conflict discussed in the Project Human Resources Management Lesson?",
+      "options": [
+        "Confronting, Compromising, Smoothing, Uninterested, Challenging.",
+        "Confronting, Compromising, Smoothing, Interested, Avoiding.",
+        "Confronting, Compromising, Smoothing, Forcing, Avoiding.",
+        "Confronting, Challenging, Smoothing, Forcing, Avoiding."
+      ],
+      "correct": 2,
+      "explanation": "Năm phương pháp xử lý xung đột kinh điển (mô hình Thomas-Kilmann được áp dụng trong PM) là: Confronting/Problem Solving (đối mặt giải quyết), Compromising (thoả hiệp), Smoothing/Accommodating (xoa dịu), Forcing (áp đặt), và Avoiding (né tránh) — đây là 5 chiến lược chuẩn được giảng dạy trong hầu hết các giáo trình quản lý nhân sự dự án."
+    },
+    {
+      "id": "PMG201C-T-HR-09",
+      "type": "choice",
+      "prompt": "During project executing, a team member comes to the project manager because he is not sure what work he needs to accomplish on the project. Which of the following documents contains detailed descriptions of work packages?",
+      "options": [
+        "WBS dictionary",
+        "Activity list",
+        "Project scope statement",
+        "Scope management plan"
+      ],
+      "correct": 0,
+      "explanation": "WBS Dictionary là tài liệu chứa mô tả chi tiết cho từng work package trong WBS — bao gồm phạm vi công việc cụ thể, tiêu chí nghiệm thu, người chịu trách nhiệm... — chính xác là tài liệu cần tra cứu khi một thành viên không rõ công việc cụ thể của mình. Activity list chỉ liệt kê tên hoạt động, Project Scope Statement mô tả phạm vi tổng thể, còn Scope Management Plan chỉ mô tả CÁCH quản lý phạm vi, không đi vào chi tiết công việc."
+    },
+    {
+      "id": "PMG201C-T-HR-10",
+      "type": "choice",
+      "prompt": "True or False: The term resources only refers to people, it does not include money or materials or equipment.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — trong quản lý dự án, thuật ngữ 'resources' (nguồn lực) có phạm vi rộng hơn nhiều so với chỉ con người — nó bao gồm cả tiền bạc (money), vật tư (materials) và thiết bị (equipment) cần thiết để thực hiện công việc dự án."
+    },
+    {
+      "id": "PMG201C-T-HR-11",
+      "type": "choice",
+      "prompt": "True or False: Conflict management is the process by which the project manager uses appropriate managerial techniques to deal with the inevitable disagreements that develop among those working toward project accomplishment.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây chính là định nghĩa chuẩn của Conflict Management: PM sử dụng các kỹ thuật quản lý phù hợp để xử lý những bất đồng không thể tránh khỏi (inevitable disagreements) phát sinh giữa những người cùng làm việc hướng tới mục tiêu chung của dự án."
+    },
+    {
+      "id": "PMG201C-T-HR-12",
+      "type": "choice",
+      "prompt": "Two team members disagree on how to solve a project issue. They express their disagreement and then engage in a professional debate. This is an example of:",
+      "options": [
+        "Unrealistic conflict.",
+        "Unproductive conflict.",
+        "Healthy conflict.",
+        "Unhealthy conflict."
+      ],
+      "correct": 2,
+      "explanation": "Việc hai thành viên bày tỏ bất đồng và tranh luận một cách chuyên nghiệp (professional debate) là ví dụ điển hình của Healthy conflict (xung đột lành mạnh) — loại xung đột mang tính xây dựng, giúp làm rõ vấn đề và tìm ra giải pháp tốt hơn, khác hẳn với xung đột tiêu cực, phi lý hay không chuyên nghiệp."
+    },
+    {
+      "id": "PMG201C-T-HR-13",
+      "type": "choice",
+      "prompt": "Which one of these is not the major source of conflict that a project manager may influence?",
+      "options": [
+        "Project cost",
+        "Personality conflict",
+        "Project charter",
+        "Project schedule"
+      ],
+      "correct": 2,
+      "explanation": "Project cost, personality conflict và project schedule đều có thể là nguồn xung đột mà PM ít nhiều tác động được; riêng Project charter là một tài liệu đã được phê duyệt ở giai đoạn khởi tạo, không phải là một 'nguồn xung đột' hoạt động thường xuyên mà PM cần quản lý liên tục trong suốt dự án như các yếu tố kia."
+    },
+    {
+      "id": "PMG201C-T-HR-14",
+      "type": "choice",
+      "prompt": "Which one of these is not the approaches to conflict discussed in the Project Human Resources Management Lesson?",
+      "options": [
+        "Confronting",
+        "Compromising",
+        "Smoothing",
+        "Forcing",
+        "Avoiding",
+        "Communicating"
+      ],
+      "correct": 5,
+      "explanation": "Năm phương pháp chuẩn để xử lý xung đột là Confronting, Compromising, Smoothing, Forcing và Avoiding. 'Communicating' (giao tiếp) tuy quan trọng trong việc xử lý mọi tình huống dự án, nhưng không được liệt kê là một trong năm chiến lược/phương pháp xung đột chính thức của mô hình này."
+    },
+    {
+      "id": "PMG201C-T-HR-15",
+      "type": "choice",
+      "prompt": "True or False: Authority means you have the right to apply resources, make decisions and give approvals.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Authority (quyền hạn) đúng là quyền chính thức để áp dụng nguồn lực, ra quyết định và phê duyệt — khác với Influence (ảnh hưởng), vốn là khả năng tác động đến người khác mà không cần dựa vào quyền lực chính thức."
+    },
+    {
+      "id": "PMG201C-T-HR-16",
+      "type": "choice",
+      "prompt": "True or False: Project Human Resource Management includes the processes that define the tasks and assign them to suitable resources, and motivate project team to complete the tasks.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Project Human Resource Management bao gồm việc xác định công việc, gán công việc cho nguồn lực phù hợp, và tạo động lực (motivate) cho đội dự án để hoàn thành các nhiệm vụ đó — đây là mô tả đầy đủ và chính xác về phạm vi của lĩnh vực quản lý nhân sự dự án."
+    },
+    {
+      "id": "PMG201C-T-HR-17",
+      "type": "choice",
+      "prompt": "Which one is correct view of conflict?",
+      "options": [
+        "Caused by troublemakers",
+        "Always bad",
+        "Natural result of change",
+        "Must be suppressed"
+      ],
+      "correct": 2,
+      "explanation": "Góc nhìn đúng đắn hiện đại xem xung đột là một kết quả tự nhiên của sự thay đổi (natural result of change) trong dự án, chứ không phải điều do 'kẻ gây rối' tạo ra, cũng không phải điều luôn xấu hay cần bị dập tắt/đàn áp — xung đột cần được quản lý một cách xây dựng thay vì bị loại bỏ."
+    },
+    {
+      "id": "PMG201C-T-HR-18",
+      "type": "choice",
+      "prompt": "True or False: Each person involved in the project should be assigned, but doesn't always need to know his or her role and responsibility.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — mỗi người tham gia dự án LUÔN cần biết rõ vai trò và trách nhiệm của mình (role and responsibility) để có thể thực hiện công việc hiệu quả; việc không rõ vai trò/trách nhiệm là nguyên nhân phổ biến gây ra nhầm lẫn, chậm trễ và xung đột trong đội dự án."
+    },
+    {
+      "id": "PMG201C-T-HR-19",
+      "type": "choice",
+      "prompt": "What does RAM stand for:",
+      "options": [
+        "Responsibility Action Matrix",
+        "Responsibility Activity Matrix",
+        "Responsibility Ambiguity Matrix",
+        "Responsibility Assignment Matrix"
+      ],
+      "correct": 3,
+      "explanation": "RAM là viết tắt của Responsibility Assignment Matrix (Ma trận phân công trách nhiệm) — công cụ thể hiện mối liên kết giữa các thành viên đội dự án và các gói công việc/hoạt động mà họ chịu trách nhiệm, ví dụ dưới dạng ma trận RACI."
+    }
+  ]
+}

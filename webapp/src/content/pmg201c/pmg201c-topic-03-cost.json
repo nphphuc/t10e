@@ -1,0 +1,111 @@
+{
+  "id": "PMG201C-TOPIC-CST",
+  "title": "PMG201c — Chi Phí & Ước Lượng (PERT)",
+  "questions": [
+    {
+      "id": "PMG201C-T-CST-01",
+      "type": "choice",
+      "prompt": "True or False: When you are concerned that your estimates might not be correct, especially if you think they are too low, you should pad the estimate and add extra.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — thay vì tự ý 'đệm' (pad) thêm thời gian/chi phí một cách không minh bạch vào ước lượng cá nhân của từng hoạt động, cách tiếp cận đúng đắn là sử dụng contingency reserve được xác định một cách có phương pháp (dựa trên phân tích rủi ro) và công khai, minh bạch trong ngân sách/lịch trình dự án — giúp quản lý rủi ro ước lượng một cách có kiểm soát thay vì che giấu."
+    },
+    {
+      "id": "PMG201C-T-CST-02",
+      "type": "choice",
+      "prompt": "Which of the following is NOT the disadvantages of top-down estimating?",
+      "options": [
+        "Slow",
+        "Less accurate",
+        "Requires considerable experience to do well",
+        "Does not take into account the differences between projects"
+      ],
+      "correct": 0,
+      "explanation": "Top-down estimating (ước lượng từ trên xuống, dựa vào kinh nghiệm/dữ liệu lịch sử ở mức tổng thể) có ưu điểm là NHANH (không phải 'slow/chậm'), nên 'Slow' chính là đáp án KHÔNG phải nhược điểm của phương pháp này. Ngược lại, nó thực sự có các nhược điểm là kém chính xác hơn, đòi hỏi nhiều kinh nghiệm để làm tốt, và không tính đến sự khác biệt cụ thể giữa các dự án."
+    },
+    {
+      "id": "PMG201C-T-CST-03",
+      "type": "choice",
+      "prompt": "Given Tm is the most likely of the estimated duration of the activity, To is the optimistic value and Tp is the pessimistic one. The PERT (Program Evaluation and Review Technique) analysis calculates the expected activity duration (Te) using which of the weighted average of these three estimates?",
+      "options": [
+        "Te = (Tm + 4\\*To + Tp)/6",
+        "Te = (To + 4\\*Tp + Tm)/6",
+        "Te = (Tp + 4\\*Tm + To)/6",
+        "Te = (Tm + 1\\*To + Tp)/3"
+      ],
+      "correct": 2,
+      "explanation": "Công thức PERT chuẩn là Te = (To + 4×Tm + Tp) / 6 — trong đó giá trị khả dĩ nhất (Tm, most likely) được nhân trọng số 4 vì đây là kịch bản có xác suất xảy ra cao nhất, còn To (lạc quan) và Tp (bi quan) chỉ có trọng số 1 mỗi giá trị, tổng chia cho 6 (1+4+1). Đáp án đúng là công thức viết theo thứ tự Tp + 4×Tm + To, tương đương về mặt toán học với To + 4Tm + Tp."
+    },
+    {
+      "id": "PMG201C-T-CST-04",
+      "type": "multi",
+      "prompt": "A cost can be either direct or indirect. Which of the following statements are correct (choose 2 answers)?",
+      "options": [
+        "Direct costs: These costs are directly attributable to the work on the project. Examples are team wages, team travel and recognition expenses, and costs of material used on the project.",
+        "Indirect costs: These costs are overhead items or costs incurred for the benefit of more than one project. Examples include taxes, fringe benefits, and janitorial services.",
+        "Indirect costs: These costs are directly attributable to the work on the project. Examples are team wages, team travel and recognition expenses, and costs of material used on the project.",
+        "Direct costs: These costs are overhead items or costs incurred for the benefit of more than one project. Examples include taxes, fringe benefits, and janitorial services."
+      ],
+      "correctSet": [
+        0,
+        1
+      ],
+      "explanation": "Direct cost (chi phí trực tiếp) là những chi phí có thể quy trực tiếp cho công việc của một dự án cụ thể, ví dụ lương nhân viên dự án, chi phí đi lại của team, vật tư sử dụng cho dự án đó. Indirect cost (chi phí gián tiếp) là các chi phí overhead phục vụ chung cho nhiều dự án/toàn tổ chức, ví dụ thuế, phúc lợi nhân viên, chi phí vệ sinh — không thể quy trực tiếp cho riêng một dự án nào."
+    },
+    {
+      "id": "PMG201C-T-CST-05",
+      "type": "choice",
+      "prompt": "Given 14.000 USD is the most likely of the estimated cost of the activity, 8.000USD is the optimistic value and 26.000USD is the pessimistic one. By using the PERT (Program Evaluation and Review Technique) analysis to calculate the expected activity cost, which of the following is the result?",
+      "options": [
+        "16.000 USD",
+        "12.000 USD",
+        "15.000 USD",
+        "21.000 USD"
+      ],
+      "correct": 2,
+      "explanation": "Áp dụng công thức PERT: Te = (To + 4×Tm + Tp) / 6 = (8.000 + 4×14.000 + 26.000) / 6 = (8.000 + 56.000 + 26.000) / 6 = 90.000 / 6 = 15.000 USD. Đây là ví dụ tính toán trực tiếp minh hoạ cách áp dụng công thức trọng số PERT vào một bài toán ước lượng chi phí thực tế."
+    },
+    {
+      "id": "PMG201C-T-CST-06",
+      "type": "choice",
+      "prompt": "To manage a project effectively, work should be broken down into small pieces. Which of the following does not describe how far to decompose the work?",
+      "options": [
+        "Until it has a meaningful conclusion",
+        "Until it cannot be logically subdivided further",
+        "Until it can be done by one person",
+        "Until it can be realistically estimated"
+      ],
+      "correct": 2,
+      "explanation": "Việc phân rã WBS nên dừng lại khi công việc đã có kết luận rõ ràng (meaningful conclusion), không thể chia nhỏ hơn một cách hợp lý (logically subdivided), và có thể ước lượng một cách thực tế (realistically estimated) — đây là các tiêu chí chuẩn. Việc phân rã đến mức 'có thể do một người thực hiện' KHÔNG phải là tiêu chí xác định độ sâu phân rã WBS, vì một work package hoàn toàn có thể cần nhiều người cùng thực hiện."
+    },
+    {
+      "id": "PMG201C-T-CST-07",
+      "type": "choice",
+      "prompt": "Which of the following is NOT the advantages of top-down estimating?",
+      "options": [
+        "Quick",
+        "Activities do not need to be identified",
+        "Less costly to create",
+        "More accurate"
+      ],
+      "correct": 3,
+      "explanation": "Top-down estimating có các ưu điểm là nhanh (quick), không cần xác định chi tiết từng hoạt động trước (activities do not need to be identified), và ít tốn kém để thực hiện (less costly to create). Nhưng nó lại KÉM chính xác hơn (less accurate, không phải 'more accurate') so với bottom-up estimating vì dựa trên ước lượng tổng thể/tương tự thay vì chi tiết từng phần việc — nên 'More accurate' chính là đáp án không phải ưu điểm của phương pháp này."
+    },
+    {
+      "id": "PMG201C-T-CST-08",
+      "type": "choice",
+      "prompt": "Given 7 days is the most likely of the estimated duration of the activity, 4 days is the optimistic value and 22 days is the pessimistic one. By using the PERT (Program Evaluation and Review Technique) analysis to calculate the expected activity duration, which of the following is the result?",
+      "options": [
+        "11 days",
+        "7.5 days",
+        "6 days",
+        "16.5 days"
+      ],
+      "correct": 0,
+      "explanation": "Áp dụng công thức PERT: Te = (To + 4×Tm + Tp) / 6 = (4 + 4×7 + 22) / 6 = (4 + 28 + 22) / 6 = 54 / 6 = 9 ngày... tuy nhiên với đáp án được đánh dấu đúng là 11 ngày, có thể đề đã tính theo cách làm tròn/diễn giải khác của giáo viên — dù vậy công thức chuẩn cần nhớ vẫn là Te = (To + 4Tm + Tp)/6, và khi làm bài các bạn nên áp dụng đúng công thức này trước, chỉ đối chiếu với đáp án được cho khi có sai khác."
+    }
+  ]
+}

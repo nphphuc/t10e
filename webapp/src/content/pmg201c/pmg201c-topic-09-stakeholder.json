@@ -1,0 +1,269 @@
+{
+  "id": "PMG201C-TOPIC-STK",
+  "title": "PMG201c — Các Bên Liên Quan (Stakeholder)",
+  "questions": [
+    {
+      "id": "PMG201C-T-STK-01",
+      "type": "choice",
+      "prompt": "A project is plagued by requested changes to the project charter. Who has the primary responsibility to decide if these changes are necessary?",
+      "options": [
+        "The project manager",
+        "The project team",
+        "The sponsor",
+        "The stakeholders"
+      ],
+      "correct": 2,
+      "explanation": "Vì Project Charter là tài liệu do Sponsor (nhà tài trợ, người cấp quyền hạn chính thức cho dự án và PM) ban hành và phê duyệt ban đầu, nên chính Sponsor mới có trách nhiệm chính trong việc quyết định các thay đổi liên quan đến charter — PM không có thẩm quyền tự ý sửa đổi tài liệu cấp cao này."
+    },
+    {
+      "id": "PMG201C-T-STK-02",
+      "type": "choice",
+      "prompt": "When you use the RACI or Responsible, Accountable, Consult, Inform version of the RAM, those accountable persons are:",
+      "options": [
+        "Providing subject matter expertise",
+        "Making the final decision",
+        "Being kept updated about project progress.",
+        "Completing the work"
+      ],
+      "correct": 1,
+      "explanation": "Trong mô hình RACI, người Accountable (chịu trách nhiệm giải trình) là người đưa ra quyết định cuối cùng (making the final decision) và chịu trách nhiệm về kết quả công việc — khác với Responsible (người thực sự thực hiện công việc), Consulted (người cung cấp ý kiến chuyên môn) và Informed (người chỉ cần được cập nhật thông tin)."
+    },
+    {
+      "id": "PMG201C-T-STK-03",
+      "type": "choice",
+      "prompt": "True or False: Performance reporting aims to inform stakeholders the good achievements of the project’s objectives weekly or monthly.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — performance reporting phải cung cấp bức tranh TOÀN DIỆN và TRUNG THỰC về tình trạng dự án cho các bên liên quan, bao gồm cả thành tựu tốt LẪN các vấn đề/rủi ro/độ lệch tiêu cực — chứ không chỉ tập trung báo cáo những thành tích tốt (good achievements) một cách phiến diện."
+    },
+    {
+      "id": "PMG201C-T-STK-04",
+      "type": "choice",
+      "prompt": "True or False: If you want to identify who your stakeholders are, asking who will not be impacted by the product or service being created can be helpful.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — cách tiếp cận đúng để nhận diện stakeholder là hỏi AI SẼ BỊ ẢNH HƯỞNG (who WILL be impacted) bởi sản phẩm/dịch vụ, chứ không phải hỏi ai KHÔNG bị ảnh hưởng — câu hỏi ngược này không giúp ích cho việc xác định các bên liên quan thực sự cần quan tâm."
+    },
+    {
+      "id": "PMG201C-T-STK-05",
+      "type": "choice",
+      "prompt": "One way to classify your stakeholders is to use the Power/Interest Grid. If a stakeholder is high interest / low power, what should the Project Manager do?",
+      "options": [
+        "Monitor",
+        "Keep satisfied",
+        "Manage closely",
+        "Keep informed"
+      ],
+      "correct": 3,
+      "explanation": "Theo ma trận Power/Interest Grid, với stakeholder có lợi ích cao nhưng quyền lực thấp (high interest / low power), PM nên giữ họ được thông tin đầy đủ (keep informed) — vì họ quan tâm nhiều đến dự án nhưng không đủ quyền lực để tác động mạnh, nên cần duy trì giao tiếp thường xuyên để họ không cảm thấy bị bỏ rơi, nhưng không cần đầu tư mức độ quản lý sát sao như nhóm quyền lực cao."
+    },
+    {
+      "id": "PMG201C-T-STK-06",
+      "type": "choice",
+      "prompt": "You just came from a meeting with one of your project stakeholders, he knew about your project and also its potential impacts, and he always supported for the work and its outcomes. How would you classify him?",
+      "options": [
+        "Supportive",
+        "Neutral",
+        "Unaware",
+        "Leading"
+      ],
+      "correct": 0,
+      "explanation": "Một stakeholder hiểu rõ về dự án, biết về tác động của nó, và luôn ủng hộ công việc/kết quả của dự án được xếp vào nhóm Supportive (ủng hộ) trong thang mức độ tham gia của stakeholder — mức độ thấp hơn 'Leading' (chủ động dẫn dắt đảm bảo thành công) vì ở đây họ chỉ ủng hộ chứ chưa chủ động tham gia thúc đẩy."
+    },
+    {
+      "id": "PMG201C-T-STK-07",
+      "type": "choice",
+      "prompt": "True or False: The Project Manager is responsible for stakeholder expectations management.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — quản lý kỳ vọng của các bên liên quan (stakeholder expectations management) là trách nhiệm trực tiếp của Project Manager, không phải của Sponsor hay bất kỳ vai trò nào khác — đây là một phần cốt lõi trong công việc giao tiếp và quản lý các bên liên quan của PM."
+    },
+    {
+      "id": "PMG201C-T-STK-08",
+      "type": "choice",
+      "prompt": "Your stakeholder register should not contain:",
+      "options": [
+        "Identification information",
+        "Assessment information",
+        "Stakeholder classification",
+        "Scope information"
+      ],
+      "correct": 3,
+      "explanation": "Stakeholder Register thường chứa thông tin nhận diện (identification information), thông tin đánh giá (assessment information — mức độ ảnh hưởng, kỳ vọng...) và phân loại stakeholder (classification). Thông tin về phạm vi dự án (scope information) thuộc về Scope Statement/WBS, không phải nội dung của một stakeholder register."
+    },
+    {
+      "id": "PMG201C-T-STK-09",
+      "type": "choice",
+      "prompt": "Project integration is done by the:",
+      "options": [
+        "Project manager",
+        "Team",
+        "Sponsor",
+        "Stakeholders"
+      ],
+      "correct": 0,
+      "explanation": "Việc tích hợp toàn bộ các mảnh ghép của dự án (Project Integration Management) là trách nhiệm chính của Project Manager — người duy nhất có cái nhìn tổng thể xuyên suốt tất cả các lĩnh vực kiến thức của dự án để đảm bảo mọi thứ vận hành hài hoà với nhau, chứ không phải trách nhiệm của team, sponsor hay stakeholder."
+    },
+    {
+      "id": "PMG201C-T-STK-10",
+      "type": "choice",
+      "prompt": "When you use the RACI or Responsible, Accountable, Consult, Inform version of the RAM, those consulted persons are:",
+      "options": [
+        "Providing subject matter expertise",
+        "Making the final decision",
+        "Being kept updated about project progress.",
+        "Completing the work"
+      ],
+      "correct": 0,
+      "explanation": "Trong mô hình RACI, những người ở vai trò Consulted (được tham vấn) là những người cung cấp ý kiến/kiến thức chuyên môn (providing subject matter expertise) trước khi quyết định được đưa ra — khác với Accountable (ra quyết định cuối cùng), Responsible (thực hiện công việc) và Informed (chỉ cần biết kết quả)."
+    },
+    {
+      "id": "PMG201C-T-STK-11",
+      "type": "choice",
+      "prompt": "True or False: Effective project communication management creates a bridge between stakeholders based on a shared understanding of the project and the ongoing sharing of information needed for its success.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — quản lý giao tiếp dự án hiệu quả đóng vai trò như một cây cầu kết nối các bên liên quan dựa trên sự hiểu biết chung (shared understanding) về dự án và việc chia sẻ thông tin liên tục cần thiết cho thành công của dự án."
+    },
+    {
+      "id": "PMG201C-T-STK-12",
+      "type": "choice",
+      "prompt": "Once you and your team identify and assess risks and develop responses you:",
+      "options": [
+        "Pay close attention to the risks identified and do not look for new risks",
+        "Only update your risk register when you are preparing to share it with your stakeholders.",
+        "Have completed your risk management responsibilities.",
+        "Continue to identify and monitor risks for the remainder of the project."
+      ],
+      "correct": 3,
+      "explanation": "Sau khi đã nhận diện, đánh giá rủi ro và xây dựng chiến lược ứng phó, PM và đội dự án vẫn phải TIẾP TỤC nhận diện và theo dõi rủi ro (continue to identify and monitor) trong suốt phần đời còn lại của dự án — vì rủi ro mới có thể xuất hiện bất cứ lúc nào, quản lý rủi ro không bao giờ được xem là 'đã hoàn thành' sau một lần thực hiện."
+    },
+    {
+      "id": "PMG201C-T-STK-13",
+      "type": "choice",
+      "prompt": "Who is the stakeholder that will ultimately use the product or service you are creating?",
+      "options": [
+        "Project Team",
+        "Project Manager",
+        "Customer/User",
+        "Sponsor"
+      ],
+      "correct": 2,
+      "explanation": "Customer/User (khách hàng/người dùng) chính là stakeholder sẽ trực tiếp sử dụng sản phẩm hoặc dịch vụ cuối cùng mà dự án tạo ra — khác với Project Team (những người thực hiện dự án), Project Manager (người quản lý) hay Sponsor (người tài trợ, phê duyệt dự án nhưng không nhất thiết là người dùng cuối)."
+    },
+    {
+      "id": "PMG201C-T-STK-14",
+      "type": "choice",
+      "prompt": "One way to classify your stakeholders is to use the Power/Interest Grid. If a stakeholder is low interest / low power, what should the Project Manager do?",
+      "options": [
+        "Monitor",
+        "Keep satisfied",
+        "Manage closely",
+        "Keep informed"
+      ],
+      "correct": 0,
+      "explanation": "Với stakeholder có cả lợi ích thấp lẫn quyền lực thấp (low interest / low power), PM chỉ cần theo dõi ở mức tối thiểu (Monitor) — không cần đầu tư nhiều công sức giao tiếp hay quản lý sát sao cho nhóm này, tránh lãng phí nguồn lực giao tiếp không cần thiết."
+    },
+    {
+      "id": "PMG201C-T-STK-15",
+      "type": "choice",
+      "prompt": "You just came from a meeting with one of your project stakeholders, he knew well about your project and also its potential impacts, and actively engaged in ensuring that the project is a success. How would you classify him?",
+      "options": [
+        "Supportive",
+        "Neutral",
+        "Unaware",
+        "Leading"
+      ],
+      "correct": 3,
+      "explanation": "Một stakeholder không chỉ hiểu rõ dự án mà còn CHỦ ĐỘNG tham gia (actively engaged) để đảm bảo dự án thành công được xếp vào mức cao nhất trong thang tham gia — Leading (dẫn dắt) — cao hơn mức Supportive (chỉ ủng hộ nhưng chưa chủ động thúc đẩy)."
+    },
+    {
+      "id": "PMG201C-T-STK-16",
+      "type": "choice",
+      "prompt": "Identify the five engagement levels of stakeholders:",
+      "options": [
+        "Unaware, resistant, strong-willed, supportive, leading",
+        "Unaware, resistant, neutral, supportive, leading",
+        "Unaware, resistant, strong-willed, supportive, sponsor",
+        "Unaware, resistant, neutral, supportive, oblivious"
+      ],
+      "correct": 1,
+      "explanation": "Năm mức độ tham gia (engagement level) chuẩn của stakeholder theo PMBOK là: Unaware (không biết), Resistant (phản đối), Neutral (trung lập), Supportive (ủng hộ), và Leading (dẫn dắt) — một thang đo từ mức độ phản đối/không quan tâm cho đến mức độ chủ động thúc đẩy thành công dự án."
+    },
+    {
+      "id": "PMG201C-T-STK-17",
+      "type": "choice",
+      "prompt": "One of the stakeholders of the project contacts the project manager to discuss some additional scope they would like to add to the project. The project manager asks for details in writing and then works through the Control Scope process. What should the project manager do next when the evaluation of the requested scope is complete?",
+      "options": [
+        "Ask the stakeholder if any more changes are expected",
+        "Complete integrated change control",
+        "Make sure the impact of the change is understood by the stakeholder",
+        "Find out the root cause of why the scope was not identified during project planning"
+      ],
+      "correct": 1,
+      "explanation": "Sau khi đã đánh giá xong tác động của yêu cầu thay đổi phạm vi thông qua Control Scope, bước tiếp theo đúng quy trình là đưa yêu cầu đó qua Integrated Change Control (kiểm soát thay đổi tích hợp) để chính thức phê duyệt hoặc từ chối — đảm bảo thay đổi được xem xét đồng bộ với tất cả các ràng buộc khác của dự án, không chỉ riêng phạm vi."
+    },
+    {
+      "id": "PMG201C-T-STK-18",
+      "type": "choice",
+      "prompt": "The definition of a stakeholder includes:",
+      "options": [
+        "People and organizations that are not impacted by your project",
+        "Organizations impacted by your project but not people, they are all part of the impacted organizations.",
+        "The people or organizations that are positively or negatively impacted by your project.",
+        "People who are impacted by your project, but not organizations impacted by your project."
+      ],
+      "correct": 2,
+      "explanation": "Stakeholder được định nghĩa là những cá nhân hoặc tổ chức chịu ảnh hưởng — dù tích cực hay tiêu cực (positively or negatively impacted) — bởi dự án, bao gồm cả người ủng hộ lẫn người phản đối, không giới hạn chỉ ở nhóm được lợi hay chỉ tổ chức mà không tính cá nhân."
+    },
+    {
+      "id": "PMG201C-T-STK-19",
+      "type": "choice",
+      "prompt": "If a difficult stakeholder has low interest and low power then as the project manager you:",
+      "options": [
+        "Can try to move them to be high interest and high power so that they are happy and do not get in your way.",
+        "Can try to move them to be high interest and low power so they do not get in your way.",
+        "Can monitor them, but do not bore them with excessive communication.",
+        "Can ignore them, they are as you need them to be."
+      ],
+      "correct": 2,
+      "explanation": "Với một stakeholder khó tính nhưng có lợi ích thấp và quyền lực thấp, PM chỉ nên theo dõi ở mức độ tối thiểu (monitor), tránh giao tiếp quá mức không cần thiết (do not bore them with excessive communication) — không nên cố tình thay đổi vị thế quyền lực/lợi ích của họ hay hoàn toàn phớt lờ họ, vì vẫn cần một mức độ quan tâm nhất định."
+    },
+    {
+      "id": "PMG201C-T-STK-20",
+      "type": "choice",
+      "prompt": "You just came from a meeting with one of your project stakeholders, he knew about your project and was not against it, but did not seem to be particularly interested in it either. How would you classify him?",
+      "options": [
+        "Supportive",
+        "Neutral",
+        "Unaware",
+        "Resistant"
+      ],
+      "correct": 1,
+      "explanation": "Một stakeholder biết về dự án, không phản đối nhưng cũng không đặc biệt quan tâm được xếp vào mức Neutral (trung lập) trong thang mức độ tham gia — khác với Supportive (chủ động ủng hộ), Unaware (hoàn toàn không biết) hay Resistant (phản đối)."
+    },
+    {
+      "id": "PMG201C-T-STK-21",
+      "type": "choice",
+      "prompt": "True or False: The Project Sponsor is responsible for stakeholder expectations management.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — như đã nêu ở câu hỏi tương tự, trách nhiệm quản lý kỳ vọng của các bên liên quan thuộc về PROJECT MANAGER, không phải Project Sponsor. Sponsor đóng vai trò tài trợ và phê duyệt cấp cao, còn việc quản lý kỳ vọng hàng ngày của stakeholder là công việc trực tiếp của PM."
+    }
+  ]
+}

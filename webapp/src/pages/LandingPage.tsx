@@ -313,6 +313,20 @@ export default function LandingPage() {
           </div>
           <span className="text-teal-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
+
+        <button
+          onClick={() => navigate('/pmg201c')}
+          className="w-full flex items-center gap-4 p-5 mt-4 rounded-3xl border border-indigo-800/30 bg-indigo-950/10 hover:border-indigo-600/50 hover:bg-indigo-950/20 transition-all duration-200 text-left group"
+        >
+          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
+            📋
+          </span>
+          <div className="flex-1">
+            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PMG201c — Project Management</div>
+            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+          </div>
+          <span className="text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
+        </button>
       </section>
 
       {/* ===== FOOTER ===== */}

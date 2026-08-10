@@ -58,6 +58,20 @@ import prn222TopicMvc from '../content/prn222/prn222-topic-05-mvc-razor.json';
 import prn222TopicWorker from '../content/prn222/prn222-topic-06-worker.json';
 import prn222TopicAsync from '../content/prn222/prn222-topic-07-async.json';
 
+// Quiz môn PMG201c (Project Management) — 3 đề thi thật + trộn 3 đề + chia theo chủ đề
+import pmg201cD1 from '../content/pmg201c/pmg201c-d1.json';
+import pmg201cD2 from '../content/pmg201c/pmg201c-d2.json';
+import pmg201cD3 from '../content/pmg201c/pmg201c-d3.json';
+import pmg201cTopicOverview from '../content/pmg201c/pmg201c-topic-01-overview.json';
+import pmg201cTopicScopeSchedule from '../content/pmg201c/pmg201c-topic-02-scope-schedule.json';
+import pmg201cTopicCost from '../content/pmg201c/pmg201c-topic-03-cost.json';
+import pmg201cTopicEvm from '../content/pmg201c/pmg201c-topic-04-evm.json';
+import pmg201cTopicQuality from '../content/pmg201c/pmg201c-topic-05-quality.json';
+import pmg201cTopicHr from '../content/pmg201c/pmg201c-topic-06-hr.json';
+import pmg201cTopicCommunication from '../content/pmg201c/pmg201c-topic-07-communication.json';
+import pmg201cTopicRisk from '../content/pmg201c/pmg201c-topic-08-risk.json';
+import pmg201cTopicStakeholder from '../content/pmg201c/pmg201c-topic-09-stakeholder.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -113,6 +127,34 @@ function buildPrn222Mix() {
     id: 'PRN222-MIX',
     title: 'PRN222 — Đề Trộn (50 câu, mix Đề 1 + Đề 2)',
     questions: shuffleArray([...pool1, ...pool2]),
+  };
+}
+
+export const pmg201cMap: Record<string, any> = {
+  'd1': pmg201cD1,
+  'd2': pmg201cD2,
+  'd3': pmg201cD3,
+  'topic-overview': pmg201cTopicOverview,
+  'topic-scope-schedule': pmg201cTopicScopeSchedule,
+  'topic-cost': pmg201cTopicCost,
+  'topic-evm': pmg201cTopicEvm,
+  'topic-quality': pmg201cTopicQuality,
+  'topic-hr': pmg201cTopicHr,
+  'topic-communication': pmg201cTopicCommunication,
+  'topic-risk': pmg201cTopicRisk,
+  'topic-stakeholder': pmg201cTopicStakeholder,
+};
+
+// Đề trộn PMG201c: 17 câu random từ Đề 1 + 17 câu random từ Đề 2 + 16 câu random
+// từ Đề 3 = 50 câu, trộn thứ tự xuất hiện — KHÔNG đảo vị trí đáp án bên trong mỗi câu.
+function buildPmg201cMix() {
+  const pool1 = shuffleArray(pmg201cD1.questions).slice(0, 17);
+  const pool2 = shuffleArray(pmg201cD2.questions).slice(0, 17);
+  const pool3 = shuffleArray(pmg201cD3.questions).slice(0, 16);
+  return {
+    id: 'PMG201C-MIX',
+    title: 'PMG201c — Đề Trộn (50 câu, mix Đề 1 + Đề 2 + Đề 3)',
+    questions: shuffleArray([...pool1, ...pool2, ...pool3]),
   };
 }
 
@@ -274,7 +316,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -283,6 +325,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   // (xem handleRetry) — không random lại khi component re-render bình thường.
   const [mockExamData, setMockExamData] = useState<any>(() => (isMockExam ? buildMockExam() : null));
   const [prn222MixData, setPrn222MixData] = useState<any>(() => (isPrn222Mix ? buildPrn222Mix() : null));
+  const [pmg201cMixData, setPmg201cMixData] = useState<any>(() => (isPmg201cMix ? buildPmg201cMix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
@@ -291,6 +334,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = mockExamData;
   } else if (isPrn222Mix) {
     reviewData = prn222MixData;
+  } else if (isPmg201cMix) {
+    reviewData = pmg201cMixData;
   } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
@@ -299,6 +344,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? pru213Map[resolvedLevelId] : null;
   } else if (isPrn222) {
     reviewData = resolvedLevelId ? prn222Map[resolvedLevelId] : null;
+  } else if (isPmg201c) {
+    reviewData = resolvedLevelId ? pmg201cMap[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -315,7 +362,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -468,6 +515,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     // Đề trộn PRN222: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
     if (isPrn222Mix) {
       setPrn222MixData(buildPrn222Mix());
+    }
+    // Đề trộn PMG201c: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
+    if (isPmg201cMix) {
+      setPmg201cMixData(buildPmg201cMix());
     }
   };
 

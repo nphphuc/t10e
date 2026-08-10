@@ -1,0 +1,184 @@
+{
+  "id": "PMG201C-TOPIC-QLT",
+  "title": "PMG201c — Quản Lý Chất Lượng",
+  "questions": [
+    {
+      "id": "PMG201C-T-QLT-01",
+      "type": "choice",
+      "prompt": "True or False: Earned value integrates schedule, budget and quality and uses monetary values to assess project status.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — Earned Value Management tích hợp SCOPE (phạm vi), SCHEDULE (lịch trình) và COST/BUDGET (chi phí), sử dụng giá trị tiền tệ để đánh giá tình trạng dự án — chứ không tích hợp trực tiếp yếu tố QUALITY (chất lượng) như câu hỏi mô tả. Quality được quản lý bởi một quy trình riêng biệt (Quality Management), không nằm trong ba yếu tố cốt lõi mà EVM đo lường."
+    },
+    {
+      "id": "PMG201C-T-QLT-02",
+      "type": "choice",
+      "prompt": "True or False: Quality management is the job done by project manager himself/herself to determine quality policies, objectives, and responsibilities so that the project will satisfy the needs for which it was undertaken.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — mặc dù PM đóng vai trò quan trọng trong việc đảm bảo chất lượng, việc xác định chính sách/mục tiêu/trách nhiệm về chất lượng KHÔNG phải là công việc do một mình PM tự làm — đó là trách nhiệm chung của cả tổ chức và đội dự án theo các tiêu chuẩn/chính sách chất lượng đã được thiết lập, thường có sự tham gia của các bên chuyên trách chất lượng khác."
+    },
+    {
+      "id": "PMG201C-T-QLT-03",
+      "type": "choice",
+      "prompt": "True or False: Product quality focuses on the goods and services.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Product quality (chất lượng sản phẩm) tập trung vào các đặc tính và hiệu năng của chính hàng hoá/dịch vụ (goods and services) được tạo ra bởi dự án, khác với Project quality vốn tập trung vào cách các quy trình quản lý dự án được thực hiện."
+    },
+    {
+      "id": "PMG201C-T-QLT-04",
+      "type": "choice",
+      "prompt": "The Process Improvement Plan is:",
+      "options": [
+        "The result or one component of the project management plan.",
+        "A subsidiary, or component of the project management plan."
+      ],
+      "correct": 1,
+      "explanation": "Process Improvement Plan là một tài liệu phụ trợ (subsidiary/component), tức một thành phần con nằm trong Project Management Plan tổng thể — không phải bản thân nó là 'kết quả hay một thành phần' theo cách diễn đạt mơ hồ ở đáp án A. Nó mô tả cách các quy trình quản lý dự án và phát triển sản phẩm sẽ được phân tích để tìm cách cải tiến."
+    },
+    {
+      "id": "PMG201C-T-QLT-05",
+      "type": "choice",
+      "prompt": "True or False: Performing quality assurance within the context of a project involves applying the planned, systematic quality activities to ensure that the project correctly employs all processes needed to meet project objectives and product requirements.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Quality Assurance (QA, đảm bảo chất lượng) tập trung vào việc áp dụng các hoạt động chất lượng có hệ thống, được lập kế hoạch từ trước, nhằm đảm bảo rằng dự án đang sử dụng ĐÚNG các quy trình cần thiết để đáp ứng mục tiêu và yêu cầu sản phẩm — QA thiên về phòng ngừa và cải tiến quy trình, khác với Quality Control (QC) vốn tập trung vào kiểm tra kết quả đầu ra cụ thể."
+    },
+    {
+      "id": "PMG201C-T-QLT-06",
+      "type": "choice",
+      "prompt": "True or False: Performing quality control within the context of a project involves taking actions to eliminate causes of unsatisfactory project performance.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — mô tả này thực ra gần với Quality Assurance hơn (tập trung phòng ngừa/cải tiến quy trình); còn Quality Control (QC) đúng nghĩa là việc GIÁM SÁT và GHI NHẬN kết quả thực hiện các hoạt động chất lượng để đánh giá hiệu suất, đồng thời khuyến nghị các thay đổi cần thiết — QC thiên về việc kiểm tra/đo lường sản phẩm đầu ra cụ thể, không phải chủ động 'loại bỏ nguyên nhân' một cách trực tiếp như QA."
+    },
+    {
+      "id": "PMG201C-T-QLT-07",
+      "type": "choice",
+      "prompt": "True or False: Earned value integrates quality, scope and schedule and uses monetary values to assess project status.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — như đã giải thích ở câu tương tự, Earned Value Management tích hợp SCOPE, SCHEDULE và COST (không phải Quality) để đánh giá tình trạng dự án bằng giá trị tiền tệ. Quality không phải là một trong ba trụ cột mà EVM đo lường trực tiếp."
+    },
+    {
+      "id": "PMG201C-T-QLT-08",
+      "type": "choice",
+      "prompt": "The discipline of quality management complements the discipline of project management. Both recognize all but one of the following:",
+      "options": [
+        "Management satisfaction",
+        "Prevention over inspection",
+        "Continuous improvement",
+        "Management responsibility"
+      ],
+      "correct": 0,
+      "explanation": "Cả quality management và project management đều công nhận các nguyên tắc: phòng ngừa hơn kiểm tra (prevention over inspection), cải tiến liên tục (continuous improvement), và trách nhiệm thuộc về quản lý (management responsibility). 'Management satisfaction' (sự hài lòng của cấp quản lý) không phải là một nguyên tắc chung được công nhận bởi cả hai lĩnh vực này — trọng tâm thực sự là sự hài lòng của KHÁCH HÀNG (customer satisfaction), không phải quản lý."
+    },
+    {
+      "id": "PMG201C-T-QLT-09",
+      "type": "choice",
+      "prompt": "True or False: Project quality focuses on the goods and services.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — chính PRODUCT quality (không phải Project quality) mới tập trung vào goods and services. Project quality lại tập trung vào việc các quy trình quản lý dự án (lập kế hoạch, thực thi, kiểm soát...) được thực hiện tốt như thế nào, khác biệt rõ với chất lượng của bản thân sản phẩm đầu ra."
+    },
+    {
+      "id": "PMG201C-T-QLT-10",
+      "type": "choice",
+      "prompt": "True or False: The Process Improvement Plan is a component of the project management plan that details how project management and development processes are to be analyzed in order to identify how to reduce their value",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — Process Improvement Plan phân tích các quy trình để tìm cách TĂNG giá trị (increase their value) của chúng, chứ không phải để giảm giá trị (reduce) như câu hỏi mô tả — mục tiêu của cải tiến quy trình luôn là làm cho quy trình tốt hơn, hiệu quả hơn."
+    },
+    {
+      "id": "PMG201C-T-QLT-11",
+      "type": "choice",
+      "prompt": "True or False: Your role as the project manager during quality assurance is to work with a quality assurance manager who will create a test plan and test cases which will be used to test the product you are creating in order to prevent defects from reaching your customer.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — việc tạo test plan và test case chi tiết để kiểm thử sản phẩm thực ra là hoạt động thuộc phạm vi Quality Control (QC, kiểm tra sản phẩm đầu ra cụ thể), không phải Quality Assurance (QA vốn tập trung vào quy trình tổng thể, phòng ngừa ở cấp hệ thống chứ không trực tiếp viết test case cho từng sản phẩm)."
+    },
+    {
+      "id": "PMG201C-T-QLT-12",
+      "type": "choice",
+      "prompt": "True or False: Your role as the project manager during quality control is to work with a representative of quality control department who will create a test plan and test cases which will be used to test the product you are creating in order to prevent defects from reaching your customer.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — trong hoạt động Quality Control, PM phối hợp với bộ phận/đại diện QC để xây dựng test plan và test case cụ thể nhằm kiểm tra sản phẩm đầu ra, phát hiện và ngăn chặn lỗi trước khi đến tay khách hàng — đây chính xác là bản chất của công việc kiểm soát chất lượng ở mức sản phẩm."
+    },
+    {
+      "id": "PMG201C-T-QLT-13",
+      "type": "choice",
+      "prompt": "True or False: Earned value integrates budget, quality and scope and uses monetary values to assess project status.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — EVM tích hợp Budget/Cost, Scope và SCHEDULE (không phải Quality) để đánh giá tình trạng dự án. Dù đề bài đổi vị trí các yếu tố trong ba câu hỏi tương tự (thay Quality vào vị trí của Schedule), bản chất câu trả lời luôn là 'Sai' vì Quality không thuộc bộ ba yếu tố cốt lõi mà EVM đo lường."
+    },
+    {
+      "id": "PMG201C-T-QLT-14",
+      "type": "choice",
+      "prompt": "True or False: When it comes to projects, the emphasis is on strategic quality management. Quality is not an accident, quality is part of the plan, and quality is everyone's job.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là tư tưởng cốt lõi của quản lý chất lượng hiện đại trong dự án: chất lượng không phải điều ngẫu nhiên xảy ra mà phải được hoạch định chủ động ngay từ đầu (part of the plan), và là trách nhiệm chung của TẤT CẢ mọi người tham gia dự án, không riêng gì bộ phận QA/QC."
+    },
+    {
+      "id": "PMG201C-T-QLT-15",
+      "type": "choice",
+      "prompt": "True or False: The Process Improvement Plan is a component of the project management plan that details how project management and development processes are to be analyzed in order to identify how to increase their value.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Process Improvement Plan đúng là một thành phần của Project Management Plan, mô tả cách các quy trình quản lý dự án và phát triển sản phẩm sẽ được phân tích để tìm cách gia tăng giá trị (increase their value) của chúng — đây là định nghĩa chuẩn, đối lập với phiên bản sai ('reduce their value') ở câu hỏi tương tự khác."
+    },
+    {
+      "id": "PMG201C-T-QLT-16",
+      "type": "choice",
+      "prompt": "True or False: Your role as the project manager during quality control is to implement the quality management plan using the appropriate tools and techniques, in order to ensure that work is being performed according to required quality standards.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — mô tả 'thực hiện quality management plan bằng công cụ/kỹ thuật phù hợp để đảm bảo công việc tuân theo tiêu chuẩn' thực ra gần với vai trò của Quality Assurance (áp dụng có hệ thống các hoạt động chất lượng đã lập kế hoạch) hơn là Quality Control — QC tập trung vào việc đo lường/kiểm tra kết quả cụ thể đã hoàn thành, không phải chủ động triển khai kế hoạch."
+    }
+  ]
+}

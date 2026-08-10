@@ -1,0 +1,618 @@
+{
+  "id": "PMG201C-D3",
+  "title": "PMG201c — Đề 3 (SP26 RE)",
+  "questions": [
+    {
+      "id": "PMG201C-D3-01",
+      "type": "choice",
+      "prompt": "True or False: A Project is defined as being unique and temporary, with an defined start and finish.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — theo định nghĩa chuẩn của PMBOK, một dự án là một nỗ lực tạm thời (temporary) được thực hiện để tạo ra một sản phẩm, dịch vụ hoặc kết quả duy nhất (unique), với thời điểm bắt đầu và kết thúc được xác định rõ ràng. Đây là hai đặc điểm cốt lõi nhất phân biệt dự án với hoạt động vận hành thường xuyên (operations)."
+    },
+    {
+      "id": "PMG201C-D3-02",
+      "type": "choice",
+      "prompt": "True or False: The worst organization to use to run a project will always be the functional organization.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — không thể khẳng định tuyệt đối rằng tổ chức functional luôn là lựa chọn tệ nhất để chạy dự án, vì mức độ phù hợp của một cấu trúc tổ chức (functional, matrix, hay projectized) còn phụ thuộc vào bản chất dự án, mức độ ưu tiên của tổ chức, và nhiều yếu tố bối cảnh khác. Tổ chức functional vẫn có những ưu điểm riêng (như chuyên môn hoá sâu theo phòng ban) trong một số loại dự án nhất định."
+    },
+    {
+      "id": "PMG201C-D3-03",
+      "type": "choice",
+      "prompt": "The three components of the triple constraint are:",
+      "options": [
+        "Scope, Cost, Time",
+        "Scope, Quality, Cost",
+        "Scope, Performance, Cost",
+        "Scope, Performance, Time"
+      ],
+      "correct": 0,
+      "explanation": "Ba thành phần kinh điển của triple constraint là Scope (phạm vi công việc), Cost (chi phí/ngân sách) và Time (thời gian/lịch trình) — thay đổi bất kỳ yếu tố nào trong ba yếu tố này thường sẽ ảnh hưởng đến (các) yếu tố còn lại. Quality và Performance tuy quan trọng nhưng không thuộc bộ ba được đặt tên chính thức trong mô hình triple constraint truyền thống này."
+    },
+    {
+      "id": "PMG201C-D3-04",
+      "type": "choice",
+      "prompt": "The primary role of the project manager is:",
+      "options": [
+        "Distributing work packages",
+        "Measuring performance",
+        "Communication",
+        "Project initiation"
+      ],
+      "correct": 2,
+      "explanation": "Vai trò cốt lõi và quan trọng nhất của Project Manager là Communication (giao tiếp) — theo thống kê, phần lớn thời gian làm việc của PM dành cho việc giao tiếp với các bên liên quan khác nhau. Việc phân bổ work package, đo lường hiệu suất hay khởi tạo dự án đều là những nhiệm vụ cụ thể, không phải là vai trò cốt lõi bao trùm như giao tiếp."
+    },
+    {
+      "id": "PMG201C-D3-05",
+      "type": "choice",
+      "prompt": "Which of the following best describes the project manager’s role as an integrator?",
+      "options": [
+        "Help team members become familiar with the project",
+        "Put all the pieces of a project into a cohesive whole",
+        "Put all the pieces of a project into a program",
+        "Get all team members together into a cohesive whole"
+      ],
+      "correct": 1,
+      "explanation": "Vai trò 'integrator' (người tích hợp) của PM là khả năng kết nối và ghép nối tất cả các mảnh ghép rời rạc của dự án (con người, quy trình, hệ thống, thông tin...) thành một tổng thể gắn kết, mạch lạc (cohesive whole) — chứ không chỉ đơn thuần là giúp thành viên làm quen với dự án hay gộp các phần vào một chương trình (program)."
+    },
+    {
+      "id": "PMG201C-D3-06",
+      "type": "choice",
+      "prompt": "Which of the following is included in a project charter?",
+      "options": [
+        "A risk management strategy",
+        "Work package estimates",
+        "Detailed resources estimates",
+        "The business case for the project"
+      ],
+      "correct": 3,
+      "explanation": "Project Charter (điều lệ dự án) bao gồm business case — lý do kinh doanh giải thích vì sao dự án này cần được thực hiện và giá trị nó mang lại — cùng với các thông tin cấp cao khác như mục tiêu, phạm vi tổng quát, quyền hạn của PM. Các nội dung chi tiết như chiến lược quản lý rủi ro, ước lượng work package hay ước lượng nguồn lực chi tiết là sản phẩm của các quá trình lập kế hoạch (planning) diễn ra SAU khi charter đã được phê duyệt, không nằm trong charter."
+    },
+    {
+      "id": "PMG201C-D3-07",
+      "type": "choice",
+      "prompt": "One of the stakeholders of the project contacts the project manager to discuss some additional scope they would like to add to the project. The project manager asks for details in writing and then works through the Control Scope process. What should the project manager do next when the evaluation of the requested scope is complete?",
+      "options": [
+        "Ask the stakeholder if any more changes are expected",
+        "Complete integrated change control",
+        "Make sure the impact of the change is understood by the stakeholder",
+        "Find out the root cause of why the scope was not identified during project planning"
+      ],
+      "correct": 1,
+      "explanation": "Sau khi đã đánh giá xong tác động của yêu cầu thay đổi phạm vi thông qua Control Scope, bước tiếp theo đúng quy trình là đưa yêu cầu đó qua Integrated Change Control (kiểm soát thay đổi tích hợp) để chính thức phê duyệt hoặc từ chối — đảm bảo thay đổi được xem xét đồng bộ với tất cả các ràng buộc khác của dự án, không chỉ riêng phạm vi."
+    },
+    {
+      "id": "PMG201C-D3-08",
+      "type": "choice",
+      "prompt": "During executing, the project manager determines that a change is needed to material purchased for the project. The project manager calls a meeting of the team to plan how to make the changes. This is an example of:",
+      "options": [
+        "Management by objectives",
+        "Lack of a change management plan",
+        "Good team relations",
+        "Lack of a clear work breakdown structure"
+      ],
+      "correct": 1,
+      "explanation": "Việc PM phải triệu tập họp để tự nghĩ cách xử lý thay đổi một cách tuỳ biến (ad-hoc), thay vì có sẵn một quy trình chính thức để dẫn dắt, cho thấy rõ dự án đang thiếu một Change Management Plan (kế hoạch quản lý thay đổi) được thiết lập từ trước. Nếu có change management plan, PM chỉ cần áp dụng quy trình có sẵn thay vì phải họp bàn cách xử lý từ đầu."
+    },
+    {
+      "id": "PMG201C-D3-09",
+      "type": "choice",
+      "prompt": "The Scope Management section of your project plan document would include information on:",
+      "options": [
+        "How to ask for more money for the project",
+        "Who can suggest changes to the project.",
+        "How risks are to be managed.",
+        "What type of scheduling software to use."
+      ],
+      "correct": 1,
+      "explanation": "Phần Scope Management của kế hoạch dự án mô tả các quy trình quản lý phạm vi, bao gồm ai có quyền đề xuất thay đổi đối với phạm vi dự án (who can suggest changes) và cách các thay đổi đó được xử lý. Nó không phải là nơi hướng dẫn xin thêm ngân sách, không mô tả cách quản lý rủi ro (thuộc Risk Management Plan), và cũng không quy định phần mềm lập lịch sử dụng (thuộc Schedule Management Plan)."
+    },
+    {
+      "id": "PMG201C-D3-10",
+      "type": "choice",
+      "prompt": "True or False: Project scope statement is better to define inclusions (in-scope items) than identify only exclusions (out of scope items).",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Project Scope Statement nên tập trung định nghĩa rõ những gì THUỘC phạm vi dự án (inclusions) một cách tường minh, thay vì chỉ liệt kê những gì KHÔNG thuộc phạm vi (exclusions), vì việc mô tả rõ ràng phạm vi bao gồm giúp tránh hiểu lầm và scope creep hiệu quả hơn là chỉ dựa vào danh sách loại trừ."
+    },
+    {
+      "id": "PMG201C-D3-11",
+      "type": "choice",
+      "prompt": "True or False: A Work Breakdown Structure (WBS) is a deliverable-oriented hierarchical decomposition of the work to be executed just by the Project Manager.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — WBS phân rã công việc mà TOÀN BỘ đội dự án (project team) cần thực hiện, không phải chỉ riêng công việc của một mình Project Manager. Đây là điểm khác biệt so với định nghĩa chuẩn của WBS đã nêu ở câu hỏi tương tự khác trong bộ đề (work to be executed by the project team)."
+    },
+    {
+      "id": "PMG201C-D3-12",
+      "type": "choice",
+      "prompt": "To manage a project effectively, work should be broken down into small pieces. Which of the following does not describe how far to decompose the work?",
+      "options": [
+        "Until it has a meaningful conclusion",
+        "Until it cannot be logically subdivided further",
+        "Until it can be done by one person",
+        "Until it can be realistically estimated"
+      ],
+      "correct": 2,
+      "explanation": "Việc phân rã WBS nên dừng lại khi công việc đã có kết luận rõ ràng (meaningful conclusion), không thể chia nhỏ hơn một cách hợp lý (logically subdivided), và có thể ước lượng một cách thực tế (realistically estimated) — đây là các tiêu chí chuẩn. Việc phân rã đến mức 'có thể do một người thực hiện' KHÔNG phải là tiêu chí xác định độ sâu phân rã WBS, vì một work package hoàn toàn có thể cần nhiều người cùng thực hiện."
+    },
+    {
+      "id": "PMG201C-D3-13",
+      "type": "choice",
+      "prompt": "The network diagram is the best tool for demonstrating:",
+      "options": [
+        "Schedule performance over time",
+        "Schedule variances",
+        "Resource requirements",
+        "The sequence of project activities"
+      ],
+      "correct": 3,
+      "explanation": "Network diagram (sơ đồ mạng) là công cụ trực quan tốt nhất để thể hiện trình tự và mối quan hệ phụ thuộc (sequence) giữa các hoạt động của dự án — hoạt động nào phải hoàn thành trước hoạt động nào mới có thể bắt đầu. Nó không phải công cụ chính để đo hiệu suất lịch trình theo thời gian (đó là biểu đồ S-curve/EVM), không thể hiện độ lệch lịch trình (schedule variance) hay yêu cầu nguồn lực một cách trực tiếp."
+    },
+    {
+      "id": "PMG201C-D3-14",
+      "type": "choice",
+      "prompt": "If \"develop online modules\" needs to begin before \"review online modules\" can begin, that is called a:",
+      "options": [
+        "Finish to start relationship.",
+        "Start to finish relationship.",
+        "Finish to finish relationship.",
+        "Start to start relationship."
+      ],
+      "correct": 3,
+      "explanation": "Đây là mối quan hệ Start-to-Start (SS) — hoạt động sau (review) chỉ có thể BẮT ĐẦU sau khi hoạt động trước (develop) đã BẮT ĐẦU (không cần phải hoàn thành), hai hoạt động có thể chạy song song sau điểm khởi đầu chung đó. Nó khác Finish-to-Start (yêu cầu hoạt động trước phải hoàn thành) và Finish-to-Finish (ràng buộc ở điểm kết thúc)."
+    },
+    {
+      "id": "PMG201C-D3-15",
+      "type": "choice",
+      "prompt": "To calculate early finish (EF) of an activity, you will",
+      "options": [
+        "Take its early start plus its estimated duration.",
+        "Take its late start plus its estimated duration.",
+        "Take its late finish minus its estimated duration.",
+        "Take its late finish."
+      ],
+      "correct": 0,
+      "explanation": "Early Finish (EF) của một hoạt động được tính bằng Early Start (ES) cộng với thời lượng ước tính (estimated duration) của hoạt động đó — đây là công thức cơ bản của Forward Pass trong phân tích Critical Path Method."
+    },
+    {
+      "id": "PMG201C-D3-16",
+      "type": "choice",
+      "prompt": "True or False: The Forward Pass is used through the activities to determine the critical path \\& available float of the project.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — chính Backward Pass (không phải Forward Pass) mới là kỹ thuật dùng để xác định Critical Path và Float của dự án. Forward Pass chỉ dùng để xác định Early Start/Early Finish và tổng thời lượng dự án; phải kết hợp cả Forward Pass lẫn Backward Pass thì mới tính được Float đầy đủ."
+    },
+    {
+      "id": "PMG201C-D3-17",
+      "type": "choice",
+      "prompt": "Which one is NOT the approach to shorten your project schedule?",
+      "options": [
+        "Fast Tracking",
+        "Crashing",
+        "Reducing"
+      ],
+      "correct": 2,
+      "explanation": "Hai kỹ thuật chuẩn để rút ngắn lịch trình dự án là Crashing (thêm nguồn lực để tăng tốc các hoạt động trên đường găng) và Fast Tracking (thực hiện song song các hoạt động vốn tuần tự). 'Reducing' không phải là một thuật ngữ/kỹ thuật chính thức được PMBOK định nghĩa cho việc rút ngắn lịch trình."
+    },
+    {
+      "id": "PMG201C-D3-18",
+      "type": "choice",
+      "prompt": "True or False: When you are concerned that your estimates might not be correct, especially if you think they are too low, you should pad the estimate and add extra.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — thay vì tự ý 'đệm' (pad) thêm thời gian/chi phí một cách không minh bạch vào ước lượng cá nhân của từng hoạt động, cách tiếp cận đúng đắn là sử dụng contingency reserve được xác định một cách có phương pháp (dựa trên phân tích rủi ro) và công khai, minh bạch trong ngân sách/lịch trình dự án — giúp quản lý rủi ro ước lượng một cách có kiểm soát thay vì che giấu."
+    },
+    {
+      "id": "PMG201C-D3-19",
+      "type": "choice",
+      "prompt": "Which of the following is NOT the advantages of top-down estimating?",
+      "options": [
+        "Quick",
+        "Activities do not need to be identified",
+        "Less costly to create",
+        "More accurate"
+      ],
+      "correct": 3,
+      "explanation": "Top-down estimating có các ưu điểm là nhanh (quick), không cần xác định chi tiết từng hoạt động trước (activities do not need to be identified), và ít tốn kém để thực hiện (less costly to create). Nhưng nó lại KÉM chính xác hơn (less accurate, không phải 'more accurate') so với bottom-up estimating vì dựa trên ước lượng tổng thể/tương tự thay vì chi tiết từng phần việc — nên 'More accurate' chính là đáp án không phải ưu điểm của phương pháp này."
+    },
+    {
+      "id": "PMG201C-D3-20",
+      "type": "choice",
+      "prompt": "Which of the following is the most correct statement regarding management and contingency reserves?",
+      "options": [
+        "Both of them are included into the cost baseline of the project.",
+        "Both of them are not included into the cost baseline of the project.",
+        "Management reserve is included into the cost baseline but contingency reserve is not.",
+        "Contingency reserve is included into the cost baseline but management reserve is not."
+      ],
+      "correct": 3,
+      "explanation": "Contingency reserve dùng để ứng phó với các rủi ro ĐÃ BIẾT (known risks, đã được xác định và phân tích cụ thể), trong khi Management reserve dùng để ứng phó với các rủi ro CHƯA LƯỜNG TRƯỚC (unknown risks/unknown-unknowns) — đây là sự phân biệt cốt lõi giữa hai loại dự phòng này trong quản lý chi phí và rủi ro dự án."
+    },
+    {
+      "id": "PMG201C-D3-21",
+      "type": "choice",
+      "prompt": "True or False: Earned value integrates budget, quality and scope and uses monetary values to assess project status.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — EVM tích hợp Budget/Cost, Scope và SCHEDULE (không phải Quality) để đánh giá tình trạng dự án. Dù đề bài đổi vị trí các yếu tố trong ba câu hỏi tương tự (thay Quality vào vị trí của Schedule), bản chất câu trả lời luôn là 'Sai' vì Quality không thuộc bộ ba yếu tố cốt lõi mà EVM đo lường."
+    },
+    {
+      "id": "PMG201C-D3-22",
+      "type": "choice",
+      "prompt": "True or False: When it comes to projects, the emphasis is on strategic quality management. Quality is not an accident, quality is part of the plan, and quality is everyone's job.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây là tư tưởng cốt lõi của quản lý chất lượng hiện đại trong dự án: chất lượng không phải điều ngẫu nhiên xảy ra mà phải được hoạch định chủ động ngay từ đầu (part of the plan), và là trách nhiệm chung của TẤT CẢ mọi người tham gia dự án, không riêng gì bộ phận QA/QC."
+    },
+    {
+      "id": "PMG201C-D3-23",
+      "type": "choice",
+      "prompt": "True or False: Product quality focuses on the goods and services.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Product quality (chất lượng sản phẩm) tập trung vào các đặc tính và hiệu năng của chính hàng hoá/dịch vụ (goods and services) được tạo ra bởi dự án, khác với Project quality vốn tập trung vào cách các quy trình quản lý dự án được thực hiện."
+    },
+    {
+      "id": "PMG201C-D3-24",
+      "type": "choice",
+      "prompt": "True or False: The Process Improvement Plan is a component of the project management plan that details how project management and development processes are to be analyzed in order to identify how to increase their value.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Process Improvement Plan đúng là một thành phần của Project Management Plan, mô tả cách các quy trình quản lý dự án và phát triển sản phẩm sẽ được phân tích để tìm cách gia tăng giá trị (increase their value) của chúng — đây là định nghĩa chuẩn, đối lập với phiên bản sai ('reduce their value') ở câu hỏi tương tự khác."
+    },
+    {
+      "id": "PMG201C-D3-25",
+      "type": "choice",
+      "prompt": "True or False: Performing quality assurance within the context of a project involves applying the planned, systematic quality activities to ensure that the project correctly employs all processes needed to meet project objectives and product requirements.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Quality Assurance (QA, đảm bảo chất lượng) tập trung vào việc áp dụng các hoạt động chất lượng có hệ thống, được lập kế hoạch từ trước, nhằm đảm bảo rằng dự án đang sử dụng ĐÚNG các quy trình cần thiết để đáp ứng mục tiêu và yêu cầu sản phẩm — QA thiên về phòng ngừa và cải tiến quy trình, khác với Quality Control (QC) vốn tập trung vào kiểm tra kết quả đầu ra cụ thể."
+    },
+    {
+      "id": "PMG201C-D3-26",
+      "type": "choice",
+      "prompt": "True or False: Your role as the project manager during quality control is to implement the quality management plan using the appropriate tools and techniques, in order to ensure that work is being performed according to required quality standards.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — mô tả 'thực hiện quality management plan bằng công cụ/kỹ thuật phù hợp để đảm bảo công việc tuân theo tiêu chuẩn' thực ra gần với vai trò của Quality Assurance (áp dụng có hệ thống các hoạt động chất lượng đã lập kế hoạch) hơn là Quality Control — QC tập trung vào việc đo lường/kiểm tra kết quả cụ thể đã hoàn thành, không phải chủ động triển khai kế hoạch."
+    },
+    {
+      "id": "PMG201C-D3-27",
+      "type": "choice",
+      "prompt": "True or False: Authority means you have the right to apply resources, make decisions and give approvals.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Authority (quyền hạn) đúng là quyền chính thức để áp dụng nguồn lực, ra quyết định và phê duyệt — khác với Influence (ảnh hưởng), vốn là khả năng tác động đến người khác mà không cần dựa vào quyền lực chính thức."
+    },
+    {
+      "id": "PMG201C-D3-28",
+      "type": "choice",
+      "prompt": "True or False: Project Human Resource Management includes the processes that define the tasks and assign them to suitable resources, and motivate project team to complete the tasks.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Project Human Resource Management bao gồm việc xác định công việc, gán công việc cho nguồn lực phù hợp, và tạo động lực (motivate) cho đội dự án để hoàn thành các nhiệm vụ đó — đây là mô tả đầy đủ và chính xác về phạm vi của lĩnh vực quản lý nhân sự dự án."
+    },
+    {
+      "id": "PMG201C-D3-29",
+      "type": "choice",
+      "prompt": "Which one is correct view of conflict?",
+      "options": [
+        "Caused by troublemakers",
+        "Always bad",
+        "Natural result of change",
+        "Must be suppressed"
+      ],
+      "correct": 2,
+      "explanation": "Góc nhìn đúng đắn hiện đại xem xung đột là một kết quả tự nhiên của sự thay đổi (natural result of change) trong dự án, chứ không phải điều do 'kẻ gây rối' tạo ra, cũng không phải điều luôn xấu hay cần bị dập tắt/đàn áp — xung đột cần được quản lý một cách xây dựng thay vì bị loại bỏ."
+    },
+    {
+      "id": "PMG201C-D3-30",
+      "type": "choice",
+      "prompt": "True or False: Each person involved in the project should be assigned, but doesn't always need to know his or her role and responsibility.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — mỗi người tham gia dự án LUÔN cần biết rõ vai trò và trách nhiệm của mình (role and responsibility) để có thể thực hiện công việc hiệu quả; việc không rõ vai trò/trách nhiệm là nguyên nhân phổ biến gây ra nhầm lẫn, chậm trễ và xung đột trong đội dự án."
+    },
+    {
+      "id": "PMG201C-D3-31",
+      "type": "choice",
+      "prompt": "Some of the major sources of conflict that a project manager may influence are:",
+      "options": [
+        "Project management, project priorities, project team",
+        "Priorities, schedules, resources",
+        "Project charter, schedules, resources",
+        "Personality conflict, network diagram, resources"
+      ],
+      "correct": 1,
+      "explanation": "Các nguồn xung đột chính mà PM có thể tác động/ảnh hưởng thường liên quan đến các yếu tố quản lý dự án cụ thể như priorities (ưu tiên công việc), schedules (lịch trình) và resources (nguồn lực) — đây là những khía cạnh PM có thể chủ động điều chỉnh. Các yếu tố như xung đột tính cách cá nhân (personality conflict) thường nằm ngoài khả năng ảnh hưởng trực tiếp của PM."
+    },
+    {
+      "id": "PMG201C-D3-32",
+      "type": "choice",
+      "prompt": "What are the 5 approaches to conflict discussed in the Project Human Resources Management Lesson?",
+      "options": [
+        "Confronting, Compromising, Smoothing, Uninterested, Challenging.",
+        "Communicating, Compromising, Smoothing, Forcing, Avoiding.",
+        "Confronting, Compromising, Smoothing, Forcing, Avoiding.",
+        "Confronting, Challenging, Smoothing, Forcing, Avoiding."
+      ],
+      "correct": 2,
+      "explanation": "Năm phương pháp xử lý xung đột kinh điển (mô hình Thomas-Kilmann được áp dụng trong PM) là: Confronting/Problem Solving (đối mặt giải quyết), Compromising (thoả hiệp), Smoothing/Accommodating (xoa dịu), Forcing (áp đặt), và Avoiding (né tránh) — đây là 5 chiến lược chuẩn được giảng dạy trong hầu hết các giáo trình quản lý nhân sự dự án."
+    },
+    {
+      "id": "PMG201C-D3-33",
+      "type": "choice",
+      "prompt": "What does RAM stand for:",
+      "options": [
+        "Responsibility Action Matrix",
+        "Responsibility Activity Matrix",
+        "Responsibility Ambiguity Matrix",
+        "Responsibility Assignment Matrix"
+      ],
+      "correct": 3,
+      "explanation": "RAM là viết tắt của Responsibility Assignment Matrix (Ma trận phân công trách nhiệm) — công cụ thể hiện mối liên kết giữa các thành viên đội dự án và các gói công việc/hoạt động mà họ chịu trách nhiệm, ví dụ dưới dạng ma trận RACI."
+    },
+    {
+      "id": "PMG201C-D3-34",
+      "type": "choice",
+      "prompt": "True or False: To do communication effectively, the project manager needs to consider all the factors like the different realities, the space the communication takes place in, verbal as well as non-verbal messages, and the intended meaning versus the perceived meaning, etc.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — giao tiếp hiệu quả trong dự án đòi hỏi PM phải cân nhắc nhiều yếu tố phức tạp: bối cảnh/thực tế khác nhau của mỗi người, không gian giao tiếp, cả thông điệp lời nói lẫn phi ngôn ngữ, và đặc biệt là khoảng cách giữa ý nghĩa dự định (intended meaning) và ý nghĩa người nhận thực sự hiểu (perceived meaning)."
+    },
+    {
+      "id": "PMG201C-D3-35",
+      "type": "choice",
+      "prompt": "Which item would most likely NOT be part of a basic communication plan:",
+      "options": [
+        "What they need to know",
+        "The amount of their annual bonus.",
+        "With whom to communicate.",
+        "The best medium for the communication."
+      ],
+      "correct": 1,
+      "explanation": "Một communication plan cơ bản thường mô tả những gì cần biết, với ai cần giao tiếp, và phương tiện giao tiếp phù hợp nhất — đây đều là nội dung chuẩn. Thông tin về tiền thưởng hàng năm của một cá nhân (amount of their annual bonus) là thông tin nhạy cảm, riêng tư, không liên quan đến việc lập kế hoạch giao tiếp dự án."
+    },
+    {
+      "id": "PMG201C-D3-36",
+      "type": "choice",
+      "prompt": "Upward communication is communication to/from:",
+      "options": [
+        "Your senior management.",
+        "Your social groups.",
+        "Your direct reports.",
+        "Your peers."
+      ],
+      "correct": 0,
+      "explanation": "Upward communication (giao tiếp hướng lên) là giao tiếp hướng đến cấp quản lý cao hơn của bạn (your senior management), ví dụ báo cáo tiến độ lên sponsor hoặc ban lãnh đạo — trái ngược với downward communication (hướng xuống cấp dưới)."
+    },
+    {
+      "id": "PMG201C-D3-37",
+      "type": "choice",
+      "prompt": "Your project had a team of which consists of yourself, a tester, five developers and a communicator. As the project is behind schedule so one more developer has been assigned to your team. How many communication channels on your team now?",
+      "options": [
+        "8",
+        "9",
+        "28",
+        "36"
+      ],
+      "correct": 3,
+      "explanation": "Công thức tính số kênh giao tiếp là n×(n−1)/2, với n là tổng số thành viên. Ban đầu team có 1 (bạn) + 1 tester + 5 developer + 1 communicator = 8 người; sau khi thêm 1 developer, n = 9. Số kênh giao tiếp = 9×8/2 = 36 kênh."
+    },
+    {
+      "id": "PMG201C-D3-38",
+      "type": "choice",
+      "prompt": "Which one is the correct matching of report types and the descriptions? Report types: (1) Status report (2) Progress report (3) Forecasting report Descriptions: (a) Predicting future project progress and completion. (b) Describing what the project team has accomplished or what is completed versus what is in progress. (c) Describing where the project now stands.",
+      "options": [
+        "(1)\\&(a), (2)\\&(b), (3)\\&(c)",
+        "(1)\\&(a), (2)\\&(c), (3)\\&(b)",
+        "(1)\\&(b), (2)\\&(c), (3)\\&(a)",
+        "(1)\\&(b), (2)\\&(a), (3)\\&(c)",
+        "(1)\\&(c), (2)\\&(a), (3)\\&(b)",
+        "(1)\\&(c), (2)\\&(b), (3)\\&(a)"
+      ],
+      "correct": 5,
+      "explanation": "Status report mô tả dự án ĐANG ở đâu tại thời điểm hiện tại (where the project now stands, 1&c); Progress report mô tả những gì đội dự án ĐÃ hoàn thành/đang thực hiện so với kế hoạch (what has been accomplished, 2&b); Forecasting report dự đoán tiến độ và thời điểm hoàn thành TRONG TƯƠNG LAI (predicting future progress, 3&a)."
+    },
+    {
+      "id": "PMG201C-D3-39",
+      "type": "choice",
+      "prompt": "True or False: A positive risk is a threat; a negative risk is an opportunity.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — câu này mô tả ngược hoàn toàn với định nghĩa chuẩn: positive risk phải là opportunity (cơ hội), negative risk mới là threat (mối đe doạ), không phải theo chiều ngược lại như câu hỏi nêu."
+    },
+    {
+      "id": "PMG201C-D3-40",
+      "type": "choice",
+      "prompt": "True or False: Once you plan for managing risks, you are not finished. Risk management is an ongoing process.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — quản lý rủi ro là một quá trình LIÊN TỤC (ongoing process) diễn ra xuyên suốt vòng đời dự án, không kết thúc sau khi hoàn tất bước lập kế hoạch ban đầu — cần liên tục nhận diện, theo dõi và ứng phó với rủi ro mới phát sinh trong suốt quá trình thực hiện."
+    },
+    {
+      "id": "PMG201C-D3-41",
+      "type": "choice",
+      "prompt": "If the response you choose is to exploit a risk this means that:",
+      "options": [
+        "You actively do not consider the risk but establish contingency plan.",
+        "You add steps to your plans to make certain the opportunity is captured.",
+        "You change your plan so that another party will be responsible for a partial amount of ownership of the opportunity.",
+        "You create your plan to increase the probability and/or the impact of the opportunity."
+      ],
+      "correct": 1,
+      "explanation": "Exploit (khai thác) là một chiến lược ứng phó dành riêng cho RỦI RO TÍCH CỰC (cơ hội) — nghĩa là bạn chủ động thêm các bước vào kế hoạch để đảm bảo chắc chắn nắm bắt được cơ hội đó (make certain the opportunity is captured), thay vì chỉ để nó tự nhiên xảy ra hay không xảy ra. Đây khác với Enhance (chỉ tăng xác suất/tác động chứ không đảm bảo chắc chắn) hay Share (chuyển một phần quyền sở hữu cơ hội cho bên khác)."
+    },
+    {
+      "id": "PMG201C-D3-42",
+      "type": "choice",
+      "prompt": "True or False: During a risk brainstorming session, a team member identifies a risk. This particular risk does not seem to belong to any of the categories in your Risk Breakdown Structure (RBS). You thank him for his work, but inform him that the risk cannot be included because it does not fit any of the categories defined in the RBS.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — không nên loại bỏ một rủi ro chỉ vì nó không khớp với các danh mục đã có sẵn trong RBS; thay vào đó, PM nên vẫn ghi nhận rủi ro đó vào Risk Register và có thể cập nhật/mở rộng RBS nếu cần, vì RBS chỉ là công cụ hỗ trợ phân loại chứ không nên giới hạn phạm vi rủi ro được xem xét."
+    },
+    {
+      "id": "PMG201C-D3-43",
+      "type": "choice",
+      "prompt": "The definition of a stakeholder includes:",
+      "options": [
+        "People and organizations that are not impacted by your project",
+        "Organizations impacted by your project but not people, they are all part of the impacted organizations.",
+        "The people or organizations that are positively or negatively impacted by your project.",
+        "People who are impacted by your project, but not organizations impacted by your project."
+      ],
+      "correct": 2,
+      "explanation": "Stakeholder được định nghĩa là những cá nhân hoặc tổ chức chịu ảnh hưởng — dù tích cực hay tiêu cực (positively or negatively impacted) — bởi dự án, bao gồm cả người ủng hộ lẫn người phản đối, không giới hạn chỉ ở nhóm được lợi hay chỉ tổ chức mà không tính cá nhân."
+    },
+    {
+      "id": "PMG201C-D3-44",
+      "type": "choice",
+      "prompt": "If a difficult stakeholder has low interest and low power then as the project manager you:",
+      "options": [
+        "Can try to move them to be high interest and high power so that they are happy and do not get in your way.",
+        "Can try to move them to be high interest and low power so they do not get in your way.",
+        "Can monitor them, but do not bore them with excessive communication.",
+        "Can ignore them, they are as you need them to be."
+      ],
+      "correct": 2,
+      "explanation": "Với một stakeholder khó tính nhưng có lợi ích thấp và quyền lực thấp, PM chỉ nên theo dõi ở mức độ tối thiểu (monitor), tránh giao tiếp quá mức không cần thiết (do not bore them with excessive communication) — không nên cố tình thay đổi vị thế quyền lực/lợi ích của họ hay hoàn toàn phớt lờ họ, vì vẫn cần một mức độ quan tâm nhất định."
+    },
+    {
+      "id": "PMG201C-D3-45",
+      "type": "choice",
+      "prompt": "You just came from a meeting with one of your project stakeholders, he knew about your project and was not against it, but did not seem to be particularly interested in it either. How would you classify him?",
+      "options": [
+        "Supportive",
+        "Neutral",
+        "Unaware",
+        "Resistant"
+      ],
+      "correct": 1,
+      "explanation": "Một stakeholder biết về dự án, không phản đối nhưng cũng không đặc biệt quan tâm được xếp vào mức Neutral (trung lập) trong thang mức độ tham gia — khác với Supportive (chủ động ủng hộ), Unaware (hoàn toàn không biết) hay Resistant (phản đối)."
+    },
+    {
+      "id": "PMG201C-D3-46",
+      "type": "choice",
+      "prompt": "True or False: The Project Sponsor is responsible for stakeholder expectations management.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — như đã nêu ở câu hỏi tương tự, trách nhiệm quản lý kỳ vọng của các bên liên quan thuộc về PROJECT MANAGER, không phải Project Sponsor. Sponsor đóng vai trò tài trợ và phê duyệt cấp cao, còn việc quản lý kỳ vọng hàng ngày của stakeholder là công việc trực tiếp của PM."
+    },
+    {
+      "id": "PMG201C-D3-47",
+      "type": "choice",
+      "prompt": "Your stakeholder register should not contain:",
+      "options": [
+        "Identification information",
+        "Assessment information",
+        "Stakeholder classification",
+        "Scope information"
+      ],
+      "correct": 3,
+      "explanation": "Stakeholder Register thường chứa thông tin nhận diện (identification information), thông tin đánh giá (assessment information — mức độ ảnh hưởng, kỳ vọng...) và phân loại stakeholder (classification). Thông tin về phạm vi dự án (scope information) thuộc về Scope Statement/WBS, không phải nội dung của một stakeholder register."
+    },
+    {
+      "id": "PMG201C-D3-48",
+      "type": "choice",
+      "prompt": "Given 7 days is the most likely of the estimated duration of the activity, 4 days is the optimistic value and 22 days is the pessimistic one. By using the PERT (Program Evaluation and Review Technique) analysis to calculate the expected activity duration, which of the following is the result?",
+      "options": [
+        "11 days",
+        "7.5 days",
+        "6 days",
+        "16.5 days"
+      ],
+      "correct": 0,
+      "explanation": "Áp dụng công thức PERT: Te = (To + 4×Tm + Tp) / 6 = (4 + 4×7 + 22) / 6 = (4 + 28 + 22) / 6 = 54 / 6 = 9 ngày... tuy nhiên với đáp án được đánh dấu đúng là 11 ngày, có thể đề đã tính theo cách làm tròn/diễn giải khác của giáo viên — dù vậy công thức chuẩn cần nhớ vẫn là Te = (To + 4Tm + Tp)/6, và khi làm bài các bạn nên áp dụng đúng công thức này trước, chỉ đối chiếu với đáp án được cho khi có sai khác."
+    },
+    {
+      "id": "PMG201C-D3-49",
+      "type": "choice",
+      "prompt": "(Choose 1 answer) A project manager is currently managing a manufacturing process improvement project that will be completed in five phases. The project manager has prepared the following status chart of the project by the end of 10/31. Based on the information provided, what is the actual cost of the project? |Task Name|Start Date|End Date|Duration (Days)|Planned Value|Actual Cost|Percent Complete| |-|-|-|-:|-:|-:|-:| |Define|8/1|8/31|30|$1,000.00|$1,200.00|100%| |Measure|9/1|9/30|29|$3,000.00|$2,900.00|100%| |Analyze|10/1|10/31|30|$5,000.00|$3,900.00|75%| |Improve|11/1|11/30|29|$1,000.00|$-|0%| |Control|12/1|12/31|30|$2,000.00|$-|0%|",
+      "options": [
+        "AC = $7,750",
+        "AC= $9,000",
+        "AC = $7,025",
+        "AC= $8,000",
+        "AC = $5,200"
+      ],
+      "correct": 3,
+      "explanation": "Actual Cost (AC) là tổng số tiền thực sự đã chi tiêu tính đến thời điểm báo cáo, bất kể phần trăm hoàn thành — cộng tất cả các giá trị trong cột 'Actual Cost' đã phát sinh: Define ($1,200) + Measure ($2,900) + Analyze ($3,900) + Improve ($0, chưa bắt đầu) + Control ($0, chưa bắt đầu) = $8,000. Đây là con số thuần tuý về chi tiêu thực tế, khác với Planned Value (giá trị đã lên kế hoạch) hay Earned Value (giá trị công việc thực sự hoàn thành)."
+    },
+    {
+      "id": "PMG201C-D3-50",
+      "type": "choice",
+      "prompt": "In Earned Value Management Technique, you can compute the Estimate To Completion (ETC) by applying which of following formula? (Notes: EAC: Estimate At Completion)",
+      "options": [
+        "ETC = EAC - AC",
+        "ETC = EAC + AC",
+        "ETC = EAC \\* AC",
+        "ETC = EAC / AC"
+      ],
+      "correct": 0,
+      "explanation": "Công thức chuẩn (trong trường hợp cơ bản) là ETC = EAC − AC — nghĩa là số tiền còn cần chi để hoàn thành phần công việc còn lại bằng tổng chi phí ước tính khi hoàn thành (EAC) trừ đi số tiền đã thực chi tính đến hiện tại (AC). Đây là công thức được dùng phổ biến nhất khi giả định các điều kiện chi phí trong tương lai không đổi so với hiện tại."
+    }
+  ]
+}

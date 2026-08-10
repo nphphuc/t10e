@@ -1,0 +1,188 @@
+{
+  "id": "PMG201C-TOPIC-COM",
+  "title": "PMG201c — Giao Tiếp Dự Án",
+  "questions": [
+    {
+      "id": "PMG201C-T-COM-01",
+      "type": "choice",
+      "prompt": "True or False: To do communication effectively, the project manager needs to consider all the factors like the different realities, the space the communication takes place in, verbal as well as non-verbal messages, and the intended meaning versus the perceived meaning, etc.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — giao tiếp hiệu quả trong dự án đòi hỏi PM phải cân nhắc nhiều yếu tố phức tạp: bối cảnh/thực tế khác nhau của mỗi người, không gian giao tiếp, cả thông điệp lời nói lẫn phi ngôn ngữ, và đặc biệt là khoảng cách giữa ý nghĩa dự định (intended meaning) và ý nghĩa người nhận thực sự hiểu (perceived meaning)."
+    },
+    {
+      "id": "PMG201C-T-COM-02",
+      "type": "choice",
+      "prompt": "You are beginning to staff your project. Which of the following will be used in developing and/or communicating roles and responsibilities?",
+      "options": [
+        "Control chart",
+        "Run chart",
+        "Pareto chart",
+        "Organization chart"
+      ],
+      "correct": 3,
+      "explanation": "Organization chart (sơ đồ tổ chức) là công cụ trực quan thể hiện cấu trúc phân cấp, vai trò và mối quan hệ báo cáo giữa các thành viên, thường được dùng để phát triển và truyền đạt vai trò/trách nhiệm khi bắt đầu tổ chức nhân sự cho dự án. Control chart, Run chart và Pareto chart đều là công cụ thuộc lĩnh vực quản lý chất lượng, không liên quan đến việc xây dựng cơ cấu vai trò/trách nhiệm."
+    },
+    {
+      "id": "PMG201C-T-COM-03",
+      "type": "choice",
+      "prompt": "Downward communication is communication to/from:",
+      "options": [
+        "Your senior management.",
+        "Your social groups.",
+        "Your direct reports.",
+        "Your peers."
+      ],
+      "correct": 2,
+      "explanation": "Downward communication (giao tiếp từ trên xuống) là giao tiếp hướng đến những người cấp dưới trực tiếp (your direct reports) của bạn trong hệ thống phân cấp tổ chức — ngược lại với upward communication (hướng đến cấp trên) và lateral communication (giao tiếp ngang hàng với đồng nghiệp cùng cấp)."
+    },
+    {
+      "id": "PMG201C-T-COM-04",
+      "type": "choice",
+      "prompt": "Which one is the correct matching of communication methods and the scenarios? Communication methods: (1) Interactive (2) Push (3) Pull Scenarios: (a) A performance appraisal that you give to a team member. (b) A project document that will be read and accessed by many team members. (c) An invitation to a project milestone celebration.",
+      "options": [
+        "(1)\\&(a), (2)\\&(b), (3)\\&(c)",
+        "(1)\\&(a), (2)\\&(c), (3)\\&(b)",
+        "(1)\\&(b), (2)\\&(c), (3)\\&(a)",
+        "(1)\\&(b), (2)\\&(a), (3)\\&(c)",
+        "(1)\\&(c), (2)\\&(a), (3)\\&(b)",
+        "(1)\\&(c), (2)\\&(b), (3)\\&(a)"
+      ],
+      "correct": 1,
+      "explanation": "Interactive communication (trao đổi hai chiều trực tiếp) phù hợp với performance appraisal — một cuộc trao đổi cần phản hồi qua lại (1&a). Push communication (gửi đi mà không chắc người nhận có đọc) phù hợp với lời mời tham dự sự kiện — chỉ cần gửi thông báo (2&c). Pull communication (người nhận chủ động tìm/truy cập thông tin) phù hợp với tài liệu dự án mà nhiều người sẽ tự tra cứu khi cần (3&b)."
+    },
+    {
+      "id": "PMG201C-T-COM-05",
+      "type": "choice",
+      "prompt": "A project manager has little project experience, but she has been assigned as the project manager of a new project. Because she will be working in a matrix organization to complete her project, she can expect communications to be",
+      "options": [
+        "Simple",
+        "Open and accurate",
+        "Complex",
+        "Hard to automate"
+      ],
+      "correct": 2,
+      "explanation": "Trong tổ chức ma trận (matrix), do mỗi thành viên đội dự án đồng thời báo cáo cho cả functional manager lẫn project manager, cộng thêm việc phải phối hợp qua nhiều phòng ban chức năng khác nhau, nên giao tiếp trong môi trường này thường trở nên phức tạp (complex) hơn nhiều so với tổ chức functional hay projectized đơn giản hơn."
+    },
+    {
+      "id": "PMG201C-T-COM-06",
+      "type": "choice",
+      "prompt": "Which of the following is NOT likely to be documented in a communications management plan?",
+      "options": [
+        "Person responsible for information preparation",
+        "When and how often of communication",
+        "With whom information will be communicated",
+        "Which poor performance information should not be communicated"
+      ],
+      "correct": 3,
+      "explanation": "Communications Management Plan thường ghi rõ ai chịu trách nhiệm chuẩn bị thông tin, tần suất/thời điểm giao tiếp, và giao tiếp với ai — đây đều là các nội dung chuẩn. 'Which poor performance information should not be communicated' (thông tin hiệu suất kém nào KHÔNG nên được truyền đạt) đi ngược lại nguyên tắc minh bạch trong giao tiếp dự án, nên không phải là nội dung thường thấy trong một communications plan tốt."
+    },
+    {
+      "id": "PMG201C-T-COM-07",
+      "type": "choice",
+      "prompt": "Lateral communication is communication to/from:",
+      "options": [
+        "Your subordinates.",
+        "Your functional management",
+        "Your line management.",
+        "Your peers."
+      ],
+      "correct": 3,
+      "explanation": "Lateral communication (giao tiếp ngang hàng) diễn ra giữa những người cùng cấp bậc với bạn trong tổ chức, ví dụ đồng nghiệp (your peers) — khác với downward (hướng xuống cấp dưới) hay upward (hướng lên cấp trên)."
+    },
+    {
+      "id": "PMG201C-T-COM-08",
+      "type": "choice",
+      "prompt": "True or False: The sender is responsible to make the information clear, complete, and appropriate to the needs of the receiver. The receiver is responsible to provide feedback to acknowledge that the message has been received and understood.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — mô hình giao tiếp cơ bản trong dự án phân chia rõ trách nhiệm hai chiều: người gửi (sender) phải đảm bảo thông tin rõ ràng, đầy đủ và phù hợp với nhu cầu người nhận; người nhận (receiver) phải phản hồi để xác nhận đã nhận và hiểu đúng thông điệp — đây là nguyên tắc giao tiếp hiệu quả hai chiều."
+    },
+    {
+      "id": "PMG201C-T-COM-09",
+      "type": "choice",
+      "prompt": "When you report project status you compare actual performance to:",
+      "options": [
+        "The performance of your competitors",
+        "The performance of previous projects.",
+        "The performance of other similar projects",
+        "The planned performance or baseline."
+      ],
+      "correct": 3,
+      "explanation": "Khi báo cáo tình trạng dự án, hiệu suất thực tế luôn được so sánh với hiệu suất đã lên kế hoạch hoặc đường cơ sở (the planned performance or baseline) — đây chính là bản chất của việc đo lường variance (độ lệch). So sánh với đối thủ cạnh tranh hay các dự án tương tự khác không phải là cách chuẩn để đánh giá hiệu suất của chính dự án đang thực hiện."
+    },
+    {
+      "id": "PMG201C-T-COM-10",
+      "type": "choice",
+      "prompt": "The primary role of the project manager is:",
+      "options": [
+        "Distributing work packages",
+        "Measuring performance",
+        "Communication",
+        "Project initiation"
+      ],
+      "correct": 2,
+      "explanation": "Vai trò cốt lõi và quan trọng nhất của Project Manager là Communication (giao tiếp) — theo thống kê, phần lớn thời gian làm việc của PM dành cho việc giao tiếp với các bên liên quan khác nhau. Việc phân bổ work package, đo lường hiệu suất hay khởi tạo dự án đều là những nhiệm vụ cụ thể, không phải là vai trò cốt lõi bao trùm như giao tiếp."
+    },
+    {
+      "id": "PMG201C-T-COM-11",
+      "type": "choice",
+      "prompt": "Which item would most likely NOT be part of a basic communication plan:",
+      "options": [
+        "What they need to know",
+        "The amount of their annual bonus.",
+        "With whom to communicate.",
+        "The best medium for the communication."
+      ],
+      "correct": 1,
+      "explanation": "Một communication plan cơ bản thường mô tả những gì cần biết, với ai cần giao tiếp, và phương tiện giao tiếp phù hợp nhất — đây đều là nội dung chuẩn. Thông tin về tiền thưởng hàng năm của một cá nhân (amount of their annual bonus) là thông tin nhạy cảm, riêng tư, không liên quan đến việc lập kế hoạch giao tiếp dự án."
+    },
+    {
+      "id": "PMG201C-T-COM-12",
+      "type": "choice",
+      "prompt": "Upward communication is communication to/from:",
+      "options": [
+        "Your senior management.",
+        "Your social groups.",
+        "Your direct reports.",
+        "Your peers."
+      ],
+      "correct": 0,
+      "explanation": "Upward communication (giao tiếp hướng lên) là giao tiếp hướng đến cấp quản lý cao hơn của bạn (your senior management), ví dụ báo cáo tiến độ lên sponsor hoặc ban lãnh đạo — trái ngược với downward communication (hướng xuống cấp dưới)."
+    },
+    {
+      "id": "PMG201C-T-COM-13",
+      "type": "choice",
+      "prompt": "Your project had a team of which consists of yourself, a tester, five developers and a communicator. As the project is behind schedule so one more developer has been assigned to your team. How many communication channels on your team now?",
+      "options": [
+        "8",
+        "9",
+        "28",
+        "36"
+      ],
+      "correct": 3,
+      "explanation": "Công thức tính số kênh giao tiếp là n×(n−1)/2, với n là tổng số thành viên. Ban đầu team có 1 (bạn) + 1 tester + 5 developer + 1 communicator = 8 người; sau khi thêm 1 developer, n = 9. Số kênh giao tiếp = 9×8/2 = 36 kênh."
+    },
+    {
+      "id": "PMG201C-T-COM-14",
+      "type": "choice",
+      "prompt": "Which one is the correct matching of report types and the descriptions? Report types: (1) Status report (2) Progress report (3) Forecasting report Descriptions: (a) Predicting future project progress and completion. (b) Describing what the project team has accomplished or what is completed versus what is in progress. (c) Describing where the project now stands.",
+      "options": [
+        "(1)\\&(a), (2)\\&(b), (3)\\&(c)",
+        "(1)\\&(a), (2)\\&(c), (3)\\&(b)",
+        "(1)\\&(b), (2)\\&(c), (3)\\&(a)",
+        "(1)\\&(b), (2)\\&(a), (3)\\&(c)",
+        "(1)\\&(c), (2)\\&(a), (3)\\&(b)",
+        "(1)\\&(c), (2)\\&(b), (3)\\&(a)"
+      ],
+      "correct": 5,
+      "explanation": "Status report mô tả dự án ĐANG ở đâu tại thời điểm hiện tại (where the project now stands, 1&c); Progress report mô tả những gì đội dự án ĐÃ hoàn thành/đang thực hiện so với kế hoạch (what has been accomplished, 2&b); Forecasting report dự đoán tiến độ và thời điểm hoàn thành TRONG TƯƠNG LAI (predicting future progress, 3&a)."
+    }
+  ]
+}

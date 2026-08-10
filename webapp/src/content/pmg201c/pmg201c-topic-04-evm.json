@@ -1,0 +1,88 @@
+{
+  "id": "PMG201C-TOPIC-EVM",
+  "title": "PMG201c — Earned Value Management (EVM)",
+  "questions": [
+    {
+      "id": "PMG201C-T-EVM-01",
+      "type": "choice",
+      "prompt": "You have a project to build a new fence. The fence will form a square. Each side is to take one day to build, and $1,000 has been budgeted per side. The sides are planned to be completed one after the other. Today is the end of day 3. Using the following project status chart to calculate project current CV: Project status chart: Activity | Day 1 | Day 2 | Day 3 | Day 4 | Status End of Day 3 Side 1 | S — F | | | | Complete, spent $1,000 Side 2 | | PS — PF | | | Complete, spent $1,200 Side 3 | | | PS — S — PF | | 50% done, spent $600 Side 4 | | | | PS — PF | Not yet started Key: S = Actual Start, F = Actual Finish, PS = Planned Start, and PF = Planned Finish",
+      "options": [
+        "CV = -$500",
+        "CV = -$300",
+        "CV = -$200",
+        "CV = $200",
+        "CV = $500",
+        "CV = $300"
+      ],
+      "correct": 1,
+      "explanation": "CV (Cost Variance) = EV − AC. Đến cuối ngày 3: EV (giá trị công việc thực sự hoàn thành, tính theo ngân sách) = Side 1 hoàn thành 100% ($1,000) + Side 2 hoàn thành 100% ($1,000) + Side 3 hoàn thành 50% ($500) = $2,500. AC (chi phí thực tế đã chi) = $1,000 + $1,200 + $600 = $2,800. Vậy CV = $2,500 − $2,800 = −$300, nghĩa là dự án đang chi vượt ngân sách so với khối lượng công việc thực sự hoàn thành."
+    },
+    {
+      "id": "PMG201C-T-EVM-02",
+      "type": "choice",
+      "prompt": "In Earned Value Management Technique, you can compute the Cost Performance Index (CPI) by applying which of following formula?",
+      "options": [
+        "CPI = PV / AC",
+        "CPI = CV / AC",
+        "CPI = SV / AC",
+        "CPI = EV / AC"
+      ],
+      "correct": 3,
+      "explanation": "Công thức chuẩn của Cost Performance Index là CPI = EV / AC (giá trị đạt được chia cho chi phí thực tế) — CPI > 1 nghĩa là dự án đang chi tiêu hiệu quả hơn kế hoạch, CPI < 1 nghĩa là đang vượt ngân sách so với khối lượng công việc hoàn thành. Các công thức PV/AC, CV/AC hay SV/AC không phải là công thức của CPI."
+    },
+    {
+      "id": "PMG201C-T-EVM-03",
+      "type": "choice",
+      "prompt": "True or False: You should compare your project performance against the performance measurement baseline to look for potential changes in the project.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Performance Measurement Baseline (đường cơ sở đo lường hiệu suất, thường tích hợp scope, schedule và cost baseline) là chuẩn tham chiếu để PM so sánh hiệu suất thực tế của dự án, từ đó phát hiện các độ lệch (variance) có thể báo hiệu cần thay đổi hoặc điều chỉnh."
+    },
+    {
+      "id": "PMG201C-T-EVM-04",
+      "type": "choice",
+      "prompt": "(Choose 1 answer) You have a project to build a new fence. The fence will form a square. Each side is to take one day to build, and $1,000 has been budgeted per side. The sides are planned to be completed one after the other. Today is the end of day 3. Using the following project status chart to calculate project current BAC:",
+      "options": [
+        "BAC = $3,000",
+        "BAC = $2,500",
+        "BAC = $3,100",
+        "BAC = $2,200",
+        "BAC = $4,000",
+        "BAC = $3,250"
+      ],
+      "correct": 4,
+      "explanation": "BAC (Budget At Completion) là tổng ngân sách được duyệt cho TOÀN BỘ dự án, không phụ thuộc vào tiến độ hiện tại. Vì hàng rào có 4 cạnh, mỗi cạnh được ngân sách $1,000, nên BAC = 4 × $1,000 = $4,000 — đây là con số cố định được thiết lập ngay từ đầu dự án, không thay đổi theo tình hình thực hiện ở ngày 3."
+    },
+    {
+      "id": "PMG201C-T-EVM-05",
+      "type": "choice",
+      "prompt": "In Earned Value Management Technique, you can compute the Estimate To Completion (ETC) by applying which of following formula? (Notes: EAC: Estimate At Completion)",
+      "options": [
+        "ETC = EAC -AC",
+        "ETC = EAC- EV",
+        "ETC = EAC -PV",
+        "ETC = EAC - SV",
+        "ETC = EAC-CV"
+      ],
+      "correct": 0,
+      "explanation": "Công thức chuẩn (trong trường hợp cơ bản) là ETC = EAC − AC — nghĩa là số tiền còn cần chi để hoàn thành phần công việc còn lại bằng tổng chi phí ước tính khi hoàn thành (EAC) trừ đi số tiền đã thực chi tính đến hiện tại (AC). Đây là công thức được dùng phổ biến nhất khi giả định các điều kiện chi phí trong tương lai không đổi so với hiện tại."
+    },
+    {
+      "id": "PMG201C-T-EVM-06",
+      "type": "choice",
+      "prompt": "(Choose 1 answer) A project manager is currently managing a manufacturing process improvement project that will be completed in five phases. The project manager has prepared the following status chart of the project by the end of 10/31. Based on the information provided, what is the actual cost of the project? |Task Name|Start Date|End Date|Duration (Days)|Planned Value|Actual Cost|Percent Complete| |-|-|-|-:|-:|-:|-:| |Define|8/1|8/31|30|$1,000.00|$1,200.00|100%| |Measure|9/1|9/30|29|$3,000.00|$2,900.00|100%| |Analyze|10/1|10/31|30|$5,000.00|$3,900.00|75%| |Improve|11/1|11/30|29|$1,000.00|$-|0%| |Control|12/1|12/31|30|$2,000.00|$-|0%|",
+      "options": [
+        "AC = $7,750",
+        "AC= $9,000",
+        "AC = $7,025",
+        "AC= $8,000",
+        "AC = $5,200"
+      ],
+      "correct": 3,
+      "explanation": "Actual Cost (AC) là tổng số tiền thực sự đã chi tiêu tính đến thời điểm báo cáo, bất kể phần trăm hoàn thành — cộng tất cả các giá trị trong cột 'Actual Cost' đã phát sinh: Define ($1,200) + Measure ($2,900) + Analyze ($3,900) + Improve ($0, chưa bắt đầu) + Control ($0, chưa bắt đầu) = $8,000. Đây là con số thuần tuý về chi tiêu thực tế, khác với Planned Value (giá trị đã lên kế hoạch) hay Earned Value (giá trị công việc thực sự hoàn thành)."
+    }
+  ]
+}

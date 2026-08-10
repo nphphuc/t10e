@@ -1,0 +1,132 @@
+{
+  "id": "PMG201C-TOPIC-OVR",
+  "title": "PMG201c — Tổng Quan Dự Án & Vai Trò PM",
+  "questions": [
+    {
+      "id": "PMG201C-T-OVR-01",
+      "type": "choice",
+      "prompt": "All the following are characteristics of a project EXCEPT:",
+      "options": [
+        "It is temporary",
+        "It has a definite beginning and end",
+        "It has interrelated activities",
+        "It repeats itself every month"
+      ],
+      "correct": 3,
+      "explanation": "Một dự án (project) có đặc điểm là tạm thời (temporary — có điểm bắt đầu và kết thúc rõ ràng), có các hoạt động liên quan chặt chẽ với nhau (interrelated activities), và tạo ra một sản phẩm/dịch vụ/kết quả duy nhất (unique). Việc 'lặp lại mỗi tháng' hoàn toàn trái ngược với bản chất tạm thời và duy nhất của dự án — đó là đặc điểm của một hoạt động vận hành (operations) lặp đi lặp lại, không phải của một dự án."
+    },
+    {
+      "id": "PMG201C-T-OVR-02",
+      "type": "choice",
+      "prompt": "Who has the most power in a project-oriented organization?",
+      "options": [
+        "The project manager",
+        "The functional manager",
+        "The team",
+        "They all share power"
+      ],
+      "correct": 0,
+      "explanation": "Trong một tổ chức theo mô hình projectized (project-oriented/dự án hoá hoàn toàn), Project Manager nắm quyền lực và quyền kiểm soát nguồn lực cao nhất, gần như toàn quyền quyết định vì đội ngũ được tổ chức xoay quanh dự án chứ không phải theo phòng ban chức năng. Đây là điểm khác biệt lớn so với tổ chức functional (nơi functional manager nắm quyền) hay matrix (quyền lực được chia sẻ ở các mức độ khác nhau)."
+    },
+    {
+      "id": "PMG201C-T-OVR-03",
+      "type": "choice",
+      "prompt": "What is a program?",
+      "options": [
+        "An initiative set up by management",
+        "A means to gain benefits and control of related projects",
+        "A group of unrelated projects managed in a coordinated way",
+        "A government regulation"
+      ],
+      "correct": 1,
+      "explanation": "Một Program (chương trình) là một nhóm các dự án liên quan được quản lý theo cách phối hợp (coordinated) nhằm đạt được lợi ích và mức độ kiểm soát mà nếu quản lý riêng lẻ từng dự án sẽ không đạt được. Nó khác với một nhóm dự án không liên quan (unrelated projects), không phải là một sáng kiến quản lý đơn thuần hay một quy định của chính phủ."
+    },
+    {
+      "id": "PMG201C-T-OVR-04",
+      "type": "choice",
+      "prompt": "A project manager is trying to complete a software development project, but cannot get enough attention for the project. Resources are focused on completing process-related work, and the project manager has little authority to assign resources. What form of organization must the project manager be working in?",
+      "options": [
+        "Functional",
+        "Matrix",
+        "Projectized",
+        "Coordinator"
+      ],
+      "correct": 0,
+      "explanation": "Đây là đặc trưng điển hình của tổ chức Functional (chức năng): quyền lực chủ yếu nằm trong tay functional manager, nguồn lực được ưu tiên cho công việc thường xuyên của phòng ban, còn Project Manager có rất ít hoặc gần như không có quyền phân bổ nguồn lực cho dự án. Trong tổ chức Matrix hay Projectized, PM có quyền lực cao hơn đáng kể, còn 'Coordinator' không phải là một loại cấu trúc tổ chức PMBOK chuẩn."
+    },
+    {
+      "id": "PMG201C-T-OVR-05",
+      "type": "choice",
+      "prompt": "Which one is not mentioned explicitly in the three components of the triple constraints:",
+      "options": [
+        "Scope",
+        "Quality",
+        "Cost",
+        "Time"
+      ],
+      "correct": 1,
+      "explanation": "Ba thành phần cốt lõi được nêu rõ (explicitly) trong triple constraint truyền thống là Scope (phạm vi), Cost (chi phí) và Time (thời gian) — ba yếu tố này ràng buộc và ảnh hưởng lẫn nhau. Quality (chất lượng) tuy là một ràng buộc quan trọng của dự án, nhưng không được liệt kê là một trong ba thành phần được nêu tên tường minh của mô hình triple constraint kinh điển — nó thường được xem là kết quả chịu ảnh hưởng bởi ba yếu tố kia."
+    },
+    {
+      "id": "PMG201C-T-OVR-06",
+      "type": "choice",
+      "prompt": "One of the ways a Project Charter can help you as a project manager is:",
+      "options": [
+        "It keeps your authority level vague, so you can do what you want.",
+        "It does not help you as a project manager because it is for the sponsor.",
+        "It helps you hire team members.",
+        "It describes your authority level as the project manager."
+      ],
+      "correct": 3,
+      "explanation": "Project Charter chính thức xác lập và mô tả mức độ quyền hạn (authority level) của Project Manager trong dự án — bao gồm quyền sử dụng nguồn lực tổ chức để thực hiện các hoạt động của dự án. Nó không nhằm giữ mơ hồ quyền hạn của PM, không chỉ dành riêng cho sponsor, và cũng không có chức năng trực tiếp là công cụ tuyển dụng thành viên đội dự án."
+    },
+    {
+      "id": "PMG201C-T-OVR-07",
+      "type": "choice",
+      "prompt": "True or False: A Project is defined as being unique and temporary, with an defined start and finish.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — theo định nghĩa chuẩn của PMBOK, một dự án là một nỗ lực tạm thời (temporary) được thực hiện để tạo ra một sản phẩm, dịch vụ hoặc kết quả duy nhất (unique), với thời điểm bắt đầu và kết thúc được xác định rõ ràng. Đây là hai đặc điểm cốt lõi nhất phân biệt dự án với hoạt động vận hành thường xuyên (operations)."
+    },
+    {
+      "id": "PMG201C-T-OVR-08",
+      "type": "choice",
+      "prompt": "True or False: The worst organization to use to run a project will always be the functional organization.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — không thể khẳng định tuyệt đối rằng tổ chức functional luôn là lựa chọn tệ nhất để chạy dự án, vì mức độ phù hợp của một cấu trúc tổ chức (functional, matrix, hay projectized) còn phụ thuộc vào bản chất dự án, mức độ ưu tiên của tổ chức, và nhiều yếu tố bối cảnh khác. Tổ chức functional vẫn có những ưu điểm riêng (như chuyên môn hoá sâu theo phòng ban) trong một số loại dự án nhất định."
+    },
+    {
+      "id": "PMG201C-T-OVR-09",
+      "type": "choice",
+      "prompt": "The three components of the triple constraint are:",
+      "options": [
+        "Scope, Cost, Time",
+        "Scope, Quality, Cost",
+        "Scope, Performance, Cost",
+        "Scope, Performance, Time"
+      ],
+      "correct": 0,
+      "explanation": "Ba thành phần kinh điển của triple constraint là Scope (phạm vi công việc), Cost (chi phí/ngân sách) và Time (thời gian/lịch trình) — thay đổi bất kỳ yếu tố nào trong ba yếu tố này thường sẽ ảnh hưởng đến (các) yếu tố còn lại. Quality và Performance tuy quan trọng nhưng không thuộc bộ ba được đặt tên chính thức trong mô hình triple constraint truyền thống này."
+    },
+    {
+      "id": "PMG201C-T-OVR-10",
+      "type": "choice",
+      "prompt": "Which of the following is included in a project charter?",
+      "options": [
+        "A risk management strategy",
+        "Work package estimates",
+        "Detailed resources estimates",
+        "The business case for the project"
+      ],
+      "correct": 3,
+      "explanation": "Project Charter (điều lệ dự án) bao gồm business case — lý do kinh doanh giải thích vì sao dự án này cần được thực hiện và giá trị nó mang lại — cùng với các thông tin cấp cao khác như mục tiêu, phạm vi tổng quát, quyền hạn của PM. Các nội dung chi tiết như chiến lược quản lý rủi ro, ước lượng work package hay ước lượng nguồn lực chi tiết là sản phẩm của các quá trình lập kế hoạch (planning) diễn ra SAU khi charter đã được phê duyệt, không nằm trong charter."
+    }
+  ]
+}

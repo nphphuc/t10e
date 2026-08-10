@@ -1,0 +1,150 @@
+{
+  "id": "PMG201C-TOPIC-RSK",
+  "title": "PMG201c — Quản Lý Rủi Ro",
+  "questions": [
+    {
+      "id": "PMG201C-T-RSK-01",
+      "type": "choice",
+      "prompt": "Which one of these most correctly defines contingency reserve?",
+      "options": [
+        "Per our lesson, management reserve and contingency reserve are exactly the same.",
+        "Contingency reserve is not tied to any specific work packages nor activities.",
+        "Contingency reserve is tied to specific work packages or activities.",
+        "Contingency reserve is tied to only one specific milestone."
+      ],
+      "correct": 2,
+      "explanation": "Contingency reserve (dự phòng ứng phó) được gắn liền (tied) với các work package hoặc hoạt động CỤ THỂ đã được xác định là có rủi ro (known risks) — dùng để ứng phó với những rủi ro đã biết trước, khác với Management reserve (dự phòng quản lý) vốn không gắn với hoạt động cụ thể nào mà dùng cho những rủi ro CHƯA lường trước (unknown risks/unknown-unknowns)."
+    },
+    {
+      "id": "PMG201C-T-RSK-02",
+      "type": "choice",
+      "prompt": "True or False: A positive risk is a threat, a negative risk is an opportunity.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — thực tế hoàn toàn ngược lại: Positive risk (rủi ro tích cực) chính là OPPORTUNITY (cơ hội, có lợi cho dự án nếu xảy ra), còn Negative risk (rủi ro tiêu cực) mới là THREAT (mối đe doạ, gây hại cho dự án)."
+    },
+    {
+      "id": "PMG201C-T-RSK-03",
+      "type": "choice",
+      "prompt": "All of the following tools and techniques can be valuable in risk identification during the planning phase, EXCEPT:",
+      "options": [
+        "SWOT (Strengths, Opportunities, Weaknesses, Threats)",
+        "Reviewing and evaluating project documents",
+        "Reviewing similar projects executed in past",
+        "EVM (Earned Value Management)"
+      ],
+      "correct": 3,
+      "explanation": "SWOT analysis, việc rà soát tài liệu dự án, và việc xem xét các dự án tương tự trong quá khứ đều là các kỹ thuật hữu ích để nhận diện rủi ro (risk identification) trong giai đoạn lập kế hoạch. EVM (Earned Value Management) là kỹ thuật đo lường hiệu suất trong giai đoạn thực thi/kiểm soát, không phải công cụ dùng để nhận diện rủi ro ở giai đoạn lập kế hoạch."
+    },
+    {
+      "id": "PMG201C-T-RSK-04",
+      "type": "choice",
+      "prompt": "If the response you choose is to exploit a risk this means that:",
+      "options": [
+        "You actively do not consider the risk but establish contingency plan.",
+        "You add steps to your plans to make certain the opportunity is captured.",
+        "You change your plans so that another party will be responsible for a partial amount of ownership of the opportunity.",
+        "You create your plan to increase the probability and/or the impact of the opportunity."
+      ],
+      "correct": 1,
+      "explanation": "Exploit (khai thác) là một chiến lược ứng phó dành riêng cho RỦI RO TÍCH CỰC (cơ hội) — nghĩa là bạn chủ động thêm các bước vào kế hoạch để đảm bảo chắc chắn nắm bắt được cơ hội đó (make certain the opportunity is captured), thay vì chỉ để nó tự nhiên xảy ra hay không xảy ra. Đây khác với Enhance (chỉ tăng xác suất/tác động chứ không đảm bảo chắc chắn) hay Share (chuyển một phần quyền sở hữu cơ hội cho bên khác)."
+    },
+    {
+      "id": "PMG201C-T-RSK-05",
+      "type": "choice",
+      "prompt": "True or False: When you choose to transfer your project risk to a third party, it will definitely eliminate the risk.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — Transfer (chuyển giao rủi ro, ví dụ mua bảo hiểm hoặc thuê ngoài) chỉ chuyển TRÁCH NHIỆM ứng phó/chịu hậu quả của rủi ro sang một bên thứ ba, chứ KHÔNG hề loại bỏ hoàn toàn (eliminate) khả năng rủi ro đó xảy ra — bản thân sự kiện rủi ro vẫn có thể xảy ra, chỉ là ai chịu trách nhiệm xử lý hậu quả đã thay đổi."
+    },
+    {
+      "id": "PMG201C-T-RSK-06",
+      "type": "choice",
+      "prompt": "Which of the following is the most correct statement regarding management and contingency reserves?",
+      "options": [
+        "Contingency reserve used to handle known risks and management reserve used to handle unknown risks",
+        "Contingency reserve used to handle unknown risks and management reserve used to handle known risks.",
+        "Both of them are used to handle known risks",
+        "Both of them are used to handle unknown risks."
+      ],
+      "correct": 0,
+      "explanation": "Contingency reserve dùng để ứng phó với các rủi ro ĐÃ BIẾT (known risks, đã được xác định và phân tích cụ thể), trong khi Management reserve dùng để ứng phó với các rủi ro CHƯA LƯỜNG TRƯỚC (unknown risks/unknown-unknowns) — đây là sự phân biệt cốt lõi giữa hai loại dự phòng này trong quản lý chi phí và rủi ro dự án."
+    },
+    {
+      "id": "PMG201C-T-RSK-07",
+      "type": "choice",
+      "prompt": "True or False: A positive risk is an opportunity; a negative risk is a threat.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây chính là định nghĩa chuẩn xác: rủi ro tích cực (positive risk) là cơ hội (opportunity) có thể mang lại lợi ích nếu xảy ra, còn rủi ro tiêu cực (negative risk) là mối đe doạ (threat) có thể gây hại cho dự án nếu xảy ra."
+    },
+    {
+      "id": "PMG201C-T-RSK-08",
+      "type": "choice",
+      "prompt": "A useful tool in identifying risks is the SWOT analysis. What does SWOT stand for?",
+      "options": [
+        "Strengths, obstacles, weaknesses, and threats",
+        "Strengths, opportunities, winners, and threats",
+        "Scope, opportunities, weaknesses, and time",
+        "Strengths, opportunities, weaknesses, and threats"
+      ],
+      "correct": 3,
+      "explanation": "SWOT là viết tắt của Strengths (điểm mạnh), Opportunities (cơ hội), Weaknesses (điểm yếu), và Threats (mối đe doạ) — một khung phân tích kinh điển giúp nhận diện cả yếu tố nội tại (điểm mạnh/yếu) lẫn yếu tố bên ngoài (cơ hội/đe doạ) có thể ảnh hưởng đến dự án."
+    },
+    {
+      "id": "PMG201C-T-RSK-09",
+      "type": "choice",
+      "prompt": "If the response you choose is to transfer a risk this means that:",
+      "options": [
+        "You actively do not consider the risk but establish contingency plan.",
+        "You change your plans so that you eliminate the risk.",
+        "You change your plan so that another party will be responsible for the risk.",
+        "You create your plan to reduce the probability and/or the impact of the risk."
+      ],
+      "correct": 2,
+      "explanation": "Transfer (chuyển giao rủi ro) nghĩa là bạn thay đổi kế hoạch để một bên THỨ BA khác sẽ chịu trách nhiệm về rủi ro đó (ví dụ mua bảo hiểm, thuê nhà thầu phụ chịu trách nhiệm), khác với Avoid (thay đổi kế hoạch để loại bỏ hoàn toàn rủi ro), Mitigate (giảm xác suất/tác động), hay Accept (chủ động không làm gì và lập kế hoạch dự phòng)."
+    },
+    {
+      "id": "PMG201C-T-RSK-10",
+      "type": "choice",
+      "prompt": "True or False: A positive risk is a threat; a negative risk is an opportunity.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — câu này mô tả ngược hoàn toàn với định nghĩa chuẩn: positive risk phải là opportunity (cơ hội), negative risk mới là threat (mối đe doạ), không phải theo chiều ngược lại như câu hỏi nêu."
+    },
+    {
+      "id": "PMG201C-T-RSK-11",
+      "type": "choice",
+      "prompt": "True or False: Once you plan for managing risks, you are not finished. Risk management is an ongoing process.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — quản lý rủi ro là một quá trình LIÊN TỤC (ongoing process) diễn ra xuyên suốt vòng đời dự án, không kết thúc sau khi hoàn tất bước lập kế hoạch ban đầu — cần liên tục nhận diện, theo dõi và ứng phó với rủi ro mới phát sinh trong suốt quá trình thực hiện."
+    },
+    {
+      "id": "PMG201C-T-RSK-12",
+      "type": "choice",
+      "prompt": "True or False: During a risk brainstorming session, a team member identifies a risk. This particular risk does not seem to belong to any of the categories in your Risk Breakdown Structure (RBS). You thank him for his work, but inform him that the risk cannot be included because it does not fit any of the categories defined in the RBS.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — không nên loại bỏ một rủi ro chỉ vì nó không khớp với các danh mục đã có sẵn trong RBS; thay vào đó, PM nên vẫn ghi nhận rủi ro đó vào Risk Register và có thể cập nhật/mở rộng RBS nếu cần, vì RBS chỉ là công cụ hỗ trợ phân loại chứ không nên giới hạn phạm vi rủi ro được xem xét."
+    }
+  ]
+}

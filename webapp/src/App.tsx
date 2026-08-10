@@ -7,6 +7,7 @@ import PeReviewLanding from './pages/PeReviewLanding';
 import TermBankLanding from './pages/TermBankLanding';
 import Pru213Landing from './pages/Pru213Landing';
 import Prn222Landing from './pages/Prn222Landing';
+import Pmg201cLanding from './pages/Pmg201cLanding';
 import PracticePage from './pages/PracticePage';
 import ClassDiagramBuilderPage from './pages/ClassDiagramBuilderPage';
 import ActivityBuilderPage from './pages/ActivityBuilderPage';
@@ -41,6 +42,9 @@ function AnimatedRoutes() {
         <Route path="/prn222" element={<PageTransition><Prn222Landing /></PageTransition>} />
         <Route path="/prn222/mix" element={<PageTransition><ReviewPage isPrn222Mix={true} /></PageTransition>} />
         <Route path="/prn222/:levelId" element={<PageTransition><ReviewPage isPrn222={true} /></PageTransition>} />
+        <Route path="/pmg201c" element={<PageTransition><Pmg201cLanding /></PageTransition>} />
+        <Route path="/pmg201c/mix" element={<PageTransition><ReviewPage isPmg201cMix={true} /></PageTransition>} />
+        <Route path="/pmg201c/:levelId" element={<PageTransition><ReviewPage isPmg201c={true} /></PageTransition>} />
         <Route path="/practice" element={<PageTransition><PracticePage /></PageTransition>} />
       </Routes>
     </ErrorBoundary>

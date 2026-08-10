@@ -1,0 +1,376 @@
+{
+  "id": "PMG201C-TOPIC-SCH",
+  "title": "PMG201c — Phạm Vi, WBS & Lịch Trình",
+  "questions": [
+    {
+      "id": "PMG201C-T-SCH-01",
+      "type": "choice",
+      "prompt": "You have finished planning and have begun executing the project when the client asks if you would shorten the project duration so that the project can finish 2 weeks earlier than the original plan. How are the triple constraints affected?",
+      "options": [
+        "Scope and cost may both be affected",
+        "Neither scope nor cost will be affected in any situation",
+        "Cost will reduce as the project duration is shortened and scope is not changed",
+        "There is no relevant option except the project must be cut down on scope"
+      ],
+      "correct": 0,
+      "explanation": "Khi rút ngắn thời gian (time) của dự án, do bản chất ràng buộc lẫn nhau của triple constraint, cả phạm vi (scope — có thể phải cắt giảm một số công việc) lẫn chi phí (cost — có thể phải tăng do dùng kỹ thuật Crashing thêm nguồn lực) đều có khả năng bị ảnh hưởng, chứ không chỉ một yếu tố duy nhất. Không thể khẳng định chắc chắn rằng hoàn toàn không có yếu tố nào bị ảnh hưởng, hay chỉ có duy nhất chi phí/phạm vi bị tác động."
+    },
+    {
+      "id": "PMG201C-T-SCH-02",
+      "type": "choice",
+      "prompt": "Scope creep results in:",
+      "options": [
+        "Completion delays, escalation of costs, and increase in project complexity.",
+        "On-time deliverables, escalation of costs, and increase in project complexity.",
+        "Completion delays, decrease in costs, and increase in project complexity.",
+        "Completion delays, escalation of costs, and decrease in project complexity."
+      ],
+      "correct": 0,
+      "explanation": "Scope creep (phạm vi bị phình to không kiểm soát, thường do thêm yêu cầu mà không qua quy trình change control chính thức) dẫn đến hậu quả tiêu cực: dự án bị trễ hoàn thành (completion delays), chi phí leo thang (escalation of costs), và độ phức tạp của dự án tăng lên (increase in complexity) — hoàn toàn không có lợi ích 'giao hàng đúng hạn' hay 'giảm chi phí/độ phức tạp' đi kèm với scope creep."
+    },
+    {
+      "id": "PMG201C-T-SCH-03",
+      "type": "choice",
+      "prompt": "To ensure control over the incidence and frequency of change, the project manager establishes a:",
+      "options": [
+        "Work breakdown structure",
+        "Work responsibility assignment matrix",
+        "Work procedure schedule",
+        "Change control process"
+      ],
+      "correct": 3,
+      "explanation": "Change Control Process (quy trình kiểm soát thay đổi) là cơ chế chính thức mà project manager thiết lập để đánh giá, phê duyệt hoặc từ chối các yêu cầu thay đổi một cách có kiểm soát, giúp hạn chế sự tuỳ tiện trong tần suất và mức độ thay đổi phạm vi. WBS chỉ dùng để phân rã công việc, Responsibility Assignment Matrix gán vai trò/trách nhiệm, còn 'Work procedure schedule' không phải là một công cụ PM chuẩn."
+    },
+    {
+      "id": "PMG201C-T-SCH-04",
+      "type": "choice",
+      "prompt": "The Scope Management section of your project plan document would include information on:",
+      "options": [
+        "How to ask for more money for the project.",
+        "Who can suggest changes to the project.",
+        "How risks are to be managed.",
+        "What type of scheduling software to use."
+      ],
+      "correct": 1,
+      "explanation": "Phần Scope Management của kế hoạch dự án mô tả các quy trình quản lý phạm vi, bao gồm ai có quyền đề xuất thay đổi đối với phạm vi dự án (who can suggest changes) và cách các thay đổi đó được xử lý. Nó không phải là nơi hướng dẫn xin thêm ngân sách, không mô tả cách quản lý rủi ro (thuộc Risk Management Plan), và cũng không quy định phần mềm lập lịch sử dụng (thuộc Schedule Management Plan)."
+    },
+    {
+      "id": "PMG201C-T-SCH-05",
+      "type": "choice",
+      "prompt": "Should the Project Scope Statement document include?",
+      "options": [
+        "Acceptance criteria",
+        "Milestones",
+        "WBS (Work Breakdown Structure)",
+        "WBS Dictionary"
+      ],
+      "correct": 0,
+      "explanation": "Project Scope Statement (bản công bố phạm vi dự án) nên bao gồm acceptance criteria — các tiêu chí để xác định công việc/sản phẩm đã hoàn thành đạt yêu cầu hay chưa — cùng với mô tả phạm vi, deliverables, exclusions... Milestones, WBS và WBS Dictionary là các tài liệu/đầu ra riêng biệt được phát triển sau đó trong quá trình lập kế hoạch phạm vi và lịch trình, không phải là thành phần trực tiếp của Scope Statement."
+    },
+    {
+      "id": "PMG201C-T-SCH-06",
+      "type": "choice",
+      "prompt": "True or False: A Work Breakdown Structure (WBS) is a deliverable-oriented hierarchical decomposition of the work to be executed by the project team.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — đây chính là định nghĩa chuẩn của WBS: một cấu trúc phân cấp (hierarchical) tập trung vào sản phẩm bàn giao (deliverable-oriented), phân rã toàn bộ khối lượng công việc mà đội dự án cần thực hiện thành các phần nhỏ, dễ quản lý hơn."
+    },
+    {
+      "id": "PMG201C-T-SCH-07",
+      "type": "choice",
+      "prompt": "The 8-80 rule refers to:",
+      "options": [
+        "Never allow your team to work more than 8 hours per day or 80 hours during a 10-day work period.",
+        "Work packages over 80 hours should be split between multiple resources.",
+        "Work packages should NOT be between 8 and 80 hours of effort.",
+        "Work packages should be between 8 and 80 hours of effort."
+      ],
+      "correct": 3,
+      "explanation": "Quy tắc 8-80 là một hướng dẫn thực hành trong việc phân rã WBS: mỗi work package (gói công việc) ở mức thấp nhất nên có khối lượng công việc nằm trong khoảng từ 8 đến 80 giờ công — không quá nhỏ (khó quản lý, quá nhiều report) và không quá lớn (khó theo dõi tiến độ chính xác). Đây không liên quan đến giới hạn số giờ làm việc mỗi ngày của thành viên đội dự án."
+    },
+    {
+      "id": "PMG201C-T-SCH-08",
+      "type": "choice",
+      "prompt": "The network diagram is the best tool for demonstrating:",
+      "options": [
+        "Schedule performance over time",
+        "Schedule variances",
+        "Resource requirements",
+        "The sequence of project activities"
+      ],
+      "correct": 3,
+      "explanation": "Network diagram (sơ đồ mạng) là công cụ trực quan tốt nhất để thể hiện trình tự và mối quan hệ phụ thuộc (sequence) giữa các hoạt động của dự án — hoạt động nào phải hoàn thành trước hoạt động nào mới có thể bắt đầu. Nó không phải công cụ chính để đo hiệu suất lịch trình theo thời gian (đó là biểu đồ S-curve/EVM), không thể hiện độ lệch lịch trình (schedule variance) hay yêu cầu nguồn lực một cách trực tiếp."
+    },
+    {
+      "id": "PMG201C-T-SCH-09",
+      "type": "choice",
+      "prompt": "True or False: If “develop online modules” needs to finish before “review online modules” can finish, that is called a finish to finish relationship.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Finish-to-Finish (FF) là mối quan hệ phụ thuộc trong đó hoạt động sau (review) không thể hoàn thành cho đến khi hoạt động trước (develop) đã hoàn thành, dù cả hai có thể đang chạy song song một phần thời gian. Đây khác với Finish-to-Start (FS, phổ biến nhất) — nơi hoạt động sau chỉ có thể BẮT ĐẦU sau khi hoạt động trước kết thúc."
+    },
+    {
+      "id": "PMG201C-T-SCH-10",
+      "type": "choice",
+      "prompt": "To calculate late start (LS) of an activity, you will:",
+      "options": [
+        "Take its late finish minus its estimated duration.",
+        "Take its early finish minus its estimated duration.",
+        "Take its early start plus its estimated duration.",
+        "Take its early start."
+      ],
+      "correct": 0,
+      "explanation": "Late Start (LS) của một hoạt động được tính bằng cách lấy Late Finish (LF) của chính hoạt động đó trừ đi thời lượng ước tính (estimated duration) của nó — đây là kết quả của Backward Pass (đi ngược từ cuối dự án về đầu). Công thức LS = LF − Duration là công thức chuẩn trong phân tích Critical Path Method (CPM)."
+    },
+    {
+      "id": "PMG201C-T-SCH-11",
+      "type": "choice",
+      "prompt": "True or False: The Backward Pass is used through the activities to determine the critical path \\& available float of the project.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Backward Pass (tính ngược từ hoạt động cuối cùng về hoạt động đầu tiên) được dùng để xác định Late Start/Late Finish của từng hoạt động, từ đó tính ra Float (thời gian trễ cho phép) và xác định Critical Path (đường găng — các hoạt động có Float bằng 0). Forward Pass (tính xuôi) thì dùng để xác định tổng thời lượng dự án và Early Start/Early Finish."
+    },
+    {
+      "id": "PMG201C-T-SCH-12",
+      "type": "choice",
+      "prompt": "True or False: Your project might pay more in order to reduce the schedule when using Crashing approach, but that is not often true if using Fast Tracking approach.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Crashing thường đòi hỏi thêm nguồn lực (nhân sự, chi phí làm thêm giờ...) để rút ngắn thời gian hoạt động, nên thường làm tăng chi phí; trong khi Fast Tracking chỉ đơn thuần là sắp xếp lại để các hoạt động vốn tuần tự chạy song song với nhau, nên thường không tốn thêm chi phí đáng kể (nhưng lại làm tăng rủi ro do phải bắt đầu công việc khi đầu vào chưa hoàn toàn sẵn sàng)."
+    },
+    {
+      "id": "PMG201C-T-SCH-13",
+      "type": "choice",
+      "prompt": "Scope creep results in all of the followings, except:",
+      "options": [
+        "Completion delays",
+        "Escalation of costs",
+        "Increases in project complexity",
+        "Decreases in project complexity"
+      ],
+      "correct": 3,
+      "explanation": "Scope creep gây ra completion delays (trễ tiến độ) và escalation of costs (tăng chi phí), đồng thời làm TĂNG độ phức tạp của dự án (increase, không phải decrease) do có thêm nhiều yêu cầu, mối quan hệ và công việc chưa được hoạch định phải xử lý. 'Decreases in project complexity' hoàn toàn ngược lại với tác động thực tế của scope creep, nên đây là đáp án đúng cho câu hỏi dạng EXCEPT."
+    },
+    {
+      "id": "PMG201C-T-SCH-14",
+      "type": "choice",
+      "prompt": "The project manager has just received a change request from the customer that does not affect the project schedule and is easy to complete. What should the project manager do first?",
+      "options": [
+        "Make the change happen as soon as possible",
+        "Contact the project sponsor for permission",
+        "Go to the change control board",
+        "Evaluate the impacts on other project constraints"
+      ],
+      "correct": 3,
+      "explanation": "Dù thay đổi có vẻ nhỏ và dễ thực hiện, PM vẫn cần đánh giá tác động của nó lên các ràng buộc khác của dự án (evaluate the impacts on other project constraints) trước khi quyết định — vì một thay đổi tưởng chừng đơn giản vẫn có thể ảnh hưởng đến phạm vi, chất lượng, rủi ro hay các phụ thuộc khác mà chưa được nhìn thấy ngay. Việc thực hiện ngay lập tức mà bỏ qua đánh giá tác động là vi phạm nguyên tắc kiểm soát thay đổi tích hợp (Integrated Change Control)."
+    },
+    {
+      "id": "PMG201C-T-SCH-15",
+      "type": "multi",
+      "prompt": "Which of the following is NOT the output of Plan Scope Management process? (Choose 2 answers)",
+      "options": [
+        "Scope Management Plan",
+        "Requirement Management Plan",
+        "Quality Management Plan",
+        "Time Management Plan"
+      ],
+      "correctSet": [
+        2,
+        3
+      ],
+      "explanation": "Đầu ra của quá trình Plan Scope Management chỉ gồm Scope Management Plan và Requirements Management Plan — hai tài liệu định hướng cách phạm vi và yêu cầu sẽ được xác định, kiểm soát trong suốt dự án. Quality Management Plan (thuộc Plan Quality Management) và Time/Schedule Management Plan (thuộc Plan Schedule Management) là đầu ra của các quá trình lập kế hoạch khác, không phải của Plan Scope Management."
+    },
+    {
+      "id": "PMG201C-T-SCH-16",
+      "type": "choice",
+      "prompt": "During which part of the project management process is the Project Scope Statement created?",
+      "options": [
+        "Initiating",
+        "Planning",
+        "Executing",
+        "Monitoring and Controlling",
+        "Closing"
+      ],
+      "correct": 1,
+      "explanation": "Project Scope Statement được tạo ra trong giai đoạn Planning (lập kế hoạch) — cụ thể là trong quá trình Define Scope, sau khi dự án đã được khởi tạo (Initiating, nơi Project Charter được tạo) nhưng trước khi các hoạt động thực thi (Executing) bắt đầu. Đây là một trong những tài liệu nền tảng quan trọng nhất của giai đoạn lập kế hoạch phạm vi."
+    },
+    {
+      "id": "PMG201C-T-SCH-17",
+      "type": "choice",
+      "prompt": "True or False: The WBS should completely depict the scope of your project that if something is not in the WBS it is because it is NOT part of the project.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — nguyên tắc '100% Rule' của WBS quy định rằng WBS phải thể hiện đầy đủ 100% phạm vi công việc của dự án; bất kỳ điều gì không xuất hiện trong WBS thì mặc định không thuộc phạm vi của dự án. Đây là lý do WBS được xem là công cụ kiểm soát phạm vi rất mạnh, giúp ngăn scope creep."
+    },
+    {
+      "id": "PMG201C-T-SCH-18",
+      "type": "choice",
+      "prompt": "The network diagram can be used to:",
+      "options": [
+        "Control the cost performance of the project",
+        "Show project schedule performance over time",
+        "Identify project resource requirements",
+        "Help to identify riskier activities",
+        "Help to justify project quality metrics"
+      ],
+      "correct": 3,
+      "explanation": "Network diagram giúp xác định các hoạt động có rủi ro cao hơn (riskier activities) — ví dụ những hoạt động nằm trên đường găng (critical path) hoặc có nhiều phụ thuộc phức tạp thường tiềm ẩn rủi ro lớn hơn cho tiến độ chung. Nó không dùng để kiểm soát hiệu suất chi phí, không trực tiếp thể hiện hiệu suất lịch trình theo thời gian, không xác định yêu cầu nguồn lực, và cũng không liên quan đến việc biện minh cho các chỉ số chất lượng."
+    },
+    {
+      "id": "PMG201C-T-SCH-19",
+      "type": "choice",
+      "prompt": "True or False: If \"develop online modules\" must be 100% completed before \"review online modules\" can begin, that is called a finish to start relationship.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Finish-to-Start (FS) là mối quan hệ phụ thuộc phổ biến nhất, trong đó hoạt động sau (review) chỉ có thể BẮT ĐẦU sau khi hoạt động trước (develop) đã hoàn thành 100%. Đây là kiểu quan hệ mặc định trong hầu hết các công cụ lập lịch dự án."
+    },
+    {
+      "id": "PMG201C-T-SCH-20",
+      "type": "choice",
+      "prompt": "To calculate early start (ES) of an activity which has more than one immediate predecessors, you will",
+      "options": [
+        "Take the latest early finish of its immediate predecessors.",
+        "Take the latest early start of its immediate predecessors.",
+        "Take the latest late finish of its immediate predecessors.",
+        "Take the latest late start of its immediate predecessors."
+      ],
+      "correct": 0,
+      "explanation": "Khi một hoạt động có nhiều hơn một hoạt động tiền nhiệm trực tiếp (predecessor), Early Start (ES) của nó được xác định bằng cách lấy giá trị Early Finish (EF) LỚN NHẤT (latest) trong số các hoạt động tiền nhiệm đó — vì hoạt động chỉ có thể bắt đầu sau khi TẤT CẢ các hoạt động tiền nhiệm đều đã hoàn thành. Đây là nguyên tắc cốt lõi của Forward Pass trong CPM."
+    },
+    {
+      "id": "PMG201C-T-SCH-21",
+      "type": "choice",
+      "prompt": "True or False: The critical path is the shortest path through the network and represents the work that can be delayed without delaying the end of the project.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — Critical path thực chất là đường DÀI NHẤT (longest, không phải shortest) xuyên suốt network diagram, và nó đại diện cho chuỗi công việc KHÔNG THỂ bị trễ (không có float) mà không làm trễ toàn bộ dự án — hoàn toàn ngược lại với mô tả trong câu hỏi."
+    },
+    {
+      "id": "PMG201C-T-SCH-22",
+      "type": "choice",
+      "prompt": "True or False: The Forward Pass is used through the activities to determine the total duration of the project.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Forward Pass (tính xuôi từ hoạt động đầu tiên đến hoạt động cuối cùng) được dùng để xác định Early Start/Early Finish của từng hoạt động, và qua đó xác định được tổng thời lượng (total duration) của toàn bộ dự án."
+    },
+    {
+      "id": "PMG201C-T-SCH-23",
+      "type": "choice",
+      "prompt": "True or False: The Fast Tracking is the approach to re-plan the work and try to perform more overlapping sequential activities to be in parallel.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 0,
+      "explanation": "Đúng — Fast Tracking là kỹ thuật rút ngắn lịch trình bằng cách lập lại kế hoạch để các hoạt động vốn được sắp xếp tuần tự (sequential) có thể thực hiện chồng lấn/song song (in parallel) với nhau, nhằm giảm tổng thời gian dự án mà không cần thêm nhiều nguồn lực (nhưng đánh đổi bằng rủi ro cao hơn)."
+    },
+    {
+      "id": "PMG201C-T-SCH-24",
+      "type": "choice",
+      "prompt": "During executing, the project manager determines that a change is needed to material purchased for the project. The project manager calls a meeting of the team to plan how to make the changes. This is an example of:",
+      "options": [
+        "Management by objectives",
+        "Lack of a change management plan",
+        "Good team relations",
+        "Lack of a clear work breakdown structure"
+      ],
+      "correct": 1,
+      "explanation": "Việc PM phải triệu tập họp để tự nghĩ cách xử lý thay đổi một cách tuỳ biến (ad-hoc), thay vì có sẵn một quy trình chính thức để dẫn dắt, cho thấy rõ dự án đang thiếu một Change Management Plan (kế hoạch quản lý thay đổi) được thiết lập từ trước. Nếu có change management plan, PM chỉ cần áp dụng quy trình có sẵn thay vì phải họp bàn cách xử lý từ đầu."
+    },
+    {
+      "id": "PMG201C-T-SCH-25",
+      "type": "choice",
+      "prompt": "True or False: Project scope statement is better to define inclusions (in-scope items) than identify only exclusions (out of scope items).",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 1,
+      "explanation": "Đúng — Project Scope Statement nên tập trung định nghĩa rõ những gì THUỘC phạm vi dự án (inclusions) một cách tường minh, thay vì chỉ liệt kê những gì KHÔNG thuộc phạm vi (exclusions), vì việc mô tả rõ ràng phạm vi bao gồm giúp tránh hiểu lầm và scope creep hiệu quả hơn là chỉ dựa vào danh sách loại trừ."
+    },
+    {
+      "id": "PMG201C-T-SCH-26",
+      "type": "choice",
+      "prompt": "True or False: A Work Breakdown Structure (WBS) is a deliverable-oriented hierarchical decomposition of the work to be executed just by the Project Manager.",
+      "options": [
+        "False",
+        "True"
+      ],
+      "correct": 0,
+      "explanation": "Sai — WBS phân rã công việc mà TOÀN BỘ đội dự án (project team) cần thực hiện, không phải chỉ riêng công việc của một mình Project Manager. Đây là điểm khác biệt so với định nghĩa chuẩn của WBS đã nêu ở câu hỏi tương tự khác trong bộ đề (work to be executed by the project team)."
+    },
+    {
+      "id": "PMG201C-T-SCH-27",
+      "type": "choice",
+      "prompt": "If \"develop online modules\" needs to begin before \"review online modules\" can begin, that is called a:",
+      "options": [
+        "Finish to start relationship.",
+        "Start to finish relationship.",
+        "Finish to finish relationship.",
+        "Start to start relationship."
+      ],
+      "correct": 3,
+      "explanation": "Đây là mối quan hệ Start-to-Start (SS) — hoạt động sau (review) chỉ có thể BẮT ĐẦU sau khi hoạt động trước (develop) đã BẮT ĐẦU (không cần phải hoàn thành), hai hoạt động có thể chạy song song sau điểm khởi đầu chung đó. Nó khác Finish-to-Start (yêu cầu hoạt động trước phải hoàn thành) và Finish-to-Finish (ràng buộc ở điểm kết thúc)."
+    },
+    {
+      "id": "PMG201C-T-SCH-28",
+      "type": "choice",
+      "prompt": "To calculate early finish (EF) of an activity, you will",
+      "options": [
+        "Take its early start plus its estimated duration.",
+        "Take its late start plus its estimated duration.",
+        "Take its late finish minus its estimated duration.",
+        "Take its late finish."
+      ],
+      "correct": 0,
+      "explanation": "Early Finish (EF) của một hoạt động được tính bằng Early Start (ES) cộng với thời lượng ước tính (estimated duration) của hoạt động đó — đây là công thức cơ bản của Forward Pass trong phân tích Critical Path Method."
+    },
+    {
+      "id": "PMG201C-T-SCH-29",
+      "type": "choice",
+      "prompt": "True or False: The Forward Pass is used through the activities to determine the critical path \\& available float of the project.",
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct": 1,
+      "explanation": "Sai — chính Backward Pass (không phải Forward Pass) mới là kỹ thuật dùng để xác định Critical Path và Float của dự án. Forward Pass chỉ dùng để xác định Early Start/Early Finish và tổng thời lượng dự án; phải kết hợp cả Forward Pass lẫn Backward Pass thì mới tính được Float đầy đủ."
+    },
+    {
+      "id": "PMG201C-T-SCH-30",
+      "type": "choice",
+      "prompt": "Which one is NOT the approach to shorten your project schedule?",
+      "options": [
+        "Fast Tracking",
+        "Crashing",
+        "Reducing"
+      ],
+      "correct": 2,
+      "explanation": "Hai kỹ thuật chuẩn để rút ngắn lịch trình dự án là Crashing (thêm nguồn lực để tăng tốc các hoạt động trên đường găng) và Fast Tracking (thực hiện song song các hoạt động vốn tuần tự). 'Reducing' không phải là một thuật ngữ/kỹ thuật chính thức được PMBOK định nghĩa cho việc rút ngắn lịch trình."
+    }
+  ]
+}
