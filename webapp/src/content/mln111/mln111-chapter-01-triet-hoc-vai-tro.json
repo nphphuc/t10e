@@ -1,0 +1,201 @@
+{
+  "id": "MLN111-CHAPTER-CH1",
+  "title": "MLN111 — Chương 1 — Triết Học & Vai Trò",
+  "questions": [
+    {
+      "id": "MLN111-CH1-01",
+      "type": "choice",
+      "prompt": "Vấn đề cơ bản của Triết học là gì?",
+      "options": [
+        "Mối quan hệ giữa tự nhiên và bản thể",
+        "Mối quan hệ giữa tư duy và tồn tại",
+        "Mối quan hệ giữa cái chung và cái riêng",
+        "Con người và bản thể"
+      ],
+      "correct": 1,
+      "explanation": "Theo Ăngghen, vấn đề cơ bản của mọi triết học là mối quan hệ giữa tư duy và tồn tại (giữa vật chất và ý thức)."
+    },
+    {
+      "id": "MLN111-CH1-02",
+      "type": "choice",
+      "prompt": "Ai được xem là nhà triết học thiên tài vào thế kỷ XVIII - XIX?",
+      "options": [
+        "Hecralitus",
+        "Immanuel Kant",
+        "Socrates",
+        "Bruno Fesnades"
+      ],
+      "correct": 1,
+      "explanation": "Immanuel Kant (1724-1804) sống vào thế kỷ XVIII-XIX, là nhà triết học Đức thiên tài, đặt nền móng cho triết học cổ điển Đức."
+    },
+    {
+      "id": "MLN111-CH1-03",
+      "type": "choice",
+      "prompt": "Chủ nghĩa Mác-Lênin có những bộ phận cấu thành nào?",
+      "options": [
+        "Triết học Mác-Lênin, Kinh tế chính trị Mác-Lênin và Chủ nghĩa xã hội khoa học",
+        "Triết học, Kinh tế chính trị học và Chính trị học",
+        "Triết học, Kinh tế học và Chủ nghĩa xã hội khoa học",
+        "Triết học, kinh tế học, chủ nghĩa xã hội không tưởng"
+      ],
+      "correct": 0,
+      "explanation": "Chủ nghĩa Mác-Lênin gồm 3 bộ phận cấu thành: Triết học Mác-Lênin, Kinh tế chính trị Mác-Lênin và Chủ nghĩa xã hội khoa học."
+    },
+    {
+      "id": "MLN111-CH1-04",
+      "type": "choice",
+      "prompt": "Đâu là nhận định sai về Triết học Mác?",
+      "options": [
+        "Triết học Mác cho rằng triết học là khoa học của mọi khoa học",
+        "Theo quan điểm của triết học Mác, triết học không thay thế được các khoa học cụ thể",
+        "Theo quan điểm của triết học Mác thì sự phát triển của triết học quan hệ chặt chẽ với sự phát triển của khoa học tự nhiên",
+        "Triết học Mác là sự tổng hợp của các trường phái triết học trong lịch sử"
+      ],
+      "correct": 0,
+      "explanation": "Triết học Mác phê phán quan niệm \"triết học là khoa học của mọi khoa học\" (quan niệm cũ); triết học Mác không thay thế các khoa học cụ thể mà chỉ đóng vai trò thế giới quan, phương pháp luận chung."
+    },
+    {
+      "id": "MLN111-CH1-05",
+      "type": "choice",
+      "prompt": "Thuật ngữ \"triết gia\" đầu tiên xuất hiện được dùng để chỉ người nghiên cứu về:",
+      "options": [
+        "Bản chất của sự vật",
+        "Bản chất của thế giới",
+        "Bản chất của con người",
+        "Bản chất của thực tại khách quan"
+      ],
+      "correct": 1,
+      "explanation": "Thuật ngữ \"triết gia\" (philosophos) ban đầu dùng để chỉ những người yêu thích sự thông thái, nghiên cứu về bản chất của thế giới, vũ trụ."
+    },
+    {
+      "id": "MLN111-CH1-06",
+      "type": "choice",
+      "prompt": "Nguyên lý là thuật ngữ đa nghĩa khá bất định có nguồn gốc từ tiếng nào?",
+      "options": [
+        "Hy Lạp",
+        "Trung Quốc",
+        "Nga",
+        "Việt Nam"
+      ],
+      "correct": 0,
+      "explanation": "Thuật ngữ \"nguyên lý\" (principium/arche) có nguồn gốc từ tiếng Hy Lạp cổ, chỉ cái khởi đầu, cái cơ bản nhất."
+    },
+    {
+      "id": "MLN111-CH1-07",
+      "type": "choice",
+      "prompt": "Đâu là khẳng định đúng về mối quan hệ giữa các bộ phận cấu thành chủ nghĩa Mác - Lênin?",
+      "options": [
+        "Triết học là cơ sở nền tảng của kinh tế chính trị và chủ nghĩa xã hội khoa học.",
+        "Kinh tế chính trị học là cơ sở nền tảng của triết học và chủ nghĩa xã hội khoa học.",
+        "Chủ nghĩa xã hội khoa học là cơ sở của kinh tế chính trị và triết học.",
+        "Triết học, kinh tế chính trị và chủ nghĩa xã hội khoa học là những bộ phận độc lập, tách rời nhau."
+      ],
+      "correct": 0,
+      "explanation": "Triết học Mác-Lênin cung cấp thế giới quan và phương pháp luận, là nền tảng lý luận cho kinh tế chính trị học và chủ nghĩa xã hội khoa học."
+    },
+    {
+      "id": "MLN111-CH1-08",
+      "type": "choice",
+      "prompt": "Thế giới quan duy vật biện chứng bao gồm:",
+      "options": [
+        "Tri thức khoa học, niềm tin khoa học và lý tưởng cách mạng",
+        "Tri thức khoa học, niềm tin khoa học và hệ giá trị cộng đồng",
+        "Tri thức khoa học, tình cảm khoa học và lý tưởng khoa học",
+        "Tri thức khoa học, niềm tin khoa học và lý tưởng khoa học"
+      ],
+      "correct": 3,
+      "explanation": "Theo giáo trình, thế giới quan duy vật biện chứng là sự thống nhất giữa tri thức khoa học, niềm tin khoa học và lý tưởng khoa học."
+    },
+    {
+      "id": "MLN111-CH1-09",
+      "type": "choice",
+      "prompt": "Triết học nghiên cứu thế giới như thế nào?",
+      "options": [
+        "Như một đối tượng vật chất cụ thể",
+        "Như một hệ đối tượng vật chất nhất định",
+        "Như một chỉnh thể thống nhất",
+        "Như một đối tượng tinh thần nhất định"
+      ],
+      "correct": 2,
+      "explanation": "Triết học nghiên cứu thế giới như một chỉnh thể, tìm ra quy luật chung nhất chi phối sự vận động của toàn bộ chỉnh thể đó."
+    },
+    {
+      "id": "MLN111-CH1-10",
+      "type": "choice",
+      "prompt": "Nhận định nào sau đây là sai khi nói về vị trí, vai trò của Triết học Mác - Lênin trong đời sống xã hội và trong sự nghiệp đổi mới ở Việt Nam hiện nay?",
+      "options": [
+        "Là cơ sở lý luận tuyệt đối đúng cho hoạt động thực tiễn",
+        "Là phương pháp duy nhất đúng để nhận thức thế giới",
+        "Là chìa khóa vạn năng để giải quyết mọi vấn đề",
+        "Là nền tảng tư tưởng, kim chỉ nam cho hành động"
+      ],
+      "correct": 2,
+      "explanation": "Triết học Mác-Lênin không phải \"chìa khóa vạn năng\"; giáo trình phê phán quan điểm tuyệt đối hóa, giáo điều hóa vai trò của triết học."
+    },
+    {
+      "id": "MLN111-CH1-11",
+      "type": "choice",
+      "prompt": "Triết học Mác - Lênin ra đời một phần là kết quả kế thừa trực tiếp từ đâu?",
+      "options": [
+        "Thế giới quan duy vật của Hêghen và phép biện chứng của Phoiơbắc",
+        "Thế giới quan duy vật của Phơ bách và phép biện chứng của Hêghen",
+        "Thế giới quan duy vật và phép biện chứng của cả Hêghen và Phơ bách",
+        "Chủ nghĩa duy tâm của Hôn bách và biện chứng pháp của Aristốt"
+      ],
+      "correct": 1,
+      "explanation": "Mác kế thừa có phê phán: \"hạt nhân hợp lý\" phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoiơbắc."
+    },
+    {
+      "id": "MLN111-CH1-12",
+      "type": "choice",
+      "prompt": "Theo quan điểm của Các Mác, học thuyết của các ông là một học thuyết có tính chất gì?",
+      "options": [
+        "Tuyệt đối đúng",
+        "Hoàn thiện",
+        "Đóng kín",
+        "Mở"
+      ],
+      "correct": 3,
+      "explanation": "Mác - Ăngghen khẳng định học thuyết của mình không phải là giáo điều mà là một hệ thống mở, luôn được bổ sung, phát triển."
+    },
+    {
+      "id": "MLN111-CH1-13",
+      "type": "choice",
+      "prompt": "Chủ nghĩa Mác-Lênin ra đời dựa trên bao nhiêu tiền đề?",
+      "options": [
+        "Ba tiền đề",
+        "Bốn tiền đề",
+        "Năm tiền đề",
+        "Sáu tiền đề"
+      ],
+      "correct": 0,
+      "explanation": "Ba tiền đề: kinh tế - xã hội, lý luận (kế thừa triết học cổ điển Đức, kinh tế chính trị Anh, chủ nghĩa xã hội không tưởng Pháp) và khoa học tự nhiên."
+    },
+    {
+      "id": "MLN111-CH1-14",
+      "type": "choice",
+      "prompt": "Đâu là một trong những tác phẩm của Lênin?",
+      "options": [
+        "Chủ nghĩa xã hội không tưởng Pháp",
+        "Chủ nghĩa Duy vật và chủ nghĩa kinh viện phê phán",
+        "Chủ nghĩa Duy vật và chủ nghĩa kinh nghiệm phê phán",
+        "Đường Kách Mệnh"
+      ],
+      "correct": 2,
+      "explanation": "\"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\" (1909) là tác phẩm nổi tiếng của Lênin."
+    },
+    {
+      "id": "MLN111-CH1-15",
+      "type": "choice",
+      "prompt": "\"Phát triển diễn ra theo còn đường tròn khép kín, là sự lặp lại đơn thuần cái cũ\". Luận điểm này thuộc lập trường triết học nào?",
+      "options": [
+        "Quan điểm duy vật biện chứng",
+        "Quan điểm siêu hình",
+        "Quan điểm biện chứng duy tâm",
+        "Quan điểm duy tâm khách quan"
+      ],
+      "correct": 1,
+      "explanation": "Quan điểm siêu hình phủ nhận phát triển theo đường xoáy ốc đi lên, cho rằng chỉ là vòng tuần hoàn khép kín lặp lại cái cũ."
+    }
+  ]
+}

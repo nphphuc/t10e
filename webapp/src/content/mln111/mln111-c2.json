@@ -1,0 +1,790 @@
+{
+  "id": "MLN111-C2",
+  "title": "MLN111 — Đề C2",
+  "questions": [
+    {
+      "id": "MLN111-C2-01",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy tâm có nguồn gốc nhận thức và nguồn gốc xã hội là trong quá trình nhận thức nó xem xét phiến diện, tuyệt đối hoá, thần thánh hoá cái gì của quá trình nhận thức?",
+      "options": [
+        "Một đối tượng",
+        "Những đặc tính nào đó",
+        "Một số mặt nào đó",
+        "Một mặt, một đặc tính nào đó"
+      ],
+      "correct": 3,
+      "explanation": "Theo giáo trình, chủ nghĩa duy tâm nảy sinh khi nhận thức tuyệt đối hóa một mặt, một đặc tính nào đó của quá trình nhận thức, tách nó khỏi vật chất và thực tiễn."
+    },
+    {
+      "id": "MLN111-C2-02",
+      "type": "choice",
+      "prompt": "Vấn đề cơ bản của Triết học là gì?",
+      "options": [
+        "Mối quan hệ giữa tự nhiên và bản thể",
+        "Mối quan hệ giữa tư duy và tồn tại",
+        "Mối quan hệ giữa cái chung và cái riêng",
+        "Con người và bản thể"
+      ],
+      "correct": 1,
+      "explanation": "Ph.Ăngghen khẳng định vấn đề cơ bản lớn của mọi triết học là mối quan hệ giữa tư duy và tồn tại (giữa ý thức và vật chất)."
+    },
+    {
+      "id": "MLN111-C2-03",
+      "type": "choice",
+      "prompt": "Triết học nghiên cứu thế giới như thế nào?",
+      "options": [
+        "Như một đối tượng vật chất cụ thể",
+        "Như một hệ đối tượng vật chất nhất định",
+        "Như một chỉnh thể thống nhất",
+        "Như một đối tượng tinh thần nhất định"
+      ],
+      "correct": 2,
+      "explanation": "Triết học nghiên cứu thế giới như một chỉnh thể, tìm ra quy luật chung nhất chi phối sự vận động của toàn bộ chỉnh thể đó."
+    },
+    {
+      "id": "MLN111-C2-04",
+      "type": "choice",
+      "prompt": "Thales, Heraclitus, Anaximenes là những đại biểu thuộc trường phái nào?",
+      "options": [
+        "Chủ nghĩa duy vật thời cổ đại",
+        "Chủ nghĩa duy vật siêu hình",
+        "Chủ nghĩa duy tâm khách quan",
+        "Chủ nghĩa duy vật biện chứng trước Mác"
+      ],
+      "correct": 0,
+      "explanation": "Đây là các nhà triết học duy vật Hy Lạp cổ đại (trường phái Milê), đại diện cho chủ nghĩa duy vật chất phác thời cổ đại."
+    },
+    {
+      "id": "MLN111-C2-05",
+      "type": "choice",
+      "prompt": "Đâu là một trong những nguồn gốc ra đời của Triết học?",
+      "options": [
+        "Tự nhiên",
+        "Lao động",
+        "Ngôn ngữ",
+        "Xã hội"
+      ],
+      "correct": 3,
+      "explanation": "Giáo trình nêu Triết học ra đời từ nguồn gốc nhận thức và nguồn gốc xã hội (sự phân công lao động, phân chia giai cấp trong xã hội)."
+    },
+    {
+      "id": "MLN111-C2-06",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy vật hình thành và phát triển với mấy hình thức cơ bản?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correct": 2,
+      "explanation": "Ba hình thức: chủ nghĩa duy vật chất phác, chủ nghĩa duy vật siêu hình, chủ nghĩa duy vật biện chứng."
+    },
+    {
+      "id": "MLN111-C2-07",
+      "type": "choice",
+      "prompt": "Nhận định nào sau đây là sai khi nói về vị trí, vai trò của Triết học Mác - Lênin trong đời sống xã hội và trong sự nghiệp đổi mới ở Việt Nam hiện nay?",
+      "options": [
+        "Là cơ sở lý luận tuyệt đối đúng cho hoạt động thực tiễn",
+        "Là phương pháp duy nhất đúng để nhận thức thế giới",
+        "Là chìa khóa vạn năng để giải quyết mọi vấn đề",
+        "Là nền tảng tư tưởng, kim chỉ nam cho hành động"
+      ],
+      "correct": 2,
+      "explanation": "Triết học Mác-Lênin không phải \"chìa khóa vạn năng\"; giáo trình phê phán quan điểm tuyệt đối hóa, giáo điều hóa vai trò của triết học."
+    },
+    {
+      "id": "MLN111-C2-08",
+      "type": "choice",
+      "prompt": "Triết học Mác - Lênin ra đời một phần là kết quả kế thừa trực tiếp từ đâu?",
+      "options": [
+        "Thế giới quan duy vật của Hêghen và phép biện chứng của Phoiơbắc",
+        "Thế giới quan duy vật của Phơ bách và phép biện chứng của Hêghen",
+        "Thế giới quan duy vật và phép biện chứng của cả Hêghen và Phơ bách",
+        "Chủ nghĩa duy tâm của Hôn bách và biện chứng pháp của Aristốt"
+      ],
+      "correct": 1,
+      "explanation": "Mác kế thừa có phê phán: \"hạt nhân hợp lý\" phép biện chứng của Hêghen và chủ nghĩa duy vật của Phoiơbắc."
+    },
+    {
+      "id": "MLN111-C2-09",
+      "type": "choice",
+      "prompt": "Theo quan điểm của Các Mác, học thuyết của các ông là một học thuyết có tính chất gì?",
+      "options": [
+        "Tuyệt đối đúng",
+        "Hoàn thiện",
+        "Đóng kín",
+        "Mở"
+      ],
+      "correct": 3,
+      "explanation": "Mác - Ăngghen khẳng định học thuyết của mình không phải là giáo điều mà là một hệ thống mở, luôn được bổ sung, phát triển."
+    },
+    {
+      "id": "MLN111-C2-10",
+      "type": "choice",
+      "prompt": "Chủ nghĩa Mác-Lênin ra đời dựa trên bao nhiêu tiền đề?",
+      "options": [
+        "Ba tiền đề",
+        "Bốn tiền đề",
+        "Năm tiền đề",
+        "Sáu tiền đề"
+      ],
+      "correct": 0,
+      "explanation": "Ba tiền đề: kinh tế - xã hội, lý luận (kế thừa triết học cổ điển Đức, kinh tế chính trị Anh, chủ nghĩa xã hội không tưởng Pháp) và khoa học tự nhiên."
+    },
+    {
+      "id": "MLN111-C2-11",
+      "type": "choice",
+      "prompt": "Phép biện chứng chất phác thời cổ đại là:",
+      "options": [
+        "Một hình thức của chủ nghĩa duy tâm",
+        "Một phần của chủ nghĩa duy vật",
+        "Tất cả đều đúng",
+        "Một hình thức của phép biện chứng"
+      ],
+      "correct": 3,
+      "explanation": "Phép biện chứng phát triển qua ba hình thức: chất phác thời cổ đại, duy tâm (cổ điển Đức) và duy vật (Mác - Ăngghen)."
+    },
+    {
+      "id": "MLN111-C2-12",
+      "type": "choice",
+      "prompt": "Đứng im được hiểu là trạng thái như thế nào?",
+      "options": [
+        "Tuyệt đối",
+        "Tương đối",
+        "Vừa tuyệt đối vừa tương đối",
+        "Không có đáp án đúng"
+      ],
+      "correct": 1,
+      "explanation": "Đứng im chỉ là tương đối, tạm thời; vận động mới là tuyệt đối, vĩnh viễn."
+    },
+    {
+      "id": "MLN111-C2-13",
+      "type": "choice",
+      "prompt": "Đâu là một trong những tác phẩm của Lênin?",
+      "options": [
+        "Chủ nghĩa xã hội không tưởng Pháp",
+        "Chủ nghĩa Duy vật và chủ nghĩa kinh viện phê phán",
+        "Chủ nghĩa Duy vật và chủ nghĩa kinh nghiệm phê phán",
+        "Đường Kách Mệnh"
+      ],
+      "correct": 2,
+      "explanation": "\"Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán\" (1909) là tác phẩm nổi tiếng của Lênin."
+    },
+    {
+      "id": "MLN111-C2-14",
+      "type": "choice",
+      "prompt": "Theo Triết học Mác, vật chất tồn tại thế nào?",
+      "options": [
+        "Chủ quan",
+        "Phụ thuộc và con người",
+        "Khách quan",
+        "Theo ý muốn của thần linh"
+      ],
+      "correct": 2,
+      "explanation": "Vật chất là phạm trù triết học chỉ thực tại khách quan, tồn tại độc lập với ý thức con người."
+    },
+    {
+      "id": "MLN111-C2-15",
+      "type": "choice",
+      "prompt": "Một trong các nội dung định nghĩa của Lênin về vật chất đó là, vật chất được cảm giác của chúng ta chép lại, chụp lại, phản ánh và tồn tại như thế nào?",
+      "options": [
+        "Lệ thuộc vào cảm giác",
+        "Không lệ thuộc vào cảm giác",
+        "Tuỳ thuộc vào nhận thức",
+        "Tuỳ theo ý thức"
+      ],
+      "correct": 1,
+      "explanation": "Vật chất tồn tại khách quan, không lệ thuộc vào cảm giác (dù được cảm giác chép lại, phản ánh)."
+    },
+    {
+      "id": "MLN111-C2-16",
+      "type": "choice",
+      "prompt": "Định nghĩa \"vật chất\" của Lênin đưa nêu ra trong tác phẩm nào?",
+      "options": [
+        "Bút ký triết học",
+        "Chủ nghĩa duy vật và chủ nghĩa kinh nghiệm phê phán",
+        "Chủ nghĩa đế quốc - giai đoạn tột cùng của chủ nghĩa tư bản",
+        "Làm gì?"
+      ],
+      "correct": 1,
+      "explanation": "Định nghĩa vật chất kinh điển của Lênin được trình bày trong tác phẩm này (1909)."
+    },
+    {
+      "id": "MLN111-C2-17",
+      "type": "choice",
+      "prompt": "\"Phát triển diễn ra theo còn đường tròn khép kín, là sự lặp lại đơn thuần cái cũ\". Luận điểm này thuộc lập trường triết học nào?",
+      "options": [
+        "Quan điểm duy vật biện chứng",
+        "Quan điểm siêu hình",
+        "Quan điểm biện chứng duy tâm",
+        "Quan điểm duy tâm khách quan"
+      ],
+      "correct": 1,
+      "explanation": "Quan điểm siêu hình phủ nhận phát triển theo đường xoáy ốc đi lên, cho rằng chỉ là vòng tuần hoàn khép kín lặp lại cái cũ."
+    },
+    {
+      "id": "MLN111-C2-18",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy vật biện chứng, sự vật khi mới ra đời chúng tồn tại dưới dạng nào?",
+      "options": [
+        "Cái đơn nhất",
+        "Cái cụ thể",
+        "Cái chung",
+        "Cái riêng"
+      ],
+      "correct": 0,
+      "explanation": "Sự vật, hiện tượng mới ra đời tồn tại dưới hình thức cái đơn nhất, sau đó dần trở thành cái chung khi phổ biến."
+    },
+    {
+      "id": "MLN111-C2-19",
+      "type": "choice",
+      "prompt": "Khẳng định nào sau đây về thế giới vật chất là đúng?",
+      "options": [
+        "Chỉ có một thế giới duy nhất là thế giới vật chất",
+        "Chỉ có một thế giới duy nhất là thế giới tinh thần",
+        "Có nhiều thế giới vật chất",
+        "Có nhiều thế giới tinh thần"
+      ],
+      "correct": 0,
+      "explanation": "Chủ nghĩa duy vật biện chứng khẳng định thế giới thống nhất ở tính vật chất, chỉ có một thế giới duy nhất là thế giới vật chất."
+    },
+    {
+      "id": "MLN111-C2-20",
+      "type": "choice",
+      "prompt": "Theo quan điểm duy vật biện chứng, nguyên nhân và kết quả có thể...",
+      "options": [
+        "chuyển hóa lẫn nhau.",
+        "tồn tại độc lập với nhau.",
+        "xuất hiện đồng thời.",
+        "không có mối liên hệ qua lại."
+      ],
+      "correct": 0,
+      "explanation": "Trong chuỗi quan hệ nhân quả, cái là kết quả trong mối quan hệ này có thể là nguyên nhân trong mối quan hệ khác, chúng chuyển hóa lẫn nhau."
+    },
+    {
+      "id": "MLN111-C2-21",
+      "type": "choice",
+      "prompt": "Mỗi sự vật trong điều kiện xác định:",
+      "options": [
+        "Chỉ có một thuộc tính xác định",
+        "Có một số thuộc tính xác định",
+        "Có vô vàn thuộc tính xác định",
+        "Có một hoặc một số thuộc tính xác định"
+      ],
+      "correct": 3,
+      "explanation": "Mỗi sự vật có vô vàn thuộc tính, nhưng trong một mối quan hệ, điều kiện xác định nó chỉ bộc lộ một hoặc một số thuộc tính xác định."
+    },
+    {
+      "id": "MLN111-C2-22",
+      "type": "choice",
+      "prompt": "Theo Triết học Mác - Lênin, yếu tố nào sau đây đóng vai trò là phương thức tồn tại của vật chất?",
+      "options": [
+        "Đứng im",
+        "Vận động",
+        "Không gian",
+        "Thời gian"
+      ],
+      "correct": 1,
+      "explanation": "Vận động là phương thức tồn tại của vật chất; vật chất luôn vận động, không có vật chất không vận động."
+    },
+    {
+      "id": "MLN111-C2-23",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy vật biện chứng về mối quan hệ giữa tất nhiên và ngẫu nhiên, trong hoạt động thực tiễn, căn dựa vào điều gì?",
+      "options": [
+        "Dựa vào ngẫu nhiên, dự phòng tất nhiên.",
+        "Dựa vào ngẫu nhiên, đề phòng tất nhiên",
+        "Dựa vào cả tất nhiên và ngẫu nhiên",
+        "Không dựa vào các yếu tố nào mang tính tất nhiên, ngẫu nhiên"
+      ],
+      "correct": 2,
+      "explanation": "(Lưu ý: giáo trình chuẩn nêu nguyên tắc là \"dựa vào tất nhiên, không bỏ qua ngẫu nhiên, có phương án dự phòng khi ngẫu nhiên xuất hiện\". Trong 4 phương án đề cho, C là phương án gần nhất, thừa nhận vai trò của cả hai yếu tố; A và B có cách diễn đạt chưa chuẩn xác so với giáo trình gốc, cần đối chiếu lại đề gốc/slide giảng viên nếu có sai khác.)"
+    },
+    {
+      "id": "MLN111-C2-24",
+      "type": "choice",
+      "prompt": "Nhận thức lý tính được thực hiện dưới hình thức nào?",
+      "options": [
+        "Cảm giác, tri giác và phán đoán",
+        "Khái niệm, phán đoán và suy lý",
+        "Cảm giác, khái niệm, suy lý",
+        "Cảm giác, tri giác, biểu tượng"
+      ],
+      "correct": 1,
+      "explanation": "Nhận thức lý tính (tư duy trừu tượng) gồm ba hình thức: khái niệm, phán đoán, suy lý (suy luận)."
+    },
+    {
+      "id": "MLN111-C2-25",
+      "type": "choice",
+      "prompt": "Nhận thức cảm tính được thực hiện dưới những hình thức nào?",
+      "options": [
+        "Tri giác, phán đoán và suy luận",
+        "Cảm giác, tri giác và khái niệm",
+        "Cảm giác, tri giác và biểu tượng",
+        "Khái niệm và phán đoán"
+      ],
+      "correct": 2,
+      "explanation": "Nhận thức cảm tính gồm ba hình thức: cảm giác, tri giác, biểu tượng."
+    },
+    {
+      "id": "MLN111-C2-26",
+      "type": "choice",
+      "prompt": "Chân lý là gì?",
+      "options": [
+        "Ý kiến của những người có kinh nghiệm",
+        "Sự phù hợp giữa tri thức với hiện thực khách quan và được thực tiễn kiểm nghiệm",
+        "Những quan điểm thuộc về đa số",
+        "Là những thứ đúng đắn trong khoa học"
+      ],
+      "correct": 1,
+      "explanation": "Chân lý là tri thức phù hợp với hiện thực khách quan mà con người phản ánh và được thực tiễn kiểm nghiệm."
+    },
+    {
+      "id": "MLN111-C2-27",
+      "type": "choice",
+      "prompt": "Nguyên tắc thống nhất giữa lý luận và thực tiễn là nguyên tắc được rút ra trực tiếp từ yếu tố nào?",
+      "options": [
+        "Mối quan hệ giữa vật chất và ý thức",
+        "Lý luận nhận thức",
+        "Quan hệ giữa khả năng và hiện thực",
+        "Phán đoán suy luận"
+      ],
+      "correct": 1,
+      "explanation": "Nguyên tắc thống nhất lý luận với thực tiễn là nguyên tắc cơ bản của lý luận nhận thức duy vật biện chứng (thực tiễn là cơ sở, động lực, mục đích của nhận thức và tiêu chuẩn của chân lý)."
+    },
+    {
+      "id": "MLN111-C2-28",
+      "type": "choice",
+      "prompt": "Hình thức nhận thức nào cần có sự tác động trực tiếp của vật vào cơ quan giác quan của con người?",
+      "options": [
+        "Cảm giác",
+        "Khái niệm",
+        "Suy luận",
+        "Phán đoán"
+      ],
+      "correct": 0,
+      "explanation": "Cảm giác là hình thức đầu tiên của nhận thức cảm tính, nảy sinh do sự tác động trực tiếp của sự vật lên các giác quan."
+    },
+    {
+      "id": "MLN111-C2-29",
+      "type": "choice",
+      "prompt": "Theo C.Mác, con người muốn sống thì trước hết cần có thức ăn, đồ mặc v.v. Như vậy, hành vi lịch sử đầu tiên là sản xuất ra:",
+      "options": [
+        "Tư liệu sinh hoạt",
+        "Tư liệu sản xuất",
+        "Của cải",
+        "Tư liệu lao động"
+      ],
+      "correct": 0,
+      "explanation": "Theo Mác, hành vi lịch sử đầu tiên của con người là sản xuất ra những tư liệu sinh hoạt để thỏa mãn nhu cầu ăn, mặc, ở."
+    },
+    {
+      "id": "MLN111-C2-30",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa Mác-Lênin, kiến trúc thượng tầng là gì?",
+      "options": [
+        "Toàn bộ thiết chế chính trị của xã hội",
+        "Toàn bộ thiết chế chính trị và pháp luật của xã hội",
+        "Toàn bộ quan hệ sản xuất hợp thành cơ cấu kinh tế và các thiết chế chính trị - xã hội tương ứng",
+        "Toàn bộ hệ thống kết cấu các hình thái ý thức xã hội cùng với các thiết chế chính trị - xã hội tương ứng"
+      ],
+      "correct": 3,
+      "explanation": "Kiến trúc thượng tầng là toàn bộ những quan điểm, tư tưởng xã hội cùng những thiết chế chính trị - xã hội tương ứng được hình thành trên cơ sở hạ tầng nhất định."
+    },
+    {
+      "id": "MLN111-C2-31",
+      "type": "choice",
+      "prompt": "Trong tư liệu sản xuất thì cái gì phản ánh rõ nhất trình độ phát triển của lực lượng sản xuất?",
+      "options": [
+        "Công cụ lao động",
+        "Máy móc",
+        "Đối tượng lao động",
+        "Công cụ tin học"
+      ],
+      "correct": 0,
+      "explanation": "Công cụ lao động là yếu tố động nhất, cách mạng nhất, phản ánh rõ nhất trình độ phát triển của lực lượng sản xuất."
+    },
+    {
+      "id": "MLN111-C2-32",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa lĩnh vực kinh tế và lĩnh vực chính trị xã hội được khái quát trong quy luật nào?",
+      "options": [
+        "Quy luật về mối quan hệ biện chứng giữa cơ sở hạ tầng và kiến trúc thượng tầng",
+        "Quy luật đấu tranh giai cấp",
+        "Quy luật tồn tại xã hội quyết định ý thức xã hội",
+        "Quy luật về quan hệ sản xuất phù hợp với trình độ phát triển của lực lượng sản xuất"
+      ],
+      "correct": 0,
+      "explanation": "Kinh tế (cơ sở hạ tầng) và chính trị-xã hội (kiến trúc thượng tầng) quan hệ biện chứng với nhau theo quy luật này."
+    },
+    {
+      "id": "MLN111-C2-33",
+      "type": "choice",
+      "prompt": "Theo quan điểm của triết học Mác - Lênin, trong ba mặt của quan hệ sản xuất thì mặt nào quyết định nhất?",
+      "options": [
+        "Quan hệ tổ chức, quản lý",
+        "Tất cả các quan hệ có vị trí ngang nhau",
+        "Quan hệ phân phối sản phẩm",
+        "Quan hệ sở hữu tư liệu sản xuất"
+      ],
+      "correct": 3,
+      "explanation": "Quan hệ sở hữu về tư liệu sản xuất là quan hệ xuất phát, cơ bản, quyết định các quan hệ khác trong quan hệ sản xuất."
+    },
+    {
+      "id": "MLN111-C2-34",
+      "type": "choice",
+      "prompt": "Theo triết học Mác - Lênin, yếu tố nào đóng vai trò quyết định đối với tất cả các mặt của đời sống xã hội?",
+      "options": [
+        "Khoa học",
+        "Phương thức sản xuất",
+        "Chính trị",
+        "Văn hóa nghệ thuật"
+      ],
+      "correct": 1,
+      "explanation": "Phương thức sản xuất vật chất quyết định trình độ phát triển của đời sống xã hội nói chung."
+    },
+    {
+      "id": "MLN111-C2-35",
+      "type": "choice",
+      "prompt": "Theo quan điểm triết học Mác - Lênin, cơ sở của sự tồn tại và phát triển của xã hội là gì?",
+      "options": [
+        "Sản xuất tư liệu tiêu dùng",
+        "Sản xuất tư liệu sản xuất",
+        "Sản xuất hàng hóa, dịch vụ",
+        "Sản xuất vật chất"
+      ],
+      "correct": 3,
+      "explanation": "Sản xuất vật chất là cơ sở của sự tồn tại và phát triển xã hội loài người."
+    },
+    {
+      "id": "MLN111-C2-36",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa Mác-Lênin, \"Bộ lạc\" được định nghĩa là gì?",
+      "options": [
+        "Là cộng đồng bao gồm những bộ lạc có quan hệ cùng huyết thống hoặc các thị tộc có quan hệ hôn nhân liên kết với nhau",
+        "Là cộng đồng bao gồm những thị tộc có quan hệ hôn nhân liên kết với nhau",
+        "Là cộng đồng bao gồm những thị tộc có quan hệ cùng huyết thống hoặc các thị tộc có quan hệ hôn nhân liên kết với nhau",
+        "Là cộng đồng bao gồm những thị tộc có quan hệ cùng huyết thống"
+      ],
+      "correct": 2,
+      "explanation": "Bộ lạc là tổ chức xã hội gồm nhiều thị tộc có quan hệ huyết thống hoặc quan hệ hôn nhân liên kết với nhau."
+    },
+    {
+      "id": "MLN111-C2-37",
+      "type": "choice",
+      "prompt": "Theo quan niệm của chủ nghĩa duy vật lịch sử thì đỉnh cao của sự phát triển đấu tranh giai cấp là đấu tranh trong lĩnh vực nào?",
+      "options": [
+        "Chính trị",
+        "Vũ trang",
+        "Kinh tế",
+        "Giải phóng"
+      ],
+      "correct": 0,
+      "explanation": "Đấu tranh giai cấp phát triển từ kinh tế lên chính trị; đấu tranh chính trị là hình thức đấu tranh giai cấp cao nhất, quyết định."
+    },
+    {
+      "id": "MLN111-C2-38",
+      "type": "choice",
+      "prompt": "Vấn đề giai cấp ở Việt Nam hiện nay như thế nào?",
+      "options": [
+        "Còn đấu tranh giai cấp",
+        "Không còn đấu tranh giai cấp",
+        "Có sự mâu thuẫn đối kháng giai cấp",
+        "Đấu tranh giai cấp gay gắt"
+      ],
+      "correct": 0,
+      "explanation": "Ở Việt Nam hiện nay vẫn còn đấu tranh giai cấp (dưới hình thức mới), nhưng không phải là mâu thuẫn đối kháng gay gắt như trước."
+    },
+    {
+      "id": "MLN111-C2-39",
+      "type": "choice",
+      "prompt": "Chọn phương án đúng về đấu tranh giai cấp.",
+      "options": [
+        "Đấu tranh giai cấp là một trong những động lực phát triển của xã hội có giai cấp",
+        "Đấu tranh giai cấp là một trong những động lực phát triển của xã hội",
+        "Đấu tranh giai cấp là động lực phát triển của xã hội",
+        "Đấu tranh giai cấp là động lực mạnh mẽ nhất làm thay đổi xã hội"
+      ],
+      "correct": 0,
+      "explanation": "Đấu tranh giai cấp chỉ là động lực trong các xã hội có giai cấp, không phải là động lực của mọi xã hội (như xã hội cộng sản nguyên thủy hay tương lai không giai cấp)."
+    },
+    {
+      "id": "MLN111-C2-40",
+      "type": "choice",
+      "prompt": "Sự phân chia giai cấp trong xã hội bắt đầu từ hình thái kinh tế - xã hội nào?",
+      "options": [
+        "Cộng sản nguyên thủy",
+        "Tư bản chủ nghĩa",
+        "Phong kiến",
+        "Chiếm hữu nô lệ"
+      ],
+      "correct": 3,
+      "explanation": "Giai cấp xuất hiện khi chế độ cộng sản nguyên thủy tan rã, hình thành xã hội chiếm hữu nô lệ với sự ra đời của chế độ tư hữu."
+    },
+    {
+      "id": "MLN111-C2-41",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy vật lịch sử, khái niệm \"cách mạng xã hội\" dùng để chỉ yếu tố nào?",
+      "options": [
+        "Sự tiến bộ, tiến hóa mọi lĩnh vực trong một xã hội nhất định",
+        "Sự thay thế các loại hình công cụ lao động trong lịch sử",
+        "Sự thay thế thể chế kinh tế này bằng một thể chế kinh tế khác",
+        "Sự thay thế hình thái kinh tế - xã hội này bằng hình thái kinh tế - xã hội khác cao hơn"
+      ],
+      "correct": 3,
+      "explanation": "Cách mạng xã hội là bước nhảy vọt làm thay thế hình thái kinh tế - xã hội lỗi thời bằng hình thái kinh tế - xã hội cao hơn, tiến bộ hơn."
+    },
+    {
+      "id": "MLN111-C2-42",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy vật lịch sử, nhà nước là gì?",
+      "options": [
+        "Tổ chức phi chính phủ",
+        "Tổ chức quyền lực phi giai cấp",
+        "Tổ chức quyền lực mang bản chất của giai cấp sở hữu tư liệu sản xuất chủ yếu của xã hội",
+        "Tổ chức quyền lực mang bản chất của mọi giai cấp trong xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Nhà nước là công cụ chuyên chính, mang bản chất của giai cấp thống trị (giai cấp nắm tư liệu sản xuất chủ yếu), không phải phi giai cấp hay của mọi giai cấp."
+    },
+    {
+      "id": "MLN111-C2-43",
+      "type": "choice",
+      "prompt": "Dân chủ được hiểu là gì?",
+      "options": [
+        "Một giá trị xã hội phản ánh các quyền cơ bản của con người; là một hình thức tổ chức nhà nước của giai cấp cầm quyền; có quá trình ra đời, phát triển cùng với lịch sử xã hội nhân loại",
+        "... của giai cấp tư sản cầm quyền ...",
+        "... của giai cấp thống trị cầm quyền; có quá trình ra đời, phát triển từ xã hội chiếm hữu nô lệ",
+        "... của giai cấp vô sản cầm quyền ..."
+      ],
+      "correct": 0,
+      "explanation": "Định nghĩa dân chủ mang tính khái quát chung nhất (không giới hạn ở một giai cấp cụ thể), là giá trị xã hội phát triển cùng lịch sử nhân loại."
+    },
+    {
+      "id": "MLN111-C2-44",
+      "type": "choice",
+      "prompt": "Theo quan niệm duy vật biện chứng về lịch sử thì những quan hệ sản xuất cũ được thay thế bằng quan hệ sản xuất mới, phù hợp trình độ phát triển của lực lượng sản xuất đã phát triển nhờ điều gì?",
+      "options": [
+        "Cải cách triệt để",
+        "Cách mạng vô sản",
+        "Cách mạng xã hội",
+        "Đảo chính"
+      ],
+      "correct": 2,
+      "explanation": "Sự thay thế quan hệ sản xuất cũ bằng mới diễn ra thông qua cách mạng xã hội, tạo nên bước chuyển hình thái kinh tế - xã hội."
+    },
+    {
+      "id": "MLN111-C2-45",
+      "type": "choice",
+      "prompt": "Theo quan điểm duy vật lịch sử, phạm trù nào sau đây ra đời là kết quả của những mâu thuẫn giai cấp không thể điều hòa được?",
+      "options": [
+        "Tôn giáo",
+        "Đảng phái",
+        "Nhà nước",
+        "Nhóm xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Nhà nước ra đời là sản phẩm và biểu hiện của mâu thuẫn giai cấp không thể điều hòa được (theo Ăngghen)."
+    },
+    {
+      "id": "MLN111-C2-46",
+      "type": "choice",
+      "prompt": "Những ý thức lạc hậu tiêu cực không mất đi một cách dễ dàng là do đâu?",
+      "options": [
+        "Thói quen tập quán lâu đời",
+        "Ý thức xã hội không phản ánh kịp tồn tại xã hội",
+        "Thói quen tập quán lâu đời và ý thức xã hội không phản ánh kịp tồn tại xã hội",
+        "Ý thức xã hội phản ánh tồn tại xã hội và thói quen tập quán"
+      ],
+      "correct": 2,
+      "explanation": "Ý thức xã hội có tính bảo thủ, lạc hậu do vừa bị chi phối bởi thói quen, tập quán, truyền thống lâu đời, vừa do tính độc lập tương đối khiến nó không phản ánh kịp những biến đổi của tồn tại xã hội."
+    },
+    {
+      "id": "MLN111-C2-47",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy vật lịch sử, ý kiến sau đây đúng hay sai? Vì sao? \"Điều kiện sinh hoạt vật chất của xã hội biến đổi đến đâu thì ngay lập tức tâm lý xã hội và hệ tư tưởng xã hội cũng lập tức biến đổi đến đó\"",
+      "options": [
+        "Đúng. Vì tồn tại xã hội nào thì ý thức xã hội đó",
+        "Đúng. Vì ý thức xã hội chỉ là sự phản ánh tồn tại xã hội",
+        "Sai. Vì ý thức xã hội phụ thuộc vào tồn tại xã hội nhưng nó có tính độc lập tương đối của nó",
+        "Sai. Vì thực tế lịch sử cho thấy không phải như vậy"
+      ],
+      "correct": 2,
+      "explanation": "Ý thức xã hội tuy do tồn tại xã hội quyết định nhưng có tính độc lập tương đối (có thể lạc hậu hơn hoặc vượt trước tồn tại xã hội), không biến đổi \"ngay lập tức\" theo tồn tại xã hội."
+    },
+    {
+      "id": "MLN111-C2-48",
+      "type": "choice",
+      "prompt": "Theo quan điểm của triết học Mác - Lênin, luận điểm nào sau đây chưa chính xác khi đề cập đến mối quan hệ giữa tồn tại xã hội và ý thức xã hội?",
+      "options": [
+        "Một bộ phận ý thức xã hội có thể vượt trước tồn tại xã hội",
+        "Ý thức xã hội mang tính kế thừa",
+        "Ý thức xã hội luôn thay đổi ngay lập tức khi tồn tại xã hội thay đổi",
+        "Ý thức xã hội thường lạc hậu, bảo thủ so với tồn tại xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Đây là luận điểm sai vì ý thức xã hội có tính độc lập tương đối, không thay đổi \"ngay lập tức\" cùng tồn tại xã hội (có thể lạc hậu hoặc vượt trước)."
+    },
+    {
+      "id": "MLN111-C2-49",
+      "type": "choice",
+      "prompt": "Ý thức xã hội phản ánh tồn tại xã hội với hai trình độ khác nhau đó là hai trình độ nào?",
+      "options": [
+        "Tâm lý xã hội và hệ tư tưởng xã hội",
+        "Tâm lý con người và hệ tư tưởng",
+        "Tinh thần xã hội và hệ tư tưởng",
+        "Nền tảng vật chất và giá trị tinh thần"
+      ],
+      "correct": 0,
+      "explanation": "Ý thức xã hội thông thường (tâm lý xã hội) và ý thức xã hội lý luận (hệ tư tưởng xã hội) là hai trình độ phản ánh tồn tại xã hội."
+    },
+    {
+      "id": "MLN111-C2-50",
+      "type": "choice",
+      "prompt": "Trong mối quan hệ với tồn tại xã hội, ý thức xã hội có tính chất nào sau đây?",
+      "options": [
+        "Tính độc lập tương đối",
+        "Tính độc lập tuyệt đối",
+        "Tính sáng tạo",
+        "Tính bất biến"
+      ],
+      "correct": 0,
+      "explanation": "Ý thức xã hội do tồn tại xã hội quyết định nhưng có tính độc lập tương đối, thể hiện qua tính lạc hậu, tính vượt trước, tính kế thừa, sự tác động qua lại..."
+    },
+    {
+      "id": "MLN111-C2-51",
+      "type": "choice",
+      "prompt": "Theo quan điểm của duy vật về lịch sử, nhân tố quyết định trong lịch sử xét đến cùng là gì?",
+      "options": [
+        "Lao động, tái sản xuất ra con người",
+        "Sở hữu về tư liệu sản xuất, phân phối sản phẩm",
+        "Kết cấu xã hội, giai cấp",
+        "Sự sản xuất và tái sản xuất ra đời sống hiện thực"
+      ],
+      "correct": 3,
+      "explanation": "Theo Ăngghen, nhân tố quyết định trong lịch sử xét đến cùng là sản xuất và tái sản xuất ra đời sống hiện thực (bao gồm sản xuất vật chất và sản xuất con người)."
+    },
+    {
+      "id": "MLN111-C2-52",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa Mác-Lênin, khái niệm nào dùng để chỉ lực lượng sản xuất cơ bản của xã hội, trực tiếp sản xuất ra của cải vật chất, là cơ sở của sự tồn tại và phát triển của xã hội, là động lực cơ bản của mọi cuộc cách mạng xã hội và là người sáng tạo ra những giá trị văn hóa tinh thần cho xã hội?",
+      "options": [
+        "Quần chúng nhân dân",
+        "Giai cấp nông dân",
+        "Lãnh tụ",
+        "Vĩ nhân"
+      ],
+      "correct": 0,
+      "explanation": "Đây chính là định nghĩa về quần chúng nhân dân - lực lượng sáng tạo chân chính ra lịch sử theo chủ nghĩa duy vật lịch sử."
+    },
+    {
+      "id": "MLN111-C2-53",
+      "type": "choice",
+      "prompt": "Theo triết học Mác, con người là gì?",
+      "options": [
+        "Thực thể sinh học - xã hội",
+        "Thực thể tự nhiên - sinh học",
+        "Kết hợp con vật và con người",
+        "Là thực thể do thánh thần tạo ra"
+      ],
+      "correct": 0,
+      "explanation": "Con người là một thực thể thống nhất giữa mặt sinh học và mặt xã hội (thực thể sinh học - xã hội)."
+    },
+    {
+      "id": "MLN111-C2-54",
+      "type": "choice",
+      "prompt": "Theo quan điểm của chủ nghĩa duy tâm chủ quan, lực lượng sáng tạo ra lịch sử là lực lượng nào?",
+      "options": [
+        "Quần chúng nhân dân lao động",
+        "Thần linh, thượng đế",
+        "Các vĩ nhân, những cá nhân kiệt xuất",
+        "Giai cấp bị trị xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Chủ nghĩa duy tâm chủ quan (khác với duy tâm khách quan gắn với thần linh) cho rằng lịch sử do các vĩ nhân, cá nhân kiệt xuất tạo ra (chủ nghĩa anh hùng cá nhân)."
+    },
+    {
+      "id": "MLN111-C2-55",
+      "type": "choice",
+      "prompt": "Theo C. Mác, trong tính hiện thực của nó, bản chất con người là tổng hoà của những cái gì?",
+      "options": [
+        "Các phẩm chất xã hội",
+        "Quan hệ lợi ích",
+        "Các quan hệ xã hội",
+        "Quan hệ hiện thực"
+      ],
+      "correct": 2,
+      "explanation": "Luận điểm nổi tiếng của Mác: \"Trong tính hiện thực của nó, bản chất con người là tổng hoà những quan hệ xã hội\"."
+    },
+    {
+      "id": "MLN111-C2-56",
+      "type": "choice",
+      "prompt": "Nguồn gốc trực tiếp của sự ra đời giai cấp trong xã hội?",
+      "options": [
+        "Do sự phát triển lực lượng sản xuất làm xuất hiện \"của dư\" tương đối",
+        "Do sự chênh lệch về khả năng giữa các tập đoàn người",
+        "Do sự phân hóa giữa giàu và nghèo trong xã hội",
+        "Do sự xuất hiện của tư hữu về tư liệu sản xuất"
+      ],
+      "correct": 3,
+      "explanation": "Nguyên nhân trực tiếp, quyết định của sự ra đời giai cấp là sự xuất hiện chế độ tư hữu về tư liệu sản xuất (còn \"của dư\" là nguyên nhân sâu xa/tiền đề kinh tế)."
+    },
+    {
+      "id": "MLN111-C2-57",
+      "type": "multi",
+      "prompt": "Theo chủ nghĩa duy vật lịch sử, sự tác động trở lại đối với tồn tại xã hội của các hình thái ý thức xã hội mạnh hay yếu còn phụ thuộc vào yếu tố nào? Chọn 3 đáp án đúng.",
+      "options": [
+        "Những điều kiện lịch sử cụ thể",
+        "Vai trò lịch sử của giai cấp đại diện cho ngọn cờ tư tưởng đó",
+        "Trình độ phản ánh và sức lan tỏa của ý thức đối với các nhu cầu khác nhau của sự phát triển xã hội",
+        "Các quan hệ chính trị vốn là cơ sở hình thành các hình thái ý thức xã hội"
+      ],
+      "correctSet": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Ba yếu tố A, B, C là những điều kiện chuẩn theo giáo trình quyết định mức độ tác động trở lại của ý thức xã hội; D không phải là điều kiện chuẩn (quan hệ kinh tế mới là cơ sở, không phải quan hệ chính trị)."
+    },
+    {
+      "id": "MLN111-C2-58",
+      "type": "choice",
+      "prompt": "Con chó, con mèo có ý thức không?",
+      "options": [
+        "Có. Vì nó được con người dạy",
+        "Không. Vì nó không được dạy",
+        "Có. Vì nó được rèn luyện qua quá trình tiếp xúc với con người",
+        "Không. Vì nó chỉ có bản năng"
+      ],
+      "correct": 3,
+      "explanation": "Theo chủ nghĩa duy vật biện chứng, ý thức là thuộc tính riêng có của bộ óc người - dạng vật chất có tổ chức cao nhất; động vật chỉ có tâm lý, phản xạ và bản năng, không có ý thức."
+    },
+    {
+      "id": "MLN111-C2-59",
+      "type": "choice",
+      "prompt": "\"Phải giải thích ý thức xã hội bằng những mâu thuẫn, những sự xung đột hiện có giữa các lực lượng sản xuất và những quan hệ sản xuất của xã hội\". Luận điểm này nhấn mạnh điểm nào trong quan niệm của chủ nghĩa duy vật lịch sử?",
+      "options": [
+        "Vai trò chi phối của phương thức sản xuất đối với ý thức xã hội",
+        "Vai trò của cơ sở hạ tầng đối với kiến trúc thượng tầng",
+        "Vai trò quyết định của ý thức xã hội đối với tồn tại xã hội",
+        "Vai trò quyết định của tồn tại xã hội đối với ý thức xã hội"
+      ],
+      "correct": 3,
+      "explanation": "Luận điểm nhấn mạnh phải giải thích ý thức xã hội (thuộc kiến trúc thượng tầng/tinh thần) bằng những mâu thuẫn trong tồn tại xã hội (LLSX - QHSX), tức khẳng định vai trò quyết định của tồn tại xã hội đối với ý thức xã hội."
+    },
+    {
+      "id": "MLN111-C2-60",
+      "type": "choice",
+      "prompt": "Đâu là biểu hiện thứ hai của hiện tượng tha hóa con người?",
+      "options": [
+        "Quan hệ giữa người với người dẫn mất đạo đức và nhân cách.",
+        "Quan hệ giữa người với người bị thay thế bởi quan hệ giữa người và vật.",
+        "Quan hệ giữa người với người bị thay thế bởi tiền với tiền.",
+        "Quan hệ giữa người với người ngày càng biến chất và vụ lợi."
+      ],
+      "correct": 1,
+      "explanation": "Theo lý luận tha hóa của Mác: biểu hiện thứ nhất là lao động bị tha hóa (sản phẩm lao động trở thành xa lạ, thống trị người sản xuất); biểu hiện thứ hai là quan hệ giữa người với người bị thay thế bằng quan hệ giữa người với vật (hàng hóa, tiền tệ chi phối quan hệ xã hội). ============================================================ GHI CHÚ CHUNG: - Tất cả 60/60 câu đều đọc được nội dung rõ ràng, không có câu nào bị lỗi ảnh. - Các đáp án được xác định dựa trên nội dung giáo trình Triết học Mác - Lênin (Bộ GD&ĐT) chương trình đại cương, kết hợp lý luận suy luận cho những câu chưa chắc chắn tuyệt đối (đã ghi chú riêng ở câu 23 và câu 38 - nên đối chiếu thêm với slide/tài liệu giảng viên nếu có). - Đề nghị sinh viên đối chiếu lại với slide bài giảng hoặc đáp án chính thức của giảng viên FPT để chắc chắn 100%, đặc biệt các câu 5, 10, 21, 23, 38, 43, 57."
+    }
+  ]
+}

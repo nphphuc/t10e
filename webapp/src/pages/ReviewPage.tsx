@@ -72,6 +72,14 @@ import pmg201cTopicCommunication from '../content/pmg201c/pmg201c-topic-07-commu
 import pmg201cTopicRisk from '../content/pmg201c/pmg201c-topic-08-risk.json';
 import pmg201cTopicStakeholder from '../content/pmg201c/pmg201c-topic-09-stakeholder.json';
 
+// Quiz môn MLN111 (Triết học Mác-Lênin) — 3 đề thi thật + trộn 3 đề + chia theo 3 chương
+import mln111Re from '../content/mln111/mln111-re.json';
+import mln111C1 from '../content/mln111/mln111-c1.json';
+import mln111C2 from '../content/mln111/mln111-c2.json';
+import mln111Chapter1 from '../content/mln111/mln111-chapter-01-triet-hoc-vai-tro.json';
+import mln111Chapter2 from '../content/mln111/mln111-chapter-02-duy-vat-bien-chung.json';
+import mln111Chapter3 from '../content/mln111/mln111-chapter-03-duy-vat-lich-su.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -154,6 +162,28 @@ function buildPmg201cMix() {
   return {
     id: 'PMG201C-MIX',
     title: 'PMG201c — Đề Trộn (50 câu, mix Đề 1 + Đề 2 + Đề 3)',
+    questions: shuffleArray([...pool1, ...pool2, ...pool3]),
+  };
+}
+
+export const mln111Map: Record<string, any> = {
+  're': mln111Re,
+  'c1': mln111C1,
+  'c2': mln111C2,
+  'chapter-1': mln111Chapter1,
+  'chapter-2': mln111Chapter2,
+  'chapter-3': mln111Chapter3,
+};
+
+// Đề trộn MLN111: 20 câu random từ mỗi đề RE/C1/C2 = 60 câu, trộn thứ tự xuất hiện —
+// KHÔNG đảo vị trí đáp án bên trong mỗi câu.
+function buildMln111Mix() {
+  const pool1 = shuffleArray(mln111Re.questions).slice(0, 20);
+  const pool2 = shuffleArray(mln111C1.questions).slice(0, 20);
+  const pool3 = shuffleArray(mln111C2.questions).slice(0, 20);
+  return {
+    id: 'MLN111-MIX',
+    title: 'MLN111 — Đề Trộn (60 câu, mix RE + C1 + C2)',
     questions: shuffleArray([...pool1, ...pool2, ...pool3]),
   };
 }
@@ -316,7 +346,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -326,6 +356,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [mockExamData, setMockExamData] = useState<any>(() => (isMockExam ? buildMockExam() : null));
   const [prn222MixData, setPrn222MixData] = useState<any>(() => (isPrn222Mix ? buildPrn222Mix() : null));
   const [pmg201cMixData, setPmg201cMixData] = useState<any>(() => (isPmg201cMix ? buildPmg201cMix() : null));
+  const [mln111MixData, setMln111MixData] = useState<any>(() => (isMln111Mix ? buildMln111Mix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
@@ -336,6 +367,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = prn222MixData;
   } else if (isPmg201cMix) {
     reviewData = pmg201cMixData;
+  } else if (isMln111Mix) {
+    reviewData = mln111MixData;
   } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
@@ -346,6 +379,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? prn222Map[resolvedLevelId] : null;
   } else if (isPmg201c) {
     reviewData = resolvedLevelId ? pmg201cMap[resolvedLevelId] : null;
+  } else if (isMln111) {
+    reviewData = resolvedLevelId ? mln111Map[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -362,7 +397,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -519,6 +554,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     // Đề trộn PMG201c: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
     if (isPmg201cMix) {
       setPmg201cMixData(buildPmg201cMix());
+    }
+    // Đề trộn MLN111: mỗi lần "Làm Lại" ra một bộ 60 câu random mới
+    if (isMln111Mix) {
+      setMln111MixData(buildMln111Mix());
     }
   };
 
