@@ -1,0 +1,396 @@
+{
+  "id": "MLN111-100-P1",
+  "title": "MLN111 — 100 Câu Trọng Tâm — Phần 1: Triết Học & Vai Trò (30 câu)",
+  "questions": [
+    {
+      "id": "MLN111-100-P1-001",
+      "type": "choice",
+      "prompt": "Thuật ngữ 'Triết học' xuất hiện vào khoảng thời gian nào?",
+      "options": [
+        "Thế kỷ VIII - thế kỷ VI trước Công nguyên",
+        "Thế kỷ III - thế kỷ I trước Công nguyên",
+        "Thế kỷ I - thế kỷ III sau Công nguyên",
+        "Thế kỷ XV - thế kỷ XVII"
+      ],
+      "correct": 0,
+      "explanation": "Triết học ra đời vào khoảng thế kỷ VIII đến thế kỷ VI trước Công nguyên tại cả Phương Đông (Ấn Độ, Trung Hoa) và Phương Tây (Hy Lạp cổ đại)."
+    },
+    {
+      "id": "MLN111-100-P1-002",
+      "type": "choice",
+      "prompt": "Ở Ấn Độ cổ đại, chữ 'Darshana' (Triết học) mang nghĩa là gì?",
+      "options": [
+        "Yêu mến sự thông thái",
+        "Con đường suy ngẫm để dẫn dắt con người đến lẽ phải",
+        "Sự chiêm ngưỡng, là tri thức dựa trên lý trí, con đường giải thoát",
+        "Sự truy tìm bản chất của đối tượng nhận thức"
+      ],
+      "correct": 2,
+      "explanation": "Trong tiếng Phạn, Darshana có nghĩa là sự chiêm ngưỡng, kiến giải, là tri thức dựa trên lý trí để tìm con đường giải thoát."
+    },
+    {
+      "id": "MLN111-100-P1-003",
+      "type": "choice",
+      "prompt": "Ở Trung Quốc cổ đại, chữ 'Triết' mang ý nghĩa là gì?",
+      "options": [
+        "Sự giải thoát tâm linh",
+        "Trí tuệ, sự hiểu biết sâu sắc về thế giới và định đạo nhân sinh",
+        "Sự yêu mến tri thức khách quan",
+        "Khoa học của các khoa học"
+      ],
+      "correct": 1,
+      "explanation": "Triết học Trung Quốc cổ đại dùng chữ 'Triết' với nghĩa là trí tuệ, sự hiểu biết sâu sắc về đạo lý, vũ trụ và con người."
+    },
+    {
+      "id": "MLN111-100-P1-004",
+      "type": "choice",
+      "prompt": "Ở Hy Lạp cổ đại, thuật ngữ 'Philosophia' mang nghĩa là gì?",
+      "options": [
+        "Khát vọng hành động",
+        "Con đường giải thoát",
+        "Yêu mến sự thông thái",
+        "Trực giác tâm linh"
+      ],
+      "correct": 2,
+      "explanation": "Philosophia ghép từ philo (yêu mến) và sophia (sự thông thái), nghĩa là tình yêu hay sự khao khát đạt đến sự thông thái."
+    },
+    {
+      "id": "MLN111-100-P1-005",
+      "type": "choice",
+      "prompt": "Triết học ra đời từ những nguồn gốc nào?",
+      "options": [
+        "Nguồn gốc tự nhiên và nguồn gốc xã hội",
+        "Nguồn gốc kinh tế và nguồn gốc tư tưởng",
+        "Nguồn gốc nhận thức và nguồn gốc xã hội",
+        "Nguồn gốc giai cấp và nguồn gốc khoa học"
+      ],
+      "correct": 2,
+      "explanation": "Triết học chỉ ra đời khi hội đủ 2 nguồn gốc: Nguồn gốc nhận thức (đạt năng lực tư duy khái quát hóa, trừu tượng hóa) và nguồn gốc xã hội (phân công lao động trí óc và lao động chân tay, xã hội phân chia giai cấp)."
+    },
+    {
+      "id": "MLN111-100-P1-006",
+      "type": "choice",
+      "prompt": "Vấn đề cơ bản của triết học là gì?",
+      "options": [
+        "Vấn đề về mối quan hệ giữa vật chất và ý thức",
+        "Vấn đề về nguồn gốc và bản chất của con người",
+        "Vấn đề về động lực phát triển của lịch sử xã hội",
+        "Vấn đề về ranh giới giữa cái chung và cái riêng"
+      ],
+      "correct": 0,
+      "explanation": "Ăngghen định nghĩa: 'Vấn đề cơ bản lớn của mọi triết học, đặc biệt là của triết học hiện đại, là vấn đề quan hệ giữa tư duy với tồn tại' (hay giữa ý thức với vật chất)."
+    },
+    {
+      "id": "MLN111-100-P1-007",
+      "type": "choice",
+      "prompt": "Mặt thứ nhất của vấn đề cơ bản của triết học trả lời cho câu hỏi nào?",
+      "options": [
+        "Con người có khả năng nhận thức được thế giới hay không?",
+        "Giữa vật chất và ý thức, cái nào có trước, cái nào có sau, cái nào quyết định cái nào?",
+        "Thế giới tồn tại vĩnh viễn hay có điểm khởi đầu?",
+        "Sự vật vận động tuần hoàn hay tiến lên vô tận?"
+      ],
+      "correct": 1,
+      "explanation": "Mặt thứ nhất (mặt bản thể luận) giải quyết mối quan hệ thứ bậc giữa vật chất và ý thức: cái nào có trước, cái nào có sau và cái nào giữ vai trò quyết định."
+    },
+    {
+      "id": "MLN111-100-P1-008",
+      "type": "choice",
+      "prompt": "Mặt thứ hai của vấn đề cơ bản của triết học trả lời cho câu hỏi nào?",
+      "options": [
+        "Ý thức có tính độc lập tương đối hay không?",
+        "Giới tự nhiên vận động theo quy luật nào?",
+        "Con người có khả năng nhận thức thế giới được hay không?",
+        "Giai cấp nào giữ vai trò thống trị lịch sử?"
+      ],
+      "correct": 2,
+      "explanation": "Mặt thứ hai (mặt nhận thức luận) xem xét khả năng nhận thức thế giới khách quan của bộ óc con người."
+    },
+    {
+      "id": "MLN111-100-P1-009",
+      "type": "choice",
+      "prompt": "Trường phái triết học nào cho rằng ý thức có trước, quyết định vật chất?",
+      "options": [
+        "Chủ nghĩa duy vật",
+        "Chủ nghĩa duy tâm",
+        "Thuyết nhị nguyên",
+        "Thuyết bất khả tri"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy tâm giải quyết mặt thứ nhất vấn đề cơ bản của triết học trên lập trường khẳng định ý thức, tinh thần có trước và quyết định thế giới vật chất."
+    },
+    {
+      "id": "MLN111-100-P1-010",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy tâm có hai hình thức cơ bản nào?",
+      "options": [
+        "Chủ nghĩa duy tâm chất phác và chủ nghĩa duy tâm máy móc",
+        "Chủ nghĩa duy tâm lịch sử và chủ nghĩa duy tâm biện chứng",
+        "Chủ nghĩa duy tâm chủ quan và chủ nghĩa duy tâm khách quan",
+        "Chủ nghĩa duy tâm trực quan và chủ nghĩa duy tâm khoa học"
+      ],
+      "correct": 2,
+      "explanation": "Chủ nghĩa duy tâm gồm hai phái chính: Duy tâm chủ quan (tuyệt đối hóa cảm giác, ý thức cá nhân) và duy tâm khách quan (tuyệt đối hóa ý niệm tuyệt đối, tinh thần thế giới)."
+    },
+    {
+      "id": "MLN111-100-P1-011",
+      "type": "choice",
+      "prompt": "Nhà triết học nào tiêu biểu cho chủ nghĩa duy tâm chủ quan cổ điển?",
+      "options": [
+        "Hegel",
+        "Plato",
+        "Berkeley",
+        "Feuerbach"
+      ],
+      "correct": 2,
+      "explanation": "George Berkeley là đại biểu tiêu biểu cho chủ nghĩa duy tâm chủ quan với quan điểm nổi tiếng: 'Tồn tại nghĩa là bị tri giác'."
+    },
+    {
+      "id": "MLN111-100-P1-012",
+      "type": "choice",
+      "prompt": "Trường phái triết học nào cho rằng vật chất có trước, quyết định ý thức?",
+      "options": [
+        "Chủ nghĩa duy tâm khách quan",
+        "Thuyết hoài nghi",
+        "Chủ nghĩa duy vật",
+        "Thuyết không thể biết"
+      ],
+      "correct": 2,
+      "explanation": "Chủ nghĩa duy vật xuất phát từ thực tế khách quan, khẳng định vật chất tồn tại độc lập, có trước và quyết định ý thức."
+    },
+    {
+      "id": "MLN111-100-P1-013",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy vật đã trải qua mấy hình thức lịch sử cơ bản?",
+      "options": [
+        "2 hình thức",
+        "3 hình thức",
+        "4 hình thức",
+        "5 hình thức"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy vật trải qua 3 hình thức lớn: (1) Chủ nghĩa duy vật chất phác cổ đại, (2) Chủ nghĩa duy vật siêu hình cận đại, (3) Chủ nghĩa duy vật biện chứng hiện đại."
+    },
+    {
+      "id": "MLN111-100-P1-014",
+      "type": "choice",
+      "prompt": "Hạn chế lớn nhất của chủ nghĩa duy vật thế kỷ XVII - XVIII (cận đại) là gì?",
+      "options": [
+        "Thừa nhận ý thức có trước vật chất",
+        "Mang tính chất siêu hình, máy móc",
+        "Đồng nhất vật chất với ý niệm",
+        "Rơi vào thuyết bất khả tri"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy vật cận đại bị chi phối bởi phương pháp tư duy siêu hình, máy móc của cơ học cổ điển Newton, nhìn nhận thế giới tĩnh tại, biệt lập."
+    },
+    {
+      "id": "MLN111-100-P1-015",
+      "type": "choice",
+      "prompt": "Những nhà triết học nào thừa nhận cả hai bản nguyên vật chất và tinh thần song song tồn tại?",
+      "options": [
+        "Khả tri luận",
+        "Nhất nguyên luận duy vật",
+        "Nhất nguyên luận duy tâm",
+        "Nhị nguyên luận"
+      ],
+      "correct": 3,
+      "explanation": "Thuyết nhị nguyên triết học cho rằng cả hai thực thể vật chất và tinh thần cùng tồn tại song song, độc lập và không cái nào quyết định cái nào."
+    },
+    {
+      "id": "MLN111-100-P1-016",
+      "type": "choice",
+      "prompt": "Phái triết học nào phủ nhận khả năng nhận thức thế giới của con người?",
+      "options": [
+        "Thuyết bất khả tri (Agnosticism)",
+        "Thuyết khả tri (Gnosticism)",
+        "Thuyết hoài nghi (Skepticism)",
+        "Chủ nghĩa duy vật biện chứng"
+      ],
+      "correct": 0,
+      "explanation": "Thuyết bất khả tri khẳng định con người hoàn toàn không thể nhận thức được bản chất thực sự của thế giới khách quan."
+    },
+    {
+      "id": "MLN111-100-P1-017",
+      "type": "choice",
+      "prompt": "Phương pháp tư duy nào xem xét sự vật trong trạng thái cô lập, tĩnh tại, không liên hệ, không phát triển?",
+      "options": [
+        "Phương pháp biện chứng",
+        "Phương pháp siêu hình",
+        "Phương pháp thực nghiệm",
+        "Phương pháp phân tích lịch sử"
+      ],
+      "correct": 1,
+      "explanation": "Phương pháp siêu hình xem xét sự vật một cách cô lập, bất biến, giải thích sự phát triển chỉ là sự tăng giảm thuần túy về mặt số lượng."
+    },
+    {
+      "id": "MLN111-100-P1-018",
+      "type": "choice",
+      "prompt": "Phép biện chứng đã trải qua những hình thức lịch sử nào?",
+      "options": [
+        "Phép biện chứng chất phác cổ đại; phép biện chứng duy tâm cổ điển Đức; phép biện chứng duy vật",
+        "Phép biện chứng siêu hình; phép biện chứng chủ quan; phép biện chứng khách quan",
+        "Phép biện chứng Hy Lạp; phép biện chứng Phật giáo; phép biện chứng Mác-xít",
+        "Phép biện chứng mộc mạc; phép biện chứng máy móc; phép biện chứng khoa học"
+      ],
+      "correct": 0,
+      "explanation": "Phép biện chứng trải qua 3 hình thức lớn tương ứng với tiến trình phát triển của triết học và khoa học."
+    },
+    {
+      "id": "MLN111-100-P1-019",
+      "type": "choice",
+      "prompt": "Tiền đề kinh tế - xã hội quan trọng nhất cho sự ra đời của Triết học Mác là gì?",
+      "options": [
+        "Sự phát triển mạnh mẽ của khoa học tự nhiên",
+        "Sự xuất hiện và lớn mạnh của giai cấp vô sản trên vũ đài lịch sử",
+        "Sự sụp đổ của chế độ phong kiến phương Tây",
+        "Các cuộc phát kiến địa lý lớn"
+      ],
+      "correct": 1,
+      "explanation": "Sự xuất hiện và phát triển của giai cấp vô sản với tư cách là một lực lượng chính trị độc lập đấu tranh chống giai cấp tư sản đòi hỏi phải có một thế giới quan khoa học dẫn đường."
+    },
+    {
+      "id": "MLN111-100-P1-020",
+      "type": "choice",
+      "prompt": "Ba phát minh lớn của khoa học tự nhiên đầu thế kỷ XIX làm tiền đề cho Triết học Mác là gì?",
+      "options": [
+        "Thuyết vạn vật hấp dẫn, thuyết nguyên tử, thuyết hình học phi Euclid",
+        "Thuyết cơ học Newton, định luật bảo toàn khối lượng, thuyết nhật tâm",
+        "Định luật bảo toàn và chuyển hóa năng lượng; thuyết tế bào; thuyết tiến hóa",
+        "Thuyết tương đối, thuyết lượng tử, cấu trúc DNA"
+      ],
+      "correct": 2,
+      "explanation": "Ba phát minh này chứng minh tính thống nhất, liên hệ và biến chuyển biện chứng của thế giới tự nhiên, đập tan thế giới quan siêu hình."
+    },
+    {
+      "id": "MLN111-100-P1-021",
+      "type": "choice",
+      "prompt": "Tiền đề lý luận trực tiếp nhất cho sự ra đời của Triết học Mác là gì?",
+      "options": [
+        "Triết học cổ điển Đức",
+        "Kinh tế chính trị học cổ điển Anh",
+        "Chủ nghĩa xã hội không tưởng Pháp",
+        "Triết học Khai sáng Pháp"
+      ],
+      "correct": 0,
+      "explanation": "Mác và Ăngghen đã kế thừa trực tiếp hạt nhân hợp lý là phép biện chứng của Hegel và chủ nghĩa duy vật của Feuerbach trong triết học cổ điển Đức."
+    },
+    {
+      "id": "MLN111-100-P1-022",
+      "type": "choice",
+      "prompt": "Hạt nhân hợp lý trong triết học của Hegel mà Mác đã kế thừa là gì?",
+      "options": [
+        "Chủ nghĩa duy vật lịch sử",
+        "Phép biện chứng",
+        "Quan điểm duy vật về giới tự nhiên",
+        "Lý luận về tôn giáo"
+      ],
+      "correct": 1,
+      "explanation": "Mác đã cải tạo phép biện chứng duy tâm cải biến của Hegel để xây dựng nên phép biện chứng duy vật khoa học."
+    },
+    {
+      "id": "MLN111-100-P1-023",
+      "type": "choice",
+      "prompt": "Yếu tố nào trong triết học của Feuerbach mà Mác đã cải tạo và kế thừa?",
+      "options": [
+        "Phương pháp tư duy siêu hình",
+        "Phép biện chứng duy tâm",
+        "Chủ nghĩa duy vật",
+        "Lý luận về tính tha hóa của tôn giáo"
+      ],
+      "correct": 2,
+      "explanation": "Mác đánh giá cao chủ nghĩa duy vật nhân bản của Feuerbach nhưng phê phán tính chất siêu hình và duy tâm khi giải thích các hiện tượng xã hội."
+    },
+    {
+      "id": "MLN111-100-P1-024",
+      "type": "choice",
+      "prompt": "Tác phẩm nào đánh dấu sự hình thành cơ bản thế giới quan mới của Mác và Ăngghen?",
+      "options": [
+        "Bản thảo kinh tế - triết học năm 1844",
+        "Hệ tư tưởng Đức",
+        "Tuyên ngôn của Đảng Cộng sản",
+        "Gia đình thần thánh"
+      ],
+      "correct": 1,
+      "explanation": "Tác phẩm 'Hệ tư tưởng Đức' (1845 - 1846) đánh dấu sự hình thành cơ bản lý luận chủ nghĩa duy vật lịch sử của Mác và Ăngghen."
+    },
+    {
+      "id": "MLN111-100-P1-025",
+      "type": "choice",
+      "prompt": "Tác phẩm nào được xem là văn kiện có tính chất cương lĩnh, trình bày hoàn chỉnh thế giới quan mới của chủ nghĩa Mác?",
+      "options": [
+        "Tư bản (Tập 1)",
+        "Tuyên ngôn của Đảng Cộng sản",
+        "Chống Đuyrinh",
+        "Nguồn gốc của gia đình, của chế độ tư hữu và của nhà nước"
+      ],
+      "correct": 1,
+      "explanation": "Tuyên ngôn của Đảng Cộng sản (1848) là tác phẩm công bố chính thức thế giới quan mới một cách toàn diện và hoàn chỉnh trước toàn nhân loại."
+    },
+    {
+      "id": "MLN111-100-P1-026",
+      "type": "choice",
+      "prompt": "V.I. Lênin đã có đóng góp gì nổi bật cho sự phát triển của Triết học Mác?",
+      "options": [
+        "Hoàn thiện phép biện chứng duy tâm",
+        "Bảo vệ và phát triển sáng tạo triết học Mác trong điều kiện lịch sử mới",
+        "Loại bỏ chủ nghĩa duy vật lịch sử",
+        "Thay thế hoàn toàn chủ nghĩa duy vật biện chứng bằng chủ nghĩa duy vật siêu hình"
+      ],
+      "correct": 1,
+      "explanation": "Lênin đã bảo vệ xuất sắc chủ nghĩa Mác trước sự xuyên tạc của chủ nghĩa xét lại, đồng thời bổ sung, phát triển sáng tạo học thuyết Mác trong thời đại đế quốc chủ nghĩa."
+    },
+    {
+      "id": "MLN111-100-P1-027",
+      "type": "choice",
+      "prompt": "Bước chuyển cách mạng vĩ đại nhất do Mác và Ăngghen thực hiện trong lịch sử triết học là gì?",
+      "options": [
+        "Chứng minh sự tồn tại của Thượng đế bằng lý trí",
+        "Sáng tạo ra chủ nghĩa duy vật lịch sử",
+        "Loại bỏ hoàn toàn phương pháp biện chứng",
+        "Quy thế giới vật chất về thế giới ý niệm"
+      ],
+      "correct": 1,
+      "explanation": "Sáng tạo ra chủ nghĩa duy vật lịch sử (duy vật hóa lịch sử xã hội loài người) là bước chuyển mang tính cách mạng vĩ đại nhất của triết học Mác so với toàn bộ triết học trước đó."
+    },
+    {
+      "id": "MLN111-100-P1-028",
+      "type": "choice",
+      "prompt": "Đối tượng nghiên cứu của Triết học Mác - Lênin là gì?",
+      "options": [
+        "Mọi hiện tượng tự nhiên, xã hội và tư duy một cách biệt lập",
+        "Các quy luật cơ học cổ điển điều khiển thế giới",
+        "Giải quyết mối quan hệ giữa vật chất - ý thức và các quy luật chung nhất của tự nhiên, xã hội và tư duy",
+        "Chỉ nghiên cứu sự vận động của đời sống kinh tế xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Đối tượng của triết học Mác - Lênin là giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng, đồng thời nghiên cứu các quy luật chung nhất."
+    },
+    {
+      "id": "MLN111-100-P1-029",
+      "type": "choice",
+      "prompt": "Triết học Mác - Lênin thực hiện những chức năng cơ bản nào?",
+      "options": [
+        "Chức năng thế giới quan và chức năng phương pháp luận",
+        "Chức năng cải tạo sinh học và chức năng dự báo thời tiết",
+        "Chức năng lập pháp và chức năng hành pháp",
+        "Chức năng giải trí và chức năng nghệ thuật"
+      ],
+      "correct": 0,
+      "explanation": "Triết học Mác - Lênin cung cấp thế giới quan duy vật biện chứng và phương pháp luận biện chứng duy vật cho con người trong nhận thức và thực tiễn."
+    },
+    {
+      "id": "MLN111-100-P1-030",
+      "type": "choice",
+      "prompt": "Vai trò thế giới quan duy vật biện chứng của Triết học Mác - Lênin thể hiện thế nào?",
+      "options": [
+        "Là hạt nhân thế giới quan của hệ tư tưởng giai cấp vô sản",
+        "Giúp con người nhận thức thế giới một cách khoa học, khách quan",
+        "Định hướng con người cải tạo thế giới vì sự tiến bộ xã hội",
+        "Tất cả các phương án trên"
+      ],
+      "correct": 3,
+      "explanation": "Thế giới quan duy vật biện chứng đóng vai trò định hướng toàn diện cho nhận thức, thái độ và hành động thực tiễn của con người."
+    }
+  ]
+}

@@ -12,6 +12,9 @@ export default function Mln111Landing() {
   const re = mln111Map['re'];
   const c1 = mln111Map['c1'];
   const c2 = mln111Map['c2'];
+  const full100 = mln111Map['100-full'];
+  const part1_100 = mln111Map['100-part1'];
+  const part2_100 = mln111Map['100-part2'];
 
   return (
     <div className="min-h-screen bg-[#0c0d0e] pb-16">
@@ -79,6 +82,50 @@ export default function Mln111Landing() {
               </span>
             </div>
           </Link>
+        </section>
+
+        {/* 100 câu trọng tâm Chương 1 & 2 — đề mục riêng, tách biệt khỏi 3 đề gốc và 3 chương */}
+        <section className="space-y-4">
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-fuchsia-950/10 to-pink-950/10 border border-fuchsia-900/20 text-center space-y-2">
+            <h2 className="text-lg font-bold text-fuchsia-200">📘 100 Câu Trọng Tâm (Chương 1 &amp; 2)</h2>
+            <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
+              Bộ tài liệu ôn tập riêng, tổng hợp 100 câu bám sát cấu trúc đề thi cho Chương 1 &amp; 2, kèm giải thích chi tiết.
+            </p>
+          </div>
+
+          <Link
+            to="/mln111/100-full"
+            className="block rounded-3xl border border-fuchsia-700/40 bg-gradient-to-r from-fuchsia-950/20 to-pink-950/10 hover:border-fuchsia-600/60 transition-all duration-200 hover:scale-[1.005] group p-6"
+          >
+            <div className="flex items-center justify-between gap-4 flex-wrap">
+              <div className="space-y-1">
+                <h3 className="font-extrabold text-lg text-fuchsia-300">📚 Làm Cả 100 Câu</h3>
+                <p className="text-xs text-gray-400 leading-relaxed max-w-md">
+                  Đầy đủ theo thứ tự gốc: Phần 1 (Triết học &amp; vai trò) rồi đến Phần 2 (CNDVBC).
+                </p>
+              </div>
+              <span className="text-xs font-bold text-fuchsia-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
+                {full100?.questions?.length ?? 100} câu ➔
+              </span>
+            </div>
+          </Link>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link
+              to="/mln111/100-part1"
+              className="block rounded-2xl border border-fuchsia-700/30 bg-gray-900/20 hover:border-fuchsia-600/50 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
+            >
+              <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">🧭 Phần 1 — Triết Học &amp; Vai Trò</h3>
+              <p className="text-xs text-gray-500 mt-1">{part1_100?.questions?.length ?? 30} câu</p>
+            </Link>
+            <Link
+              to="/mln111/100-part2"
+              className="block rounded-2xl border border-fuchsia-700/30 bg-gray-900/20 hover:border-fuchsia-600/50 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
+            >
+              <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">⚛️ Phần 2 — CN Duy Vật Biện Chứng</h3>
+              <p className="text-xs text-gray-500 mt-1">{part2_100?.questions?.length ?? 70} câu</p>
+            </Link>
+          </div>
         </section>
 
         {/* Chia theo 3 chương */}

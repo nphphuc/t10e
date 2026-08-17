@@ -80,6 +80,11 @@ import mln111Chapter1 from '../content/mln111/mln111-chapter-01-triet-hoc-vai-tr
 import mln111Chapter2 from '../content/mln111/mln111-chapter-02-duy-vat-bien-chung.json';
 import mln111Chapter3 from '../content/mln111/mln111-chapter-03-duy-vat-lich-su.json';
 
+// MLN111 — 100 câu trọng tâm Chương 1 & 2 (đề mục riêng, tài liệu tổng hợp thêm)
+import mln111_100Full from '../content/mln111/mln111-100-full.json';
+import mln111_100Part1 from '../content/mln111/mln111-100-part1.json';
+import mln111_100Part2 from '../content/mln111/mln111-100-part2.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -173,6 +178,9 @@ export const mln111Map: Record<string, any> = {
   'chapter-1': mln111Chapter1,
   'chapter-2': mln111Chapter2,
   'chapter-3': mln111Chapter3,
+  '100-full': mln111_100Full,
+  '100-part1': mln111_100Part1,
+  '100-part2': mln111_100Part2,
 };
 
 // Đề trộn MLN111: 20 câu random từ mỗi đề RE/C1/C2 = 60 câu, trộn thứ tự xuất hiện —

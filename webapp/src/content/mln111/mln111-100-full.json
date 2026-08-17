@@ -1,0 +1,1306 @@
+{
+  "id": "MLN111-100",
+  "title": "MLN111 — 100 Câu Trọng Tâm (Chương 1 & 2)",
+  "questions": [
+    {
+      "id": "MLN111-100-001",
+      "type": "choice",
+      "prompt": "Thuật ngữ 'Triết học' xuất hiện vào khoảng thời gian nào?",
+      "options": [
+        "Thế kỷ VIII - thế kỷ VI trước Công nguyên",
+        "Thế kỷ III - thế kỷ I trước Công nguyên",
+        "Thế kỷ I - thế kỷ III sau Công nguyên",
+        "Thế kỷ XV - thế kỷ XVII"
+      ],
+      "correct": 0,
+      "explanation": "Triết học ra đời vào khoảng thế kỷ VIII đến thế kỷ VI trước Công nguyên tại cả Phương Đông (Ấn Độ, Trung Hoa) và Phương Tây (Hy Lạp cổ đại)."
+    },
+    {
+      "id": "MLN111-100-002",
+      "type": "choice",
+      "prompt": "Ở Ấn Độ cổ đại, chữ 'Darshana' (Triết học) mang nghĩa là gì?",
+      "options": [
+        "Yêu mến sự thông thái",
+        "Con đường suy ngẫm để dẫn dắt con người đến lẽ phải",
+        "Sự chiêm ngưỡng, là tri thức dựa trên lý trí, con đường giải thoát",
+        "Sự truy tìm bản chất của đối tượng nhận thức"
+      ],
+      "correct": 2,
+      "explanation": "Trong tiếng Phạn, Darshana có nghĩa là sự chiêm ngưỡng, kiến giải, là tri thức dựa trên lý trí để tìm con đường giải thoát."
+    },
+    {
+      "id": "MLN111-100-003",
+      "type": "choice",
+      "prompt": "Ở Trung Quốc cổ đại, chữ 'Triết' mang ý nghĩa là gì?",
+      "options": [
+        "Sự giải thoát tâm linh",
+        "Trí tuệ, sự hiểu biết sâu sắc về thế giới và định đạo nhân sinh",
+        "Sự yêu mến tri thức khách quan",
+        "Khoa học của các khoa học"
+      ],
+      "correct": 1,
+      "explanation": "Triết học Trung Quốc cổ đại dùng chữ 'Triết' với nghĩa là trí tuệ, sự hiểu biết sâu sắc về đạo lý, vũ trụ và con người."
+    },
+    {
+      "id": "MLN111-100-004",
+      "type": "choice",
+      "prompt": "Ở Hy Lạp cổ đại, thuật ngữ 'Philosophia' mang nghĩa là gì?",
+      "options": [
+        "Khát vọng hành động",
+        "Con đường giải thoát",
+        "Yêu mến sự thông thái",
+        "Trực giác tâm linh"
+      ],
+      "correct": 2,
+      "explanation": "Philosophia ghép từ philo (yêu mến) và sophia (sự thông thái), nghĩa là tình yêu hay sự khao khát đạt đến sự thông thái."
+    },
+    {
+      "id": "MLN111-100-005",
+      "type": "choice",
+      "prompt": "Triết học ra đời từ những nguồn gốc nào?",
+      "options": [
+        "Nguồn gốc tự nhiên và nguồn gốc xã hội",
+        "Nguồn gốc kinh tế và nguồn gốc tư tưởng",
+        "Nguồn gốc nhận thức và nguồn gốc xã hội",
+        "Nguồn gốc giai cấp và nguồn gốc khoa học"
+      ],
+      "correct": 2,
+      "explanation": "Triết học chỉ ra đời khi hội đủ 2 nguồn gốc: Nguồn gốc nhận thức (đạt năng lực tư duy khái quát hóa, trừu tượng hóa) và nguồn gốc xã hội (phân công lao động trí óc và lao động chân tay, xã hội phân chia giai cấp)."
+    },
+    {
+      "id": "MLN111-100-006",
+      "type": "choice",
+      "prompt": "Vấn đề cơ bản của triết học là gì?",
+      "options": [
+        "Vấn đề về mối quan hệ giữa vật chất và ý thức",
+        "Vấn đề về nguồn gốc và bản chất của con người",
+        "Vấn đề về động lực phát triển của lịch sử xã hội",
+        "Vấn đề về ranh giới giữa cái chung và cái riêng"
+      ],
+      "correct": 0,
+      "explanation": "Ăngghen định nghĩa: 'Vấn đề cơ bản lớn của mọi triết học, đặc biệt là của triết học hiện đại, là vấn đề quan hệ giữa tư duy với tồn tại' (hay giữa ý thức với vật chất)."
+    },
+    {
+      "id": "MLN111-100-007",
+      "type": "choice",
+      "prompt": "Mặt thứ nhất của vấn đề cơ bản của triết học trả lời cho câu hỏi nào?",
+      "options": [
+        "Con người có khả năng nhận thức được thế giới hay không?",
+        "Giữa vật chất và ý thức, cái nào có trước, cái nào có sau, cái nào quyết định cái nào?",
+        "Thế giới tồn tại vĩnh viễn hay có điểm khởi đầu?",
+        "Sự vật vận động tuần hoàn hay tiến lên vô tận?"
+      ],
+      "correct": 1,
+      "explanation": "Mặt thứ nhất (mặt bản thể luận) giải quyết mối quan hệ thứ bậc giữa vật chất và ý thức: cái nào có trước, cái nào có sau và cái nào giữ vai trò quyết định."
+    },
+    {
+      "id": "MLN111-100-008",
+      "type": "choice",
+      "prompt": "Mặt thứ hai của vấn đề cơ bản của triết học trả lời cho câu hỏi nào?",
+      "options": [
+        "Ý thức có tính độc lập tương đối hay không?",
+        "Giới tự nhiên vận động theo quy luật nào?",
+        "Con người có khả năng nhận thức thế giới được hay không?",
+        "Giai cấp nào giữ vai trò thống trị lịch sử?"
+      ],
+      "correct": 2,
+      "explanation": "Mặt thứ hai (mặt nhận thức luận) xem xét khả năng nhận thức thế giới khách quan của bộ óc con người."
+    },
+    {
+      "id": "MLN111-100-009",
+      "type": "choice",
+      "prompt": "Trường phái triết học nào cho rằng ý thức có trước, quyết định vật chất?",
+      "options": [
+        "Chủ nghĩa duy vật",
+        "Chủ nghĩa duy tâm",
+        "Thuyết nhị nguyên",
+        "Thuyết bất khả tri"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy tâm giải quyết mặt thứ nhất vấn đề cơ bản của triết học trên lập trường khẳng định ý thức, tinh thần có trước và quyết định thế giới vật chất."
+    },
+    {
+      "id": "MLN111-100-010",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy tâm có hai hình thức cơ bản nào?",
+      "options": [
+        "Chủ nghĩa duy tâm chất phác và chủ nghĩa duy tâm máy móc",
+        "Chủ nghĩa duy tâm lịch sử và chủ nghĩa duy tâm biện chứng",
+        "Chủ nghĩa duy tâm chủ quan và chủ nghĩa duy tâm khách quan",
+        "Chủ nghĩa duy tâm trực quan và chủ nghĩa duy tâm khoa học"
+      ],
+      "correct": 2,
+      "explanation": "Chủ nghĩa duy tâm gồm hai phái chính: Duy tâm chủ quan (tuyệt đối hóa cảm giác, ý thức cá nhân) và duy tâm khách quan (tuyệt đối hóa ý niệm tuyệt đối, tinh thần thế giới)."
+    },
+    {
+      "id": "MLN111-100-011",
+      "type": "choice",
+      "prompt": "Nhà triết học nào tiêu biểu cho chủ nghĩa duy tâm chủ quan cổ điển?",
+      "options": [
+        "Hegel",
+        "Plato",
+        "Berkeley",
+        "Feuerbach"
+      ],
+      "correct": 2,
+      "explanation": "George Berkeley là đại biểu tiêu biểu cho chủ nghĩa duy tâm chủ quan với quan điểm nổi tiếng: 'Tồn tại nghĩa là bị tri giác'."
+    },
+    {
+      "id": "MLN111-100-012",
+      "type": "choice",
+      "prompt": "Trường phái triết học nào cho rằng vật chất có trước, quyết định ý thức?",
+      "options": [
+        "Chủ nghĩa duy tâm khách quan",
+        "Thuyết hoài nghi",
+        "Chủ nghĩa duy vật",
+        "Thuyết không thể biết"
+      ],
+      "correct": 2,
+      "explanation": "Chủ nghĩa duy vật xuất phát từ thực tế khách quan, khẳng định vật chất tồn tại độc lập, có trước và quyết định ý thức."
+    },
+    {
+      "id": "MLN111-100-013",
+      "type": "choice",
+      "prompt": "Chủ nghĩa duy vật đã trải qua mấy hình thức lịch sử cơ bản?",
+      "options": [
+        "2 hình thức",
+        "3 hình thức",
+        "4 hình thức",
+        "5 hình thức"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy vật trải qua 3 hình thức lớn: (1) Chủ nghĩa duy vật chất phác cổ đại, (2) Chủ nghĩa duy vật siêu hình cận đại, (3) Chủ nghĩa duy vật biện chứng hiện đại."
+    },
+    {
+      "id": "MLN111-100-014",
+      "type": "choice",
+      "prompt": "Hạn chế lớn nhất của chủ nghĩa duy vật thế kỷ XVII - XVIII (cận đại) là gì?",
+      "options": [
+        "Thừa nhận ý thức có trước vật chất",
+        "Mang tính chất siêu hình, máy móc",
+        "Đồng nhất vật chất với ý niệm",
+        "Rơi vào thuyết bất khả tri"
+      ],
+      "correct": 1,
+      "explanation": "Chủ nghĩa duy vật cận đại bị chi phối bởi phương pháp tư duy siêu hình, máy móc của cơ học cổ điển Newton, nhìn nhận thế giới tĩnh tại, biệt lập."
+    },
+    {
+      "id": "MLN111-100-015",
+      "type": "choice",
+      "prompt": "Những nhà triết học nào thừa nhận cả hai bản nguyên vật chất và tinh thần song song tồn tại?",
+      "options": [
+        "Khả tri luận",
+        "Nhất nguyên luận duy vật",
+        "Nhất nguyên luận duy tâm",
+        "Nhị nguyên luận"
+      ],
+      "correct": 3,
+      "explanation": "Thuyết nhị nguyên triết học cho rằng cả hai thực thể vật chất và tinh thần cùng tồn tại song song, độc lập và không cái nào quyết định cái nào."
+    },
+    {
+      "id": "MLN111-100-016",
+      "type": "choice",
+      "prompt": "Phái triết học nào phủ nhận khả năng nhận thức thế giới của con người?",
+      "options": [
+        "Thuyết bất khả tri (Agnosticism)",
+        "Thuyết khả tri (Gnosticism)",
+        "Thuyết hoài nghi (Skepticism)",
+        "Chủ nghĩa duy vật biện chứng"
+      ],
+      "correct": 0,
+      "explanation": "Thuyết bất khả tri khẳng định con người hoàn toàn không thể nhận thức được bản chất thực sự của thế giới khách quan."
+    },
+    {
+      "id": "MLN111-100-017",
+      "type": "choice",
+      "prompt": "Phương pháp tư duy nào xem xét sự vật trong trạng thái cô lập, tĩnh tại, không liên hệ, không phát triển?",
+      "options": [
+        "Phương pháp biện chứng",
+        "Phương pháp siêu hình",
+        "Phương pháp thực nghiệm",
+        "Phương pháp phân tích lịch sử"
+      ],
+      "correct": 1,
+      "explanation": "Phương pháp siêu hình xem xét sự vật một cách cô lập, bất biến, giải thích sự phát triển chỉ là sự tăng giảm thuần túy về mặt số lượng."
+    },
+    {
+      "id": "MLN111-100-018",
+      "type": "choice",
+      "prompt": "Phép biện chứng đã trải qua những hình thức lịch sử nào?",
+      "options": [
+        "Phép biện chứng chất phác cổ đại; phép biện chứng duy tâm cổ điển Đức; phép biện chứng duy vật",
+        "Phép biện chứng siêu hình; phép biện chứng chủ quan; phép biện chứng khách quan",
+        "Phép biện chứng Hy Lạp; phép biện chứng Phật giáo; phép biện chứng Mác-xít",
+        "Phép biện chứng mộc mạc; phép biện chứng máy móc; phép biện chứng khoa học"
+      ],
+      "correct": 0,
+      "explanation": "Phép biện chứng trải qua 3 hình thức lớn tương ứng với tiến trình phát triển của triết học và khoa học."
+    },
+    {
+      "id": "MLN111-100-019",
+      "type": "choice",
+      "prompt": "Tiền đề kinh tế - xã hội quan trọng nhất cho sự ra đời của Triết học Mác là gì?",
+      "options": [
+        "Sự phát triển mạnh mẽ của khoa học tự nhiên",
+        "Sự xuất hiện và lớn mạnh của giai cấp vô sản trên vũ đài lịch sử",
+        "Sự sụp đổ của chế độ phong kiến phương Tây",
+        "Các cuộc phát kiến địa lý lớn"
+      ],
+      "correct": 1,
+      "explanation": "Sự xuất hiện và phát triển của giai cấp vô sản với tư cách là một lực lượng chính trị độc lập đấu tranh chống giai cấp tư sản đòi hỏi phải có một thế giới quan khoa học dẫn đường."
+    },
+    {
+      "id": "MLN111-100-020",
+      "type": "choice",
+      "prompt": "Ba phát minh lớn của khoa học tự nhiên đầu thế kỷ XIX làm tiền đề cho Triết học Mác là gì?",
+      "options": [
+        "Thuyết vạn vật hấp dẫn, thuyết nguyên tử, thuyết hình học phi Euclid",
+        "Thuyết cơ học Newton, định luật bảo toàn khối lượng, thuyết nhật tâm",
+        "Định luật bảo toàn và chuyển hóa năng lượng; thuyết tế bào; thuyết tiến hóa",
+        "Thuyết tương đối, thuyết lượng tử, cấu trúc DNA"
+      ],
+      "correct": 2,
+      "explanation": "Ba phát minh này chứng minh tính thống nhất, liên hệ và biến chuyển biện chứng của thế giới tự nhiên, đập tan thế giới quan siêu hình."
+    },
+    {
+      "id": "MLN111-100-021",
+      "type": "choice",
+      "prompt": "Tiền đề lý luận trực tiếp nhất cho sự ra đời của Triết học Mác là gì?",
+      "options": [
+        "Triết học cổ điển Đức",
+        "Kinh tế chính trị học cổ điển Anh",
+        "Chủ nghĩa xã hội không tưởng Pháp",
+        "Triết học Khai sáng Pháp"
+      ],
+      "correct": 0,
+      "explanation": "Mác và Ăngghen đã kế thừa trực tiếp hạt nhân hợp lý là phép biện chứng của Hegel và chủ nghĩa duy vật của Feuerbach trong triết học cổ điển Đức."
+    },
+    {
+      "id": "MLN111-100-022",
+      "type": "choice",
+      "prompt": "Hạt nhân hợp lý trong triết học của Hegel mà Mác đã kế thừa là gì?",
+      "options": [
+        "Chủ nghĩa duy vật lịch sử",
+        "Phép biện chứng",
+        "Quan điểm duy vật về giới tự nhiên",
+        "Lý luận về tôn giáo"
+      ],
+      "correct": 1,
+      "explanation": "Mác đã cải tạo phép biện chứng duy tâm cải biến của Hegel để xây dựng nên phép biện chứng duy vật khoa học."
+    },
+    {
+      "id": "MLN111-100-023",
+      "type": "choice",
+      "prompt": "Yếu tố nào trong triết học của Feuerbach mà Mác đã cải tạo và kế thừa?",
+      "options": [
+        "Phương pháp tư duy siêu hình",
+        "Phép biện chứng duy tâm",
+        "Chủ nghĩa duy vật",
+        "Lý luận về tính tha hóa của tôn giáo"
+      ],
+      "correct": 2,
+      "explanation": "Mác đánh giá cao chủ nghĩa duy vật nhân bản của Feuerbach nhưng phê phán tính chất siêu hình và duy tâm khi giải thích các hiện tượng xã hội."
+    },
+    {
+      "id": "MLN111-100-024",
+      "type": "choice",
+      "prompt": "Tác phẩm nào đánh dấu sự hình thành cơ bản thế giới quan mới của Mác và Ăngghen?",
+      "options": [
+        "Bản thảo kinh tế - triết học năm 1844",
+        "Hệ tư tưởng Đức",
+        "Tuyên ngôn của Đảng Cộng sản",
+        "Gia đình thần thánh"
+      ],
+      "correct": 1,
+      "explanation": "Tác phẩm 'Hệ tư tưởng Đức' (1845 - 1846) đánh dấu sự hình thành cơ bản lý luận chủ nghĩa duy vật lịch sử của Mác và Ăngghen."
+    },
+    {
+      "id": "MLN111-100-025",
+      "type": "choice",
+      "prompt": "Tác phẩm nào được xem là văn kiện có tính chất cương lĩnh, trình bày hoàn chỉnh thế giới quan mới của chủ nghĩa Mác?",
+      "options": [
+        "Tư bản (Tập 1)",
+        "Tuyên ngôn của Đảng Cộng sản",
+        "Chống Đuyrinh",
+        "Nguồn gốc của gia đình, của chế độ tư hữu và của nhà nước"
+      ],
+      "correct": 1,
+      "explanation": "Tuyên ngôn của Đảng Cộng sản (1848) là tác phẩm công bố chính thức thế giới quan mới một cách toàn diện và hoàn chỉnh trước toàn nhân loại."
+    },
+    {
+      "id": "MLN111-100-026",
+      "type": "choice",
+      "prompt": "V.I. Lênin đã có đóng góp gì nổi bật cho sự phát triển của Triết học Mác?",
+      "options": [
+        "Hoàn thiện phép biện chứng duy tâm",
+        "Bảo vệ và phát triển sáng tạo triết học Mác trong điều kiện lịch sử mới",
+        "Loại bỏ chủ nghĩa duy vật lịch sử",
+        "Thay thế hoàn toàn chủ nghĩa duy vật biện chứng bằng chủ nghĩa duy vật siêu hình"
+      ],
+      "correct": 1,
+      "explanation": "Lênin đã bảo vệ xuất sắc chủ nghĩa Mác trước sự xuyên tạc của chủ nghĩa xét lại, đồng thời bổ sung, phát triển sáng tạo học thuyết Mác trong thời đại đế quốc chủ nghĩa."
+    },
+    {
+      "id": "MLN111-100-027",
+      "type": "choice",
+      "prompt": "Bước chuyển cách mạng vĩ đại nhất do Mác và Ăngghen thực hiện trong lịch sử triết học là gì?",
+      "options": [
+        "Chứng minh sự tồn tại của Thượng đế bằng lý trí",
+        "Sáng tạo ra chủ nghĩa duy vật lịch sử",
+        "Loại bỏ hoàn toàn phương pháp biện chứng",
+        "Quy thế giới vật chất về thế giới ý niệm"
+      ],
+      "correct": 1,
+      "explanation": "Sáng tạo ra chủ nghĩa duy vật lịch sử (duy vật hóa lịch sử xã hội loài người) là bước chuyển mang tính cách mạng vĩ đại nhất của triết học Mác so với toàn bộ triết học trước đó."
+    },
+    {
+      "id": "MLN111-100-028",
+      "type": "choice",
+      "prompt": "Đối tượng nghiên cứu của Triết học Mác - Lênin là gì?",
+      "options": [
+        "Mọi hiện tượng tự nhiên, xã hội và tư duy một cách biệt lập",
+        "Các quy luật cơ học cổ điển điều khiển thế giới",
+        "Giải quyết mối quan hệ giữa vật chất - ý thức và các quy luật chung nhất của tự nhiên, xã hội và tư duy",
+        "Chỉ nghiên cứu sự vận động của đời sống kinh tế xã hội"
+      ],
+      "correct": 2,
+      "explanation": "Đối tượng của triết học Mác - Lênin là giải quyết mối quan hệ giữa vật chất và ý thức trên lập trường duy vật biện chứng, đồng thời nghiên cứu các quy luật chung nhất."
+    },
+    {
+      "id": "MLN111-100-029",
+      "type": "choice",
+      "prompt": "Triết học Mác - Lênin thực hiện những chức năng cơ bản nào?",
+      "options": [
+        "Chức năng thế giới quan và chức năng phương pháp luận",
+        "Chức năng cải tạo sinh học và chức năng dự báo thời tiết",
+        "Chức năng lập pháp và chức năng hành pháp",
+        "Chức năng giải trí và chức năng nghệ thuật"
+      ],
+      "correct": 0,
+      "explanation": "Triết học Mác - Lênin cung cấp thế giới quan duy vật biện chứng và phương pháp luận biện chứng duy vật cho con người trong nhận thức và thực tiễn."
+    },
+    {
+      "id": "MLN111-100-030",
+      "type": "choice",
+      "prompt": "Vai trò thế giới quan duy vật biện chứng của Triết học Mác - Lênin thể hiện thế nào?",
+      "options": [
+        "Là hạt nhân thế giới quan của hệ tư tưởng giai cấp vô sản",
+        "Giúp con người nhận thức thế giới một cách khoa học, khách quan",
+        "Định hướng con người cải tạo thế giới vì sự tiến bộ xã hội",
+        "Tất cả các phương án trên"
+      ],
+      "correct": 3,
+      "explanation": "Thế giới quan duy vật biện chứng đóng vai trò định hướng toàn diện cho nhận thức, thái độ và hành động thực tiễn của con người."
+    },
+    {
+      "id": "MLN111-100-031",
+      "type": "choice",
+      "prompt": "Bản chất của thế giới theo quan điểm của Triết học Mác - Lênin là gì?",
+      "options": [
+        "Tính thống nhất tinh thần",
+        "Tính thống nhất vật chất",
+        "Do Thượng đế sắp đặt vĩnh viễn",
+        "Là sự phức hợp của các cảm giác cá nhân"
+      ],
+      "correct": 1,
+      "explanation": "Triết học Mác - Lênin khẳng định: Thế giới thống nhất ở tính vật chất của nó."
+    },
+    {
+      "id": "MLN111-100-032",
+      "type": "choice",
+      "prompt": "Thuộc tính cơ bản nhất, phổ biến nhất của mọi dạng vật chất được Lênin chỉ ra trong định nghĩa là gì?",
+      "options": [
+        "Có khối lượng và năng lượng",
+        "Tồn tại khách quan, độc lập với ý thức của con người",
+        "Không ngừng vận động và biến đổi",
+        "Có cấu trúc không gian và thời gian"
+      ],
+      "correct": 1,
+      "explanation": "Lênin định nghĩa thuộc tính căn bản nhất của vật chất là 'thực tại khách quan' — tồn tại bên ngoài và không phụ thuộc vào ý thức."
+    },
+    {
+      "id": "MLN111-100-033",
+      "type": "choice",
+      "prompt": "Theo Lênin, vật chất được đem lại cho con người thông qua cái gì?",
+      "options": [
+        "Ý niệm tuyệt đối",
+        "Tư duy thuần túy",
+        "Cảm giác",
+        "Trực giác tâm linh"
+      ],
+      "correct": 2,
+      "explanation": "Vật chất tác động lên các giác quan đem lại cho con người cảm giác, giúp con người nhận thức được nó."
+    },
+    {
+      "id": "MLN111-100-034",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa cảm giác và thực tại khách quan trong định nghĩa vật chất là gì?",
+      "options": [
+        "Cảm giác có trước và sinh ra thực tại khách quan",
+        "Thực tại khách quan được cảm giác chép lại, chụp lại, phản ánh",
+        "Cảm giác hoàn toàn độc lập và không liên quan đến thực tại khách quan",
+        "Thực tại khách quan chỉ là ảo ảnh do cảm giác tạo ra"
+      ],
+      "correct": 1,
+      "explanation": "Lênin khẳng định cảm giác phản ánh trung thực thực tại khách quan (được chép lại, chụp lại, phản ánh)."
+    },
+    {
+      "id": "MLN111-100-035",
+      "type": "choice",
+      "prompt": "Ý nghĩa lớn nhất của định nghĩa vật chất của Lênin đối với khoa học tự nhiên là gì?",
+      "options": [
+        "Giúp phát hiện ra các nguyên tố hóa học mới",
+        "Giải quyết cuộc khủng hoảng thế giới quan, cổ vũ các nhà khoa học tiếp tục khám phá thế giới vật chất",
+        "Bác bỏ định luật bảo toàn năng lượng",
+        "Thay thế các phương pháp thực nghiệm khoa học"
+      ],
+      "correct": 1,
+      "explanation": "Định nghĩa tách biệt khái niệm triết học 'vật chất' khỏi các cấu trúc vật lý cụ thể, giúp chấm dứt khủng hoảng khi phát hiện ra electron không có khối lượng tĩnh."
+    },
+    {
+      "id": "MLN111-100-036",
+      "type": "choice",
+      "prompt": "Phương thức tồn tại của vật chất là gì?",
+      "options": [
+        "Không gian",
+        "Thời gian",
+        "Vận động",
+        "Ý thức"
+      ],
+      "correct": 2,
+      "explanation": "Triết học Mác - Lênin khẳng định: Vận động là phương thức tồn tại của vật chất, là thuộc tính cố hữu của vật chất."
+    },
+    {
+      "id": "MLN111-100-037",
+      "type": "choice",
+      "prompt": "Theo Ăngghen, vận động của vật chất có mấy hình thức cơ bản?",
+      "options": [
+        "3 hình thức",
+        "4 hình thức",
+        "5 hình thức",
+        "6 hình thức"
+      ],
+      "correct": 2,
+      "explanation": "Có 5 hình thức vận động cơ bản từ thấp đến cao: Cơ học, Vật lý, Hóa học, Sinh học, Xã hội."
+    },
+    {
+      "id": "MLN111-100-038",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa đứng im và vận động của vật chất là gì?",
+      "options": [
+        "Đứng im là tuyệt đối, vận động là tương đối",
+        "Vận động là tương đối, đứng im cũng là tương đối",
+        "Vận động là tuyệt đối, đứng im là tương đối",
+        "Vận động và đứng im đều là tuyệt đối"
+      ],
+      "correct": 2,
+      "explanation": "Vận động là tuyệt đối vì vật chất luôn biến đổi không ngừng; đứng im là tương đối, tạm thời, chỉ xảy ra trong một quan hệ xác định."
+    },
+    {
+      "id": "MLN111-100-039",
+      "type": "choice",
+      "prompt": "Hình thức tồn tại của vật chất là gì?",
+      "options": [
+        "Cảm giác và ý niệm",
+        "Không gian và thời gian",
+        "Khối lượng và thể tích",
+        "Vận động cơ học"
+      ],
+      "correct": 1,
+      "explanation": "Không gian (chỉ vị trí, quảng tính) và thời gian (chỉ độ dài diễn biến, trình tự trước sau) là những hình thức tồn tại khách quan của vật chất."
+    },
+    {
+      "id": "MLN111-100-040",
+      "type": "choice",
+      "prompt": "Nguồn gốc tự nhiên của ý thức bao gồm những yếu tố nào?",
+      "options": [
+        "Bộ óc người và thế giới khách quan tác động lên bộ óc người",
+        "Bộ óc vượn người và ngôn ngữ giao tiếp",
+        "Hoạt động lao động sản xuất công cụ và tư duy trừu tượng",
+        "Gen di truyền và môi trường sinh thái"
+      ],
+      "correct": 0,
+      "explanation": "Nguồn gốc tự nhiên của ý thức gồm: bộ óc người hoạt động bình thường và sự tác động của thế giới khách quan lên bộ óc tạo nên phản ánh."
+    },
+    {
+      "id": "MLN111-100-041",
+      "type": "choice",
+      "prompt": "Nhân tố nào đóng vai trò quyết định trực tiếp cho sự ra đời của ý thức?",
+      "options": [
+        "Bộ não vượn người phát triển tự nhiên",
+        "Lao động và ngôn ngữ (nguồn gốc xã hội)",
+        "Sự tác động cơ học của giới vô cơ",
+        "Sự thay đổi khí hậu toàn cầu"
+      ],
+      "correct": 1,
+      "explanation": "Lao động và ngôn ngữ là nguồn gốc xã hội trực tiếp quyết định chuyển biến tâm lý động vật thành ý thức con người."
+    },
+    {
+      "id": "MLN111-100-042",
+      "type": "choice",
+      "prompt": "Ngôn ngữ đóng vai trò gì đối với ý thức và tư duy?",
+      "options": [
+        "Là nguồn gốc sinh học duy nhất",
+        "Là 'vỏ vật chất' của tư duy, hiện thực trực tiếp của ý thức",
+        "Là một hiện tượng tâm lý hoàn toàn biệt lập",
+        "Chỉ để truyền đạt cảm xúc bản năng"
+      ],
+      "correct": 1,
+      "explanation": "Mác khẳng định ngôn ngữ là vỏ vật chất của tư duy, giúp con người trừu tượng hóa, khái quát hóa và giao tiếp xã hội."
+    },
+    {
+      "id": "MLN111-100-043",
+      "type": "choice",
+      "prompt": "Bản chất của ý thức là gì?",
+      "options": [
+        "Sự sao chép nguyên xi, thụ động giới tự nhiên vào bộ não",
+        "Một dạng vật chất đặc biệt do não tiết ra",
+        "Hình ảnh chủ quan của thế giới khách quan, là sự phản ánh tích cực, sáng tạo",
+        "Ý niệm tuyệt đối tự nhận thức bản thân"
+      ],
+      "correct": 2,
+      "explanation": "Ý thức mang nội dung khách quan nhưng hình thức biểu hiện mang tính chủ quan, phản ánh chủ động, sáng tạo thông qua thực tiễn."
+    },
+    {
+      "id": "MLN111-100-044",
+      "type": "choice",
+      "prompt": "Sự khác biệt căn bản giữa phản ánh ý thức của người và phản ánh tâm lý của động vật bậc cao là gì?",
+      "options": [
+        "Phản ánh của người mang tính bản năng sinh học",
+        "Phản ánh ý thức mang tính tích cực, sáng tạo và gắn với thực tiễn xã hội",
+        "Phản ánh của động vật có khả năng trừu tượng hóa cao hơn",
+        "Không có sự khác biệt về bản chất"
+      ],
+      "correct": 1,
+      "explanation": "Tâm lý động vật mang tính bản năng thích nghi thụ động; ý thức con người mang tính chủ động, sáng tạo cải tạo thế giới."
+    },
+    {
+      "id": "MLN111-100-045",
+      "type": "choice",
+      "prompt": "Yếu tố nào được coi là nội dung và phương thức tồn tại cơ bản nhất của ý thức?",
+      "options": [
+        "Tình cảm",
+        "Tri thức",
+        "Ý chí",
+        "Tiềm thức"
+      ],
+      "correct": 1,
+      "explanation": "Tri thức là cơ sở cốt lõi nhất của ý thức. Ý thức mà không dựa vào tri thức chỉ là sự mơ hồ trống rỗng."
+    },
+    {
+      "id": "MLN111-100-046",
+      "type": "choice",
+      "prompt": "Hiện tượng tâm lý nào giúp bộ não tự động xử lý các thông tin/tri thức đã thành kỹ năng, kỹ xảo?",
+      "options": [
+        "Vô thức",
+        "Tự ý thức",
+        "Tiềm thức",
+        "Ý chí"
+      ],
+      "correct": 2,
+      "explanation": "Tiềm thức là các luồng tri thức đã được tự động hóa nằm sâu dưới tầng ý thức, giúp giải phóng năng lượng xử lý của não bộ."
+    },
+    {
+      "id": "MLN111-100-047",
+      "type": "choice",
+      "prompt": "Mối quan hệ biện chứng giữa vật chất và ý thức được biểu hiện như thế nào?",
+      "options": [
+        "Ý thức quyết định vật chất, vật chất tác động ngược lại",
+        "Vật chất quyết định ý thức; ý thức có tính độc lập tương đối và tác động ngược lại vật chất thông qua thực tiễn",
+        "Vật chất và ý thức hoàn toàn độc lập, không liên quan đến nhau",
+        "Vật chất quyết định ý thức thụ động như chiếc gương soi"
+      ],
+      "correct": 1,
+      "explanation": "Vật chất quyết định nguồn gốc, nội dung, sự biến đổi của ý thức; ý thức tác động ngược lại thông qua hoạt động thực tiễn của con người."
+    },
+    {
+      "id": "MLN111-100-048",
+      "type": "choice",
+      "prompt": "Yêu cầu phương pháp luận nào rút ra từ mối quan hệ biện chứng giữa vật chất và ý thức?",
+      "options": [
+        "Phải tuyệt đối tuân theo các tín ngưỡng tôn giáo",
+        "Xuất phát từ thực tế khách quan, tôn trọng quy luật khách quan kết hợp phát huy tính năng động chủ quan",
+        "Chỉ cần có quyết tâm, ý chí cao độ thì mọi việc đều thành công",
+        "Thụ động chờ đợi thời cơ từ hoàn cảnh khách quan"
+      ],
+      "correct": 1,
+      "explanation": "Nguyên tắc khách quan kết hợp phát huy tính năng động chủ quan đòi hỏi tôn trọng hiện thực khách quan đồng thời bồi dưỡng tri thức, ý chí, năng lực sáng tạo."
+    },
+    {
+      "id": "MLN111-100-049",
+      "type": "choice",
+      "prompt": "Sự tác động ngược lại của ý thức đối với vật chất chỉ được thực hiện thông qua điều kiện nào?",
+      "options": [
+        "Tư duy thuần túy",
+        "Hoạt động thực tiễn của con người",
+        "Giấc mơ và thôi miên",
+        "Sự cầu nguyện tâm linh"
+      ],
+      "correct": 1,
+      "explanation": "Ý thức tự nó không thể thay đổi thế giới vật chất nếu không được vật chất hóa thông qua hoạt động thực tiễn của con người."
+    },
+    {
+      "id": "MLN111-100-050",
+      "type": "choice",
+      "prompt": "Thế nào là mối liên hệ theo quan điểm biện chứng?",
+      "options": [
+        "Sự tác động, ràng buộc, quy định và chuyển hóa lẫn nhau giữa các mặt, các sự vật",
+        "Sự lắp ghép ngẫu nhiên các sự vật bên cạnh nhau",
+        "Sự phụ thuộc của mọi sự vật vào một ý niệm tối cao",
+        "Sự tồn tại biệt lập, không ảnh hưởng đến nhau"
+      ],
+      "correct": 0,
+      "explanation": "Mối liên hệ chỉ sự ràng buộc quy định và chuyển hóa khách quan lẫn nhau giữa các mặt, các yếu tố trong một đối tượng hoặc giữa các đối tượng."
+    },
+    {
+      "id": "MLN111-100-051",
+      "type": "choice",
+      "prompt": "Cơ sở khách quan của mối liên hệ phổ biến là gì?",
+      "options": [
+        "Ý muốn chủ quan của con người",
+        "Tính thống nhất vật chất của thế giới",
+        "Sự sắp đặt của đấng sáng thế",
+        "Sự giống nhau về mặt hình thức của vạn vật"
+      ],
+      "correct": 1,
+      "explanation": "Vì thế giới thống nhất ở tính vật chất nên các sự vật, hiện tượng không thể tồn tại biệt lập mà luôn có mối liên hệ mật thiết."
+    },
+    {
+      "id": "MLN111-100-052",
+      "type": "choice",
+      "prompt": "Mối liên hệ phổ biến có những tính chất cơ bản nào?",
+      "options": [
+        "Tính khách quan, tính phổ biến, tính đa dạng phong phú",
+        "Tính chủ quan, tính ngẫu nhiên, tính nhất thời",
+        "Tính vĩnh viễn, tính đơn nhất, tính cô lập",
+        "Tính trừu tượng, tính bất biến, tính thần bí"
+      ],
+      "correct": 0,
+      "explanation": "Ba tính chất khách quan, phổ biến và đa dạng phong phú là những thuộc tính vốn có của mối liên hệ phổ biến."
+    },
+    {
+      "id": "MLN111-100-053",
+      "type": "choice",
+      "prompt": "Nguyên tắc toàn diện yêu cầu chúng ta phải làm gì?",
+      "options": [
+        "Xem xét tất cả các mặt, các mối liên hệ của đối tượng và đặt nó trong mối quan hệ xung quanh",
+        "Đánh đồng tất cả các mối liên hệ có vai trò ngang nhau",
+        "Chỉ chú ý đến mối liên hệ trực tiếp bên ngoài",
+        "Nhìn nhận sự vật một cách tĩnh tại không biến đổi"
+      ],
+      "correct": 0,
+      "explanation": "Xem xét toàn diện yêu cầu đánh giá đa chiều, phát hiện mối liên hệ bản chất, chủ yếu để định hình sự vật khách quan."
+    },
+    {
+      "id": "MLN111-100-054",
+      "type": "choice",
+      "prompt": "Quan điểm phiến diện trong nhận thức và thực tiễn vi phạm nguyên lý nào?",
+      "options": [
+        "Nguyên lý về sự phát triển",
+        "Nguyên lý về mối liên hệ phổ biến",
+        "Quy luật lượng chất",
+        "Quy luật phủ định của phủ định"
+      ],
+      "correct": 1,
+      "explanation": "Phiến diện là chỉ nhìn thấy một vài mối liên hệ cô lập mà bỏ qua bức tranh tổng thể, vi phạm nguyên tắc toàn diện của nguyên lý mối liên hệ phổ biến."
+    },
+    {
+      "id": "MLN111-100-055",
+      "type": "choice",
+      "prompt": "Phát triển là gì theo quan điểm biện chứng duy vật?",
+      "options": [
+        "Sự tăng lên hoặc giảm đi đơn thuần về mặt lượng",
+        "Sự di chuyển vị trí của sự vật trong không gian",
+        "Quá trình vận động đi lên, từ thấp đến cao, từ kém hoàn thiện đến hoàn thiện hơn",
+        "Sự lặp lại tuần hoàn tẻ nhạt của cái cũ"
+      ],
+      "correct": 2,
+      "explanation": "Phát triển là khuynh hướng vận động đi lên, xuất hiện cái mới tiến bộ thay thế cái cũ lỗi thời."
+    },
+    {
+      "id": "MLN111-100-056",
+      "type": "choice",
+      "prompt": "Nguồn gốc, động lực nội tại của sự phát triển là gì?",
+      "options": [
+        "Sự tác động của lực cơ học bên ngoài",
+        "Việc giải quyết các mâu thuẫn nội tại của chính sự vật",
+        "Ý muốn chủ quan của con người",
+        "Sự kích thích của các lực lượng siêu nhiên"
+      ],
+      "correct": 1,
+      "explanation": "Mâu thuẫn biện chứng chính là nguồn gốc, động lực thúc đẩy sự vận động và phát triển tự thân của sự vật hiện tượng."
+    },
+    {
+      "id": "MLN111-100-057",
+      "type": "choice",
+      "prompt": "Tính chất kế thừa của sự phát triển được hiểu thế nào?",
+      "options": [
+        "Phủ định sạch trơn cái cũ để làm lại từ đầu",
+        "Giữ nguyên xi toàn bộ cái cũ không thay đổi",
+        "Sự vật mới ra đời loại bỏ yếu tố lỗi thời nhưng giữ lại, cải tạo yếu tố tích cực của cái cũ",
+        "Sự lặp lại nguyên bản của chu kỳ phát triển trước"
+      ],
+      "correct": 2,
+      "explanation": "Kế thừa biện chứng giữ lại và lọc bỏ (phủ định đồng thời khẳng định) để tạo tiền bệ thúc đẩy cái mới phát triển."
+    },
+    {
+      "id": "MLN111-100-058",
+      "type": "choice",
+      "prompt": "Từ nguyên lý về sự phát triển, triết học rút ra yêu cầu phương pháp luận nào?",
+      "options": [
+        "Nguyên tắc lịch sử - cụ thể",
+        "Nguyên tắc phát triển",
+        "Nguyên tắc toàn diện",
+        "Nguyên tắc thực tiễn"
+      ],
+      "correct": 1,
+      "explanation": "Nguyên tắc phát triển yêu cầu đặt sự vật trong trạng thái động, phát hiện xu hướng tương lai và ủng hộ cái mới tiến bộ."
+    },
+    {
+      "id": "MLN111-100-059",
+      "type": "choice",
+      "prompt": "Tư tưởng bảo thủ, trì trệ, định kiến vi phạm nguyên lý nào?",
+      "options": [
+        "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+        "Nguyên lý về mối liên hệ phổ biến",
+        "Nguyên lý về sự phát triển",
+        "Cặp phạm trù nguyên nhân kết quả"
+      ],
+      "correct": 2,
+      "explanation": "Bảo thủ trì trệ không chịu thay đổi tư duy trước sự biến đổi đi lên của thực tế, vi phạm nguyên tắc phát triển."
+    },
+    {
+      "id": "MLN111-100-060",
+      "type": "choice",
+      "prompt": "Cặp phạm trù 'Cái riêng' và 'Cái chung' có mối quan hệ như thế nào?",
+      "options": [
+        "Cái riêng tồn tại độc lập, cái chung tồn tại biệt lập",
+        "Cái chung chỉ là sản phẩm của tư duy, không có thực ngoài đời",
+        "Cái riêng chỉ tồn tại trong mối liên hệ dẫn đến cái chung; cái chung tồn tại trong cái riêng, thông qua cái riêng để biểu hiện",
+        "Cái riêng bao hàm toàn bộ cái chung"
+      ],
+      "correct": 2,
+      "explanation": "Biện chứng duy vật khẳng định cả cái chung và cái riêng đều tồn tại khách quan; chúng thống nhất không tách rời."
+    },
+    {
+      "id": "MLN111-100-061",
+      "type": "choice",
+      "prompt": "Cái đơn nhất là gì theo quan điểm biện chứng?",
+      "options": [
+        "Cái chung chưa phát triển hoàn thiện",
+        "Những thuộc tính, đặc điểm chỉ có ở một sự vật, hiện tượng và không lặp lại ở đối tượng khác",
+        "Sự vật tồn tại hoàn toàn độc lập, tách rời thế giới",
+        "Cái giống nhau ở tất cả các sự vật"
+      ],
+      "correct": 1,
+      "explanation": "Cái đơn nhất chỉ những đặc điểm riêng biệt, duy nhất có ở đối tượng đó mà thôi."
+    },
+    {
+      "id": "MLN111-100-062",
+      "type": "choice",
+      "prompt": "Mối quan hệ chuyển hóa giữa cái đơn nhất và cái chung diễn ra như thế nào?",
+      "options": [
+        "Chúng không bao giờ có thể chuyển hóa lẫn nhau",
+        "Cái chung biến đổi vĩnh viễn thành cái riêng",
+        "Cái đơn nhất có thể chuyển hóa thành cái chung (khi cái mới tiến bộ xuất hiện rộng rãi) và ngược lại",
+        "Cái chung tiêu diệt cái đơn nhất"
+      ],
+      "correct": 2,
+      "explanation": "Trong quá trình phát triển, cái mới xuất hiện dưới dạng cái đơn nhất, sau đó phát triển rộng rãi thành cái chung; ngược lại cái chung lỗi thời có thể thu hẹp thành cái đơn nhất rồi tiêu biến."
+    },
+    {
+      "id": "MLN111-100-063",
+      "type": "choice",
+      "prompt": "Cặp phạm trù 'Nguyên nhân' và 'Kết quả' chỉ mối quan hệ nào?",
+      "options": [
+        "Sự kế tiếp thuần túy về mặt thời gian",
+        "Mối quan hệ sản sinh, trong đó sự tác động lẫn nhau giữa các mặt gây ra những biến đổi nhất định",
+        "Sự sắp đặt mang tính chất định mệnh",
+        "Sự liên kết ngẫu nhiên không có tính quy luật"
+      ],
+      "correct": 1,
+      "explanation": "Nguyên nhân sinh ra kết quả, chỉ ra sự tương tác nội tại dẫn đến sự biến đổi khách quan."
+    },
+    {
+      "id": "MLN111-100-064",
+      "type": "choice",
+      "prompt": "Nguyên nhân khác với 'nguyên cớ' ở điểm nào?",
+      "options": [
+        "Nguyên nhân là cái khách quan, trực tiếp sinh ra kết quả; nguyên cớ chỉ là cái giả tạo bên ngoài",
+        "Nguyên cớ có trước nguyên nhân",
+        "Nguyên nhân không có tính khách quan",
+        "Nguyên cớ là động lực quyết định kết quả"
+      ],
+      "correct": 0,
+      "explanation": "Nguyên cớ chỉ là sự kiện bề ngoài, là cái cớ để người ta lợi dụng che giấu nguyên nhân thực sự."
+    },
+    {
+      "id": "MLN111-100-065",
+      "type": "choice",
+      "prompt": "Thế nào là phạm trù 'Tất nhiên'?",
+      "options": [
+        "Cái do các mối liên hệ ngẫu nhiên bên ngoài quyết định",
+        "Cái bắt nguồn từ bản chất bên trong của sự vật, nhất định phải xảy ra như thế chứ không thể khác",
+        "Cái có thể xảy ra hoặc không xảy ra tùy hoàn cảnh",
+        "Cái hoàn toàn do ý thức con người tạo nên"
+      ],
+      "correct": 1,
+      "explanation": "Tất nhiên là cái bắt nguồn từ mối liên hệ bản chất bên trong, quy định xu hướng phát triển khách quan."
+    },
+    {
+      "id": "MLN111-100-066",
+      "type": "choice",
+      "prompt": "Thế nào là phạm trù 'Ngẫu nhiên'?",
+      "options": [
+        "Cái nhất định phải xảy ra đúng như lộ trình",
+        "Cái bắt nguồn từ những mối liên hệ bên ngoài, có thể xảy ra hoặc không xảy ra, có thể thế này hoặc thế khác",
+        "Cái không có nguyên nhân quyết định",
+        "Cái luôn luôn lặp lại một cách ổn định"
+      ],
+      "correct": 1,
+      "explanation": "Ngẫu nhiên do các yếu tố bên ngoài, sự giao thoa của hoàn cảnh quy định, đóng vai trò bổ sung cho tất nhiên."
+    },
+    {
+      "id": "MLN111-100-067",
+      "type": "choice",
+      "prompt": "Mối quan hệ biện chứng giữa 'Nội dung' và 'Hình thức' là gì?",
+      "options": [
+        "Nội dung và hình thức hoàn toàn tách rời nhau",
+        "Hình thức luôn giữ vai trò quyết định nội dung",
+        "Nội dung quyết định hình thức; hình thức có tính độc lập tương đối và tác động trở lại nội dung",
+        "Hình thức thay đổi độc lập không phụ thuộc vào nội dung"
+      ],
+      "correct": 2,
+      "explanation": "Nội dung quyết định hình thức vì nội dung là cái biến đổi trước; hình thức tác động trở lại theo hướng thúc đẩy hoặc kìm hãm."
+    },
+    {
+      "id": "MLN111-100-068",
+      "type": "choice",
+      "prompt": "Sự khác biệt giữa phạm trù 'Bản chất' và 'Hiện tượng' là gì?",
+      "options": [
+        "Bản chất là cái biểu hiện ra ngoài; hiện tượng là cái ẩn giấu bên trong",
+        "Bản chất là cái tương đối ổn định bên trong; hiện tượng là cái thường xuyên biến đổi, biểu hiện ra bên ngoài của bản chất",
+        "Bản chất hoàn toàn độc lập và không liên quan đến hiện tượng",
+        "Hiện tượng quyết định bản chất của sự vật"
+      ],
+      "correct": 1,
+      "explanation": "Bản chất ẩn giấu sâu bên trong, chỉ thông qua các hiện tượng phong phú bên ngoài để bộc lộ mình."
+    },
+    {
+      "id": "MLN111-100-069",
+      "type": "choice",
+      "prompt": "Cặp phạm trù 'Khả năng' và 'Hiện thực' phản ánh điều gì?",
+      "options": [
+        "Quá trình vận động đi xuống của thế giới",
+        "Sự biến đổi của cái chưa tồn tại nhưng có tiền đề khách quan để trở thành cái tồn tại thực sự",
+        "Sự đứng im tuyệt đối của sự vật",
+        "Sự tưởng tượng thuần túy không có thực"
+      ],
+      "correct": 1,
+      "explanation": "Khả năng chỉ cái chưa xuất hiện nhưng đã có sẵn các tiền đề trong hiện thực; hiện thực là cái đang tồn tại thực sự."
+    },
+    {
+      "id": "MLN111-100-070",
+      "type": "choice",
+      "prompt": "Quy luật nào được coi là quy luật về phương thức, cách thức chung của sự vận động và phát triển?",
+      "options": [
+        "Quy luật phủ định của phủ định",
+        "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+        "Quy luật chuyển hóa từ những sự thay đổi về lượng thành những sự thay đổi về chất và ngược lại",
+        "Quy luật bảo toàn và chuyển hóa năng lượng"
+      ],
+      "correct": 2,
+      "explanation": "Quy luật lượng chất chỉ ra cách thức của sự phát triển: tích lũy dần dần về lượng đạt đến giới hạn điểm nút sẽ dẫn đến sự nhảy vọt về chất."
+    },
+    {
+      "id": "MLN111-100-071",
+      "type": "choice",
+      "prompt": "Thế nào là phạm trù 'Chất' trong quy luật Lượng - Chất?",
+      "options": [
+        "Sự quy định vốn có của sự vật về mặt số lượng, quy mô, tốc độ",
+        "Tính quy định khách quan vốn có của sự vật, là sự thống nhất hữu cơ của các thuộc tính làm cho nó là nó chứ không phải cái khác",
+        "Ý kiến chủ quan của con người đánh giá về sự vật",
+        "Tính chất tốt hay xấu của một vật phẩm sản xuất"
+      ],
+      "correct": 1,
+      "explanation": "Chất là tính quy định nội tại, phân biệt sự vật này với sự vật khác."
+    },
+    {
+      "id": "MLN111-100-072",
+      "type": "choice",
+      "prompt": "Thế nào là phạm trù 'Lượng'?",
+      "options": [
+        "Bản chất bên trong của sự vật",
+        "Thuộc tính quan trọng nhất để phân biệt vạn vật",
+        "Tính quy định vốn có của sự vật về mặt số lượng, quy mô, tốc độ, trình độ diễn biến",
+        "Sự đánh giá định tính của con người"
+      ],
+      "correct": 2,
+      "explanation": "Lượng chỉ các thông số có thể lượng hóa (hoặc trừu tượng hóa) về quy mô, số lượng, nhịp điệu."
+    },
+    {
+      "id": "MLN111-100-073",
+      "type": "choice",
+      "prompt": "Khoảng giới hạn mà sự thay đổi về lượng chưa làm thay đổi căn bản về chất được gọi là gì?",
+      "options": [
+        "Bước nhảy",
+        "Điểm nút",
+        "Độ",
+        "Giới hạn tuyệt đối"
+      ],
+      "correct": 2,
+      "explanation": "Độ là giới hạn trong đó sự thay đổi về lượng chưa dẫn đến sự thay đổi chất của sự vật."
+    },
+    {
+      "id": "MLN111-100-074",
+      "type": "choice",
+      "prompt": "Thời điểm mà tại đó sự thay đổi về lượng đã đủ để làm thay đổi chất của sự vật được gọi là gì?",
+      "options": [
+        "Bước nhảy",
+        "Điểm nút",
+        "Độ",
+        "Điểm dừng"
+      ],
+      "correct": 1,
+      "explanation": "Điểm nút là ranh giới giới hạn của Độ; vượt qua điểm nút sẽ xảy ra bước nhảy đổi chất."
+    },
+    {
+      "id": "MLN111-100-075",
+      "type": "choice",
+      "prompt": "Sự chuyển hóa từ chất cũ sang chất mới được thực hiện thông qua hình thức nào?",
+      "options": [
+        "Sự tiến hóa từ từ không ngừng",
+        "Bước nhảy",
+        "Sự đứng im tạm thời",
+        "Sự lùi lại phía sau"
+      ],
+      "correct": 1,
+      "explanation": "Bước nhảy là giai đoạn chuyển hóa căn bản về chất, kết thúc một chu kỳ biến đổi lượng cũ."
+    },
+    {
+      "id": "MLN111-100-076",
+      "type": "choice",
+      "prompt": "Quy luật nào được mệnh danh là 'hạt nhân' của phép biện chứng?",
+      "options": [
+        "Quy luật lượng chất",
+        "Quy luật thống nhất và đấu tranh của các mặt đối lập",
+        "Quy luật phủ định của phủ định",
+        "Quy luật nhân quả"
+      ],
+      "correct": 1,
+      "explanation": "Quy luật mâu thuẫn là hạt nhân vì nó vạch trần nguồn gốc, động lực sâu xa nhất của mọi sự vận động và phát triển."
+    },
+    {
+      "id": "MLN111-100-077",
+      "type": "choice",
+      "prompt": "Thế nào là 'mặt đối lập' trong quy luật mâu thuẫn?",
+      "options": [
+        "Những sự vật hoàn toàn khác biệt nhau tồn tại độc lập",
+        "Những mặt có những thuộc tính, khuynh hướng vận động ngược chiều nhau nhưng tồn tại trong một chỉnh thể",
+        "Sự xung đột cơ học giữa các lực lượng bên ngoài",
+        "Ý kiến trái chiều giữa các cá nhân trong thảo luận"
+      ],
+      "correct": 1,
+      "explanation": "Mặt đối lập biện chứng là những yếu tố trái ngược nhưng nằm trong sự liên kết thống nhất của cùng một sự vật."
+    },
+    {
+      "id": "MLN111-100-078",
+      "type": "choice",
+      "prompt": "Sự 'thống nhất' của các mặt đối lập được hiểu thế nào?",
+      "options": [
+        "Sự đồng nhất hoàn toàn không có sự khác biệt nào",
+        "Sự liên hệ, ràng buộc, làm tiền đề tồn tại cho nhau của hai mặt đối lập",
+        "Sự triệt tiêu lẫn nhau để đạt trạng thái cân bằng vĩnh viễn",
+        "Việc sáp nhập hai mặt thành một thực thể duy nhất"
+      ],
+      "correct": 1,
+      "explanation": "Thống nhất chỉ sự nương tựa, không thể tách rời của các mặt đối lập trong cùng chỉnh thể."
+    },
+    {
+      "id": "MLN111-100-079",
+      "type": "choice",
+      "prompt": "Sự 'đấu tranh' của các mặt đối lập chỉ mối quan hệ nào?",
+      "options": [
+        "Sự bài trừ, phủ định và tác động ngược chiều nhau của các mặt đối lập",
+        "Cuộc chiến tranh bạo lực giữa các giai cấp xã hội",
+        "Sự tách rời hoàn toàn không còn liên quan giữa hai mặt",
+        "Sự thỏa hiệp vĩnh viễn giữa các khuynh hướng"
+      ],
+      "correct": 0,
+      "explanation": "Đấu tranh chỉ sự bài trừ, phủ định lẫn nhau của các mặt đối lập, là nguồn gốc phát triển."
+    },
+    {
+      "id": "MLN111-100-080",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa sự thống nhất và đấu tranh của các mặt đối lập là gì?",
+      "options": [
+        "Thống nhất là tuyệt đối, đấu tranh là tương đối",
+        "Thống nhất là tương đối, đấu tranh là tuyệt đối",
+        "Thống nhất và đấu tranh đều là tương đối",
+        "Thống nhất và đấu tranh đều là tuyệt đối"
+      ],
+      "correct": 1,
+      "explanation": "Thống nhất là tương đối, tạm thời vì mâu thuẫn luôn biến đổi; đấu tranh là tuyệt đối vì nó gắn liền với sự vận động tự thân vĩnh viễn của vật chất."
+    },
+    {
+      "id": "MLN111-100-081",
+      "type": "choice",
+      "prompt": "Quy luật phủ định của phủ định chỉ ra điều gì trong sự phát triển?",
+      "options": [
+        "Nguồn gốc, động lực của sự phát triển",
+        "Cách thức, phương thức của sự phát triển",
+        "Khuynh hướng, con đường của sự phát triển",
+        "Tốc độ, nhịp điệu của sự phát triển"
+      ],
+      "correct": 2,
+      "explanation": "Quy luật phủ định của phủ định chỉ ra khuynh hướng phát triển đi lên theo đường xoáy ốc, lặp lại một số đặc trưng cũ trên cơ sở cao hơn."
+    },
+    {
+      "id": "MLN111-100-082",
+      "type": "choice",
+      "prompt": "Thế nào là 'phủ định biện chứng'?",
+      "options": [
+        "Sự tiêu diệt hoàn toàn cái cũ từ bên ngoài",
+        "Sự phủ định tự thân, là mắt khâu của sự liên hệ và phát triển, có tính kế thừa",
+        "Sự bác bỏ một lập luận triết học bằng lý trí",
+        "Sự lùi lại phía sau trong tiến trình phát triển"
+      ],
+      "correct": 1,
+      "explanation": "Phủ định biện chứng mang tính khách quan (tự thân phủ định) và mang tính kế thừa (giữ lại hạt nhân tích cực)."
+    },
+    {
+      "id": "MLN111-100-083",
+      "type": "choice",
+      "prompt": "Đặc trưng nổi bật nhất của con đường phát triển theo quy luật phủ định của phủ định là gì?",
+      "options": [
+        "Đường thẳng tắp không có trở ngại",
+        "Đường tròn khép kín lặp lại hoàn toàn cái cũ",
+        "Đường xoáy ốc (vừa tiến lên vừa kế thừa lọc bỏ)",
+        "Sự dậm chân tại chỗ vĩnh viễn"
+      ],
+      "correct": 2,
+      "explanation": "Đường xoáy ốc phản ánh sự phát triển vô tận, quanh co, có những bước lùi tạm thời nhưng xu hướng chung luôn đi lên."
+    },
+    {
+      "id": "MLN111-100-084",
+      "type": "choice",
+      "prompt": "Một chu kỳ phát triển của phủ định của phủ định thông thường trải qua mấy lần phủ định biện chứng?",
+      "options": [
+        "1 lần",
+        "2 lần",
+        "3 lần",
+        "4 lần"
+      ],
+      "correct": 1,
+      "explanation": "Một chu kỳ phát triển thông thường trải qua hai lần phủ định lớn: Cái riêng -> phủ định lần 1 (Cái đối lập của cái riêng) -> phủ định lần 2 (Cái riêng ở trình độ cao hơn, phủ định của phủ định)."
+    },
+    {
+      "id": "MLN111-100-085",
+      "type": "choice",
+      "prompt": "Phủ định của phủ định đưa sự vật trở lại điểm xuất phát ban đầu ở điểm nào?",
+      "options": [
+        "Lặp lại nguyên xi về cấu trúc vật chất cũ",
+        "Dường như lặp lại cái cũ nhưng trên cơ sở cao hơn, hoàn thiện hơn về chất",
+        "Triệt tiêu hoàn toàn sự phát triển",
+        "Đưa sự vật trở về trạng thái hư vô"
+      ],
+      "correct": 1,
+      "explanation": "Đây là tính kế thừa biện chứng: sự lặp lại dường như quay về cái cũ nhưng ở một trình độ cao hơn hẳn."
+    },
+    {
+      "id": "MLN111-100-086",
+      "type": "choice",
+      "prompt": "Nguyên tắc nhận thức duy vật biện chứng xuất phát từ lập trường nào?",
+      "options": [
+        "Thừa nhận thế giới khách quan có thể nhận thức được và lấy thực tiễn làm cơ sở",
+        "Cho rằng nhận thức chỉ là sự tự nhận thức của ý niệm tuyệt đối",
+        "Khẳng định cảm giác là nguồn gốc duy nhất, không cần thực tiễn kiểm nghiệm",
+        "Cho rằng thế giới là bất khả tri"
+      ],
+      "correct": 0,
+      "explanation": "Lý luận nhận thức duy vật biện chứng khẳng định khả năng nhận thức thế giới của con người trên nền tảng thực tiễn xã hội."
+    },
+    {
+      "id": "MLN111-100-087",
+      "type": "choice",
+      "prompt": "Thực tiễn là gì theo quan điểm của Triết học Mác - Lênin?",
+      "options": [
+        "Hoạt động tư duy thuần túy của các nhà khoa học",
+        "Toàn bộ hoạt động vật chất - cảm tính có mục đích, mang tính lịch sử - xã hội của con người nhằm cải tạo thế giới",
+        "Sự chiêm ngưỡng tự nhiên một cách thụ động",
+        "Hoạt động cúng bái tôn giáo"
+      ],
+      "correct": 1,
+      "explanation": "Thực tiễn là hoạt động vật chất của con người, mang tính mục đích và tính lịch sử xã hội rõ rệt."
+    },
+    {
+      "id": "MLN111-100-088",
+      "type": "choice",
+      "prompt": "Hoạt động thực tiễn có mấy hình thức cơ bản?",
+      "options": [
+        "2 hình thức",
+        "3 hình thức",
+        "4 hình thức",
+        "5 hình thức"
+      ],
+      "correct": 1,
+      "explanation": "Có 3 hình thức cơ bản: Hoạt động sản xuất vật chất; hoạt động chính trị - xã hội; hoạt động thực nghiệm khoa học."
+    },
+    {
+      "id": "MLN111-100-089",
+      "type": "choice",
+      "prompt": "Hình thức hoạt động thực tiễn nào giữ vai trò quan trọng, quyết định nhất?",
+      "options": [
+        "Hoạt động thực nghiệm khoa học",
+        "Hoạt động chính trị xã hội",
+        "Hoạt động sản xuất vật chất",
+        "Hoạt động sáng tạo nghệ thuật"
+      ],
+      "correct": 2,
+      "explanation": "Sản xuất vật chất là cơ sở cho sự tồn tại và phát triển của xã hội, quyết định các hoạt động thực tiễn khác."
+    },
+    {
+      "id": "MLN111-100-090",
+      "type": "choice",
+      "prompt": "Vai trò của thực tiễn đối với nhận thức được thể hiện thế nào?",
+      "options": [
+        "Là cơ sở, động lực, mục đích của nhận thức và là tiêu chuẩn của chân lý",
+        "Chỉ là công cụ hỗ trợ nhận thức sau khi đã có lý thuyết",
+        "Thực tiễn hoàn toàn phụ thuộc vào lý luận nhận thức",
+        "Là ảo ảnh cản trở con người đạt tới chân lý tuyệt đối"
+      ],
+      "correct": 0,
+      "explanation": "Thực tiễn giữ vai trò quyết định toàn diện đối với tiến trình nhận thức của con người từ khởi đầu đến kiểm nghiệm chân lý."
+    },
+    {
+      "id": "MLN111-100-091",
+      "type": "choice",
+      "prompt": "Quá trình nhận thức gồm hai giai đoạn lớn nào?",
+      "options": [
+        "Nhận thức cảm tính và nhận thức lý tính",
+        "Nhận thức trực quan và nhận thức tâm linh",
+        "Nhận thức khoa học và nhận thức nghệ thuật",
+        "Nhận thức kinh nghiệm và nhận thức siêu hình"
+      ],
+      "correct": 0,
+      "explanation": "Con đường biện chứng của sự nhận thức đi từ trực quan sinh động (cảm tính) đến tư duy trừu tượng (lý tính) và từ tư duy trừu tượng đến thực tiễn."
+    },
+    {
+      "id": "MLN111-100-092",
+      "type": "choice",
+      "prompt": "Nhận thức cảm tính (trực quan sinh động) gồm các hình thức nào?",
+      "options": [
+        "Khái niệm, phán đoán, suy luận",
+        "Cảm giác, tri giác, biểu tượng",
+        "Giả thuyết, lý thuyết, chân lý",
+        "Trực giác, linh cảm, giấc mơ"
+      ],
+      "correct": 1,
+      "explanation": "Cảm giác, tri giác, biểu tượng là các nấc thang phản ánh trực tiếp bề ngoài của sự vật cảm tính."
+    },
+    {
+      "id": "MLN111-100-093",
+      "type": "choice",
+      "prompt": "Nhận thức lý tính (tư duy trừu tượng) gồm các hình thức nào?",
+      "options": [
+        "Cảm giác, tri giác, biểu tượng",
+        "Thực nghiệm, quan sát, lý luận",
+        "Khái niệm, phán đoán, suy luận",
+        "Niềm tin, ý chí, cảm xúc"
+      ],
+      "correct": 2,
+      "explanation": "Khái niệm, phán đoán, suy luận phản ánh gián tiếp bản chất sâu kín bên trong của sự vật."
+    },
+    {
+      "id": "MLN111-100-094",
+      "type": "choice",
+      "prompt": "Thế nào là 'Chân lý' theo quan điểm duy vật biện chứng?",
+      "options": [
+        "Ý kiến được số đông xã hội công nhận",
+        "Những tri thức phù hợp với thực tế khách quan và được thực tiễn kiểm nghiệm",
+        "Quan điểm bất biến của các vĩ nhân lịch sử",
+        "Sự suy luận logic thuần túy không cần đối chiếu thực tế"
+      ],
+      "correct": 1,
+      "explanation": "Chân lý phải đạt tính khách quan (phù hợp thực tế khách quan) và được kiểm nghiệm tính đúng đắn bởi thực tiễn."
+    },
+    {
+      "id": "MLN111-100-095",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa chân lý tương đối và chân lý tuyệt đối là gì?",
+      "options": [
+        "Chúng hoàn toàn loại trừ và mâu thuẫn lẫn nhau",
+        "Chân lý tuyệt đối là tổng hợp vô hạn của các chân lý tương đối",
+        "Chân lý tương đối có giá trị cao hơn chân lý tuyệt đối",
+        "Chân lý tuyệt đối tồn tại độc lập không cần chân lý tương đối"
+      ],
+      "correct": 1,
+      "explanation": "Mỗi chân lý tương đối chứa đựng những hạt nhân của chân lý tuyệt đối; chân lý tuyệt đối được hình thành từ tổng số các chân lý tương đối."
+    },
+    {
+      "id": "MLN111-100-096",
+      "type": "choice",
+      "prompt": "Tính lịch sử - cụ thể của chân lý yêu cầu chúng ta phải làm gì khi áp dụng tri thức?",
+      "options": [
+        "Áp dụng máy móc tri thức vào mọi hoàn cảnh giống nhau",
+        "Xem xét tri thức trong không gian, thời gian và các điều kiện hoàn cảnh lịch sử cụ thể",
+        "Tuyệt đối hóa tính vĩnh viễn của mọi tri thức",
+        "Bỏ qua các đặc thù của đối tượng"
+      ],
+      "correct": 1,
+      "explanation": "Chân lý luôn mang tính cụ thể; không có chân lý trừu tượng chung chung, mọi tri thức đều đúng trong giới hạn không-thời gian xác định."
+    },
+    {
+      "id": "MLN111-100-097",
+      "type": "choice",
+      "prompt": "Tác hại lớn nhất của giáo điều, rập khuôn trong thực tiễn xã hội là gì?",
+      "options": [
+        "Quá chú trọng đến thực tế khách quan",
+        "Áp dụng lý luận một cách xơ cứng, máy móc, xa rời hoàn cảnh cụ thể dẫn đến bế tắc và thất bại",
+        "Làm tăng tính năng động chủ quan của con người",
+        "Thúc đẩy sự phát triển của tư duy biện chứng"
+      ],
+      "correct": 1,
+      "explanation": "Bệnh giáo điều coi lý luận là đông cứng, rập khuôn công thức xa rời thực tế sinh động, dẫn đến những sai lầm nghiêm trọng trong thực tiễn."
+    },
+    {
+      "id": "MLN111-100-098",
+      "type": "choice",
+      "prompt": "Thế giới quan duy vật biện chứng giúp con người tránh khỏi lỗi tư duy nào?",
+      "options": [
+        "Tư duy khoa học thực nghiệm",
+        "Chủ nghĩa duy tâm thần bí và phương pháp tư duy siêu hình",
+        "Lập trường yêu nước tiến bộ",
+        "Khát vọng cải tạo xã hội"
+      ],
+      "correct": 1,
+      "explanation": "Thế giới quan duy vật biện chứng trang bị cái nhìn khách quan, khoa học, giúp bài trừ mê tín dị đoan, chủ nghĩa duy tâm thần bí và lối suy nghĩ phiến diện siêu hình."
+    },
+    {
+      "id": "MLN111-100-099",
+      "type": "choice",
+      "prompt": "Ý nghĩa lớn nhất của việc học tập Triết học Mác - Lênin đối với sinh viên hiện nay là gì?",
+      "options": [
+        "Để thuộc lòng các định nghĩa phục vụ thi cử thuần túy",
+        "Trang bị thế giới quan khoa học, nhân văn và phương pháp luận biện chứng để giải quyết các vấn đề thực tiễn",
+        "Thay thế toàn bộ các kiến thức chuyên ngành khác",
+        "Trở thành nhà truyền giáo triết học cổ điển"
+      ],
+      "correct": 1,
+      "explanation": "Triết học Mác - Lênin không phải là giáo điều cứng nhắc mà là kim chỉ nam cho tư duy phản biện, định hình nhân sinh quan tiến bộ và phương pháp luận giải quyết vấn đề."
+    },
+    {
+      "id": "MLN111-100-100",
+      "type": "choice",
+      "prompt": "Tính sáng tạo của nhận thức biện chứng đòi hỏi con người phải luôn giữ thái độ nào trước cái mới?",
+      "options": [
+        "Nghi ngờ và bài trừ tuyệt đối",
+        "Sớm phát hiện, nhiệt tình ủng hộ và kế thừa sáng tạo cái mới hợp quy luật",
+        "Thờ ơ chờ đợi cái mới tự phát triển",
+        "Đồng nhất cái mới với cái cũ lỗi thời"
+      ],
+      "correct": 1,
+      "explanation": "Thái độ ủng hộ cái mới, kế thừa có chọn lọc cái cũ là biểu hiện sinh động của tư duy biện chứng duy vật triệt để."
+    }
+  ]
+}
