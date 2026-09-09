@@ -2,8 +2,6 @@
   "id": "cdb-fos-guided",
   "mode": "guided",
   "title": "FOS — Từ brief đến Class Diagram",
-  "status": "draft-from-slide",
-  "needsReview": true,
   "brief": [
     "Một khách hàng có thể đặt nhiều đơn hàng theo thời gian.",
     "Mỗi đơn hàng gồm các sản phẩm trong catalog; số lượng và đơn giá tại lúc mua chỉ có nghĩa trong từng lần sản phẩm xuất hiện trong đơn.",
@@ -47,16 +45,15 @@
     ],
     "edges": [
       { "fromKey": "Customer", "toKey": "Order", "type": "association", "name": { "canonical": "places", "accepted": ["đặt"] }, "multiplicity": { "from": "1", "to": "0..*" }, "requirement": "required", "wrongMultiplicityTag": "multiplicity-fk" },
-      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "0..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
-      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "Địa chỉ giao hàng trong draft này thuộc vòng đời hồ sơ Customer; hãy dùng composition." }
+      { "fromKey": "Order", "toKey": "Product", "type": "association", "name": { "canonical": "includes", "accepted": ["chứa"] }, "multiplicity": { "from": "0..*", "to": "1..*" }, "requirement": "required", "associationClassKey": "OrderLine", "wrongMultiplicityTag": "multiplicity-fk" },
+      { "fromKey": "Customer", "toKey": "ShippingAddress", "type": "composition", "multiplicity": { "from": "1", "to": "0..1" }, "requirement": "required", "wrongTypeTag": "aggregation-equals-composition", "reason": "ShippingAddress sống và mất cùng hồ sơ Customer; hãy dùng composition với diamond ở phía Customer." }
     ]
   },
   "passThreshold": 75,
   "sourceRefs": [
-    "slide_texts/Ch07_Static_Modeling.txt — class/association, multiplicity, aggregation/composition, association class",
-    "content/lessons/L04-01.json — class và attribute từ danh từ/giá trị nghiệp vụ",
-    "content/lessons/L04-02.json — Customer 1 ↔ Order 0..*",
-    "content/lessons/L04-03.json — dữ liệu giao dịch thuộc association class",
-    "content/lessons/L04-04.json — lifetime của composition"
+    "slide_texts/Ch07_Static_Modeling.txt#slide-11",
+    "slide_texts/Ch07_Static_Modeling.txt#slide-13",
+    "slide_texts/Ch07_Static_Modeling.txt#slide-14",
+    "content/lessons/L04-03.json"
   ]
 }

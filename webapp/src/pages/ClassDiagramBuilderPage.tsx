@@ -30,7 +30,6 @@ export default function ClassDiagramBuilderPage() {
         <button type="button" onClick={() => setParams({ mode: 'guided' })}><span>01 · Guided</span><strong>Học qua 7 quyết định thiết kế</strong><p>Palette có bẫy, feedback tại chỗ, thí nghiệm multiplicity và vòng đời.</p><em>{progress['cdb-fos-guided'] ? `Tiếp tục bước ${progress['cdb-fos-guided'].stepIndex + 1}` : 'Bắt đầu guided'} →</em></button>
         <button type="button" onClick={() => setParams({ mode: 'pe' })}><span>02 · PE Mode</span><strong>Tự dựng từ brief trống</strong><p>Không palette gợi ý. Nhận rubric 100 điểm, diff và bản tham chiếu.</p><em>{progress['cdb-fos-pe'] ? `Tiếp tục bài PE` : 'Vào PE free build'} →</em></button>
       </section>
-      <p className="cdb-content-note">Nội dung FOS hiện là draft theo Ch07 + L04 và đang chờ owner duyệt vì source `CLASS-DIAGRAM-BUILDER-brief.md` không có trên nhánh main.</p>
     </main>
   );
 }

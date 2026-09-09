@@ -76,7 +76,10 @@
 .cdb-brief li + li { margin-top: 9px; }
 .cdb-feedback > header,
 .cdb-diff-list > header { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 10px; color: #8da2ca; text-transform: uppercase; font-size: 10px; letter-spacing: .08em; font-weight: 850; }
-.cdb-feedback-item { margin: 10px 0; padding: 14px 15px; border: 1px solid var(--cdb-border); border-radius: 14px; background: var(--cdb-panel-2); }
+.cdb-feedback-item { width: 100%; margin: 10px 0; padding: 14px 15px; color: inherit; text-align: left; font: inherit; border: 1px solid var(--cdb-border); border-radius: 14px; background: var(--cdb-panel-2); }
+button.cdb-feedback-item { cursor: pointer; transition: border-color .16s ease, transform .16s ease, background .16s ease; }
+button.cdb-feedback-item:hover,
+button.cdb-feedback-item:focus-visible { border-color: #9f8bff; background: #1b2540; transform: translateY(-1px); outline: none; }
 .cdb-feedback-item.is-warn,
 .cdb-feedback-item.is-error { border-color: rgba(245, 158, 11, .48); }
 .cdb-feedback-item.is-ok { border-color: rgba(22, 163, 74, .55); }
@@ -135,7 +138,7 @@
 .cdb-node.is-compact .cdb-node__header { min-height: 42px; padding: 7px; font-size: 10px; }
 .cdb-node.is-compact .cdb-node__attributes { padding: 5px; }
 .cdb-node.is-compact .cdb-attribute-row { min-height: 19px; grid-template-columns: 8px 1fr 0; font-size: 8px; }
-.cdb-node__header { min-height: 58px; padding: 11px 13px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid #384460; cursor: grab; }
+.cdb-node__header { min-height: 58px; padding: 11px 50px 11px 13px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid #384460; cursor: grab; }
 .cdb-node__header span:first-child { font-weight: 850; overflow-wrap: anywhere; }
 .cdb-node__header small { display: block; margin-bottom: 4px; color: #9caefe; text-transform: uppercase; font-size: 8px; letter-spacing: .08em; }
 .cdb-drag-hint { color: #99aacf; text-transform: uppercase; font-size: 8px; white-space: nowrap; }
@@ -144,27 +147,59 @@
 .cdb-attribute-row { min-height: 28px; display: grid; grid-template-columns: 12px 1fr 24px; align-items: center; gap: 4px; color: #cbd7ef; font-size: 11px; }
 .cdb-attribute-row input { width: 100%; padding: 4px 2px; color: #dce5fa; border: 0; border-bottom: 1px solid transparent; outline: none; background: transparent; }
 .cdb-attribute-row input:focus { border-bottom-color: #9f8bff; }
-.cdb-node__tools { padding: 8px; display: grid; grid-template-columns: auto minmax(55px, 1fr) 30px 30px; gap: 5px; border-top: 1px solid #303d5a; }
+.cdb-node__tools { padding: 8px; display: grid; grid-template-columns: auto minmax(55px, 1fr) 30px; gap: 5px; border-top: 1px solid #303d5a; }
 .cdb-node__tools button,
 .cdb-node__tools input { min-width: 0; padding: 6px; color: #dfe7fa; border: 1px solid #384866; border-radius: 7px; background: #10182b; font-size: 10px; }
 .cdb-node__tools input { width: 100%; }
 .cdb-icon-button { color: #b6c6e7; border: 0; background: none; cursor: pointer; }
 .cdb-danger-button { color: #ffb0aa !important; }
+.cdb-node__delete-trigger { position: absolute; top: 8px; right: 8px; z-index: 6; width: 34px; height: 34px; padding: 0; display: grid; place-items: center; color: #ffb0aa; border: 1px solid rgba(239, 68, 68, .42); border-radius: 9px; background: #25172a; cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .16s ease, transform .16s ease; }
+.cdb-node:hover .cdb-node__delete-trigger,
+.cdb-node.is-selected .cdb-node__delete-trigger,
+.cdb-node__delete-trigger:focus-visible { opacity: 1; pointer-events: auto; }
+.cdb-node__delete-trigger:hover { transform: translateY(-1px); }
+.cdb-node__delete-confirm { position: absolute; top: 48px; right: 8px; z-index: 12; width: 270px; padding: 12px; color: #e9efff; border: 1px solid rgba(239, 68, 68, .58); border-radius: 12px; background: #171528; box-shadow: 0 18px 44px rgba(0, 0, 0, .5); }
+.cdb-node__delete-confirm p { margin: 0 0 10px; font-size: 12px; line-height: 1.45; }
+.cdb-node__delete-confirm div { display: flex; justify-content: flex-end; gap: 7px; }
+.cdb-node__delete-confirm button { min-width: 62px; min-height: 32px; padding: 6px 10px; color: #e6ebff; border: 1px solid #465476; border-radius: 8px; background: #111a30; cursor: pointer; }
 .cdb-empty-canvas { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #6f84af; pointer-events: none; }
 .cdb-empty-canvas strong { color: #b8c8e7; font-size: 26px; }
 .cdb-empty-canvas span { margin-top: 10px; }
 .cdb-edge-editor { padding: 18px; display: grid; grid-template-columns: minmax(170px, .8fr) minmax(300px, 1.3fr); gap: 15px 20px; border-top: 1px solid var(--cdb-border); background: #141d33; }
-.cdb-editor-heading { grid-column: 1 / -1; display: flex; justify-content: space-between; }
+.cdb-editor-heading { grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.cdb-editor-heading > div { display: flex; gap: 8px; }
 .cdb-edge-editor label { display: grid; gap: 6px; color: #aebfe1; font-size: 11px; font-weight: 750; }
 .cdb-edge-editor fieldset { grid-column: 1 / -1; border: 1px solid #344261; border-radius: 12px; }
 .cdb-edge-editor legend { color: #aebfe1; font-size: 11px; font-weight: 750; }
 .cdb-radio-grid { display: flex; flex-wrap: wrap; gap: 10px; }
 .cdb-radio-grid label { display: flex; align-items: center; gap: 5px; }
 .cdb-multiplicity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.cdb-whole-part-note { grid-column: 1 / -1; margin: 0; padding: 10px 12px; color: #c6d3ee; border: 1px solid #394966; border-radius: 10px; background: #10182b; font-size: 12px; }
+.cdb-whole-part-note b { color: #f5b94c; }
 .cdb-concept-lab { padding: 12px; border: 1px solid #394966; border-radius: 12px; color: #aebfe1; background: #10182b; }
-.cdb-concept-lab strong { display: block; color: #8ff0d4; font-size: 10px; text-transform: uppercase; }
+.cdb-concept-lab > strong { display: block; color: #8ff0d4; font-size: 10px; text-transform: uppercase; }
+.cdb-concept-lab p strong { color: #eef2ff; }
 .cdb-concept-lab p { margin: 8px 0 0; font-size: 12px; }
 .cdb-concept-lab button { margin-top: 8px; font-size: 11px; }
+.cdb-sim-predictions,
+.cdb-sim-actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.cdb-sim-predictions button.is-active { color: #0b1627; border-color: #8ff0d4; background: #8ff0d4; }
+.cdb-lifetime-visual { margin-top: 10px; overflow: hidden; border: 1px solid #2c3a58; border-radius: 10px; background: #0b1325; }
+.cdb-lifetime-visual svg { display: block; width: 100%; height: auto; min-height: 94px; }
+.cdb-lifetime-visual line { stroke: #8092b5; stroke-width: 2; }
+.cdb-lifetime-visual rect { fill: #18223b; stroke: #8b5cf6; stroke-width: 2; }
+.cdb-lifetime-visual text { fill: #eef2ff; font-size: 13px; font-weight: 700; text-anchor: middle; dominant-baseline: middle; }
+.cdb-sim-whole,
+.cdb-sim-part { transform-box: fill-box; transform-origin: center; transition: opacity .28s ease, transform .28s ease; }
+.cdb-sim-delete-mark { fill: none; stroke: #fb7185; stroke-linecap: round; stroke-width: 5; opacity: 0; transition: opacity .18s ease; }
+.cdb-lifetime-visual.is-running .cdb-sim-whole { animation: cdb-whole-pulse .8s ease both; }
+.cdb-lifetime-visual.is-running .cdb-sim-delete-mark,
+.cdb-lifetime-visual.is-observed .cdb-sim-delete-mark { opacity: 1; }
+.cdb-lifetime-visual.is-observed .cdb-sim-whole { opacity: .14; transform: scale(.86); }
+.cdb-lifetime-visual.is-observed.part-disappears .cdb-sim-part { opacity: .12; transform: scale(.86); }
+.cdb-lifetime-visual.is-observed.part-survives .cdb-sim-part rect { fill: #12352f; stroke: #70e1c1; }
+.cdb-sim-explanation { margin-top: 10px; padding: 9px 10px; color: #c9d7ef; border-left: 3px solid #70e1c1; background: #12223a; }
+@keyframes cdb-whole-pulse { 0% { opacity: 1; transform: scale(1); } 55% { opacity: .55; transform: scale(.94); } 100% { opacity: .14; transform: scale(.86); } }
 .cdb-text-alternative { padding: 12px 16px; color: #9fb1d5; border-top: 1px solid var(--cdb-border); font-size: 12px; }
 .cdb-text-alternative summary { cursor: pointer; font-weight: 750; }
 .cdb-text-alternative p { line-height: 1.6; }
@@ -226,3 +261,8 @@ summary:focus-visible { outline: 3px solid #b3a4ff; outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Dev-only browser test hook mirrors the OS preference without changing production behavior. */
+.cdb-test-reduced-motion *,
+.cdb-test-reduced-motion *::before,
+.cdb-test-reduced-motion *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
