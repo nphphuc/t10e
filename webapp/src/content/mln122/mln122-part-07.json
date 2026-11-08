@@ -1,0 +1,586 @@
+{
+  "id": "MLN122-P07",
+  "title": "MLN122 — Phần 7 (Câu 301–350)",
+  "questions": [
+    {
+      "id": "MLN122-301",
+      "type": "choice",
+      "prompt": "Căn cứ vào đâu để phân chia tư bản cố định và tư bản lưu động?",
+      "options": [
+        "Căn cứ vào tính chất chuyển giá trị sử dụng của nó vào trong sản phẩm mới",
+        "Căn cứ vào tính chất chuyển giá trị của nó vào trong sản phẩm cũ",
+        "Căn cứ vào tính chất chuyển giá trị của nó vào trong sản phẩm mới",
+        "Căn cứ vào tính chất chuyển giá trị thặng dư của nó vào trong sản phẩm mới"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-302",
+      "type": "choice",
+      "prompt": "Ai là người đầu tiên đưa ra khái niệm \"kinh tế- chính trị\"?",
+      "options": [
+        "Francois Quesney",
+        "Antoine Montchretiên",
+        "William Petty"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-303",
+      "type": "choice",
+      "prompt": "Thuật ngữ \"kinh tế- chính trị\" được sử dụng lần đầu tiên vào năm nào",
+      "options": [
+        "1615",
+        "1616",
+        "1617"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-304",
+      "type": "choice",
+      "prompt": "Để làm rõ vai trò của các bộ phận tư bản trong việc tạo ra giá trị thặng dư, tư bản được chia thành",
+      "options": [
+        "Tư bản độc quyền và tư bản nhà nước",
+        "Tư bản bất biến và tư bản khả biến",
+        "Tư bản cố định và tư bản lưu động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-305",
+      "type": "choice",
+      "prompt": "Thế nào là sản xuất tự cung, tự cấp?",
+      "options": [
+        "Quá trình sản xuất chỉ có hai khâu: sản xuất và tiêu dùng",
+        "Sản xuất có tính chất khép kín",
+        "Là một kiểu tổ chức kinh tế trong đó những sản phẩm được sản xuất ra nhằm mục đích thỏa mãn nhu cầu tiêu dùng của bản thân người sản xuất",
+        "Sản xuất và tái sản xuất"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-306",
+      "type": "choice",
+      "prompt": "Thế nào là lao động phức tạp?",
+      "options": [
+        "Là lao động phải trải qua đào tạo, huấn luyện mới làm được",
+        "Là lao động tạo ra các sản phẩm chất lượng cao, tinh vi",
+        "Là lao động có nhiều thao tác phức tạp"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-307",
+      "type": "choice",
+      "prompt": "Khi lạm phát phi mã xảy ra, hình thức sử dụng tiền nào có lợi nhất?",
+      "options": [
+        "Mua hàng hoá hoặc vàng cất giữ",
+        "Gửi ngân hàng",
+        "Đầu tư vào sản xuất kinh doanh"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-308",
+      "type": "choice",
+      "prompt": "Điều kiện để tiền biến thành tư bản là:",
+      "options": [
+        "Phải tích lũy được một lượng tiền lớn; tiền không được đưa vào kinh doanh với mục đích thu giá trị thặng d",
+        "Phải tích lũy được một lượng tiền lớn; tiền phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng d",
+        "Phải tích lũy được một lượng hàng hóa lớn; hàng hóa phải được đưa vào kinh doanh tư bản với mu"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-309",
+      "type": "choice",
+      "prompt": "Quy luật kinh tế cơ bản của chủ nghĩa tư bản là",
+      "options": [
+        "Quy luật đấu tranh giai cấp",
+        "Quy luật giá trị",
+        "Quy luật quan hệ sản xuất phù hợp với lực lượng sản xuất"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-310",
+      "type": "choice",
+      "prompt": "Cặp phạm trù nào là phát hiện riêng của C.Mác?",
+      "options": [
+        "Lao động cụ thể và lao động trừu tượng",
+        "Lao động giản đơn và lao động phức tạp",
+        "Lao động tư nhân và lao động xã hội"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-311",
+      "type": "choice",
+      "prompt": "Học thuyết kinh tế nào của C.Mác được coi là hòn đá tảng",
+      "options": [
+        "Lợi nhuận",
+        "Học thuyết tiền tệ",
+        "Học thuyết cung cầu",
+        "Học thuyết giá trị thặng"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-312",
+      "type": "choice",
+      "prompt": "Điều kiện để ra đời và tồn tại của sản xuất hàng hóa:",
+      "options": [
+        "Số lượng hàng hoá làm ra trong một đơn vị thời gian tăng lên",
+        "Số lượng lao động hao phí trong thời gian đó không thay đổi",
+        "Giá trị 1 đơn vị hàng hoá giảm"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-313",
+      "type": "choice",
+      "prompt": "Lượng giá trị của hàng hóa là yếu tố",
+      "options": [
+        "Cố đinh",
+        "Luôn luôn thay đổi",
+        "Tùy thuộc vào nền sản xuất hàng hóa"
+      ],
+      "correct": 0,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 2, B: 2). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-314",
+      "type": "choice",
+      "prompt": "Về bản chất lợi nhuận và giá trị thặng dư đều là:",
+      "options": [
+        "Lao động cụ thể của người công nhân",
+        "Lao động không công của người công nhân",
+        "Lao động trừu tượng của người công nhân",
+        "Lao động phức tạp của người công nhân"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-315",
+      "type": "choice",
+      "prompt": "Điểm giống nhau giữa tăng năng suất lao động và tăng cường độ lao động?",
+      "options": [
+        "Điều làm giảm giá trị của một đơn vị hàng hóa",
+        "Đều làm tăng thêm sản lượng sản phẩm được sản xuất ra trong một đơn vị thời gian",
+        "Đều làm tăng lượng lao động hao phí trong một đơn vị thời gian",
+        "Đều gắn với tiến bộ kỹ thuật"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-316",
+      "type": "choice",
+      "prompt": "Dựa vào căn cứ nào để chia tư bản thành tư bản bất biến và tư bản khả biến (c & v)",
+      "options": [
+        "Phương thức chuyển giá trị các bộ phận tư bản sang sản phẩm",
+        "Vai trò các bộ phận tư bản trong quá trình sản xuất giá trị thặng dư",
+        "Tốc độ chu chuyển của tư bản"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-317",
+      "type": "choice",
+      "prompt": "Tư bản bất biến",
+      "options": [
+        "Là giá trị tư liệu sản xuất, giá trị của nó tăng lên sau quá trình sản xuất",
+        "Là giá trị tư liệu sản xuất, giá trị của nó giảm đi sau quá trình sản xuất",
+        "Là giá trị tư liệu sản xuất, giá trị của nó không thay đổi sau quá trình sản xuất",
+        "Là giá trị tư liệu sản xuất, giá trị sử dụng của nó được bảo tồn và chuyển vào sản p"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-318",
+      "type": "choice",
+      "prompt": "Giá trị thặng dư là:",
+      "options": [
+        "Là phần lao động được trả công của công nhân",
+        "Là phần lao động không công của công nhân",
+        "Là toàn bộ lao động của công nhân",
+        "Là lao động sáng tạo của công nhân"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-319",
+      "type": "choice",
+      "prompt": "Giá trị sử dụng của hàng hóa là khái niệm dùng để chỉ",
+      "options": [
+        "Mức độ khan hiếm của hàng hóa",
+        "Giá trị trao đổi của hàng hóa",
+        "Công dụng của hàng hóa"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-320",
+      "type": "choice",
+      "prompt": "Giá trị sử dụng của hàng hóa sức lao động khi sử dụng sẽ tạo ra",
+      "options": [
+        "Giá trị mới bằng giá trị bản thân n",
+        "Giá trị mới lớn hơn giá trị bản thân n",
+        "Giá trị mới nhỏ hơn giá trị bản thân n",
+        "Giá trị sử dụng mới lớn hơn giá trị sử dụng bản thân"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-321",
+      "type": "choice",
+      "prompt": "Nguồn gốc của giá trị hàng hóa được tạo ra từ đầu?",
+      "options": [
+        "Từ sản xuất",
+        "Từ lưu thông",
+        "Cà sản xuất và lưu thông",
+        "Từ những kết quả của sự phát minh"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-322",
+      "type": "choice",
+      "prompt": "Chon phương án đúng về quy luật kinh tế:",
+      "options": [
+        "Quy luật kinh tế là quy luật xã hội do con người đặt ra, là quy luật khách quan phát sinh tác dung quả hoạt động kinh tế của con người.",
+        "Quy luật kinh tế có tính lịch sử",
+        "Các phương án trả lời đều đúng."
+      ],
+      "correct": 2,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-323",
+      "type": "choice",
+      "prompt": "Trong các yếu tố sau đây, yếu tố nào được xác định là thực thể giá trị của hàng hóa",
+      "options": [
+        "Lao động cụ thể",
+        "Lao động giản đơn",
+        "Lao động phức tạp",
+        "Lao động trừu tượng"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-324",
+      "type": "choice",
+      "prompt": "Hao mòn hữu hình là:",
+      "options": [
+        "Hao mòn vật chất do quá trình sử dụng hoặc do tác động của con người",
+        "Hao mòn phi vật chất do quá trình sử dụng hoặc do sự tác động của tự nhiên",
+        "Hao mòn vật chất do quá trình sử dụng hoặc do tác động của tự nhiên",
+        "Hao mòn vô hình do quá trình sử dụng hoặc do tác động của tự nhiên"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-325",
+      "type": "choice",
+      "prompt": "Trong thời đại ngày nay, lực lượng sản xuất bao gồm các yếu tố nào?",
+      "options": [
+        "Người lao động",
+        "Tư liệu sản xuất",
+        "Khoa hoc công nghệ",
+        "Tất cả các phương án trả lời đều đúng."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-326",
+      "type": "choice",
+      "prompt": "Xuất khẩu hàng hóa là:",
+      "options": [
+        "Xuất khẩu máy móc ra nước ngoài",
+        "Xuất khẩu nguyên nhiên, vật liệu ra nước ngoài",
+        "Xuất khẩu giá trị ra nước ngoài",
+        "Xuất khẩu hàng hóa ra nước ngoài để thực hiện giá trị"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-327",
+      "type": "choice",
+      "prompt": "Chon ý đúng trong các ý dưới đây:",
+      "options": [
+        "Moi nguyên liệu đều là đối tượng lao động",
+        "Moi đối tượng lao động đều là nguyên liệu",
+        "Nguyên liệu là đối tượng lao động của các ngành công nghiệp chế biến",
+        "Các phương án trả lời đều đúng."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-328",
+      "type": "choice",
+      "prompt": "Về lượng (hỏi về lượng) tỷ suất lợi nhuận (p') là:",
+      "options": [
+        "Luôn luôn nhỏ hơn giá trị thặng dư",
+        "Luôn luôn lớn hơn tỷ suất giá trị thặng dư",
+        "Luôn luôn bằng tỷ suất giá trị thặng dư",
+        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng dư"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-329",
+      "type": "choice",
+      "prompt": "Quy luật căn bản của sản xuất và lưu thông hàng hóa là quy luật nào?",
+      "options": [
+        "Quy luật cạnh tranh",
+        "Quy luật cung - cầu",
+        "Quy luật lưu thông tiền tệ",
+        "Quy luật giá trị"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-330",
+      "type": "choice",
+      "prompt": "Tư liệu lao động gồm có:",
+      "options": [
+        "Công cụ lao động",
+        "Các vật để chứa đựng, bảo quản",
+        "Kết cấu hạ tầng sản xuất",
+        "Các phương án trả lời đều đúng."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-331",
+      "type": "choice",
+      "prompt": "Những chức năng nào của tiền tệ đòi hỏi phải có tiền vàng?",
+      "options": [
+        "Tất cả các chức năng của tiền tệ",
+        "Chỉ có chức năng thước đo giá trị",
+        "Chức năng thước đo giá trị, chức năng tích lũy và chức năng cất trữ",
+        "Chức năng thước đo giá trị; chức năng tích lũy, cất trữ và chức năng tiền tệ thế giới"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-332",
+      "type": "choice",
+      "prompt": "Cấu tạo kỹ thuật của tư bản:",
+      "options": [
+        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu tiêu dùng và số lao động sử dụng tư liệu tiêu dùng đó",
+        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu sản xuất và chất lượng lao động sử dụng tư liệu sản xuất đó",
+        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu tiêu dùng và chất lượng lao động sử dụng tư liệu tiêu dùng đó đó",
+        "Phản ánh mối quan hệ giữa tỷ lệ khối lượng và tư liệu sản xuất và số lao động sử dụng tư liệu sản xuất đ"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-333",
+      "type": "choice",
+      "prompt": "Phân công lao động xã hội là cơ sở của sản xuất hàng hóa với:",
+      "options": [
+        "Phân công lao động xã hội dẫn tới chuyên môn hóa, hiệp tác hóa. Mỗi người chuyên sản xuất một loại sản phẩm. Ho cần sản phẩm của nhau",
+        "Phân công lao động xã hội làm nảy sinh quan hệ trao đổi",
+        "Phân công lao động xã hội là cơ sở của thị trường",
+        "Cả a, b, c."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-334",
+      "type": "choice",
+      "prompt": "Thế nào là phân công lao động xã hội?",
+      "options": [
+        "Là phân công của xã hội về lao động hình thành những ngành nghề, nghề sản xuất khác nhau. Là sự chuyên môn hóa nhất định đối với người sản xuất",
+        "Là phân công diễn ra trong đơn vị sản xuất",
+        "Là sự chuyên môn hóa nhất định đối với người sản xuất",
+        "Là chia nhỏ quá trình sản xuất, mỗi người chuyên đảm nhận một công đoạn"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-335",
+      "type": "choice",
+      "prompt": "Tái sản xuất tư bản gồm có hai hình thức cơ bản đó là",
+      "options": [
+        "Tái sản xuất giản đơn và tái sản xuất mở rộng",
+        "Tái sản xuất theo chiều rộng và tái sản xuất theo chiều sâu",
+        "Tái sản xuất tư bản xã hội và tái sản xuất tư bản tư nhân"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-336",
+      "type": "choice",
+      "prompt": "Giá trị sử dụng của hàng hóa phản ánh tính chất nào sau đây",
+      "options": [
+        "Tính chất tư nhân của hàng hóa",
+        "Tính chất xã hội của hàng hóa",
+        "Cả tính chất tư nhân và tính chất xã hội của hàng hóa"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-337",
+      "type": "choice",
+      "prompt": "Quá trình sản xuất tư bản là quá trình sản xuất",
+      "options": [
+        "Giá trị sử dụng",
+        "Giá trị thặng dư",
+        "Giá trị trao đổi"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-338",
+      "type": "choice",
+      "prompt": "Hàng hóa là gì?",
+      "options": [
+        "Là những vật để thỏa mãn nhu cầu tiêu dùng của con người",
+        "Là hết thảy những vật, những thứ thỏa mãn nhu cầu tiêu dùng của con người và chúng được sản xuất ra để trao đổi, buôn bán",
+        "Là những vật có giá trị sử dụng ca",
+        "Là những vật mà trên thị trường luôn khan hiếm"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-339",
+      "type": "choice",
+      "prompt": "Trong kinh tế hàng hóa, lạm phát là hiện tượng kinh tế",
+      "options": [
+        "Bất bình thường",
+        "Bất ổn đinh",
+        "Bình thường"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-340",
+      "type": "choice",
+      "prompt": "Cơ sở chung của quan hệ trao đổi giữa các hàng hóa là gì?",
+      "options": [
+        "Là công dung của hàng hóa",
+        "Là hao phí lao động kết tinh trong hàng hóa",
+        "Là nhu cầu của sự tiêu dùng",
+        "Là sự khan hiếm của hàng hóa"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-341",
+      "type": "choice",
+      "prompt": "Chi phí sản xuất tư bản tính bằng công thức nào sau đây",
+      "options": [
+        "K = c + p + m",
+        "K = c + v + m",
+        "K = c + t + m"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-342",
+      "type": "choice",
+      "prompt": "Trong các yếu tố sau đây, yếu tố nào là nguồn gốc của giá trị hàng hóa?",
+      "options": [
+        "Nhà xưởng, máy móc",
+        "Lao động của con người",
+        "Đất đai",
+        "Kỹ thuật, công nghệ sản xuất"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-343",
+      "type": "choice",
+      "prompt": "Tích lũy tư bản là xét về bản chất là",
+      "options": [
+        "Tư bản hóa tư liệu tiêu dùng",
+        "Tư bản hóa giá trị thặng dư",
+        "Tư bản hóa sức lao động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-344",
+      "type": "choice",
+      "prompt": "Lợi nhuận được KTCT quan điểm là",
+      "options": [
+        "Hình thức biến tướng của kết quả sản xuất",
+        "Hình thức biến tướng của giá trị thặng dư",
+        "Hình thức biến tướng của chi phí sản xuất"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-345",
+      "type": "choice",
+      "prompt": "Trong sản xuất hàng hóa tồn tại song song bao nhiêu mặt",
+      "options": [
+        "Một mặt",
+        "Ba mặt",
+        "Hai mặt"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-346",
+      "type": "choice",
+      "prompt": "Mục đích của sản xuất hàng hóa là thỏa mãn nhu cầu của",
+      "options": [
+        "Người sản xuất",
+        "Thi trường",
+        "Của người sản xuất và tiêu dùng"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-347",
+      "type": "choice",
+      "prompt": "\"Lao động là cha, còn đất là mẹ của mọi của cải\". Khái niệm lao động trong câu nói này là lao động nào",
+      "options": [
+        "Lao động giản đơn",
+        "Lao động phức tạp",
+        "Lao động cụ thể",
+        "Lao động trừu tượng"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-348",
+      "type": "choice",
+      "prompt": "Chủ nghĩa tư bản ra đời phải có mấy nguyên nhân",
+      "options": [
+        "Bốn nguyên nhân cơ bản",
+        "Ba nguyên nhân cơ bản",
+        "Hai nguyên nhân cơ bản"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-349",
+      "type": "choice",
+      "prompt": "Vai trò của các bộ phận tư bản trong chu chuyển tư bản được xác định trong phạm trù nào sau đây",
+      "options": [
+        "Tư bản cố định và lưu thông tư bản",
+        "Tư bản cố định và tư bản lưu động",
+        "Tư bản tài chính và tư bản công nghiệp",
+        "Tư bản bất biến và tư bản lưu động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-350",
+      "type": "choice",
+      "prompt": "Lao động trừu tượng tạo ra cái gì?",
+      "options": [
+        "Tính hữu ích của sản phẩm hàng hóa",
+        "Giá trị hàng hóa",
+        "Tạo ra cả tính hữu ích và giá tri hàng hó"
+      ],
+      "correct": 1
+    }
+  ]
+}

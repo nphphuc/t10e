@@ -9,6 +9,7 @@ import Pru213Landing from './pages/Pru213Landing';
 import Prn222Landing from './pages/Prn222Landing';
 import Pmg201cLanding from './pages/Pmg201cLanding';
 import Mln111Landing from './pages/Mln111Landing';
+import Mln122Landing from './pages/Mln122Landing';
 import PracticePage from './pages/PracticePage';
 import ClassDiagramBuilderPage from './pages/ClassDiagramBuilderPage';
 import ActivityBuilderPage from './pages/ActivityBuilderPage';
@@ -49,6 +50,9 @@ function AnimatedRoutes() {
         <Route path="/mln111" element={<PageTransition><Mln111Landing /></PageTransition>} />
         <Route path="/mln111/mix" element={<PageTransition><ReviewPage isMln111Mix={true} /></PageTransition>} />
         <Route path="/mln111/:levelId" element={<PageTransition><ReviewPage isMln111={true} /></PageTransition>} />
+        <Route path="/mln122" element={<PageTransition><Mln122Landing /></PageTransition>} />
+        <Route path="/mln122/mix" element={<PageTransition><ReviewPage isMln122Mix={true} /></PageTransition>} />
+        <Route path="/mln122/:levelId" element={<PageTransition><ReviewPage isMln122={true} /></PageTransition>} />
         <Route path="/practice" element={<PageTransition><PracticePage /></PageTransition>} />
       </Routes>
     </ErrorBoundary>

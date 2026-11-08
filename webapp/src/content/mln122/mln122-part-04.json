@@ -1,0 +1,602 @@
+{
+  "id": "MLN122-P04",
+  "title": "MLN122 — Phần 4 (Câu 151–200)",
+  "questions": [
+    {
+      "id": "MLN122-151",
+      "type": "choice",
+      "prompt": "Đâu là các nhân tố thúc đẩy sự tăng trưởng kinh tế?",
+      "options": [
+        "Kỹ thuật - công nghệ Cơ cấu kinh tế, Thể chế chính trị, Con người",
+        "Con người; Kỹ thuật công nghệ; Cơ cấu kinh tế; Thể chế chính trị, vốn",
+        "Con người; Cơ cấu kinh tế; Thể chế chính trị, vốn",
+        "Kỹ thuật - công nghệ; Cơ cấu kinh tế; Thể chế chính trị, vố"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-152",
+      "type": "choice",
+      "prompt": "Ở Việt Nam cũng như trên thế giới sử dụng thuật ngũ \"cách mạng công nghiệp lần thứ tư\" với hàm ý gì?",
+      "options": [
+        "Sự thay đổi về lượng trong lực lượng sản xuất của nền kinh tế thế giới",
+        "Sự thay đổi về chất trong lực lượng sản xuất của nền kinh tế thế giới",
+        "Sự thay đổi về chất trong quan hệ sản xuất của nền kinh tế thế giới",
+        "Sự thay đổi căn bản, toàn diện trong đời sống, sản xuất của nền kinh tế thế giới"
+      ],
+      "correct": 1,
+      "explanation": "Giải thích: Theo định nghĩa chung, các cuộc cách mạng công nghiệp là những bước phát triển nhảy vọt về chất trình độ của tư liệu lao động.\nĐối với cách mạng công nghiệp 4.0, tài liệu khẳng định việc sử dụng thuật ngữ này nhằm hàm ý một sự thay đổi về chất trong lực lượng sản xuất của nền kinh tế thế giới, dựa trên sự đột phá của các công nghệ mới như trí tuệ nhân tạo, big data, in 3D..."
+    },
+    {
+      "id": "MLN122-153",
+      "type": "choice",
+      "prompt": "Cách mạng công nghiệp lần thứ nhất khởi phát ở quốc gia nào?",
+      "options": [
+        "Anh",
+        "Pháp",
+        "Hy lap",
+        "Đức"
+      ],
+      "correct": 0,
+      "explanation": "Giải thích: Nguồn tài liệu ghi rõ: \"Cách mạng công nghiệp lần thứ nhất khởi phát từ nước Anh, bắt đầu từ giữa thế kỷ XVIII đến giữa thế kỷ XIX\".\nTiền đề của cuộc cách mạng này xuất phát từ sự trưởng thành về lực lượng sản xuất trong ngành dệt vải tại Anh"
+    },
+    {
+      "id": "MLN122-154",
+      "type": "choice",
+      "prompt": "Cách mạng công nghiệp lần thứ hai khởi phát ở quốc gia nào?",
+      "options": [
+        "Anh",
+        "Pháp",
+        "Hy lap",
+        "Nga"
+      ],
+      "correct": 3,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, D: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-155",
+      "type": "choice",
+      "prompt": "Mô hình công nghiệp hóa kiểu Liên Xô được bắt đầu trong thời gian nào?",
+      "options": [
+        "Từ đầu những năm 1920",
+        "Từ đầu những năm 1930",
+        "Từ đầu những năm 1940",
+        "Sau năm 1945"
+      ],
+      "correct": 1,
+      "explanation": "Giải thích: Tài liệu xác nhận: \"Mô hình này bắt đầu từ đầu những năm 1930 ở Liên Xô (cũ), sau đó được áp dụng cho các nước XHCN ở Đông Âu sau năm 1945\".\nĐặc trưng của mô hình này là ưu tiên phát triển công nghiệp nặng và thực hiện thông qua cơ chế kế hoạch hóa tập trung, mệnh lệnh"
+    },
+    {
+      "id": "MLN122-156",
+      "type": "choice",
+      "prompt": "Chọn câu sai khi nói về đặc điểm của kinh tế thị trường",
+      "options": [
+        "Kinh tế thị trường là kinh tế hàng hoá phát triển cao",
+        "Kinh tế thị trường lấy khoa hoc công nghệ hiện đại làm cơ s",
+        "Kinh tế thị trường chỉ có thể phát triển mạnh ở xã hội phong kiến",
+        "Kinh tế thị trường đạt đến trình độ cao trong chủ nghĩa tư bả"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-157",
+      "type": "choice",
+      "prompt": "Chon câu sai: Khuyết tật của kinh tế thị trường l",
+      "options": [
+        "Luôn run rủi ro ẩn chứa",
+        "Nhà nước không thể sửa chữa",
+        "Không tự phục hồi được sắc độ phân tích trong xã hội",
+        "Không thể tự phục hồi tài nguyên kiệt"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-158",
+      "type": "choice",
+      "prompt": "Cấu tạo hữu cơ của tư bản được kí hiệu là",
+      "options": [
+        "c/v",
+        "T/T",
+        "m/v",
+        "CH/ch"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-159",
+      "type": "choice",
+      "prompt": "Yếu tố quyết định đến giá cả hàng hoá là",
+      "options": [
+        "Giá trị của hàng hoá",
+        "Quan hệ cung cầu về hàng hoá",
+        "Giá trị sử dụng của hàng h"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-160",
+      "type": "choice",
+      "prompt": "Trên giác độ kinh tế chính trị, mục tiêu cuối cùng của xuất khẩu tư bản là",
+      "options": [
+        "Chiếm đoạt giá trị thặng dư và các nguồn lợi khác ở nước nhập khẩu tư bản",
+        "Thực hiện giá trị và chiếm các nguồn lợi khác của nước nhập khẩu tư bản",
+        "Giúp đỡ các nước nhập khẩu tư bản phát triển."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-161",
+      "type": "choice",
+      "prompt": "Tốc độ chu chuyển tư bản được tính bằng công thức:",
+      "options": [
+        "n CH/ch",
+        "N ch/ CH",
+        "n=t/t100%",
+        "N=t/t100%"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-162",
+      "type": "choice",
+      "prompt": "Đâu không phải nằm trong tính tất yếu khách quan của công nghiệp hóa, hiện đại hóa ở Việt Nam ?",
+      "options": [
+        "Từ yêu cầu phải xây dựng cơ sở vật chất- kỹ thuật của chủ nghĩa xã hội",
+        "Từ yêu cầu phải rút ngắn khoảng cách tụt lùi về kinh tế, kỹ thuật, công nghệ giữa nước ta với các nước trong khu vực và quốc tế",
+        "Từ yêu cầu cần phải tạo ra năng suất lao động xã hội cao, bảo đảm cho sự tồn tại và phát triển của chủ nghĩa xã hội",
+        "Từ yêu cầu của thể chế chính trị của Việt Na"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-163",
+      "type": "choice",
+      "prompt": "Một trong những tác động tích cực của độc quyền đối với nền kinh tế đó là",
+      "options": [
+        "Tập trung các nguồn lực trong việc nghiên cứu phát triển và khai thác các tiến bộ của khoa học kỹ thuật",
+        "Tăng sức mua của người tiêu dùng, từ đó nâng cao năng lực cạnh tranh của các tổ chức độc quyền",
+        "Tạo ra sức mạnh về chính trị, quân sự cho các quốc gia phát triển",
+        "Bi chi phối bởi các nhóm lợi ích cục bộ từ đó làm gia tăng sự phân hóa giàu nghi"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-164",
+      "type": "choice",
+      "prompt": "Trong nền kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam, vai trò của kinh tế nhà nước và kinh tế tư nhân đó l",
+      "options": [
+        "Kinh tế nhà nước giữ vai trò chủ đạo, kinh tế tư nhân giữ vai trò là một động lực quan trong",
+        "Kinh tế nhà nước giữ vai trò quyết định, kinh tế tư nhân giữ vai trò là một động lực quan trong",
+        "Kinh tế tư nhân giữ vai trò chủ đạo, kinh tế nhà nước giữ vai trò là một động lực quan trong",
+        "Kinh tế tư nhân giữ vai trò then chốt, kinh tế nhà nước giữ vai trò quyết định"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-165",
+      "type": "choice",
+      "prompt": "Cạnh tranh trong chủ nghĩa tư bản dẫn đến",
+      "options": [
+        "Tích lũy tư bản",
+        "Tích tụ tư bản",
+        "Độc quyền"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-166",
+      "type": "choice",
+      "prompt": "Trong cơ chế của độc quyền nhà nước trong chủ nghĩa tư bản thì",
+      "options": [
+        "Nhà nước phụ thuộc vào tổ chức độc quyền",
+        "Nhà nước không phụ thuộc vào tổ chức độc quyền",
+        "Tổ chức độc quyền phụ thuộc vào nhà nước"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-167",
+      "type": "multi",
+      "prompt": "Vai trò tích cực của chủ nghĩa tư bản đó là: (chọn nhiều phương án)",
+      "options": [
+        "Thúc đẩy lực lượng sản xuất phát triển",
+        "Chuyển nền sản xuất nhỏ thành nền sản xuất hiện đại",
+        "Thực hiện xã hội hóa sản xuất",
+        "Phân công lao động, chuyên môn hóa sản xuất"
+      ],
+      "correctSet": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "📖 Giáo trình (trang PDF 99–100): vai trò tích cực của CNTB gồm 3 ý — thúc đẩy LLSX phát triển nhanh chóng; chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại; thực hiện xã hội hóa sản xuất. Phân công lao động/chuyên môn hóa chỉ là biểu hiện bên trong ý \"xã hội hóa sản xuất\"."
+    },
+    {
+      "id": "MLN122-168",
+      "type": "choice",
+      "prompt": "Mối quan hệ giữa quy luật kinh tế và chính sách kinh tế là",
+      "options": [
+        "Khác nhau",
+        "Khác nhau nhưng có quan hệ với nhau",
+        "Đồng nhất với nhau",
+        "Tất cả đáp án trên"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-169",
+      "type": "choice",
+      "prompt": "Chủ nghĩa tư bản ra đời khi",
+      "options": [
+        "Sản xuất hàng hoá đã phát triển cao",
+        "Phân công lao động đã phát triển cao",
+        "Tư liệu sản xuất tập trung vào một số ít người còn đa số người bị mất hết tư liệu sản xuất"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-170",
+      "type": "choice",
+      "prompt": "Khi nào sức lao động trở thành hàng hoá một cách phổ biến?",
+      "options": [
+        "Trong nền sản xuất hàng hoá tư bản chủ nghĩa",
+        "Trong xã hội chiếm hữu nô lệ",
+        "Trong nền sản xuất lớn hiện đại"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-171",
+      "type": "choice",
+      "prompt": "Phân chia theo tiêu chỉ cấu trúc của các tổ chức tham gia xã hội, thể chế được chia thành.",
+      "options": [
+        "Thế chế công, thể chế tư",
+        "Thể chế nhà nước, thể chế tư bản tư nhân",
+        "Thể chế nước trong và ngoài nước",
+        "Thể chế chính trị và thể chế kinh t"
+      ],
+      "correct": 1,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-172",
+      "type": "choice",
+      "prompt": "Công cụ quản lý vĩ mô của nhà nước trong nền kinh tế thị trường định hướng xã hội chủ nghĩa l",
+      "options": [
+        "Kế hoạch và thị trường, hệ thống pháp luật, các công cụ tài chính tiền tệ, công cụ điều tiết kinh tế đối ngo",
+        "Kế hoạch và thị trường, kinh tế tư nhân, quản lý tiền tệ",
+        "Thuế, kinh tế tư nhân, kinh tế tập thể",
+        "Hệ thống các chính sách kinh tế và xã hội"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-173",
+      "type": "choice",
+      "prompt": "Xuất khẩu tư bản được coi là đặc điểm của",
+      "options": [
+        "Phương thức sản xuất phong kiến",
+        "Phương thức sản xuất tư bản chủ nghĩa",
+        "Chủ nghĩa tư bản giai đoạn tự do cạnh tranh",
+        "Chủ nghĩa tư bản giai đoạn độc quyền"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-174",
+      "type": "choice",
+      "prompt": "Tiền tệ có mấy chức năng?",
+      "options": [
+        "Ba chức năng",
+        "Năm chức năng",
+        "Sáu chức năng",
+        "Bảy chức năng"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-175",
+      "type": "choice",
+      "prompt": "Thể chế được hiểu là",
+      "options": [
+        "Những quy tắc, pháp luật, bộ máy quản lý và cơ chế vận hành nhằm điều chỉnh các hoạt động của con người trong 1 chế độ xã hội",
+        "Luật chơi\" chính thức và phi chính thức được đặt ra đối với các chủ thể tham gia hoạt động trong nền kinh tế của một quốc gia trong một giai đoạn lịch sử nhất định",
+        "Được cấu thành bởi hệ thống các bộ phận khác nhau mà mỗi bộ phận cũng là một hệ thống phức tạp gồm nhiều yếu tố"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-176",
+      "type": "choice",
+      "prompt": "Trong tuần hoàn tư bản, giai đoạn đầu tiên - giai đoạn lưu thông tư bản tồn tại dưới hình thái gì?",
+      "options": [
+        "Tư bản hàng hóa",
+        "Tư bản tiền tệ",
+        "Tư bản sản xuất",
+        "Tư bản tiêu dùng"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-177",
+      "type": "choice",
+      "prompt": "Trong tuần hoàn tư bản, giai đoạn thứ hai - giai đoạn lưu thông tư bản tồn tại dưới hình thái gì?",
+      "options": [
+        "Tư bản hàng hóa",
+        "Tư bản tiền tệ",
+        "Tư bản sản xuất",
+        "Tư bản tiêu dùng"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-178",
+      "type": "choice",
+      "prompt": "Trong tuần hoàn tư bản, giai đoạn thứ ba - giai đoạn lưu thông tư bản tồn tại dưới hình thái gì?",
+      "options": [
+        "Tư bản hàng hóa",
+        "Tư bản tiền tệ",
+        "Tư bản sản xuất",
+        "Tư bản tiêu dùng"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-179",
+      "type": "choice",
+      "prompt": "Dựa vào căn cứ nào để chia tư bản ra thành tư bản cố định và tư bản lưu động?",
+      "options": [
+        "Phương thức chuyển giá trị của các bộ phận tư bản sang sản phẩm",
+        "Vai trò các bộ phận tư bản trong quá trình sản xuất giá trị thặng dư",
+        "Sự thay đổi về lượng trong quá trình sản xuất"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-180",
+      "type": "choice",
+      "prompt": "Cách mạng công nghiệp lần thứ ba diễn ra trong giai đoạn nào?",
+      "options": [
+        "Từ đầu thập niên 50 của thế kỷ XX đến cuối thế kỷ XX",
+        "Từ đầu thập niên 60 của thế kỷ XX đến cuối thế kỷ XX",
+        "Từ đầu thập niên 70 của thế kỷ XX đến cuối thế kỷ XX",
+        "Từ đầu thập niên 80 của thế kỷ XX đến cuối thế kỷ XX"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-181",
+      "type": "choice",
+      "prompt": "Những nhân tố nào ảnh hưởng đến quy mô của tích lũy tư bản?",
+      "options": [
+        "Cường độ lao động; trình độ bóc lột sức lao động; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng, quy mô của tư bản ứng trước",
+        "Trình độ năng suất lao động; trình độ bóc lột sức lao động ; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng, quy mô của tư bản ứng trước",
+        "Sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng; quy mô của tư bản ứng trước, trình độ bóc lột sức lao động",
+        "Trình độ năng suất lao động; trình độ bóc lột sức lao động; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-182",
+      "type": "choice",
+      "prompt": "Đảng Cộng sản Việt Nam luôn nhấn mạnh tầm quan trọng của việc xây dựng nền kinh tế.",
+      "options": [
+        "Mở cửa",
+        "Độc lập, tự chủ",
+        "Hội nhập kinh tế quốc tế",
+        "Có tính cạnh tranh"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-183",
+      "type": "choice",
+      "prompt": "Tiền tệ ra đời là do nhu cầu.",
+      "options": [
+        "Nhu cầu sản xuất hàng hóa và trao đổi hàng hóa",
+        "Nhu cầu lưu thông hàng hóa",
+        "Nhu cầu lưu thông tiền tệ",
+        "Nhu cầu sản xuất giá trị"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-184",
+      "type": "choice",
+      "prompt": "Liên kết các doanh nghiệp theo cùng một ngành là theo hình thức:",
+      "options": [
+        "Liên kết doc",
+        "Liên kết ngang",
+        "Cả liên kết dọc và liên kết ngang",
+        "Một liên kết khác"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-185",
+      "type": "choice",
+      "prompt": "Nguồn gốc của giá trị thặng dư từ đầu mà có?",
+      "options": [
+        "Mua hàng hóa thấp hơn giá trị thật",
+        "Mua hàng hóa cao hơn giá trị thật",
+        "Mua hàng hóa bằng giá trị thật",
+        "Mua được hàng hóa sức lao động"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-186",
+      "type": "choice",
+      "prompt": "Xuất khẩu hàng hoá là gì?",
+      "options": [
+        "Đặc điểm của giai đoạn chủ nghĩa tư bản tự do cạnh tranh",
+        "Đặc điểm của giai đoạn chủ nghĩa tư bản độc quyền tự do cạnh tranh",
+        "Đặc điểm của giai đoạn chủ nghĩa tư bản độc quyền nhà nước"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-187",
+      "type": "choice",
+      "prompt": "Nguồn gốc của tích lũy tư bản là",
+      "options": [
+        "Giá trị của hàng hóa",
+        "Giá trị thặng dư",
+        "Giá trị của hàng hóa sức lao động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-188",
+      "type": "choice",
+      "prompt": "Kinh tế- chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của",
+      "options": [
+        "Kinh tế chính trị cổ điển Anh",
+        "Chủ nghĩa trọng thương",
+        "Chủ nghĩa trọng nông",
+        "Kinh tế chính trị tầm thường"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-189",
+      "type": "choice",
+      "prompt": "Nguồn gốc chính của lợi nhuận độc quyền cao xuất phát từ đâu?",
+      "options": [
+        "Lao động không công của công nhân làm việc ở các xí nghiệp ngoài độc quyền",
+        "Giá trị thặng dư của các nhà tư bản vừa và nhỏ bi mất đi do thua thiệt về quá trình cạnh tranh",
+        "Lao động thặng dư và lao động tất yếu của người sản xuất vừa và nhỏ",
+        "Lao động của công nhân làm việc trong các xí nghiệp độc quyền"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-190",
+      "type": "choice",
+      "prompt": "Công thức chung của tư bản là:",
+      "options": [
+        "H-T-H",
+        "T-H-T'",
+        "T-H-T"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-191",
+      "type": "choice",
+      "prompt": "Lượng tỷ suất lợi nhuận là",
+      "options": [
+        "Luôn luôn nhỏ hơn giá trị thặng dư",
+        "Luôn luôn lớn hơn tỷ suất giá trị thặng dư",
+        "Luôn luôn bằng tỷ suất giá trị thặng dư",
+        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng d"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-192",
+      "type": "choice",
+      "prompt": "Sự phát triển các hình thái giá trị bao gồm:",
+      "options": [
+        "Hình thái giá trị ngẫu nhiên, hình thái giá trị chung, hình thái tiền",
+        "Hình thái giá trị ngẫu nhiên; hình thái giá trị thu hep; hình thái giá trị chung; hình thái tiền",
+        "Hình thái giá trị ngẫu nhiên; hình thái giá trị mở rộng (đầy đủ); hình thái giá trị chung; hình thái tiền",
+        "Hình thái giá trị mở rộng (đầy đủ); hình thái giá trị chung; hình thái tiền"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-193",
+      "type": "choice",
+      "prompt": "Nội dung cơ bản của các mạng công nghiệp lần thứ nhất đó là",
+      "options": [
+        "Chuyển từ lao động thủ công sang lao động máy móc",
+        "Chuyển từ lao động thủ công sang sử dụng động cơ điện",
+        "Chuyển từ lao động máy móc sang lao động sử dụng năng lượng điện và động cơ điện"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-194",
+      "type": "choice",
+      "prompt": "Một trong những đặc điểm chủ yếu của bất kỳ xã hội nào lấy thị trường làm phương tiện có tính cơ sở để phân phối các nguồn lực kinh tế là",
+      "options": [
+        "Có hệ thống pháp quy kiện toàn và sự quản lý vĩ mô của Nhà nước",
+        "Có hệ thống pháp quy kiện toàn và sự quản lý của Nhà nước",
+        "Có hệ thống pháp quy kiện toàn và sự quản lý văn hóa xã hội của Nhà nước",
+        "Có hệ thống pháp quy kiện toàn và sự quản lý kinh tế, giáo dục của Nhà nước"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-195",
+      "type": "choice",
+      "prompt": "Một trong những đặc điểm chủ yếu của bất kỳ xã hội nào lấy thị trường làm phương tiện có tính cơ sở để phân phối các nguồn lực kinh tế là?",
+      "options": [
+        "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền tự chủ trong sản xuất, kinh doanh, lỗ lãi tự chịu",
+        "Các chủ thể kinh tế không có tính độc lập, nghĩ là không có quyền tự chủ trong sản xuất, kinh doanh, lỗ lãi tự chịu",
+        "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền quyết định lỗ lãi",
+        "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền làm bất cứ những gì họ muốn"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-196",
+      "type": "choice",
+      "prompt": "Loại tiền nào được hiểu là phương tiện thanh toán mà giá tri hay sức mua của nó với tư cách là tiền vượt xa chi phí sản xuất ra nó hay giá trị của nó khi dùng vào việc khác, chứ không dùng làm tiền",
+      "options": [
+        "Tiền quy ước",
+        "Tiền tượng trưng",
+        "Tiền ghi nợ",
+        "Tiền vàng"
+      ],
+      "correct": 3,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, D: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-197",
+      "type": "choice",
+      "prompt": "Phương pháp sản xuất giá trị thặng dư tuyệt đối và phương pháp sản xuất giá trị thặng dư tương đối có điểm nào giống nhau",
+      "options": [
+        "Đều làm tăng tỷ suất giá trị thặng dư",
+        "Đều làm cho công nhân tổn sức lao động nhiều hơn",
+        "Đều làm giảm giá trị sức lao động của công nhân"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-198",
+      "type": "choice",
+      "prompt": "Những ngành nào sẽ được nhà nước tư sản đầu tư thay cho giai cấp tư sản tư nhân?",
+      "options": [
+        "Những ngành phải mất chi phí đầu tư lớn, thu hồi vốn nhanh nhưng lợi nhuận ít",
+        "Những ngành phải mất chi phí đầu tư lớn, thu hồi vốn chậm nhưng lợi nhuận cao",
+        "Những ngành phải mất chi phí đầu tư không lớn, tuy nhiên thu hồi vốn nhanh và lợi nhuận cao",
+        "Những ngành phải mất chi phí đầu tư lớn tuy nhiên thu hồi vốn chậm và lợi nhuận ít"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-199",
+      "type": "choice",
+      "prompt": "Khối lượng giá trị thặng dư được tính bằng công thức nào?",
+      "options": [
+        "M m'x p'",
+        "M=m' x V",
+        "M=m'xt'"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-200",
+      "type": "choice",
+      "prompt": "Sản xuất hàng hóa là",
+      "options": [
+        "Kiểu tổ chức kinh tế mà sản phẩm làm ra được mang ra trao đổi, mua bán trên thị trường để thỏa mãn nhu cầu của xã hội",
+        "Kiểu tổ chức kinh tế mà sản phẩm làm ra phải tuân thủ các quy luật của thị trường nhằm thỏa mãn nhu cầu của xã hội",
+        "Kiểu tổ chức kinh tế do các quy luật sản xuất và lưu thông quyết định nhằm thỏa mãn nhu cầu của thị trường"
+      ],
+      "correct": 0
+    }
+  ]
+}

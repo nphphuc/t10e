@@ -1,0 +1,603 @@
+{
+  "id": "MLN122-P03",
+  "title": "MLN122 — Phần 3 (Câu 101–150)",
+  "questions": [
+    {
+      "id": "MLN122-101",
+      "type": "choice",
+      "prompt": "Bóc lột giá trị thặng dư tương đối là hình thức.",
+      "options": [
+        "Tăng thời gian ngày lao động",
+        "Rút ngắn thời gian lao động cần thiết và thời gian lao động thặng dư",
+        "Rút ngắn thời gian lao động tất yếu",
+        "Tăng thời gian lao động tất yếu"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-102",
+      "type": "choice",
+      "prompt": "Mô hình công nghiệp hóa của Nhật Bản và các nước công nghiệp mới diễn ra trong khoảng bao nhiêu năm?",
+      "options": [
+        "Từ 10 - 20 năm",
+        "Từ 15 - 25 năm",
+        "Từ 20 - 30 năm",
+        "Từ 25 - 35 năm"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-103",
+      "type": "choice",
+      "prompt": "Đảng và Nhà nước quyết định xây dựng nền kinh tế thị trường định hướng xã hội chủ nghĩa ở nước ta từ Đại hội nà",
+      "options": [
+        "Đại hội VI (1986)",
+        "Đại hội X (2006)",
+        "Đại hội XI (2011)",
+        "Đại hội V (1982)"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-104",
+      "type": "choice",
+      "prompt": "Giá cả độc quyền được hiểu là.",
+      "options": [
+        "Giá cả các tổ chức độc quyền áp đặt trong quá trình mua và bán",
+        "Giá cả do các tổ chức nhà nước áp đặt quy định trong quá trình mua và bán",
+        "Giá cả được các tổ chức doanh nghiệp chiếm thị phần lớn trên thị trường áp đặt và thông qua nhà nước đưa ra giá mua và b"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-105",
+      "type": "choice",
+      "prompt": "Ai là người đưa kinh tế chính trị trở thành môn khoa học có tính hệ thống với các phạm trù và khái niệm chuyên ngành?",
+      "options": [
+        "Adam Smith",
+        "David Ricardo",
+        "Karl Marx",
+        "Willian Stafford"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-106",
+      "type": "choice",
+      "prompt": "Tiền công trong chủ nghĩa tư bản có mấy hình thức?",
+      "options": [
+        "Hai hình thức",
+        "Ba hình thức",
+        "Bốn hình thức"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-107",
+      "type": "choice",
+      "prompt": "Thuật ngữ \"kinh tế chính trị\" được sử dụng lần đầu tiên vào năm nào",
+      "options": [
+        "1615",
+        "1616",
+        "1617",
+        "1618"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-108",
+      "type": "choice",
+      "prompt": "Đại Hội X của Đảng chỉ rõ mục tiêu đẩy mạnh công nghiệp hoá, hiện đại hoá cần",
+      "options": [
+        "Gắn với phát triển kinh tế tri thức; coi kinh tế tri thức là yếu tố quan trọng của nền kinh tế và của công nghiệp hóa, hiện đại hóa",
+        "Gắn với nền kinh tế thị trường định hướng tư bản chủ nghĩa",
+        "Gắn với nền kinh tế khép kín",
+        "Gắn với nền kinh tế thị trường, thực hiện chiến lược hàng xuất khẩu"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-109",
+      "type": "choice",
+      "prompt": "Người phát minh ra con thoi - một cải tiến của khung dệt và là một đóng góp quan trong cho cách mạng công nghiệp lần thứ nhất là",
+      "options": [
+        "John Kay (1704 - 1779)",
+        "Richard Arkwright (1732-1792)",
+        "Edmund Cartwright (1743-1823)",
+        "James Watt (1736-1891)"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-110",
+      "type": "choice",
+      "prompt": "Xét về trình độ phát triển, kinh tế thị trường ở Việt Nam bao gồm nhiều cấp độ",
+      "options": [
+        "Sản xuất hàng hóa nhỏ, kinh tế thị trường sơ khai, kinh tế thị trường hiện đại đan xen",
+        "Sản xuất hàng hóa lớn, kinh thế thị trường sơ khai, kinh tế thị trường đan xe",
+        "Sản xuất hàng hóa nhỏ, kinh tế thị trường hoàn thiện, kinh tế thị trường hiện đại",
+        "Sản xuất hàng hóa lớn, kinh tế thị trường hoàn thiện, kinh tế thị trường hiện đại đan x"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-111",
+      "type": "choice",
+      "prompt": "Trong quá trình hội nhập kinh tế quốc tế, Việt Nam đã gia nhập những tổ chức nào sau đây ?",
+      "options": [
+        "ASEAN, AFTA, ASEM, APEC, WTO...",
+        "ASEAN, G20, ASEM, APEC, WTO...",
+        "ASEAN, AFTA, ASEM, APEC, EU...",
+        "ASEAN, ASEM, APEC, WTO, ECOWAS..."
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-112",
+      "type": "choice",
+      "prompt": "Công nghiệp hoá ở Anh (cuộc cách mạng công nghiệp lần thứ nhất) bắt nguồn từ ngành nào?",
+      "options": [
+        "Cong nghiep nhe",
+        "Công nghiệp nặng",
+        "Dich vu",
+        "Sản xuất vũ khí"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-113",
+      "type": "choice",
+      "prompt": "Mức độ bóc lột của nhà tư bản được tính bằng",
+      "options": [
+        "Tỷ suất lợi nhuận",
+        "Tỷ suất giá trị thặng dư",
+        "Tỷ suất lợi nhuận bình quân"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-114",
+      "type": "choice",
+      "prompt": "Hình thức độc quyền dưới dạng Cartel được phổ biến ở Châu âu vào thời gian nào?",
+      "options": [
+        "Đầu thế kỷ XIX",
+        "Giữ thế kỷ XIX",
+        "Cuối thế kỷ XIX",
+        "Đầu thế kỷ XX"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-115",
+      "type": "choice",
+      "prompt": "Điểm khác biệt giữa dịch vụ và hàng hóa thông thường đó là",
+      "options": [
+        "Dich vu không thể cất tr",
+        "Dich vu phuc vu cho người k",
+        "Dich vu nhằm đáp ứng nhu cầu của khách hàng",
+        "Dich vu có tính thời đi"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-116",
+      "type": "choice",
+      "prompt": "Lượng giá trị của đơn vị hàng hoá thay đổi",
+      "options": [
+        "Tỉ lệ nghịch với năng suất lao động, không phụ thuộc vào cường độ lao động",
+        "Tỉ lệ nghịch với cường độ lao động",
+        "Tỷ lệ thuận với năng suất lao động"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-117",
+      "type": "choice",
+      "prompt": "Trong chủ nghĩa tư bản ngày nay, các trùm tài chính thống trị nền kinh tế thông qua",
+      "options": [
+        "Kết hợp \"chế độ tham dự\" với \"chế độ uỷ nhiệm\"",
+        "Chế độ tham dự",
+        "Chế độ uỷ nhiệm"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-118",
+      "type": "choice",
+      "prompt": "\"Khoa học và công nghệ sẽ có bước tiến nhảy vọt. Kinh tế tri thức có vai trò ngày càng nổi bật trong quá trình phát triển lực lượng sản xuất\" được nhận định trong đại hội mấy của Đảng",
+      "options": [
+        "Đại hội XI",
+        "Đại hội X",
+        "Đại hội VIII",
+        "Đại hội IX"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-119",
+      "type": "choice",
+      "prompt": "Độc quyền được hiểu là:",
+      "options": [
+        "Liên minh giữa các doanh nghiệp lớn, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền ca",
+        "Liên minh giữa các tổ chức cá nhân và nhà nước, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền ca",
+        "Liên minh giữa các doanh nghiệp vừa và nhỏ, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền c"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-120",
+      "type": "choice",
+      "prompt": "Quan điểm cho rằng, xã hội loài người phát triển dựa theo những quy luật tự nhiên thuộc về:",
+      "options": [
+        "Kinh tế chính trị của Karl Marx",
+        "Kinh tế chính trị cổ điển Anh",
+        "Chủ nghĩa trọng thương",
+        "Chủ nghĩa trọng nông"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-121",
+      "type": "choice",
+      "prompt": "Chon phương án sai: Lý do Việt Nam hoàn thiện thể chế kinh tế thị trường định hướng XHCN:",
+      "options": [
+        "Do thể chế kinh tế thị trường định hướng xã hội chủ nghĩa chưa hoàn thiện",
+        "Do đảng cộng sản lãnh đạo",
+        "Hệ thống thể chế chưa đầy đủ",
+        "Hệ thống thể chế còn kém hiệu lực, hiệu quả, thiếu các yếu tố thị trường và các loại thị trường"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-122",
+      "type": "choice",
+      "prompt": "Chọn câu sai khi nói về kinh tế thị trường",
+      "options": [
+        "Kinh tế thi trưởng phát triển mạnh nhất trong xã hội chủ nghĩa tư bản",
+        "Kinh tế thị trường đối lập với kinh tế tự nhiên",
+        "Kinh tế thi trưởng đối lập với các chế độ xã hội",
+        "Kinh tế thi trưởng Là thành tựu chung của nhân loại"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-123",
+      "type": "choice",
+      "prompt": "Đảng ta khẳng định: \"Nền kinh tế thị trường định hướng xã hội chủ nghĩa ở nước ta là nền kinh tế nhiều thành phần, vận hành theo cơ chế thị trường, có sự quản lý của Nhà nước, dưới sự lãnh đạo của Đảng Cộng sản\" từ Đại hội n",
+      "options": [
+        "Đại hội V (1982)",
+        "Đại hội X (2006)",
+        "Đại hội VI (1986)",
+        "Đại hội XI (2011)"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-124",
+      "type": "choice",
+      "prompt": "Tích lũy tư bản dẫn đến",
+      "options": [
+        "Hình thành chủ nghĩa tư bản độc quyền",
+        "Hình thành chủ nghĩa tư bản",
+        "Hình thành độc quyền nhà nước giai đoạn tự do cạnh tranh"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-125",
+      "type": "choice",
+      "prompt": "Hiện nay thế giới trải qua bao nhiêu cuộc cách mạng công nghiệp?",
+      "options": [
+        "Ba cuộc cách mạng công nghiệp",
+        "Bốn cuộc cách mạng công nghiệp",
+        "Năm cuộc cách mạng công nghiệp",
+        "Hai cuộc cách mạng công nghiệp"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-126",
+      "type": "multi",
+      "prompt": "Những yếu tố cốt lõi của kỹ thuật số trong cách mạng công nghiệp lần thứ 4 là: (chon 3 phương án)",
+      "options": [
+        "Công nghệ 3D",
+        "Dữ liệu lớn (Big data)",
+        "Công nghệ sinh học",
+        "Vạn vật kết nối (loT)",
+        "Trí tuệ nhân tạo (AI)"
+      ],
+      "correctSet": [
+        1,
+        3,
+        4
+      ],
+      "explanation": "📖 Giáo trình (trang PDF 140): CMCN 4.0 hình thành trên cơ sở cách mạng số, gắn với Internet kết nối vạn vật (IoT), cùng trí tuệ nhân tạo, big data. Công nghệ 3D và công nghệ sinh học không thuộc nhóm cốt lõi của kỹ thuật số."
+    },
+    {
+      "id": "MLN122-127",
+      "type": "choice",
+      "prompt": "Cách mạng công nghiệp lần thứ 3 còn được gọi là:",
+      "options": [
+        "Cách mạng vô tuyến",
+        "Cách mạng điện tử",
+        "Cách mạng sinh hoc",
+        "Cách mạng máy tính"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-128",
+      "type": "choice",
+      "prompt": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin được hiểu là",
+      "options": [
+        "Những biểu hiện vật chất của lực lượng sản xuất",
+        "Các quan hệ giữa cơ sở hạ tầng và kiến trúc thượng tầng",
+        "Các quan hệ giữa lực lượng sản xuất và quan hệ sản xuất",
+        "Các quan hệ xã hội của sản xuất và trao đổi (Giải thích: Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin các quan hệ sản xuất và trao đổi trong mối quan hệ biện chứng với lực lượng sản xuất và kiến trúc thượng tầng."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-129",
+      "type": "choice",
+      "prompt": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin là gì?",
+      "options": [
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất -phân phối - trao đổi -tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất- trao đổi - phân phối -tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình sản xuất xã hội: sản xuất- trao đổi- tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình sản xuất xã hội: mua - bán"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-130",
+      "type": "choice",
+      "prompt": "Đâu KHÔNG phải là chức năng chính của kinh tế chính trị Mác - Lênin?",
+      "options": [
+        "Chức năng phương pháp luận",
+        "Chức năng tư tưởng",
+        "Chức năng nhận thức",
+        "Chức năng giáo du"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-131",
+      "type": "choice",
+      "prompt": "Việc đẩy mạnh ứng dụng khoa học - công nghệ ở nước ta hiện nay phải gắn liền với yếu tố nào sau đây",
+      "options": [
+        "Phát triển công nghiệp nặng",
+        "Phát triển sản xuất công nghệ cao",
+        "Phát triển kinh tế tri thức",
+        "Phát triển công nghiệp nhẹ"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-132",
+      "type": "choice",
+      "prompt": "Chức năng tiền tệ là",
+      "options": [
+        "Phương tiện lưu thông, phương tiện thanh toán; phương tiện mua bán; tiền tệ thế giới, thước đo giá trị",
+        "Phương tiện lưu thông, phương tiện thanh toán; phương tiện cất trữ; tiền tệ thế giới, thước đo giá trị",
+        "Phương tiện lưu thông, phương tiện trao đổi, phương tiện cất trữ; tiền tệ, thước đo giá trị",
+        "Phương tiện lưu thông, phương tiện thanh toán. phương tiện cất trữ, thước đo giá trị"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-133",
+      "type": "choice",
+      "prompt": "Ai là người được Mác coi là sáng lập ra kinh tế chính trị tư sản cổ điển?",
+      "options": [
+        "Thomas Mun",
+        "David Ricardo",
+        "Adam Smith",
+        "William Petty"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-134",
+      "type": "choice",
+      "prompt": "Nền kinh tế hàng hoá có thể hình thành và phát triển khi có các điều kiện nào?",
+      "options": [
+        "Phân công lao động xã hội và sự tách biệt về mặt kinh tế của các chủ thể sản xuất.",
+        "Sự tách biệt về mặt kinh tế của các chủ thể sản xuất",
+        "Của cải dư thừa",
+        "Khi có chế độ tư hữu xuất hiện"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-135",
+      "type": "choice",
+      "prompt": "Theo C. Mác, hàng hoá là sản phẩm lao động được sản xuất ra nhằm mục đích gì?",
+      "options": [
+        "Trao đổi và mua bán",
+        "Tiêu dùng",
+        "Kiếm lợi nhuận",
+        "Tặng và biểu"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-136",
+      "type": "choice",
+      "prompt": "Theo C.Mác, khối lượng giá trị thặng dư là gì?",
+      "options": [
+        "Giá trị của hàng hoá",
+        "Lượng giá trị thặng dư bằng tiền mà nhà tư bản thu được",
+        "Lượng giá trị mà trong toàn bộ quá trình lưu thông thu được",
+        "Giá trị sức lao động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-137",
+      "type": "choice",
+      "prompt": "Để tiền biến thành tư bản cần?",
+      "options": [
+        "Phải tích lũy một lượng tiền lớn; tiền cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng d",
+        "Phải tích lũy được một lượng hàng hóa lớn, hàng hóa cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư",
+        "Phải tích lũy một lượng tiền lớn",
+        "Phải tích lũy được một lượng máy móc lớn, máy móc cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-138",
+      "type": "choice",
+      "prompt": "Vai trò của máy móc trong quá trình tạo ra giá trị thặng dư, chon ý đúng",
+      "options": [
+        "Máy móc là tiền đề vật chất cho việc tạo ra giá trị thặng dư",
+        "Máy móc và sức lao động đều tạo ra giá trị thặng dư",
+        "Máy móc là nguồn gốc của giá trị thặng d"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-139",
+      "type": "choice",
+      "prompt": "Mỗi cuộc cách mạng công nghiệp xuất hiện đều có sự phát triển nhảy vọt về:",
+      "options": [
+        "Tư liệu lao động",
+        "Các phát minh sáng chế",
+        "Tư liệu sinh hoạt",
+        "Tư liệu tiêu dùng"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-140",
+      "type": "choice",
+      "prompt": "Chon phương án đúng về quy luật kinh tế.",
+      "options": [
+        "C và D",
+        "Quy luật kinh tế là quy luật xã hội do con người đặt ra",
+        "Cà quy luật khách quan phát sinh tác dung quả hoạt động kinh tế của con người",
+        "Quy luật kinh tế có tính lịch s"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-141",
+      "type": "choice",
+      "prompt": "Đại hội nào của Đảng Cộng sản Việt Nam đề cập đến sự cần thiết đổi mới cơ chế quản lý kinh tế",
+      "options": [
+        "Đại hội đảng VII",
+        "Đại hội đảng VI",
+        "Đại hội đảng VIII",
+        "Đại hội đảng V"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-142",
+      "type": "choice",
+      "prompt": "Trong nền sản xuất hàng hóa, lạm phát là hiện tượng kinh tế tác động trực tiếp đến",
+      "options": [
+        "Tích tụ và tập trung tư bản",
+        "Tuần hoàn và chu chuyển tư bản",
+        "Sản xuất và tiêu dùng"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-143",
+      "type": "choice",
+      "prompt": "Theo quan điểm của kinh tế chính trị, trong tư liệu lao động bộ phận nào quyết định đến năng suất lao động",
+      "options": [
+        "Các vật chứa đựng, bảo quản",
+        "Nguyên vật liệu cho sản xuất",
+        "Công cụ lao động",
+        "Kết cấu hạ tầng sản xuất"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-144",
+      "type": "choice",
+      "prompt": "Trong nền kinh tế thị trường định hướng xã hội chủ nghĩa, thành phần kinh tế nào giữ vai trò",
+      "options": [
+        "Thành phần kinh tế nhà nước",
+        "Thành phần kinh tế tư nhân",
+        "Thành phần kinh tế tập thể",
+        "Thành phần kinh tế có vốn đầu tư nước ngoài A (đề chưa rõ, nếu \"chủ đạo\" thì là nhà nước, còn \"động lực\" thì là tư nhân)"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-145",
+      "type": "choice",
+      "prompt": "Cạnh tranh kinh tế được hiểu là",
+      "options": [
+        "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành chi phí tối đa cho mình",
+        "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành lợi ích tối đa cho mình",
+        "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành thi phần tối đa cho mình",
+        "Sự đấu tranh ở giữa các chủ thể kinh tế"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-146",
+      "type": "choice",
+      "prompt": "Đối tượng nghiên cứu của kinh tế- chính trị Mác-Lênin là",
+      "options": [
+        "Các quan hệ của sản xuất và trao đổi trong phương thức sản xuất mà các quan hệ đó hình thành và phát triển",
+        "Quá trình sản xuất, phân phối, trao đổi, tiêu dùng",
+        "Quan hệ xã hội giữa người với người",
+        "Quan hệ sản xuất trong mối quan hệ tác động qua lại giữa lực lượng sản xuất"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-147",
+      "type": "choice",
+      "prompt": "Quan hệ về tỷ lượng trong trao đổi giữa các hàng hóa với nhau do cái gì quy định?",
+      "options": [
+        "Do tính hữu ích của hàng hóa",
+        "Do giá trị nội tại của hàng hóa",
+        "Do quan hệ cung - cầu",
+        "Do ngẫu nhiên"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-148",
+      "type": "choice",
+      "prompt": "Cách mạng công nghiệp lần thứ tư được đề cập lần đầu tiên tại ở đâu và năm nào?",
+      "options": [
+        "Tại Đức năm 2011",
+        "Tại Pháp năm 2011",
+        "Tại Anh năm 2012",
+        "Tại Mỹ năm 2011"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-149",
+      "type": "choice",
+      "prompt": "Công nghiệp hóa ở nước Anh bắt nguồn từ ngành nào?",
+      "options": [
+        "Công nghiệp dệt",
+        "Công nghiệp cơ khí chế tạo",
+        "Công nghiệp khai khoáng",
+        "Công nghiệp đóng tàu"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-150",
+      "type": "choice",
+      "prompt": "Phương hướng cơ bản, lâu dài để tăng sản phẩm xã hội là",
+      "options": [
+        "Tăng năng suất lao động",
+        "Tăng cường độ lao động",
+        "Kéo dài thời gian lao động",
+        "Mở rộng quy mô sản xuất, khai thác tài nguyên thiên nhiên"
+      ],
+      "correct": 0
+    }
+  ]
+}

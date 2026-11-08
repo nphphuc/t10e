@@ -1,0 +1,120 @@
+{
+  "id": "MLN122-EXTRA",
+  "title": "MLN122 — 9 Câu KTCT Lẫn Trong Bộ MLN111",
+  "questions": [
+    {
+      "id": "MLN122-X261",
+      "type": "choice",
+      "prompt": "Phân công lao động xã hội",
+      "options": [
+        "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền",
+        "Không dẫn đến sự hình thành tư bản độc quyền",
+        "Nguyên nhân hình thành chủ nghĩa tư bản",
+        "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền nhà nước"
+      ],
+      "correct": 3,
+      "explanation": "📖 Giáo trình (trang PDF 81): nguyên nhân thứ hai hình thành độc quyền nhà nước là sự phát triển của phân công lao động xã hội làm xuất hiện các ngành mới mà độc quyền tư nhân không thể hoặc không muốn đầu tư.\n\nPhân công lao động xã hội làm chuyên môn hóa sản xuất, thúc đẩy tích tụ - tập trung sản xuất và tư bản. Khi sản xuất/tư bản tập trung cao sẽ dẫn đến độc quyền.\nVí dụ: Nhiều xưởng nhỏ dần bị các công ty lớn thâu tóm, hình thành tập đoàn độc quyền"
+    },
+    {
+      "id": "MLN122-X272",
+      "type": "choice",
+      "prompt": "Trong thời đại ngày nay, sở hữu nhà nước ngày càng",
+      "options": [
+        "Quan trọng đối với sự vận động và phát triển của chủ nghĩa tư bản",
+        "Không quan trọng đối với sự vận động và phát triển của chủ nghĩa tư bản",
+        "Không ảnh hưởng gì đến sự vận động và phát triển của chủ nghĩa tư bản"
+      ],
+      "correct": 0,
+      "explanation": "Trong CNTB hiện đại, nhà nước can thiệp ngày càng nhiều vào kinh tế, nên sở hữu nhà nước có vai trò quan trọng hơn đối với sự vận động của CNTB.\nVí dụ: Nhà nước nắm các ngành hạ tầng, năng lượng, quốc phòng hoặc cứu trợ doanh nghiệp lớn khi khủng hoảng.\nMẹo: CNTB hiện đại → nhà nước can thiệp mạnh → sở hữu nhà nước quan trọng hơn."
+    },
+    {
+      "id": "MLN122-X273",
+      "type": "choice",
+      "prompt": "Xác định đúng trình tự các khâu của quá trình tái sản xuất",
+      "options": [
+        "Sản xuất - trao đổi - phân phối - tiêu dùng",
+        "Trao đổi - tiêu dùng - phân phối - sản xuất",
+        "Sản xuất - phân phối - trao đổi - tiêu dùng"
+      ],
+      "correct": 2,
+      "explanation": "Ebook ghi quá trình sản xuất vật chất là quá trình thống nhất gồm sản xuất, phân phối, trao đổi và tiêu dùng của cải vật chất.\nVí dụ: Làm ra áo → phân phối cho đại lý → trao đổi/mua bán → người tiêu dùng mặc áo.\nMẹo: Nhớ chuỗi: Làm ra → chia → bán/đổi → dùng."
+    },
+    {
+      "id": "MLN122-X278",
+      "type": "choice",
+      "prompt": "Theo quan điểm của KTCT, trong tư liệu lao động bộ phận nào quyết định đến năng suất lao động?",
+      "options": [
+        "Công cụ lao động",
+        "Nguyên vật liệu cho sản xuất",
+        "Các vật chứa đựng, bảo quản",
+        "Kết cấu hạ tầng sản xuất"
+      ],
+      "correct": 0,
+      "explanation": "Trong tư liệu lao động, công cụ lao động là bộ phận quan trọng nhất, quyết định năng suất lao động.\nVí dụ: Cùng một người, dùng máy cày sẽ làm nhanh hơn dùng cuốc.\nMẹo: Hỏi năng suất → nhìn công cụ lao động."
+    },
+    {
+      "id": "MLN122-X289",
+      "type": "choice",
+      "prompt": "Cơ chế kinh tế của CNTB độc quyền nhà nước gồm:",
+      "options": [
+        "Cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước",
+        "Cơ chế thị trường, các nhà tài phiệt và sự điều tiết của nhà nước",
+        "Cơ chế thị trường và độc quyền tư nhân"
+      ],
+      "correct": 0,
+      "explanation": "CNTB độc quyền nhà nước kết hợp giữa cơ chế thị trường, sức mạnh của độc quyền tư nhân và sự can thiệp/điều tiết của nhà nước tư sản.\nVí dụ: Nhà nước cứu trợ ngân hàng lớn, đặt chính sách thuế, đầu tư công nhưng vẫn phục vụ lợi ích các tập đoàn lớn.\nMẹo: Độc quyền nhà nước = thị trường + độc quyền tư nhân + nhà nước."
+    },
+    {
+      "id": "MLN122-X292",
+      "type": "choice",
+      "prompt": "Điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng.",
+      "options": [
+        "(c+v+m) I> cl + cl; (v+m)I + (v+m)II > (c+v+m)ll; (v + m )I >cl",
+        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)l; (v + m )I >cll",
+        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)ll, (v + m )l>cll",
+        "(c+v+m) II> cl + cll; (v+m)I + (v+m)II > (c+v+m)II, (v + m)l>cll"
+      ],
+      "correct": 2,
+      "explanation": "Đây là công thức KTCT về điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng. Anh khuyên em giữ theo key C, vì câu này cần đúng công thức trong giáo trình KTCT/slide.\nMẹo: Câu công thức kiểu này học đúng key, đừng suy luận quá nhiều nếu không có giáo trình KTCT bên cạnh."
+    },
+    {
+      "id": "MLN122-X297",
+      "type": "choice",
+      "prompt": "Trong nền sản xuất lớn hiện đại, yếu tố nào giữ vai trò quyết định của quá trình lao động sản xuất?",
+      "options": [
+        "Sức lao động",
+        "Tư liệu sản xuất hiện đại",
+        "Công cụ sản xuất tiên tiến",
+        "Đối tượng lao động"
+      ],
+      "correct": 0,
+      "explanation": "Trong quá trình lao động sản xuất, sức lao động của con người giữ vai trò quyết định vì con người là chủ thể sử dụng tư liệu sản xuất, công cụ, máy móc để tác động vào đối tượng lao động.\nVí dụ: Máy móc hiện đại nhưng không có người thiết kế, vận hành, kiểm soát thì không thể tạo ra sản phẩm.\nMẹo phân biệt:\nHỏi chủ thể/quyết định quá trình lao động → sức lao động/con người.\nHỏi quyết định năng suất lao động → thường là công cụ lao động."
+    },
+    {
+      "id": "MLN122-X299",
+      "type": "choice",
+      "prompt": "Ngày lao động của công nhân bao gồm?",
+      "options": [
+        "Thời gian lao động giản đơn, thời gian lao động thặng dư.",
+        "Thời gian lao động phức tạp, thời gian lao động thặng dư.",
+        "Thời gian lao động cần thiết, thời gian lao động thặng dư.",
+        "Tất cả phương án trên"
+      ],
+      "correct": 2,
+      "explanation": "Ngày lao động của công nhân gồm 2 phần:\nThời gian lao động cần thiết tạo ra giá trị ngang với tiền lương.\nThời gian lao động thặng dư tạo ra giá trị thặng dư cho nhà tư bản.\nVí dụ: Làm 8 tiếng: 4 tiếng tạo ra giá trị bằng tiền lương, 4 tiếng còn lại tạo giá trị thặng dư.\nMẹo: Ngày lao động = cần thiết + thặng dư."
+    },
+    {
+      "id": "MLN122-X439",
+      "type": "choice",
+      "prompt": "Thời đại kinh tế ngày nay được gọi là gì?",
+      "options": [
+        "Nền kinh tế 4.0",
+        "Nền kinh tế tri thức",
+        "Nền kinh tế thị trường",
+        "Nền kinh tế hàng hóa nhiều thành phần"
+      ],
+      "correct": 1,
+      "explanation": "Thời đại kinh tế ngày nay thường được gọi là nền kinh tế tri thức, vì tri thức, khoa học, công nghệ, thông tin giữ vai trò ngày càng quyết định trong sản xuất và phát triển kinh tế.\nVí dụ: AI, công nghệ thông tin, dữ liệu, tự động hóa trở thành nguồn lực quan trọng của sản xuất hiện đại.\nMẹo nhớ: Thời nay công nghệ/tri thức quyết định → kinh tế tri thức."
+    }
+  ]
+}

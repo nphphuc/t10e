@@ -85,6 +85,20 @@ import mln111_100Full from '../content/mln111/mln111-100-full.json';
 import mln111_100Part1 from '../content/mln111/mln111-100-part1.json';
 import mln111_100Part2 from '../content/mln111/mln111-100-part2.json';
 
+// Quiz môn MLN122 (Kinh tế chính trị Mác-Lênin) — lọc từ "MLN _ FINAL.md", chia 10 phần theo thứ tự gốc
+import mln122Full from '../content/mln122/mln122-full.json';
+import mln122P01 from '../content/mln122/mln122-part-01.json';
+import mln122P02 from '../content/mln122/mln122-part-02.json';
+import mln122P03 from '../content/mln122/mln122-part-03.json';
+import mln122P04 from '../content/mln122/mln122-part-04.json';
+import mln122P05 from '../content/mln122/mln122-part-05.json';
+import mln122P06 from '../content/mln122/mln122-part-06.json';
+import mln122P07 from '../content/mln122/mln122-part-07.json';
+import mln122P08 from '../content/mln122/mln122-part-08.json';
+import mln122P09 from '../content/mln122/mln122-part-09.json';
+import mln122P10 from '../content/mln122/mln122-part-10.json';
+import mln122Extra from '../content/mln122/mln122-extra.json';
+
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
   'sequence': sequenceData,
@@ -182,6 +196,32 @@ export const mln111Map: Record<string, any> = {
   '100-part1': mln111_100Part1,
   '100-part2': mln111_100Part2,
 };
+
+export const mln122Map: Record<string, any> = {
+  'full': mln122Full,
+  'part-01': mln122P01,
+  'part-02': mln122P02,
+  'part-03': mln122P03,
+  'part-04': mln122P04,
+  'part-05': mln122P05,
+  'part-06': mln122P06,
+  'part-07': mln122P07,
+  'part-08': mln122P08,
+  'part-09': mln122P09,
+  'part-10': mln122P10,
+  'extra': mln122Extra,
+};
+
+// Đề trộn MLN122: 60 câu random từ toàn bộ ngân hàng (gồm cả phần câu lẫn trong MLN111),
+// trộn thứ tự xuất hiện — KHÔNG đảo vị trí đáp án bên trong mỗi câu.
+function buildMln122Mix() {
+  const pool = shuffleArray([...mln122Full.questions, ...mln122Extra.questions]).slice(0, 60);
+  return {
+    id: 'MLN122-MIX',
+    title: 'MLN122 — Đề Trộn (60 câu random)',
+    questions: pool,
+  };
+}
 
 // Đề trộn MLN111: 20 câu random từ mỗi đề RE/C1/C2 = 60 câu, trộn thứ tự xuất hiện —
 // KHÔNG đảo vị trí đáp án bên trong mỗi câu.
@@ -354,7 +394,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, isMln122 = false, isMln122Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; isMln122?: boolean; isMln122Mix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -365,6 +405,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [prn222MixData, setPrn222MixData] = useState<any>(() => (isPrn222Mix ? buildPrn222Mix() : null));
   const [pmg201cMixData, setPmg201cMixData] = useState<any>(() => (isPmg201cMix ? buildPmg201cMix() : null));
   const [mln111MixData, setMln111MixData] = useState<any>(() => (isMln111Mix ? buildMln111Mix() : null));
+  const [mln122MixData, setMln122MixData] = useState<any>(() => (isMln122Mix ? buildMln122Mix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
@@ -377,6 +418,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = pmg201cMixData;
   } else if (isMln111Mix) {
     reviewData = mln111MixData;
+  } else if (isMln122Mix) {
+    reviewData = mln122MixData;
   } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
@@ -389,6 +432,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? pmg201cMap[resolvedLevelId] : null;
   } else if (isMln111) {
     reviewData = resolvedLevelId ? mln111Map[resolvedLevelId] : null;
+  } else if (isMln122) {
+    reviewData = resolvedLevelId ? mln122Map[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -405,7 +450,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isMln122 || isMln122Mix) ? '/mln122' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -566,6 +611,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     // Đề trộn MLN111: mỗi lần "Làm Lại" ra một bộ 60 câu random mới
     if (isMln111Mix) {
       setMln111MixData(buildMln111Mix());
+    }
+    // Đề trộn MLN122: mỗi lần "Làm Lại" ra một bộ 60 câu random mới
+    if (isMln122Mix) {
+      setMln122MixData(buildMln122Mix());
     }
   };
 
@@ -795,7 +844,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
                   {isCorrectNow ? '✓ Chính xác!' : '✗ Chưa đúng'}
                 </div>
                 {currentQuestion.explanation && (
-                  <p className="text-sm opacity-90 leading-relaxed">{currentQuestion.explanation}</p>
+                  <p className="text-sm opacity-90 leading-relaxed whitespace-pre-line">{currentQuestion.explanation}</p>
                 )}
                 {mInfoNow && (
                   <div className="mt-2 pt-2 border-t border-white/10 space-y-1">

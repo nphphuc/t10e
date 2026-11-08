@@ -1,0 +1,605 @@
+{
+  "id": "MLN122-P05",
+  "title": "MLN122 — Phần 5 (Câu 201–250)",
+  "questions": [
+    {
+      "id": "MLN122-201",
+      "type": "choice",
+      "prompt": "Tư duy của Đảng về kinh tế thị trường là",
+      "options": [
+        "Có thể và cần thiết sử dụng kinh tế thị trường để xây dựng chủ nghĩa xã hội ở nước t",
+        "Có thể và không cần thiết sử dụng kinh tế thị trường để xây dựng chủ nghĩa xã hội ở nước t",
+        "Không thể và không cần thiết sử dụng kinh tế thị trường để xây dựng chủ nghĩa xã hội ở nước t",
+        "Kinh tế thị trường là cái riêng có của chủ nghĩa tư bả"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-202",
+      "type": "choice",
+      "prompt": "Tích lũy tư bản là:",
+      "options": [
+        "Tư bản hóa tư liệu tiêu dùng",
+        "Tư bản hóa giá trị thặng dư",
+        "Tư bản hóa sức lao động"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-203",
+      "type": "choice",
+      "prompt": "Quan điểm \"đổi mới phải luôn luôn quán triệt quan điểm \"dân là gốc\" vì lợi ích của nhân dân, dựa vào nhân dân, phát huy vai trò làm chủ, tinh thần trách nhiệm, sức sáng tạo và mọi nguồn lực của nhân dân; phát huy sức mạnh đại đoàn kết dân tộc\" được đưa ra trong đại hội nào?",
+      "options": [
+        "Đại hội đảng X",
+        "Đại hội đảng XI",
+        "Đại hội đảng XII",
+        "Đại hội đảng XIII"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-204",
+      "type": "choice",
+      "prompt": "Thị trường giải quyết ba vấn đề kinh tế nào?",
+      "options": [
+        "Sản xuất cái gì? sản xuất như thế nào? sản xuất cho ai?",
+        "Sản xuất ở đâu? sản xuất bao lâu? giá thành sản xuất như thế nào?",
+        "Sản xuất với giá cả nào? sản xuất với hàng hóa gì? cung cầu ra sao?",
+        "Sản xuất cái gì? sản xuất ở đâu? giá thành sản xuất như thế nào?"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-205",
+      "type": "choice",
+      "prompt": "Xuất khẩu tư bản là gì?",
+      "options": [
+        "Đặc điểm của chủ nghĩa tư bản tự do cạnh tranh",
+        "Mang tư bản đầu tư ở nước ngoài để sản xuất giá trị thặng dư tại nước ngoài sở tại",
+        "Mang hàng hóa ra nước ngoài để thực hiện giá trị của hàng hóa",
+        "Mang tư bản ra nước ngoài mua nguyên nhiên vật liệu sản xuất"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-206",
+      "type": "choice",
+      "prompt": "Chỉ có sản phẩm của những lao động tư nhân độc lập và không phụ thuộc vào nhau mới đối diện với nhau như",
+      "options": [
+        "Những hàng hóa",
+        "Những sản vật trao đổi",
+        "Những sản phẩm trao đổi"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-207",
+      "type": "choice",
+      "prompt": "Căn cứ vào đâu để chia ra thành tái sản xuất giản đơn và tái sản xuất mở rộng?",
+      "options": [
+        "Căn cứ vào phạm vi",
+        "Căn cứ vào nội dung",
+        "Căn cứ vào quy mô"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-208",
+      "type": "choice",
+      "prompt": "Điền vào chỗ trống. C. Mác và Ph. Ăngghen đã nhận xét rằng:\"Giai cấp tư sản, trong quá trình thống trị giai cấp chưa đầy một thế kỷ, đã tạo ra những ... nhiều hơn và đồ sộ hơn ... của tất cả các thế hệ trước kia gộp lại\"",
+      "options": [
+        "Lực lượng sản xuất... lực lượng sản xuất",
+        "Quan hệ sản xuất. quan hệ sản xuất",
+        "Của cải của cải",
+        "Vật chất... vật chất"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-209",
+      "type": "choice",
+      "prompt": "Trong kinh tế hàng hóa, cạnh tranh có tác dung.",
+      "options": [
+        "Nó làm cho sản xuất thiếu tính nhân văn",
+        "Nó buộc người sản xuất phải thường xuyên năng động, nhạy bén.",
+        "Nó làm cho sản xuất mang tính nhân văn hơn"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-210",
+      "type": "choice",
+      "prompt": "Lượng lợi nhuận có thể là",
+      "options": [
+        "Bằng hoặc thấp hơn lượng giá trị thặng dư",
+        "Cao hơn hoặc thấp hơn lượng giá trị thặng dư",
+        "Bằng, cao hơn hoặc thấp hơn lượng giá trị thặng dư",
+        "Bằng, hoặc cao hơn lượng giá trị thặng dư"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-211",
+      "type": "choice",
+      "prompt": "Tăng năng suất lao động và tăng cường độ lao động giống nhau ở:",
+      "options": [
+        "Đều làm tăng số hàng hóa sản xuất ra trong một thời gian",
+        "Đều làm tăng lượng lao động hao phí trong 1 đơn vị thời gian",
+        "Đều làm giá trị đơn vị hàng hoá gi"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-212",
+      "type": "multi",
+      "prompt": "Những hạn chế của chủ nghĩa tư bản bao gồm: (chọn nhiều phương án).",
+      "options": [
+        "Mục đích của nền sản xuất tư bản chủ nghĩa vẫn tập trung chủ yếu vì lợi ích của thiểu số giai cấp tư sản",
+        "Chủ nghĩa tư bản đã và đang tiếp tục gây ra chiến tranh và xung đột nhiều nơi trên thế giới.",
+        "Sự phân hóa giàu nghèo trong lòng các nước tư bản có xu hướng ngày càng sâu sắc.",
+        "Gây ra biến đổi khí hậu và môi trường"
+      ],
+      "correctSet": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "📖 Giáo trình (trang PDF 100–102): giới hạn của CNTB gồm — mục đích sản xuất vì lợi ích thiểu số giai cấp tư sản; tiếp tục gây ra chiến tranh, xung đột; phân hóa giàu nghèo ngày càng sâu sắc."
+    },
+    {
+      "id": "MLN122-213",
+      "type": "choice",
+      "prompt": "Chon các ý không đúng về sản phẩm và hàng hoá.",
+      "options": [
+        "Moi sản phẩm đều là hàng hoá",
+        "Moi sản phẩm đều là kết quả của sản xuất",
+        "Không phải mọi sản phẩm đều là hàng ho"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-214",
+      "type": "choice",
+      "prompt": "Chi phí thực tế của xã hội để sản xuất hàng hoá là",
+      "options": [
+        "Chi phí lao động sống và lao động quá khứ",
+        "Chi phí tư bản bất biến và tư bản khả biến",
+        "Chi phí sức lao động của toàn xã hội"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-215",
+      "type": "choice",
+      "prompt": "Quy luật chung của tích luỹ tư bản là gì? Ý nào sau đây không đúng.",
+      "options": [
+        "Giai cấp tư sản ngày càng giàu có, mâu thuẫn trong chủ nghĩa tư bản tăng lên",
+        "Cấu tạo hữu cơ của tư bản tăng lên",
+        "Quá trình bần cùng hóa giai cấp vô sản",
+        "Khoảng cách giàu nghèo ngày càng tăng, nạn thất nghiệp trở nên phổ biến"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-216",
+      "type": "choice",
+      "prompt": "Đâu không phải là đặc trưng chủ yếu của quá trình công nghiệp hóa, hiện đại hóa ở Việt Nam",
+      "options": [
+        "Công nghiệp hóa, hiện đại hóa gắn liền với phát triển công nghiệp nặng",
+        "Công nghiệp hóa, hiện đại hóa trong điều kiện nền kinh tế thị trường, định hướng xã hội chủ nghĩa",
+        "Công nghiệp hóa, hiện đại hóa trong bối cảnh toàn cầu hóa kinh tế quốc tế",
+        "Công nghiệp hóa, hiện đại hóa theo định hướng xã hội chủ nghĩa"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-217",
+      "type": "choice",
+      "prompt": "Giá trị cá biệt của hàng hoá do",
+      "options": [
+        "Hao phí lao động cá biệt của người sản xuất quyết định",
+        "Hao phí lao động cá biệt của người sản xuất nhiều hàng hoá quyết định",
+        "Hao phí lao động của ngành quyết đin"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-218",
+      "type": "choice",
+      "prompt": "Lưu thông hàng hoá dựa trên nguyên tắc ngang giá. Điều này được hiểu như thế nào là đúng?",
+      "options": [
+        "Giá cả của từng hàng hoá luôn luôn bằng giá trị của nó",
+        "Giá trị luôn luôn bằng giá cả",
+        "Giá cả có thể tách rời giá trị và xoay quanh giá trị của"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-219",
+      "type": "choice",
+      "prompt": "Những thành tựu và hạn chế của chủ nghĩa tư bản bắt nguồn từ",
+      "options": [
+        "Mâu thuẫn giữa trình độ xã hội hóa cao của lực lượng sản xuất với quan hệ sở hữu tư nhân tư bản chủ nghĩa về tư liệu sản xuất.",
+        "Mâu thuẫn giữa giai cấp công nhân và giai cấp tư sản",
+        "Mâu thuẫn giữa người lao động làm thuê và giai cấp bóc lột",
+        "Mâu thuẫn giữa trình độ xã hội hóa của lực lượng sản xuất và quan hệ sản xuất"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-220",
+      "type": "choice",
+      "prompt": "Nền kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam có tính chất",
+      "options": [
+        "Phổ biến và đặc thù",
+        "Phổ biến và cách mạng",
+        "Phổ biến và riêng biệt",
+        "Phổ biến và đại chúng"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-221",
+      "type": "multi",
+      "prompt": "Khi phân chia thể chế theo các yếu tố cấu thành lĩnh vực cốt lõi của xã hội, thể chế được phần chia (nhiều phương án)",
+      "options": [
+        "Thể chế chính trị",
+        "Thể chế kinh tế",
+        "Thể chế văn hoá",
+        "Thể chế xã hội"
+      ],
+      "correctSet": [
+        0,
+        1,
+        3
+      ],
+      "explanation": "⚠️ Giáo trình bản MLN122 không có cách phân loại này; đáp án chọn theo cách chia phổ biến (thể chế chính trị, thể chế kinh tế, thể chế xã hội) — nên đối chiếu đề thi."
+    },
+    {
+      "id": "MLN122-222",
+      "type": "choice",
+      "prompt": "Chi phí sản xuất tư bản chủ nghĩa",
+      "options": [
+        "Bằng giá trị hàng hóa",
+        "Lớn hơn giá trị hàng hóa",
+        "Nhỏ hơn giá trị hàng hóa",
+        "Không xác đin"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-223",
+      "type": "choice",
+      "prompt": "Nhân tố nào là cơ bản thúc đẩy chủ nghĩa tư bản ra đời nhanh chóng?",
+      "options": [
+        "Tích luỹ nguyên thuỷ",
+        "Sự phát triển mạnh mẽ của phương tiện giao thông vận tải nhờ đó mở rộng giao lưu buôn bán quốc tế",
+        "Sự tác động của quy luật giá trị"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-224",
+      "type": "choice",
+      "prompt": "Độc quyền nhà nước trong chủ nghĩa tư bản hình thành dựa trên",
+      "options": [
+        "Ba nguyên nhân",
+        "Bốn nguyên nhân",
+        "Hai nguyên nhân"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-225",
+      "type": "choice",
+      "prompt": "Khi chủ nghĩa tư bản độc quyền ra đời:",
+      "options": [
+        "Nó phủ định các quy luật trong giai đoạn chủ nghĩa tư bản tự do cạnh tranh",
+        "Phủ định các quy luật của nền sản xuất hàng hóa",
+        "Làm cho quy luật của nền sản xuất hàng hóa và chủ nghĩa tư bản có những biểu hiện mới",
+        "Nó không làm thay đổi quy luật của nền sản xuất hàng hóa và chủ nghĩa tư bản thay đổi"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-226",
+      "type": "choice",
+      "prompt": "Những nguyên nhân nào sau đây dẫn đến sự ra đời của chủ nghĩa tư bản độc quyền:",
+      "options": [
+        "Do đấu tranh của giai cấp",
+        "Do sự phát triển của lực lượng sản xuất xã hội hóa",
+        "Sự can thiệp điều chỉnh của nhà nước tư sản",
+        "Sự tập trung sản xuất dưới tác độc của cách mạng khoa học công nghệ, cạnh tranh, khủng hoảng kinh tế và tín dụng"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-227",
+      "type": "choice",
+      "prompt": "Phương thức sản xuất tư bản chủ nghĩa được thiết lập và phát triển qua các giai đoạn nào sau đây:",
+      "options": [
+        "Chủ nghĩa tư bản độc quyền",
+        "Chủ nghĩa tư bản tự do cạnh tranh",
+        "Chủ nghĩa tư bản tự do cạnh tranh và chủ nghĩa tư bản độc quyền.",
+        "Chủ nghĩa tư bản hiện đại"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-228",
+      "type": "choice",
+      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người khái quát về nguyên nhân ra đời của chủ nghĩa tư bản độc quyền bằng câu: \"tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định lại dẫn tới độc quyền\".",
+      "options": [
+        "Ph. Ăngghen",
+        "C. Mác",
+        "Ph. Ăngghen và C. Mác",
+        "V.I.Lêinin."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-229",
+      "type": "choice",
+      "prompt": "Địa tô tư bản là:",
+      "options": [
+        "Phần lợi nhuận ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất",
+        "Phần tỷ suất giá trị thặng dư ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất",
+        "Phần giá trị thặng dư ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất.",
+        "Phần giá trị thặng dư ngoài lợi"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-230",
+      "type": "choice",
+      "prompt": "Các cuộc xâm chiếm thuộc địa của các nước đế quốc diễn ra mạnh mẽ vào thời gian nào:",
+      "options": [
+        "Cuối thế kỷ XVII",
+        "Thế kỷ XVIII",
+        "Cuối thế kỷ XVIII - Thế kỷ XIX",
+        "Cuối thế kỷ XIX - đầu thế kỷ XX."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-231",
+      "type": "choice",
+      "prompt": "Xuất khẩu hàng hóa là một trong những đặc điểm của:",
+      "options": [
+        "Sản xuất hàng hóa giản đơn",
+        "Phương thức sản xuất tư bản chủ nghĩa",
+        "Giai đoạn chủ nghĩa tư bản tự do cạnh tranh",
+        "Giai đoạn chủ nghĩa tư bản độc quyền"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-232",
+      "type": "choice",
+      "prompt": "Chế độ tham dự của tư bản tài chính được thiết lập thông qua:",
+      "options": [
+        "Quyết định hành chính của nhà nước",
+        "Yêu cầu hành chính của ngân hàng",
+        "Yêu cầu hành chính của các tổ chức độc quyền công nghiệp",
+        "Số cố phiếu khống chế để nắm công ty me, công ty con.."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-233",
+      "type": "choice",
+      "prompt": "Ngày nay, sự can thiệp của nhà nước tư sản thể hiện:",
+      "options": [
+        "Vào khâu xuất khẩu",
+        "Vào khâu phân phối - trao đổi",
+        "Vào khâu sản xuất - tiêu dùng",
+        "Sản xuất - phân phối - trao đổi - tiêu dùng."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-234",
+      "type": "choice",
+      "prompt": "Mục đích của xuất khẩu tư bản nhà nước:",
+      "options": [
+        "Kinh tế",
+        "Kinh tế - chính trị",
+        "Quân sự",
+        "Kinh tế - chính trị - quân sự"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-235",
+      "type": "choice",
+      "prompt": "Sự kết hợp về nhân sự giữa các tổ chức độc quyền và nhà nước thể hiện ở:",
+      "options": [
+        "Liên minh giữa cá nhân tổ chức độc quyền ngân hàng với tổ chức độc quyền công nghiệp",
+        "Liên minh giữa tổ chức độc quyền công nghiệp với chính phủ",
+        "Liên minh giữa tổ chức độc quyền ngân hàng với chính phủ",
+        "Liên minh giữa tổ chức độc quyền ngân hàng, tổ chức độc quyền công nghiệp và chính"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-236",
+      "type": "choice",
+      "prompt": "Xuất khẩu tư bản là đặc điểm của:",
+      "options": [
+        "Phương thức sản xuất phong kiến",
+        "Phương thức sản xuất tư bản chủ nghĩa",
+        "Chủ nghĩa tư bản giai đoạn tự do cạnh tranh",
+        "Chủ nghĩa tư bản giai đoạn độc quyền."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-237",
+      "type": "choice",
+      "prompt": "Trong giai đoạn chủ nghĩa tư bản độc quyền:",
+      "options": [
+        "Quy luật giá trị không hoạt động",
+        "Quy luật giá trị hoạt động kém hiệu quả",
+        "Quy luật giá trị vẫn hoạt động.",
+        "Quy luật giá trị lúc hoạt động, lúc không"
+      ],
+      "correct": 3,
+      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (C: 1, D: 3). Nên đối chiếu giáo trình."
+    },
+    {
+      "id": "MLN122-238",
+      "type": "choice",
+      "prompt": "Mục đích của cạnh tranh giữa các nhà tư bản trong nội bộ tổ chức độc quyền:",
+      "options": [
+        "Giành thị trường tiêu thụ",
+        "Giành tỷ lệ sản xuất cao hơn",
+        "Thôn tính nhau",
+        "Giành thị trường tiêu thụ hoặc Giành tỷ lệ sản xuất cao hơn"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-239",
+      "type": "choice",
+      "prompt": "Trong giai đoạn phát triển của chủ nghĩa tư bản độc quyền, quy luật giá trị thặng dư biểu hiện thành:",
+      "options": [
+        "Quy luật giá cả sản xuất",
+        "Quy luật giá cả độc quyền",
+        "Quy luật tỷ suất lợi nhuận bình quân",
+        "Quy luật lợi nhuận độc quyền cao."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-240",
+      "type": "choice",
+      "prompt": "Các hình thức cơ bản của địa tô tư bản chủ nghĩa",
+      "options": [
+        "Địa tô chênh lệch I; địa tô chênh lệch I",
+        "Địa tô tuyệt đối; địa tô độc quyền",
+        "Địa tô chênh lệch; địa tô tuyệt đối",
+        "Địa tô chênh lệch; địa tô độc quy"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-241",
+      "type": "choice",
+      "prompt": "Sự ra đời của chủ nghĩa tư bản độc quyền nhà nước nhằm:",
+      "options": [
+        "Phuc vu lợi ích của nhân dân lao động",
+        "Phuc vu lợi ích của tổ chức độc quyền tư nhân",
+        "Phuc vu lợi ích của nhà nước tư sản",
+        "Phuc vu lợi ích của tổ chức độc quyền tư nhân và cứu nguy cho chủ nghĩa tư bả"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-242",
+      "type": "choice",
+      "prompt": "Các tổ chức độc quyền của các quốc gia cạnh tranh với nhau trên thị trường quốc tế sẽ dẫn đến:",
+      "options": [
+        "Sự thôn tính nhau",
+        "Sẽ có các tổ chức độc quyền bị phá sản, còn những tổ chức độc quyền mạnh",
+        "Đấu tranh không khoan nhượng",
+        "Thỏa hiệp với nhau để hình thành các tổ chức độc quyền quốc tế."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-243",
+      "type": "choice",
+      "prompt": "Điểm giống nhau giữa địa tô chênh lệch và địa tô tuyệt đối là",
+      "options": [
+        "Có nguồn gốc từ giá trị thặng dư",
+        "Tư bản bất biến",
+        "Có nguồn gốc từ giá trị trao đổi",
+        "Có nguồn gốc từ giá trị"
+      ],
+      "correct": 0
+    },
+    {
+      "id": "MLN122-244",
+      "type": "choice",
+      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người nghiên cứu chủ nghĩa tư bản độc quyền:",
+      "options": [
+        "Ph. Ăngghen",
+        "C. Mác",
+        "Ph. Ăngghen và C. Mác",
+        "V.I.Lêinin."
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-245",
+      "type": "choice",
+      "prompt": "V.I. Lênin đã phân tích chủ nghĩa tư bản độc quyền bằng các đặc điểm kinh tế cơ bản nào sau đây:",
+      "options": [
+        "Tập trung sản xuất và các tổ chức độc quyền; tư bản tài chính và bọn đầu sỏ tài chính",
+        "Tập trung sản xuất và các tổ chức độc quyền; tư bản tài chính và bọn đầu sỏ tài chính; xuất khẩu tư bản",
+        "Tập trung sản xuất và các tổ chức độc quyền, tư bản tài chính và bọn đầu",
+        "Tập trung sản xuất và các tổ chức độc quyền, tư bản tài chính và bọn đầu sỏ tài chính; xuất khẩu tư bản; phân chia thế giới về kinh tế giữa các tổ chức độc quyền; sự phân chia thế giới về lãnh thổ giữa các cường quốc đế quốc"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-246",
+      "type": "choice",
+      "prompt": "Trong giai đoạn chủ nghĩa tư bản cạnh tranh tự do, quy luật giá trị thặng dư biểu hiện thành quy luật.",
+      "options": [
+        "Lợi nhuận độc quyền",
+        "Tỷ suất lợi nhuận bình quân",
+        "Lợi nhuận độc quyền cao",
+        "Tỷ suất giá trị thặng d"
+      ],
+      "correct": 1
+    },
+    {
+      "id": "MLN122-247",
+      "type": "choice",
+      "prompt": "Cơ cấu kinh tế của chủ nghĩa tư bản độc quyền nhà nước là sự dung hợp:",
+      "options": [
+        "Cơ chế thị trường và độc quyền tư nhân",
+        "Độc quyền tư nhân và sự điều tiết của nhà nước.",
+        "Cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-248",
+      "type": "choice",
+      "prompt": "Sự phát triển của trình độ xã hội hóa lực lượng sản xuất đòi hỏi:",
+      "options": [
+        "Nhà nước can thiệp vào kinh tế với vai trò quản lý chung",
+        "Nhà nước không can thiệp vào kinh tế",
+        "Nhà nước chỉ can thiệp vào kinh tế với vai trò người gác cổng",
+        "Nhà nước can thiệp vào kinh tế ở cấp độ vi mô"
+      ],
+      "correct": 3
+    },
+    {
+      "id": "MLN122-249",
+      "type": "choice",
+      "prompt": "Kết quả cạnh tranh giữa các tổ chức độc quyền trong cùng một ngành:",
+      "options": [
+        "Một sự thỏa hiệp được hình thành",
+        "Một bên phá sản",
+        "Một sự thỏa hiệp được hình thành hoặc một bên phá sản",
+        "Cả hai cùng lớn mạnh"
+      ],
+      "correct": 2
+    },
+    {
+      "id": "MLN122-250",
+      "type": "choice",
+      "prompt": "Bản chất lợi nhuận độc quyền hình thành là do:",
+      "options": [
+        "Cạnh tranh nội bộ ngành",
+        "Cạnh tranh giữa các ngành",
+        "Cạnh tranh giữa các nước",
+        "Do dia vi độc quyền đem l"
+      ],
+      "correct": 3
+    }
+  ]
+}
