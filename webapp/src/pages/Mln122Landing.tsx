@@ -1,6 +1,15 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { mln122Map } from './ReviewPage';
 
+const CHAPTERS = [
+  { id: 'chapter-1', icon: '🧭', color: 'from-sky-500 to-cyan-600' },
+  { id: 'chapter-2', icon: '🛒', color: 'from-violet-500 to-purple-600' },
+  { id: 'chapter-3', icon: '💵', color: 'from-amber-500 to-orange-600' },
+  { id: 'chapter-4', icon: '🏭', color: 'from-rose-500 to-red-600' },
+  { id: 'chapter-5', icon: '🇻🇳', color: 'from-emerald-500 to-green-600' },
+  { id: 'chapter-6', icon: '🚀', color: 'from-indigo-500 to-blue-600' },
+];
+
 const PART_IDS = ['part-01', 'part-02', 'part-03', 'part-04', 'part-05', 'part-06', 'part-07', 'part-08', 'part-09', 'part-10'];
 
 export default function Mln122Landing() {
@@ -67,6 +76,44 @@ export default function Mln122Landing() {
               <h3 className="font-extrabold text-md text-emerald-300">🧩 Câu KTCT Lẫn Trong Bộ MLN111</h3>
               <p className="text-xs text-gray-400 mt-1">{extra?.questions?.length ?? 0} câu không có trong bộ chính</p>
             </Link>
+          </div>
+        </section>
+
+        {/* Chia theo 6 chương giáo trình */}
+        <section className="space-y-4">
+          <div className="p-6 rounded-3xl bg-gradient-to-r from-sky-950/10 to-indigo-950/10 border border-sky-900/20 text-center space-y-2">
+            <h2 className="text-lg font-bold text-sky-200">Ôn Theo Chương</h2>
+            <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
+              Toàn bộ câu hỏi xếp theo 6 chương của giáo trình Kinh tế chính trị Mác-Lênin.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-4">
+            {CHAPTERS.map((ch) => {
+              const data = mln122Map[ch.id];
+              const count = data?.questions?.length ?? 0;
+              return (
+                <Link
+                  key={ch.id}
+                  to={`/mln122/${ch.id}`}
+                  className="block rounded-2xl border border-gray-800 bg-gray-900/20 hover:border-gray-700 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className={`w-9 h-9 rounded-xl bg-gradient-to-br ${ch.color} flex items-center justify-center text-lg shrink-0 shadow-inner`}>
+                        {ch.icon}
+                      </span>
+                      <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">
+                        {data?.title?.replace('MLN122 — ', '') ?? ch.id}
+                      </h3>
+                    </div>
+                    <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-sky-500/10 text-sky-400 border border-sky-500/20 shrink-0">
+                      {count} câu
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </section>
 

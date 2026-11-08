@@ -150,6 +150,10 @@ function NavCard({ icon, glowColor, onClick, disabled }: NavCardProps) {
 
 /* ===== Main Landing Page ===== */
 
+// Ẩn 3 thẻ lớn của SWD392 (Bài học / Ôn thi PE / Ôn thi FE). Đổi thành true để hiện lại —
+// các route /home, /pe-review, /term-bank vẫn hoạt động bình thường.
+const SHOW_SWD_CARDS = false;
+
 export default function LandingPage() {
   const navigate = useNavigate();
   const shouldReduceMotion = useReducedMotion();
@@ -186,7 +190,7 @@ export default function LandingPage() {
                        text-purple-300/70 text-[10px] font-semibold tracking-widest uppercase"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-            SWD392 • FPT University
+            FPT University • Ôn trắc nghiệm
           </motion.div>
 
           {/* Title row: fox + text */}
@@ -226,10 +230,9 @@ export default function LandingPage() {
 
             {/* Title text — one line */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display whitespace-nowrap">
-              <span className="text-white">Software Design</span>
-              <span className="text-white mx-1.5">&</span>
-              <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent">
-                Architecture
+              <span className="text-white">Ôn Trắc Nghiệm</span>
+              <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent ml-2">
+                FPT
               </span>
             </h1>
           </motion.div>
@@ -241,12 +244,13 @@ export default function LandingPage() {
             transition={{ duration: 0.5, delay: 0.35 }}
             className="text-gray-500 text-sm md:text-base max-w-sm mx-auto leading-relaxed"
           >
-            Chọn chế độ học tập phù hợp với bạn
+            Chọn môn để bắt đầu ôn tập
           </motion.p>
         </motion.div>
       </section>
 
       {/* ===== NAV CARDS (logo only) ===== */}
+      {SHOW_SWD_CARDS && (
       <section className="relative z-10 max-w-5xl mx-auto px-6 pb-8 flex-grow flex items-center">
         <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Card 1: Bài học */}
@@ -280,11 +284,12 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+      )}
 
       {/* ===== PRU213 SECTION (môn khác, tách riêng khỏi SWD392) ===== */}
       <section className="relative z-10 max-w-3xl mx-auto px-6 pb-10">
         <div className="text-center mb-4">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Môn khác</span>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Chọn môn</span>
         </div>
         <button
           onClick={() => navigate('/pru213')}
@@ -295,7 +300,7 @@ export default function LandingPage() {
           </span>
           <div className="flex-1">
             <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PRU213 — Unity &amp; C#</div>
-            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
           </div>
           <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
@@ -309,7 +314,7 @@ export default function LandingPage() {
           </span>
           <div className="flex-1">
             <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PRN222 — .NET Web (Blazor, DI, SignalR...)</div>
-            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
           </div>
           <span className="text-teal-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
@@ -323,7 +328,7 @@ export default function LandingPage() {
           </span>
           <div className="flex-1">
             <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PMG201c — Project Management</div>
-            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
           </div>
           <span className="text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
@@ -337,7 +342,7 @@ export default function LandingPage() {
           </span>
           <div className="flex-1">
             <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">MLN111 — Triết Học Mác-Lênin</div>
-            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
           </div>
           <span className="text-rose-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
@@ -351,7 +356,7 @@ export default function LandingPage() {
           </span>
           <div className="flex-1">
             <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">MLN122 — Kinh Tế Chính Trị Mác-Lênin</div>
-            <div className="text-xs text-gray-500">Quiz ôn tập riêng, không liên quan SWD392</div>
+            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
           </div>
           <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
         </button>
@@ -360,7 +365,7 @@ export default function LandingPage() {
       {/* ===== FOOTER ===== */}
       <footer className="relative z-10 text-center px-6 py-8 border-t border-gray-800/30 mt-auto">
         <p className="text-xs text-gray-600">
-          SWD392 — Software Design & Architecture © FPT University
+          Ôn Trắc Nghiệm — FPT University
         </p>
         <p className="text-[10px] text-gray-700 mt-1">
           Built with React + Vite + TypeScript

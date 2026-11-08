@@ -98,6 +98,12 @@ import mln122P08 from '../content/mln122/mln122-part-08.json';
 import mln122P09 from '../content/mln122/mln122-part-09.json';
 import mln122P10 from '../content/mln122/mln122-part-10.json';
 import mln122Extra from '../content/mln122/mln122-extra.json';
+import mln122Ch1 from '../content/mln122/mln122-chapter-1.json';
+import mln122Ch2 from '../content/mln122/mln122-chapter-2.json';
+import mln122Ch3 from '../content/mln122/mln122-chapter-3.json';
+import mln122Ch4 from '../content/mln122/mln122-chapter-4.json';
+import mln122Ch5 from '../content/mln122/mln122-chapter-5.json';
+import mln122Ch6 from '../content/mln122/mln122-chapter-6.json';
 
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
@@ -210,6 +216,12 @@ export const mln122Map: Record<string, any> = {
   'part-09': mln122P09,
   'part-10': mln122P10,
   'extra': mln122Extra,
+  'chapter-1': mln122Ch1,
+  'chapter-2': mln122Ch2,
+  'chapter-3': mln122Ch3,
+  'chapter-4': mln122Ch4,
+  'chapter-5': mln122Ch5,
+  'chapter-6': mln122Ch6,
 };
 
 // Đề trộn MLN122: 60 câu random từ toàn bộ ngân hàng (gồm cả phần câu lẫn trong MLN111),
