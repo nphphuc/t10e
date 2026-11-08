@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
+import Icon from '../ui/Icon';
+import '../ui/sheet.css';
 import { track } from '../engine/analytics';
 import { useProgressStore } from '../store/progress';
 import { playCorrect, playWrong } from '../engine/sound';
@@ -466,12 +468,12 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
 
   if (!reviewData) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-[#0c0d0e] p-6 text-center space-y-4">
+      <div className="min-h-screen flex flex-col items-center justify-center sheet-root p-6 text-center space-y-4">
         <h2 className="text-2xl font-bold text-gray-200">Không Tìm Thấy Đánh Giá</h2>
         <p className="text-gray-400">Đánh giá "{levelId}" chưa có nội dung hoặc đang được sản xuất.</p>
         <button
           onClick={() => navigate(exitPath)}
-          className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 font-semibold transition-all"
+          className="px-5 py-2.5 rounded-xl bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] font-semibold transition-all"
         >
           Quay Lại
         </button>
@@ -664,18 +666,18 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     const mInfo = weakMisconception ? MISCONCEPTION_INFO[weakMisconception] : null;
 
     return (
-      <div className="min-h-screen bg-[#0c0d0e] flex flex-col justify-center items-center p-6">
-        <div className="max-w-md w-full bg-gray-900/60 border border-gray-800 rounded-3xl p-8 text-center space-y-6 shadow-xl backdrop-blur-md">
+      <div className="min-h-screen sheet-root flex flex-col justify-center items-center p-6">
+        <div className="max-w-md w-full bg-[#15233c] border border-[#2a3d60] rounded-md p-8 text-center space-y-6 shadow-xl backdrop-blur-md">
           {passed ? (
             <div className="space-y-4">
-              <div className="text-6xl animate-bounce">🏆</div>
+              <div className="flex justify-center text-[#ffd23f]"><Icon name="trophy" size={64} strokeWidth={1.3} /></div>
               <h2 className="text-2xl font-extrabold text-white">Vượt Qua Thử Thách!</h2>
               <p className="text-sm text-emerald-400 font-semibold">Bạn đã đạt {score}% ({correctCount}/{questions.length} câu đúng)</p>
               <p className="text-xs text-gray-400">Bạn đã nắm vững các khái niệm cốt lõi của chủ đề này.</p>
             </div>
           ) : (
             <div className="space-y-4">
-              <div className="text-6xl">💡</div>
+              <div className="flex justify-center text-[#93a2bd]"><Icon name="bulb" size={64} strokeWidth={1.3} /></div>
               <h2 className="text-2xl font-extrabold text-white">Cần Luyện Tập Thêm</h2>
               <p className="text-sm text-red-400 font-semibold">Bạn đạt {score}% ({correctCount}/{questions.length} câu đúng - Yêu cầu ≥ 75%)</p>
 
@@ -694,7 +696,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
             {passed ? (
               <button
                 onClick={() => navigate(exitPath)}
-                className="w-full py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-500/20 focus:outline-none"
+                className="w-full py-3.5 rounded-2xl bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] font-bold transition-all shadow-lg shadow-blue-500/20 focus:outline-none"
               >
                 Tiếp Tục
               </button>
@@ -702,13 +704,13 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
               <>
                 <button
                   onClick={handleRetry}
-                  className="w-full py-3.5 rounded-2xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all focus:outline-none"
+                  className="w-full py-3.5 rounded-2xl bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] font-bold transition-all focus:outline-none"
                 >
                   Thử Lại Đánh Giá
                 </button>
                 <button
                   onClick={() => navigate(exitPath)}
-                  className="w-full py-3.5 rounded-2xl bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold transition-all focus:outline-none"
+                  className="w-full py-3.5 rounded-2xl bg-[#1b2c4a] hover:bg-[#22365a] text-[#e9eef7] font-semibold transition-all focus:outline-none"
                 >
                   Trở Về
                 </button>
@@ -724,9 +726,9 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const isAnswered = isUnsupportedQuestion || selectedAnswer !== null;
 
   return (
-    <div className="min-h-screen bg-[#0c0d0e] pb-16 flex flex-col">
+    <div className="min-h-screen sheet-root pb-16 flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-gray-900/80 backdrop-blur border-b border-gray-800 px-6 py-4">
+      <header className="sticky top-0 z-30 bg-[#0f1a2e]/90 backdrop-blur border-b border-[#2a3d60] px-6 py-4">
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <button
@@ -735,22 +737,23 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
                   navigate(exitPath);
                 }
               }}
-              className="text-gray-400 hover:text-gray-200 transition-colors"
+              className="sheet-back text-sm"
             >
-              ← Quay lại
+              <Icon name="back" size={18} />
+              Quay lại
             </button>
             <h1 className="text-sm font-bold text-gray-200">{reviewData.title}</h1>
           </div>
-          <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">
-            Câu {currentIdx + 1} / {questions.length}
+          <span className="text-sm text-[#93a2bd] whitespace-nowrap">
+            Câu <span className="sheet-count text-base text-[#e9eef7]">{currentIdx + 1}</span> / {questions.length}
           </span>
         </div>
       </header>
 
       {/* Progress Bar */}
-      <div className="w-full h-1 bg-gray-950">
+      <div className="w-full h-1 bg-[#15233c]">
         <div
-          className="h-full bg-blue-500 transition-all duration-300"
+          className="h-full bg-[#ffd23f] transition-all duration-300 motion-reduce:transition-none"
           style={{ width: `${((currentIdx) / questions.length) * 100}%` }}
         />
       </div>
@@ -759,7 +762,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
       <main className="max-w-xl mx-auto px-6 mt-10 flex-grow w-full flex flex-col justify-between">
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-md md:text-lg font-bold text-gray-100 leading-snug">
+            <h2 className="text-lg md:text-xl font-medium text-[#e9eef7] leading-snug">
               {currentQuestion.prompt}
             </h2>
             {currentQuestion.image && (
@@ -853,7 +856,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
                 }`}
               >
                 <div className="font-bold flex items-center gap-1.5">
-                  {isCorrectNow ? '✓ Chính xác!' : '✗ Chưa đúng'}
+                  <Icon name={isCorrectNow ? 'check' : 'cross'} size={18} />
+                  {isCorrectNow ? 'Chính xác' : 'Chưa đúng'}
                 </div>
                 {currentQuestion.explanation && (
                   <p className="text-sm opacity-90 leading-relaxed whitespace-pre-line">{currentQuestion.explanation}</p>
@@ -877,20 +881,20 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
               onClick={isUnsupportedQuestion ? handleContinue : handleCheck}
               className={`w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 ${
                 isAnswered
-                  ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20'
+                  ? 'bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] focus-visible:ring-2 focus-visible:ring-[#ffd23f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1a2e]'
                   : 'bg-gray-800 text-gray-500 cursor-not-allowed'
               }`}
             >
               <span>{isUnsupportedQuestion ? 'Bỏ Qua & Tiếp Tục' : 'Kiểm Tra'}</span>
-              <span>➔</span>
+              <Icon name="chevron" size={18} />
             </button>
           ) : (
             <button
               onClick={handleContinue}
-              className="w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white shadow-lg shadow-blue-500/20"
+              className="w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] focus-visible:ring-2 focus-visible:ring-[#ffd23f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1a2e]"
             >
               <span>{currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Tiếp Tục'}</span>
-              <span>➔</span>
+              <Icon name="chevron" size={18} />
             </button>
           )}
         </div>

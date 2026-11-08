@@ -1,171 +1,46 @@
-import { Link, useNavigate } from 'react-router-dom';
+import SubjectPage, { countOf } from '../ui/SubjectPage';
 import { mln111Map } from './ReviewPage';
 
-const CHAPTERS = [
-  { id: 'chapter-1', icon: '🧭', color: 'from-sky-500 to-cyan-600' },
-  { id: 'chapter-2', icon: '⚛️', color: 'from-violet-500 to-purple-600' },
-  { id: 'chapter-3', icon: '🏛️', color: 'from-amber-500 to-orange-600' },
-];
-
 export default function Mln111Landing() {
-  const navigate = useNavigate();
-  const re = mln111Map['re'];
-  const c1 = mln111Map['c1'];
-  const c2 = mln111Map['c2'];
-  const full100 = mln111Map['100-full'];
-  const part1_100 = mln111Map['100-part1'];
-  const part2_100 = mln111Map['100-part2'];
-
   return (
-    <div className="min-h-screen bg-[#0c0d0e] pb-16">
-      <header className="sticky top-0 z-30 bg-gray-900/80 backdrop-blur border-b border-gray-800 px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <button
-              onClick={() => navigate('/')}
-              className="text-gray-400 hover:text-gray-200 transition-colors"
-            >
-              ← Trang chủ
-            </button>
-            <h1 className="text-sm font-bold text-gray-200">☯️ MLN111 — Triết Học Mác-Lênin</h1>
-          </div>
-        </div>
-      </header>
-
-      <main className="max-w-4xl mx-auto px-6 mt-10 space-y-10">
-        {/* 3 đề gốc */}
-        <section className="space-y-4">
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-rose-950/10 to-red-950/10 border border-rose-900/20 text-center space-y-2">
-            <h2 className="text-lg font-bold text-rose-200">3 Đề Thi Thật</h2>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
-              Giữ nguyên thứ tự và đáp án gốc từ 3 đề bạn thu thập được (RE, C1, C2).
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Link
-              to="/mln111/re"
-              className="block rounded-2xl border border-rose-700/40 bg-gradient-to-r from-rose-950/20 to-red-950/10 hover:border-rose-600/60 transition-all duration-200 hover:scale-[1.01] group p-5"
-            >
-              <h3 className="font-extrabold text-md text-rose-300">📄 Đề RE</h3>
-              <p className="text-xs text-gray-400 mt-1">{re?.questions?.length ?? 0} câu</p>
-            </Link>
-            <Link
-              to="/mln111/c1"
-              className="block rounded-2xl border border-rose-700/40 bg-gradient-to-r from-rose-950/20 to-red-950/10 hover:border-rose-600/60 transition-all duration-200 hover:scale-[1.01] group p-5"
-            >
-              <h3 className="font-extrabold text-md text-rose-300">📄 Đề C1</h3>
-              <p className="text-xs text-gray-400 mt-1">{c1?.questions?.length ?? 0} câu</p>
-            </Link>
-            <Link
-              to="/mln111/c2"
-              className="block rounded-2xl border border-rose-700/40 bg-gradient-to-r from-rose-950/20 to-red-950/10 hover:border-rose-600/60 transition-all duration-200 hover:scale-[1.01] group p-5"
-            >
-              <h3 className="font-extrabold text-md text-rose-300">📄 Đề C2</h3>
-              <p className="text-xs text-gray-400 mt-1">{c2?.questions?.length ?? 0} câu</p>
-            </Link>
-          </div>
-
-          <Link
-            to="/mln111/mix"
-            className="block rounded-3xl border border-amber-700/40 bg-gradient-to-r from-amber-950/20 to-orange-950/10 hover:border-amber-600/60 transition-all duration-200 hover:scale-[1.005] group p-6"
-          >
-            <div className="flex items-center justify-between gap-4 flex-wrap">
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-lg text-amber-300">🎯 Đề Trộn — 60 câu</h3>
-                <p className="text-xs text-gray-400 leading-relaxed max-w-md">
-                  20 câu random từ mỗi đề RE + C1 + C2, trộn thứ tự xuất hiện. Mỗi lần vào/làm lại là một đề mới.
-                </p>
-              </div>
-              <span className="text-xs font-bold text-amber-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
-                Vào làm đề ➔
-              </span>
-            </div>
-          </Link>
-        </section>
-
-        {/* 100 câu trọng tâm Chương 1 & 2 — đề mục riêng, tách biệt khỏi 3 đề gốc và 3 chương */}
-        <section className="space-y-4">
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-fuchsia-950/10 to-pink-950/10 border border-fuchsia-900/20 text-center space-y-2">
-            <h2 className="text-lg font-bold text-fuchsia-200">📘 100 Câu Trọng Tâm (Chương 1 &amp; 2)</h2>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
-              Bộ tài liệu ôn tập riêng, tổng hợp 100 câu bám sát cấu trúc đề thi cho Chương 1 &amp; 2, kèm giải thích chi tiết.
-            </p>
-          </div>
-
-          <Link
-            to="/mln111/100-full"
-            className="block rounded-3xl border border-fuchsia-700/40 bg-gradient-to-r from-fuchsia-950/20 to-pink-950/10 hover:border-fuchsia-600/60 transition-all duration-200 hover:scale-[1.005] group p-6"
-          >
-            <div className="flex items-center justify-between gap-4 flex-wrap">
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-lg text-fuchsia-300">📚 Làm Cả 100 Câu</h3>
-                <p className="text-xs text-gray-400 leading-relaxed max-w-md">
-                  Đầy đủ theo thứ tự gốc: Phần 1 (Triết học &amp; vai trò) rồi đến Phần 2 (CNDVBC).
-                </p>
-              </div>
-              <span className="text-xs font-bold text-fuchsia-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 shrink-0">
-                {full100?.questions?.length ?? 100} câu ➔
-              </span>
-            </div>
-          </Link>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Link
-              to="/mln111/100-part1"
-              className="block rounded-2xl border border-fuchsia-700/30 bg-gray-900/20 hover:border-fuchsia-600/50 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
-            >
-              <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">🧭 Phần 1 — Triết Học &amp; Vai Trò</h3>
-              <p className="text-xs text-gray-500 mt-1">{part1_100?.questions?.length ?? 30} câu</p>
-            </Link>
-            <Link
-              to="/mln111/100-part2"
-              className="block rounded-2xl border border-fuchsia-700/30 bg-gray-900/20 hover:border-fuchsia-600/50 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
-            >
-              <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">⚛️ Phần 2 — CN Duy Vật Biện Chứng</h3>
-              <p className="text-xs text-gray-500 mt-1">{part2_100?.questions?.length ?? 70} câu</p>
-            </Link>
-          </div>
-        </section>
-
-        {/* Chia theo 3 chương */}
-        <section className="space-y-4">
-          <div className="p-6 rounded-3xl bg-gradient-to-r from-teal-950/10 to-emerald-950/10 border border-teal-900/20 text-center space-y-2">
-            <h2 className="text-lg font-bold text-teal-200">Ôn Theo Chương</h2>
-            <p className="text-sm text-gray-400 max-w-xl mx-auto leading-relaxed">
-              Gộp cả 3 đề, loại trùng, chia thành 3 chương: Triết học & vai trò, CN Duy vật biện chứng, CN Duy vật lịch sử.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4">
-            {CHAPTERS.map((ch) => {
-              const data = mln111Map[ch.id];
-              const count = data?.questions?.length ?? 0;
-              return (
-                <Link
-                  key={ch.id}
-                  to={`/mln111/${ch.id}`}
-                  className="block rounded-2xl border border-gray-800 bg-gray-900/20 hover:border-gray-700 hover:bg-gray-900/40 transition-all duration-200 hover:scale-[1.01] group p-5"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className={`w-9 h-9 rounded-xl bg-gradient-to-br ${ch.color} flex items-center justify-center text-lg shrink-0 shadow-inner`}>
-                        {ch.icon}
-                      </span>
-                      <h3 className="font-bold text-sm text-gray-200 group-hover:text-white transition-colors">
-                        {data?.title?.replace('MLN111 — ', '') ?? ch.id}
-                      </h3>
-                    </div>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full font-bold bg-teal-500/10 text-teal-400 border border-teal-500/20 shrink-0">
-                      {count} câu
-                    </span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-      </main>
-    </div>
+    <SubjectPage
+      code="MLN111"
+      name="Triết học Mác-Lênin"
+      icon="compass"
+      intro="Ba đề thi thật (RE, C1, C2) giữ nguyên thứ tự và đáp án gốc, kèm bộ 100 câu trọng tâm chương 1 và 2."
+      sections={[
+        {
+          title: 'Đề thi thật',
+          decks: [
+            { to: '/mln111/mix', title: 'Đề trộn', desc: '20 câu ngẫu nhiên từ mỗi đề RE, C1, C2, trộn thứ tự. Mỗi lần làm lại là một đề mới.', count: 60, icon: 'shuffle', featured: true },
+            { to: '/mln111/re', title: 'Đề RE', count: countOf(mln111Map['re']), icon: 'exam' },
+            { to: '/mln111/c1', title: 'Đề C1', count: countOf(mln111Map['c1']), icon: 'exam' },
+            { to: '/mln111/c2', title: 'Đề C2', count: countOf(mln111Map['c2']), icon: 'exam' },
+          ],
+        },
+        {
+          title: '100 câu trọng tâm',
+          note: 'Bộ tài liệu riêng bám cấu trúc đề thi chương 1 và 2, có giải thích chi tiết.',
+          decks: [
+            { to: '/mln111/100-full', title: 'Làm cả 100 câu', desc: 'Phần 1 rồi đến Phần 2, theo thứ tự gốc.', count: countOf(mln111Map['100-full']), icon: 'stack' },
+            { to: '/mln111/100-part1', title: 'Phần 1 — Triết học và vai trò', count: countOf(mln111Map['100-part1']), order: 1 },
+            { to: '/mln111/100-part2', title: 'Phần 2 — Chủ nghĩa duy vật biện chứng', count: countOf(mln111Map['100-part2']), order: 2 },
+          ],
+        },
+        {
+          title: 'Ôn theo chương',
+          note: 'Gộp cả 3 đề, loại câu trùng, chia theo 3 chương.',
+          decks: [1, 2, 3].map((n) => {
+            const data = mln111Map[`chapter-${n}`];
+            return {
+              to: `/mln111/chapter-${n}`,
+              title: (data?.title ?? `Chương ${n}`).replace(/^MLN111 — Chương \d+ — /, ''),
+              count: countOf(data),
+              order: n,
+            };
+          }),
+        },
+      ]}
+    />
   );
 }

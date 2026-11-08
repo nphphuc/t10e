@@ -1,0 +1,130 @@
+/* Giao diện "phiếu tô trắc nghiệm" — dùng cho trang chủ và các trang chọn đề. */
+.sheet-root {
+  --ink: #0f1a2e;        /* nền trang: mực xanh đêm */
+  --paper: #15233c;      /* mặt phiếu */
+  --paper-hi: #1b2c4a;   /* dòng đang trỏ */
+  --rule: #2a3d60;       /* đường kẻ phiếu */
+  --text: #e9eef7;
+  --muted: #93a2bd;
+  --mark: #ffd23f;       /* vết tô bút chì 2B / dạ quang */
+  --mark-ink: #2a2100;
+
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(255, 210, 63, 0.06), transparent 60%),
+    var(--ink);
+  color: var(--text);
+  font-family: 'Lexend', 'Be Vietnam Pro', system-ui, sans-serif;
+  font-weight: 350;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet-display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-optical-sizing: auto;
+  font-variation-settings: 'SOFT' 100, 'WONK' 0;
+  letter-spacing: -0.02em;
+}
+
+.sheet-muted { color: var(--muted); }
+
+/* Mặt phiếu với cột "timing marks" bên trái như phiếu OMR thật */
+.sheet-panel {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding-left: 22px;
+}
+.sheet-panel::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  bottom: 14px;
+  width: 7px;
+  background: repeating-linear-gradient(to bottom, var(--rule) 0 4px, transparent 4px 18px);
+  border-radius: 1px;
+}
+
+.sheet-row {
+  display: grid;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem 1rem 0.75rem;
+  border-top: 1px solid var(--rule);
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+.sheet-row:first-child { border-top: 0; }
+.sheet-row:hover { background: var(--paper-hi); }
+.sheet-row:focus-visible {
+  outline: 2px solid var(--mark);
+  outline-offset: -2px;
+  background: var(--paper-hi);
+}
+
+/* Ô tô A B C D */
+.bubble {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1.5px solid var(--muted);
+  display: inline-grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+.bubble.is-filled {
+  background: var(--mark);
+  border-color: var(--mark);
+  color: var(--mark-ink);
+}
+.sheet-row:hover .bubble.is-target,
+.sheet-row:focus-visible .bubble.is-target {
+  background: var(--mark);
+  border-color: var(--mark);
+  color: var(--mark-ink);
+  transform: scale(1.08);
+}
+
+/* Lần tô duy nhất khi mở trang: các ô được tô lần lượt từ trên xuống */
+@keyframes bubble-fill {
+  0% { background: transparent; border-color: var(--muted); color: var(--muted); transform: scale(1); }
+  60% { transform: scale(1.18); }
+  100% { background: var(--mark); border-color: var(--mark); color: var(--mark-ink); transform: scale(1); }
+}
+.bubble.is-intro {
+  animation: bubble-fill 420ms cubic-bezier(0.3, 0.7, 0.3, 1) both;
+}
+
+.sheet-count {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  font-weight: 600;
+}
+
+.sheet-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--muted);
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem 0.25rem 0.15rem;
+  transition: color 150ms ease;
+}
+.sheet-back:hover { color: var(--text); }
+.sheet-back:focus-visible { outline: 2px solid var(--mark); outline-offset: 2px; }
+
+/* Vạch tô vàng cho đề nổi bật (đề trộn) */
+.sheet-featured {
+  box-shadow: inset 4px 0 0 var(--mark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble, .sheet-row { transition: none; }
+  .bubble.is-intro { animation: none; background: var(--mark); border-color: var(--mark); color: var(--mark-ink); }
+}

@@ -1,375 +1,116 @@
-import { useNavigate } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
-import FoxMascot from '../components/FoxMascot';
+import { Link } from 'react-router-dom';
+import Icon, { type IconName } from '../ui/Icon';
+import { countOf } from '../ui/SubjectPage';
+import '../ui/sheet.css';
+import { pru213Map, prn222Map, pmg201cMap, mln111Map, mln122Map } from './ReviewPage';
 
-/* ===== Background Effects ===== */
-
-function AnimatedGradientBlobs() {
-  const shouldReduceMotion = useReducedMotion();
-  if (shouldReduceMotion) return null;
-
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      <div className="absolute w-[600px] h-[600px] rounded-full bg-purple-800/8 blur-[150px] top-[-15%] left-[-10%] animate-blob-float" />
-      <div className="absolute w-[500px] h-[500px] rounded-full bg-indigo-800/6 blur-[120px] bottom-[-15%] right-[-10%] animate-blob-float-delayed" />
-      <div className="absolute w-[300px] h-[300px] rounded-full bg-cyan-800/5 blur-[100px] top-[30%] left-[60%] animate-blob-float-fast" />
-    </div>
-  );
-}
-
-function DotGrid() {
-  return (
-    <div
-      className="absolute inset-0 pointer-events-none opacity-[0.025]"
-      style={{
-        backgroundImage: 'radial-gradient(rgba(255, 255, 255, 0.6) 1px, transparent 1px)',
-        backgroundSize: '32px 32px',
-      }}
-    />
-  );
-}
-
-/* ===== Nav Card — logo-only clickable square ===== */
-
-interface NavCardProps {
-  icon: string;
-  glowColor: string;
-  onClick?: () => void;
-  disabled?: boolean;
-}
-
-function NavCard({ icon, glowColor, onClick, disabled }: NavCardProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  const iconEl = (
-    <div className="w-full h-full flex items-center justify-center p-6 md:p-8">
-      {icon.startsWith('/') ? (
-        <img
-          src={`${import.meta.env.BASE_URL}${icon.slice(1)}`}
-          alt=""
-          className="w-full h-full object-contain"
-          loading="lazy"
-        />
-      ) : (
-        <span className="text-3xl">{icon}</span>
-      )}
-    </div>
-  );
-
-  if (disabled) {
-    return (
-      <motion.div
-        initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-        className="relative aspect-square rounded-[48px] border-[8px] border-b-[24px] border-gray-700/40 bg-gray-900/15 backdrop-blur-sm opacity-50 select-none cursor-not-allowed overflow-hidden"
-      >
-        {iconEl}
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.button
-      initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      whileHover={shouldReduceMotion ? {} : { scale: 1.03 }}
-      whileTap={shouldReduceMotion ? {} : { scale: 0.96 }}
-      onClick={onClick}
-      className="group relative aspect-square rounded-[48px] border-[8px] border-b-[24px] border-gray-700/60 bg-gray-900/20 backdrop-blur-sm
-                 hover:brightness-110
-                 transition-all duration-300 ease-out w-full
-                 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 overflow-hidden"
-      style={{
-        boxShadow: `0 0 0 0 transparent`,
-        transition: `box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, transform 0.15s ease`,
-      }}
-      onMouseEnter={(e) => {
-        if (shouldReduceMotion) return;
-        const el = e.currentTarget;
-        el.style.borderColor = glowColor + '60';
-        el.style.backgroundColor = 'rgba(255,255,255,0.04)';
-        el.style.boxShadow = `0 0 30px -5px ${glowColor}30, 0 0 0 1px ${glowColor}20 inset`;
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget;
-        el.style.borderColor = '';
-        el.style.backgroundColor = '';
-        el.style.boxShadow = '';
-      }}
-      onMouseDown={(e) => {
-        if (shouldReduceMotion) return;
-        const el = e.currentTarget;
-        el.style.borderColor = glowColor + '90';
-        el.style.boxShadow = `0 0 40px -4px ${glowColor}50, 0 0 0 1px ${glowColor}40 inset`;
-        el.style.backgroundColor = 'rgba(255,255,255,0.06)';
-      }}
-      onMouseUp={(e) => {
-        const el = e.currentTarget;
-        if (shouldReduceMotion) {
-          el.style.borderColor = '';
-          el.style.boxShadow = '';
-          el.style.backgroundColor = '';
-          return;
-        }
-        el.style.borderColor = glowColor + '60';
-        el.style.boxShadow = `0 0 30px -5px ${glowColor}30, 0 0 0 1px ${glowColor}20 inset`;
-        el.style.backgroundColor = 'rgba(255,255,255,0.04)';
-      }}
-      onTouchStart={(e) => {
-        if (shouldReduceMotion) return;
-        const el = e.currentTarget;
-        el.style.borderColor = glowColor + '90';
-        el.style.boxShadow = `0 0 40px -4px ${glowColor}50, 0 0 0 1px ${glowColor}40 inset`;
-        el.style.backgroundColor = 'rgba(255,255,255,0.06)';
-      }}
-      onTouchEnd={(e) => {
-        const el = e.currentTarget;
-        if (shouldReduceMotion) {
-          el.style.borderColor = '';
-          el.style.boxShadow = '';
-          el.style.backgroundColor = '';
-          return;
-        }
-        el.style.borderColor = '';
-        el.style.boxShadow = '';
-        el.style.backgroundColor = '';
-      }}
-    >
-      {/* Hover shine sweep */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 
-                      bg-gradient-to-r from-transparent via-white/[0.04] to-transparent
-                      -skew-x-12 -translate-x-full group-hover:translate-x-full
-                      transition-transform duration-700 ease-out pointer-events-none" />
-
-      {iconEl}
-    </motion.button>
-  );
-}
-
-/* ===== Main Landing Page ===== */
-
-// Ẩn 3 thẻ lớn của SWD392 (Bài học / Ôn thi PE / Ôn thi FE). Đổi thành true để hiện lại —
+// Ẩn khu SWD392 (Bài học / Ôn thi PE / Ôn thi FE). Đổi thành true để hiện lại —
 // các route /home, /pe-review, /term-bank vẫn hoạt động bình thường.
 const SHOW_SWD_CARDS = false;
 
-export default function LandingPage() {
-  const navigate = useNavigate();
-  const shouldReduceMotion = useReducedMotion();
+type Subject = {
+  to: string;
+  code: string;
+  name: string;
+  icon: IconName;
+  total: number;
+  /** Ô được tô trên phiếu (0 = A … 3 = D) — chỉ để trang trí, không mang nghĩa đáp án */
+  mark: 0 | 1 | 2 | 3;
+};
 
+const SUBJECTS: Subject[] = [
+  { to: '/mln122', code: 'MLN122', name: 'Kinh tế chính trị Mác-Lênin', icon: 'coins', mark: 1,
+    total: countOf(mln122Map['full']) + countOf(mln122Map['extra']) },
+  { to: '/mln111', code: 'MLN111', name: 'Triết học Mác-Lênin', icon: 'compass', mark: 3,
+    total: countOf(mln111Map['re']) + countOf(mln111Map['c1']) + countOf(mln111Map['c2']) + countOf(mln111Map['100-full']) },
+  { to: '/pmg201c', code: 'PMG201c', name: 'Project Management', icon: 'kanban', mark: 0,
+    total: countOf(pmg201cMap['d1']) + countOf(pmg201cMap['d2']) + countOf(pmg201cMap['d3']) },
+  { to: '/prn222', code: 'PRN222', name: '.NET Web — Blazor, DI, SignalR', icon: 'braces', mark: 2,
+    total: countOf(prn222Map['de1']) + countOf(prn222Map['de2']) },
+  { to: '/pru213', code: 'PRU213', name: 'Unity & C#', icon: 'gamepad', mark: 1,
+    total: countOf(pru213Map['quiz']) + countOf(pru213Map['b2-comprehensive']) },
+];
+
+const LETTERS = ['A', 'B', 'C', 'D'];
+const GRAND_TOTAL = SUBJECTS.reduce((n, s) => n + s.total, 0);
+
+function SubjectRow({ s, i }: { s: Subject; i: number }) {
   return (
-    <div className="min-h-screen bg-[#0c0d0e] text-[#f3f4f6] relative overflow-x-hidden flex flex-col">
-      {/* Background */}
-      <AnimatedGradientBlobs />
-      <DotGrid />
-
-      {/* Vignette */}
-      <div
-        className="fixed inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.5) 100%)',
-        }}
-      />
-
-      {/* ===== HERO ===== */}
-      <section className="relative z-10 pt-20 pb-6 md:pt-28 md:pb-8 px-6">
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-lg mx-auto text-center space-y-4"
-        >
-          {/* Pill badge */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.85 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full 
-                       bg-purple-500/8 border border-purple-500/15 
-                       text-purple-300/70 text-[10px] font-semibold tracking-widest uppercase"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
-            FPT University • Ôn trắc nghiệm
-          </motion.div>
-
-          {/* Title row: fox + text */}
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="flex items-center justify-center gap-3 md:gap-4"
-          >
-            {/* Fox logo — nhúc nhích cạnh title */}
-            <motion.div
-              initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                ...(shouldReduceMotion ? {} : {
-                  rotate: [0, -6, 3, -4, 2, 0],
-                }),
-              }}
-              transition={{
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-                ...(shouldReduceMotion ? {} : {
-                  rotate: {
-                    duration: 0.5,
-                    delay: 0.7,
-                    repeat: Infinity,
-                    repeatDelay: 4,
-                    ease: 'easeInOut',
-                  },
-                }),
-              }}
-              className="w-16 h-16 md:w-20 md:h-20 flex-shrink-0"
+    <Link to={s.to} className="sheet-row grid-cols-[1fr_auto] sm:grid-cols-[7.5rem_1fr_auto]">
+      <span className="sheet-display hidden text-2xl font-semibold sm:block">{s.code}</span>
+      <span className="min-w-0">
+        <span className="sheet-display block text-xl font-semibold sm:hidden">{s.code}</span>
+        <span className="flex items-center gap-2 text-[color:var(--text)]">
+          <Icon name={s.icon} size={18} className="shrink-0 text-[color:var(--muted)]" />
+          <span className="truncate">{s.name}</span>
+        </span>
+        <span className="sheet-muted mt-0.5 block text-sm">{s.total} câu hỏi</span>
+      </span>
+      <span className="flex items-center gap-1.5">
+        <span className="hidden gap-1.5 sm:flex" aria-hidden="true">
+          {LETTERS.map((l, k) => (
+            <span
+              key={l}
+              className={`bubble ${k === s.mark ? 'is-intro' : ''}`}
+              style={k === s.mark ? { animationDelay: `${450 + i * 220}ms` } : undefined}
             >
-              <FoxMascot animation="Sit" />
-            </motion.div>
+              {l}
+            </span>
+          ))}
+        </span>
+        <Icon name="chevron" size={18} className="text-[color:var(--muted)] sm:hidden" />
+      </span>
+    </Link>
+  );
+}
 
-            {/* Title text — one line */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-display whitespace-nowrap">
-              <span className="text-white">Ôn Trắc Nghiệm</span>
-              <span className="bg-gradient-to-r from-purple-300 via-indigo-200 to-cyan-200 bg-clip-text text-transparent ml-2">
-                FPT
-              </span>
-            </h1>
-          </motion.div>
+export default function LandingPage() {
+  return (
+    <div className="sheet-root flex flex-col">
+      <header className="mx-auto w-full max-w-6xl px-5 pt-6 sm:px-8">
+        <span className="sheet-display text-lg font-semibold">Ôn Trắc Nghiệm FPT</span>
+      </header>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.35 }}
-            className="text-gray-500 text-sm md:text-base max-w-sm mx-auto leading-relaxed"
-          >
-            Chọn môn để bắt đầu ôn tập
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* ===== NAV CARDS (logo only) ===== */}
-      {SHOW_SWD_CARDS && (
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-8 flex-grow flex items-center">
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {/* Card 1: Bài học */}
-          <div className="flex flex-col items-center gap-3">
-            <NavCard
-              icon="/baihoc.png"
-              glowColor="#a855f7"
-              onClick={() => navigate('/home')}
-            />
-            <span className="text-lg font-bold text-gray-200">Bài học</span>
-          </div>
-
-          {/* Card 2: Ôn thi PE */}
-          <div className="flex flex-col items-center gap-3">
-            <NavCard
-              icon="/thipe.png"
-              glowColor="#06b6d4"
-              onClick={() => navigate('/pe-review')}
-            />
-            <span className="text-lg font-bold text-gray-200">Ôn thi PE</span>
-          </div>
-
-          {/* Card 3: Ôn thi FE — Ngân Hàng Thuật Ngữ (198 câu OOAD) */}
-          <div className="flex flex-col items-center gap-3">
-            <NavCard
-              icon="/thife.png"
-              glowColor="#f59e0b"
-              onClick={() => navigate('/term-bank')}
-            />
-            <span className="text-lg font-bold text-gray-200">Ôn thi FE</span>
-          </div>
+      <main className="mx-auto grid w-full max-w-6xl flex-1 items-start gap-12 px-5 pb-16 pt-14 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:pt-24">
+        <div className="max-w-md">
+          <h1 className="sheet-display text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
+            Chọn môn,
+            <br />
+            tô đáp án.
+          </h1>
+          <p className="sheet-muted mt-6 text-[17px] leading-relaxed">
+            Đề thi thật, đề trộn và câu hỏi theo chương cho {SUBJECTS.length} môn. Chọn xong là biết đúng sai, kèm giải thích
+            ngay dưới câu hỏi.
+          </p>
+          <p className="mt-8 text-sm text-[color:var(--muted)]">
+            <span className="sheet-count mr-1.5 text-3xl text-[color:var(--text)]">{GRAND_TOTAL}</span>
+            câu hỏi trong ngân hàng
+          </p>
         </div>
-      </section>
-      )}
 
-      {/* ===== PRU213 SECTION (môn khác, tách riêng khỏi SWD392) ===== */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 pb-10">
-        <div className="text-center mb-4">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-600">Chọn môn</span>
-        </div>
-        <button
-          onClick={() => navigate('/pru213')}
-          className="w-full flex items-center gap-4 p-5 rounded-3xl border border-emerald-800/30 bg-emerald-950/10 hover:border-emerald-600/50 hover:bg-emerald-950/20 transition-all duration-200 text-left group"
-        >
-          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
-            🎮
-          </span>
-          <div className="flex-1">
-            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PRU213 — Unity &amp; C#</div>
-            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
+        <section aria-label="Danh sách môn">
+          <div className="mb-3 flex items-end justify-between px-1">
+            <h2 className="sheet-display text-xl font-medium">Phiếu chọn môn</h2>
+            <span className="sheet-muted text-xs">{SUBJECTS.length} môn</span>
           </div>
-          <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
-        </button>
-
-        <button
-          onClick={() => navigate('/prn222')}
-          className="w-full flex items-center gap-4 p-5 mt-4 rounded-3xl border border-teal-800/30 bg-teal-950/10 hover:border-teal-600/50 hover:bg-teal-950/20 transition-all duration-200 text-left group"
-        >
-          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
-            🖥️
-          </span>
-          <div className="flex-1">
-            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PRN222 — .NET Web (Blazor, DI, SignalR...)</div>
-            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
+          <div className="sheet-panel overflow-hidden">
+            {SUBJECTS.map((s, i) => (
+              <SubjectRow key={s.code} s={s} i={i} />
+            ))}
           </div>
-          <span className="text-teal-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
-        </button>
 
-        <button
-          onClick={() => navigate('/pmg201c')}
-          className="w-full flex items-center gap-4 p-5 mt-4 rounded-3xl border border-indigo-800/30 bg-indigo-950/10 hover:border-indigo-600/50 hover:bg-indigo-950/20 transition-all duration-200 text-left group"
-        >
-          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-blue-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
-            📋
-          </span>
-          <div className="flex-1">
-            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">PMG201c — Project Management</div>
-            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
-          </div>
-          <span className="text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
-        </button>
+          {SHOW_SWD_CARDS && (
+            <div className="mt-6 flex flex-wrap gap-x-6 gap-y-2 px-1 text-sm">
+              <Link to="/home" className="sheet-back">SWD392 — Bài học</Link>
+              <Link to="/pe-review" className="sheet-back">SWD392 — Ôn thi PE</Link>
+              <Link to="/term-bank" className="sheet-back">SWD392 — Ôn thi FE</Link>
+            </div>
+          )}
+        </section>
+      </main>
 
-        <button
-          onClick={() => navigate('/mln111')}
-          className="w-full flex items-center gap-4 p-5 mt-4 rounded-3xl border border-rose-800/30 bg-rose-950/10 hover:border-rose-600/50 hover:bg-rose-950/20 transition-all duration-200 text-left group"
-        >
-          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
-            ☯️
-          </span>
-          <div className="flex-1">
-            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">MLN111 — Triết Học Mác-Lênin</div>
-            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
-          </div>
-          <span className="text-rose-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
-        </button>
-
-        <button
-          onClick={() => navigate('/mln122')}
-          className="w-full flex items-center gap-4 p-5 mt-4 rounded-3xl border border-emerald-800/30 bg-emerald-950/10 hover:border-emerald-600/50 hover:bg-emerald-950/20 transition-all duration-200 text-left group"
-        >
-          <span className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-2xl shrink-0 shadow-inner">
-            💰
-          </span>
-          <div className="flex-1">
-            <div className="font-extrabold text-gray-200 group-hover:text-white transition-colors">MLN122 — Kinh Tế Chính Trị Mác-Lênin</div>
-            <div className="text-xs text-gray-500">Quiz trắc nghiệm ôn thi</div>
-          </div>
-          <span className="text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">➔</span>
-        </button>
-      </section>
-
-      {/* ===== FOOTER ===== */}
-      <footer className="relative z-10 text-center px-6 py-8 border-t border-gray-800/30 mt-auto">
-        <p className="text-xs text-gray-600">
-          Ôn Trắc Nghiệm — FPT University
-        </p>
-        <p className="text-[10px] text-gray-700 mt-1">
-          Built with React + Vite + TypeScript
-        </p>
+      <footer className="mx-auto w-full max-w-6xl px-5 pb-8 text-xs text-[color:var(--muted)] sm:px-8">
+        FPT University
       </footer>
     </div>
   );

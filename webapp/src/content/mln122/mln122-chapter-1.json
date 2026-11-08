@@ -362,7 +362,7 @@
         "Các phương án trả lời đều đúng."
       ],
       "correct": 2,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-325",

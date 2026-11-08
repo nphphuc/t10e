@@ -219,7 +219,7 @@
         "Thể chế chính trị và thể chế kinh t"
       ],
       "correct": 1,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-172",
@@ -307,7 +307,7 @@
         1,
         3
       ],
-      "explanation": "⚠️ Giáo trình bản MLN122 không có cách phân loại này; đáp án chọn theo cách chia phổ biến (thể chế chính trị, thể chế kinh tế, thể chế xã hội) — nên đối chiếu đề thi."
+      "explanation": "Lưu ý: giáo trình bản MLN122 không có cách phân loại này; đáp án chọn theo cách chia phổ biến (thể chế chính trị, thể chế kinh tế, thể chế xã hội) — nên đối chiếu đề thi."
     },
     {
       "id": "MLN122-358",
@@ -381,7 +381,7 @@
         "Tất cả phương án trên"
       ],
       "correct": 4,
-      "explanation": "📖 Giáo trình (trang PDF 106): KTTT định hướng XHCN có sự điều tiết của Nhà nước do Đảng Cộng sản lãnh đạo, hướng tới giá trị cốt lõi \"dân giàu, nước mạnh, dân chủ, công bằng, văn minh\", phân phối chủ yếu theo kết quả lao động... nên chọn tất cả."
+      "explanation": "Giáo trình (trang PDF 106): KTTT định hướng XHCN có sự điều tiết của Nhà nước do Đảng Cộng sản lãnh đạo, hướng tới giá trị cốt lõi \"dân giàu, nước mạnh, dân chủ, công bằng, văn minh\", phân phối chủ yếu theo kết quả lao động... nên chọn tất cả."
     },
     {
       "id": "MLN122-434",
@@ -406,7 +406,7 @@
         "Nhân dân lao động"
       ],
       "correct": 3,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, D: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, D: 3). Nên đối chiếu giáo trình."
     }
   ]
 }

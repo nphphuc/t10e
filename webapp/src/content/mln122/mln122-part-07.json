@@ -147,7 +147,7 @@
         "Tùy thuộc vào nền sản xuất hàng hóa"
       ],
       "correct": 0,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 2, B: 2). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 2, B: 2). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-314",
@@ -242,7 +242,7 @@
         "Từ những kết quả của sự phát minh"
       ],
       "correct": 1,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-322",
@@ -254,7 +254,7 @@
         "Các phương án trả lời đều đúng."
       ],
       "correct": 2,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-323",
@@ -421,7 +421,7 @@
         "Cả tính chất tư nhân và tính chất xã hội của hàng hóa"
       ],
       "correct": 1,
-      "explanation": "⚠️ Đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
     },
     {
       "id": "MLN122-337",
