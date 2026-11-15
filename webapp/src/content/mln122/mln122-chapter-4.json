@@ -32,7 +32,7 @@
       "type": "choice",
       "prompt": "Cơ chế kinh tế của độc quyền nhà nước trong chủ nghĩa tư bản gồm:",
       "options": [
-        "Cơ chế thị trưởng, độc quyền tư nhân và sự can thiệp của nhà nước",
+        "Cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước",
         "Cơ chế thị trường, các nhà tài phiệt và sự điều tiết của nhà nước",
         "Cơ chế thị trường và độc quyền tư nhân"
       ],
@@ -62,7 +62,7 @@
         "Tất cả phương án trên"
       ],
       "correct": 3,
-      "explanation": "Câu này hỏi về chức năng của sở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước.\nTrong chủ nghĩa tư bản độc quyền nhà nước, nhà nước không “đứng ngoài” nền kinh tế nữa mà tham gia mạnh hơn vào kinh tế.Nhà nước đầu tư vào các ngành lớn, ngành nền tảng, ngành tư nhân không muốn hoặc khó làm.\nSở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước = nhà nước nắm hoặc đầu tư vào một số lĩnh vực quan trọng để làm “bệ đỡ” cho nền kinh tế tư bản, giúp các tập đoàn tư bản mở rộng sản xuất, di chuyển vốn và để nhà nước điều tiết kinh tế.\nNhà nước làm nền móng → tư bản độc quyền dễ mở rộng làm ăn → nhà nước có công cụ điều tiết."
+      "explanation": "Câu này hỏi về chức năng của sở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước.\nTrong chủ nghĩa tư bản độc quyền nhà nước, nhà nước không “đứng ngoài” nền kinh tế nữa mà tham gia mạnh hơn vào kinh tế. Nhà nước đầu tư vào các ngành lớn, ngành nền tảng, ngành tư nhân không muốn hoặc khó làm.\nSở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước = nhà nước nắm hoặc đầu tư vào một số lĩnh vực quan trọng để làm “bệ đỡ” cho nền kinh tế tư bản, giúp các tập đoàn tư bản mở rộng sản xuất, di chuyển vốn và để nhà nước điều tiết kinh tế.\nNhà nước làm nền móng → tư bản độc quyền dễ mở rộng làm ăn → nhà nước có công cụ điều tiết."
     },
     {
       "id": "MLN122-034",
@@ -72,7 +72,7 @@
         "Ba nguyên nhân",
         "Bốn nguyên nhân",
         "Năm nguyên nhân",
-        "Sáu nguyên nhân (1. Tích tu và tập trung tư bản 2. Phân công lao động xã hội 3. Mâu thuẫn giai cấp 4. Xu hướng quốc tế hóa và cạnh tranh quốc tế)"
+        "Sáu nguyên nhân"
       ],
       "correct": 1,
       "explanation": "Độc quyền nhà nước trong chủ nghĩa tư bản hình thành do 4 nguyên nhân chính.\n1. Tích tụ và tập trung tư bản quá lớn\nDoanh nghiệp, ngân hàng, tập đoàn ngày càng khổng lồ. Nền kinh tế trở nên phức tạp, cần nhà nước đứng ra điều tiết.\n2. Phân công lao động xã hội phát triển\nXuất hiện nhiều ngành rất quan trọng như giao thông, năng lượng, nghiên cứu khoa học, giáo dục… nhưng vốn lớn, thu hồi chậm, lợi nhuận không hấp dẫn. Vì vậy nhà nước phải đầu tư để làm nền cho tư bản tư nhân kinh doanh ngành khác có lợi hơn.\n3. Mâu thuẫn giai cấp gay gắt\nMâu thuẫn giữa tư sản và công nhân tăng lên, nhà nước phải can thiệp để ổn định xã hội, bảo vệ trật tự tư bản.\n4. Xu hướng quốc tế hóa và cạnh tranh quốc tế\nCác nước tư bản cạnh tranh toàn cầu, nên nhà nước phải hỗ trợ các tập đoàn trong nước cạnh tranh với nước ngoài."
@@ -110,7 +110,7 @@
       "options": [
         "C. Mác",
         "Ph. Ăngghen",
-        "V. I Lênin",
+        "V.I. Lênin",
         "Hồ Chí Minh"
       ],
       "correct": 2,
@@ -122,11 +122,12 @@
       "prompt": "Những đặc điểm kinh tế cơ bản nhất của chủ nghĩa tư bản độc quyền bao gồm:",
       "options": [
         "Tập trung sản xuất cùng với các tổ chức độc quyền; tư bản tài chính; xuất khẩu tư bản; sự phân chia thế giới về lãnh thổ giữa các nước đế quốc",
-        "Tập trung sản xuất cùng với các tổ chức độc quyền, tư bản tài chính; sự phân chia thi trường thế giới giữa các tổ chức độc quyền, sự phân chia thế giới về lãnh thổ giữa các nước đế quốc",
-        "Tập trung sản xuất cùng với các tổ chức độc quyền; xuất khẩu tư bản; sự phân chia thi trường thế giới giữa các tổ chức độc quyền; sự phân chia thế giới về lãnh thổ giữa các nước đế quốc",
+        "Tập trung sản xuất cùng với các tổ chức độc quyền, tư bản tài chính; sự phân chia thị trường thế giới giữa các tổ chức độc quyền, sự phân chia thế giới về lãnh thổ giữa các nước đế quốc",
+        "Tập trung sản xuất cùng với các tổ chức độc quyền; xuất khẩu tư bản; sự phân chia thị trường thế giới giữa các tổ chức độc quyền; sự phân chia thế giới về lãnh thổ giữa các nước đế quốc",
         "Tập trung sản xuất cùng với các tổ chức độc quyền; tư bản tài chính; xuất khẩu tư bản; sự phân chia thị trường thế giới giữa các tổ chức độc quyền; sự phân chia thế giới về lãnh thổ giữa các nước đế quốc"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "V.I. Lênin nêu năm đặc điểm kinh tế cơ bản của chủ nghĩa tư bản độc quyền: (1) tập trung sản xuất và các tổ chức độc quyền; (2) tư bản tài chính và đầu sỏ tài chính; (3) xuất khẩu tư bản; (4) sự phân chia thị trường thế giới giữa các tổ chức độc quyền; (5) sự phân chia lãnh thổ thế giới giữa các cường quốc đế quốc. Chỉ D có đủ năm ý."
     },
     {
       "id": "MLN122-082",
@@ -137,7 +138,8 @@
         "Các tổ chức độc quyền",
         "Các tổ chức kinh tế tư nhân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Độc quyền nhà nước trong chủ nghĩa tư bản là sự kết hợp sức mạnh của các tổ chức độc quyền tư nhân với sức mạnh của nhà nước tư sản thành một thiết chế thống nhất, nhằm phục vụ lợi ích của các tổ chức độc quyền. Vì vậy chọn \"các tổ chức độc quyền\"."
     },
     {
       "id": "MLN122-085",
@@ -149,15 +151,16 @@
         "Chuyển nền sản xuất nhỏ thành nền sản xuất lớn hiện đại",
         "Thực hiện xã hội hoá sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giới hạn của chủ nghĩa tư bản là mục đích sản xuất vẫn chủ yếu vì lợi ích thiểu số giai cấp tư sản (ngoài ra còn gây chiến tranh, xung đột và phân hóa giàu nghèo). B, C, D là các vai trò tích cực của chủ nghĩa tư bản."
     },
     {
       "id": "MLN122-089",
       "type": "multi",
-      "prompt": "Mục đích hình thành độc quyền nhà nước trong chủ nghĩa tư bản đó là: (chọn nhiều phương án )",
+      "prompt": "Mục đích hình thành độc quyền nhà nước trong chủ nghĩa tư bản đó là: (chọn nhiều phương án)",
       "options": [
-        "Phuc vu lợi ích của các tổ chức độc quyền tư nhân",
-        "Phuc vu lợi ích của các nhà tư bản",
+        "Phục vụ lợi ích của các tổ chức độc quyền tư nhân",
+        "Phục vụ lợi ích của các nhà tư bản",
         "Tiếp tục duy trì và phát triển chủ nghĩa tư bản",
         "Lật đổ chủ nghĩa xã hội"
       ],
@@ -174,10 +177,11 @@
       "options": [
         "Trở thành các công ty xuyên quốc gia và liên minh với nhà nước tư bản",
         "Trở thành các công ty độc quyền và tài trợ cho các nước kém phát triển",
-        "Trở thành các công ty xuyên quốc gia và can thiệp và chế độ chính trị ở các nước đang phát triển",
+        "Trở thành các công ty xuyên quốc gia và can thiệp vào chế độ chính trị ở các nước đang phát triển",
         "Trở thành các tập đoàn lớn"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Xu hướng hiện nay là các tổ chức độc quyền vươn ra toàn cầu thành công ty xuyên quốc gia, đồng thời liên minh chặt chẽ với nhà nước tư bản (độc quyền nhà nước). D quá chung chung, B và C không phải xu hướng được giáo trình nêu."
     },
     {
       "id": "MLN122-098",
@@ -189,42 +193,46 @@
         "Quá trình độc quyền hàng hoá trong thương nghiệp và công nghiệp",
         "Quá trình độc quyền hàng hoá trong công - nông - thương"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tư bản tài chính hình thành từ sự hợp nhất giữa tư bản độc quyền ngân hàng và tư bản độc quyền công nghiệp (V.I. Lênin). Thương nghiệp không phải thành phần trực tiếp tạo nên tư bản tài chính."
     },
     {
       "id": "MLN122-099",
       "type": "choice",
-      "prompt": "Trong cơ cấu của độc quyền nhà nước trong chủ nghĩa tư bản, thì nhà nước đã trở thành.",
+      "prompt": "Trong cơ cấu của độc quyền nhà nước trong chủ nghĩa tư bản, thì nhà nước đã trở thành",
       "options": [
-        "Tập thể tự bản khổng lồ",
-        "Bộ máy độc quyền phuc vu lợi ích nhà tư bản",
+        "Nhà tư bản tập thể khổng lồ",
+        "Bộ máy độc quyền phục vụ lợi ích nhà tư bản",
         "Chủ sở hữu toàn bộ doanh nghiệp tư nhân",
         "Một doanh nghiệp tư nhân"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong chủ nghĩa tư bản độc quyền nhà nước, nhà nước tư sản trực tiếp sở hữu, đầu tư và điều tiết kinh tế để phục vụ tư bản độc quyền, nên được Ph. Ăngghen gọi là \"nhà tư bản tập thể\" khổng lồ. Nhà nước không sở hữu toàn bộ doanh nghiệp tư nhân, cũng không phải một doanh nghiệp tư nhân."
     },
     {
       "id": "MLN122-104",
       "type": "choice",
-      "prompt": "Giá cả độc quyền được hiểu là.",
+      "prompt": "Giá cả độc quyền được hiểu là",
       "options": [
         "Giá cả các tổ chức độc quyền áp đặt trong quá trình mua và bán",
         "Giá cả do các tổ chức nhà nước áp đặt quy định trong quá trình mua và bán",
-        "Giá cả được các tổ chức doanh nghiệp chiếm thị phần lớn trên thị trường áp đặt và thông qua nhà nước đưa ra giá mua và b"
+        "Giá cả được các tổ chức doanh nghiệp chiếm thị phần lớn trên thị trường áp đặt và thông qua nhà nước đưa ra giá mua và bán"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá cả độc quyền là giá do các tổ chức độc quyền áp đặt khi mua (giá thấp) và khi bán (giá cao) để thu lợi nhuận độc quyền cao. Nó không do nhà nước quy định."
     },
     {
       "id": "MLN122-114",
       "type": "choice",
-      "prompt": "Hình thức độc quyền dưới dạng Cartel được phổ biến ở Châu âu vào thời gian nào?",
+      "prompt": "Hình thức độc quyền dưới dạng Cartel được phổ biến ở Châu Âu vào thời gian nào?",
       "options": [
         "Đầu thế kỷ XIX",
-        "Giữ thế kỷ XIX",
+        "Giữa thế kỷ XIX",
         "Cuối thế kỷ XIX",
         "Đầu thế kỷ XX"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Các-ten là hình thức độc quyền đầu tiên, phát triển mạnh ở châu Âu vào cuối thế kỷ XIX (sau các cuộc khủng hoảng 1873 và 1900–1903), khi chủ nghĩa tư bản chuyển từ tự do cạnh tranh sang độc quyền."
     },
     {
       "id": "MLN122-117",
@@ -235,18 +243,20 @@
         "Chế độ tham dự",
         "Chế độ uỷ nhiệm"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 95): ngày nay \"chế độ tham dự\" được bổ sung thêm \"chế độ ủy nhiệm\" – các đại cổ đông được ủy nhiệm thay mặt đông đảo cổ đông nhỏ quyết định hoạt động của công ty. Đầu sỏ tài chính vì vậy chi phối nền kinh tế thông qua sự kết hợp cả hai chế độ."
     },
     {
       "id": "MLN122-119",
       "type": "choice",
       "prompt": "Độc quyền được hiểu là:",
       "options": [
-        "Liên minh giữa các doanh nghiệp lớn, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền ca",
-        "Liên minh giữa các tổ chức cá nhân và nhà nước, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền ca",
-        "Liên minh giữa các doanh nghiệp vừa và nhỏ, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền c"
+        "Liên minh giữa các doanh nghiệp lớn, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền cao",
+        "Liên minh giữa các tổ chức cá nhân và nhà nước, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền cao",
+        "Liên minh giữa các doanh nghiệp vừa và nhỏ, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, có khả năng định ra giá cả độc quyền, nhằm thu lợi nhuận độc quyền cao"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Độc quyền là liên minh giữa các doanh nghiệp lớn, có khả năng thâu tóm việc sản xuất và tiêu thụ một số loại hàng hóa, định ra giá cả độc quyền để thu lợi nhuận độc quyền cao. B sai vì đưa nhà nước vào (đó là độc quyền nhà nước), C sai vì doanh nghiệp vừa và nhỏ không đủ sức thâu tóm thị trường."
     },
     {
       "id": "MLN122-160",
@@ -255,9 +265,10 @@
       "options": [
         "Chiếm đoạt giá trị thặng dư và các nguồn lợi khác ở nước nhập khẩu tư bản",
         "Thực hiện giá trị và chiếm các nguồn lợi khác của nước nhập khẩu tư bản",
-        "Giúp đỡ các nước nhập khẩu tư bản phát triển."
+        "Giúp đỡ các nước nhập khẩu tư bản phát triển"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Xuất khẩu tư bản là mang tư bản ra nước ngoài đầu tư để chiếm đoạt giá trị thặng dư và các nguồn lợi khác ở nước nhập khẩu tư bản. Thực hiện giá trị hàng hóa là mục đích của xuất khẩu hàng hóa."
     },
     {
       "id": "MLN122-163",
@@ -267,9 +278,10 @@
         "Tập trung các nguồn lực trong việc nghiên cứu phát triển và khai thác các tiến bộ của khoa học kỹ thuật",
         "Tăng sức mua của người tiêu dùng, từ đó nâng cao năng lực cạnh tranh của các tổ chức độc quyền",
         "Tạo ra sức mạnh về chính trị, quân sự cho các quốc gia phát triển",
-        "Bi chi phối bởi các nhóm lợi ích cục bộ từ đó làm gia tăng sự phân hóa giàu nghi"
+        "Bị chi phối bởi các nhóm lợi ích cục bộ từ đó làm gia tăng sự phân hóa giàu nghèo"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mặt tích cực của độc quyền là có khả năng tập trung nguồn lực lớn để nghiên cứu, phát triển và ứng dụng tiến bộ khoa học kỹ thuật, nâng cao năng suất. D là tác động tiêu cực; B và C không phải tác động của độc quyền."
     },
     {
       "id": "MLN122-165",
@@ -280,7 +292,8 @@
         "Tích tụ tư bản",
         "Độc quyền"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Cạnh tranh tự do làm tích tụ và tập trung sản xuất ngày càng cao; khi tập trung sản xuất đến một mức nhất định sẽ dẫn đến độc quyền (V.I. Lênin: tự do cạnh tranh đẻ ra tập trung sản xuất, tập trung sản xuất đến mức nhất định thì dẫn đến độc quyền)."
     },
     {
       "id": "MLN122-166",
@@ -291,7 +304,8 @@
         "Nhà nước không phụ thuộc vào tổ chức độc quyền",
         "Tổ chức độc quyền phụ thuộc vào nhà nước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong độc quyền nhà nước, nhà nước tư sản ngày càng phụ thuộc vào các tổ chức độc quyền: nhân sự của giới độc quyền tham gia bộ máy nhà nước, chính sách của nhà nước phục vụ lợi ích độc quyền."
     },
     {
       "id": "MLN122-167",
@@ -320,19 +334,21 @@
         "Chủ nghĩa tư bản giai đoạn tự do cạnh tranh",
         "Chủ nghĩa tư bản giai đoạn độc quyền"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Xuất khẩu tư bản là một trong năm đặc điểm kinh tế của chủ nghĩa tư bản độc quyền do V.I. Lênin nêu ra. Giai đoạn tự do cạnh tranh đặc trưng bởi xuất khẩu hàng hóa."
     },
     {
       "id": "MLN122-184",
       "type": "choice",
       "prompt": "Liên kết các doanh nghiệp theo cùng một ngành là theo hình thức:",
       "options": [
-        "Liên kết doc",
+        "Liên kết dọc",
         "Liên kết ngang",
         "Cả liên kết dọc và liên kết ngang",
         "Một liên kết khác"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Liên kết ngang là liên kết các doanh nghiệp trong cùng một ngành (ví dụ Cartel, Syndicate, Trust). Liên kết dọc là liên kết các doanh nghiệp khác ngành nhưng có liên quan về kinh tế, kỹ thuật (Consortium)."
     },
     {
       "id": "MLN122-189",
@@ -340,11 +356,12 @@
       "prompt": "Nguồn gốc chính của lợi nhuận độc quyền cao xuất phát từ đâu?",
       "options": [
         "Lao động không công của công nhân làm việc ở các xí nghiệp ngoài độc quyền",
-        "Giá trị thặng dư của các nhà tư bản vừa và nhỏ bi mất đi do thua thiệt về quá trình cạnh tranh",
+        "Giá trị thặng dư của các nhà tư bản vừa và nhỏ bị mất đi do thua thiệt về quá trình cạnh tranh",
         "Lao động thặng dư và lao động tất yếu của người sản xuất vừa và nhỏ",
         "Lao động của công nhân làm việc trong các xí nghiệp độc quyền"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nguồn gốc chủ yếu của lợi nhuận độc quyền cao vẫn là lao động không công của công nhân làm việc trong các xí nghiệp độc quyền. Ngoài ra còn có một phần lao động không công của công nhân ở xí nghiệp ngoài độc quyền và một phần giá trị thặng dư của tư bản vừa và nhỏ bị mất do thua thiệt trong cạnh tranh."
     },
     {
       "id": "MLN122-198",
@@ -356,7 +373,8 @@
         "Những ngành phải mất chi phí đầu tư không lớn, tuy nhiên thu hồi vốn nhanh và lợi nhuận cao",
         "Những ngành phải mất chi phí đầu tư lớn tuy nhiên thu hồi vốn chậm và lợi nhuận ít"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nhà nước tư sản đầu tư vào những ngành cần vốn lớn, thu hồi vốn chậm và lợi nhuận thấp (giao thông, năng lượng, nghiên cứu cơ bản...) mà tư nhân không muốn làm. Đây là nguyên nhân hình thành sở hữu nhà nước trong độc quyền nhà nước."
     },
     {
       "id": "MLN122-205",
@@ -368,19 +386,21 @@
         "Mang hàng hóa ra nước ngoài để thực hiện giá trị của hàng hóa",
         "Mang tư bản ra nước ngoài mua nguyên nhiên vật liệu sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Xuất khẩu tư bản là mang tư bản ra nước ngoài đầu tư nhằm sản xuất giá trị thặng dư tại nước sở tại. C là xuất khẩu hàng hóa; A sai vì xuất khẩu tư bản là đặc điểm của giai đoạn độc quyền."
     },
     {
       "id": "MLN122-208",
       "type": "choice",
-      "prompt": "Điền vào chỗ trống. C. Mác và Ph. Ăngghen đã nhận xét rằng:\"Giai cấp tư sản, trong quá trình thống trị giai cấp chưa đầy một thế kỷ, đã tạo ra những ... nhiều hơn và đồ sộ hơn ... của tất cả các thế hệ trước kia gộp lại\"",
+      "prompt": "Điền vào chỗ trống. C. Mác và Ph. Ăngghen đã nhận xét rằng: \"Giai cấp tư sản, trong quá trình thống trị giai cấp chưa đầy một thế kỷ, đã tạo ra những ... nhiều hơn và đồ sộ hơn ... của tất cả các thế hệ trước kia gộp lại\"",
       "options": [
         "Lực lượng sản xuất... lực lượng sản xuất",
-        "Quan hệ sản xuất. quan hệ sản xuất",
-        "Của cải của cải",
+        "Quan hệ sản xuất... quan hệ sản xuất",
+        "Của cải... của cải",
         "Vật chất... vật chất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong \"Tuyên ngôn của Đảng Cộng sản\", C. Mác và Ph. Ăngghen nhận xét giai cấp tư sản trong chưa đầy một thế kỷ đã tạo ra những lực lượng sản xuất nhiều hơn và đồ sộ hơn lực lượng sản xuất của tất cả các thế hệ trước gộp lại. Câu này nói về vai trò tích cực của chủ nghĩa tư bản đối với lực lượng sản xuất."
     },
     {
       "id": "MLN122-212",
@@ -409,7 +429,8 @@
         "Mâu thuẫn giữa người lao động làm thuê và giai cấp bóc lột",
         "Mâu thuẫn giữa trình độ xã hội hóa của lực lượng sản xuất và quan hệ sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cả thành tựu lẫn hạn chế của chủ nghĩa tư bản đều bắt nguồn từ mâu thuẫn cơ bản: trình độ xã hội hóa ngày càng cao của lực lượng sản xuất với quan hệ sở hữu tư nhân tư bản chủ nghĩa về tư liệu sản xuất. D nói chung chung về mọi xã hội, B và C là biểu hiện về giai cấp của mâu thuẫn đó."
     },
     {
       "id": "MLN122-224",
@@ -420,7 +441,8 @@
         "Bốn nguyên nhân",
         "Hai nguyên nhân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Độc quyền nhà nước trong chủ nghĩa tư bản hình thành do bốn nguyên nhân: tích tụ và tập trung tư bản đạt quy mô lớn; phân công lao động xã hội làm xuất hiện các ngành mới tư nhân không muốn đầu tư; mâu thuẫn giai cấp đòi hỏi nhà nước can thiệp; xu hướng quốc tế hóa và cạnh tranh quốc tế."
     },
     {
       "id": "MLN122-225",
@@ -430,9 +452,10 @@
         "Nó phủ định các quy luật trong giai đoạn chủ nghĩa tư bản tự do cạnh tranh",
         "Phủ định các quy luật của nền sản xuất hàng hóa",
         "Làm cho quy luật của nền sản xuất hàng hóa và chủ nghĩa tư bản có những biểu hiện mới",
-        "Nó không làm thay đổi quy luật của nền sản xuất hàng hóa và chủ nghĩa tư bản thay đổi"
+        "Nó không làm thay đổi quy luật của nền sản xuất hàng hóa và chủ nghĩa tư bản"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chủ nghĩa tư bản độc quyền không phủ định các quy luật của sản xuất hàng hóa và của chủ nghĩa tư bản, mà làm chúng có những biểu hiện mới (ví dụ quy luật giá trị biểu hiện thành quy luật giá cả độc quyền, quy luật giá trị thặng dư thành quy luật lợi nhuận độc quyền cao)."
     },
     {
       "id": "MLN122-226",
@@ -442,9 +465,10 @@
         "Do đấu tranh của giai cấp",
         "Do sự phát triển của lực lượng sản xuất xã hội hóa",
         "Sự can thiệp điều chỉnh của nhà nước tư sản",
-        "Sự tập trung sản xuất dưới tác độc của cách mạng khoa học công nghệ, cạnh tranh, khủng hoảng kinh tế và tín dụng"
+        "Sự tập trung sản xuất dưới tác động của cách mạng khoa học công nghệ, cạnh tranh, khủng hoảng kinh tế và tín dụng"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Chủ nghĩa tư bản độc quyền ra đời chủ yếu do tập trung sản xuất ngày càng cao, dưới tác động của tiến bộ khoa học kỹ thuật, của cạnh tranh gay gắt và của khủng hoảng kinh tế, hệ thống tín dụng phát triển. Các yếu tố này buộc các doanh nghiệp lớn liên kết lại thành tổ chức độc quyền."
     },
     {
       "id": "MLN122-227",
@@ -456,19 +480,21 @@
         "Chủ nghĩa tư bản tự do cạnh tranh và chủ nghĩa tư bản độc quyền.",
         "Chủ nghĩa tư bản hiện đại"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Phương thức sản xuất tư bản chủ nghĩa phát triển qua hai giai đoạn: chủ nghĩa tư bản tự do cạnh tranh và chủ nghĩa tư bản độc quyền (trong đó có hình thức độc quyền nhà nước). A, B, D chỉ nêu một giai đoạn."
     },
     {
       "id": "MLN122-228",
       "type": "choice",
-      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người khái quát về nguyên nhân ra đời của chủ nghĩa tư bản độc quyền bằng câu: \"tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định lại dẫn tới độc quyền\".",
+      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người khái quát về nguyên nhân ra đời của chủ nghĩa tư bản độc quyền bằng câu: \"tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định lại dẫn tới độc quyền\"?",
       "options": [
         "Ph. Ăngghen",
         "C. Mác",
         "Ph. Ăngghen và C. Mác",
-        "V.I.Lêinin."
+        "V.I. Lênin"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Câu \"tự do cạnh tranh đẻ ra tập trung sản xuất, và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định, lại dẫn tới độc quyền\" là của V.I. Lênin trong tác phẩm \"Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản\". Mác và Ăngghen sống ở giai đoạn tự do cạnh tranh nên chưa phân tích chủ nghĩa tư bản độc quyền."
     },
     {
       "id": "MLN122-230",
@@ -480,7 +506,8 @@
         "Cuối thế kỷ XVIII - Thế kỷ XIX",
         "Cuối thế kỷ XIX - đầu thế kỷ XX."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Cuối thế kỷ XIX - đầu thế kỷ XX, khi chủ nghĩa tư bản chuyển sang giai đoạn độc quyền, các cường quốc đế quốc đẩy mạnh xâm chiếm và phân chia thuộc địa; đến đầu thế kỷ XX việc phân chia lãnh thổ thế giới về cơ bản đã hoàn thành."
     },
     {
       "id": "MLN122-231",
@@ -492,7 +519,8 @@
         "Giai đoạn chủ nghĩa tư bản tự do cạnh tranh",
         "Giai đoạn chủ nghĩa tư bản độc quyền"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Xuất khẩu hàng hóa là đặc điểm của chủ nghĩa tư bản giai đoạn tự do cạnh tranh. Sang giai đoạn độc quyền, đặc điểm nổi bật là xuất khẩu tư bản."
     },
     {
       "id": "MLN122-232",
@@ -502,9 +530,10 @@
         "Quyết định hành chính của nhà nước",
         "Yêu cầu hành chính của ngân hàng",
         "Yêu cầu hành chính của các tổ chức độc quyền công nghiệp",
-        "Số cố phiếu khống chế để nắm công ty me, công ty con.."
+        "Số cổ phiếu khống chế để nắm công ty mẹ, công ty con..."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Chế độ tham dự là việc nhà tài chính chỉ cần nắm một số cổ phiếu khống chế ở công ty \"mẹ\" là chi phối được các công ty \"con\", rồi qua công ty con chi phối các công ty \"cháu\"... Nhờ vậy, với một lượng tư bản nhỏ, đầu sỏ tài chính khống chế được lượng tư bản lớn hơn nhiều lần."
     },
     {
       "id": "MLN122-233",
@@ -516,7 +545,8 @@
         "Vào khâu sản xuất - tiêu dùng",
         "Sản xuất - phân phối - trao đổi - tiêu dùng."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Ngày nay nhà nước tư sản can thiệp vào toàn bộ quá trình tái sản xuất xã hội: sản xuất, phân phối, trao đổi và tiêu dùng (qua đầu tư, thuế, tín dụng, chính sách giá, phúc lợi...)."
     },
     {
       "id": "MLN122-234",
@@ -528,7 +558,8 @@
         "Quân sự",
         "Kinh tế - chính trị - quân sự"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Xuất khẩu tư bản nhà nước (đầu tư, viện trợ của nhà nước tư sản) thường đồng thời phục vụ mục đích kinh tế, chính trị và quân sự: mở đường cho tư bản tư nhân, duy trì ảnh hưởng chính trị và xây dựng căn cứ, liên minh quân sự."
     },
     {
       "id": "MLN122-235",
@@ -538,9 +569,10 @@
         "Liên minh giữa cá nhân tổ chức độc quyền ngân hàng với tổ chức độc quyền công nghiệp",
         "Liên minh giữa tổ chức độc quyền công nghiệp với chính phủ",
         "Liên minh giữa tổ chức độc quyền ngân hàng với chính phủ",
-        "Liên minh giữa tổ chức độc quyền ngân hàng, tổ chức độc quyền công nghiệp và chính"
+        "Liên minh giữa tổ chức độc quyền ngân hàng, tổ chức độc quyền công nghiệp và chính phủ"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Sự kết hợp về nhân sự giữa tổ chức độc quyền và nhà nước thể hiện qua liên minh giữa độc quyền ngân hàng, độc quyền công nghiệp và chính phủ: người của các tập đoàn tham gia bộ máy nhà nước, quan chức nhà nước được mời vào ban quản trị các tập đoàn."
     },
     {
       "id": "MLN122-236",
@@ -552,7 +584,8 @@
         "Chủ nghĩa tư bản giai đoạn tự do cạnh tranh",
         "Chủ nghĩa tư bản giai đoạn độc quyền."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Xuất khẩu tư bản là một trong năm đặc điểm kinh tế của chủ nghĩa tư bản giai đoạn độc quyền theo V.I. Lênin."
     },
     {
       "id": "MLN122-237",
@@ -564,8 +597,8 @@
         "Quy luật giá trị vẫn hoạt động.",
         "Quy luật giá trị lúc hoạt động, lúc không"
       ],
-      "correct": 3,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (C: 1, D: 3). Nên đối chiếu giáo trình."
+      "correct": 2,
+      "explanation": "Đã sửa đáp án: file gốc chọn D ở 3 bản và C ở 1 bản. Trong chủ nghĩa tư bản độc quyền, quy luật giá trị vẫn hoạt động nhưng biểu hiện thành quy luật giá cả độc quyền: giá cả độc quyền không xóa bỏ giới hạn của giá trị, tổng giá cả vẫn bằng tổng giá trị. Không có chuyện quy luật giá trị \"lúc hoạt động, lúc không\"."
     },
     {
       "id": "MLN122-238",
@@ -577,7 +610,8 @@
         "Thôn tính nhau",
         "Giành thị trường tiêu thụ hoặc Giành tỷ lệ sản xuất cao hơn"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Trong nội bộ tổ chức độc quyền, các nhà tư bản thành viên vẫn cạnh tranh nhau để giành tỷ lệ sản xuất cao hơn (trong Cartel, Syndicate) hoặc giành thị trường tiêu thụ, giành cổ phần khống chế (trong Trust, Consortium)."
     },
     {
       "id": "MLN122-239",
@@ -589,19 +623,21 @@
         "Quy luật tỷ suất lợi nhuận bình quân",
         "Quy luật lợi nhuận độc quyền cao."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Trong giai đoạn độc quyền, quy luật giá trị thặng dư biểu hiện thành quy luật lợi nhuận độc quyền cao; quy luật giá trị biểu hiện thành quy luật giá cả độc quyền. Quy luật tỷ suất lợi nhuận bình quân là biểu hiện ở giai đoạn tự do cạnh tranh."
     },
     {
       "id": "MLN122-241",
       "type": "choice",
       "prompt": "Sự ra đời của chủ nghĩa tư bản độc quyền nhà nước nhằm:",
       "options": [
-        "Phuc vu lợi ích của nhân dân lao động",
-        "Phuc vu lợi ích của tổ chức độc quyền tư nhân",
-        "Phuc vu lợi ích của nhà nước tư sản",
-        "Phuc vu lợi ích của tổ chức độc quyền tư nhân và cứu nguy cho chủ nghĩa tư bả"
+        "Phục vụ lợi ích của nhân dân lao động",
+        "Phục vụ lợi ích của tổ chức độc quyền tư nhân",
+        "Phục vụ lợi ích của nhà nước tư sản",
+        "Phục vụ lợi ích của tổ chức độc quyền tư nhân và cứu nguy cho chủ nghĩa tư bản"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Chủ nghĩa tư bản độc quyền nhà nước ra đời nhằm phục vụ lợi ích của các tổ chức độc quyền tư nhân và cứu nguy cho chủ nghĩa tư bản trước các mâu thuẫn, khủng hoảng ngày càng gay gắt."
     },
     {
       "id": "MLN122-242",
@@ -613,19 +649,21 @@
         "Đấu tranh không khoan nhượng",
         "Thỏa hiệp với nhau để hình thành các tổ chức độc quyền quốc tế."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Khi các tổ chức độc quyền của nhiều nước cạnh tranh trên thị trường thế giới mà không bên nào thôn tính được bên nào, chúng thường thỏa hiệp với nhau để lập ra các tổ chức độc quyền quốc tế, cùng phân chia thị trường thế giới."
     },
     {
       "id": "MLN122-244",
       "type": "choice",
-      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người nghiên cứu chủ nghĩa tư bản độc quyền:",
+      "prompt": "Trong các nhà kinh điển của chủ nghĩa Mác - Lênin, ai là người nghiên cứu chủ nghĩa tư bản độc quyền?",
       "options": [
         "Ph. Ăngghen",
         "C. Mác",
         "Ph. Ăngghen và C. Mác",
-        "V.I.Lêinin."
+        "V.I. Lênin"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "V.I. Lênin là người nghiên cứu sâu chủ nghĩa tư bản độc quyền, tiêu biểu là tác phẩm \"Chủ nghĩa đế quốc, giai đoạn tột cùng của chủ nghĩa tư bản\" (1916). C. Mác và Ph. Ăngghen chủ yếu nghiên cứu chủ nghĩa tư bản tự do cạnh tranh."
     },
     {
       "id": "MLN122-245",
@@ -634,10 +672,11 @@
       "options": [
         "Tập trung sản xuất và các tổ chức độc quyền; tư bản tài chính và bọn đầu sỏ tài chính",
         "Tập trung sản xuất và các tổ chức độc quyền; tư bản tài chính và bọn đầu sỏ tài chính; xuất khẩu tư bản",
-        "Tập trung sản xuất và các tổ chức độc quyền, tư bản tài chính và bọn đầu",
+        "Tập trung sản xuất và các tổ chức độc quyền, tư bản tài chính và bọn đầu sỏ tài chính",
         "Tập trung sản xuất và các tổ chức độc quyền, tư bản tài chính và bọn đầu sỏ tài chính; xuất khẩu tư bản; phân chia thế giới về kinh tế giữa các tổ chức độc quyền; sự phân chia thế giới về lãnh thổ giữa các cường quốc đế quốc"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lênin nêu năm đặc điểm kinh tế cơ bản: (1) tập trung sản xuất và các tổ chức độc quyền; (2) tư bản tài chính và bọn đầu sỏ tài chính; (3) xuất khẩu tư bản; (4) phân chia thế giới về kinh tế giữa các tổ chức độc quyền; (5) phân chia thế giới về lãnh thổ giữa các cường quốc đế quốc. Chỉ D đủ năm đặc điểm."
     },
     {
       "id": "MLN122-247",
@@ -648,7 +687,8 @@
         "Độc quyền tư nhân và sự điều tiết của nhà nước.",
         "Cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Cơ chế kinh tế của chủ nghĩa tư bản độc quyền nhà nước là sự dung hợp cả ba yếu tố: cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước. A và B mỗi phương án thiếu một yếu tố."
     },
     {
       "id": "MLN122-248",
@@ -658,9 +698,10 @@
         "Nhà nước can thiệp vào kinh tế với vai trò quản lý chung",
         "Nhà nước không can thiệp vào kinh tế",
         "Nhà nước chỉ can thiệp vào kinh tế với vai trò người gác cổng",
-        "Nhà nước can thiệp vào kinh tế ở cấp độ vi mô"
+        "Nhà nước can thiệp vào kinh tế ở cấp độ vĩ mô"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Khi lực lượng sản xuất được xã hội hóa ở trình độ cao, quy mô kinh tế quá lớn và phức tạp đòi hỏi sự điều tiết xã hội từ một trung tâm, tức nhà nước phải can thiệp vào kinh tế ở tầm vĩ mô. Đây là một nguyên nhân hình thành độc quyền nhà nước. (Đã sửa lỗi gõ \"vi mô\" thành \"vĩ mô\" trong phương án D.)"
     },
     {
       "id": "MLN122-249",
@@ -672,7 +713,8 @@
         "Một sự thỏa hiệp được hình thành hoặc một bên phá sản",
         "Cả hai cùng lớn mạnh"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Cạnh tranh giữa các tổ chức độc quyền trong cùng ngành rất gay gắt, kết thúc bằng hai khả năng: một bên bị phá sản, hoặc hai bên thỏa hiệp với nhau để hình thành liên minh độc quyền mới."
     },
     {
       "id": "MLN122-250",
@@ -682,9 +724,10 @@
         "Cạnh tranh nội bộ ngành",
         "Cạnh tranh giữa các ngành",
         "Cạnh tranh giữa các nước",
-        "Do dia vi độc quyền đem l"
+        "Do địa vị độc quyền đem lại"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lợi nhuận độc quyền cao có được là nhờ địa vị độc quyền: tổ chức độc quyền áp đặt giá cả độc quyền (mua thấp, bán cao), chiếm đoạt thêm giá trị thặng dư của người khác. Cạnh tranh trong ngành và giữa các ngành chỉ dẫn tới lợi nhuận bình quân."
     },
     {
       "id": "MLN122-251",
@@ -692,23 +735,25 @@
       "prompt": "Nhà nước tư sản đảm nhận đầu tư kinh doanh vào các ngành:",
       "options": [
         "Đầu tư lớn, thu hồi vốn nhanh, ít lợi nhuận",
-        "Đầu tư lơn, thu hồi vốn chậm, lợi nhuận cao",
+        "Đầu tư lớn, thu hồi vốn chậm, lợi nhuận cao",
         "Đầu tư vừa và nhỏ, lợi nhuận cao, thu hồi vốn nhanh",
         "Đầu tư lớn, thu hồi vốn chậm, ít lợi nhuận"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nhà nước tư sản đầu tư vào những ngành cần vốn lớn, thu hồi vốn chậm và ít lợi nhuận (hạ tầng, năng lượng, nghiên cứu cơ bản) mà tư nhân không muốn đầu tư, nhưng lại cần cho sự phát triển chung của nền kinh tế."
     },
     {
       "id": "MLN122-252",
       "type": "choice",
-      "prompt": "Do có đia vi độc quyền, các tổ chức độc quyền áp đặt",
+      "prompt": "Do có địa vị độc quyền, các tổ chức độc quyền áp đặt",
       "options": [
         "Giá cả độc quyền thấp khi mua và bán đúng giá trị",
         "Mua đúng giá trị và bán với giá cả độc quyền cao",
         "Giá cả sản xuất cao",
         "Giá cả độc quyền thấp khi mua, cao khi bán."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nhờ địa vị độc quyền, các tổ chức độc quyền áp đặt giá cả độc quyền: mua nguyên liệu, hàng của người sản xuất nhỏ với giá thấp và bán hàng hóa với giá cao để thu lợi nhuận độc quyền cao."
     },
     {
       "id": "MLN122-270",
@@ -720,7 +765,8 @@
         "Giữa thế kỷ XX",
         "Đầu thế kỷ XXI"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chủ nghĩa tư bản độc quyền nhà nước xuất hiện từ cuối thế kỷ XIX - đầu thế kỷ XX, nhưng chỉ thực sự hình thành rõ nét và trở thành phổ biến từ giữa thế kỷ XX (sau khủng hoảng 1929–1933 và Chiến tranh thế giới thứ hai)."
     },
     {
       "id": "MLN122-292",
@@ -731,7 +777,8 @@
         "Một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền",
         "Nguyên nhân hình thành chủ nghĩa tư bản"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Phân công lao động xã hội phát triển làm xuất hiện những ngành mới, cần vốn lớn mà tư nhân không muốn đầu tư, buộc nhà nước phải tham gia. Vì vậy nó là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền (cụ thể là độc quyền nhà nước)."
     },
     {
       "id": "MLN122-367",
@@ -743,19 +790,21 @@
         "Trust - Cartel - Syndicate - Consortium",
         "Trust - Syndicate - Cartel - Consortium"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Các hình thức độc quyền phát triển từ thấp đến cao: Cartel (thỏa thuận giá, sản lượng) → Syndicate (thống nhất tiêu thụ) → Trust (thống nhất cả sản xuất và tiêu thụ) → Consortium (liên kết dọc nhiều ngành)."
     },
     {
       "id": "MLN122-368",
       "type": "choice",
       "prompt": "Nhận định nào sau đây là sai?",
       "options": [
-        "Consortium là hình thức độc quyền theo liên kết doc",
-        "Các tổ chức độc quyền mở rộng ra nhiều ngành khác nhau là phát triển theo liên kết doc.",
+        "Consortium là hình thức độc quyền theo liên kết dọc",
+        "Các tổ chức độc quyền mở rộng ra nhiều ngành khác nhau là phát triển theo liên kết dọc.",
         "Các nhà tư bản tham gia Cartel vẫn độc lập về sản xuất nhưng mất độc lập về lưu thông",
         "Trust là tổ chức độc quyền cao hơn Syndicate."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giáo trình (trang PDF 86): các xí nghiệp tham gia Cartel vẫn độc lập cả về sản xuất và lưu thông, chỉ thỏa thuận với nhau về giá cả, sản lượng, thị trường. Mất độc lập về lưu thông là đặc điểm của Syndicate. Vì vậy C là nhận định sai."
     },
     {
       "id": "MLN122-370",
@@ -765,9 +814,10 @@
         "Các nhà tài phiệt",
         "Các tập đoàn tài chính",
         "Các doanh nghiệp tư nhân",
-        "Các công ty me"
+        "Các công ty mẹ"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản tài chính phát triển dẫn đến sự hình thành một nhóm nhỏ các nhà tài phiệt (đầu sỏ tài chính) chi phối toàn bộ đời sống kinh tế, chính trị của xã hội tư bản thông qua \"chế độ tham dự\"."
     },
     {
       "id": "MLN122-371",
@@ -779,7 +829,8 @@
         "Đầu tư xuất khẩu tư bản",
         "Quảng cáo"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 93–94): Conglomerate là sự kết hợp hàng chục hãng vừa và nhỏ không liên quan trực tiếp về sản xuất; mục đích chủ yếu là thu lợi nhuận từ kinh doanh chứng khoán, vì vậy dễ phá sản hoặc chuyển thành Concern."
     },
     {
       "id": "MLN122-378",
@@ -791,7 +842,8 @@
         "Trust",
         "Consortium"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cartel là hình thức độc quyền thấp nhất: các xí nghiệp chỉ thỏa thuận về giá, sản lượng, thị trường, còn vẫn độc lập cả về sản xuất và lưu thông. Sau đó là Syndicate, Trust và Consortium."
     },
     {
       "id": "MLN122-385",
@@ -800,22 +852,24 @@
       "options": [
         "Khủng hoảng kinh tế năm 1873",
         "Khủng hoảng kinh tế năm 1928",
-        "Khùng hoàng kinh tế năm 1973",
+        "Khủng hoảng kinh tế năm 1973",
         "Khủng hoảng kinh tế năm 2021"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cuộc khủng hoảng năm 1873 làm phá sản hàng loạt doanh nghiệp vừa và nhỏ; các doanh nghiệp lớn sống sót thúc đẩy tập trung sản xuất và hình thành các tổ chức độc quyền đầu tiên (các Cartel)."
     },
     {
       "id": "MLN122-391",
       "type": "choice",
-      "prompt": "Điền vào chỗ trống để hoàn thành câu sau: \"...đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất đinh, lại dẫn tới độc quyền\"",
+      "prompt": "Điền vào chỗ trống để hoàn thành câu sau: \"...đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định, lại dẫn tới độc quyền\"",
       "options": [
         "Tự do cạnh tranh",
         "Độc quyền",
-        "Tư băn",
+        "Tư bản",
         "Sự ra đời của nhà nước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Câu của V.I. Lênin: \"Tự do cạnh tranh đẻ ra tập trung sản xuất và sự tập trung sản xuất này, khi phát triển tới một mức độ nhất định, lại dẫn tới độc quyền\"."
     },
     {
       "id": "MLN122-402",
@@ -823,10 +877,11 @@
       "prompt": "Các tổ chức độc quyền hình thành trên cơ sở:",
       "options": [
         "Liên kết dọc và liên kết ngang",
-        "Liên kết tự giác và liên kết tự phất",
+        "Liên kết tự giác và liên kết tự phát",
         "Liên kết bên ngoài và liên kết bên trong"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Các tổ chức độc quyền hình thành qua liên kết ngang (các doanh nghiệp cùng ngành) và liên kết dọc (các doanh nghiệp khác ngành có liên quan về kinh tế, kỹ thuật)."
     },
     {
       "id": "MLN122-404",
@@ -838,7 +893,8 @@
         "Do sự vận dụng từ các học thuyết kinh tế vào kinh doanh",
         "Do sự ra đời của nhà nước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cạnh tranh tự do dẫn tới tích tụ và tập trung sản xuất; khi đạt quy mô nhất định sẽ dẫn tới độc quyền. Vì vậy cạnh tranh là một nguyên nhân hình thành độc quyền."
     },
     {
       "id": "MLN122-405",
@@ -849,7 +905,8 @@
         "Tạo điều kiện cho các nước nhập khẩu tư bản phát triển",
         "Khống chế kinh tế các nước nhập khẩu tư bản."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Về kinh tế, xuất khẩu tư bản nhà nước (thường đầu tư vào hạ tầng, viện trợ) nhằm tạo môi trường thuận lợi cho tư bản tư nhân của nước mình tiếp tục xuất khẩu tư bản vào nước nhận đầu tư."
     },
     {
       "id": "MLN122-410",
@@ -868,31 +925,33 @@
     {
       "id": "MLN122-423",
       "type": "choice",
-      "prompt": "Xuất khẩu giá trị ra nước ngoài nhằm mục đích thu được giá trị thặng dư và các nguồn lợi khác ô các nước mà mình đầu tư gọi là",
+      "prompt": "Xuất khẩu giá trị ra nước ngoài nhằm mục đích thu được giá trị thặng dư và các nguồn lợi khác ở các nước mà mình đầu tư gọi là",
       "options": [
         "Xuất khẩu tư bản",
         "Nhập khẩu tư bản",
-        "Đầu tư thị trưởng",
+        "Đầu tư thị trường",
         "Đầu tư tiền tệ"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Xuất khẩu tư bản là mang giá trị (tư bản) ra nước ngoài đầu tư nhằm thu giá trị thặng dư và các nguồn lợi khác ở nước nhận đầu tư."
     },
     {
       "id": "MLN122-425",
       "type": "choice",
-      "prompt": "Hình thức độc quyền nào thống nhất việc sản xuất, tiêu thu, tài vụ đều do một ban quản trị quản l",
+      "prompt": "Hình thức độc quyền nào thống nhất việc sản xuất, tiêu thụ, tài vụ đều do một ban quản trị quản lý?",
       "options": [
         "Consortium",
         "Syndicate",
         "Cartel",
         "Trust"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Trust là hình thức độc quyền mà việc sản xuất, tiêu thụ, tài vụ đều do một ban quản trị chung quản lý; các nhà tư bản trở thành cổ đông, hưởng lợi theo cổ phần. Syndicate chỉ thống nhất khâu tiêu thụ."
     },
     {
       "id": "MLN122-442",
       "type": "multi",
-      "prompt": "Sau những năm 50 của thế ký XX, chủ nghĩa tư bản chuyển sang chính sách thực dân mới đó là: (chọn nhiều đáp án)",
+      "prompt": "Sau những năm 50 của thế kỷ XX, chủ nghĩa tư bản chuyển sang chính sách thực dân mới đó là: (chọn nhiều đáp án)",
       "options": [
         "Viện trợ kinh tế",
         "Viện trợ quân sự",
@@ -908,14 +967,15 @@
     {
       "id": "MLN122-444",
       "type": "choice",
-      "prompt": "Tổng kết thực tiễn vai trò của độc quyền trong nền kinh tế các nước tư bản phát triển giai đoạn cuối thế kỳ XIX đầu thế kỳ XX, V. I. Lênin đã khái quát độc quyền tư bản chủ nghĩa thành:",
+      "prompt": "Tổng kết thực tiễn vai trò của độc quyền trong nền kinh tế các nước tư bản phát triển giai đoạn cuối thế kỷ XIX đầu thế kỷ XX, V. I. Lênin đã khái quát độc quyền tư bản chủ nghĩa thành:",
       "options": [
         "Bốn đặc điểm",
         "Năm đặc điểm",
         "Sáu đặc điểm",
         "Bảy đặc điểm"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "V.I. Lênin khái quát chủ nghĩa tư bản độc quyền bằng năm đặc điểm kinh tế cơ bản: tập trung sản xuất và các tổ chức độc quyền; tư bản tài chính và đầu sỏ tài chính; xuất khẩu tư bản; phân chia thế giới về kinh tế; phân chia thế giới về lãnh thổ."
     },
     {
       "id": "MLN122-445",
@@ -927,18 +987,20 @@
         "Lệ thuộc về kinh tế, chính trị và ngoại giao",
         "Độc lập về lãnh thổ, nhưng lệ thuộc về ngoại giao"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong thời đại đế quốc, ngoài thuộc địa còn xuất hiện các nước phụ thuộc với hình thức quá độ: độc lập về chính trị (hình thức) nhưng thực tế lệ thuộc về kinh tế và ngoại giao vào các nước đế quốc."
     },
     {
       "id": "MLN122-446",
       "type": "choice",
-      "prompt": "Sỡ hữu độc quyền nhà nước là sự kết hợp của:",
+      "prompt": "Sở hữu độc quyền nhà nước là sự kết hợp của:",
       "options": [
         "Sở hữu nhà nước và sở hữu độc quyền tư nhân",
         "Sở hữu của nhà nước tư sản",
         "Sở hữu của nhiều nước tư bản"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sở hữu độc quyền nhà nước là sự kết hợp giữa sở hữu nhà nước và sở hữu của các tổ chức độc quyền tư nhân, nhằm phục vụ lợi ích của tư bản độc quyền."
     },
     {
       "id": "MLN122-458",
@@ -950,7 +1012,8 @@
         "Sự điều tiết của nhà nước",
         "Nhiều ngành mới ra đời với những quan hệ sản xuất mới"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lực lượng sản xuất phát triển làm xuất hiện nhiều ngành mới, quy mô sản xuất mở rộng, nên hình thức tổ chức của tư bản tài chính (tập đoàn đa ngành) và cơ chế thống trị (chế độ tham dự kết hợp chế độ ủy nhiệm) cũng thay đổi theo."
     },
     {
       "id": "MLN122-459",
@@ -962,19 +1025,21 @@
         "Trust",
         "Consortium"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Consortium là hình thức độc quyền cao nhất: liên kết dọc giữa các Cartel, Syndicate, Trust thuộc nhiều ngành khác nhau nhưng có liên quan về kinh tế, kỹ thuật."
     },
     {
       "id": "MLN122-460",
       "type": "choice",
       "prompt": "Sự hình thành các tổ chức độc quyền dựa trên cơ sở nào?",
       "options": [
-        "Tích tu tập trung sản xuất và sự ra đời của các xí nghiệp quy mô lớn",
-        "Sự xuất hiện các thành tựu mối của khoa hoc",
+        "Tích tụ, tập trung sản xuất và sự ra đời của các xí nghiệp quy mô lớn",
+        "Sự xuất hiện các thành tựu mới của khoa học",
         "Sản xuất nhỏ phân tán",
         "Nhiều doanh nghiệp vừa và nhỏ ra đời"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Các tổ chức độc quyền hình thành trên cơ sở tích tụ và tập trung sản xuất ở trình độ cao, khi xuất hiện các xí nghiệp quy mô lớn có thể chi phối thị trường."
     },
     {
       "id": "MLN122-466",
@@ -986,7 +1051,8 @@
         "Quy luật lợi nhuận",
         "Quy luật giá cả sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Trong giai đoạn độc quyền, quy luật giá trị thặng dư biểu hiện thành quy luật lợi nhuận độc quyền cao. Quy luật lợi nhuận bình quân, giá cả sản xuất là biểu hiện ở giai đoạn tự do cạnh tranh."
     },
     {
       "id": "MLN122-469",
@@ -998,7 +1064,8 @@
         "Các tổ chức độc quyền phụ thuộc vào nhà nước",
         "Nhằm duy trì lợi ích của nhà nước tư bản"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Bản chất của độc quyền nhà nước trong chủ nghĩa tư bản là sự kết hợp sức mạnh của các tổ chức độc quyền tư nhân với sức mạnh của nhà nước tư sản thành một thiết chế thống nhất, phục vụ lợi ích của các tổ chức độc quyền."
     },
     {
       "id": "MLN122-470",
@@ -1009,14 +1076,15 @@
         "Chủ nghĩa tư bản tiếp tục phát triển đến đỉnh cao",
         "Chủ nghĩa tư bản sẽ diệt vong trong thời gian ngắn"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Theo quy luật quan hệ sản xuất phải phù hợp với trình độ lực lượng sản xuất, khi quan hệ sản xuất tư bản chủ nghĩa không còn phù hợp với lực lượng sản xuất xã hội hóa cao, nó sẽ bị thay thế. Vì vậy chủ nghĩa tư bản không tồn tại vĩnh viễn, nhưng cũng không diệt vong trong thời gian ngắn."
     },
     {
       "id": "MLN122-478",
       "type": "multi",
       "prompt": "Trong giai đoạn chủ nghĩa tư bản độc quyền, ngoài sự cạnh tranh giữa những người sản xuất nhỏ, giữa những nhà tư bản vừa và nhỏ như trong giai đoạn chủ nghĩa tư bản cạnh tranh tự do, mà còn có thêm các loại cạnh tranh sau: (chọn nhiều đáp án)",
       "options": [
-        "cạnh tranh giữa các tổ chức độc quyền với các xí nghiệp ngoài độc quyền",
+        "Cạnh tranh giữa các tổ chức độc quyền với các xí nghiệp ngoài độc quyền",
         "Cạnh tranh giữa các tổ chức độc quyền với nhau",
         "Cạnh tranh trong nội bộ các tổ chức độc quyền",
         "Cạnh tranh giữa các tổ chức tư bản độc quyền nhà nước với nhau"
@@ -1033,12 +1101,13 @@
       "type": "choice",
       "prompt": "Sự hình thành độc quyền dựa trên các nguyên nhân nào sau đây?",
       "options": [
-        "Sự phát triển của lực lượng sản xuất thúc đẩy các tổ chức độc quyền; cạnh tranh; khủng hoảng sự phát triển của hệ thống tín dụng",
-        "Sự phát triển của quan hệ sản xuất thúc đẩy các tổ chức độc quyền, cạnh tranh; khủng hoảng sự phát triển của hệ thống tín dụng",
-        "Sự phát triển của phương thức sản xuất tư bản chủ nghĩa thúc đẩy các tổ chức độc quyền; cạnh tranh; khủng hoảng sự phát triển của hệ thống tín dụng",
+        "Sự phát triển của lực lượng sản xuất thúc đẩy các tổ chức độc quyền; cạnh tranh; khủng hoảng; sự phát triển của hệ thống tín dụng",
+        "Sự phát triển của quan hệ sản xuất thúc đẩy các tổ chức độc quyền, cạnh tranh; khủng hoảng; sự phát triển của hệ thống tín dụng",
+        "Sự phát triển của phương thức sản xuất tư bản chủ nghĩa thúc đẩy các tổ chức độc quyền; cạnh tranh; khủng hoảng; sự phát triển của hệ thống tín dụng",
         "Sự phát triển của lực lượng sản xuất thúc đẩy các tổ chức độc quyền; cạnh tranh; khủng hoảng trong sự phát triển của một quốc gia"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Độc quyền hình thành do: sự phát triển của lực lượng sản xuất (tiến bộ kỹ thuật) thúc đẩy tích tụ, tập trung sản xuất; cạnh tranh gay gắt; khủng hoảng kinh tế; và sự phát triển của hệ thống tín dụng. B thay \"lực lượng sản xuất\" bằng \"quan hệ sản xuất\", D sai vế cuối."
     },
     {
       "id": "MLN122-489",
@@ -1050,13 +1119,13 @@
         "Thu lợi nhuận kinh doanh từ chứng khoán",
         "Đối phó với luật chống độc quyền ở các quốc gia"
       ],
-      "correct": 3,
-      "explanation": "s\n\nLưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, D: 3). Nên đối chiếu giáo trình."
+      "correct": 0,
+      "explanation": "Đã sửa đáp án: file gốc chọn D ở 3 bản và A ở 1 bản. Giáo trình (trang PDF 93) nêu: nguyên nhân chủ yếu dẫn đến độc quyền đa ngành là cạnh tranh gay gắt (kinh doanh chuyên môn hóa hẹp dễ bị phá sản); hơn nữa còn để đối phó với luật chống độc quyền. A nêu đủ cả hai nguyên nhân nên đầy đủ hơn D."
     },
     {
       "id": "MLN122-X261",
       "type": "choice",
-      "prompt": "Phân công lao động xã hội",
+      "prompt": "Phân công lao động xã hội được xác định là",
       "options": [
         "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền",
         "Không dẫn đến sự hình thành tư bản độc quyền",
@@ -1064,7 +1133,7 @@
         "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền nhà nước"
       ],
       "correct": 3,
-      "explanation": "Giáo trình (trang PDF 81): nguyên nhân thứ hai hình thành độc quyền nhà nước là sự phát triển của phân công lao động xã hội làm xuất hiện các ngành mới mà độc quyền tư nhân không thể hoặc không muốn đầu tư.\n\nPhân công lao động xã hội làm chuyên môn hóa sản xuất, thúc đẩy tích tụ - tập trung sản xuất và tư bản. Khi sản xuất/tư bản tập trung cao sẽ dẫn đến độc quyền.\nVí dụ: Nhiều xưởng nhỏ dần bị các công ty lớn thâu tóm, hình thành tập đoàn độc quyền"
+      "explanation": "Giáo trình (trang PDF 81): nguyên nhân thứ hai hình thành độc quyền nhà nước là sự phát triển của phân công lao động xã hội làm xuất hiện các ngành mới mà độc quyền tư nhân không thể hoặc không muốn đầu tư.\n\nPhân công lao động xã hội được xác định là làm chuyên môn hóa sản xuất, thúc đẩy tích tụ - tập trung sản xuất và tư bản. Khi sản xuất/tư bản tập trung cao sẽ dẫn đến độc quyền.\nVí dụ: Nhiều xưởng nhỏ dần bị các công ty lớn thâu tóm, hình thành tập đoàn độc quyền"
     },
     {
       "id": "MLN122-X272",

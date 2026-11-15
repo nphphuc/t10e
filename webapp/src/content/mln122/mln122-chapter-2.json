@@ -57,11 +57,11 @@
     {
       "id": "MLN122-014",
       "type": "choice",
-      "prompt": "Trong lịch sử phát triển nền sản xuất xã hội, tiền đề nào là quan trọng cho sự ra đời i và phát triển của nền kinh tế thị trường?",
+      "prompt": "Trong lịch sử phát triển nền sản xuất xã hội, tiền đề nào là quan trọng cho sự ra đời và phát triển của nền kinh tế thị trường?",
       "options": [
         "Sản xuất",
         "Trao đổi hàng hóa",
-        "Thi trường",
+        "Thị trường",
         "Sản xuất và trao đổi hàng hóa"
       ],
       "correct": 3,
@@ -90,7 +90,7 @@
         "Karl Marx"
       ],
       "correct": 0,
-      "explanation": "Aristoteles là người phân biệt các dạng trao đổi và hoạt động kinh tế rất sớm.Aristoteles nhìn kinh tế theo 2 hướng:\nMột là trao đổi để phục vụ nhu cầu tự nhiên, ví dụ đổi lúa lấy vải để dùng.\nHai là trao đổi để kiếm tiền, làm giàu, tức mua bán không chỉ để dùng mà để tăng của cải."
+      "explanation": "Aristoteles là người phân biệt các dạng trao đổi và hoạt động kinh tế rất sớm. Aristoteles nhìn kinh tế theo 2 hướng:\nMột là trao đổi để phục vụ nhu cầu tự nhiên, ví dụ đổi lúa lấy vải để dùng.\nHai là trao đổi để kiếm tiền, làm giàu, tức mua bán không chỉ để dùng mà để tăng của cải."
     },
     {
       "id": "MLN122-027",
@@ -147,12 +147,12 @@
     {
       "id": "MLN122-042",
       "type": "multi",
-      "prompt": "Lý thuyết bàn tay vô hình của Adam Smith được hiểu là: (chon 3 phương án đúng)",
+      "prompt": "Lý thuyết bàn tay vô hình của Adam Smith được hiểu là: (chọn 3 phương án đúng)",
       "options": [
         "Người bán và người mua, phân bố nguồn lực kinh tế đạt được hiệu quả xã hội lớn nhất mà không cần sự can thiệp của chính phủ",
-        "Mô tả khả năng của cơ chế thị trường trong việc điều chỉnh cung cầu trên thi trường",
+        "Mô tả khả năng của cơ chế thị trường trong việc điều chỉnh cung cầu trên thị trường",
         "Các cá nhân tham gia muốn tối đa hóa lợi nhuận cho mình",
-        "Mỗi người đều bị bàn tay vô hình dẫn tới kết quả làm lợi cho chính mì"
+        "Mỗi người đều bị bàn tay vô hình dẫn tới kết quả làm lợi cho chính mình"
       ],
       "correctSet": [
         0,
@@ -164,11 +164,11 @@
     {
       "id": "MLN122-043",
       "type": "choice",
-      "prompt": "Chon ý đúng về tăng cường độ lao động. Khi cường độ lao động tăng lên thì",
+      "prompt": "Chọn ý đúng về tăng cường độ lao động. Khi cường độ lao động tăng lên thì",
       "options": [
         "Số lượng hàng hoá làm ra trong một đơn vị thời gian không đổi",
         "Số lượng lao động hao phí trong thời gian đó không thay đổi",
-        "Giá trị 1 đơn vị hàng hoá giảm đ",
+        "Giá trị 1 đơn vị hàng hoá giảm đi",
         "Tổng số lượng hàng hóa làm ra của một người tăng lên"
       ],
       "correct": 3,
@@ -181,7 +181,7 @@
       "options": [
         "Là phạm trù của mọi nền kinh tế hàng hoá",
         "Là phạm trù riêng của kinh tế thị trường",
-        "Là phạm trù chung của mọi nền kinh t"
+        "Là phạm trù chung của mọi nền kinh tế"
       ],
       "correct": 0,
       "explanation": "Trong kinh tế chính trị Mác - Lênin, hàng hóa có 2 thuộc tính: giá trị sử dụng và giá trị. Hai thuộc tính đó do tính hai mặt của lao động sản xuất hàng hóa tạo ra:"
@@ -221,15 +221,16 @@
         "Tổng số hàng hóa tăng lên 2 lần, giá trị 1 hàng hóa giảm 2 lần",
         "Tổng số hàng hóa tăng lên 4 lần, tổng số giá trị hàng hóa tăng lên 4 lần"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tách riêng hai tác động:\n- Năng suất lao động tăng 2 lần: số sản phẩm tăng 2 lần, giá trị 1 hàng hóa giảm 2 lần, tổng giá trị không đổi.\n- Cường độ lao động tăng 2 lần: lao động hao phí tăng 2 lần, số sản phẩm và tổng giá trị đều tăng 2 lần, giá trị 1 hàng hóa không đổi.\nGộp lại: số sản phẩm tăng 4 lần, giá trị 1 hàng hóa giảm 2 lần, tổng giá trị tăng 2 lần. Chỉ A đúng cả hai vế."
     },
     {
       "id": "MLN122-058",
       "type": "choice",
       "prompt": "Hãy chọn ý đúng khi nói về quan hệ giữa giá trị và giá cả?",
       "options": [
-        "Giá trị là cơ sở của giá cả, là yếu tố quyết định giá cả, giá cả là hình thức biểu hiện n bằng tiền của giá tr",
-        "Giá cả thị trường còn chịu ảnh hưởng của cung - cầu, giá trị của ti",
+        "Giá trị là cơ sở của giá cả, là yếu tố quyết định giá cả, giá cả là hình thức biểu hiện bằng tiền của giá trị",
+        "Giá cả thị trường còn chịu ảnh hưởng của cung - cầu, giá trị của tiền",
         "Các phương án trả lời đều đúng"
       ],
       "correct": 2,
@@ -245,7 +246,8 @@
         "Tư bản chủ nghĩa",
         "Xã hội chủ nghĩa"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Trao đổi hàng hóa đã xuất hiện từ xã hội chiếm hữu nô lệ nhưng còn sơ khai, nên đó là mầm mống của kinh tế thị trường. Sang phong kiến kinh tế thị trường mới hình thành, và phát triển mạnh nhất dưới chủ nghĩa tư bản. Phân biệt với câu hỏi \"đã hình thành trong xã hội nào\" (đáp án là phong kiến)."
     },
     {
       "id": "MLN122-066",
@@ -257,7 +259,8 @@
         "Khi không còn quan hệ trao đổi trực tiếp, có một thứ hàng làm trung gian trong trao đổi",
         "Khi nhu cầu trao đổi vượt quá phạm vi quốc gia"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hình thái tiền tệ xuất hiện khi vật ngang giá chung được cố định ở vàng, bạc. Phương án C mô tả hình thái giá trị chung (đã có vật trung gian nhưng chưa cố định), còn A và D không phải mốc ra đời của tiền."
     },
     {
       "id": "MLN122-079",
@@ -268,42 +271,46 @@
         "Lao động giản đơn, lao động phức tạp",
         "Lao động cụ thể, lao động trừu tượng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "C. Mác phát hiện lao động sản xuất hàng hóa có tính hai mặt: lao động cụ thể (tạo ra giá trị sử dụng) và lao động trừu tượng (tạo ra giá trị). Lao động tư nhân/xã hội là mâu thuẫn cơ bản của sản xuất hàng hóa; lao động giản đơn/phức tạp là cách phân loại theo trình độ."
     },
     {
       "id": "MLN122-083",
       "type": "choice",
-      "prompt": "Ngoài giá trị thì giá cả của thị trưởng còn phụ thuộc v",
+      "prompt": "Ngoài giá trị thì giá cả của thị trường còn phụ thuộc vào",
       "options": [
         "Yếu tố cạnh tranh",
         "Yếu tố cạnh tranh, sức mua của đồng tiền.",
         "Yếu tố cạnh tranh, cung cầu, sức mua của đồng tiền.",
         "Yếu tố cạnh tranh, cung cầu, sức mua của đồng tiền, giá trị"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giá cả thị trường lấy giá trị làm cơ sở, nhưng còn chịu tác động của cạnh tranh, quan hệ cung - cầu và sức mua của đồng tiền. Phương án D nhắc lại \"giá trị\" trong khi đề đã nói \"ngoài giá trị\", nên C là đáp án đầy đủ và đúng."
     },
     {
       "id": "MLN122-090",
       "type": "choice",
-      "prompt": "Chon ý đúng về quan hệ cung - cầu đối với giá trị, giá cả",
+      "prompt": "Chọn ý đúng về quan hệ cung - cầu đối với giá trị, giá cả",
       "options": [
         "Có ảnh hưởng tới giá cả thị trường",
-        "Quyết định giá trị và giá cả hàng ho",
-        "Chỉ quyết định đến giá cả và có ảnh hưởng đến giá tr"
+        "Quyết định giá trị và giá cả hàng hóa",
+        "Chỉ quyết định đến giá cả và có ảnh hưởng đến giá trị"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Quan hệ cung - cầu không quyết định giá trị (giá trị do lao động xã hội cần thiết quyết định). Cung - cầu chỉ ảnh hưởng tới giá cả thị trường, làm giá cả dao động lên xuống quanh giá trị. Vì vậy chỉ A đúng."
     },
     {
       "id": "MLN122-115",
       "type": "choice",
       "prompt": "Điểm khác biệt giữa dịch vụ và hàng hóa thông thường đó là",
       "options": [
-        "Dich vu không thể cất tr",
-        "Dich vu phuc vu cho người k",
-        "Dich vu nhằm đáp ứng nhu cầu của khách hàng",
-        "Dich vu có tính thời đi"
+        "Dịch vụ không thể cất trữ",
+        "Dịch vụ phục vụ cho người khác",
+        "Dịch vụ nhằm đáp ứng nhu cầu của khách hàng",
+        "Dịch vụ có tính thời điểm"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Dịch vụ là hàng hóa vô hình: việc sản xuất và tiêu dùng diễn ra đồng thời nên dịch vụ không thể cất trữ. Đáp ứng nhu cầu khách hàng hay phục vụ người khác thì hàng hóa thông thường cũng có, nên không phải điểm khác biệt."
     },
     {
       "id": "MLN122-116",
@@ -314,19 +321,21 @@
         "Tỉ lệ nghịch với cường độ lao động",
         "Tỷ lệ thuận với năng suất lao động"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lượng giá trị của một đơn vị hàng hóa tỷ lệ nghịch với năng suất lao động. Tăng cường độ lao động làm tăng tổng số sản phẩm và tổng giá trị nhưng không làm thay đổi giá trị một đơn vị hàng hóa."
     },
     {
       "id": "MLN122-122",
       "type": "choice",
       "prompt": "Chọn câu sai khi nói về kinh tế thị trường",
       "options": [
-        "Kinh tế thi trưởng phát triển mạnh nhất trong xã hội chủ nghĩa tư bản",
+        "Kinh tế thị trường phát triển mạnh nhất trong xã hội tư bản chủ nghĩa",
         "Kinh tế thị trường đối lập với kinh tế tự nhiên",
-        "Kinh tế thi trưởng đối lập với các chế độ xã hội",
-        "Kinh tế thi trưởng Là thành tựu chung của nhân loại"
+        "Kinh tế thị trường đối lập với các chế độ xã hội",
+        "Kinh tế thị trường là thành tựu chung của nhân loại"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Kinh tế thị trường là thành tựu chung của nhân loại, đối lập với kinh tế tự nhiên (tự cung tự cấp) và phát triển mạnh nhất dưới chủ nghĩa tư bản. Nó không đối lập với các chế độ xã hội, có thể tồn tại trong nhiều chế độ khác nhau, kể cả định hướng xã hội chủ nghĩa. Vì vậy C là câu sai."
     },
     {
       "id": "MLN122-132",
@@ -336,9 +345,10 @@
         "Phương tiện lưu thông, phương tiện thanh toán; phương tiện mua bán; tiền tệ thế giới, thước đo giá trị",
         "Phương tiện lưu thông, phương tiện thanh toán; phương tiện cất trữ; tiền tệ thế giới, thước đo giá trị",
         "Phương tiện lưu thông, phương tiện trao đổi, phương tiện cất trữ; tiền tệ, thước đo giá trị",
-        "Phương tiện lưu thông, phương tiện thanh toán. phương tiện cất trữ, thước đo giá trị"
+        "Phương tiện lưu thông, phương tiện thanh toán; phương tiện cất trữ, thước đo giá trị"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tiền tệ có năm chức năng: thước đo giá trị, phương tiện lưu thông, phương tiện cất trữ, phương tiện thanh toán và tiền tệ thế giới. Chỉ B đủ năm chức năng; A thay cất trữ bằng \"mua bán\", C thay thanh toán bằng \"trao đổi\", D thiếu tiền tệ thế giới."
     },
     {
       "id": "MLN122-134",
@@ -350,7 +360,8 @@
         "Của cải dư thừa",
         "Khi có chế độ tư hữu xuất hiện"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Kinh tế hàng hóa ra đời và tồn tại khi có đủ hai điều kiện: phân công lao động xã hội và sự tách biệt về mặt kinh tế giữa các chủ thể sản xuất. B chỉ có một điều kiện nên chưa đủ."
     },
     {
       "id": "MLN122-135",
@@ -360,9 +371,10 @@
         "Trao đổi và mua bán",
         "Tiêu dùng",
         "Kiếm lợi nhuận",
-        "Tặng và biểu"
+        "Tặng và biếu"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Hàng hóa là sản phẩm của lao động, thỏa mãn nhu cầu nào đó của con người và được sản xuất ra để trao đổi, mua bán. Sản phẩm làm ra để tự tiêu dùng hoặc biếu tặng thì không phải hàng hóa."
     },
     {
       "id": "MLN122-142",
@@ -373,7 +385,8 @@
         "Tuần hoàn và chu chuyển tư bản",
         "Sản xuất và tiêu dùng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lạm phát làm giá cả tăng, sức mua của đồng tiền giảm, từ đó tác động trực tiếp tới sản xuất (chi phí, đầu tư) và tiêu dùng (thu nhập thực tế của người dân)."
     },
     {
       "id": "MLN122-145",
@@ -382,10 +395,11 @@
       "options": [
         "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành chi phí tối đa cho mình",
         "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành lợi ích tối đa cho mình",
-        "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành thi phần tối đa cho mình",
+        "Sự đấu tranh ở giữa các chủ thể kinh tế, để giành thị phần tối đa cho mình",
         "Sự đấu tranh ở giữa các chủ thể kinh tế"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Cạnh tranh là sự ganh đua, đấu tranh giữa các chủ thể kinh tế nhằm giành lợi ích tối đa cho mình. Thị phần chỉ là một phương tiện để đạt lợi ích, còn D thiếu mục đích."
     },
     {
       "id": "MLN122-147",
@@ -397,7 +411,8 @@
         "Do quan hệ cung - cầu",
         "Do ngẫu nhiên"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hàng hóa trao đổi với nhau theo một tỷ lệ nhất định vì chúng đều là sản phẩm của lao động; tỷ lệ đó do giá trị (lượng lao động xã hội cần thiết kết tinh) quy định. Tính hữu ích chỉ là điều kiện để trao đổi, cung - cầu chỉ làm giá cả dao động."
     },
     {
       "id": "MLN122-150",
@@ -409,7 +424,8 @@
         "Kéo dài thời gian lao động",
         "Mở rộng quy mô sản xuất, khai thác tài nguyên thiên nhiên"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tăng năng suất lao động là phương hướng cơ bản, lâu dài vì nó tạo ra nhiều sản phẩm hơn mà không cần tăng hao phí lao động. Tăng cường độ hay kéo dài thời gian lao động đều có giới hạn sinh lý; khai thác tài nguyên có giới hạn về tự nhiên."
     },
     {
       "id": "MLN122-156",
@@ -417,23 +433,25 @@
       "prompt": "Chọn câu sai khi nói về đặc điểm của kinh tế thị trường",
       "options": [
         "Kinh tế thị trường là kinh tế hàng hoá phát triển cao",
-        "Kinh tế thị trường lấy khoa hoc công nghệ hiện đại làm cơ s",
+        "Kinh tế thị trường lấy khoa học công nghệ hiện đại làm cơ sở",
         "Kinh tế thị trường chỉ có thể phát triển mạnh ở xã hội phong kiến",
-        "Kinh tế thị trường đạt đến trình độ cao trong chủ nghĩa tư bả"
+        "Kinh tế thị trường đạt đến trình độ cao trong chủ nghĩa tư bản"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Kinh tế thị trường là kinh tế hàng hóa phát triển cao, đạt trình độ cao nhất trong chủ nghĩa tư bản và lấy khoa học công nghệ hiện đại làm cơ sở. Dưới chế độ phong kiến kinh tế thị trường mới chỉ hình thành, chưa thể phát triển mạnh, nên C sai."
     },
     {
       "id": "MLN122-157",
       "type": "choice",
-      "prompt": "Chon câu sai: Khuyết tật của kinh tế thị trường l",
+      "prompt": "Chọn câu sai: Khuyết tật của kinh tế thị trường là",
       "options": [
-        "Luôn run rủi ro ẩn chứa",
+        "Luôn tiềm ẩn những rủi ro khủng hoảng",
         "Nhà nước không thể sửa chữa",
-        "Không tự phục hồi được sắc độ phân tích trong xã hội",
-        "Không thể tự phục hồi tài nguyên kiệt"
+        "Không tự khắc phục được hiện tượng phân hóa sâu sắc trong xã hội",
+        "Không tự khắc phục được xu hướng cạn kiệt tài nguyên"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giáo trình (trang PDF 38–39) nêu ba khuyết tật của kinh tế thị trường: luôn tiềm ẩn rủi ro khủng hoảng; không tự khắc phục được xu hướng cạn kiệt tài nguyên, suy thoái môi trường; không tự khắc phục được hiện tượng phân hóa sâu sắc trong xã hội. Những khuyết tật này cần được nhà nước bổ sung và điều tiết, nên \"nhà nước không thể sửa chữa\" là câu sai."
     },
     {
       "id": "MLN122-159",
@@ -442,9 +460,10 @@
       "options": [
         "Giá trị của hàng hoá",
         "Quan hệ cung cầu về hàng hoá",
-        "Giá trị sử dụng của hàng h"
+        "Giá trị sử dụng của hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị là cơ sở, là yếu tố quyết định giá cả; giá cả là hình thức biểu hiện bằng tiền của giá trị. Quan hệ cung - cầu chỉ làm giá cả dao động quanh giá trị."
     },
     {
       "id": "MLN122-174",
@@ -456,19 +475,21 @@
         "Sáu chức năng",
         "Bảy chức năng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tiền tệ có năm chức năng: thước đo giá trị, phương tiện lưu thông, phương tiện cất trữ, phương tiện thanh toán và tiền tệ thế giới."
     },
     {
       "id": "MLN122-183",
       "type": "choice",
-      "prompt": "Tiền tệ ra đời là do nhu cầu.",
+      "prompt": "Tiền tệ ra đời là do nhu cầu nào?",
       "options": [
         "Nhu cầu sản xuất hàng hóa và trao đổi hàng hóa",
         "Nhu cầu lưu thông hàng hóa",
         "Nhu cầu lưu thông tiền tệ",
         "Nhu cầu sản xuất giá trị"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tiền tệ ra đời từ quá trình phát triển lâu dài của sản xuất và trao đổi hàng hóa: khi trao đổi mở rộng, cần một vật ngang giá chung cố định, và vàng, bạc trở thành tiền."
     },
     {
       "id": "MLN122-186",
@@ -479,7 +500,8 @@
         "Đặc điểm của giai đoạn chủ nghĩa tư bản độc quyền tự do cạnh tranh",
         "Đặc điểm của giai đoạn chủ nghĩa tư bản độc quyền nhà nước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Xuất khẩu hàng hóa (mang hàng ra nước ngoài bán để thực hiện giá trị) là đặc điểm của chủ nghĩa tư bản tự do cạnh tranh. Sang giai đoạn độc quyền thì xuất khẩu tư bản mới là đặc điểm nổi bật."
     },
     {
       "id": "MLN122-192",
@@ -487,11 +509,12 @@
       "prompt": "Sự phát triển các hình thái giá trị bao gồm:",
       "options": [
         "Hình thái giá trị ngẫu nhiên, hình thái giá trị chung, hình thái tiền",
-        "Hình thái giá trị ngẫu nhiên; hình thái giá trị thu hep; hình thái giá trị chung; hình thái tiền",
+        "Hình thái giá trị ngẫu nhiên; hình thái giá trị thu hẹp; hình thái giá trị chung; hình thái tiền",
         "Hình thái giá trị ngẫu nhiên; hình thái giá trị mở rộng (đầy đủ); hình thái giá trị chung; hình thái tiền",
         "Hình thái giá trị mở rộng (đầy đủ); hình thái giá trị chung; hình thái tiền"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Hình thái giá trị phát triển qua bốn bước: giản đơn (ngẫu nhiên), mở rộng (đầy đủ), chung và hình thái tiền. B thay \"mở rộng\" bằng \"thu hẹp\"; A và D thiếu một hình thái."
     },
     {
       "id": "MLN122-194",
@@ -503,7 +526,8 @@
         "Có hệ thống pháp quy kiện toàn và sự quản lý văn hóa xã hội của Nhà nước",
         "Có hệ thống pháp quy kiện toàn và sự quản lý kinh tế, giáo dục của Nhà nước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Một đặc điểm chung của mọi nền kinh tế thị trường là có hệ thống pháp quy kiện toàn và sự quản lý vĩ mô của nhà nước. Nhà nước điều tiết ở tầm vĩ mô chứ không quản lý trực tiếp, can thiệp vào hoạt động của doanh nghiệp."
     },
     {
       "id": "MLN122-195",
@@ -511,24 +535,25 @@
       "prompt": "Một trong những đặc điểm chủ yếu của bất kỳ xã hội nào lấy thị trường làm phương tiện có tính cơ sở để phân phối các nguồn lực kinh tế là?",
       "options": [
         "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền tự chủ trong sản xuất, kinh doanh, lỗ lãi tự chịu",
-        "Các chủ thể kinh tế không có tính độc lập, nghĩ là không có quyền tự chủ trong sản xuất, kinh doanh, lỗ lãi tự chịu",
+        "Các chủ thể kinh tế không có tính độc lập, nghĩa là không có quyền tự chủ trong sản xuất, kinh doanh, lỗ lãi tự chịu",
         "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền quyết định lỗ lãi",
         "Các chủ thể kinh tế có tính độc lập, nghĩa là có quyền làm bất cứ những gì họ muốn"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong kinh tế thị trường, các chủ thể kinh tế có tính độc lập: được tự chủ sản xuất, kinh doanh và tự chịu lỗ lãi. C chỉ có \"quyền quyết định lỗ lãi\" (vô nghĩa), D sai vì vẫn phải tuân theo pháp luật."
     },
     {
       "id": "MLN122-196",
       "type": "choice",
-      "prompt": "Loại tiền nào được hiểu là phương tiện thanh toán mà giá tri hay sức mua của nó với tư cách là tiền vượt xa chi phí sản xuất ra nó hay giá trị của nó khi dùng vào việc khác, chứ không dùng làm tiền",
+      "prompt": "Loại tiền nào được hiểu là phương tiện thanh toán mà giá trị hay sức mua của nó với tư cách là tiền vượt xa chi phí sản xuất ra nó hay giá trị của nó khi dùng vào việc khác, chứ không dùng làm tiền?",
       "options": [
         "Tiền quy ước",
         "Tiền tượng trưng",
         "Tiền ghi nợ",
         "Tiền vàng"
       ],
-      "correct": 3,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, D: 3). Nên đối chiếu giáo trình."
+      "correct": 0,
+      "explanation": "Đã sửa đáp án: file gốc chọn D (3 bản) và A (1 bản). Đây là định nghĩa của David Begg về \"token money\" (bản dịch tiếng Việt: tiền quy ước): giá trị của nó với tư cách là tiền vượt xa chi phí sản xuất ra nó. Tiền vàng là tiền hàng hóa, giá trị tiền bằng giá trị của chính kim loại vàng, nên không phù hợp."
     },
     {
       "id": "MLN122-200",
@@ -539,7 +564,8 @@
         "Kiểu tổ chức kinh tế mà sản phẩm làm ra phải tuân thủ các quy luật của thị trường nhằm thỏa mãn nhu cầu của xã hội",
         "Kiểu tổ chức kinh tế do các quy luật sản xuất và lưu thông quyết định nhằm thỏa mãn nhu cầu của thị trường"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sản xuất hàng hóa là kiểu tổ chức kinh tế mà sản phẩm làm ra để trao đổi, mua bán trên thị trường nhằm thỏa mãn nhu cầu xã hội. Khác với sản xuất tự cấp tự túc, sản phẩm làm ra để tự tiêu dùng."
     },
     {
       "id": "MLN122-204",
@@ -551,7 +577,8 @@
         "Sản xuất với giá cả nào? sản xuất với hàng hóa gì? cung cầu ra sao?",
         "Sản xuất cái gì? sản xuất ở đâu? giá thành sản xuất như thế nào?"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Thị trường giúp giải quyết ba vấn đề cơ bản của mọi nền kinh tế: sản xuất cái gì, sản xuất như thế nào và sản xuất cho ai."
     },
     {
       "id": "MLN122-206",
@@ -562,18 +589,20 @@
         "Những sản vật trao đổi",
         "Những sản phẩm trao đổi"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Câu của C. Mác: chỉ khi sản phẩm là kết quả của những lao động tư nhân độc lập, không phụ thuộc nhau (tức có sự tách biệt kinh tế) thì chúng mới đối diện với nhau như những hàng hóa trong trao đổi."
     },
     {
       "id": "MLN122-209",
       "type": "choice",
-      "prompt": "Trong kinh tế hàng hóa, cạnh tranh có tác dung.",
+      "prompt": "Trong kinh tế hàng hóa, cạnh tranh có tác dụng",
       "options": [
         "Nó làm cho sản xuất thiếu tính nhân văn",
         "Nó buộc người sản xuất phải thường xuyên năng động, nhạy bén.",
         "Nó làm cho sản xuất mang tính nhân văn hơn"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Cạnh tranh buộc người sản xuất phải năng động, nhạy bén, cải tiến kỹ thuật, nâng cao năng suất và chất lượng để không bị đào thải. Đây là tác dụng tích cực; tính nhân văn không phải nội dung của cạnh tranh."
     },
     {
       "id": "MLN122-211",
@@ -582,20 +611,22 @@
       "options": [
         "Đều làm tăng số hàng hóa sản xuất ra trong một thời gian",
         "Đều làm tăng lượng lao động hao phí trong 1 đơn vị thời gian",
-        "Đều làm giá trị đơn vị hàng hoá gi"
+        "Đều làm giá trị đơn vị hàng hoá giảm"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tăng năng suất và tăng cường độ lao động giống nhau ở chỗ đều làm tăng số sản phẩm sản xuất ra trong cùng thời gian. Khác nhau: tăng năng suất làm giá trị 1 đơn vị giảm; tăng cường độ làm tăng hao phí lao động nhưng giá trị 1 đơn vị không đổi."
     },
     {
       "id": "MLN122-213",
       "type": "choice",
-      "prompt": "Chon các ý không đúng về sản phẩm và hàng hoá.",
+      "prompt": "Chọn các ý không đúng về sản phẩm và hàng hoá",
       "options": [
-        "Moi sản phẩm đều là hàng hoá",
-        "Moi sản phẩm đều là kết quả của sản xuất",
-        "Không phải mọi sản phẩm đều là hàng ho"
+        "Mọi sản phẩm đều là hàng hoá",
+        "Mọi sản phẩm đều là kết quả của sản xuất",
+        "Không phải mọi sản phẩm đều là hàng hoá"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sản phẩm là kết quả của sản xuất, nhưng chỉ sản phẩm làm ra để trao đổi, mua bán mới là hàng hóa. Vì vậy \"mọi sản phẩm đều là hàng hóa\" là ý không đúng; B và C đều đúng."
     },
     {
       "id": "MLN122-217",
@@ -604,9 +635,10 @@
       "options": [
         "Hao phí lao động cá biệt của người sản xuất quyết định",
         "Hao phí lao động cá biệt của người sản xuất nhiều hàng hoá quyết định",
-        "Hao phí lao động của ngành quyết đin"
+        "Hao phí lao động của ngành quyết định"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị cá biệt của hàng hóa do hao phí lao động cá biệt của từng người sản xuất quyết định. Giá trị xã hội (giá trị thị trường) mới do hao phí lao động xã hội cần thiết của ngành quyết định."
     },
     {
       "id": "MLN122-218",
@@ -615,14 +647,15 @@
       "options": [
         "Giá cả của từng hàng hoá luôn luôn bằng giá trị của nó",
         "Giá trị luôn luôn bằng giá cả",
-        "Giá cả có thể tách rời giá trị và xoay quanh giá trị của"
+        "Giá cả có thể tách rời giá trị và xoay quanh giá trị của nó"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ngang giá không có nghĩa giá cả từng lần trao đổi luôn bằng giá trị. Do cung - cầu, giá cả có thể tách rời giá trị nhưng luôn xoay quanh giá trị; xét trên toàn xã hội thì tổng giá cả bằng tổng giá trị."
     },
     {
       "id": "MLN122-258",
       "type": "choice",
-      "prompt": "Chon ý đúng về tăng NSLĐ và tăng cường độ lao động:",
+      "prompt": "Chọn ý đúng về tăng NSLĐ và tăng cường độ lao động:",
       "options": [
         "Tăng NSLĐ làm cho số sản phẩm làm ra trong một đơn vị thời gian tăng lên, còn giá trị 1 đơn vị hàng hoá thay đổi",
         "Tăng cường độ lao động làm cho số sản phẩm làm ra trong 1 đơn vị thời gian tăng lên, còn giá trị 1 đơn vị hàng hoá không thay đổi",
@@ -640,9 +673,10 @@
         "Là những lao động có thể quan sát được, nhìn thấy được",
         "Là những lao động ngành nghề",
         "Là hoạt động có mục đích của con người",
-        "Là những lao động ngành nghề cụ thể, có mục đích riêng, có đối tượng riêng , thao tác riêng và kết quả riê"
+        "Là những lao động ngành nghề cụ thể, có mục đích riêng, có đối tượng riêng, thao tác riêng và kết quả riêng"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lao động cụ thể là lao động có ích dưới một hình thức cụ thể của những nghề nghiệp chuyên môn nhất định; mỗi lao động cụ thể có mục đích, đối tượng, phương pháp, công cụ và kết quả riêng. Lao động cụ thể tạo ra giá trị sử dụng."
     },
     {
       "id": "MLN122-278",
@@ -651,9 +685,10 @@
       "options": [
         "Giá trị của nó càng cao",
         "Giá cả của nó càng cao",
-        "Cả giá trị và giá cả của hàng hóa càng ca"
+        "Cả giá trị và giá cả của hàng hóa càng cao"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giá trị hàng hóa do lao động xã hội cần thiết quyết định, không phụ thuộc vào sự khan hiếm. Hàng khan hiếm (cầu lớn hơn cung) chỉ làm giá cả tăng lên cao hơn giá trị."
     },
     {
       "id": "MLN122-279",
@@ -665,7 +700,8 @@
         "Chế độ tư hữu về tư liệu sản xuất",
         "Nhu cầu trao đổi trong xã hội tăng lên"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sản xuất hàng hóa ra đời và tồn tại khi có đủ hai điều kiện: phân công lao động xã hội và sự tách biệt về mặt kinh tế giữa các chủ thể sản xuất."
     },
     {
       "id": "MLN122-281",
@@ -676,7 +712,8 @@
         "Phân công lao động cá biệt và chế độ tư hữu về tư liệu sản xuất",
         "Phân công lao động chung và chế độ sở hữu khác nhau về TLSX"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sản xuất hàng hóa xuất hiện khi có phân công lao động xã hội và sự tách biệt kinh tế giữa những người sản xuất, mà cơ sở của sự tách biệt đó là chế độ tư hữu hoặc các hình thức sở hữu khác nhau về tư liệu sản xuất."
     },
     {
       "id": "MLN122-282",
@@ -688,7 +725,8 @@
         "Lao động sử dụng những công cụ lao động giản đơn",
         "Là lao động không đòi hỏi phải có sự huấn luyện trước về chuyên môn, bất cứ người nào đến tuổi lao động trong điều kiện bình thường đều tiến hành được"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lao động giản đơn là lao động không đòi hỏi quá trình đào tạo chuyên môn; bất kỳ người bình thường nào đến tuổi lao động cũng làm được. Lao động phức tạp là lao động phải qua đào tạo, tạo ra nhiều giá trị hơn trong cùng thời gian."
     },
     {
       "id": "MLN122-286",
@@ -697,21 +735,23 @@
       "options": [
         "Là mâu thuẫn giữa lao động tư nhân và lao động xã hội",
         "Là mâu thuẫn giữa lao động cụ thể và lao động trừu tượng",
-        "Là mâu thuẫn giữa giá trị sử dụng và giá tr",
+        "Là mâu thuẫn giữa giá trị sử dụng và giá trị",
         "Là mâu thuẫn giữa giá trị và giá cả hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mâu thuẫn cơ bản của sản xuất hàng hóa là mâu thuẫn giữa lao động tư nhân và lao động xã hội: người sản xuất làm theo ý riêng nhưng sản phẩm phải được xã hội chấp nhận qua trao đổi."
     },
     {
       "id": "MLN122-287",
       "type": "choice",
       "prompt": "Hai hàng hoá trao đổi được với nhau vì:",
       "options": [
-        "có lượng thời gian hao phí lao động xã hội cần thiết để sản xuất ra chúng bằng nhau.",
+        "Có lượng thời gian hao phí lao động xã hội cần thiết để sản xuất ra chúng bằng nhau.",
         "Chúng cùng là sản phẩm của lao động.",
         "Các phương án trả lời đều đúng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Hai hàng hóa trao đổi được với nhau vì chúng đều là sản phẩm của lao động, và tỷ lệ trao đổi dựa trên lượng thời gian lao động xã hội cần thiết để sản xuất ra chúng. Cả hai ý đều đúng."
     },
     {
       "id": "MLN122-288",
@@ -720,9 +760,10 @@
       "options": [
         "Giá trị của hàng hoá",
         "Quan hệ cung cầu về hàng hoá",
-        "Giá trị sử dụng của hàng h"
+        "Giá trị sử dụng của hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị hàng hóa là yếu tố quyết định giá cả; cung - cầu, cạnh tranh, sức mua của tiền chỉ làm giá cả dao động xung quanh giá trị."
     },
     {
       "id": "MLN122-289",
@@ -734,7 +775,8 @@
         "Sản xuất giá trị thặng dư",
         "Quy luật cung cầu"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khi nghiên cứu phương thức sản xuất tư bản chủ nghĩa, C. Mác bắt đầu từ sản xuất hàng hóa giản đơn và hàng hóa (\"tế bào kinh tế\" của xã hội tư bản), sau đó mới phân tích tiền tệ, tư bản và giá trị thặng dư."
     },
     {
       "id": "MLN122-290",
@@ -742,10 +784,11 @@
       "prompt": "Trong những trường hợp nào sau đây của hao phí lao động cá biệt, trường hợp nào không đáp ứng yêu cầu của quy luật giá trị?",
       "options": [
         "Hao phí lao động cá biệt < hao phí lao động xã hội cần thiết",
-        "Hao phí lao động cá biệt    hao phí lao động xã hội cần thiết",
+        "Hao phí lao động cá biệt = hao phí lao động xã hội cần thiết",
         "Hao phí lao động cá biệt > hao phí lao động xã hội cần thiết"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Quy luật giá trị đòi hỏi hao phí lao động cá biệt phải phù hợp (bằng hoặc thấp hơn) hao phí lao động xã hội cần thiết. Nếu hao phí cá biệt cao hơn mức xã hội cần thiết, người sản xuất sẽ không bù được chi phí và bị thua lỗ."
     },
     {
       "id": "MLN122-293",
@@ -756,7 +799,8 @@
         "Hao phí lao động xã hội trong điều kiện sản xuất trung bình",
         "Hao phí lao động xã hội trong điều kiện sản xuất khó khăn nhất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị xã hội của mọi hàng hóa, dù là công nghiệp hay nông nghiệp, đều do hao phí lao động xã hội cần thiết quyết định. Chỉ khác là trong nông nghiệp, giá cả sản xuất được tính theo điều kiện sản xuất trên ruộng đất xấu nhất."
     },
     {
       "id": "MLN122-295",
@@ -767,7 +811,8 @@
         "Tỷ lệ thuận với cường độ lao động",
         "Tỉ lệ nghịch với cường độ lao động"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tăng cường độ lao động làm tăng cả số sản phẩm và tổng hao phí lao động theo cùng tỷ lệ, nên lượng giá trị của một đơn vị hàng hóa không thay đổi. Giá trị đơn vị chỉ tỷ lệ nghịch với năng suất lao động."
     },
     {
       "id": "MLN122-297",
@@ -778,7 +823,8 @@
         "Phân phối và trao đổi",
         "Tiêu dùng"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cung gắn với sản xuất (lượng hàng hóa đưa ra thị trường), cầu gắn với tiêu dùng (nhu cầu có khả năng thanh toán). Vì vậy quan hệ cung - cầu phản ánh mối quan hệ giữa sản xuất và tiêu dùng."
     },
     {
       "id": "MLN122-298",
@@ -790,19 +836,21 @@
         "Khi không còn quan hệ trao đổi trực tiếp, có một thứ hàng làm trung gian trong trao đổi",
         "Khi nhu cầu trao đổi vượt quá phạm vi quốc gia"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tiền tệ ra đời khi vật ngang giá chung được cố định ở vàng, bạc (hình thái tiền). Trước đó, ở hình thái giá trị chung, vật ngang giá chung chưa cố định ở một thứ hàng hóa."
     },
     {
       "id": "MLN122-300",
       "type": "choice",
-      "prompt": "Vì sao hàng hóa có hai thuộc tính là giá trị và giá trị sử dụng",
+      "prompt": "Vì sao hàng hóa có hai thuộc tính là giá trị và giá trị sử dụng?",
       "options": [
-        "Vì lao động sản xuất hàng hóa có tính hai mặt là : lao động cụ thể và lao động trừu tượng",
+        "Vì lao động sản xuất hàng hóa có tính hai mặt là: lao động cụ thể và lao động trừu tượng",
         "Vì có lao động giản đơn và lao động phức tạp",
         "Vì có lao động quá khứ và lao động sống",
         "Vì nhu cầu trong trao đổi hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Hàng hóa có hai thuộc tính vì lao động sản xuất hàng hóa có tính hai mặt: lao động cụ thể tạo ra giá trị sử dụng, lao động trừu tượng tạo ra giá trị."
     },
     {
       "id": "MLN122-305",
@@ -814,7 +862,8 @@
         "Là một kiểu tổ chức kinh tế trong đó những sản phẩm được sản xuất ra nhằm mục đích thỏa mãn nhu cầu tiêu dùng của bản thân người sản xuất",
         "Sản xuất và tái sản xuất"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Sản xuất tự cung tự cấp là kiểu tổ chức kinh tế mà sản phẩm làm ra để thỏa mãn nhu cầu tiêu dùng của chính người sản xuất (của gia đình, công xã), không đem trao đổi, mua bán. A và B chỉ là biểu hiện, chưa phải khái niệm."
     },
     {
       "id": "MLN122-306",
@@ -825,7 +874,8 @@
         "Là lao động tạo ra các sản phẩm chất lượng cao, tinh vi",
         "Là lao động có nhiều thao tác phức tạp"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lao động phức tạp là lao động phải qua đào tạo, huấn luyện về chuyên môn mới làm được. Trong cùng thời gian, lao động phức tạp tạo ra nhiều giá trị hơn lao động giản đơn."
     },
     {
       "id": "MLN122-307",
@@ -836,7 +886,8 @@
         "Gửi ngân hàng",
         "Đầu tư vào sản xuất kinh doanh"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khi lạm phát phi mã, tiền mất giá rất nhanh, lãi suất ngân hàng thường không theo kịp mức tăng giá. Mua hàng hóa hoặc vàng để cất giữ giúp bảo toàn giá trị tài sản tốt nhất."
     },
     {
       "id": "MLN122-310",
@@ -847,42 +898,45 @@
         "Lao động giản đơn và lao động phức tạp",
         "Lao động tư nhân và lao động xã hội"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tính hai mặt của lao động sản xuất hàng hóa (lao động cụ thể và lao động trừu tượng) là phát hiện riêng của C. Mác. Nhờ phát hiện này, Mác giải thích được nguồn gốc giá trị và giá trị thặng dư mà các nhà cổ điển chưa làm được."
     },
     {
       "id": "MLN122-312",
       "type": "choice",
-      "prompt": "Điều kiện để ra đời và tồn tại của sản xuất hàng hóa:",
+      "prompt": "Khi tăng cường độ lao động thì",
       "options": [
         "Số lượng hàng hoá làm ra trong một đơn vị thời gian tăng lên",
         "Số lượng lao động hao phí trong thời gian đó không thay đổi",
         "Giá trị 1 đơn vị hàng hoá giảm"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lưu ý: câu hỏi trong file gốc bị lỗi (đề là \"điều kiện ra đời sản xuất hàng hóa\" nhưng các phương án lại nói về năng suất, cường độ lao động), đã sửa lại câu hỏi cho khớp phương án. Khi tăng cường độ lao động, số hàng hóa làm ra trong một đơn vị thời gian tăng lên, nhưng lao động hao phí cũng tăng theo nên giá trị một đơn vị hàng hóa không đổi. Vì vậy chỉ A đúng."
     },
     {
       "id": "MLN122-313",
       "type": "choice",
       "prompt": "Lượng giá trị của hàng hóa là yếu tố",
       "options": [
-        "Cố đinh",
+        "Cố định",
         "Luôn luôn thay đổi",
         "Tùy thuộc vào nền sản xuất hàng hóa"
       ],
-      "correct": 0,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 2, B: 2). Nên đối chiếu giáo trình."
+      "correct": 1,
+      "explanation": "Đã sửa đáp án: file gốc chia đôi (A: 2 bản, B: 2 bản). Lượng giá trị của hàng hóa không cố định: nó do thời gian lao động xã hội cần thiết quyết định và thay đổi theo năng suất lao động (tỷ lệ nghịch) cũng như theo tính chất phức tạp của lao động. Vì vậy chọn \"luôn luôn thay đổi\"."
     },
     {
       "id": "MLN122-315",
       "type": "choice",
       "prompt": "Điểm giống nhau giữa tăng năng suất lao động và tăng cường độ lao động?",
       "options": [
-        "Điều làm giảm giá trị của một đơn vị hàng hóa",
+        "Đều làm giảm giá trị của một đơn vị hàng hóa",
         "Đều làm tăng thêm sản lượng sản phẩm được sản xuất ra trong một đơn vị thời gian",
         "Đều làm tăng lượng lao động hao phí trong một đơn vị thời gian",
         "Đều gắn với tiến bộ kỹ thuật"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tăng năng suất và tăng cường độ lao động đều làm tăng số sản phẩm làm ra trong một đơn vị thời gian. Chỉ tăng năng suất mới làm giảm giá trị một đơn vị hàng hóa và gắn với tiến bộ kỹ thuật; chỉ tăng cường độ mới làm tăng hao phí lao động."
     },
     {
       "id": "MLN122-319",
@@ -893,32 +947,34 @@
         "Giá trị trao đổi của hàng hóa",
         "Công dụng của hàng hóa"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giá trị sử dụng là công dụng của hàng hóa, khả năng thỏa mãn một nhu cầu nào đó của con người. Mức khan hiếm không phải giá trị sử dụng, còn giá trị trao đổi là hình thức biểu hiện của giá trị."
     },
     {
       "id": "MLN122-321",
       "type": "choice",
-      "prompt": "Nguồn gốc của giá trị hàng hóa được tạo ra từ đầu?",
+      "prompt": "Nguồn gốc của giá trị hàng hóa được tạo ra từ đâu?",
       "options": [
         "Từ sản xuất",
         "Từ lưu thông",
-        "Cà sản xuất và lưu thông",
+        "Cả sản xuất và lưu thông",
         "Từ những kết quả của sự phát minh"
       ],
-      "correct": 1,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+      "correct": 0,
+      "explanation": "Đã sửa đáp án: file gốc chọn B ở 3 bản và A ở 1 bản. Theo C. Mác, giá trị hàng hóa do lao động của người sản xuất tạo ra trong quá trình sản xuất; lưu thông (mua bán) chỉ thực hiện giá trị chứ không tạo ra giá trị mới. Vì vậy chọn \"từ sản xuất\"."
     },
     {
       "id": "MLN122-323",
       "type": "choice",
-      "prompt": "Trong các yếu tố sau đây, yếu tố nào được xác định là thực thể giá trị của hàng hóa",
+      "prompt": "Trong các yếu tố sau đây, yếu tố nào được xác định là thực thể giá trị của hàng hóa?",
       "options": [
         "Lao động cụ thể",
         "Lao động giản đơn",
         "Lao động phức tạp",
         "Lao động trừu tượng"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lao động trừu tượng (sự hao phí sức lao động nói chung của con người) là thực thể của giá trị hàng hóa. Lao động cụ thể tạo ra giá trị sử dụng; giản đơn/phức tạp chỉ là phân loại theo trình độ."
     },
     {
       "id": "MLN122-326",
@@ -930,7 +986,8 @@
         "Xuất khẩu giá trị ra nước ngoài",
         "Xuất khẩu hàng hóa ra nước ngoài để thực hiện giá trị"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Xuất khẩu hàng hóa là mang hàng hóa ra nước ngoài bán để thực hiện giá trị (thu tiền về). Khác với xuất khẩu tư bản là mang tư bản ra nước ngoài đầu tư để thu giá trị thặng dư."
     },
     {
       "id": "MLN122-329",
@@ -942,7 +999,8 @@
         "Quy luật lưu thông tiền tệ",
         "Quy luật giá trị"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Quy luật giá trị là quy luật kinh tế căn bản của sản xuất và lưu thông hàng hóa: sản xuất và trao đổi phải dựa trên hao phí lao động xã hội cần thiết. Cạnh tranh, cung - cầu, lưu thông tiền tệ là các quy luật khác của kinh tế thị trường."
     },
     {
       "id": "MLN122-331",
@@ -954,19 +1012,21 @@
         "Chức năng thước đo giá trị, chức năng tích lũy và chức năng cất trữ",
         "Chức năng thước đo giá trị; chức năng tích lũy, cất trữ và chức năng tiền tệ thế giới"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Các chức năng thước đo giá trị, phương tiện cất trữ (tích lũy) và tiền tệ thế giới đòi hỏi tiền phải có đủ giá trị, tức là tiền vàng. Còn chức năng phương tiện lưu thông và phương tiện thanh toán có thể dùng tiền giấy."
     },
     {
       "id": "MLN122-333",
       "type": "choice",
       "prompt": "Phân công lao động xã hội là cơ sở của sản xuất hàng hóa với:",
       "options": [
-        "Phân công lao động xã hội dẫn tới chuyên môn hóa, hiệp tác hóa. Mỗi người chuyên sản xuất một loại sản phẩm. Ho cần sản phẩm của nhau",
+        "Phân công lao động xã hội dẫn tới chuyên môn hóa, hiệp tác hóa. Mỗi người chuyên sản xuất một loại sản phẩm. Họ cần sản phẩm của nhau",
         "Phân công lao động xã hội làm nảy sinh quan hệ trao đổi",
         "Phân công lao động xã hội là cơ sở của thị trường",
-        "Cả a, b, c."
+        "Cả A, B, C"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Phân công lao động xã hội dẫn tới chuyên môn hóa: mỗi người chỉ làm một loại sản phẩm nhưng lại cần nhiều thứ khác, nên phải trao đổi với nhau; từ đó hình thành quan hệ trao đổi và thị trường. Cả ba ý đều đúng."
     },
     {
       "id": "MLN122-334",
@@ -978,19 +1038,20 @@
         "Là sự chuyên môn hóa nhất định đối với người sản xuất",
         "Là chia nhỏ quá trình sản xuất, mỗi người chuyên đảm nhận một công đoạn"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Phân công lao động xã hội là sự phân chia lao động xã hội thành các ngành, nghề khác nhau, tạo nên sự chuyên môn hóa của những người sản xuất. B và D mô tả phân công lao động trong nội bộ xí nghiệp; C mới là một vế."
     },
     {
       "id": "MLN122-336",
       "type": "choice",
-      "prompt": "Giá trị sử dụng của hàng hóa phản ánh tính chất nào sau đây",
+      "prompt": "Giá trị sử dụng của hàng hóa phản ánh tính chất nào sau đây?",
       "options": [
         "Tính chất tư nhân của hàng hóa",
         "Tính chất xã hội của hàng hóa",
         "Cả tính chất tư nhân và tính chất xã hội của hàng hóa"
       ],
       "correct": 1,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (A: 1, B: 3). Nên đối chiếu giáo trình."
+      "explanation": "Giá trị sử dụng của hàng hóa không phải cho người sản xuất mà là giá trị sử dụng cho người khác, cho xã hội (thông qua trao đổi). Vì vậy nó phản ánh tính chất xã hội của hàng hóa."
     },
     {
       "id": "MLN122-338",
@@ -999,10 +1060,11 @@
       "options": [
         "Là những vật để thỏa mãn nhu cầu tiêu dùng của con người",
         "Là hết thảy những vật, những thứ thỏa mãn nhu cầu tiêu dùng của con người và chúng được sản xuất ra để trao đổi, buôn bán",
-        "Là những vật có giá trị sử dụng ca",
+        "Là những vật có giá trị sử dụng cao",
         "Là những vật mà trên thị trường luôn khan hiếm"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hàng hóa là sản phẩm của lao động, có thể thỏa mãn nhu cầu nào đó của con người và được sản xuất ra để trao đổi, mua bán. A thiếu điều kiện \"để trao đổi\"; C, D không phải định nghĩa."
     },
     {
       "id": "MLN122-339",
@@ -1010,22 +1072,24 @@
       "prompt": "Trong kinh tế hàng hóa, lạm phát là hiện tượng kinh tế",
       "options": [
         "Bất bình thường",
-        "Bất ổn đinh",
+        "Bất ổn định",
         "Bình thường"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Theo file gốc, trong nền kinh tế hàng hóa – tiền tệ, lạm phát (ở mức vừa phải) là hiện tượng kinh tế thường xuyên xảy ra, gắn với quy luật lưu thông tiền tệ. Chỉ khi lạm phát phi mã, siêu lạm phát thì mới gây bất ổn nghiêm trọng."
     },
     {
       "id": "MLN122-340",
       "type": "choice",
       "prompt": "Cơ sở chung của quan hệ trao đổi giữa các hàng hóa là gì?",
       "options": [
-        "Là công dung của hàng hóa",
+        "Là công dụng của hàng hóa",
         "Là hao phí lao động kết tinh trong hàng hóa",
         "Là nhu cầu của sự tiêu dùng",
         "Là sự khan hiếm của hàng hóa"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Các hàng hóa có giá trị sử dụng khác nhau vẫn trao đổi được với nhau vì chúng đều là sản phẩm của lao động; hao phí lao động kết tinh trong hàng hóa (giá trị) là cơ sở chung của trao đổi."
     },
     {
       "id": "MLN122-342",
@@ -1037,18 +1101,20 @@
         "Đất đai",
         "Kỹ thuật, công nghệ sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Nguồn gốc duy nhất của giá trị hàng hóa là lao động của con người (lao động trừu tượng). Máy móc, đất đai, kỹ thuật chỉ là điều kiện, giá trị của máy móc chỉ được chuyển sang sản phẩm chứ không tạo ra giá trị mới."
     },
     {
       "id": "MLN122-345",
       "type": "choice",
-      "prompt": "Trong sản xuất hàng hóa tồn tại song song bao nhiêu mặt",
+      "prompt": "Trong sản xuất hàng hóa tồn tại song song bao nhiêu mặt?",
       "options": [
         "Một mặt",
         "Ba mặt",
         "Hai mặt"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lao động sản xuất hàng hóa có tính hai mặt: mặt cụ thể (lao động cụ thể) và mặt trừu tượng (lao động trừu tượng). Hai mặt này tồn tại song song trong cùng một quá trình lao động."
     },
     {
       "id": "MLN122-346",
@@ -1056,22 +1122,24 @@
       "prompt": "Mục đích của sản xuất hàng hóa là thỏa mãn nhu cầu của",
       "options": [
         "Người sản xuất",
-        "Thi trường",
-        "Của người sản xuất và tiêu dùng"
+        "Thị trường",
+        "Người sản xuất và người tiêu dùng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Sản xuất hàng hóa nhằm thỏa mãn nhu cầu của thị trường (của người khác), không phải nhu cầu tiêu dùng của chính người sản xuất như trong kinh tế tự cấp tự túc."
     },
     {
       "id": "MLN122-347",
       "type": "choice",
-      "prompt": "\"Lao động là cha, còn đất là mẹ của mọi của cải\". Khái niệm lao động trong câu nói này là lao động nào",
+      "prompt": "\"Lao động là cha, còn đất là mẹ của mọi của cải\". Khái niệm lao động trong câu nói này là lao động nào?",
       "options": [
         "Lao động giản đơn",
         "Lao động phức tạp",
         "Lao động cụ thể",
         "Lao động trừu tượng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Câu nói của W. Petty \"lao động là cha, đất là mẹ của mọi của cải\" nói về việc tạo ra của cải (giá trị sử dụng). Lao động tạo ra giá trị sử dụng là lao động cụ thể, kết hợp với tự nhiên."
     },
     {
       "id": "MLN122-350",
@@ -1080,44 +1148,47 @@
       "options": [
         "Tính hữu ích của sản phẩm hàng hóa",
         "Giá trị hàng hóa",
-        "Tạo ra cả tính hữu ích và giá tri hàng hó"
+        "Tạo ra cả tính hữu ích và giá trị hàng hóa"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lao động trừu tượng tạo ra giá trị của hàng hóa; lao động cụ thể tạo ra giá trị sử dụng (tính hữu ích)."
     },
     {
       "id": "MLN122-351",
       "type": "choice",
       "prompt": "Ai là người đầu tiên phát minh ra tính hai mặt của lao động sản xuất hàng hóa: lao động cụ thể và lao động trừu tượng?",
       "options": [
-        "Đ. Ricacđô",
+        "D. Ricardo",
         "C. Mác",
         "Ph. Ăngghen",
         "V.I. Lênin"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "C. Mác là người đầu tiên phát hiện tính hai mặt của lao động sản xuất hàng hóa. Ricardo đã thấy hai thuộc tính của hàng hóa nhưng không giải thích được vì sao hàng hóa có hai thuộc tính đó (giáo trình trang PDF 23)."
     },
     {
       "id": "MLN122-353",
       "type": "choice",
-      "prompt": "Sản xuất hàng hóa có vai trò gì trong phân công lao động xã hội",
+      "prompt": "Sản xuất hàng hóa có vai trò gì trong phân công lao động xã hội?",
       "options": [
-        "Là điều kiện của phân công lao động xã hội",
-        "Là nguồn gốc của phân công lao động xã hội",
+        "Là điều kiện của phân công lao động xã hội?",
+        "Là nguồn gốc của phân công lao động xã hội?",
         "Các phương án trả lời đều sai"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Quan hệ đúng là ngược lại: phân công lao động xã hội là điều kiện, cơ sở cho sản xuất hàng hóa ra đời. Sản xuất hàng hóa không phải điều kiện hay nguồn gốc của phân công lao động xã hội, nên A và B đều sai."
     },
     {
       "id": "MLN122-354",
       "type": "choice",
-      "prompt": "Lượng giá trị hàng hóa nhiều hay ít, cao hay thấp, được xác định như thế nào",
+      "prompt": "Lượng giá trị hàng hóa nhiều hay ít, cao hay thấp, được xác định như thế nào?",
       "options": [
         "Xác định bằng thời gian lao động cá biệt",
         "Xác định bằng thời gian lao động xã hội cần thiết",
         "Xác định bằng thời gian lao động giản đơn, trung bình xã hội cần thiết"
       ],
       "correct": 2,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lượng giá trị hàng hóa được đo bằng thời gian lao động xã hội cần thiết, tính theo lao động giản đơn trung bình (lao động phức tạp được quy đổi thành bội số của lao động giản đơn). C là cách diễn đạt đầy đủ nhất; B đúng nhưng chưa đủ."
     },
     {
       "id": "MLN122-355",
@@ -1128,18 +1199,20 @@
         "Nền kinh tế tự do",
         "Nền kinh tế tự nhiên"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lịch sử loài người trải qua kinh tế tự nhiên (tự cấp tự túc) trước, sau đó khi có phân công lao động xã hội và tách biệt kinh tế thì kinh tế hàng hóa mới ra đời."
     },
     {
       "id": "MLN122-361",
       "type": "choice",
-      "prompt": "Trong kinh tế chính trị Mác-Lênin, cung là phạm trù kinh tế dùng để chỉ",
+      "prompt": "Trong kinh tế chính trị Mác - Lênin, cung là phạm trù kinh tế dùng để chỉ",
       "options": [
         "Mọi hàng hoá có khả năng đáp ứng nhu cầu thị trường",
         "Mỗi sản phẩm của lao động",
         "Một số sản phẩm nhất định của thị trường"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Theo file gốc, cung là tổng lượng hàng hóa có khả năng đáp ứng nhu cầu của thị trường (đang có hoặc có thể đưa ra thị trường) ở một mức giá nhất định. B và C quá hẹp."
     },
     {
       "id": "MLN122-362",
@@ -1151,7 +1224,8 @@
         "Lao động giản đơn; lao động phức tạp",
         "Năng suất lao động; cường độ lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lượng giá trị hàng hóa chịu ảnh hưởng của năng suất lao động (tỷ lệ nghịch) và của tính chất phức tạp hay giản đơn của lao động. Cường độ lao động không làm thay đổi giá trị một đơn vị hàng hóa, nên D sai."
     },
     {
       "id": "MLN122-381",
@@ -1162,31 +1236,34 @@
         "Nền kinh tế tự do",
         "Nền kinh tế tự nhiên"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lịch sử trải qua kinh tế tự nhiên (tự cấp tự túc) trước; khi có phân công lao động xã hội và tách biệt kinh tế giữa những người sản xuất thì kinh tế hàng hóa ra đời, tiếp nối kinh tế tự nhiên."
     },
     {
       "id": "MLN122-382",
       "type": "choice",
-      "prompt": "Tiền tệ là bánh xe vĩ đại của lưu thông. Câu nói này là của ai và theo anh (chi) nó có đúng không?",
+      "prompt": "Tiền tệ là bánh xe vĩ đại của lưu thông. Câu nói này là của ai và theo anh (chị) nó có đúng không?",
       "options": [
         "A. Smith và là câu nói đúng",
-        "Đ. Ricacđô và là câu nói đúng",
+        "D. Ricardo và là câu nói đúng",
         "C. Mác và là câu nói đúng",
-        "Đ. Ricacđô và là câu nói sai"
+        "D. Ricardo và là câu nói sai"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Câu \"tiền tệ là bánh xe vĩ đại của lưu thông\" là của Adam Smith. Câu nói đúng vì tiền tệ làm môi giới trung gian, giúp quá trình mua bán, lưu thông hàng hóa diễn ra thuận lợi."
     },
     {
       "id": "MLN122-384",
       "type": "choice",
-      "prompt": "Đâu là công thức cấu thành lượng giá trị một đơn vị hàng hóa (G)",
+      "prompt": "Đâu là công thức cấu thành lượng giá trị một đơn vị hàng hóa (G)?",
       "options": [
-        "Gc + p + m",
-        "Gc + v + P",
-        "Gk + v + m",
-        "Gc + v + m"
+        "G = c + p + m",
+        "G = c + v + p",
+        "G = k + v + m",
+        "G = c + v + m"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lượng giá trị của một đơn vị hàng hóa gồm: giá trị cũ (c – tư liệu sản xuất chuyển sang) và giá trị mới (v + m). Vì vậy G = c + v + m."
     },
     {
       "id": "MLN122-387",
@@ -1198,55 +1275,60 @@
         "Hình thái đầy đủ hay mở rộng",
         "Hình thái chung của giá trị"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khi vật ngang giá chung được cố định ở vàng (hoặc bạc), hình thái tiền xuất hiện. Trước đó là hình thái giản đơn, mở rộng và hình thái chung (vật ngang giá chung chưa cố định)."
     },
     {
       "id": "MLN122-393",
       "type": "choice",
       "prompt": "Số lượng tiền cần thiết trong lưu thông có mối quan hệ thế nào với tổng số giá cả hàng hóa được đưa ra thị trường và tốc độ lưu thông của tiền tệ?",
       "options": [
-        "Tỉ lệ thuận với tổng giá cả hàng hóa đưa ra thị trưởng và tốc độ lưu thông tiền tệ",
-        "Tỉ lệ nghịch với tổng giá cả hàng hóa đưa ra thị trường và tốc độ lưu thông tiền t",
-        "Tỉ lệ thuận với tổng giá cả hàng hóa đưa ra thị trường và tỉ lệ nghịch với tốc độ lưu thông tiền t",
-        "Tỉ lệ nghịch với tổng giá hàng hóa và đưa ra thị trường và tỉ lệ thuận với tốc độ lưu thông tiền"
+        "Tỉ lệ thuận với tổng giá cả hàng hóa đưa ra thị trường và tốc độ lưu thông tiền tệ",
+        "Tỉ lệ nghịch với tổng giá cả hàng hóa đưa ra thị trường và tốc độ lưu thông tiền tệ",
+        "Tỉ lệ thuận với tổng giá cả hàng hóa đưa ra thị trường và tỉ lệ nghịch với tốc độ lưu thông tiền tệ",
+        "Tỉ lệ nghịch với tổng giá cả hàng hóa đưa ra thị trường và tỉ lệ thuận với tốc độ lưu thông tiền tệ"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Theo quy luật lưu thông tiền tệ, lượng tiền cần thiết M = P×Q / V: tỷ lệ thuận với tổng giá cả hàng hóa đưa ra thị trường (P×Q) và tỷ lệ nghịch với tốc độ lưu thông của tiền (V)."
     },
     {
       "id": "MLN122-395",
       "type": "choice",
-      "prompt": "Thời gian lao động xã hội cần thiết có thế được đo bằng thời gian lao động cá biệt của nhà sản xuất:",
+      "prompt": "Thời gian lao động xã hội cần thiết có thể được đo bằng thời gian lao động cá biệt của nhà sản xuất:",
       "options": [
-        "Cung ứng nhiêu loại hàng hóa khác nhau cho thị trường quyết định",
+        "Cung ứng nhiều loại hàng hóa khác nhau cho thị trường quyết định",
         "Cung ứng một loại hàng hóa cho thị trường quyết định",
         "Cung ứng đại bộ phận một loại hàng hóa cho thị trường quyết định",
-        "Cung ứng đại bộ phận một loại dich vu cho thi trường quyết đ"
+        "Cung ứng đại bộ phận một loại dịch vụ cho thị trường quyết định"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Thời gian lao động xã hội cần thiết thường gần với thời gian lao động cá biệt của những người sản xuất cung ứng đại bộ phận một loại hàng hóa nào đó trên thị trường."
     },
     {
       "id": "MLN122-397",
       "type": "choice",
-      "prompt": "Hàng hóa là gì:",
+      "prompt": "Hàng hóa là gì?",
       "options": [
         "Những vật để thỏa mãn nhu cầu tiêu dùng của con người",
         "Sản phẩm của lao động, có thể thỏa mãn nhu cầu nào đó của con người thông qua trao đổi, mua bán",
-        "Những vật có giá trị sử dụng ca",
+        "Những vật có giá trị sử dụng cao",
         "Những vật mà trên thị trường luôn khan hiếm"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hàng hóa là sản phẩm của lao động, có thể thỏa mãn nhu cầu nào đó của con người thông qua trao đổi, mua bán."
     },
     {
       "id": "MLN122-399",
       "type": "choice",
-      "prompt": "Giá trị sử dụng của hàng hóa là giá trị sử dụng nhằm đáp ứng yêu cầu của ai?(NH UNG HOÀ",
+      "prompt": "Giá trị sử dụng của hàng hóa là giá trị sử dụng nhằm đáp ứng yêu cầu của ai?",
       "options": [
         "Người mua",
         "Người bán",
         "Thương nhân",
         "Bà bán tạp hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị sử dụng của hàng hóa là giá trị sử dụng cho người khác, cho xã hội, cụ thể là cho người mua. Người bán chỉ quan tâm tới giá trị (bán để thu tiền)."
     },
     {
       "id": "MLN122-401",
@@ -1258,7 +1340,8 @@
         "Quy luật giá trị",
         "Kinh tế thế giới"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Kinh tế thị trường có những khuyết tật không tự khắc phục được (khủng hoảng, ô nhiễm, phân hóa giàu nghèo), nên cần sự điều tiết của nhà nước. Pháp luật chỉ là công cụ của nhà nước."
     },
     {
       "id": "MLN122-406",
@@ -1266,10 +1349,12 @@
       "prompt": "Cơ chế thị trường được Adam Smith ví như?",
       "options": [
         "Bàn tay vô hình",
-        "Bóng ma vô hình Con đỉa hai vòi",
+        "Bóng ma vô hình",
+        "Con đỉa hai vòi",
         "Nam châm hai cực"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Adam Smith ví cơ chế thị trường như \"bàn tay vô hình\" có khả năng tự điều chỉnh các quan hệ kinh tế (giáo trình trang PDF 36)."
     },
     {
       "id": "MLN122-409",
@@ -1281,19 +1366,21 @@
         "Hai lao động khác nhau",
         "Hai công việc khác nhau"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lao động giản đơn (không cần đào tạo) và lao động phức tạp (phải qua đào tạo) là hai loại lao động khác nhau về trình độ; trong cùng thời gian lao động phức tạp tạo ra nhiều giá trị hơn."
     },
     {
       "id": "MLN122-411",
       "type": "choice",
-      "prompt": "Dich vu là loại hàng hóa nào",
+      "prompt": "Dịch vụ là loại hàng hóa nào?",
       "options": [
         "Hàng hóa vô hình",
         "Hàng hóa hữu hình",
         "Hàng hóa đặc biệt",
         "Không phải là hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Dịch vụ là hàng hóa vô hình: không tồn tại dưới dạng vật thể, quá trình cung ứng và tiêu dùng diễn ra đồng thời, không cất trữ được."
     },
     {
       "id": "MLN122-414",
@@ -1303,9 +1390,10 @@
         "Lao động trừu tượng",
         "Lao động cụ thể",
         "Giá tiền cao thấp",
-        "Tuỳ vào công dung của hàng hóa đ"
+        "Tuỳ vào công dụng của hàng hóa đó"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị của hàng hóa do lao động trừu tượng (hao phí sức lao động nói chung) tạo ra. Lao động cụ thể chỉ tạo ra giá trị sử dụng."
     },
     {
       "id": "MLN122-416",
@@ -1317,7 +1405,8 @@
         "Hàng hoá đặc biệt",
         "Không phải là hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mì ăn liền, khăn giấy, bim bim là những vật thể cụ thể, cầm nắm được, nên là hàng hóa hữu hình."
     },
     {
       "id": "MLN122-426",
@@ -1328,7 +1417,8 @@
         "Tỷ suất lợi nhuận",
         "Cung cầu các loại hàng hóa"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Cạnh tranh giữa các ngành xảy ra khi tỷ suất lợi nhuận giữa các ngành khác nhau: tư bản di chuyển từ ngành có tỷ suất thấp sang ngành có tỷ suất cao, cho đến khi hình thành tỷ suất lợi nhuận bình quân."
     },
     {
       "id": "MLN122-431",
@@ -1341,18 +1431,19 @@
         "Xã hội chủ nghĩa"
       ],
       "correct": 1,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 3, C: 1). Nên đối chiếu giáo trình."
+      "explanation": "File gốc chọn B ở 3 bản và C ở 1 bản. Trao đổi hàng hóa đã xuất hiện từ chế độ chiếm hữu nô lệ dưới dạng mầm mống, nên có thể xem đây là lúc kinh tế thị trường xuất hiện lần đầu (đến phong kiến mới hình thành, và phát triển mạnh dưới chủ nghĩa tư bản). Cùng logic với câu 060."
     },
     {
       "id": "MLN122-433",
       "type": "choice",
-      "prompt": "Moi hình thức lạm phát đều làm tăng:",
+      "prompt": "Mọi hình thức lạm phát đều làm tăng:",
       "options": [
         "Giá cả của hàng hóa",
         "Giá trị của hàng hóa",
         "Giá trị sử dụng của hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lạm phát là hiện tượng mức giá chung tăng lên, tức giá cả hàng hóa tăng. Lạm phát không làm thay đổi giá trị (do lao động quyết định) hay giá trị sử dụng của hàng hóa."
     },
     {
       "id": "MLN122-440",
@@ -1364,18 +1455,20 @@
         "Hàng hóa đặc biệt",
         "Không phải là hàng hoá"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mì ăn liền, khăn giấy, bim bim là những vật thể cụ thể nên thuộc hàng hóa hữu hình."
     },
     {
       "id": "MLN122-441",
       "type": "choice",
-      "prompt": "Khẳng định nào đúng trong những khẳng định sau",
+      "prompt": "Khẳng định nào đúng trong những khẳng định sau?",
       "options": [
-        "Sản xuất hàng hóa chi là sản phẩm của chủ nghĩa tư bản",
+        "Sản xuất hàng hóa chỉ là sản phẩm của chủ nghĩa tư bản",
         "Sản xuất hàng hóa không có trong chủ nghĩa xã hội",
         "Sản xuất hàng hóa ra đời trong chế độ chiếm hữu nô lệ"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Sản xuất hàng hóa không phải sản phẩm riêng của chủ nghĩa tư bản và vẫn tồn tại trong chủ nghĩa xã hội, nên A, B sai. Sản xuất hàng hóa xuất hiện từ khi có phân công lao động xã hội và tách biệt kinh tế, đã có mặt trong chế độ chiếm hữu nô lệ."
     },
     {
       "id": "MLN122-447",
@@ -1387,31 +1480,34 @@
         "Là sự hao phí sức lao động nói chung của người sản xuất hàng hóa",
         "Là lao động sản xuất nếu coi đó là sự hao phí sức lao động nói chung"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lao động trừu tượng là sự hao phí sức lao động nói chung (cơ bắp, thần kinh, trí óc) của người sản xuất hàng hóa, không kể hình thức cụ thể của nó. Nó là thực thể tạo ra giá trị hàng hóa."
     },
     {
       "id": "MLN122-448",
       "type": "choice",
       "prompt": "Hàng hoá có bao nhiêu thuộc tính?",
       "options": [
-        "Hai thuộc tỉnh",
+        "Hai thuộc tính",
         "Ba thuộc tính",
-        "Bốn thuộc tỉnh",
-        "Rất nhiều thuộc tỉnh"
+        "Bốn thuộc tính",
+        "Rất nhiều thuộc tính"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Hàng hóa có hai thuộc tính: giá trị sử dụng và giá trị."
     },
     {
       "id": "MLN122-449",
       "type": "choice",
-      "prompt": "Tỷ lệ giữa lao động phức tạp và lao động giản đơn tăng lên có ảnh hưởng như thế nào đến lượng giá trị được tạo ra trong một đơn vị thời gian",
+      "prompt": "Tỷ lệ giữa lao động phức tạp và lao động giản đơn tăng lên có ảnh hưởng như thế nào đến lượng giá trị được tạo ra trong một đơn vị thời gian?",
       "options": [
         "Tăng lên",
         "Giữ nguyên không thay đổi",
         "Giảm xuống",
         "Tăng lên nhưng phải gắn với tiến bộ công nghệ"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong cùng một đơn vị thời gian, lao động phức tạp tạo ra nhiều giá trị hơn lao động giản đơn (là lao động giản đơn được nhân bội). Vì vậy tỷ lệ lao động phức tạp tăng thì lượng giá trị tạo ra tăng lên."
     },
     {
       "id": "MLN122-450",
@@ -1423,14 +1519,15 @@
         "Xã hội loài người càng kém phát triển, sự tách biệt về sở hữu càng sâu sắc, hàng hoá được sản xuất ra càng kém phong phú.",
         "Sản xuất càng phát triển, sự tách biệt về sở hữu càng sâu sắc, hàng hoá được sản xuất ra càng kém phong phú."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Xã hội càng phát triển thì phân công lao động và sự tách biệt về sở hữu càng sâu sắc, sản xuất hàng hóa càng phát triển, hàng hóa sản xuất ra càng phong phú, đa dạng."
     },
     {
       "id": "MLN122-452",
       "type": "choice",
       "prompt": "Trên giác độ kinh tế chính trị, cầu được hiểu là",
       "options": [
-        "Nhu cầu của xã hội về dich vu",
+        "Nhu cầu của xã hội về dịch vụ",
         "Nhu cầu xã hội về hàng hóa",
         "Nhu cầu có khả năng thanh toán của xã hội"
       ],
@@ -1447,7 +1544,8 @@
         "Sự hao phí sức lao động của con người",
         "Sự hao phí lao động cá biệt"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị hàng hóa là lao động xã hội, trừu tượng của người sản xuất kết tinh trong hàng hóa. Sự khan hiếm chỉ ảnh hưởng tới giá cả; hao phí lao động cá biệt không quyết định giá trị xã hội."
     },
     {
       "id": "MLN122-463",
@@ -1459,7 +1557,8 @@
         "Thời gian lao động xã hội cần thiết",
         "Mức độ khan hiếm của hàng hóa"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lượng giá trị hàng hóa được đo bằng thời gian lao động xã hội cần thiết để sản xuất ra hàng hóa đó (giờ, ngày, tuần lao động...)."
     },
     {
       "id": "MLN122-464",
@@ -1469,33 +1568,36 @@
         "Lượng giá trị hàng hoá tỉ lệ nghịch với năng suất lao động",
         "Lượng giá trị hàng hoá tỉ lệ nghịch với cường độ lao động",
         "Lượng giá trị hàng hoá bằng giá trị lao động giản đơn",
-        "Lao động phức tạp và lao động giản đơn tạo ra giá trị hàng hoá như nha"
+        "Lao động phức tạp và lao động giản đơn tạo ra giá trị hàng hoá như nhau"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lượng giá trị một đơn vị hàng hóa tỷ lệ nghịch với năng suất lao động và không phụ thuộc vào cường độ lao động. Lao động phức tạp tạo ra nhiều giá trị hơn lao động giản đơn trong cùng thời gian, nên D sai."
     },
     {
       "id": "MLN122-472",
       "type": "choice",
-      "prompt": "Khoa hoc kỹ thuật càng phát triển làm cho:",
+      "prompt": "Khoa học kỹ thuật càng phát triển làm cho:",
       "options": [
         "Giá trị sử dụng của hàng hóa ngày càng phong phú và đa dạng",
         "Giá trị sử dụng của hàng hóa luôn thay đổi",
         "Giá trị sử dụng của hàng hóa biến thiên theo thị trường",
         "Giá trị của hàng hóa ngày càng phong phú và đa dạng với nhiều sản phẩm"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khoa học kỹ thuật càng phát triển, con người càng phát hiện thêm nhiều công dụng mới của vật và tạo ra nhiều sản phẩm mới, nên giá trị sử dụng của hàng hóa ngày càng phong phú, đa dạng."
     },
     {
       "id": "MLN122-482",
       "type": "choice",
       "prompt": "Căn cứ vào đối tượng trao đổi, mua bán cụ thể có các loại thị trường nào?",
       "options": [
-        "Thi trường hàng hóa và thị trường dich",
-        "Thi trường hàng hóa, thi trường dich vu, thị trường trong nước và thị trường qu",
-        "Thi trường hàng hóa, thi trường dich vu, thị trường trong nước, thi trưởng quốc tế, thị trường tư liệu tiêu dùng và thị trường tư liệu s",
-        "Thi trường hàng hóa, thị trường dịch vụ và thi trường mu"
+        "Thị trường hàng hóa và thị trường dịch vụ",
+        "Thị trường hàng hóa, thị trường dịch vụ, thị trường trong nước và thị trường quốc tế",
+        "Thị trường hàng hóa, thị trường dịch vụ, thị trường trong nước, thị trường quốc tế, thị trường tư liệu tiêu dùng và thị trường tư liệu sản xuất",
+        "Thị trường hàng hóa, thị trường dịch vụ và thị trường mua bán"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Căn cứ vào đối tượng trao đổi, mua bán cụ thể, thị trường được chia thành thị trường hàng hóa và thị trường dịch vụ. Thị trường trong nước – quốc tế là cách phân loại theo phạm vi; thị trường tư liệu tiêu dùng – tư liệu sản xuất là theo vai trò của đối tượng mua bán (giáo trình trang PDF 34)."
     },
     {
       "id": "MLN122-487",
@@ -1507,7 +1609,8 @@
         "Hàng hóa tạo ra được tăng cao giá bán",
         "Hàng hóa phong phú"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khi cung thấp hơn cầu, người mua tranh nhau mua làm giá cả tăng lên cao hơn giá trị. Ngược lại, cung lớn hơn cầu thì giá cả thấp hơn giá trị."
     },
     {
       "id": "MLN122-488",
@@ -1517,9 +1620,10 @@
         "Là khoảng thời gian sản xuất của tuyệt đại bộ phận hàng hóa",
         "Là khoảng thời gian cần thiết để sản xuất ra một loại hàng hóa nhất định trong điều kiện trình độ kỹ thuật trung bình, trình độ khéo léo trung bình và cường độ lao động trung bình",
         "Là khoảng thời gian do người có trình độ chuyên môn cao quyết định",
-        "Là khoảng thời gian cần thiết để sản xuất ra một loại hàng hóa nhất định trong điều kiện trình khoa học trung bình, trình độ khéo léo trung bình và cường độ lao động trung bì"
+        "Là khoảng thời gian cần thiết để sản xuất ra một loại hàng hóa nhất định trong điều kiện trình độ khoa học trung bình, trình độ khéo léo trung bình và cường độ lao động trung bình"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Thời gian lao động xã hội cần thiết là thời gian cần để sản xuất ra một hàng hóa trong điều kiện bình thường của xã hội: trình độ kỹ thuật trung bình, trình độ khéo léo trung bình và cường độ lao động trung bình."
     }
   ]
 }

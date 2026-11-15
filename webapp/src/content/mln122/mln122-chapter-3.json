@@ -43,7 +43,7 @@
     {
       "id": "MLN122-008",
       "type": "choice",
-      "prompt": "Chênh lệch Địa tô chính I thu được trên",
+      "prompt": "Địa tô chênh lệch I thu được trên",
       "options": [
         "Ruộng đất có độ màu mỡ trung bình",
         "Ruộng đất tốt",
@@ -61,7 +61,7 @@
         "Bộ phận trực tiếp để tạo ra giá trị sử dụng",
         "Bộ phận trực tiếp để tạo ra giá trị thặng dư",
         "Bộ phận trực tiếp để tạo ra sản phẩm thặng dư",
-        "Bộ phận gián tiếp để tạo ra giá trị thặng d"
+        "Bộ phận gián tiếp để tạo ra giá trị thặng dư"
       ],
       "correct": 1,
       "explanation": "Tư bản bất biến là tư liệu sản xuất như máy móc, nguyên liệu; nó không tạo ra giá trị thặng dư mà chỉ chuyển giá trị cũ vào sản phẩm. Còn tư bản khả biến là phần tư bản dùng để mua hàng hóa sức lao động; trong quá trình sản xuất, công nhân tạo ra giá trị mới lớn hơn giá trị sức lao động. Phần dôi ra đó chính là giá trị thặng dư\nCông nhân được trả lương 500.000 đồng/ngày, nhưng trong ngày đó tạo ra giá trị mới 1.000.000 đồng. Phần vượt lên 500.000 đồng là giá trị thặng dư. Nguồn gốc của nó đến từ sức lao động, nên thuộc tư bản khả biến."
@@ -83,9 +83,9 @@
       "type": "choice",
       "prompt": "Tiền công thực tế là",
       "options": [
-        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công danh nghĩa của mìn",
-        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công thực tế của mìn",
-        "Tiền công được biểu hiện bằng số tư liệu sản xuất và tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công thực tế của mì"
+        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công danh nghĩa của mình",
+        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công thực tế của mình",
+        "Tiền công được biểu hiện bằng số tư liệu sản xuất và tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công thực tế của mình"
       ],
       "correct": 0,
       "explanation": "Tiền công danh nghĩa là số tiền ghi trên lương.\nVí dụ: lương 8 triệu/tháng.\nTiền công thực tế là với số tiền đó, công nhân mua được bao nhiêu hàng hóa và dịch vụ.\nVí dụ: 8 triệu mua được bao nhiêu gạo, xăng, tiền trọ, quần áo, dịch vụ y tế, giáo dục…\nVì vậy tiền công thực tế phụ thuộc vào tiền lương danh nghĩa và giá cả hàng hóa."
@@ -106,9 +106,10 @@
     {
       "id": "MLN122-053",
       "type": "choice",
-      "prompt": "Sự tuần hoàn của tư bản, nếu xét nó với tư cách là một quá trình đinh kỳ đổi mới và thường xuyên lặp đi lặp lại được gọi là. Chu chuyển tư bản",
+      "prompt": "Sự tuần hoàn của tư bản, nếu xét nó với tư cách là một quá trình định kỳ đổi mới và thường xuyên lặp đi lặp lại được gọi là",
       "options": [
-        "Lưu thông tự bản",
+        "Chu chuyển tư bản",
+        "Lưu thông tư bản",
         "Vận động tư bản",
         "Tái sản xuất tư bản"
       ],
@@ -118,21 +119,22 @@
     {
       "id": "MLN122-059",
       "type": "choice",
-      "prompt": "Quan điểm cho rằng lợi nhuận phần thu nhập thặng dư tính bằng hiệu quả giữa giá trị tổng doanh thu trừ đi tổng chi phí và là phần thưởng cho việc gánh chịu rủi i ro và cho sự đổi mới là của ai?",
+      "prompt": "Quan điểm cho rằng lợi nhuận là phần thu nhập thặng dư tính bằng hiệu số giữa giá trị tổng doanh thu trừ đi tổng chi phí và là phần thưởng cho việc gánh chịu rủi ro và cho sự đổi mới là của ai?",
       "options": [
         "Paul A.Samuelson",
         "David Begg",
         "Stanley Fischer",
         "Rudiger Dornbusch"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Định nghĩa lợi nhuận là phần thu nhập thặng dư bằng tổng doanh thu trừ tổng chi phí, đồng thời là phần thưởng cho việc gánh chịu rủi ro và đổi mới, là quan điểm của Paul A. Samuelson trong cuốn \"Kinh tế học\". Đây là cách nhìn của kinh tế học hiện đại, khác với Mác (lợi nhuận là hình thái biểu hiện của giá trị thặng dư)."
     },
     {
       "id": "MLN122-069",
       "type": "multi",
-      "prompt": "Phạm trù lợi nhuận chẳng qua chỉ là một hình thái thần bí hóa của giá trị thặng dư, nguyên nhân của việc này xuất phát từ: (chọn nhiều đáp án",
+      "prompt": "Phạm trù lợi nhuận chẳng qua chỉ là một hình thái thần bí hóa của giá trị thặng dư, nguyên nhân của việc này xuất phát từ: (chọn nhiều đáp án)",
       "options": [
-        "Sự hình thành chi phí sản xuất tư bản chủ nghĩa đã xóa nhòa sự khác nhau giữa",
+        "Sự hình thành chi phí sản xuất tư bản chủ nghĩa đã xóa nhòa sự khác nhau giữa tư bản bất biến (c) và tư bản khả biến (v)",
         "Do chi phí sản xuất tư bản chủ nghĩa luôn nhỏ hơn chi phí sản xuất thực tế",
         "Sự hình thành của giá trị thặng dư và chi phí sản xuất tư bản chủ nghĩa",
         "Chi phí sản xuất tư bản chủ nghĩa luôn luôn nhỏ hơn giá của của hàng hóa bán ra"
@@ -141,7 +143,7 @@
         0,
         1
       ],
-      "explanation": "Lưu ý: giáo trình bản MLN122 không nêu trực tiếp; đáp án chọn theo kiến thức KTCT chung (giáo trình cũ) — nên đối chiếu đề thi. Giáo trình (trang PDF 69) chỉ nói lợi nhuận là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường; lý do bị \"thần bí hóa\": chi phí sản xuất k = c + v xóa nhòa sự khác nhau giữa c và v, và k luôn nhỏ hơn chi phí thực tế nên lợi nhuận tưởng như do toàn bộ tư bản ứng trước sinh ra."
+      "explanation": "Lưu ý: giáo trình bản MLN122 không nêu trực tiếp; đáp án chọn theo kiến thức KTCT chung (giáo trình cũ) — nên đối chiếu đề thi. Giáo trình (trang PDF 69) chỉ nói lợi nhuận là hình thái biểu hiện của giá trị thặng dư trên bề mặt nền kinh tế thị trường; lý do bị \"thần bí hóa\": chi phí sản xuất k = c + v xóa nhòa sự khác nhau giữa tư bản bất biến (c) và tư bản khả biến (v) c và v, và k luôn nhỏ hơn chi phí thực tế nên lợi nhuận tưởng như do toàn bộ tư bản ứng trước sinh ra."
     },
     {
       "id": "MLN122-070",
@@ -150,9 +152,10 @@
       "options": [
         "Bóc lột sản phẩm thặng dư chỉ có ở chủ nghĩa tư bản",
         "Các phương thức sản xuất trước chủ nghĩa tư bản bóc lột sản phẩm thặng dư trực tiếp",
-        "Sản xuất giá trị thặng dư tuyệt đối là hình thái chung nhất của sản xuất giá trị thặng"
+        "Sản xuất giá trị thặng dư tuyệt đối là hình thái chung nhất của sản xuất giá trị thặng dư"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Bóc lột sản phẩm thặng dư đã có từ chế độ chiếm hữu nô lệ và phong kiến (bóc lột trực tiếp bằng sản phẩm, lao dịch). Chủ nghĩa tư bản chỉ thay đổi hình thức: bóc lột dưới dạng giá trị thặng dư. Vì vậy A là luận điểm sai."
     },
     {
       "id": "MLN122-081",
@@ -169,26 +172,28 @@
     {
       "id": "MLN122-084",
       "type": "choice",
-      "prompt": "Cứ 100 công nhân thì tạo ra giá trị mới là 500.000 USD, tư bản khả biến cho mỗi công nhân là 1.000 USD/tháng. Để tạo ra được giá trị mới 1.200.000 USD thị cầu n lượng công nhân là bao nhiêu, biết rằng tiền lương cho mỗi công nhân không đổ i và trình độ bóc lột tăng thêm 100%",
+      "prompt": "Cứ 100 công nhân thì tạo ra giá trị mới là 500.000 USD, tư bản khả biến cho mỗi công nhân là 1.000 USD/tháng. Để tạo ra được giá trị mới 1.200.000 USD thì cần lượng công nhân là bao nhiêu, biết rằng tiền lương cho mỗi công nhân không đổi và trình độ bóc lột tăng thêm 100%",
       "options": [
         "Số công nhân là 200 người",
         "Số công nhân là 100 người",
         "Số công nhân là 500 người",
         "Số công nhân là 50 người"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lúc đầu: 100 công nhân, v = 1.000 USD/người → V = 100.000; giá trị mới (v + m) = 500.000 → m = 400.000, m' = 400%.\nTrình độ bóc lột tăng thêm 100% → m' = 500%. Mỗi công nhân tạo ra giá trị mới 1.000 + 5.000 = 6.000 USD.\nCần 1.200.000 / 6.000 = 200 công nhân."
     },
     {
       "id": "MLN122-087",
       "type": "choice",
-      "prompt": "Để sản xuất ra 1000 đôi dép, công ty đầu tư 100000 USD cho nguyên liệu, vật liệu, 5000 USD cho hao mòn máy móc. Công ty đó trả 5000 USD cho công nhân, trình độ bóc lột đạt 200%. Tính giá trị (W) của 10000 đối dép công ty sản xuất ra?",
+      "prompt": "Để sản xuất ra 1000 đôi dép, công ty đầu tư 100000 USD cho nguyên liệu, vật liệu, 5000 USD cho hao mòn máy móc. Công ty đó trả 5000 USD cho công nhân, trình độ bóc lột đạt 200%. Tính giá trị (W) của 1000 đôi dép công ty sản xuất ra?",
       "options": [
-        "W= 120000 USD",
-        "W110000 USD",
-        "W 115000 USD",
-        "W= 100000 USD"
+        "W = 120000 USD",
+        "W = 110000 USD",
+        "W = 115000 USD",
+        "W = 100000 USD"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị hàng hóa W = c + v + m.\n- c = 100.000 (nguyên vật liệu) + 5.000 (hao mòn máy) = 105.000 USD\n- v = 5.000 USD; m' = 200% → m = 10.000 USD\n- W = 105.000 + 5.000 + 10.000 = 120.000 USD."
     },
     {
       "id": "MLN122-088",
@@ -209,22 +214,24 @@
       "prompt": "Địa tô tuyệt đối được hiểu là",
       "options": [
         "Loại địa tô mà tất cả các nhà tư bản kinh doanh nông nghiệp đều phải nộp cho địa chủ, cho dù ruộng đất là tốt hay xấu",
-        "Phần giá trị thặng dư còn lại sau khi đã khấu trừ đi phần lợi nhuận bình quần mà các nhà tư bản kinh doanh nông nghiệp phải nộp cho địa chỉ",
+        "Phần giá trị thặng dư còn lại sau khi đã khấu trừ đi phần lợi nhuận bình quân mà các nhà tư bản kinh doanh nông nghiệp phải nộp cho địa chủ",
         "Lợi nhuận siêu ngạch dôi ra ngoài lợi nhuận bình quân"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Địa tô tuyệt đối là địa tô mà mọi nhà tư bản thuê đất đều phải nộp cho địa chủ, dù ruộng đất tốt hay xấu; nó bắt nguồn từ chế độ độc quyền tư hữu ruộng đất. Phần lợi nhuận siêu ngạch do đất tốt hoặc thâm canh mới là địa tô chênh lệch."
     },
     {
       "id": "MLN122-093",
       "type": "choice",
       "prompt": "Cấu tạo giá trị của tư bản được hiểu là",
       "options": [
-        "Tỷ lệ giữa số lượng tư liệu sản xuất và số lượng sức lao động sử dụng những tư liệu sản xuất đó trong quá trình sản xuất go",
-        "Tỷ lệ giữa số lượng giá trị của tư bản bất biến và số lượng giá trị của tư bản kh ả biến cần thiết để tiến hành sản xuất",
-        "Tỷ lệ giữa số lượng giá trị của tư bản bất biến và số lượng giá trị của tư bản tiê u dùng cần thiết để tiến hành sản xuất",
-        "Tỷ lệ giữa số lượng giá trị của tư bản cố định và số lượng giá trị của tư bản l ưu động cần thiết để tiến hành sản x"
+        "Tỷ lệ giữa số lượng tư liệu sản xuất và số lượng sức lao động sử dụng những tư liệu sản xuất đó trong quá trình sản xuất",
+        "Tỷ lệ giữa số lượng giá trị của tư bản bất biến và số lượng giá trị của tư bản khả biến cần thiết để tiến hành sản xuất",
+        "Tỷ lệ giữa số lượng giá trị của tư bản bất biến và số lượng giá trị của tư bản tiêu dùng cần thiết để tiến hành sản xuất",
+        "Tỷ lệ giữa số lượng giá trị của tư bản cố định và số lượng giá trị của tư bản lưu động cần thiết để tiến hành sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Cấu tạo giá trị của tư bản là tỷ lệ giữa giá trị tư bản bất biến (c) và giá trị tư bản khả biến (v) cần để tiến hành sản xuất. Phương án A là cấu tạo kỹ thuật (tính bằng hiện vật); D lẫn sang cách chia tư bản cố định – lưu động."
     },
     {
       "id": "MLN122-100",
@@ -234,21 +241,23 @@
         "Kéo dài thời gian lao động thặng dư khi thời gian lao động tất yếu, năng suất lao động và giá trị sức lao động không đổi",
         "Kéo dài thời gian lao động tất yếu khi thời gian lao động thặng dư, năng suất lao động và giá trị sức lao động không đổi",
         "Rút ngắn thời gian lao động thặng dư khi thời gian lao động tất yếu, năng suất lao động và giá trị sức lao động không đổi",
-        "Rút ngắn thời gian lao động tất yếu khi thời gian lao động thặng dư, năng suất lao động và giá trị sức lao động không đổ"
+        "Rút ngắn thời gian lao động tất yếu khi thời gian lao động thặng dư, năng suất lao động và giá trị sức lao động không đổi"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị thặng dư tuyệt đối thu được bằng cách kéo dài ngày lao động (tức kéo dài thời gian lao động thặng dư) trong khi thời gian lao động tất yếu, năng suất lao động và giá trị sức lao động không đổi."
     },
     {
       "id": "MLN122-101",
       "type": "choice",
-      "prompt": "Bóc lột giá trị thặng dư tương đối là hình thức.",
+      "prompt": "Bóc lột giá trị thặng dư tương đối là hình thức",
       "options": [
         "Tăng thời gian ngày lao động",
         "Rút ngắn thời gian lao động cần thiết và thời gian lao động thặng dư",
         "Rút ngắn thời gian lao động tất yếu",
         "Tăng thời gian lao động tất yếu"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giá trị thặng dư tương đối thu được nhờ rút ngắn thời gian lao động tất yếu (do tăng năng suất lao động xã hội làm giá trị sức lao động giảm), từ đó kéo dài tương ứng thời gian lao động thặng dư mà độ dài ngày lao động không đổi."
     },
     {
       "id": "MLN122-106",
@@ -259,7 +268,8 @@
         "Ba hình thức",
         "Bốn hình thức"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tiền công trong chủ nghĩa tư bản có hai hình thức cơ bản: tiền công tính theo thời gian và tiền công tính theo sản phẩm. Ngoài ra còn phân biệt tiền công danh nghĩa và tiền công thực tế, nhưng đó không phải hình thức trả công."
     },
     {
       "id": "MLN122-113",
@@ -270,7 +280,8 @@
         "Tỷ suất giá trị thặng dư",
         "Tỷ suất lợi nhuận bình quân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tỷ suất giá trị thặng dư m' = m/v × 100% phản ánh trình độ bóc lột của nhà tư bản đối với công nhân làm thuê. Tỷ suất lợi nhuận p' = m/(c + v) chỉ phản ánh mức doanh lợi của tư bản đầu tư."
     },
     {
       "id": "MLN122-124",
@@ -281,7 +292,8 @@
         "Hình thành chủ nghĩa tư bản",
         "Hình thành độc quyền nhà nước giai đoạn tự do cạnh tranh"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tích lũy tư bản làm tăng quy mô tư bản cá biệt thông qua tích tụ và tập trung tư bản. Khi tích tụ, tập trung đạt đến mức cao thì xuất hiện các tổ chức độc quyền, chủ nghĩa tư bản chuyển sang giai đoạn độc quyền. Tích lũy không sinh ra bản thân chủ nghĩa tư bản (đó là tích lũy nguyên thủy)."
     },
     {
       "id": "MLN122-136",
@@ -293,30 +305,33 @@
         "Lượng giá trị mà trong toàn bộ quá trình lưu thông thu được",
         "Giá trị sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khối lượng giá trị thặng dư (M = m' × V) là lượng giá trị thặng dư tính bằng tiền mà nhà tư bản thu được trong một thời gian sản xuất nhất định. Nó phản ánh quy mô bóc lột."
     },
     {
       "id": "MLN122-137",
       "type": "choice",
       "prompt": "Để tiền biến thành tư bản cần?",
       "options": [
-        "Phải tích lũy một lượng tiền lớn; tiền cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng d",
+        "Phải tích lũy một lượng tiền lớn; tiền cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư",
         "Phải tích lũy được một lượng hàng hóa lớn, hàng hóa cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư",
         "Phải tích lũy một lượng tiền lớn",
-        "Phải tích lũy được một lượng máy móc lớn, máy móc cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng"
+        "Phải tích lũy được một lượng máy móc lớn, máy móc cần phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tiền chỉ trở thành tư bản khi có đủ hai điều kiện: tích lũy được một lượng tiền đủ lớn, và số tiền đó được đưa vào kinh doanh với mục đích thu giá trị thặng dư (qua việc mua hàng hóa sức lao động). C chỉ có một vế nên chưa đủ."
     },
     {
       "id": "MLN122-138",
       "type": "choice",
-      "prompt": "Vai trò của máy móc trong quá trình tạo ra giá trị thặng dư, chon ý đúng",
+      "prompt": "Vai trò của máy móc trong quá trình tạo ra giá trị thặng dư, chọn ý đúng",
       "options": [
         "Máy móc là tiền đề vật chất cho việc tạo ra giá trị thặng dư",
         "Máy móc và sức lao động đều tạo ra giá trị thặng dư",
-        "Máy móc là nguồn gốc của giá trị thặng d"
+        "Máy móc là nguồn gốc của giá trị thặng dư"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Máy móc là tư bản bất biến: nó chỉ chuyển dần giá trị của mình vào sản phẩm, không tạo ra giá trị mới. Nhưng máy móc là tiền đề vật chất giúp công nhân làm việc và tạo ra giá trị thặng dư. Nguồn gốc duy nhất của giá trị thặng dư là sức lao động."
     },
     {
       "id": "MLN122-158",
@@ -328,19 +343,21 @@
         "m/v",
         "CH/ch"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cấu tạo hữu cơ của tư bản là cấu tạo giá trị (c/v) do cấu tạo kỹ thuật quyết định và phản ánh sự biến đổi của cấu tạo kỹ thuật. Ký hiệu là c/v. m/v là tỷ suất giá trị thặng dư; CH/ch là công thức tốc độ chu chuyển."
     },
     {
       "id": "MLN122-161",
       "type": "choice",
       "prompt": "Tốc độ chu chuyển tư bản được tính bằng công thức:",
       "options": [
-        "n CH/ch",
-        "N ch/ CH",
-        "n=t/t100%",
-        "N=t/t100%"
+        "n = CH/ch",
+        "n = ch/CH",
+        "n = t/t × 100%",
+        "N = t/t × 100%"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tốc độ chu chuyển tư bản n = CH/ch, trong đó CH là thời gian trong năm (12 tháng hay 365 ngày), ch là thời gian một vòng chu chuyển. Vòng chu chuyển càng ngắn thì số vòng trong năm càng lớn."
     },
     {
       "id": "MLN122-169",
@@ -351,7 +368,8 @@
         "Phân công lao động đã phát triển cao",
         "Tư liệu sản xuất tập trung vào một số ít người còn đa số người bị mất hết tư liệu sản xuất"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chủ nghĩa tư bản ra đời khi có hai tiền đề: tư liệu sản xuất tập trung trong tay một số ít người, và đông đảo người lao động mất hết tư liệu sản xuất, có tự do thân thể nên buộc phải bán sức lao động. Hai tiền đề này được tạo ra bởi tích lũy nguyên thủy."
     },
     {
       "id": "MLN122-170",
@@ -362,7 +380,8 @@
         "Trong xã hội chiếm hữu nô lệ",
         "Trong nền sản xuất lớn hiện đại"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Sức lao động chỉ trở thành hàng hóa phổ biến trong nền sản xuất hàng hóa tư bản chủ nghĩa, khi người lao động được tự do thân thể nhưng không có tư liệu sản xuất. Dưới chế độ nô lệ, người nô lệ bị bán cả con người chứ không bán sức lao động."
     },
     {
       "id": "MLN122-176",
@@ -374,19 +393,21 @@
         "Tư bản sản xuất",
         "Tư bản tiêu dùng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tuần hoàn tư bản gồm ba giai đoạn: T – H (lưu thông, tư bản tiền tệ), H … SX … H' (sản xuất, tư bản sản xuất), H' – T' (lưu thông, tư bản hàng hóa). Giai đoạn đầu dùng tiền mua tư liệu sản xuất và sức lao động nên tư bản tồn tại dưới hình thái tư bản tiền tệ."
     },
     {
       "id": "MLN122-177",
       "type": "choice",
-      "prompt": "Trong tuần hoàn tư bản, giai đoạn thứ hai - giai đoạn lưu thông tư bản tồn tại dưới hình thái gì?",
+      "prompt": "Trong tuần hoàn tư bản, giai đoạn thứ hai - giai đoạn sản xuất tư bản tồn tại dưới hình thái gì?",
       "options": [
         "Tư bản hàng hóa",
         "Tư bản tiền tệ",
         "Tư bản sản xuất",
         "Tư bản tiêu dùng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giai đoạn thứ hai là giai đoạn sản xuất (H … SX … H'): tư liệu sản xuất và sức lao động kết hợp với nhau để tạo ra hàng hóa mới chứa giá trị thặng dư. Tư bản lúc này tồn tại dưới hình thái tư bản sản xuất."
     },
     {
       "id": "MLN122-178",
@@ -398,7 +419,8 @@
         "Tư bản sản xuất",
         "Tư bản tiêu dùng"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giai đoạn thứ ba (H' – T') là giai đoạn lưu thông: hàng hóa chứa giá trị thặng dư được bán để thu về tiền. Tư bản tồn tại dưới hình thái tư bản hàng hóa."
     },
     {
       "id": "MLN122-179",
@@ -409,7 +431,8 @@
         "Vai trò các bộ phận tư bản trong quá trình sản xuất giá trị thặng dư",
         "Sự thay đổi về lượng trong quá trình sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản cố định và tư bản lưu động được phân chia theo phương thức chuyển giá trị sang sản phẩm: tư bản cố định (máy móc, nhà xưởng) chuyển dần từng phần qua nhiều chu kỳ; tư bản lưu động (nguyên liệu, sức lao động) chuyển toàn bộ trong một chu kỳ. B là căn cứ chia tư bản bất biến – khả biến."
     },
     {
       "id": "MLN122-181",
@@ -417,23 +440,25 @@
       "prompt": "Những nhân tố nào ảnh hưởng đến quy mô của tích lũy tư bản?",
       "options": [
         "Cường độ lao động; trình độ bóc lột sức lao động; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng, quy mô của tư bản ứng trước",
-        "Trình độ năng suất lao động; trình độ bóc lột sức lao động ; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng, quy mô của tư bản ứng trước",
+        "Trình độ năng suất lao động; trình độ bóc lột sức lao động; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng, quy mô của tư bản ứng trước",
         "Sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng; quy mô của tư bản ứng trước, trình độ bóc lột sức lao động",
         "Trình độ năng suất lao động; trình độ bóc lột sức lao động; sự chênh lệch ngày càng tăng giữa tư bản sử dụng và tư bản đã tiêu dùng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Quy mô tích lũy tư bản phụ thuộc bốn nhân tố: trình độ bóc lột sức lao động; trình độ năng suất lao động xã hội; sự chênh lệch giữa tư bản sử dụng và tư bản tiêu dùng; quy mô tư bản ứng trước. A thay năng suất bằng \"cường độ lao động\"; C và D thiếu nhân tố."
     },
     {
       "id": "MLN122-185",
       "type": "choice",
-      "prompt": "Nguồn gốc của giá trị thặng dư từ đầu mà có?",
+      "prompt": "Nguồn gốc của giá trị thặng dư từ đâu mà có?",
       "options": [
         "Mua hàng hóa thấp hơn giá trị thật",
         "Mua hàng hóa cao hơn giá trị thật",
         "Mua hàng hóa bằng giá trị thật",
         "Mua được hàng hóa sức lao động"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nhà tư bản mua được hàng hóa sức lao động, loại hàng hóa đặc biệt mà khi sử dụng tạo ra giá trị mới lớn hơn giá trị của bản thân nó. Phần dôi ra đó là giá trị thặng dư. Mua rẻ bán đắt chỉ phân phối lại giá trị, không tạo thêm giá trị cho toàn xã hội."
     },
     {
       "id": "MLN122-187",
@@ -444,7 +469,8 @@
         "Giá trị thặng dư",
         "Giá trị của hàng hóa sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tích lũy tư bản là chuyển hóa một phần giá trị thặng dư thành tư bản. Vì vậy nguồn gốc của tích lũy tư bản là giá trị thặng dư."
     },
     {
       "id": "MLN122-190",
@@ -455,7 +481,8 @@
         "T-H-T'",
         "T-H-T"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Công thức chung của tư bản là T – H – T', trong đó T' = T + ∆t (∆t là giá trị thặng dư). H – T – H là công thức lưu thông hàng hóa giản đơn; T – H – T không có ý nghĩa vì không sinh lời."
     },
     {
       "id": "MLN122-191",
@@ -465,31 +492,34 @@
         "Luôn luôn nhỏ hơn giá trị thặng dư",
         "Luôn luôn lớn hơn tỷ suất giá trị thặng dư",
         "Luôn luôn bằng tỷ suất giá trị thặng dư",
-        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng d"
+        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng dư"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tỷ suất lợi nhuận p' = m/(c + v), còn tỷ suất giá trị thặng dư m' = m/v. Vì c + v luôn lớn hơn v nên p' luôn nhỏ hơn m'."
     },
     {
       "id": "MLN122-197",
       "type": "choice",
-      "prompt": "Phương pháp sản xuất giá trị thặng dư tuyệt đối và phương pháp sản xuất giá trị thặng dư tương đối có điểm nào giống nhau",
+      "prompt": "Phương pháp sản xuất giá trị thặng dư tuyệt đối và phương pháp sản xuất giá trị thặng dư tương đối có điểm nào giống nhau?",
       "options": [
         "Đều làm tăng tỷ suất giá trị thặng dư",
         "Đều làm cho công nhân tổn sức lao động nhiều hơn",
         "Đều làm giảm giá trị sức lao động của công nhân"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cả hai phương pháp đều nhằm tăng thời gian lao động thặng dư so với thời gian lao động tất yếu, nên đều làm tăng tỷ suất giá trị thặng dư. Phương pháp tương đối không làm công nhân tốn thêm sức; phương pháp tuyệt đối không làm giảm giá trị sức lao động."
     },
     {
       "id": "MLN122-199",
       "type": "choice",
       "prompt": "Khối lượng giá trị thặng dư được tính bằng công thức nào?",
       "options": [
-        "M m'x p'",
-        "M=m' x V",
-        "M=m'xt'"
+        "M = m' x p'",
+        "M = m' x V",
+        "M = m' x t'"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khối lượng giá trị thặng dư M = m' × V, trong đó m' là tỷ suất giá trị thặng dư và V là tổng tư bản khả biến. Nó phản ánh quy mô bóc lột, còn m' phản ánh trình độ bóc lột."
     },
     {
       "id": "MLN122-202",
@@ -500,7 +530,8 @@
         "Tư bản hóa giá trị thặng dư",
         "Tư bản hóa sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tích lũy tư bản là quá trình tư bản hóa giá trị thặng dư: nhà tư bản không tiêu dùng hết giá trị thặng dư mà dùng một phần để mở rộng sản xuất."
     },
     {
       "id": "MLN122-207",
@@ -511,7 +542,8 @@
         "Căn cứ vào nội dung",
         "Căn cứ vào quy mô"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tái sản xuất được chia thành giản đơn (quy mô không đổi) và mở rộng (quy mô lớn hơn năm trước) dựa vào quy mô của quá trình tái sản xuất."
     },
     {
       "id": "MLN122-210",
@@ -523,7 +555,8 @@
         "Bằng, cao hơn hoặc thấp hơn lượng giá trị thặng dư",
         "Bằng, hoặc cao hơn lượng giá trị thặng dư"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lợi nhuận của từng nhà tư bản có thể bằng, cao hơn hoặc thấp hơn giá trị thặng dư do giá cả bán ra dao động quanh giá trị. Xét trên toàn xã hội thì tổng lợi nhuận luôn bằng tổng giá trị thặng dư."
     },
     {
       "id": "MLN122-214",
@@ -534,7 +567,8 @@
         "Chi phí tư bản bất biến và tư bản khả biến",
         "Chi phí sức lao động của toàn xã hội"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chi phí thực tế của xã hội để sản xuất hàng hóa là hao phí lao động sống (lao động hiện tại của người công nhân) và lao động quá khứ (kết tinh trong tư liệu sản xuất), tức giá trị c + v + m. B là chi phí sản xuất tư bản chủ nghĩa (c + v)."
     },
     {
       "id": "MLN122-215",
@@ -546,7 +580,8 @@
         "Quá trình bần cùng hóa giai cấp vô sản",
         "Khoảng cách giàu nghèo ngày càng tăng, nạn thất nghiệp trở nên phổ biến"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lưu ý: đáp án theo file gốc, nên đối chiếu thêm. Quy luật chung của tích lũy tư bản (C. Mác) là sự tích lũy giàu có ở một cực (giai cấp tư sản) đồng thời tích lũy sự bần cùng ở cực kia (giai cấp công nhân); quá trình này đi kèm cấu tạo hữu cơ tăng lên và nạn thất nghiệp. Các ý B, C, D gắn trực tiếp với quy luật này; file gốc coi A là ý không đúng."
     },
     {
       "id": "MLN122-222",
@@ -556,9 +591,10 @@
         "Bằng giá trị hàng hóa",
         "Lớn hơn giá trị hàng hóa",
         "Nhỏ hơn giá trị hàng hóa",
-        "Không xác đin"
+        "Không xác định"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chi phí sản xuất tư bản chủ nghĩa k = c + v, còn giá trị hàng hóa W = c + v + m. Vì vậy k luôn nhỏ hơn giá trị hàng hóa một lượng bằng giá trị thặng dư m."
     },
     {
       "id": "MLN122-223",
@@ -569,7 +605,8 @@
         "Sự phát triển mạnh mẽ của phương tiện giao thông vận tải nhờ đó mở rộng giao lưu buôn bán quốc tế",
         "Sự tác động của quy luật giá trị"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tích lũy nguyên thủy (dùng bạo lực tước đoạt người sản xuất nhỏ, cướp bóc thuộc địa, buôn bán nô lệ...) tạo ra hai tiền đề cho chủ nghĩa tư bản: khối tiền lớn tập trung trong tay một số người và đông đảo người lao động mất tư liệu sản xuất. Đây là nhân tố cơ bản thúc đẩy chủ nghĩa tư bản ra đời nhanh chóng."
     },
     {
       "id": "MLN122-229",
@@ -579,21 +616,23 @@
         "Phần lợi nhuận ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất",
         "Phần tỷ suất giá trị thặng dư ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất",
         "Phần giá trị thặng dư ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho chủ đất.",
-        "Phần giá trị thặng dư ngoài lợi"
+        "Phần giá trị thặng dư ngoài lợi nhuận"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Địa tô tư bản chủ nghĩa là phần giá trị thặng dư dôi ra ngoài lợi nhuận bình quân mà nhà tư bản kinh doanh nông nghiệp phải nộp cho địa chủ. Nó bắt nguồn từ giá trị thặng dư do công nhân nông nghiệp tạo ra."
     },
     {
       "id": "MLN122-240",
       "type": "choice",
       "prompt": "Các hình thức cơ bản của địa tô tư bản chủ nghĩa",
       "options": [
-        "Địa tô chênh lệch I; địa tô chênh lệch I",
+        "Địa tô chênh lệch I; địa tô chênh lệch II",
         "Địa tô tuyệt đối; địa tô độc quyền",
         "Địa tô chênh lệch; địa tô tuyệt đối",
-        "Địa tô chênh lệch; địa tô độc quy"
+        "Địa tô chênh lệch; địa tô độc quyền"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Địa tô tư bản chủ nghĩa có hai hình thức cơ bản: địa tô chênh lệch (gồm chênh lệch I và II) và địa tô tuyệt đối. Địa tô độc quyền là hình thức đặc biệt, không phải hình thức cơ bản."
     },
     {
       "id": "MLN122-243",
@@ -605,19 +644,21 @@
         "Có nguồn gốc từ giá trị trao đổi",
         "Có nguồn gốc từ giá trị"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cả địa tô chênh lệch và địa tô tuyệt đối đều là phần giá trị thặng dư ngoài lợi nhuận bình quân do công nhân nông nghiệp tạo ra. Vì vậy chúng giống nhau ở nguồn gốc: giá trị thặng dư."
     },
     {
       "id": "MLN122-246",
       "type": "choice",
-      "prompt": "Trong giai đoạn chủ nghĩa tư bản cạnh tranh tự do, quy luật giá trị thặng dư biểu hiện thành quy luật.",
+      "prompt": "Trong giai đoạn chủ nghĩa tư bản cạnh tranh tự do, quy luật giá trị thặng dư biểu hiện thành quy luật",
       "options": [
         "Lợi nhuận độc quyền",
         "Tỷ suất lợi nhuận bình quân",
         "Lợi nhuận độc quyền cao",
-        "Tỷ suất giá trị thặng d"
+        "Tỷ suất giá trị thặng dư"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Trong giai đoạn tự do cạnh tranh, cạnh tranh giữa các ngành làm hình thành tỷ suất lợi nhuận bình quân; quy luật giá trị thặng dư biểu hiện thành quy luật tỷ suất lợi nhuận bình quân. Sang giai đoạn độc quyền mới biểu hiện thành quy luật lợi nhuận độc quyền cao."
     },
     {
       "id": "MLN122-253",
@@ -629,7 +670,8 @@
         "Tiền công theo thời gian và tiền công theo sản phẩm",
         "Tiền công theo tháng và tiền công theo sản phẩm"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Hai hình thức cơ bản của tiền công là tiền công tính theo thời gian (theo giờ, ngày, tháng) và tiền công tính theo sản phẩm (theo số lượng, chất lượng sản phẩm làm ra). B và D chỉ là trường hợp cụ thể của tiền công theo thời gian."
     },
     {
       "id": "MLN122-254",
@@ -640,7 +682,8 @@
         "Trả bằng tiền hay sản phẩm",
         "Trả bằng tiền hay vàng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Theo file gốc, nhà tư bản trả công cho công nhân bằng tiền hoặc bằng sản phẩm (hiện vật). Không trả bằng tư liệu sản xuất vì tư liệu sản xuất phải nằm trong tay nhà tư bản."
     },
     {
       "id": "MLN122-255",
@@ -653,7 +696,7 @@
         "Chi phí sản xuất cộng lợi nhuận bình quân"
       ],
       "correct": 3,
-      "explanation": "Giải thích: Giá trị thặng dư siêu ngạch hình thành khi các xí nghiệp cá biệt cải tiến kỹ thuật, tăng năng suất lao động làm cho giá trị cá biệt của hàng hóa thấp hơn giá trị xã hội. Do hàng hóa vẫn được bán theo giá trị xã hội, nhà tư bản đó sẽ thu được một phần giá trị thặng dư trội hơn so với mức trung bình"
+      "explanation": "Khi hình thành lợi nhuận bình quân, giá trị hàng hóa chuyển hóa thành giá cả sản xuất: giá cả sản xuất = chi phí sản xuất (k = c + v) + lợi nhuận bình quân. A sai vì cộng \"tỷ suất\" (một con số %), B là giá trị hàng hóa."
     },
     {
       "id": "MLN122-256",
@@ -663,44 +706,48 @@
         "Giá cả cá biệt của hàng hóa thấp hơn giá trị xã hội",
         "Giá trị cá biệt của hàng hóa bằng giá trị xã hội",
         "Giá trị xã hội của hàng hóa thấp hơn giá trị cá biệt",
-        "Giá trị cá biệt của hàng hóa thấp hơn giá trị xã h"
+        "Giá trị cá biệt của hàng hóa thấp hơn giá trị xã hội"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Giá trị thặng dư siêu ngạch có được khi một xí nghiệp cải tiến kỹ thuật, tăng năng suất cao hơn mức trung bình, làm giá trị cá biệt của hàng hóa thấp hơn giá trị xã hội. Hàng vẫn bán theo giá trị xã hội nên xí nghiệp thu thêm phần chênh lệch."
     },
     {
       "id": "MLN122-257",
       "type": "choice",
       "prompt": "Tuần hoàn tư bản công nghiệp là:",
       "options": [
-        "Sự vận động của tư bản trải quan ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị được bảo tồn",
-        "Sự vận động của tư bản trải quan ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị được bảo tồn và tăng lên",
-        "Sự vận động của tư bản trải quan ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị sử dụng được bảo tồn và tăng l"
+        "Sự vận động của tư bản trải qua ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị được bảo tồn",
+        "Sự vận động của tư bản trải qua ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị được bảo tồn và tăng lên",
+        "Sự vận động của tư bản trải qua ba giai đoạn, lần lượt mang lấy ba hình thái để rồi quay trở lại hình thái ban đầu với giá trị sử dụng được bảo tồn và tăng lên"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tuần hoàn tư bản công nghiệp là sự vận động của tư bản qua ba giai đoạn, lần lượt mang ba hình thái (tiền tệ, sản xuất, hàng hóa) rồi trở về hình thái ban đầu với giá trị không chỉ được bảo tồn mà còn tăng lên (có giá trị thặng dư)."
     },
     {
       "id": "MLN122-259",
       "type": "choice",
       "prompt": "Tư bản cố định là bộ phận tư bản khi tham gia quá trình sản xuất:",
       "options": [
-        "Giá trị của nó được chuyển ngày một lần vào sản phẩm mới",
+        "Giá trị của nó được chuyển ngay một lần vào sản phẩm mới",
         "Giá trị sử dụng của nó được chuyển dần vào sản phẩm mới",
         "Giá trị trao đổi của nó được chuyển dần vào sản phẩm mới",
         "Giá trị của nó được chuyển dần vào sản phẩm mới"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tư bản cố định (máy móc, nhà xưởng) tham gia toàn bộ vào sản xuất nhưng giá trị của nó chuyển dần từng phần vào sản phẩm qua nhiều chu kỳ, tương ứng mức hao mòn. Giá trị sử dụng thì vẫn giữ nguyên hình thái cho đến khi hỏng."
     },
     {
       "id": "MLN122-260",
       "type": "choice",
       "prompt": "Công thức chung của tư bản phản ánh:",
       "options": [
-        "Mục đích của sản xuất, lưu thông là giá trị và giá trị thặng",
-        "Phương tiện của lưu thông tư bản là giá trị và giá trị thặng d",
-        "Mục đích của sản xuất, lưu thông tư bản là giá trị và giá trị thặng",
-        "Mục đích của sản xuất, lưu thông tư bản là giá trị sử dụng và giá trị thặng"
+        "Mục đích của sản xuất, lưu thông là giá trị và giá trị thặng dư",
+        "Phương tiện của lưu thông tư bản là giá trị và giá trị thặng dư",
+        "Mục đích của sản xuất, lưu thông tư bản là giá trị và giá trị thặng dư",
+        "Mục đích của sản xuất, lưu thông tư bản là giá trị sử dụng và giá trị thặng dư"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Công thức chung T – H – T' cho thấy mục đích của sản xuất và lưu thông tư bản là giá trị và giá trị thặng dư (tiền lớn hơn), không phải giá trị sử dụng như trong lưu thông hàng hóa giản đơn H – T – H."
     },
     {
       "id": "MLN122-261",
@@ -708,23 +755,25 @@
       "prompt": "Tuần hoàn tư bản công nghiệp là sự thống nhất của ba hình thái tuần hoàn:",
       "options": [
         "Tư bản lưu thông, tư bản sản xuất và tư bản hàng hóa",
-        "Tư bản tiền tệ, tư bản sủa xuất và tư bản cho vay",
+        "Tư bản tiền tệ, tư bản sản xuất và tư bản cho vay",
         "Tư bản tiền tệ, tư bản sản xuất và tư bản hàng hóa",
         "Tư bản tiền tệ, tư bản trao đổi và tư bản hàng hóa"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tuần hoàn tư bản công nghiệp là sự thống nhất của ba hình thái tuần hoàn: tuần hoàn của tư bản tiền tệ, tư bản sản xuất và tư bản hàng hóa. Tư bản cho vay là hình thái tư bản riêng, không thuộc tuần hoàn tư bản công nghiệp."
     },
     {
       "id": "MLN122-262",
       "type": "choice",
-      "prompt": "Quan hệ cung cầu thuộc khâu nào của quá trình ần:",
+      "prompt": "Ngày lao động của người công nhân gồm những phần nào?",
       "options": [
         "Thời gian lao động giản đơn và thời gian lao động thặng dư",
         "Thời gian lao động phức tạp và thời gian lao động thặng dư",
         "Thời gian lao động cần thiết và thời gian lao động thặng dư",
         "Thời gian lao động giản đơn và thời gian lao động phức tạp"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lưu ý: câu hỏi trong file gốc bị lỗi (trùng đề câu \"Quan hệ cung cầu thuộc khâu nào\" nhưng các phương án lại nói về ngày lao động), đã sửa lại câu hỏi cho khớp phương án. Ngày lao động của công nhân chia thành thời gian lao động cần thiết (tất yếu – tạo ra giá trị bằng giá trị sức lao động) và thời gian lao động thặng dư (tạo ra giá trị thặng dư cho nhà tư bản)."
     },
     {
       "id": "MLN122-263",
@@ -736,7 +785,8 @@
         "Giá trị thặng dư",
         "Giá trị trao đổi"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tích lũy tư bản là tư bản hóa một phần giá trị thặng dư, nên nguồn gốc chủ yếu của tích lũy tư bản là giá trị thặng dư."
     },
     {
       "id": "MLN122-264",
@@ -748,7 +798,8 @@
         "Tiền lương được trả căn cứ vào số lượng và chất lượng sản phẩm mà người công nhân làm ra",
         "Tiền lương được trả căn cứ vào sản phẩm mà người công nhân làm ra"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tiền lương tính theo sản phẩm được trả căn cứ vào cả số lượng và chất lượng sản phẩm mà người công nhân làm ra (đơn giá × số sản phẩm đạt chuẩn)."
     },
     {
       "id": "MLN122-265",
@@ -758,20 +809,22 @@
         "Căn cứ vào vai trò của các bộ phận này trong quá trình sản xuất ra giá trị",
         "Căn cứ vào vai trò của các bộ phận này trong quá trình sản xuất ra giá trị sử dụng",
         "Căn cứ vào vai trò của các bộ phận này trong quá trình tạo ra sản phẩm",
-        "Căn cứ vào vài trò của các bộ phận này trong quá trình sản xuất ra giá trị thặng"
+        "Căn cứ vào vai trò của các bộ phận này trong quá trình sản xuất ra giá trị thặng dư"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tư bản bất biến (c) và tư bản khả biến (v) được phân chia căn cứ vào vai trò của từng bộ phận trong quá trình sản xuất giá trị thặng dư: c chỉ chuyển nguyên giá trị sang sản phẩm, còn v tạo ra giá trị mới lớn hơn giá trị của nó."
     },
     {
       "id": "MLN122-266",
       "type": "choice",
       "prompt": "Chu chuyển tư bản là:",
       "options": [
-        "Sự tuần hoàn của tư bản nếu xét nó là một quá trình đinh kỳ đổi mới, không lặp đi lặp lại",
-        "Sự sản xuất của tư bản nếu xét nó là một quá trình đinh kỳ đổi mới, lặp đi lặp lại không ngừng",
-        "Sự tuần hoàn của tư bản nếu xét nó là một quá trình đinh kỳ đổi mới, lặp đi lặp lại không ngừng"
+        "Sự tuần hoàn của tư bản nếu xét nó là một quá trình định kỳ đổi mới, không lặp đi lặp lại",
+        "Sự sản xuất của tư bản nếu xét nó là một quá trình định kỳ đổi mới, lặp đi lặp lại không ngừng",
+        "Sự tuần hoàn của tư bản nếu xét nó là một quá trình định kỳ đổi mới, lặp đi lặp lại không ngừng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chu chuyển tư bản là tuần hoàn của tư bản được xét với tư cách là một quá trình định kỳ đổi mới, thường xuyên lặp đi lặp lại không ngừng. A sai vì \"không lặp đi lặp lại\"; B sai vì nói \"sự sản xuất\" thay cho \"sự tuần hoàn\"."
     },
     {
       "id": "MLN122-268",
@@ -782,7 +835,8 @@
         "Tư bản sản xuất.",
         "Tư bản hàng hoá."
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tư bản bất biến (tư liệu sản xuất) và tư bản khả biến (sức lao động) là hai bộ phận của tư bản sản xuất, tức tư bản ở giai đoạn trực tiếp tham gia sản xuất."
     },
     {
       "id": "MLN122-269",
@@ -793,19 +847,21 @@
         "Tiền công thực tế và tiền công danh nghĩa",
         "Tiền mặt và hàng hóa"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tiền công được xét dưới hai dạng biểu hiện: tiền công danh nghĩa (số tiền công nhân nhận được khi bán sức lao động) và tiền công thực tế (lượng hàng hóa, dịch vụ mua được bằng tiền công danh nghĩa). Đây là đáp án phù hợp nhất trong các phương án đã cho."
     },
     {
       "id": "MLN122-271",
       "type": "choice",
       "prompt": "Nguồn gốc chủ yếu của tích tụ tư bản là:",
       "options": [
-        "Giá tri",
+        "Giá trị",
         "Giá trị trao đổi",
         "Giá trị thặng dư",
         "Vốn của các tư bản trong xã hội"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tích tụ tư bản là tăng quy mô tư bản cá biệt bằng cách tư bản hóa giá trị thặng dư, nên nguồn gốc chủ yếu của tích tụ tư bản là giá trị thặng dư. (Tập trung tư bản mới là hợp nhất các tư bản sẵn có.)"
     },
     {
       "id": "MLN122-272",
@@ -815,9 +871,10 @@
         "Luôn luôn nhỏ hơn giá trị thặng dư",
         "Luôn luôn lớn hơn tỷ suất giá trị thặng dư",
         "Luôn luôn bằng tỷ suất giá trị thặng dư",
-        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng d"
+        "Luôn luôn nhỏ hơn tỷ suất giá trị thặng dư"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tỷ suất lợi nhuận p' = m/(c + v), tỷ suất giá trị thặng dư m' = m/v. Mẫu số của p' luôn lớn hơn nên p' luôn nhỏ hơn m'."
     },
     {
       "id": "MLN122-273",
@@ -825,11 +882,12 @@
       "prompt": "Tư bản lưu động là bộ phận tư bản khi tham gia quá trình sản xuất:",
       "options": [
         "Giá trị của nó được chuyển dần vào sản phẩm mới, bao gồm: nguyên nhiên vật liệu và tiền công lao động",
-        "Giá trị sử dụng của nó được chuyển ngày một lần vào sản phẩm mới, bao gồm : nguyên nhiên vật liệu và tiền CL",
-        "Giá trị của nó được chuyển ngày một lần vào sản phẩm cũ, bao gồm: nguyên nhiên vật liệu",
-        "Giá trị của nó được chuyển ngày một lần vào sản phẩm mới, bao gồm: nguyên nhiên vật liệu và tiền công lao động"
+        "Giá trị sử dụng của nó được chuyển ngay một lần vào sản phẩm mới, bao gồm: nguyên nhiên vật liệu và tiền công lao động",
+        "Giá trị của nó được chuyển ngay một lần vào sản phẩm cũ, bao gồm: nguyên nhiên vật liệu",
+        "Giá trị của nó được chuyển ngay một lần vào sản phẩm mới, bao gồm: nguyên nhiên vật liệu và tiền công lao động"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tư bản lưu động (nguyên nhiên vật liệu, sức lao động) chuyển toàn bộ giá trị vào sản phẩm ngay trong một chu kỳ sản xuất. Tư bản cố định mới chuyển giá trị dần dần."
     },
     {
       "id": "MLN122-274",
@@ -841,7 +899,8 @@
         "Tăng năng suất lao động, làm rút ngắn thời gian lao động cần thiết",
         "Tăng năng suất lao động, làm rút ngắn thời gian lao động cá biệt"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Giá trị thặng dư tương đối có được nhờ tăng năng suất lao động xã hội (trước hết trong các ngành sản xuất tư liệu tiêu dùng), làm giảm giá trị sức lao động, rút ngắn thời gian lao động cần thiết và kéo dài tương ứng thời gian lao động thặng dư."
     },
     {
       "id": "MLN122-275",
@@ -853,7 +912,8 @@
         "Quá trình liên kết, hợp nhất các tư bản cá biệt trong xã hội thành một tư bản lớn hơn",
         "Quá trình liên kết, hợp nhất các tư bản thương nghiệp trong xã hội thành một tư bản lớn hơn"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tập trung tư bản là sự hợp nhất nhiều tư bản cá biệt có sẵn trong xã hội thành một tư bản cá biệt lớn hơn (qua sáp nhập, thôn tính, lập công ty cổ phần). Nó không làm tăng tổng tư bản xã hội."
     },
     {
       "id": "MLN122-277",
@@ -865,7 +925,8 @@
         "Lưu thông - lưu thông - sản xuất",
         "Lưu thông - trao đổi - lưu thông"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tuần hoàn tư bản công nghiệp: T – H (lưu thông) → H … SX … H' (sản xuất) → H' – T' (lưu thông). Vậy trình tự là lưu thông – sản xuất – lưu thông."
     },
     {
       "id": "MLN122-283",
@@ -877,7 +938,8 @@
         "Toàn bộ sức trí lực tồn tại trong mỗi con người",
         "Toàn bộ sức thể lực và trí lực tồn tại không có khả năng đem ra sử dụng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Sức lao động là toàn bộ thể lực và trí lực tồn tại trong một con người đang sống, được người đó đem ra vận dụng khi sản xuất ra một giá trị sử dụng nào đó."
     },
     {
       "id": "MLN122-284",
@@ -887,9 +949,10 @@
         "Bộ phận trực tiếp tạo ra giá trị sử dụng",
         "Bộ phận trực tiếp tạo ra sản phẩm",
         "Bộ phận trực tiếp tạo ra giá trị thặng dư",
-        "Bộ phận gián tiếp tạo ra giá trị thặng d"
+        "Bộ phận gián tiếp tạo ra giá trị thặng dư"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tư bản khả biến (v) là bộ phận tư bản dùng để mua sức lao động. Trong quá trình sản xuất, công nhân tạo ra giá trị mới lớn hơn giá trị sức lao động, nên v là bộ phận trực tiếp tạo ra giá trị thặng dư."
     },
     {
       "id": "MLN122-285",
@@ -901,7 +964,8 @@
         "Giá trị sử dụng những tư liệu tiêu dùng để nuôi sống người lao động",
         "Giá trị những tư liệu tiêu dùng để nuôi sống nhà tư bản"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giá trị sức lao động được đo gián tiếp bằng giá trị các tư liệu tiêu dùng cần thiết để tái sản xuất sức lao động: nuôi sống người lao động và gia đình họ, chi phí đào tạo."
     },
     {
       "id": "MLN122-291",
@@ -913,18 +977,20 @@
         "Chìa khóa để giải quyết mâu thuẫn giữa tư bản và lao động",
         "Chìa khóa để giải quyết mâu thuẫn công thức chung của tư bản"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Hàng hóa sức lao động có giá trị sử dụng đặc biệt: khi được sử dụng nó tạo ra giá trị mới lớn hơn giá trị của bản thân nó. Đây là chìa khóa giải quyết mâu thuẫn của công thức chung của tư bản (tiền tăng thêm mà không vi phạm nguyên tắc trao đổi ngang giá)."
     },
     {
       "id": "MLN122-294",
       "type": "choice",
-      "prompt": "Trên giác độ KTCT, chi phí sản xuất tư bản được quan điểm là:",
+      "prompt": "Trên giác độ KTCT, chi phí sản xuất tư bản được hiểu là:",
       "options": [
         "Chi phí tư bản (c) và (v).",
         "Tổng số tiền nhà tư bản ứng ra.",
         "Số tiền nhà tư bản mua máy móc, nguyên vật liệu."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chi phí sản xuất tư bản chủ nghĩa (k) là phần giá trị bù lại giá cả của tư liệu sản xuất và sức lao động đã tiêu dùng, tức k = c + v. B sai vì tư bản ứng trước có thể lớn hơn phần đã tiêu dùng; C thiếu v."
     },
     {
       "id": "MLN122-299",
@@ -933,9 +999,10 @@
       "options": [
         "Tư bản là giá trị mang lại giá trị thặng dư",
         "Tư bản là tiền và TLSX của nhà tư bản để tạo ra giá trị thặng dư.",
-        "Tư bản là giá trị đem lại giá trị thặng dư bằng cách bóc lột lao động làm thu"
+        "Tư bản là giá trị đem lại giá trị thặng dư bằng cách bóc lột lao động làm thuê"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tư bản là giá trị mang lại giá trị thặng dư bằng cách bóc lột lao động làm thuê. A thiếu bản chất bóc lột; B mới nêu hình thái vật chất của tư bản (tiền, tư liệu sản xuất)."
     },
     {
       "id": "MLN122-301",
@@ -947,7 +1014,8 @@
         "Căn cứ vào tính chất chuyển giá trị của nó vào trong sản phẩm mới",
         "Căn cứ vào tính chất chuyển giá trị thặng dư của nó vào trong sản phẩm mới"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tư bản cố định và tư bản lưu động được phân chia căn cứ vào tính chất chuyển giá trị của chúng sang sản phẩm mới: tư bản cố định chuyển dần từng phần, tư bản lưu động chuyển hết một lần trong một chu kỳ sản xuất."
     },
     {
       "id": "MLN122-304",
@@ -958,18 +1026,20 @@
         "Tư bản bất biến và tư bản khả biến",
         "Tư bản cố định và tư bản lưu động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Để làm rõ vai trò của từng bộ phận tư bản trong việc tạo ra giá trị thặng dư, C. Mác chia tư bản thành tư bản bất biến (c – chỉ chuyển giá trị) và tư bản khả biến (v – tạo ra giá trị mới lớn hơn). Cách chia cố định – lưu động dựa trên phương thức chuyển giá trị."
     },
     {
       "id": "MLN122-308",
       "type": "choice",
       "prompt": "Điều kiện để tiền biến thành tư bản là:",
       "options": [
-        "Phải tích lũy được một lượng tiền lớn; tiền không được đưa vào kinh doanh với mục đích thu giá trị thặng d",
-        "Phải tích lũy được một lượng tiền lớn; tiền phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng d",
-        "Phải tích lũy được một lượng hàng hóa lớn; hàng hóa phải được đưa vào kinh doanh tư bản với mu"
+        "Phải tích lũy được một lượng tiền lớn; tiền không được đưa vào kinh doanh với mục đích thu giá trị thặng dư",
+        "Phải tích lũy được một lượng tiền lớn; tiền phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư",
+        "Phải tích lũy được một lượng hàng hóa lớn; hàng hóa phải được đưa vào kinh doanh tư bản với mục đích thu giá trị thặng dư"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tiền chỉ biến thành tư bản khi tích lũy được một lượng tiền đủ lớn và lượng tiền đó được đưa vào kinh doanh với mục đích thu giá trị thặng dư (dùng để mua sức lao động). A sai ở vế \"không được đưa vào kinh doanh\"."
     },
     {
       "id": "MLN122-309",
@@ -977,22 +1047,24 @@
       "prompt": "Quy luật kinh tế cơ bản của chủ nghĩa tư bản là",
       "options": [
         "Quy luật đấu tranh giai cấp",
-        "Quy luật giá trị",
+        "Quy luật giá trị thặng dư",
         "Quy luật quan hệ sản xuất phù hợp với lực lượng sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Quy luật kinh tế cơ bản của chủ nghĩa tư bản là quy luật giá trị thặng dư: sản xuất ra ngày càng nhiều giá trị thặng dư là mục đích và động lực của nền sản xuất tư bản chủ nghĩa. Quy luật giá trị là quy luật cơ bản của sản xuất hàng hóa nói chung. (Đã sửa phương án B bị cắt cụt thành \"Quy luật giá trị thặng dư\".)"
     },
     {
       "id": "MLN122-311",
       "type": "choice",
-      "prompt": "Học thuyết kinh tế nào của C.Mác được coi là hòn đá tảng",
+      "prompt": "Học thuyết kinh tế nào của C.Mác được coi là hòn đá tảng?",
       "options": [
         "Lợi nhuận",
         "Học thuyết tiền tệ",
         "Học thuyết cung cầu",
-        "Học thuyết giá trị thặng"
+        "Học thuyết giá trị thặng dư"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "V.I. Lênin đánh giá học thuyết giá trị thặng dư là \"hòn đá tảng\" trong học thuyết kinh tế của C. Mác, vì nó vạch rõ nguồn gốc, bản chất bóc lột của chủ nghĩa tư bản."
     },
     {
       "id": "MLN122-314",
@@ -1004,18 +1076,20 @@
         "Lao động trừu tượng của người công nhân",
         "Lao động phức tạp của người công nhân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lợi nhuận là hình thái biểu hiện của giá trị thặng dư; về bản chất cả hai đều là kết quả lao động không công của người công nhân bị nhà tư bản chiếm đoạt."
     },
     {
       "id": "MLN122-316",
       "type": "choice",
-      "prompt": "Dựa vào căn cứ nào để chia tư bản thành tư bản bất biến và tư bản khả biến (c & v)",
+      "prompt": "Dựa vào căn cứ nào để chia tư bản thành tư bản bất biến và tư bản khả biến (c và v)?",
       "options": [
         "Phương thức chuyển giá trị các bộ phận tư bản sang sản phẩm",
         "Vai trò các bộ phận tư bản trong quá trình sản xuất giá trị thặng dư",
         "Tốc độ chu chuyển của tư bản"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tư bản bất biến và tư bản khả biến được phân chia căn cứ vào vai trò của từng bộ phận trong quá trình sản xuất giá trị thặng dư. Phương thức chuyển giá trị là căn cứ chia tư bản cố định – lưu động."
     },
     {
       "id": "MLN122-317",
@@ -1025,9 +1099,10 @@
         "Là giá trị tư liệu sản xuất, giá trị của nó tăng lên sau quá trình sản xuất",
         "Là giá trị tư liệu sản xuất, giá trị của nó giảm đi sau quá trình sản xuất",
         "Là giá trị tư liệu sản xuất, giá trị của nó không thay đổi sau quá trình sản xuất",
-        "Là giá trị tư liệu sản xuất, giá trị sử dụng của nó được bảo tồn và chuyển vào sản p"
+        "Là giá trị tư liệu sản xuất, giá trị sử dụng của nó được bảo tồn và chuyển vào sản phẩm"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tư bản bất biến là bộ phận tư bản tồn tại dưới hình thái tư liệu sản xuất; giá trị của nó được lao động cụ thể bảo tồn và chuyển nguyên vẹn sang sản phẩm, không thay đổi về lượng trong quá trình sản xuất."
     },
     {
       "id": "MLN122-318",
@@ -1039,19 +1114,21 @@
         "Là toàn bộ lao động của công nhân",
         "Là lao động sáng tạo của công nhân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giá trị thặng dư là phần giá trị mới dôi ra ngoài giá trị sức lao động do công nhân tạo ra và bị nhà tư bản chiếm không, tức là phần lao động không được trả công."
     },
     {
       "id": "MLN122-320",
       "type": "choice",
       "prompt": "Giá trị sử dụng của hàng hóa sức lao động khi sử dụng sẽ tạo ra",
       "options": [
-        "Giá trị mới bằng giá trị bản thân n",
-        "Giá trị mới lớn hơn giá trị bản thân n",
-        "Giá trị mới nhỏ hơn giá trị bản thân n",
+        "Giá trị mới bằng giá trị bản thân nó",
+        "Giá trị mới lớn hơn giá trị bản thân nó",
+        "Giá trị mới nhỏ hơn giá trị bản thân nó",
         "Giá trị sử dụng mới lớn hơn giá trị sử dụng bản thân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hàng hóa sức lao động có giá trị sử dụng đặc biệt: khi được sử dụng, nó tạo ra một lượng giá trị mới lớn hơn giá trị của bản thân nó. Phần lớn hơn đó chính là giá trị thặng dư."
     },
     {
       "id": "MLN122-324",
@@ -1063,19 +1140,21 @@
         "Hao mòn vật chất do quá trình sử dụng hoặc do tác động của tự nhiên",
         "Hao mòn vô hình do quá trình sử dụng hoặc do tác động của tự nhiên"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Hao mòn hữu hình là hao mòn về vật chất (cả giá trị sử dụng và giá trị) do quá trình sử dụng và do tác động của tự nhiên. Hao mòn vô hình là mất giá trị do xuất hiện máy móc mới rẻ hơn, hiện đại hơn."
     },
     {
       "id": "MLN122-328",
       "type": "choice",
-      "prompt": "Về lượng (hỏi về lượng) tỷ suất lợi nhuận (p') là:",
+      "prompt": "Về lượng, tỷ suất lợi nhuận (p') là:",
       "options": [
         "Luôn luôn nhỏ hơn giá trị thặng dư",
         "Luôn luôn lớn hơn tỷ suất giá trị thặng dư",
         "Luôn luôn bằng tỷ suất giá trị thặng dư",
         "Luôn luôn nhỏ hơn tỷ suất giá trị thặng dư"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tỷ suất lợi nhuận p' = m/(c + v) luôn nhỏ hơn tỷ suất giá trị thặng dư m' = m/v, vì mẫu số c + v lớn hơn v."
     },
     {
       "id": "MLN122-332",
@@ -1084,10 +1163,11 @@
       "options": [
         "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu tiêu dùng và số lao động sử dụng tư liệu tiêu dùng đó",
         "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu sản xuất và chất lượng lao động sử dụng tư liệu sản xuất đó",
-        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu tiêu dùng và chất lượng lao động sử dụng tư liệu tiêu dùng đó đó",
-        "Phản ánh mối quan hệ giữa tỷ lệ khối lượng và tư liệu sản xuất và số lao động sử dụng tư liệu sản xuất đ"
+        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu tiêu dùng và chất lượng lao động sử dụng tư liệu tiêu dùng đó",
+        "Phản ánh mối quan hệ tỷ lệ giữa khối lượng tư liệu sản xuất và số lao động sử dụng tư liệu sản xuất đó"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Cấu tạo kỹ thuật của tư bản là tỷ lệ giữa khối lượng tư liệu sản xuất và số lượng lao động cần thiết để sử dụng số tư liệu sản xuất đó. Đây là tỷ lệ về hiện vật, khác với cấu tạo giá trị (c/v)."
     },
     {
       "id": "MLN122-335",
@@ -1098,7 +1178,8 @@
         "Tái sản xuất theo chiều rộng và tái sản xuất theo chiều sâu",
         "Tái sản xuất tư bản xã hội và tái sản xuất tư bản tư nhân"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tái sản xuất tư bản có hai hình thức cơ bản: tái sản xuất giản đơn (lặp lại với quy mô cũ, giá trị thặng dư dùng hết cho tiêu dùng cá nhân) và tái sản xuất mở rộng (quy mô lớn hơn nhờ tích lũy một phần giá trị thặng dư)."
     },
     {
       "id": "MLN122-337",
@@ -1109,51 +1190,56 @@
         "Giá trị thặng dư",
         "Giá trị trao đổi"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Mục đích của sản xuất tư bản chủ nghĩa là giá trị thặng dư; quá trình sản xuất tư bản là sự thống nhất giữa quá trình sản xuất giá trị sử dụng và quá trình làm tăng giá trị (sản xuất giá trị thặng dư)."
     },
     {
       "id": "MLN122-341",
       "type": "choice",
-      "prompt": "Chi phí sản xuất tư bản tính bằng công thức nào sau đây",
+      "prompt": "Giá trị hàng hóa (W) trong chủ nghĩa tư bản được tính bằng công thức nào sau đây?",
       "options": [
-        "K = c + p + m",
-        "K = c + v + m",
-        "K = c + t + m"
+        "W = c + p + m",
+        "W = c + v + m",
+        "W = c + t + m"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lưu ý: đề gốc hỏi \"chi phí sản xuất tư bản\" nhưng không có phương án đúng (chi phí sản xuất k = c + v), còn đáp án được chọn là c + v + m – tức giá trị hàng hóa. Đã sửa câu hỏi cho khớp đáp án: giá trị hàng hóa W = c + v + m, gồm giá trị tư liệu sản xuất chuyển sang (c), giá trị sức lao động (v) và giá trị thặng dư (m)."
     },
     {
       "id": "MLN122-343",
       "type": "choice",
-      "prompt": "Tích lũy tư bản là xét về bản chất là",
+      "prompt": "Xét về bản chất, tích lũy tư bản là",
       "options": [
         "Tư bản hóa tư liệu tiêu dùng",
         "Tư bản hóa giá trị thặng dư",
         "Tư bản hóa sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Về bản chất, tích lũy tư bản là tư bản hóa giá trị thặng dư: biến một phần giá trị thặng dư thành tư bản phụ thêm để mở rộng sản xuất."
     },
     {
       "id": "MLN122-344",
       "type": "choice",
-      "prompt": "Lợi nhuận được KTCT quan điểm là",
+      "prompt": "Lợi nhuận được kinh tế chính trị Mác - Lênin xem là",
       "options": [
         "Hình thức biến tướng của kết quả sản xuất",
         "Hình thức biến tướng của giá trị thặng dư",
         "Hình thức biến tướng của chi phí sản xuất"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lợi nhuận là hình thức biến tướng (hình thái biểu hiện) của giá trị thặng dư: khi được quan niệm là con đẻ của toàn bộ tư bản ứng trước, giá trị thặng dư mang hình thái lợi nhuận."
     },
     {
       "id": "MLN122-348",
       "type": "choice",
-      "prompt": "Chủ nghĩa tư bản ra đời phải có mấy nguyên nhân",
+      "prompt": "Chủ nghĩa tư bản ra đời phải có mấy nguyên nhân?",
       "options": [
         "Bốn nguyên nhân cơ bản",
         "Ba nguyên nhân cơ bản",
         "Hai nguyên nhân cơ bản"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chủ nghĩa tư bản ra đời khi có hai điều kiện cơ bản: tập trung một số tiền lớn trong tay một số ít người, và xuất hiện đông đảo người lao động tự do nhưng mất hết tư liệu sản xuất, buộc phải bán sức lao động."
     },
     {
       "id": "MLN122-349",
@@ -1165,18 +1251,20 @@
         "Tư bản tài chính và tư bản công nghiệp",
         "Tư bản bất biến và tư bản lưu động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khi xét chu chuyển tư bản, C. Mác chia tư bản sản xuất thành tư bản cố định và tư bản lưu động, căn cứ vào phương thức chuyển giá trị của chúng sang sản phẩm."
     },
     {
       "id": "MLN122-352",
       "type": "choice",
-      "prompt": "Theo quan điểm của KTCT Mác- Lênin, khủng hoảng kinh tế của chủ nghĩa tư bản mang tính",
+      "prompt": "Theo quan điểm của kinh tế chính trị Mác - Lênin, khủng hoảng kinh tế của chủ nghĩa tư bản mang tính",
       "options": [
         "Chủ quan",
         "Khách quan",
         "Tạm thời"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khủng hoảng kinh tế trong chủ nghĩa tư bản mang tính khách quan và có tính chu kỳ, bắt nguồn từ mâu thuẫn cơ bản giữa tính xã hội hóa của sản xuất với chế độ chiếm hữu tư nhân tư bản chủ nghĩa."
     },
     {
       "id": "MLN122-356",
@@ -1185,10 +1273,11 @@
       "options": [
         "T' > T",
         "T' < T",
-        "T' =  T",
+        "T' = T",
         "T' > H'"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Trong công thức chung T – H – T', tiền thu về lớn hơn tiền ứng ra (T' > T), dường như lưu thông đã tạo ra giá trị thặng dư; nhưng lý luận lại khẳng định lưu thông (trao đổi ngang giá) không tạo ra giá trị. Đó là mâu thuẫn của công thức chung, được giải quyết bằng hàng hóa sức lao động."
     },
     {
       "id": "MLN122-357",
@@ -1200,7 +1289,8 @@
         "M = m'. V",
         "M = m'. V'"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Khối lượng giá trị thặng dư M = m' × V, với m' là tỷ suất giá trị thặng dư và V là tổng tư bản khả biến đã sử dụng."
     },
     {
       "id": "MLN122-359",
@@ -1211,18 +1301,20 @@
         "Nhỏ hơn chi phí sản xuất thực tế",
         "Bằng chi phí sản xuất thực tế"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Chi phí sản xuất tư bản chủ nghĩa (k = c + v) luôn nhỏ hơn chi phí sản xuất thực tế của xã hội (c + v + m, tức giá trị hàng hóa) một lượng bằng giá trị thặng dư."
     },
     {
       "id": "MLN122-360",
       "type": "choice",
-      "prompt": "Hàng hóa sức lao động ra đời phải dựa trên mấy điều kiện",
+      "prompt": "Hàng hóa sức lao động ra đời phải dựa trên mấy điều kiện?",
       "options": [
         "Ba điều kiện",
         "Một điều kiện",
         "Hai điều kiện"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Sức lao động trở thành hàng hóa khi có hai điều kiện: người lao động được tự do về thân thể (tự do bán sức lao động), và người lao động không có tư liệu sản xuất nên phải bán sức lao động để sống."
     },
     {
       "id": "MLN122-363",
@@ -1233,7 +1325,8 @@
         "Có nguồn gốc trực tiếp giống nhau",
         "Đều là tăng quy mô tư bản xã hội"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tích tụ và tập trung tư bản đều làm tăng quy mô tư bản cá biệt. Khác nhau: tích tụ có nguồn gốc là giá trị thặng dư và làm tăng tổng tư bản xã hội; tập trung chỉ hợp nhất các tư bản sẵn có, không làm tăng tư bản xã hội."
     },
     {
       "id": "MLN122-364",
@@ -1242,21 +1335,23 @@
       "options": [
         "Biến tướng của giá trị thặng dư cố định",
         "Biến tướng của giá trị thặng dư tương đối",
-        "Biến tưởng của giá trị thặng dư tuyệt đối"
+        "Biến tướng của giá trị thặng dư tuyệt đối"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giá trị thặng dư siêu ngạch có được nhờ tăng năng suất lao động cá biệt (dựa trên tiến bộ kỹ thuật), giống cơ sở của giá trị thặng dư tương đối. Vì vậy nó được coi là hình thức biến tướng của giá trị thặng dư tương đối."
     },
     {
       "id": "MLN122-365",
       "type": "choice",
-      "prompt": "Phương thức sản xuất tư bản chủ nghĩa hình thành và thay thế cho phương thức sản sản xuất nào?",
+      "prompt": "Phương thức sản xuất tư bản chủ nghĩa hình thành và thay thế cho phương thức sản xuất nào?",
       "options": [
         "Phương thức sản xuất phong kiến",
         "Phương thức sản xuất chiếm hữu nô lệ",
         "Phương thức sản xuất cộng sản nguyên thuỷ",
         "Phương thức sản xuất cộng sản chủ nghĩa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Phương thức sản xuất tư bản chủ nghĩa ra đời trong lòng xã hội phong kiến và thay thế phương thức sản xuất phong kiến."
     },
     {
       "id": "MLN122-366",
@@ -1268,7 +1363,8 @@
         "Có nguồn gốc từ giá trị thặng dư, đều là kết quả của sự chiếm đoạt lao động thặng dư của công nhân công nghiệp làm thuê",
         "Có nguồn gốc từ lợi nhuận thu được, đều là kết quả của sự chiếm đoạt lao động thặng dư của công nhân công nghiệp làm thuê"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Địa tô tuyệt đối và địa tô chênh lệch đều có nguồn gốc từ giá trị thặng dư, đều là kết quả chiếm đoạt lao động thặng dư của công nhân nông nghiệp làm thuê. B, D sai về nguồn gốc; C sai đối tượng (công nhân công nghiệp)."
     },
     {
       "id": "MLN122-372",
@@ -1277,9 +1373,10 @@
       "options": [
         "Cấu tạo kỹ thuật của tư bản",
         "Cấu tạo hữu cơ của tư bản",
-        "Cấu tạo giá trị của tư bả"
+        "Cấu tạo giá trị của tư bản"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Lưu ý: đáp án theo file gốc. Cấu tạo giá trị (c/v) cho biết tỷ lệ giữa tư bản bất biến và tư bản khả biến, qua đó phản ánh vai trò của từng bộ phận tư bản. Khi xét tích lũy, giáo trình (trang PDF 66) nhấn mạnh tích lũy làm tăng cấu tạo hữu cơ (c/v do cấu tạo kỹ thuật quyết định) – nên đối chiếu đề thi."
     },
     {
       "id": "MLN122-373",
@@ -1291,7 +1388,8 @@
         "Tỷ lệ phần trăm giữa lượng giá trị thặng dư và tư bản khả biến.",
         "Tỷ lệ phần trăm giữa lượng sản phẩm thặng dư và tư bản khả biến."
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tỷ suất giá trị thặng dư m' = m/v × 100%: tỷ lệ phần trăm giữa giá trị thặng dư và tư bản khả biến, phản ánh trình độ bóc lột."
     },
     {
       "id": "MLN122-374",
@@ -1320,29 +1418,32 @@
         "Tư bản bất biến",
         "Tư bản ứng trước"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản cố định và tư bản lưu động là cách phân chia tư bản sản xuất (tư bản đang ở giai đoạn sản xuất) theo phương thức chuyển giá trị sang sản phẩm."
     },
     {
       "id": "MLN122-377",
       "type": "choice",
-      "prompt": "Vê mặt lượng giữa p' và m' thì:",
+      "prompt": "Về mặt lượng giữa p' và m' thì:",
       "options": [
         "p' luôn nhỏ hơn m'",
         "p' luôn lớn hơn m'",
         "p' bằng m'"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "p' = m/(c + v) còn m' = m/v. Vì c + v > v nên p' luôn nhỏ hơn m'."
     },
     {
       "id": "MLN122-383",
       "type": "choice",
       "prompt": "Sự khác nhau giữa địa tô tuyệt đối và địa tô chênh lệch đó là",
       "options": [
-        "Độc quyền kinh doanh ruộng đã theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền tư hữu về ruộng đất là nguyên nhân sinh ra địa tô tuyệt đối",
-        "Độc quyền sở hữu đất đã theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền tư hữu về ruộng đất là nguyên nhân sinh ra đi a tô tuyệt đối",
-        "Độc quyền kinh doanh ruộng đã theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền sử dụng về ruộng đất là nguyên nhân sinh ra địa tô tuyệt"
+        "Độc quyền kinh doanh ruộng đất theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền tư hữu về ruộng đất là nguyên nhân sinh ra địa tô tuyệt đối",
+        "Độc quyền sở hữu ruộng đất theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền tư hữu về ruộng đất là nguyên nhân sinh ra địa tô tuyệt đối",
+        "Độc quyền kinh doanh ruộng đất theo kiểu tư bản chủ nghĩa là nguyên nhân sinh ra địa tô chênh lệch, còn độc quyền sử dụng về ruộng đất là nguyên nhân sinh ra địa tô tuyệt đối"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Địa tô chênh lệch bắt nguồn từ độc quyền kinh doanh ruộng đất theo kiểu tư bản chủ nghĩa (người thuê được ruộng tốt thu lợi nhuận siêu ngạch). Địa tô tuyệt đối bắt nguồn từ độc quyền tư hữu ruộng đất (địa chủ không cho thuê nếu không được trả tô)."
     },
     {
       "id": "MLN122-386",
@@ -1353,7 +1454,8 @@
         "Do sản xuất không có kế hoạch",
         "Do chạy theo lợi nhuận"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Khủng hoảng kinh tế trong chủ nghĩa tư bản bắt nguồn từ mâu thuẫn cơ bản của chính chủ nghĩa tư bản: tính xã hội hóa ngày càng cao của sản xuất với chế độ chiếm hữu tư nhân tư bản chủ nghĩa. Sản xuất vô kế hoạch, chạy theo lợi nhuận chỉ là biểu hiện của mâu thuẫn đó."
     },
     {
       "id": "MLN122-388",
@@ -1365,7 +1467,8 @@
         "Năng suất lao động xã hội",
         "Trình độ khai thác sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Quy mô tích lũy tư bản phụ thuộc: khối lượng giá trị thặng dư và tỷ lệ phân chia nó; trình độ khai thác sức lao động; năng suất lao động xã hội; sự chênh lệch giữa tư bản sử dụng và tư bản tiêu dùng; quy mô tư bản ứng trước. \"Sử dụng hiệu quả máy móc\" không được nêu là một nhân tố riêng."
     },
     {
       "id": "MLN122-390",
@@ -1375,20 +1478,22 @@
         "Hai giai đoạn",
         "Ba giai đoạn",
         "Bốn giai đoạn",
-        "Năm giai đoạn (tư bản tiền tệ, tư bản sản xuất và tư bản hàng hóa)"
+        "Năm giai đoạn"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tuần hoàn tư bản công nghiệp trải qua ba giai đoạn: mua (T – H), sản xuất (H … SX … H') và bán (H' – T'), tương ứng ba hình thái tư bản tiền tệ, tư bản sản xuất và tư bản hàng hóa."
     },
     {
       "id": "MLN122-394",
       "type": "choice",
-      "prompt": "Nếu nhà tư bản trả công theo đúng giá trị sức lao động thì có còn bóc lột giá trị thặng dư không",
+      "prompt": "Nếu nhà tư bản trả công theo đúng giá trị sức lao động thì có còn bóc lột giá trị thặng dư không?",
       "options": [
         "Không còn",
-        "Tùy trường hợp cu thể",
+        "Tùy trường hợp cụ thể",
         "Vẫn còn"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Kể cả khi nhà tư bản trả đúng giá trị sức lao động, công nhân vẫn tạo ra giá trị mới lớn hơn giá trị sức lao động trong ngày lao động; phần dôi ra (giá trị thặng dư) vẫn bị nhà tư bản chiếm đoạt. Vì vậy bóc lột vẫn còn."
     },
     {
       "id": "MLN122-398",
@@ -1400,7 +1505,8 @@
         "Quy mô giá trị thặng dư mà nhà tư bản thu được",
         "Quy mô bóc lột giá trị của nhà tư bản"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Khối lượng giá trị thặng dư M = m' × V phản ánh quy mô giá trị thặng dư nhà tư bản thu được (quy mô bóc lột). Trình độ bóc lột thì do tỷ suất m' phản ánh."
     },
     {
       "id": "MLN122-403",
@@ -1412,31 +1518,34 @@
         "p' = m/(c+v +m)100%",
         "p' = p/(c+v)100%"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tỷ suất lợi nhuận p' = p/(c + v) × 100%. Về lượng, lợi nhuận p bằng giá trị thặng dư m nên công thức này cũng chính là m/(c + v) × 100%; file gốc chọn cách viết theo p."
     },
     {
       "id": "MLN122-408",
       "type": "choice",
-      "prompt": "Cho ví du: nhà tư bản đầu tư 50 USD để mua nguyên vật liệu dệt vải, tốn 5 USD cho hao mòn máy móc để dệt được 10 mét vải từ nguyên liệu trên, 15 USD để trả công cho công nhân làm việc trong 8 giờ theo thoả thuận, nhưng sau 4 giờ thì công nhân đã làm xong 10 mét vải. Để tăng giá trị thặng dư được tạo ra 15 USD , nhà tư bản cần làm gì",
+      "prompt": "Cho ví dụ: nhà tư bản đầu tư 50 USD để mua nguyên vật liệu dệt vải, tốn 5 USD cho hao mòn máy móc để dệt được 10 mét vải từ nguyên liệu trên, 15 USD để trả công cho công nhân làm việc trong 8 giờ theo thoả thuận, nhưng sau 4 giờ thì công nhân đã làm xong 10 mét vải. Để tăng giá trị thặng dư được tạo ra 15 USD, nhà tư bản cần làm gì?",
       "options": [
         "Nhà tư bản cần bắt công nhân tăng ca 4 giờ nữa bên cạnh 8 giờ thỏa thuận",
-        "Nhà tư bản không cần làm gì cả chỉ ngồi không thì giá trị thặng dư cũng tạo ra",
+        "Nhà tư bản không cần làm gì? cả chỉ ngồi không thì giá trị thặng dư cũng tạo ra",
         "Đầu tư thêm 50 USD cho nguyên liệu, 5 USD cho hao mòn máy móc và bắt công nhân làm thêm 4 giờ nữa như thỏa thuận",
-        "Ngay từ thời điểm làm xong 4 giờ thì giá trị thặng dư đã được tạo ra rồ"
+        "Ngay từ thời điểm làm xong 4 giờ thì giá trị thặng dư đã được tạo ra rồi"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Trong 4 giờ, công nhân đã tạo ra giá trị mới bằng tiền công (15 USD), chưa có giá trị thặng dư. Theo thỏa thuận công nhân làm 8 giờ, nên nhà tư bản cần bỏ thêm 50 USD nguyên liệu và 5 USD hao mòn máy để công nhân làm tiếp 4 giờ; 4 giờ này tạo thêm 15 USD giá trị mới không phải trả công, chính là giá trị thặng dư."
     },
     {
       "id": "MLN122-413",
       "type": "choice",
       "prompt": "Lợi nhuận là:",
       "options": [
-        "Hình thức biến tưởng của kết quả sản xuất",
+        "Hình thức biến tướng của kết quả sản xuất",
         "Hình thức biến tướng của giá trị thặng dư",
         "Hình thức biến tướng của chi phí sản xuất",
-        "Hình thức biến tước của tư bản cố định"
+        "Hình thức biến tướng của tư bản cố định"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Lợi nhuận là hình thức biến tướng của giá trị thặng dư: khi giá trị thặng dư được quan niệm là con đẻ của toàn bộ tư bản ứng trước thì nó mang hình thái lợi nhuận."
     },
     {
       "id": "MLN122-415",
@@ -1448,7 +1557,8 @@
         "Bao gồm c và v (k = c+v)",
         "Bao gồm c, v và m (k = c + v + m)"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Chi phí sản xuất tư bản chủ nghĩa k = c + v: phần giá trị bù lại giá cả tư liệu sản xuất và sức lao động đã tiêu dùng. c + v + m là giá trị hàng hóa."
     },
     {
       "id": "MLN122-417",
@@ -1456,11 +1566,12 @@
       "prompt": "Khi nào tiền tệ biến thành tư bản?",
       "options": [
         "Sức lao động trở thành hàng hóa",
-        "Dùng tiên để buôn bán mua rẻ, bán đất",
+        "Dùng tiền để buôn bán mua rẻ, bán đắt",
         "Có lượng tiền tệ đủ lớn",
         "Tiền đưa vào dự trữ"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tiền chỉ biến thành tư bản khi sức lao động trở thành hàng hóa: nhà tư bản dùng tiền mua sức lao động, và sức lao động tạo ra giá trị thặng dư. Mua rẻ bán đắt không làm tăng tổng giá trị trong xã hội."
     },
     {
       "id": "MLN122-419",
@@ -1472,7 +1583,8 @@
         "Sản xuất giá trị thặng dư tuyệt đối và siêu ngạch",
         "Sản xuất giá trị thặng dư trung bình"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hai phương pháp sản xuất giá trị thặng dư là tuyệt đối (kéo dài ngày lao động) và tương đối (rút ngắn thời gian lao động tất yếu). Giá trị thặng dư siêu ngạch là biến tướng của phương pháp tương đối."
     },
     {
       "id": "MLN122-427",
@@ -1483,7 +1595,8 @@
         "Tuyệt đối của doanh nghiệp tư bản",
         "Tuyệt đối của chủ nghĩa xã hội"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "C. Mác khẳng định sản xuất giá trị thặng dư là quy luật kinh tế tuyệt đối (quy luật cơ bản) của chủ nghĩa tư bản."
     },
     {
       "id": "MLN122-428",
@@ -1495,7 +1608,8 @@
         "Quan hệ sản xuất tư bản chủ nghĩa",
         "Cấu tạo hữu cơ của tư bản tăng lên trong quá trình tích lũy"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Trong quá trình tích lũy, cấu tạo hữu cơ của tư bản (c/v) tăng lên: phần tư bản bất biến tăng nhanh hơn tư bản khả biến, làm cầu về sức lao động giảm tương đối, tạo ra nhân khẩu thừa tương đối – nguyên nhân trực tiếp của thất nghiệp."
     },
     {
       "id": "MLN122-429",
@@ -1505,9 +1619,10 @@
         "Tỷ suất giá trị thặng dư; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
         "Cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
         "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
-        "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm giá trị thặng d"
+        "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm giá trị thặng dư"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tỷ suất lợi nhuận chịu ảnh hưởng của bốn nhân tố: tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến. Chỉ C đủ bốn nhân tố."
     },
     {
       "id": "MLN122-430",
@@ -1516,10 +1631,10 @@
       "options": [
         "Là nguồn gốc của giá trị thặng dư",
         "Là điều kiện để tăng năng suất lao động",
-        "Các phương án trà lời đều đúng"
+        "Các phương án trả lời đều đúng"
       ],
-      "correct": 2,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+      "correct": 1,
+      "explanation": "Đã sửa đáp án: file gốc chọn C ở 3 bản và B ở 1 bản. Tư bản cố định (máy móc) không phải nguồn gốc của giá trị thặng dư – chỉ sức lao động (tư bản khả biến) mới tạo ra giá trị thặng dư. Nhưng máy móc là điều kiện để tăng năng suất lao động. Vì vậy chỉ B đúng."
     },
     {
       "id": "MLN122-436",
@@ -1531,7 +1646,8 @@
         "Hình thức biểu hiện bằng tiền của giá trị lao động",
         "Hình thức biểu hiện bằng tiền của giá cả của lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giáo trình (trang PDF 57): tiền công là giá cả của hàng hóa sức lao động, tức hình thức biểu hiện bằng tiền của giá cả (giá trị) sức lao động. Tiền công không phải \"giá cả của lao động\" (C và D) – đó chỉ là vẻ bề ngoài che giấu bóc lột."
     },
     {
       "id": "MLN122-437",
@@ -1543,7 +1659,8 @@
         "Phản ánh đúng bản chất và nguồn gốc của sự chiếm đoạt lao động không công của nhà tư bản",
         "Phản ánh sai lệch bản chất bóc lột của nhà tư bản"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Lợi nhuận và giá trị thặng dư có chung nguồn gốc là lao động không công của công nhân. Khác nhau: m phản ánh đúng bản chất bóc lột, còn p che giấu bản chất đó (vì được coi là con đẻ của toàn bộ tư bản ứng trước)."
     },
     {
       "id": "MLN122-438",
@@ -1555,7 +1672,8 @@
         "Chu chuyển sản xuất",
         "Chu chuyển sức lao động"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tuần hoàn tư bản được xét như một quá trình định kỳ, lặp đi lặp lại gọi là chu chuyển tư bản."
     },
     {
       "id": "MLN122-439",
@@ -1564,9 +1682,10 @@
       "options": [
         "Khi sử dụng nó sẽ tạo ra một lượng giá trị nhỏ hơn giá trị của bản thân",
         "Khi sử dụng nó sẽ có khả năng tạo ra một lượng giá trị mới lớn hơn giá trị của bản thân",
-        "Các phương án trà lời đều sai"
+        "Các phương án trả lời đều sai"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Hàng hóa sức lao động khác hàng hóa thông thường ở giá trị sử dụng đặc biệt: khi được sử dụng nó tạo ra lượng giá trị mới lớn hơn giá trị của bản thân nó."
     },
     {
       "id": "MLN122-451",
@@ -1591,7 +1710,8 @@
         "Từ quá trình sản xuất hàng hoá",
         "Từ quá trình đầu cơ, tích trữ chờ đợi tăng giá của các nhà tư bản"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giá trị thặng dư bắt nguồn từ hàng hóa sức lao động: khi được sử dụng trong sản xuất, nó không chỉ bảo tồn mà còn tạo ra giá trị mới lớn hơn giá trị của bản thân nó. Mua đi bán lại hay đầu cơ chỉ phân phối lại giá trị đã có."
     },
     {
       "id": "MLN122-454",
@@ -1601,20 +1721,22 @@
         "m' = giá trị thặng dư / tư bản khả biến 100%",
         "m' = thời gian lao động tất yếu/thời gian lao động cần thiết 100%",
         "m' = thời gian lao động thặng dư/lao động cần thiết 100%",
-        "m' = giá trị sức lao động / giá trị thặng dư 10"
+        "m' = giá trị sức lao động / giá trị thặng dư 100%"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Công thức cơ bản: m' = m/v × 100% (giá trị thặng dư chia tư bản khả biến). Cũng có thể tính m' = t'/t × 100% (thời gian lao động thặng dư chia thời gian lao động tất yếu), nhưng phương án C viết thiếu chữ \"thời gian\" ở mẫu số; B và D đảo sai tử số, mẫu số."
     },
     {
       "id": "MLN122-455",
       "type": "choice",
       "prompt": "Sức lao động là:",
       "options": [
-        "Toàn bộ thể lực và trí lực trong một con người đang sống và được vận dụng để sản xuất ra giá trị sử dụng nào",
+        "Toàn bộ thể lực và trí lực trong một con người đang sống và được vận dụng để sản xuất ra giá trị sử dụng nào đó",
         "Khả năng lao động, được tiêu dùng trong quá trình sản xuất",
         "Các phương án trả lời đều đúng"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Sức lao động là toàn bộ thể lực và trí lực trong một con người đang sống, được vận dụng để sản xuất ra giá trị sử dụng; nói cách khác là khả năng lao động được tiêu dùng trong quá trình sản xuất. Cả hai cách diễn đạt đều đúng."
     },
     {
       "id": "MLN122-456",
@@ -1622,11 +1744,12 @@
       "prompt": "Tư bản cố định là:",
       "options": [
         "Bộ phận tư bản sản xuất tồn tại dưới dạng máy móc, thiết bị, nhà xưởng... về hiện vật tham gia toàn bộ vào quá trình sản xuất, nhưng giá trị của nó bị khấu hao từng phần và được chuyển dần vào sản phẩm mới được sản xuất",
-        "Bộ phận tư bản sản xuất tồn tại dưới dạng nguyên liệu, nhiên liệu, vật liệu phu, sức lao động giá trị của nó lưu thông toàn bộ cùng với sản phẩm và được hoàn lại toàn bộ cho các nhà tư bản sau mỗi quá trình sản xuất",
-        "Bộ phận tư bản tiêu dùng tồn tại dưới dạng máy móc, thiết bị, nhà xưởng... về hiện vật tham gia toàn bộ vào quá trình sản xuất, những giá trị của nó bị khấu hao từng phần và được chuyển dần vào sản phẩm mới được sản xuất",
-        "Bộ phận tư bản tiêu dùng tồn tại dưới dạng nguyên liệu, nhiên liệu, vật liệu phu, sức lao động... giá trị của nó lưu thông toàn bộ cùng với sản phẩm và được hoàn lại toàn bộ cho các nhà tư bản sau mỗi quá trình sản xu"
+        "Bộ phận tư bản sản xuất tồn tại dưới dạng nguyên liệu, nhiên liệu, vật liệu phụ, sức lao động giá trị của nó lưu thông toàn bộ cùng với sản phẩm và được hoàn lại toàn bộ cho các nhà tư bản sau mỗi quá trình sản xuất",
+        "Bộ phận tư bản tiêu dùng tồn tại dưới dạng máy móc, thiết bị, nhà xưởng... về hiện vật tham gia toàn bộ vào quá trình sản xuất, nhưng giá trị của nó bị khấu hao từng phần và được chuyển dần vào sản phẩm mới được sản xuất",
+        "Bộ phận tư bản tiêu dùng tồn tại dưới dạng nguyên liệu, nhiên liệu, vật liệu phụ, sức lao động... giá trị của nó lưu thông toàn bộ cùng với sản phẩm và được hoàn lại toàn bộ cho các nhà tư bản sau mỗi quá trình sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản cố định là bộ phận tư bản sản xuất tồn tại dưới dạng máy móc, thiết bị, nhà xưởng; về hiện vật nó tham gia toàn bộ vào sản xuất, nhưng giá trị bị khấu hao và chuyển dần từng phần vào sản phẩm. B và D mô tả tư bản lưu động; C và D gọi sai là \"tư bản tiêu dùng\"."
     },
     {
       "id": "MLN122-461",
@@ -1638,7 +1761,8 @@
         "Đầu tư thị trường",
         "Đầu tư tiền tệ"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mua cổ phiếu, trái phiếu là đầu tư gián tiếp: người mua góp vốn hoặc cho vay để hưởng cổ tức, lãi suất mà không trực tiếp quản lý, điều hành doanh nghiệp. Đầu tư trực tiếp (FDI) là tự bỏ vốn xây dựng, quản lý cơ sở sản xuất."
     },
     {
       "id": "MLN122-465",
@@ -1648,9 +1772,10 @@
         "Tư bản cho vay là hàng hoá đặc biệt",
         "Tư bản cho vay là hình thái để thu lợi nhuận cao nhất của đầu tư",
         "Quyền sử dụng đi liền với quyền sở hữu",
-        "Là một phần của giá trị hàng ho"
+        "Là một phần của giá trị hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản cho vay là một loại hàng hóa đặc biệt: người bán không mất quyền sở hữu mà chỉ nhường quyền sử dụng trong một thời gian; giá cả của nó (lợi tức) không do giá trị quyết định. C sai vì quyền sử dụng tách rời quyền sở hữu."
     },
     {
       "id": "MLN122-467",
@@ -1658,11 +1783,12 @@
       "prompt": "Trong quá trình sản xuất tư bản chủ nghĩa, có hai loại hao mòn đó là:",
       "options": [
         "Hao mòn hữu hình và hao mòn vô hình",
-        "Hao mòn tự nhiên và hao mòn giá tri",
+        "Hao mòn tự nhiên và hao mòn giá trị",
         "Hao mòn máy móc và hao mòn sức lao động",
         "Hao mòn máy móc và hao mòn nguyên liệu"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Tư bản cố định chịu hai loại hao mòn: hao mòn hữu hình (do sử dụng và tác động của tự nhiên) và hao mòn vô hình (mất giá trị do xuất hiện máy móc mới rẻ hơn, hiện đại hơn)."
     },
     {
       "id": "MLN122-473",
@@ -1673,18 +1799,20 @@
         "Căn cứ vào tốc độ sản xuất",
         "Căn cứ vào tính chất sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Căn cứ vào phạm vi, tái sản xuất được chia thành tái sản xuất cá biệt (trong từng doanh nghiệp) và tái sản xuất xã hội (tổng thể các tái sản xuất cá biệt có quan hệ với nhau)."
     },
     {
       "id": "MLN122-474",
       "type": "choice",
-      "prompt": "Nếu nhà tư bản trả công theo đúng giá trị sức lao động thì có còn bóc lột giá trị thặng dư không",
+      "prompt": "Nếu nhà tư bản trả công theo đúng giá trị sức lao động thì có còn bóc lột giá trị thặng dư không?",
       "options": [
         "Không còn",
-        "Tùy trường hợp cu thể",
+        "Tùy trường hợp cụ thể",
         "Vẫn còn"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Kể cả khi trả đúng giá trị sức lao động, công nhân vẫn tạo ra giá trị mới lớn hơn giá trị sức lao động trong ngày lao động; phần dôi ra bị nhà tư bản chiếm không. Vì vậy bóc lột giá trị thặng dư vẫn còn."
     },
     {
       "id": "MLN122-475",
@@ -1695,7 +1823,8 @@
         "Tái sản xuất mở rộng",
         "Tái sản xuất mở rộng theo chiều sâu"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tái sản xuất mở rộng theo chiều sâu làm tăng sản phẩm chủ yếu nhờ tăng năng suất lao động và hiệu quả sử dụng nguồn lực. Theo chiều rộng thì tăng sản phẩm chủ yếu do tăng thêm các yếu tố đầu vào (vốn, lao động, tài nguyên)."
     },
     {
       "id": "MLN122-476",
@@ -1707,31 +1836,34 @@
         "Cổ tức và cổ phiếu thường",
         "Cổ phiếu thường và cổ phiếu thưởng"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cổ phiếu có hai loại: cổ phiếu thường (cổ tức thay đổi theo kết quả kinh doanh, có quyền biểu quyết) và cổ phiếu ưu đãi (cổ tức cố định, được ưu tiên chia trước). Cổ tức là thu nhập từ cổ phiếu, không phải một loại cổ phiếu."
     },
     {
       "id": "MLN122-477",
       "type": "choice",
-      "prompt": "Khi sử dụng hàng hóa sức lao động sẽ tạo ra.",
+      "prompt": "Khi sử dụng hàng hóa sức lao động sẽ tạo ra",
       "options": [
         "Giá trị mới bằng giá trị bản thân nó",
         "Giá trị mới lớn hơn giá trị bản thân",
         "Giá trị mới nhỏ hơn giá trị bản thân",
         "Giá trị sử dụng mới nhỏ hơn giá trị sử dụng bản thân"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khi được sử dụng, hàng hóa sức lao động tạo ra giá trị mới lớn hơn giá trị của bản thân nó; phần lớn hơn đó là giá trị thặng dư."
     },
     {
       "id": "MLN122-479",
       "type": "choice",
       "prompt": "Thế nào là tư bản cho vay?",
       "options": [
-        "Là tư bản hàng hóa mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi tứ",
-        "Là tư bản tiền tệ mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi tứ",
+        "Là tư bản hàng hóa mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi tức",
+        "Là tư bản tiền tệ mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi tức",
         "Là tư bản tiền tệ mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi nhuận",
         "Là tư bản sản xuất mà người chủ của nó nhường cho người khác sử dụng ở trong một thời gian nhất định để thu lợi t"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Tư bản cho vay là tư bản tiền tệ tạm thời nhàn rỗi mà người chủ nhường cho người khác sử dụng trong một thời gian để thu lợi tức. C sai vì lợi tức chỉ là một phần của lợi nhuận mà người đi vay thu được."
     },
     {
       "id": "MLN122-480",
@@ -1743,7 +1875,8 @@
         "Tái sản xuất của cải vật chất; tái sản xuất sức lao động; tái sản xuất ra lực lượng sản xuất và tái sản xuất môi trường",
         "Tái sản xuất của cải vật chất; tái sản xuất sức lao động; tái sản xuất ra quan hệ sản xuất và tái sản xuất môi trường"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tái sản xuất xã hội có bốn nội dung: tái sản xuất của cải vật chất, tái sản xuất sức lao động, tái sản xuất quan hệ sản xuất và tái sản xuất môi trường. Chỉ D đủ bốn nội dung."
     },
     {
       "id": "MLN122-481",
@@ -1753,9 +1886,10 @@
         "Thời gian sản xuất + thời gian bán hàng",
         "Thời gian sản xuất + thời gian lưu thông",
         "Thời gian dự trữ sản xuất + thời gian lưu thông",
-        "Thời gian sản xuất + thời gian tiếp thi"
+        "Thời gian sản xuất + thời gian tiếp thị"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Thời gian chu chuyển của tư bản = thời gian sản xuất + thời gian lưu thông. Thời gian lưu thông gồm cả thời gian mua và thời gian bán, nên A và D chưa đủ."
     },
     {
       "id": "MLN122-483",
@@ -1767,7 +1901,8 @@
         "Nhất thời",
         "Có tính thời điểm"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Khủng hoảng kinh tế trong chủ nghĩa tư bản là tất yếu khách quan và mang tính chu kỳ, bắt nguồn từ mâu thuẫn cơ bản giữa tính xã hội hóa của sản xuất và chế độ chiếm hữu tư nhân tư bản chủ nghĩa."
     },
     {
       "id": "MLN122-484",
@@ -1777,9 +1912,10 @@
         "Tỷ suất giá trị thặng dư; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
         "Cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
         "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến.",
-        "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm giá trị thặng d"
+        "Tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm giá trị thặng dư"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Tỷ suất lợi nhuận chịu ảnh hưởng của bốn nhân tố: tỷ suất giá trị thặng dư; cấu tạo hữu cơ của tư bản; tốc độ chu chuyển của tư bản; tiết kiệm tư bản bất biến. Chỉ C đủ bốn nhân tố."
     },
     {
       "id": "MLN122-486",
@@ -1790,7 +1926,8 @@
         "Hạ thấp mức tiền công",
         "Giữ nguyên mức tiền công"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Theo C. Mác, xu hướng chung của sản xuất tư bản chủ nghĩa là hạ thấp mức tiền công trung bình (tiền công thực tế có xu hướng giảm so với giá trị mới công nhân tạo ra), vì nhà tư bản luôn tìm cách tăng giá trị thặng dư."
     },
     {
       "id": "MLN122-X273",
@@ -1807,15 +1944,15 @@
     {
       "id": "MLN122-X292",
       "type": "choice",
-      "prompt": "Điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng.",
+      "prompt": "Điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng là",
       "options": [
-        "(c+v+m) I> cl + cl; (v+m)I + (v+m)II > (c+v+m)ll; (v + m )I >cl",
-        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)l; (v + m )I >cll",
-        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)ll, (v + m )l>cll",
-        "(c+v+m) II> cl + cll; (v+m)I + (v+m)II > (c+v+m)II, (v + m)l>cll"
+        "(c+v+m)I > cI + cI; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cI",
+        "(c+v+m)I > cI + cII; (v+m)I + (v+m)II > (c+v+m)I; (v+m)I > cII",
+        "(c+v+m)I > cI + cII; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cII",
+        "(c+v+m)II > cI + cII; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cII"
       ],
       "correct": 2,
-      "explanation": "Đây là công thức KTCT về điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng. Anh khuyên em giữ theo key C, vì câu này cần đúng công thức trong giáo trình KTCT/slide.\nMẹo: Câu công thức kiểu này học đúng key, đừng suy luận quá nhiều nếu không có giáo trình KTCT bên cạnh."
+      "explanation": "Trong tái sản xuất mở rộng, tổng sản phẩm xã hội được thực hiện khi: (1) toàn bộ sản phẩm khu vực I lớn hơn nhu cầu tư liệu sản xuất của cả hai khu vực: (c+v+m)I > cI + cII; (2) tổng thu nhập mới của hai khu vực lớn hơn sản phẩm khu vực II: (v+m)I + (v+m)II > (c+v+m)II; (3) (v+m)I > cII để khu vực I có tư liệu sản xuất phụ thêm. Chỉ C đúng cả ba điều kiện."
     },
     {
       "id": "MLN122-X299",

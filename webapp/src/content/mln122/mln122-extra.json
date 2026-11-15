@@ -5,7 +5,7 @@
     {
       "id": "MLN122-X261",
       "type": "choice",
-      "prompt": "Phân công lao động xã hội",
+      "prompt": "Phân công lao động xã hội được xác định là",
       "options": [
         "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền",
         "Không dẫn đến sự hình thành tư bản độc quyền",
@@ -13,7 +13,7 @@
         "Là một trong những nguyên nhân hình thành chủ nghĩa tư bản độc quyền nhà nước"
       ],
       "correct": 3,
-      "explanation": "Giáo trình (trang PDF 81): nguyên nhân thứ hai hình thành độc quyền nhà nước là sự phát triển của phân công lao động xã hội làm xuất hiện các ngành mới mà độc quyền tư nhân không thể hoặc không muốn đầu tư.\n\nPhân công lao động xã hội làm chuyên môn hóa sản xuất, thúc đẩy tích tụ - tập trung sản xuất và tư bản. Khi sản xuất/tư bản tập trung cao sẽ dẫn đến độc quyền.\nVí dụ: Nhiều xưởng nhỏ dần bị các công ty lớn thâu tóm, hình thành tập đoàn độc quyền"
+      "explanation": "Giáo trình (trang PDF 81): nguyên nhân thứ hai hình thành độc quyền nhà nước là sự phát triển của phân công lao động xã hội làm xuất hiện các ngành mới mà độc quyền tư nhân không thể hoặc không muốn đầu tư.\n\nPhân công lao động xã hội được xác định là làm chuyên môn hóa sản xuất, thúc đẩy tích tụ - tập trung sản xuất và tư bản. Khi sản xuất/tư bản tập trung cao sẽ dẫn đến độc quyền.\nVí dụ: Nhiều xưởng nhỏ dần bị các công ty lớn thâu tóm, hình thành tập đoàn độc quyền"
     },
     {
       "id": "MLN122-X272",
@@ -67,15 +67,15 @@
     {
       "id": "MLN122-X292",
       "type": "choice",
-      "prompt": "Điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng.",
+      "prompt": "Điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng là",
       "options": [
-        "(c+v+m) I> cl + cl; (v+m)I + (v+m)II > (c+v+m)ll; (v + m )I >cl",
-        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)l; (v + m )I >cll",
-        "(c+v+m) I> cl + cll; (v+m)I + (v+m)ll > (c+v+m)ll, (v + m )l>cll",
-        "(c+v+m) II> cl + cll; (v+m)I + (v+m)II > (c+v+m)II, (v + m)l>cll"
+        "(c+v+m)I > cI + cI; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cI",
+        "(c+v+m)I > cI + cII; (v+m)I + (v+m)II > (c+v+m)I; (v+m)I > cII",
+        "(c+v+m)I > cI + cII; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cII",
+        "(c+v+m)II > cI + cII; (v+m)I + (v+m)II > (c+v+m)II; (v+m)I > cII"
       ],
       "correct": 2,
-      "explanation": "Đây là công thức KTCT về điều kiện thực hiện tổng sản phẩm xã hội trong tái sản xuất mở rộng. Anh khuyên em giữ theo key C, vì câu này cần đúng công thức trong giáo trình KTCT/slide.\nMẹo: Câu công thức kiểu này học đúng key, đừng suy luận quá nhiều nếu không có giáo trình KTCT bên cạnh."
+      "explanation": "Trong tái sản xuất mở rộng, tổng sản phẩm xã hội được thực hiện khi: (1) toàn bộ sản phẩm khu vực I lớn hơn nhu cầu tư liệu sản xuất của cả hai khu vực: (c+v+m)I > cI + cII; (2) tổng thu nhập mới của hai khu vực lớn hơn sản phẩm khu vực II: (v+m)I + (v+m)II > (c+v+m)II; (3) (v+m)I > cII để khu vực I có tư liệu sản xuất phụ thêm. Chỉ C đúng cả ba điều kiện."
     },
     {
       "id": "MLN122-X297",

@@ -18,7 +18,7 @@
     {
       "id": "MLN122-003",
       "type": "choice",
-      "prompt": "Chon phương án sai vai trò của cách mạng công nghiệp đối với sự phát triển đó là",
+      "prompt": "Chọn phương án sai vai trò của cách mạng công nghiệp đối với sự phát triển đó là",
       "options": [
         "Thúc đẩy sự phát triển của lực lượng sản xuất",
         "Thúc đẩy các quan hệ sản xuất mới ra đời",
@@ -35,7 +35,7 @@
       "options": [
         "Từ nửa cuối thế kỷ XIX đến đầu thế kỷ XX",
         "Từ nửa đầu thế kỷ XIX đến cuối thế kỷ XIX",
-        "Từ nửa đầu thế kỷ XX đề nửa cuối thế kỷ XX",
+        "Từ nửa đầu thế kỷ XX đến nửa cuối thế kỷ XX",
         "Từ nửa cuối thế kỷ XIX đến nửa cuối thế kỷ XX"
       ],
       "correct": 0,
@@ -51,7 +51,8 @@
         "Hiệp tác đơn giản, sản xuất thủ công, sản xuất hiện đại",
         "Hiệp tác đơn giản, công trường thủ công, đại công nghiệp"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "C. Mác khái quát cách mạng công nghiệp lần thứ nhất qua ba giai đoạn: hiệp tác giản đơn (nhiều người cùng làm một việc dưới sự chỉ huy của nhà tư bản), công trường thủ công (chia công đoạn, chuyên môn hóa lao động thủ công) và đại công nghiệp (máy móc thay thế lao động thủ công). Các phương án còn lại đặt sai tên giai đoạn giữa hoặc giai đoạn cuối."
     },
     {
       "id": "MLN122-019",
@@ -112,7 +113,7 @@
       "options": [
         "Tài nguyên thiên nhiên, công nhân giá rẻ",
         "Khoáng sản, sức lao động",
-        "Khoa hoc công nghệ, nhân công chất lượng ca"
+        "Khoa học công nghệ, nhân công chất lượng cao"
       ],
       "correct": 0,
       "explanation": "Cách mạng công nghiệp lần thứ tư gắn với AI, dữ liệu lớn, tự động hóa, robot, internet vạn vật, công nghệ số. Khi công nghệ phát triển mạnh, lợi thế cũ của các nước đang phát triển như tài nguyên nhiều và lao động giá rẻ sẽ giảm dần."
@@ -151,7 +152,7 @@
         "Từ giữa thế kỷ XV đến giữa thế kỷ XIX",
         "Từ giữa thế kỷ XVI đến giữa thế kỷ XVII",
         "Từ giữa thế kỷ XVIII đến giữa thế kỷ XIX",
-        "Từ dầu những năm 60 của XX đến cuối thế kỷ XX"
+        "Từ đầu những năm 60 của thế kỷ XX đến cuối thế kỷ XX"
       ],
       "correct": 3,
       "explanation": "Cách mạng công nghiệp lần thứ ba là giai đoạn của điện tử, công nghệ thông tin, máy tính, tự động hóa.\nNó bắt đầu từ khoảng đầu những năm 1960 và kéo dài đến cuối thế kỷ XX."
@@ -159,12 +160,12 @@
     {
       "id": "MLN122-049",
       "type": "choice",
-      "prompt": "Yếu tố nào quyết định đến sự hình thành của cách mạng công nghiệp.",
+      "prompt": "Yếu tố nào quyết định đến sự hình thành của cách mạng công nghiệp?",
       "options": [
         "Sự phát triển vượt bậc của quan hệ sản xuất",
         "Phương thức sản xuất mới ra đời",
         "Sự phát triển nhảy vọt về trình độ của tư liệu lao động",
-        "Các phát minh sáng chế của các nhà khoa học trên mọi lĩnh v"
+        "Các phát minh sáng chế của các nhà khoa học trên mọi lĩnh vực"
       ],
       "correct": 2,
       "explanation": "cách mạng công nghiệp là bước phát triển nhảy vọt về chất của trình độ tư liệu lao động, dựa trên các phát minh kỹ thuật - công nghệ, làm thay đổi sản xuất và tăng năng suất lao động.\n“Tư liệu lao động” hiểu đơn giản là công cụ, máy móc, thiết bị mà con người dùng để sản xuất."
@@ -192,7 +193,8 @@
         "Năng lượng điện và năng lượng hóa thạch",
         "Tất cả phương án trên"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Cách mạng công nghiệp lần thứ hai gắn với điện và động cơ điện, động cơ đốt trong dùng dầu mỏ (năng lượng hóa thạch); nhờ đó giao thông vận tải (ô tô, đường sắt, tàu thủy) và thông tin liên lạc (điện báo, điện thoại) tiến bộ vượt bậc, kéo theo phát triển kết cấu hạ tầng. Vì vậy chọn \"Tất cả phương án trên\"."
     },
     {
       "id": "MLN122-072",
@@ -200,11 +202,12 @@
       "prompt": "Hội nhập kinh tế quốc tế, mở rộng kinh tế đối ngoại nhằm:",
       "options": [
         "Thu hút vốn đầu tư nước ngoài, thu hút công nghệ hiện đại",
-        "Hoc hỏi kinh nghiệm quản lý tiên tiến của thế giới",
-        "Khai thác thị trường thế giới để tiêu thu các sản phẩm mà nước ta có nhiều lợi th ế và khả năng cạnh tranh ca",
+        "Học hỏi kinh nghiệm quản lý tiên tiến của thế giới",
+        "Khai thác thị trường thế giới để tiêu thụ các sản phẩm mà nước ta có nhiều lợi thế và khả năng cạnh tranh cao",
         "Tất cả các phương án trên"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Hội nhập kinh tế quốc tế giúp thu hút vốn và công nghệ hiện đại, học hỏi kinh nghiệm quản lý tiên tiến, đồng thời mở rộng thị trường tiêu thụ cho những sản phẩm Việt Nam có lợi thế. Cả ba ý đều đúng nên chọn D."
     },
     {
       "id": "MLN122-073",
@@ -212,11 +215,12 @@
       "prompt": "Quan điểm nào dưới đây không phải là đặc trưng chủ yếu của quá trình công nghiệp hóa, hiện đại hóa ở Việt Nam?",
       "options": [
         "Công nghiệp hóa, hiện đại hóa gắn liền với phát triển công nghiệp nặng",
-        "Công nghiệp hóa, hiện đại hóa trong điều kiện nền kinh tế thị trường, định hướng g xã hội chủ nghĩa",
+        "Công nghiệp hóa, hiện đại hóa trong điều kiện nền kinh tế thị trường, định hướng xã hội chủ nghĩa",
         "Công nghiệp hóa, hiện đại hóa trong bối cảnh toàn cầu hóa kinh tế quốc tế",
         "Công nghiệp hóa, hiện đại hóa theo định hướng xã hội chủ nghĩa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 153) nêu bốn đặc điểm của công nghiệp hóa, hiện đại hóa ở Việt Nam: theo định hướng xã hội chủ nghĩa; gắn với phát triển kinh tế tri thức; trong điều kiện kinh tế thị trường định hướng xã hội chủ nghĩa; trong bối cảnh toàn cầu hóa và hội nhập quốc tế. \"Gắn liền với công nghiệp nặng\" là đặc trưng mô hình Liên Xô cũ, không phải đặc điểm của Việt Nam."
     },
     {
       "id": "MLN122-076",
@@ -226,10 +230,10 @@
         "Cơ chế kế hoạch hoá tập trung mệnh lệnh",
         "Sự tiến bộ kỹ thuật không đồng bộ",
         "Sản xuất không đi đối với tiêu dùng",
-        "Công nghiệp hoá nhanh (Kiểu hỏi khác:"
+        "Công nghiệp hoá nhanh"
       ],
       "correct": 0,
-      "explanation": "Đáp án: A. Cơ chế kế hoạch hoá tập trung mệnh lệnh\nCâu này có trong ebook.\nEbook nói mô hình công nghiệp hóa kiểu Liên Xô ưu tiên công nghiệp nặng, dùng cơ chế kế hoạch hóa tập trung, mệnh lệnh để huy động và phân bổ nguồn lực. Ban đầu mô hình này giúp xây dựng cơ sở vật chất - kỹ thuật khá nhanh, nhưng khi khoa học - kỹ thuật phát triển, mô hình cơ khí hóa cũ không thích ứng được, làm kìm hãm ứng dụng tiến bộ kỹ thuật mới. Đặc biệt, ebook ghi rõ: cơ chế kế hoạch hóa tập trung mệnh lệnh được duy trì quá lâu đã dẫn đến sự trì trệ, và đây là một trong những nguyên nhân dẫn đến khủng hoảng, sụp đổ của Liên Xô và hệ thống XHCN Đông Âu."
+      "explanation": "Ebook nói mô hình công nghiệp hóa kiểu Liên Xô ưu tiên công nghiệp nặng, dùng cơ chế kế hoạch hóa tập trung, mệnh lệnh để huy động và phân bổ nguồn lực. Ban đầu mô hình này giúp xây dựng cơ sở vật chất - kỹ thuật khá nhanh, nhưng khi khoa học - kỹ thuật phát triển, mô hình cơ khí hóa cũ không thích ứng được, làm kìm hãm ứng dụng tiến bộ kỹ thuật mới. Đặc biệt, ebook ghi rõ: cơ chế kế hoạch hóa tập trung mệnh lệnh được duy trì quá lâu đã dẫn đến sự trì trệ, và đây là một trong những nguyên nhân dẫn đến khủng hoảng, sụp đổ của Liên Xô và hệ thống XHCN Đông Âu."
     },
     {
       "id": "MLN122-094",
@@ -241,29 +245,31 @@
         "Sử dụng năng lượng hơi nước, để cơ khí hóa sản xuất",
         "Sử dụng công nghệ thông tin và máy tính để tự động hóa sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cách mạng công nghiệp lần thứ hai đặc trưng bởi việc dùng năng lượng điện và động cơ điện để tạo ra dây chuyền sản xuất hàng loạt, chuyên môn hóa cao. C là đặc trưng lần thứ nhất (hơi nước, cơ khí hóa), D là lần thứ ba (máy tính, tự động hóa)."
     },
     {
       "id": "MLN122-095",
       "type": "choice",
-      "prompt": "Việt Nam trở thành thành viên chính thức của tổ chức thương mại kinh tế thế giới WTO khi nào?",
+      "prompt": "Việt Nam trở thành thành viên chính thức của Tổ chức Thương mại Thế giới (WTO) khi nào?",
       "options": [
         "2007",
         "2006",
         "2005",
-        "2008 2006, trở thành thành viên năm 2007)"
+        "2008"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Việt Nam được kết nạp vào Tổ chức Thương mại Thế giới (WTO) cuối năm 2006 và chính thức trở thành thành viên thứ 150 từ ngày 11/01/2007."
     },
     {
       "id": "MLN122-096",
       "type": "choice",
       "prompt": "Kinh tế tri thức là",
       "options": [
-        "Nền kinh tế trong đó có sự sản sinh ra, phổ cập và sử dụng tri thức giữ vai trò quyết định nhất đối với sự phát triển kinh tế, tạo ra của cải, nâng cao chất lượng g cuộc sốn",
+        "Nền kinh tế trong đó có sự sản sinh ra, phổ cập và sử dụng tri thức giữ vai trò quyết định nhất đối với sự phát triển kinh tế, tạo ra của cải, nâng cao chất lượng cuộc sống",
         "Nền kinh tế áp dụng khoa học kỹ thuật vào sản xuất",
         "Nền kinh tế phát triển giáo dục đào tạo và xem đây là nền tảng, động lực cho công nghiệp hoá, hiện đại hoá",
-        "Nền kinh tế sử dụng tri thức trong sản xuất là phổ biến, vì thế cần đẩy mạnh đưa sinh viên đi du học ở các nước phát tri"
+        "Nền kinh tế sử dụng tri thức trong sản xuất là phổ biến, vì thế cần đẩy mạnh đưa sinh viên đi du học ở các nước phát triển"
       ],
       "correct": 0,
       "explanation": "Ebook dẫn định nghĩa của OECD năm 1995: kinh tế tri thức là nền kinh tế trong đó sự sản sinh ra, phổ cập và sử dụng tri thức giữ vai trò quyết định nhất đối với phát triển kinh tế, tạo ra của cải, nâng cao chất lượng cuộc sống."
@@ -278,7 +284,8 @@
         "Từ 20 - 30 năm",
         "Từ 25 - 35 năm"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Các nước tư bản cổ điển mất khoảng 60–80 năm để công nghiệp hóa. Nhật Bản và các nước công nghiệp mới (NICs) đi sau, tận dụng vốn, công nghệ và kinh nghiệm của các nước đi trước nên rút ngắn còn khoảng 20–30 năm."
     },
     {
       "id": "MLN122-108",
@@ -290,43 +297,47 @@
         "Gắn với nền kinh tế khép kín",
         "Gắn với nền kinh tế thị trường, thực hiện chiến lược hàng xuất khẩu"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đại hội X (2006) chủ trương đẩy mạnh công nghiệp hóa, hiện đại hóa gắn với phát triển kinh tế tri thức, coi kinh tế tri thức là yếu tố quan trọng của nền kinh tế và của công nghiệp hóa, hiện đại hóa. Các phương án còn lại trái với đường lối (định hướng tư bản, khép kín)."
     },
     {
       "id": "MLN122-109",
       "type": "choice",
-      "prompt": "Người phát minh ra con thoi - một cải tiến của khung dệt và là một đóng góp quan trong cho cách mạng công nghiệp lần thứ nhất là",
+      "prompt": "Người phát minh ra con thoi - một cải tiến của khung dệt và là một đóng góp quan trọng cho cách mạng công nghiệp lần thứ nhất là",
       "options": [
         "John Kay (1704 - 1779)",
         "Richard Arkwright (1732-1792)",
         "Edmund Cartwright (1743-1823)",
-        "James Watt (1736-1891)"
+        "James Watt (1736-1819)"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 139) nhắc tới \"thoi bay\" của John Kay (1733) là một trong những phát minh mở đầu cách mạng công nghiệp ngành dệt. Arkwright gắn với máy kéo sợi chạy bằng sức nước, Cartwright với máy dệt chạy bằng động lực, James Watt với máy hơi nước."
     },
     {
       "id": "MLN122-111",
       "type": "choice",
-      "prompt": "Trong quá trình hội nhập kinh tế quốc tế, Việt Nam đã gia nhập những tổ chức nào sau đây ?",
+      "prompt": "Trong quá trình hội nhập kinh tế quốc tế, Việt Nam đã gia nhập những tổ chức nào sau đây?",
       "options": [
         "ASEAN, AFTA, ASEM, APEC, WTO...",
         "ASEAN, G20, ASEM, APEC, WTO...",
         "ASEAN, AFTA, ASEM, APEC, EU...",
         "ASEAN, ASEM, APEC, WTO, ECOWAS..."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Việt Nam gia nhập ASEAN (1995), tham gia AFTA (từ 1996), là thành viên sáng lập ASEM (1996), gia nhập APEC (1998) và WTO (2007). Việt Nam không phải thành viên G20, EU hay ECOWAS (khối kinh tế Tây Phi)."
     },
     {
       "id": "MLN122-112",
       "type": "choice",
       "prompt": "Công nghiệp hoá ở Anh (cuộc cách mạng công nghiệp lần thứ nhất) bắt nguồn từ ngành nào?",
       "options": [
-        "Cong nghiep nhe",
+        "Công nghiệp nhẹ",
         "Công nghiệp nặng",
-        "Dich vu",
+        "Dịch vụ",
         "Sản xuất vũ khí"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cách mạng công nghiệp ở Anh bắt đầu từ công nghiệp nhẹ, cụ thể là ngành dệt (thoi bay, máy kéo sợi, máy dệt), sau đó mới lan sang luyện kim, cơ khí và các ngành công nghiệp nặng."
     },
     {
       "id": "MLN122-118",
@@ -338,7 +349,8 @@
         "Đại hội VIII",
         "Đại hội IX"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Nhận định \"khoa học và công nghệ sẽ có bước tiến nhảy vọt, kinh tế tri thức có vai trò ngày càng nổi bật...\" nằm trong văn kiện Đại hội IX (2001) khi đánh giá bối cảnh thế giới thế kỷ XXI. Đến Đại hội X (2006) Đảng mới chủ trương gắn công nghiệp hóa với phát triển kinh tế tri thức."
     },
     {
       "id": "MLN122-125",
@@ -350,17 +362,18 @@
         "Năm cuộc cách mạng công nghiệp",
         "Hai cuộc cách mạng công nghiệp"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đến nay thế giới đã trải qua ba cuộc cách mạng công nghiệp (hơi nước – cơ khí hóa; điện – sản xuất hàng loạt; điện tử, máy tính – tự động hóa) và đang diễn ra cuộc cách mạng công nghiệp lần thứ tư. Câu hỏi \"đã trải qua\" nên chọn ba cuộc."
     },
     {
       "id": "MLN122-126",
       "type": "multi",
-      "prompt": "Những yếu tố cốt lõi của kỹ thuật số trong cách mạng công nghiệp lần thứ 4 là: (chon 3 phương án)",
+      "prompt": "Những yếu tố cốt lõi của kỹ thuật số trong cách mạng công nghiệp lần thứ 4 là: (chọn 3 phương án)",
       "options": [
         "Công nghệ 3D",
         "Dữ liệu lớn (Big data)",
         "Công nghệ sinh học",
-        "Vạn vật kết nối (loT)",
+        "Vạn vật kết nối (IoT)",
         "Trí tuệ nhân tạo (AI)"
       ],
       "correctSet": [
@@ -377,22 +390,24 @@
       "options": [
         "Cách mạng vô tuyến",
         "Cách mạng điện tử",
-        "Cách mạng sinh hoc",
+        "Cách mạng sinh học",
         "Cách mạng máy tính"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Giáo trình (trang PDF 140): cách mạng công nghiệp lần thứ ba (từ đầu thập niên 1960) đặc trưng bởi công nghệ thông tin, máy tính và tự động hóa sản xuất, được xúc tác bởi chất bán dẫn, siêu máy tính, máy tính cá nhân và Internet. Vì vậy nó còn được gọi là cách mạng máy tính (cách mạng số)."
     },
     {
       "id": "MLN122-131",
       "type": "choice",
-      "prompt": "Việc đẩy mạnh ứng dụng khoa học - công nghệ ở nước ta hiện nay phải gắn liền với yếu tố nào sau đây",
+      "prompt": "Việc đẩy mạnh ứng dụng khoa học - công nghệ ở nước ta hiện nay phải gắn liền với yếu tố nào sau đây?",
       "options": [
         "Phát triển công nghiệp nặng",
         "Phát triển sản xuất công nghệ cao",
         "Phát triển kinh tế tri thức",
         "Phát triển công nghiệp nhẹ"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Ứng dụng khoa học - công nghệ hiện nay phải gắn với phát triển kinh tế tri thức, vì công nghiệp hóa, hiện đại hóa ở Việt Nam được xác định là gắn với phát triển kinh tế tri thức (giáo trình trang PDF 153)."
     },
     {
       "id": "MLN122-139",
@@ -404,19 +419,21 @@
         "Tư liệu sinh hoạt",
         "Tư liệu tiêu dùng"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình định nghĩa cách mạng công nghiệp là bước phát triển nhảy vọt về chất của trình độ tư liệu lao động, dựa trên những phát minh đột phá về kỹ thuật và công nghệ. Phát minh sáng chế là cơ sở, còn bước nhảy vọt diễn ra ở tư liệu lao động."
     },
     {
       "id": "MLN122-148",
       "type": "choice",
-      "prompt": "Cách mạng công nghiệp lần thứ tư được đề cập lần đầu tiên tại ở đâu và năm nào?",
+      "prompt": "Cách mạng công nghiệp lần thứ tư được đề cập lần đầu tiên ở đâu và năm nào?",
       "options": [
         "Tại Đức năm 2011",
         "Tại Pháp năm 2011",
         "Tại Anh năm 2012",
         "Tại Mỹ năm 2011"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Thuật ngữ \"Công nghiệp 4.0\" xuất hiện lần đầu tại Hội chợ công nghệ Hannover (Đức) năm 2011, trong chiến lược công nghệ cao của Chính phủ Đức."
     },
     {
       "id": "MLN122-149",
@@ -428,12 +445,13 @@
         "Công nghiệp khai khoáng",
         "Công nghiệp đóng tàu"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Công nghiệp hóa ở Anh bắt đầu từ ngành dệt (công nghiệp nhẹ) với các phát minh như thoi bay, máy kéo sợi, máy dệt, sau đó mới chuyển sang luyện kim và cơ khí chế tạo."
     },
     {
       "id": "MLN122-152",
       "type": "choice",
-      "prompt": "Ở Việt Nam cũng như trên thế giới sử dụng thuật ngũ \"cách mạng công nghiệp lần thứ tư\" với hàm ý gì?",
+      "prompt": "Ở Việt Nam cũng như trên thế giới sử dụng thuật ngữ \"cách mạng công nghiệp lần thứ tư\" với hàm ý gì?",
       "options": [
         "Sự thay đổi về lượng trong lực lượng sản xuất của nền kinh tế thế giới",
         "Sự thay đổi về chất trong lực lượng sản xuất của nền kinh tế thế giới",
@@ -450,7 +468,7 @@
       "options": [
         "Anh",
         "Pháp",
-        "Hy lap",
+        "Hy Lạp",
         "Đức"
       ],
       "correct": 0,
@@ -463,11 +481,11 @@
       "options": [
         "Anh",
         "Pháp",
-        "Hy lap",
+        "Hy Lạp",
         "Nga"
       ],
       "correct": 3,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, D: 3). Nên đối chiếu giáo trình."
+      "explanation": "Lưu ý: giáo trình (trang PDF 139–140) chỉ nêu cách mạng công nghiệp lần thứ hai diễn ra từ nửa cuối thế kỷ XIX đến đầu thế kỷ XX, gắn với điện, động cơ điện, xăng dầu và động cơ đốt trong, mà không nói khởi phát ở nước nào. Về lịch sử, cuộc cách mạng này phát triển mạnh nhất ở Mỹ và Đức (hai nước không có trong phương án). File gốc chọn Nga (3 bản) và Pháp (1 bản) — nên đối chiếu đề thi."
     },
     {
       "id": "MLN122-155",
@@ -485,14 +503,15 @@
     {
       "id": "MLN122-162",
       "type": "choice",
-      "prompt": "Đâu không phải nằm trong tính tất yếu khách quan của công nghiệp hóa, hiện đại hóa ở Việt Nam ?",
+      "prompt": "Đâu không phải nằm trong tính tất yếu khách quan của công nghiệp hóa, hiện đại hóa ở Việt Nam?",
       "options": [
-        "Từ yêu cầu phải xây dựng cơ sở vật chất- kỹ thuật của chủ nghĩa xã hội",
+        "Từ yêu cầu phải xây dựng cơ sở vật chất - kỹ thuật của chủ nghĩa xã hội",
         "Từ yêu cầu phải rút ngắn khoảng cách tụt lùi về kinh tế, kỹ thuật, công nghệ giữa nước ta với các nước trong khu vực và quốc tế",
         "Từ yêu cầu cần phải tạo ra năng suất lao động xã hội cao, bảo đảm cho sự tồn tại và phát triển của chủ nghĩa xã hội",
-        "Từ yêu cầu của thể chế chính trị của Việt Na"
+        "Từ yêu cầu của thể chế chính trị của Việt Nam"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tính tất yếu khách quan của công nghiệp hóa, hiện đại hóa ở Việt Nam xuất phát từ yêu cầu xây dựng cơ sở vật chất - kỹ thuật của chủ nghĩa xã hội, rút ngắn khoảng cách tụt hậu với các nước và tạo năng suất lao động xã hội cao. \"Yêu cầu của thể chế chính trị\" không phải lý do được nêu."
     },
     {
       "id": "MLN122-180",
@@ -504,18 +523,20 @@
         "Từ đầu thập niên 70 của thế kỷ XX đến cuối thế kỷ XX",
         "Từ đầu thập niên 80 của thế kỷ XX đến cuối thế kỷ XX"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giáo trình (trang PDF 140): cách mạng công nghiệp lần thứ ba bắt đầu khoảng đầu thập niên 60 của thế kỷ XX và kéo dài đến cuối thế kỷ XX."
     },
     {
       "id": "MLN122-193",
       "type": "choice",
-      "prompt": "Nội dung cơ bản của các mạng công nghiệp lần thứ nhất đó là",
+      "prompt": "Nội dung cơ bản của cách mạng công nghiệp lần thứ nhất đó là",
       "options": [
         "Chuyển từ lao động thủ công sang lao động máy móc",
         "Chuyển từ lao động thủ công sang sử dụng động cơ điện",
         "Chuyển từ lao động máy móc sang lao động sử dụng năng lượng điện và động cơ điện"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Nội dung cơ bản của cách mạng công nghiệp lần thứ nhất là chuyển từ lao động thủ công sang lao động sử dụng máy móc (cơ khí hóa bằng máy hơi nước). Động cơ điện là nội dung của cách mạng công nghiệp lần thứ hai."
     },
     {
       "id": "MLN122-216",
@@ -527,31 +548,34 @@
         "Công nghiệp hóa, hiện đại hóa trong bối cảnh toàn cầu hóa kinh tế quốc tế",
         "Công nghiệp hóa, hiện đại hóa theo định hướng xã hội chủ nghĩa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 153) nêu bốn đặc điểm của công nghiệp hóa, hiện đại hóa ở Việt Nam: theo định hướng xã hội chủ nghĩa; gắn với kinh tế tri thức; trong điều kiện kinh tế thị trường định hướng xã hội chủ nghĩa; trong bối cảnh toàn cầu hóa. \"Gắn liền với công nghiệp nặng\" là đặc trưng mô hình Liên Xô cũ."
     },
     {
       "id": "MLN122-369",
       "type": "choice",
-      "prompt": "Tổ chức Hợp tác và Phát triển kinh tế gọi tắt là gì?",
+      "prompt": "Tổ chức Hợp tác và Phát triển Kinh tế gọi tắt là gì?",
       "options": [
         "OECD",
         "TNCS",
         "GDP",
         "FPT"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "OECD (Organisation for Economic Co-operation and Development) là Tổ chức Hợp tác và Phát triển Kinh tế. GDP là tổng sản phẩm quốc nội."
     },
     {
       "id": "MLN122-407",
       "type": "choice",
-      "prompt": "Sự xuất hiện của yếu tố nào làm cho quá trình quốc tế hóa, toàn cầu hóa kinh tế được đấy mạnh?",
+      "prompt": "Sự xuất hiện của yếu tố nào làm cho quá trình quốc tế hóa, toàn cầu hóa kinh tế được đẩy mạnh?",
       "options": [
         "Các công ty xuyên quốc gia (TNCs)",
         "Sự xuất hiện của Conglomerate",
         "Các công ty tài chính",
         "Các tổ chức phi lợi nhuận"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Các công ty xuyên quốc gia (TNCs) với mạng lưới đầu tư, sản xuất, thương mại trải khắp nhiều nước là lực lượng chủ yếu thúc đẩy quốc tế hóa và toàn cầu hóa kinh tế."
     },
     {
       "id": "MLN122-418",
@@ -561,9 +585,10 @@
         "Năng lượng hơi nước",
         "Năng lượng điện",
         "Động cơ đốt trong",
-        "Chế tạo ôtô"
+        "Chế tạo ô tô"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cách mạng công nghiệp lần thứ nhất (giữa thế kỷ XVIII – giữa thế kỷ XIX) gắn với năng lượng nước và hơi nước, máy hơi nước của James Watt, cơ khí hóa sản xuất. Điện, động cơ đốt trong, ô tô thuộc lần thứ hai."
     },
     {
       "id": "MLN122-421",
@@ -575,19 +600,21 @@
         "Cuộc cách mạng công nghiệp lần thứ ba",
         "Cuộc cách mạng công nghiệp lần thứ hai"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Cách mạng công nghiệp lần thứ tư gắn với trí tuệ nhân tạo, dữ liệu lớn, Internet vạn vật, in 3D, công nghệ sinh học... (giáo trình trang PDF 140–141)."
     },
     {
       "id": "MLN122-435",
       "type": "choice",
-      "prompt": "Quan điểm về \"xây dựng nền kinh tế tự chủ phải dựa trên cơ sở làm chủ công nghệ và chủ động, tích cực hội nhập, đa dạng hóa thị trường, nâng cao khả năng thích ứng của nền kinh tế được đưa ra trong chiến lược phát triển kinh tế - xã hội ở giai đoạn nào?",
+      "prompt": "Quan điểm về \"xây dựng nền kinh tế tự chủ phải dựa trên cơ sở làm chủ công nghệ và chủ động, tích cực hội nhập, đa dạng hóa thị trường, nâng cao khả năng thích ứng của nền kinh tế\" được đưa ra trong chiến lược phát triển kinh tế - xã hội ở giai đoạn nào?",
       "options": [
         "Chiến lược phát triển kinh tế - xã hội 2001 -2010",
         "Chiến lược phát triển kinh tế - xã hội 2011 -2020",
         "Chiến lược phát triển kinh tế - xã hội 2021 -2030",
         "Chiến lược phát triển kinh tế - xã hội 2016-2021"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Theo file gốc, quan điểm xây dựng nền kinh tế tự chủ dựa trên làm chủ công nghệ, chủ động hội nhập, đa dạng hóa thị trường và nâng cao khả năng thích ứng được nêu trong Chiến lược phát triển kinh tế - xã hội 2021–2030 (Đại hội XIII). Giáo trình (trang PDF 172) nhắc Chiến lược 2011–2020 với nội dung xây dựng nền kinh tế độc lập, tự chủ – nên phân biệt hai chiến lược."
     },
     {
       "id": "MLN122-443",
@@ -595,11 +622,12 @@
       "prompt": "Tiến hành công nghiệp hóa theo kiểu rút ngắn so với các nước đi trước đặc biệt chúng ta cần thực hiện yêu cầu nào?",
       "options": [
         "Phát triển kinh tế và công nghiệp phải có sự nhảy vọt và không cần thực hiện tuần tự",
-        "Coi trong phát triển giáo dục và đào tạo, khoa học và công nghệ, xem đầy là lên tầng và động lực cho công nghiệp hóa, hiện đại h",
+        "Coi trọng phát triển giáo dục và đào tạo, khoa học và công nghệ, xem đây là nền tảng và động lực cho công nghiệp hóa, hiện đại hóa",
         "Phát triển kinh tế tri thức được dời lại trong giai đoạn sau",
         "Ưu tiên phát triển công nghiệp nặng một cách hợp lý trên cơ sở phát triển nông nghiệp và công nghiệp nhẹ"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Để công nghiệp hóa rút ngắn, cần coi phát triển giáo dục – đào tạo và khoa học – công nghệ là nền tảng và động lực. A sai vì vẫn phải có lộ trình; C sai vì phải gắn công nghiệp hóa với kinh tế tri thức ngay từ đầu; D là tư duy của mô hình cũ."
     },
     {
       "id": "MLN122-457",
@@ -611,19 +639,21 @@
         "Sử dụng động cơ hơi nước",
         "Sử dụng động cơ điện"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đặc trưng cơ bản của cách mạng công nghiệp lần thứ ba là sự xuất hiện công nghệ thông tin, máy tính và tự động hóa sản xuất (giáo trình trang PDF 140). Hơi nước thuộc lần thứ nhất, điện và động cơ điện thuộc lần thứ hai."
     },
     {
       "id": "MLN122-468",
       "type": "choice",
       "prompt": "Mô hình công nghiệp hoá của Nhật Bản và các nước công nghiệp mới gọi tắt là gì?",
       "options": [
-        "NICS",
+        "NICs",
         "TNCs",
         "OECD",
         "FPT"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Nhật Bản và các nước công nghiệp mới (Newly Industrialized Countries – NICs) như Hàn Quốc, Đài Loan, Singapore, Hồng Kông tiến hành công nghiệp hóa theo mô hình rút ngắn, mất khoảng 20–30 năm. TNCs là công ty xuyên quốc gia."
     },
     {
       "id": "MLN122-X439",

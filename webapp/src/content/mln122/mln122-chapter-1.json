@@ -5,11 +5,12 @@
     {
       "id": "MLN122-017",
       "type": "choice",
-      "prompt": "Những đóng góp to lớn của kinh tế chính trị cổ điển Anh vào lý luận kinh tế chính trí của nhân loại đó là A. Rút ra kết luận giá trị là do hao phí lao động tạo ra",
+      "prompt": "Những đóng góp to lớn của kinh tế chính trị cổ điển Anh vào lý luận kinh tế chính trị của nhân loại đó là",
       "options": [
+        "Rút ra kết luận giá trị là do hao phí lao động tạo ra",
         "Rút ra được bản chất bóc lột của chủ nghĩa tư bản",
         "Khái quát đúng mục đích của chủ nghĩa tư bản là lợi nhuận",
-        "Luận giải về nhiều phạm trù kinh tế như giá trị, sản phẩm rồng, tư bản, tiền lương"
+        "Luận giải về nhiều phạm trù kinh tế như giá trị, sản phẩm ròng, tư bản, tiền lương"
       ],
       "correct": 0,
       "explanation": "Câu này hỏi đóng góp lớn nhất của kinh tế chính trị cổ điển Anh.\nEbook nói kinh tế chính trị cổ điển Anh đã trình bày nhiều phạm trù như hàng hóa, giá trị, tiền tệ, giá cả, tiền lương, lợi nhuận, địa tô, tư bản... Nhưng đóng góp khoa học rất lớn là rút ra kết luận: giá trị là do hao phí lao động tạo ra, và giá trị khác với của cải.\nHiểu đơn giản:\nMột hàng hóa có giá trị không phải vì nó “đẹp” hay “hiếm” một cách đơn giản, mà vì trong nó có lao động của con người kết tinh lại.\nVí dụ:\nMột cái áo có giá trị vì có lao động trồng bông, dệt vải, cắt may, vận chuyển…\nTức là càng có hao phí lao động xã hội cần thiết thì càng có cơ sở tạo ra giá trị."
@@ -17,10 +18,10 @@
     {
       "id": "MLN122-023",
       "type": "choice",
-      "prompt": "Kinh tế chính trị Mác - Lênin có những chức nào?",
+      "prompt": "Kinh tế chính trị Mác - Lênin có những chức năng nào?",
       "options": [
-        "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng khoa hoc",
-        "Chức năng nhận thức, chức năng thực tiễn, chức năng khoa hoc, chức năng phương pháp luận",
+        "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng khoa học",
+        "Chức năng nhận thức, chức năng thực tiễn, chức năng khoa học, chức năng phương pháp luận",
         "Chức năng thực tiễn, chức năng tư tưởng, chức năng dự báo, chức năng phương pháp luận",
         "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng phương pháp luận"
       ],
@@ -35,30 +36,30 @@
         "Chủ nghĩa trọng thương",
         "Chủ nghĩa trọng nông",
         "Kinh tế chính trị cổ điển",
-        "Kinh tế chính trị cổ điển An"
+        "Kinh tế chính trị cổ điển Anh"
       ],
       "correct": 0,
-      "explanation": "Chủ nghĩa trọng thương được ghi nhận là hệ thống lý luận kinh tế chính trị bước đầu nghiên cứu về nền sản xuất tư bản chủ nghĩa. Nó xuất hiện khi chủ nghĩa tư bản mới hình thành trong lòng xã hội phong kiến Tây Âu.Chủ nghĩa trọng thương xuất hiện sớm, khi tư bản thương nghiệp còn giữ vai trò lớn. Vì vậy nó tập trung vào lưu thông, buôn bán, vàng bạc, xuất nhập khẩu, và cho rằng làm giàu chủ yếu nhờ thương nghiệp.\nChủ nghĩa trọng thương => Chủ nghĩa trọng nông => Kinh tế chính trị cổ điển Anh"
+      "explanation": "Chủ nghĩa trọng thương được ghi nhận là hệ thống lý luận kinh tế chính trị bước đầu nghiên cứu về nền sản xuất tư bản chủ nghĩa. Nó xuất hiện khi chủ nghĩa tư bản mới hình thành trong lòng xã hội phong kiến Tây Âu. Chủ nghĩa trọng thương xuất hiện sớm, khi tư bản thương nghiệp còn giữ vai trò lớn. Vì vậy nó tập trung vào lưu thông, buôn bán, vàng bạc, xuất nhập khẩu, và cho rằng làm giàu chủ yếu nhờ thương nghiệp.\nChủ nghĩa trọng thương => Chủ nghĩa trọng nông => Kinh tế chính trị cổ điển Anh"
     },
     {
       "id": "MLN122-038",
       "type": "choice",
       "prompt": "Nội dung về kinh tế chính trị của C. Mác và Ph. Ăngghen được trình bày nhiều nhất trong tác phẩm nào?",
       "options": [
-        "Tư Bản",
+        "Tư bản",
         "Hệ tư tưởng Đức",
         "Tuyên ngôn của Đảng Cộng sản",
         "Biện chứng của tự nhiên"
       ],
       "correct": 0,
-      "explanation": "lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được thể hiện tập trung, cô đọng nhất trong bộ Tư bản. Trong đó C. Mác phân tích các phạm trù như hàng hóa, tiền tệ, tư bản, giá trị thặng dư, tích lũy, tuần hoàn, chu chuyển, lợi nhuận, địa tô, cạnh tranh…\nNếu Tuyên ngôn của Đảng Cộng sản thiên về chính trị - cách mạng, thì Tư Bản là tác phẩm phân tích sâu nhất về kinh tế tư bản chủ nghĩa."
+      "explanation": "lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được thể hiện tập trung, cô đọng nhất trong bộ Tư bản. Trong đó C. Mác phân tích các phạm trù như hàng hóa, tiền tệ, tư bản, giá trị thặng dư, tích lũy, tuần hoàn, chu chuyển, lợi nhuận, địa tô, cạnh tranh…\nNếu Tuyên ngôn của Đảng Cộng sản thiên về chính trị - cách mạng, thì Tư bản là tác phẩm phân tích sâu nhất về kinh tế tư bản chủ nghĩa."
     },
     {
       "id": "MLN122-054",
       "type": "choice",
       "prompt": "Phương pháp nghiên cứu kinh tế chính trị Mác - Lênin phù hợp nhất đó là:",
       "options": [
-        "Trừu tượng hóa khoa hoc",
+        "Trừu tượng hóa khoa học",
         "Phân tích và tổng hợp",
         "Quy nạp diễn dịch",
         "Khảo sát, tổng kết thực tiễn"
@@ -69,14 +70,15 @@
     {
       "id": "MLN122-061",
       "type": "choice",
-      "prompt": "Điển vào chỗ trống: Theo Karl Marx, kinh tế chính trị học tư sản cổ điển Anh bắt đầu u từ... và kết thúc ở..",
+      "prompt": "Điền vào chỗ trống: Theo Karl Marx, kinh tế chính trị học tư sản cổ điển Anh bắt đầu từ... và kết thúc ở...",
       "options": [
         "William Petty... David Ricardo",
-        "William Petty...Adam Smith",
+        "William Petty... Adam Smith",
         "Adam Smith... David Ricardo",
         "Adam Smith... Thomas Malthus"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 7) ghi theo C. Mác: kinh tế chính trị tư sản cổ điển Anh bắt đầu từ quan điểm lý luận của W. Petty, tiếp đến A. Smith và kết thúc ở hệ thống lý luận của D. Ricardo. Smith là nhân vật ở giữa nên B, C, D đều sai một đầu."
     },
     {
       "id": "MLN122-063",
@@ -88,7 +90,8 @@
         "Kinh tế chính trị cổ điển Anh",
         "Kinh tế chính trị của Karl Marx"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chủ nghĩa trọng thương ra đời khoảng thế kỷ XV–XVII, khi phong kiến tan rã và chủ nghĩa tư bản đang hình thành. Đây là tư tưởng kinh tế đầu tiên của giai cấp tư sản, đề cao thương mại và coi vàng bạc là của cải. Trọng nông, cổ điển Anh và học thuyết của Mác đều xuất hiện muộn hơn."
     },
     {
       "id": "MLN122-064",
@@ -113,7 +116,8 @@
         "Chủ nghĩa tư bản",
         "Chủ nghĩa xã hội"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chủ nghĩa trọng thương là hệ thống lý luận kinh tế chính trị bước đầu nghiên cứu về nền sản xuất tư bản chủ nghĩa, ra đời trong thời kỳ tích lũy nguyên thủy. \"Chủ nghĩa tư bản\" và \"chủ nghĩa xã hội\" là chế độ xã hội, không phải hệ thống lý luận kinh tế."
     },
     {
       "id": "MLN122-078",
@@ -125,7 +129,8 @@
         "Giúp con người tích lũy kinh nghiệm, chế tạo ra công cụ sản xuất ngày càng tinh vi",
         "Các phương án trả lời đều đúng"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lao động sản xuất tạo ra của cải vật chất nuôi sống con người, đồng thời qua lao động con người phát triển thể lực, trí lực, tích lũy kinh nghiệm và chế tạo công cụ ngày càng tinh vi. Ba vai trò đều đúng nên chọn D."
     },
     {
       "id": "MLN122-080",
@@ -137,15 +142,16 @@
         "Từ cuối thế kỷ XVIII đến nửa đầu thế kỷ XIX",
         "Từ nửa đầu thế kỷ XIX"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Kinh tế chính trị cổ điển Anh phát triển mạnh từ cuối thế kỷ XVIII (A. Smith, \"Của cải của các dân tộc\" năm 1776) đến nửa đầu thế kỷ XIX (D. Ricardo). Đây cũng là thời kỳ cách mạng công nghiệp diễn ra ở Anh."
     },
     {
       "id": "MLN122-092",
       "type": "choice",
-      "prompt": "Lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được cô đông và tập trung tron g tác phẩm nào?",
+      "prompt": "Lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được cô đọng và tập trung trong tác phẩm nào?",
       "options": [
         "Tư bản",
-        "Bản thảo kinh tế - triết hoc",
+        "Bản thảo kinh tế - triết học",
         "Lược thảo phê phán khoa kinh tế chính trị",
         "Tuyên ngôn của Đảng Cộng sản"
       ],
@@ -160,21 +166,23 @@
         "Adam Smith",
         "David Ricardo",
         "Karl Marx",
-        "Willian Stafford"
+        "William Stafford"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Adam Smith với tác phẩm \"Của cải của các dân tộc\" (1776) đã hệ thống hóa kinh tế chính trị thành một môn khoa học có hệ thống phạm trù và khái niệm chuyên ngành. Ricardo phát triển tiếp, còn Mác xây dựng kinh tế chính trị theo lập trường giai cấp công nhân."
     },
     {
       "id": "MLN122-107",
       "type": "choice",
-      "prompt": "Thuật ngữ \"kinh tế chính trị\" được sử dụng lần đầu tiên vào năm nào",
+      "prompt": "Thuật ngữ \"kinh tế chính trị\" được sử dụng lần đầu tiên vào năm nào?",
       "options": [
         "1615",
         "1616",
         "1617",
         "1618"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 5): thuật ngữ \"kinh tế chính trị\" được dùng lần đầu năm 1615 trong tác phẩm \"Chuyên luận về kinh tế chính trị\" của nhà kinh tế người Pháp A. Montchretien."
     },
     {
       "id": "MLN122-120",
@@ -186,7 +194,8 @@
         "Chủ nghĩa trọng thương",
         "Chủ nghĩa trọng nông"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Kinh tế chính trị cổ điển Anh (tiêu biểu là A. Smith) cho rằng đời sống kinh tế vận động theo những quy luật tự nhiên, khách quan (\"bàn tay vô hình\"), vì vậy đề cao tự do kinh tế và hạn chế sự can thiệp của nhà nước."
     },
     {
       "id": "MLN122-128",
@@ -196,21 +205,23 @@
         "Những biểu hiện vật chất của lực lượng sản xuất",
         "Các quan hệ giữa cơ sở hạ tầng và kiến trúc thượng tầng",
         "Các quan hệ giữa lực lượng sản xuất và quan hệ sản xuất",
-        "Các quan hệ xã hội của sản xuất và trao đổi (Giải thích: Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin các quan hệ sản xuất và trao đổi trong mối quan hệ biện chứng với lực lượng sản xuất và kiến trúc thượng tầng."
+        "Các quan hệ xã hội của sản xuất và trao đổi"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin là các quan hệ xã hội của sản xuất và trao đổi, đặt trong mối liên hệ biện chứng với lực lượng sản xuất và kiến trúc thượng tầng. A thuộc về khoa học kỹ thuật; B và C là đối tượng của triết học."
     },
     {
       "id": "MLN122-129",
       "type": "choice",
       "prompt": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin là gì?",
       "options": [
-        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất -phân phối - trao đổi -tiêu dùng",
-        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất- trao đổi - phân phối -tiêu dùng",
-        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình sản xuất xã hội: sản xuất- trao đổi- tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất - phân phối - trao đổi - tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình tái sản xuất xã hội: sản xuất - trao đổi - phân phối - tiêu dùng",
+        "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình sản xuất xã hội: sản xuất - trao đổi - tiêu dùng",
         "Nghiên cứu các quan hệ sản xuất trong các khâu của quá trình sản xuất xã hội: mua - bán"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Kinh tế chính trị nghiên cứu quan hệ sản xuất trong cả bốn khâu của quá trình tái sản xuất xã hội, theo đúng trình tự: sản xuất – phân phối – trao đổi – tiêu dùng. B đảo thứ tự phân phối và trao đổi; C và D thiếu khâu."
     },
     {
       "id": "MLN122-130",
@@ -220,9 +231,10 @@
         "Chức năng phương pháp luận",
         "Chức năng tư tưởng",
         "Chức năng nhận thức",
-        "Chức năng giáo du"
+        "Chức năng giáo dục"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Kinh tế chính trị Mác - Lênin có bốn chức năng: nhận thức, thực tiễn, tư tưởng và phương pháp luận. \"Giáo dục\" không nằm trong bốn chức năng này."
     },
     {
       "id": "MLN122-133",
@@ -234,43 +246,47 @@
         "Adam Smith",
         "William Petty"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "C. Mác coi William Petty là người sáng lập kinh tế chính trị tư sản cổ điển (giáo trình trang PDF 7: bắt đầu từ W. Petty, tiếp đến A. Smith, kết thúc ở D. Ricardo). Thomas Mun là đại biểu của chủ nghĩa trọng thương."
     },
     {
       "id": "MLN122-140",
       "type": "choice",
-      "prompt": "Chon phương án đúng về quy luật kinh tế.",
+      "prompt": "Chọn phương án đúng về quy luật kinh tế",
       "options": [
         "C và D",
         "Quy luật kinh tế là quy luật xã hội do con người đặt ra",
-        "Cà quy luật khách quan phát sinh tác dung quả hoạt động kinh tế của con người",
-        "Quy luật kinh tế có tính lịch s"
+        "Là quy luật khách quan, phát sinh tác dụng thông qua hoạt động kinh tế của con người",
+        "Quy luật kinh tế có tính lịch sử"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Quy luật kinh tế là quy luật khách quan, phát sinh tác dụng thông qua hoạt động kinh tế của con người, và có tính lịch sử (mỗi phương thức sản xuất có quy luật riêng). Quy luật kinh tế không do con người đặt ra, nên B sai và đáp án là \"C và D\"."
     },
     {
       "id": "MLN122-143",
       "type": "choice",
-      "prompt": "Theo quan điểm của kinh tế chính trị, trong tư liệu lao động bộ phận nào quyết định đến năng suất lao động",
+      "prompt": "Theo quan điểm của kinh tế chính trị, trong tư liệu lao động bộ phận nào quyết định đến năng suất lao động?",
       "options": [
         "Các vật chứa đựng, bảo quản",
         "Nguyên vật liệu cho sản xuất",
         "Công cụ lao động",
         "Kết cấu hạ tầng sản xuất"
       ],
-      "correct": 2
+      "correct": 2,
+      "explanation": "Trong tư liệu lao động, công cụ lao động (máy móc, thiết bị) là bộ phận quyết định năng suất lao động. Nguyên vật liệu là đối tượng lao động, không phải tư liệu lao động; vật chứa đựng và kết cấu hạ tầng chỉ hỗ trợ."
     },
     {
       "id": "MLN122-146",
       "type": "choice",
-      "prompt": "Đối tượng nghiên cứu của kinh tế- chính trị Mác-Lênin là",
+      "prompt": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin là",
       "options": [
         "Các quan hệ của sản xuất và trao đổi trong phương thức sản xuất mà các quan hệ đó hình thành và phát triển",
         "Quá trình sản xuất, phân phối, trao đổi, tiêu dùng",
         "Quan hệ xã hội giữa người với người",
         "Quan hệ sản xuất trong mối quan hệ tác động qua lại giữa lực lượng sản xuất"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Đối tượng nghiên cứu của kinh tế chính trị Mác - Lênin là các quan hệ của sản xuất và trao đổi trong phương thức sản xuất mà các quan hệ đó hình thành và phát triển. B mô tả quá trình tái sản xuất chứ không phải quan hệ xã hội; C quá rộng; D thiếu kiến trúc thượng tầng."
     },
     {
       "id": "MLN122-168",
@@ -282,87 +298,94 @@
         "Đồng nhất với nhau",
         "Tất cả đáp án trên"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Quy luật kinh tế là khách quan, tồn tại không phụ thuộc ý chí con người; chính sách kinh tế là sản phẩm chủ quan của nhà nước. Hai khái niệm khác nhau, nhưng chính sách đúng phải dựa trên việc nhận thức và vận dụng quy luật kinh tế, nên chúng có quan hệ với nhau."
     },
     {
       "id": "MLN122-188",
       "type": "choice",
-      "prompt": "Kinh tế- chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của",
+      "prompt": "Kinh tế chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của",
       "options": [
         "Kinh tế chính trị cổ điển Anh",
         "Chủ nghĩa trọng thương",
         "Chủ nghĩa trọng nông",
         "Kinh tế chính trị tầm thường"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 9) ghi: kinh tế chính trị Mác - Lênin được xây dựng trên cơ sở kế thừa và phát triển những giá trị khoa học của nhân loại, trực tiếp là những giá trị khoa học của kinh tế chính trị tư sản cổ điển Anh."
     },
     {
       "id": "MLN122-267",
       "type": "choice",
-      "prompt": "Mức độ giàu có của xã hội phú thuộc chủ yếu vào:",
+      "prompt": "Mức độ giàu có của xã hội phụ thuộc chủ yếu vào:",
       "options": [
         "Trình độ khoa học công nghệ",
         "Tài nguyên thiên nhiên",
         "Khối lượng sản phẩm thặng dư"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Theo file gốc, mức độ giàu có của xã hội phụ thuộc chủ yếu vào trình độ khoa học - công nghệ, vì khoa học - công nghệ quyết định năng suất lao động xã hội. Tài nguyên thiên nhiên chỉ là điều kiện, có giới hạn và không tự biến thành của cải."
     },
     {
       "id": "MLN122-280",
       "type": "choice",
       "prompt": "Các phương thức sản xuất nối tiếp nhau trong lịch sử theo trình tự nào?",
       "options": [
-        "Chiếm hữu nô lệ - phong kiến - tư bản - chủ nghĩa cộng sản.",
+        "Chiếm hữu nô lệ - phong kiến - tư bản - chủ nghĩa cộng sản",
         "Cộng sản nguyên thuỷ - phong kiến - chiếm hữu nô lệ - tư bản - chủ nghĩa cộng sản",
         "Chiếm hữu nô lệ - cộng sản nguyên thuỷ - phong kiến - tư bản - chủ nghĩa cộng sản",
-        "Cộng sản nguyên thuỷ- chiếm hữu nô lệ - phong kiến - tư bản- chủ nghĩa cộng"
+        "Cộng sản nguyên thuỷ - chiếm hữu nô lệ - phong kiến - tư bản - chủ nghĩa cộng sản"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Lịch sử loài người trải qua các phương thức sản xuất nối tiếp nhau: cộng sản nguyên thủy – chiếm hữu nô lệ – phong kiến – tư bản chủ nghĩa – cộng sản chủ nghĩa (giai đoạn đầu là chủ nghĩa xã hội)."
     },
     {
       "id": "MLN122-296",
       "type": "choice",
-      "prompt": "Kinh tế- chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của",
+      "prompt": "Kinh tế chính trị Mác - Lênin đã kế thừa và phát triển trực tiếp những thành tựu của",
       "options": [
         "Kinh tế chính trị cổ điển Anh",
         "Chủ nghĩa trọng thương",
         "Chủ nghĩa trọng nông"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Kinh tế chính trị Mác - Lênin kế thừa và phát triển trực tiếp những giá trị khoa học của kinh tế chính trị tư sản cổ điển Anh (W. Petty, A. Smith, D. Ricardo), đặc biệt là lý luận giá trị - lao động."
     },
     {
       "id": "MLN122-302",
       "type": "choice",
-      "prompt": "Ai là người đầu tiên đưa ra khái niệm \"kinh tế- chính trị\"?",
+      "prompt": "Ai là người đầu tiên đưa ra khái niệm \"kinh tế chính trị\"?",
       "options": [
-        "Francois Quesney",
-        "Antoine Montchretiên",
+        "François Quesnay",
+        "Antoine Montchretien",
         "William Petty"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Giáo trình (trang PDF 5): nhà kinh tế người Pháp Antoine Montchretien dùng thuật ngữ \"kinh tế chính trị\" lần đầu năm 1615 trong tác phẩm \"Chuyên luận về kinh tế chính trị\". Quesnay là đại biểu trọng nông, Petty là người sáng lập kinh tế chính trị cổ điển Anh."
     },
     {
       "id": "MLN122-303",
       "type": "choice",
-      "prompt": "Thuật ngữ \"kinh tế- chính trị\" được sử dụng lần đầu tiên vào năm nào",
+      "prompt": "Thuật ngữ \"kinh tế chính trị\" được sử dụng lần đầu tiên vào năm nào?",
       "options": [
         "1615",
         "1616",
         "1617"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Giáo trình (trang PDF 5): thuật ngữ \"kinh tế chính trị\" xuất hiện lần đầu năm 1615 trong tác phẩm của A. Montchretien."
     },
     {
       "id": "MLN122-322",
       "type": "choice",
-      "prompt": "Chon phương án đúng về quy luật kinh tế:",
+      "prompt": "Chọn phương án đúng về quy luật kinh tế:",
       "options": [
-        "Quy luật kinh tế là quy luật xã hội do con người đặt ra, là quy luật khách quan phát sinh tác dung quả hoạt động kinh tế của con người.",
+        "Quy luật kinh tế là quy luật xã hội do con người đặt ra, là quy luật khách quan phát sinh tác dụng qua hoạt động kinh tế của con người.",
         "Quy luật kinh tế có tính lịch sử",
         "Các phương án trả lời đều đúng."
       ],
-      "correct": 2,
-      "explanation": "Lưu ý: đáp án này không thống nhất giữa các bản sao trong file gốc (B: 1, C: 3). Nên đối chiếu giáo trình."
+      "correct": 1,
+      "explanation": "Đã sửa đáp án: file gốc chọn C ở 3 bản và B ở 1 bản. Quy luật kinh tế là khách quan, không do con người đặt ra, nên phương án A tự mâu thuẫn và sai (giống câu 140). Chỉ B đúng: quy luật kinh tế có tính lịch sử, mỗi phương thức sản xuất có những quy luật riêng."
     },
     {
       "id": "MLN122-325",
@@ -371,22 +394,24 @@
       "options": [
         "Người lao động",
         "Tư liệu sản xuất",
-        "Khoa hoc công nghệ",
+        "Khoa học công nghệ",
         "Tất cả các phương án trả lời đều đúng."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Ngày nay lực lượng sản xuất gồm người lao động, tư liệu sản xuất, và khoa học - công nghệ ngày càng trở thành lực lượng sản xuất trực tiếp. Vì vậy chọn tất cả."
     },
     {
       "id": "MLN122-327",
       "type": "choice",
-      "prompt": "Chon ý đúng trong các ý dưới đây:",
+      "prompt": "Chọn ý đúng trong các ý dưới đây:",
       "options": [
-        "Moi nguyên liệu đều là đối tượng lao động",
-        "Moi đối tượng lao động đều là nguyên liệu",
+        "Mọi nguyên liệu đều là đối tượng lao động",
+        "Mọi đối tượng lao động đều là nguyên liệu",
         "Nguyên liệu là đối tượng lao động của các ngành công nghiệp chế biến",
         "Các phương án trả lời đều đúng."
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Nguyên liệu là đối tượng lao động đã qua chế biến, nên mọi nguyên liệu đều là đối tượng lao động. Nhưng không phải mọi đối tượng lao động đều là nguyên liệu (ví dụ quặng trong lòng đất, cá dưới biển là đối tượng lao động có sẵn trong tự nhiên)."
     },
     {
       "id": "MLN122-330",
@@ -398,48 +423,52 @@
         "Kết cấu hạ tầng sản xuất",
         "Các phương án trả lời đều đúng."
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "Tư liệu lao động gồm công cụ lao động (bộ phận quan trọng nhất), các vật chứa đựng, bảo quản và kết cấu hạ tầng sản xuất (đường sá, kho bãi, bến cảng...). Cả ba đều đúng."
     },
     {
       "id": "MLN122-375",
       "type": "choice",
-      "prompt": "Chức năng nào của kinh tế chính trị Mác - Lênin thể hiện sự vận dụng đúng các quy luật kinh tế khách quan thông qua điều chỉnh hành vi cá nhân hoặc các chính sách kinh tế sẽ góp phần thúc đẩy kinh tế - xã hội phát triển theo hướng tiến bộ",
+      "prompt": "Chức năng nào của kinh tế chính trị Mác - Lênin thể hiện sự vận dụng đúng các quy luật kinh tế khách quan thông qua điều chỉnh hành vi cá nhân hoặc các chính sách kinh tế sẽ góp phần thúc đẩy kinh tế - xã hội phát triển theo hướng tiến bộ?",
       "options": [
         "Chức năng thực tiễn",
         "Chức năng nhận thức",
         "Chức năng tư tưởng",
         "Chức năng phương pháp luận"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chức năng thực tiễn của kinh tế chính trị Mác - Lênin thể hiện ở việc vận dụng đúng quy luật kinh tế khách quan vào điều chỉnh hành vi cá nhân và xây dựng chính sách kinh tế, thúc đẩy kinh tế - xã hội phát triển."
     },
     {
       "id": "MLN122-379",
       "type": "choice",
-      "prompt": "Lĩnh vực nghiên cứu trong tâm của chủ nghĩa trọng thương là gì",
+      "prompt": "Lĩnh vực nghiên cứu trọng tâm của chủ nghĩa trọng thương là gì?",
       "options": [
         "Lĩnh vực lưu thông",
         "Lĩnh vực sản xuất",
         "Lĩnh vực thuế",
         "Lĩnh vực tiền lương"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Chủ nghĩa trọng thương coi lưu thông (thương mại, nhất là ngoại thương) là nguồn gốc của cải, vì vậy lấy lĩnh vực lưu thông làm đối tượng nghiên cứu trọng tâm (giáo trình trang PDF 10)."
     },
     {
       "id": "MLN122-380",
       "type": "choice",
-      "prompt": "Điền vào chỗ trống để hoàn thành câu sau: \"Chính trị kinh tế học tuyệt nhiên không nghiên cứu sự sản xuất, mà nghiên cứu những quan hệ xã hội giữa.. .trong sản xuất, nghiên cứu chế độ xã hội của sản xuất",
+      "prompt": "Điền vào chỗ trống để hoàn thành câu sau: \"Chính trị kinh tế học tuyệt nhiên không nghiên cứu sự sản xuất, mà nghiên cứu những quan hệ xã hội giữa ... trong sản xuất, nghiên cứu chế độ xã hội của sản xuất\"",
       "options": [
         "Người với người",
         "Con người với tiền tệ",
         "Con người với xã hội",
         "Người với hàng hóa"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Câu của Ph. Ăngghen: chính trị kinh tế học không nghiên cứu sự sản xuất (về mặt kỹ thuật) mà nghiên cứu những quan hệ xã hội giữa người với người trong sản xuất, tức chế độ xã hội của sản xuất."
     },
     {
       "id": "MLN122-400",
       "type": "choice",
-      "prompt": "Chủ nghĩa trọng nông tập trung trong tâm vào nghiên cứu lĩnh vực nào",
+      "prompt": "Chủ nghĩa trọng nông tập trung trọng tâm vào nghiên cứu lĩnh vực nào?",
       "options": [
         "Lĩnh vực sản xuất",
         "Lĩnh vực lưu thông",
@@ -447,7 +476,7 @@
         "Lĩnh vực tiền tệ"
       ],
       "correct": 0,
-      "explanation": "(\nKiểu hỏi tương tự: Gọi W là giá trị hàng hóa, vậy công thức tính giá trị hàng hóa là g\nA. W= C + V+ M\nB. W= C+ V\nC. W= V+ M\nD. W= (C + V)/M)"
+      "explanation": "Chủ nghĩa trọng nông chuyển đối tượng nghiên cứu từ lưu thông sang sản xuất, cụ thể là các quan hệ kinh tế trong sản xuất nông nghiệp (giáo trình trang PDF 10), coi nông nghiệp là ngành duy nhất tạo ra \"sản phẩm thuần túy\"."
     },
     {
       "id": "MLN122-412",
@@ -459,30 +488,33 @@
         "Những vật dùng để truyền dẫn sức lao động của con người",
         "Các phương án trả lời đều đúng"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Đối tượng lao động là những vật mà lao động của con người tác động vào để thay đổi cho phù hợp với mục đích của con người (có sẵn trong tự nhiên hoặc đã qua chế biến – nguyên liệu). C mô tả tư liệu lao động."
     },
     {
       "id": "MLN122-424",
       "type": "choice",
-      "prompt": "Mục đích nghiên cứu ở cấp độ cao nhất của kinh tế chính trị Mác - Lênin là gì",
+      "prompt": "Mục đích nghiên cứu ở cấp độ cao nhất của kinh tế chính trị Mác - Lênin là gì?",
       "options": [
         "Nhằm phát hiện ra các quy luật chi phối quan hệ giữa người và người trong sản xuất và trao đổi",
         "Nhằm phát hiện ra các quy luật chi phối quan hệ giữa người và xã hội trong sản xuất và trao đổi",
         "Nhằm phát hiện ra các quy luật chi phối quan hệ giữa người và người trong sản xuất và tiêu dùng",
         "Nhằm phát hiện ra các quy luật chi phối quan hệ giữa người và hàng hóa trong sản xuất và tiêu dùng"
       ],
-      "correct": 0
+      "correct": 0,
+      "explanation": "Mục đích nghiên cứu ở cấp độ cao nhất của kinh tế chính trị Mác - Lênin là phát hiện ra các quy luật kinh tế chi phối quan hệ giữa người với người trong sản xuất và trao đổi."
     },
     {
       "id": "MLN122-432",
       "type": "choice",
       "prompt": "Hãy chọn phương án đúng về đặc điểm của quy luật kinh tế:",
       "options": [
-        "Phát huy tác dung thông qua hoạt động kinh tế của con người",
+        "Phát huy tác dụng thông qua hoạt động kinh tế của con người",
         "Các phương án trả lời đều đúng",
         "Mang tính khách quan"
       ],
-      "correct": 1
+      "correct": 1,
+      "explanation": "Quy luật kinh tế mang tính khách quan và phát huy tác dụng thông qua hoạt động kinh tế của con người. Cả hai ý đều đúng."
     },
     {
       "id": "MLN122-X278",

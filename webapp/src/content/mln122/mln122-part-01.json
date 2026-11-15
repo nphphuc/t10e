@@ -31,7 +31,7 @@
     {
       "id": "MLN122-003",
       "type": "choice",
-      "prompt": "Chon phương án sai vai trò của cách mạng công nghiệp đối với sự phát triển đó là",
+      "prompt": "Chọn phương án sai vai trò của cách mạng công nghiệp đối với sự phát triển đó là",
       "options": [
         "Thúc đẩy sự phát triển của lực lượng sản xuất",
         "Thúc đẩy các quan hệ sản xuất mới ra đời",
@@ -95,7 +95,7 @@
     {
       "id": "MLN122-008",
       "type": "choice",
-      "prompt": "Chênh lệch Địa tô chính I thu được trên",
+      "prompt": "Địa tô chênh lệch I thu được trên",
       "options": [
         "Ruộng đất có độ màu mỡ trung bình",
         "Ruộng đất tốt",
@@ -161,7 +161,7 @@
       "type": "choice",
       "prompt": "Cơ chế kinh tế của độc quyền nhà nước trong chủ nghĩa tư bản gồm:",
       "options": [
-        "Cơ chế thị trưởng, độc quyền tư nhân và sự can thiệp của nhà nước",
+        "Cơ chế thị trường, độc quyền tư nhân và sự can thiệp của nhà nước",
         "Cơ chế thị trường, các nhà tài phiệt và sự điều tiết của nhà nước",
         "Cơ chế thị trường và độc quyền tư nhân"
       ],
@@ -171,11 +171,11 @@
     {
       "id": "MLN122-014",
       "type": "choice",
-      "prompt": "Trong lịch sử phát triển nền sản xuất xã hội, tiền đề nào là quan trọng cho sự ra đời i và phát triển của nền kinh tế thị trường?",
+      "prompt": "Trong lịch sử phát triển nền sản xuất xã hội, tiền đề nào là quan trọng cho sự ra đời và phát triển của nền kinh tế thị trường?",
       "options": [
         "Sản xuất",
         "Trao đổi hàng hóa",
-        "Thi trường",
+        "Thị trường",
         "Sản xuất và trao đổi hàng hóa"
       ],
       "correct": 3,
@@ -200,7 +200,7 @@
       "options": [
         "Từ nửa cuối thế kỷ XIX đến đầu thế kỷ XX",
         "Từ nửa đầu thế kỷ XIX đến cuối thế kỷ XIX",
-        "Từ nửa đầu thế kỷ XX đề nửa cuối thế kỷ XX",
+        "Từ nửa đầu thế kỷ XX đến nửa cuối thế kỷ XX",
         "Từ nửa cuối thế kỷ XIX đến nửa cuối thế kỷ XX"
       ],
       "correct": 0,
@@ -209,11 +209,12 @@
     {
       "id": "MLN122-017",
       "type": "choice",
-      "prompt": "Những đóng góp to lớn của kinh tế chính trị cổ điển Anh vào lý luận kinh tế chính trí của nhân loại đó là A. Rút ra kết luận giá trị là do hao phí lao động tạo ra",
+      "prompt": "Những đóng góp to lớn của kinh tế chính trị cổ điển Anh vào lý luận kinh tế chính trị của nhân loại đó là",
       "options": [
+        "Rút ra kết luận giá trị là do hao phí lao động tạo ra",
         "Rút ra được bản chất bóc lột của chủ nghĩa tư bản",
         "Khái quát đúng mục đích của chủ nghĩa tư bản là lợi nhuận",
-        "Luận giải về nhiều phạm trù kinh tế như giá trị, sản phẩm rồng, tư bản, tiền lương"
+        "Luận giải về nhiều phạm trù kinh tế như giá trị, sản phẩm ròng, tư bản, tiền lương"
       ],
       "correct": 0,
       "explanation": "Câu này hỏi đóng góp lớn nhất của kinh tế chính trị cổ điển Anh.\nEbook nói kinh tế chính trị cổ điển Anh đã trình bày nhiều phạm trù như hàng hóa, giá trị, tiền tệ, giá cả, tiền lương, lợi nhuận, địa tô, tư bản... Nhưng đóng góp khoa học rất lớn là rút ra kết luận: giá trị là do hao phí lao động tạo ra, và giá trị khác với của cải.\nHiểu đơn giản:\nMột hàng hóa có giá trị không phải vì nó “đẹp” hay “hiếm” một cách đơn giản, mà vì trong nó có lao động của con người kết tinh lại.\nVí dụ:\nMột cái áo có giá trị vì có lao động trồng bông, dệt vải, cắt may, vận chuyển…\nTức là càng có hao phí lao động xã hội cần thiết thì càng có cơ sở tạo ra giá trị."
@@ -228,7 +229,8 @@
         "Hiệp tác đơn giản, sản xuất thủ công, sản xuất hiện đại",
         "Hiệp tác đơn giản, công trường thủ công, đại công nghiệp"
       ],
-      "correct": 3
+      "correct": 3,
+      "explanation": "C. Mác khái quát cách mạng công nghiệp lần thứ nhất qua ba giai đoạn: hiệp tác giản đơn (nhiều người cùng làm một việc dưới sự chỉ huy của nhà tư bản), công trường thủ công (chia công đoạn, chuyên môn hóa lao động thủ công) và đại công nghiệp (máy móc thay thế lao động thủ công). Các phương án còn lại đặt sai tên giai đoạn giữa hoặc giai đoạn cuối."
     },
     {
       "id": "MLN122-019",
@@ -261,9 +263,9 @@
       "type": "choice",
       "prompt": "Để thực hiện hoàn thiện thể chế kinh tế thị trường định hướng xã hội chủ nghĩa ở Việt Nam cần hoàn thành mấy nhiệm vụ chủ yếu",
       "options": [
-        "Ba nhiệm vu",
-        "Năm nhiệm vu",
-        "Sáu nhiệm vu",
+        "Ba nhiệm vụ",
+        "Năm nhiệm vụ",
+        "Sáu nhiệm vụ",
         "Chín nhiệm vụ"
       ],
       "correct": 1,
@@ -285,10 +287,10 @@
     {
       "id": "MLN122-023",
       "type": "choice",
-      "prompt": "Kinh tế chính trị Mác - Lênin có những chức nào?",
+      "prompt": "Kinh tế chính trị Mác - Lênin có những chức năng nào?",
       "options": [
-        "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng khoa hoc",
-        "Chức năng nhận thức, chức năng thực tiễn, chức năng khoa hoc, chức năng phương pháp luận",
+        "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng khoa học",
+        "Chức năng nhận thức, chức năng thực tiễn, chức năng khoa học, chức năng phương pháp luận",
         "Chức năng thực tiễn, chức năng tư tưởng, chức năng dự báo, chức năng phương pháp luận",
         "Chức năng nhận thức, chức năng thực tiễn, chức năng tư tưởng, chức năng phương pháp luận"
       ],
@@ -306,7 +308,7 @@
         "Tất cả phương án trên"
       ],
       "correct": 3,
-      "explanation": "Câu này hỏi về chức năng của sở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước.\nTrong chủ nghĩa tư bản độc quyền nhà nước, nhà nước không “đứng ngoài” nền kinh tế nữa mà tham gia mạnh hơn vào kinh tế.Nhà nước đầu tư vào các ngành lớn, ngành nền tảng, ngành tư nhân không muốn hoặc khó làm.\nSở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước = nhà nước nắm hoặc đầu tư vào một số lĩnh vực quan trọng để làm “bệ đỡ” cho nền kinh tế tư bản, giúp các tập đoàn tư bản mở rộng sản xuất, di chuyển vốn và để nhà nước điều tiết kinh tế.\nNhà nước làm nền móng → tư bản độc quyền dễ mở rộng làm ăn → nhà nước có công cụ điều tiết."
+      "explanation": "Câu này hỏi về chức năng của sở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước.\nTrong chủ nghĩa tư bản độc quyền nhà nước, nhà nước không “đứng ngoài” nền kinh tế nữa mà tham gia mạnh hơn vào kinh tế. Nhà nước đầu tư vào các ngành lớn, ngành nền tảng, ngành tư nhân không muốn hoặc khó làm.\nSở hữu nhà nước trong chủ nghĩa tư bản độc quyền nhà nước = nhà nước nắm hoặc đầu tư vào một số lĩnh vực quan trọng để làm “bệ đỡ” cho nền kinh tế tư bản, giúp các tập đoàn tư bản mở rộng sản xuất, di chuyển vốn và để nhà nước điều tiết kinh tế.\nNhà nước làm nền móng → tư bản độc quyền dễ mở rộng làm ăn → nhà nước có công cụ điều tiết."
     },
     {
       "id": "MLN122-025",
@@ -331,7 +333,7 @@
         "Karl Marx"
       ],
       "correct": 0,
-      "explanation": "Aristoteles là người phân biệt các dạng trao đổi và hoạt động kinh tế rất sớm.Aristoteles nhìn kinh tế theo 2 hướng:\nMột là trao đổi để phục vụ nhu cầu tự nhiên, ví dụ đổi lúa lấy vải để dùng.\nHai là trao đổi để kiếm tiền, làm giàu, tức mua bán không chỉ để dùng mà để tăng của cải."
+      "explanation": "Aristoteles là người phân biệt các dạng trao đổi và hoạt động kinh tế rất sớm. Aristoteles nhìn kinh tế theo 2 hướng:\nMột là trao đổi để phục vụ nhu cầu tự nhiên, ví dụ đổi lúa lấy vải để dùng.\nHai là trao đổi để kiếm tiền, làm giàu, tức mua bán không chỉ để dùng mà để tăng của cải."
     },
     {
       "id": "MLN122-027",
@@ -380,10 +382,10 @@
         "Chủ nghĩa trọng thương",
         "Chủ nghĩa trọng nông",
         "Kinh tế chính trị cổ điển",
-        "Kinh tế chính trị cổ điển An"
+        "Kinh tế chính trị cổ điển Anh"
       ],
       "correct": 0,
-      "explanation": "Chủ nghĩa trọng thương được ghi nhận là hệ thống lý luận kinh tế chính trị bước đầu nghiên cứu về nền sản xuất tư bản chủ nghĩa. Nó xuất hiện khi chủ nghĩa tư bản mới hình thành trong lòng xã hội phong kiến Tây Âu.Chủ nghĩa trọng thương xuất hiện sớm, khi tư bản thương nghiệp còn giữ vai trò lớn. Vì vậy nó tập trung vào lưu thông, buôn bán, vàng bạc, xuất nhập khẩu, và cho rằng làm giàu chủ yếu nhờ thương nghiệp.\nChủ nghĩa trọng thương => Chủ nghĩa trọng nông => Kinh tế chính trị cổ điển Anh"
+      "explanation": "Chủ nghĩa trọng thương được ghi nhận là hệ thống lý luận kinh tế chính trị bước đầu nghiên cứu về nền sản xuất tư bản chủ nghĩa. Nó xuất hiện khi chủ nghĩa tư bản mới hình thành trong lòng xã hội phong kiến Tây Âu. Chủ nghĩa trọng thương xuất hiện sớm, khi tư bản thương nghiệp còn giữ vai trò lớn. Vì vậy nó tập trung vào lưu thông, buôn bán, vàng bạc, xuất nhập khẩu, và cho rằng làm giàu chủ yếu nhờ thương nghiệp.\nChủ nghĩa trọng thương => Chủ nghĩa trọng nông => Kinh tế chính trị cổ điển Anh"
     },
     {
       "id": "MLN122-031",
@@ -406,7 +408,7 @@
         "Bộ phận trực tiếp để tạo ra giá trị sử dụng",
         "Bộ phận trực tiếp để tạo ra giá trị thặng dư",
         "Bộ phận trực tiếp để tạo ra sản phẩm thặng dư",
-        "Bộ phận gián tiếp để tạo ra giá trị thặng d"
+        "Bộ phận gián tiếp để tạo ra giá trị thặng dư"
       ],
       "correct": 1,
       "explanation": "Tư bản bất biến là tư liệu sản xuất như máy móc, nguyên liệu; nó không tạo ra giá trị thặng dư mà chỉ chuyển giá trị cũ vào sản phẩm. Còn tư bản khả biến là phần tư bản dùng để mua hàng hóa sức lao động; trong quá trình sản xuất, công nhân tạo ra giá trị mới lớn hơn giá trị sức lao động. Phần dôi ra đó chính là giá trị thặng dư\nCông nhân được trả lương 500.000 đồng/ngày, nhưng trong ngày đó tạo ra giá trị mới 1.000.000 đồng. Phần vượt lên 500.000 đồng là giá trị thặng dư. Nguồn gốc của nó đến từ sức lao động, nên thuộc tư bản khả biến."
@@ -431,7 +433,7 @@
         "Ba nguyên nhân",
         "Bốn nguyên nhân",
         "Năm nguyên nhân",
-        "Sáu nguyên nhân (1. Tích tu và tập trung tư bản 2. Phân công lao động xã hội 3. Mâu thuẫn giai cấp 4. Xu hướng quốc tế hóa và cạnh tranh quốc tế)"
+        "Sáu nguyên nhân"
       ],
       "correct": 1,
       "explanation": "Độc quyền nhà nước trong chủ nghĩa tư bản hình thành do 4 nguyên nhân chính.\n1. Tích tụ và tập trung tư bản quá lớn\nDoanh nghiệp, ngân hàng, tập đoàn ngày càng khổng lồ. Nền kinh tế trở nên phức tạp, cần nhà nước đứng ra điều tiết.\n2. Phân công lao động xã hội phát triển\nXuất hiện nhiều ngành rất quan trọng như giao thông, năng lượng, nghiên cứu khoa học, giáo dục… nhưng vốn lớn, thu hồi chậm, lợi nhuận không hấp dẫn. Vì vậy nhà nước phải đầu tư để làm nền cho tư bản tư nhân kinh doanh ngành khác có lợi hơn.\n3. Mâu thuẫn giai cấp gay gắt\nMâu thuẫn giữa tư sản và công nhân tăng lên, nhà nước phải can thiệp để ổn định xã hội, bảo vệ trật tự tư bản.\n4. Xu hướng quốc tế hóa và cạnh tranh quốc tế\nCác nước tư bản cạnh tranh toàn cầu, nên nhà nước phải hỗ trợ các tập đoàn trong nước cạnh tranh với nước ngoài."
@@ -441,9 +443,9 @@
       "type": "choice",
       "prompt": "Tiền công thực tế là",
       "options": [
-        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công danh nghĩa của mìn",
-        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công thực tế của mìn",
-        "Tiền công được biểu hiện bằng số tư liệu sản xuất và tiêu dùng và dịch vụ mà công g nhân mua được bằng tiền công thực tế của mì"
+        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công danh nghĩa của mình",
+        "Tiền công được biểu hiện bằng số lượng hàng hóa tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công thực tế của mình",
+        "Tiền công được biểu hiện bằng số tư liệu sản xuất và tiêu dùng và dịch vụ mà công nhân mua được bằng tiền công thực tế của mình"
       ],
       "correct": 0,
       "explanation": "Tiền công danh nghĩa là số tiền ghi trên lương.\nVí dụ: lương 8 triệu/tháng.\nTiền công thực tế là với số tiền đó, công nhân mua được bao nhiêu hàng hóa và dịch vụ.\nVí dụ: 8 triệu mua được bao nhiêu gạo, xăng, tiền trọ, quần áo, dịch vụ y tế, giáo dục…\nVì vậy tiền công thực tế phụ thuộc vào tiền lương danh nghĩa và giá cả hàng hóa."
@@ -479,13 +481,13 @@
       "type": "choice",
       "prompt": "Nội dung về kinh tế chính trị của C. Mác và Ph. Ăngghen được trình bày nhiều nhất trong tác phẩm nào?",
       "options": [
-        "Tư Bản",
+        "Tư bản",
         "Hệ tư tưởng Đức",
         "Tuyên ngôn của Đảng Cộng sản",
         "Biện chứng của tự nhiên"
       ],
       "correct": 0,
-      "explanation": "lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được thể hiện tập trung, cô đọng nhất trong bộ Tư bản. Trong đó C. Mác phân tích các phạm trù như hàng hóa, tiền tệ, tư bản, giá trị thặng dư, tích lũy, tuần hoàn, chu chuyển, lợi nhuận, địa tô, cạnh tranh…\nNếu Tuyên ngôn của Đảng Cộng sản thiên về chính trị - cách mạng, thì Tư Bản là tác phẩm phân tích sâu nhất về kinh tế tư bản chủ nghĩa."
+      "explanation": "lý luận kinh tế chính trị của C. Mác và Ph. Ăngghen được thể hiện tập trung, cô đọng nhất trong bộ Tư bản. Trong đó C. Mác phân tích các phạm trù như hàng hóa, tiền tệ, tư bản, giá trị thặng dư, tích lũy, tuần hoàn, chu chuyển, lợi nhuận, địa tô, cạnh tranh…\nNếu Tuyên ngôn của Đảng Cộng sản thiên về chính trị - cách mạng, thì Tư bản là tác phẩm phân tích sâu nhất về kinh tế tư bản chủ nghĩa."
     },
     {
       "id": "MLN122-039",
@@ -507,7 +509,7 @@
       "options": [
         "Tài nguyên thiên nhiên, công nhân giá rẻ",
         "Khoáng sản, sức lao động",
-        "Khoa hoc công nghệ, nhân công chất lượng ca"
+        "Khoa học công nghệ, nhân công chất lượng cao"
       ],
       "correct": 0,
       "explanation": "Cách mạng công nghiệp lần thứ tư gắn với AI, dữ liệu lớn, tự động hóa, robot, internet vạn vật, công nghệ số. Khi công nghệ phát triển mạnh, lợi thế cũ của các nước đang phát triển như tài nguyên nhiều và lao động giá rẻ sẽ giảm dần."
@@ -515,7 +517,7 @@
     {
       "id": "MLN122-041",
       "type": "choice",
-      "prompt": "Đại hội nào đã xác định kinh tế thị trường định hướng xã hội chủ nghĩa là \"một ki ểu tổ chức kinh tế vừa tuân theo quy luật của kinh tế thị trường vừa dựa trên cơ sở và chịu sự dẫn dắt chi phối bởi các nguyên tắc và bản chất của chủ nghĩa xã hội?",
+      "prompt": "Đại hội nào đã xác định kinh tế thị trường định hướng xã hội chủ nghĩa là \"một kiểu tổ chức kinh tế vừa tuân theo quy luật của kinh tế thị trường vừa dựa trên cơ sở và chịu sự dẫn dắt chi phối bởi các nguyên tắc và bản chất của chủ nghĩa xã hội\"?",
       "options": [
         "Đại hội Đảng toàn quốc lần thứ VI",
         "Đại hội Đảng toàn quốc lần thứ VII",
@@ -528,12 +530,12 @@
     {
       "id": "MLN122-042",
       "type": "multi",
-      "prompt": "Lý thuyết bàn tay vô hình của Adam Smith được hiểu là: (chon 3 phương án đúng)",
+      "prompt": "Lý thuyết bàn tay vô hình của Adam Smith được hiểu là: (chọn 3 phương án đúng)",
       "options": [
         "Người bán và người mua, phân bố nguồn lực kinh tế đạt được hiệu quả xã hội lớn nhất mà không cần sự can thiệp của chính phủ",
-        "Mô tả khả năng của cơ chế thị trường trong việc điều chỉnh cung cầu trên thi trường",
+        "Mô tả khả năng của cơ chế thị trường trong việc điều chỉnh cung cầu trên thị trường",
         "Các cá nhân tham gia muốn tối đa hóa lợi nhuận cho mình",
-        "Mỗi người đều bị bàn tay vô hình dẫn tới kết quả làm lợi cho chính mì"
+        "Mỗi người đều bị bàn tay vô hình dẫn tới kết quả làm lợi cho chính mình"
       ],
       "correctSet": [
         0,
@@ -545,11 +547,11 @@
     {
       "id": "MLN122-043",
       "type": "choice",
-      "prompt": "Chon ý đúng về tăng cường độ lao động. Khi cường độ lao động tăng lên thì",
+      "prompt": "Chọn ý đúng về tăng cường độ lao động. Khi cường độ lao động tăng lên thì",
       "options": [
         "Số lượng hàng hoá làm ra trong một đơn vị thời gian không đổi",
         "Số lượng lao động hao phí trong thời gian đó không thay đổi",
-        "Giá trị 1 đơn vị hàng hoá giảm đ",
+        "Giá trị 1 đơn vị hàng hoá giảm đi",
         "Tổng số lượng hàng hóa làm ra của một người tăng lên"
       ],
       "correct": 3,
@@ -562,7 +564,7 @@
       "options": [
         "Là phạm trù của mọi nền kinh tế hàng hoá",
         "Là phạm trù riêng của kinh tế thị trường",
-        "Là phạm trù chung của mọi nền kinh t"
+        "Là phạm trù chung của mọi nền kinh tế"
       ],
       "correct": 0,
       "explanation": "Trong kinh tế chính trị Mác - Lênin, hàng hóa có 2 thuộc tính: giá trị sử dụng và giá trị. Hai thuộc tính đó do tính hai mặt của lao động sản xuất hàng hóa tạo ra:"
@@ -614,7 +616,7 @@
         "Từ giữa thế kỷ XV đến giữa thế kỷ XIX",
         "Từ giữa thế kỷ XVI đến giữa thế kỷ XVII",
         "Từ giữa thế kỷ XVIII đến giữa thế kỷ XIX",
-        "Từ dầu những năm 60 của XX đến cuối thế kỷ XX"
+        "Từ đầu những năm 60 của thế kỷ XX đến cuối thế kỷ XX"
       ],
       "correct": 3,
       "explanation": "Cách mạng công nghiệp lần thứ ba là giai đoạn của điện tử, công nghệ thông tin, máy tính, tự động hóa.\nNó bắt đầu từ khoảng đầu những năm 1960 và kéo dài đến cuối thế kỷ XX."
@@ -622,12 +624,12 @@
     {
       "id": "MLN122-049",
       "type": "choice",
-      "prompt": "Yếu tố nào quyết định đến sự hình thành của cách mạng công nghiệp.",
+      "prompt": "Yếu tố nào quyết định đến sự hình thành của cách mạng công nghiệp?",
       "options": [
         "Sự phát triển vượt bậc của quan hệ sản xuất",
         "Phương thức sản xuất mới ra đời",
         "Sự phát triển nhảy vọt về trình độ của tư liệu lao động",
-        "Các phát minh sáng chế của các nhà khoa học trên mọi lĩnh v"
+        "Các phát minh sáng chế của các nhà khoa học trên mọi lĩnh vực"
       ],
       "correct": 2,
       "explanation": "cách mạng công nghiệp là bước phát triển nhảy vọt về chất của trình độ tư liệu lao động, dựa trên các phát minh kỹ thuật - công nghệ, làm thay đổi sản xuất và tăng năng suất lao động.\n“Tư liệu lao động” hiểu đơn giản là công cụ, máy móc, thiết bị mà con người dùng để sản xuất."
