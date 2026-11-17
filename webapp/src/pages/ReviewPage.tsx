@@ -60,6 +60,10 @@ import prn222TopicMvc from '../content/prn222/prn222-topic-05-mvc-razor.json';
 import prn222TopicWorker from '../content/prn222/prn222-topic-06-worker.json';
 import prn222TopicAsync from '../content/prn222/prn222-topic-07-async.json';
 
+// Quiz môn PRN232 — 2 đề FE SU26 (đề A: SU26 - FE, đề B: SU26 - B5 - FE)
+import prn232DeA from '../content/prn232/prn232-de-a.json';
+import prn232DeB from '../content/prn232/prn232-de-b.json';
+
 // Quiz môn PMG201c (Project Management) — 3 đề thi thật + trộn 3 đề + chia theo chủ đề
 import pmg201cD1 from '../content/pmg201c/pmg201c-d1.json';
 import pmg201cD2 from '../content/pmg201c/pmg201c-d2.json';
@@ -106,6 +110,14 @@ import mln122Ch3 from '../content/mln122/mln122-chapter-3.json';
 import mln122Ch4 from '../content/mln122/mln122-chapter-4.json';
 import mln122Ch5 from '../content/mln122/mln122-chapter-5.json';
 import mln122Ch6 from '../content/mln122/mln122-chapter-6.json';
+
+// Cuộn phần giải thích vào tầm nhìn khi vừa bấm Kiểm Tra (ref ổn định → chỉ chạy lúc mount)
+const revealFeedback = (el: HTMLDivElement | null) => {
+  if (!el) return;
+  const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+  el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+};
+
 
 const peReviewMap: Record<string, any> = {
   'class-diagram': classData,
@@ -225,6 +237,22 @@ export const mln122Map: Record<string, any> = {
   'chapter-5': mln122Ch5,
   'chapter-6': mln122Ch6,
 };
+
+export const prn232Map: Record<string, any> = {
+  'de-a': prn232DeA,
+  'de-b': prn232DeB,
+};
+
+// Đề trộn PRN232: 25 câu random từ mỗi đề, trộn thứ tự — KHÔNG đảo vị trí đáp án trong câu.
+function buildPrn232Mix() {
+  const pool1 = shuffleArray(prn232DeA.questions).slice(0, 25);
+  const pool2 = shuffleArray(prn232DeB.questions).slice(0, 25);
+  return {
+    id: 'PRN232-MIX',
+    title: 'PRN232 — Đề Trộn (50 câu, mix Đề A + Đề B)',
+    questions: shuffleArray([...pool1, ...pool2]),
+  };
+}
 
 // Đề trộn MLN122: 60 câu random từ toàn bộ ngân hàng (gồm cả phần câu lẫn trong MLN111),
 // trộn thứ tự xuất hiện — KHÔNG đảo vị trí đáp án bên trong mỗi câu.
@@ -408,7 +436,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, isMln122 = false, isMln122Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; isMln122?: boolean; isMln122Mix?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, isMln122 = false, isMln122Mix = false, isPrn232 = false, isPrn232Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; isMln122?: boolean; isMln122Mix?: boolean; isPrn232?: boolean; isPrn232Mix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -420,6 +448,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [pmg201cMixData, setPmg201cMixData] = useState<any>(() => (isPmg201cMix ? buildPmg201cMix() : null));
   const [mln111MixData, setMln111MixData] = useState<any>(() => (isMln111Mix ? buildMln111Mix() : null));
   const [mln122MixData, setMln122MixData] = useState<any>(() => (isMln122Mix ? buildMln122Mix() : null));
+  const [prn232MixData, setPrn232MixData] = useState<any>(() => (isPrn232Mix ? buildPrn232Mix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
@@ -434,6 +463,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = mln111MixData;
   } else if (isMln122Mix) {
     reviewData = mln122MixData;
+  } else if (isPrn232Mix) {
+    reviewData = prn232MixData;
   } else if (isPeReview) {
     reviewData = resolvedLevelId ? peReviewMap[resolvedLevelId] : null;
   } else if (isTermBank) {
@@ -448,6 +479,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? mln111Map[resolvedLevelId] : null;
   } else if (isMln122) {
     reviewData = resolvedLevelId ? mln122Map[resolvedLevelId] : null;
+  } else if (isPrn232) {
+    reviewData = resolvedLevelId ? prn232Map[resolvedLevelId] : null;
   } else if (levelId) {
     const level = manifestData.course.levels.find(l => l.id === levelId);
     const reviewLesson = level?.lessons.find(l => l.type === 'review');
@@ -464,7 +497,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isMln122 || isMln122Mix) ? '/mln122' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isMln122 || isMln122Mix) ? '/mln122' : (isPrn232 || isPrn232Mix) ? '/prn232' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -630,6 +663,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     if (isMln122Mix) {
       setMln122MixData(buildMln122Mix());
     }
+    // Đề trộn PRN232: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
+    if (isPrn232Mix) {
+      setPrn232MixData(buildPrn232Mix());
+    }
   };
 
   // Render final result screen
@@ -726,23 +763,23 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const isAnswered = isUnsupportedQuestion || selectedAnswer !== null;
 
   return (
-    <div className="min-h-screen sheet-root pb-16 flex flex-col">
+    <div className="min-h-[100dvh] sheet-root flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-30 bg-[#0f1a2e]/90 backdrop-blur border-b border-[#2a3d60] px-6 py-4">
-        <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-30 bg-[#0f1a2e]/90 backdrop-blur border-b border-[#2a3d60] px-4 sm:px-6 py-3 sm:py-4">
+        <div className="max-w-4xl mx-auto flex items-center justify-between gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <button
               onClick={() => {
                 if (window.confirm("Bạn có muốn hủy bài kiểm tra và quay lại không?")) {
                   navigate(exitPath);
                 }
               }}
-              className="sheet-back text-sm"
+              className="sheet-back text-sm shrink-0"
             >
               <Icon name="back" size={18} />
               Quay lại
             </button>
-            <h1 className="text-sm font-bold text-gray-200">{reviewData.title}</h1>
+            <h1 className="hidden sm:block text-sm font-bold text-gray-200 truncate">{reviewData.title}</h1>
           </div>
           <span className="text-sm text-[#93a2bd] whitespace-nowrap">
             Câu <span className="sheet-count text-base text-[#e9eef7]">{currentIdx + 1}</span> / {questions.length}
@@ -751,7 +788,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
       </header>
 
       {/* Progress Bar */}
-      <div className="w-full h-1 bg-[#15233c]">
+      <div className="sticky top-[53px] sm:top-[61px] z-20 w-full h-1 bg-[#15233c]">
         <div
           className="h-full bg-[#ffd23f] transition-all duration-300 motion-reduce:transition-none"
           style={{ width: `${((currentIdx) / questions.length) * 100}%` }}
@@ -759,10 +796,10 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
       </div>
 
       {/* Question Body */}
-      <main className="max-w-xl mx-auto px-6 mt-10 flex-grow w-full flex flex-col justify-between">
-        <div className="space-y-6">
+      <main className="max-w-xl mx-auto px-4 sm:px-6 pt-5 sm:pt-10 pb-32 flex-grow w-full">
+        <div className="space-y-5 sm:space-y-6">
           <div className="space-y-2">
-            <h2 className="text-lg md:text-xl font-medium text-[#e9eef7] leading-snug">
+            <h2 className="text-[17px] sm:text-lg md:text-xl font-medium text-[#e9eef7] leading-snug">
               {currentQuestion.prompt}
             </h2>
             {currentQuestion.image && (
@@ -773,8 +810,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
               />
             )}
             {currentQuestion.code && (
-              <pre className="mt-3 p-4 rounded-2xl bg-[#1e1e1e] border border-gray-800 overflow-x-auto text-left">
-                <code className="font-mono text-[13px] leading-relaxed text-gray-200 whitespace-pre">
+              <pre className="mt-3 p-3 sm:p-4 -mx-1 sm:mx-0 rounded-xl sm:rounded-2xl bg-[#1e1e1e] border border-gray-800 overflow-x-auto text-left">
+                <code className="font-mono text-[12px] sm:text-[13px] leading-relaxed text-gray-200 whitespace-pre">
                   {currentQuestion.code}
                 </code>
               </pre>
@@ -782,7 +819,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
           </div>
 
           {/* Widget hiện isSubmitted=true sau khi bấm Kiểm Tra để tô màu đúng/sai ngay */}
-          <div className="p-1">
+          <div className="sm:p-1">
             {isUnsupportedQuestion && (
               <div role="status" className="rounded-2xl border border-amber-700/50 bg-amber-950/20 p-4 text-sm text-amber-100">
                 Loại câu hỏi <code className="font-bold">{currentQuestion.type}</code> chưa được hỗ trợ trong Level Review. Bạn có thể bỏ qua câu này; bài review vẫn tiếp tục.
@@ -849,7 +886,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
             const mInfoNow = tagNow ? MISCONCEPTION_INFO[tagNow] : null;
             return (
               <div
-                className={`p-4 rounded-2xl border space-y-2 ${
+                ref={revealFeedback}
+                className={`scroll-mb-28 p-4 rounded-2xl border space-y-2 ${
                   isCorrectNow
                     ? 'bg-green-950/30 border-green-700/40 text-green-300'
                     : 'bg-red-950/30 border-red-700/40 text-red-300'
@@ -873,13 +911,16 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
           })()}
         </div>
 
-        {/* Bottom Actions */}
-        <div className="pt-10 pb-6">
+      </main>
+
+      {/* Bottom Actions — luôn ghim ở đáy màn hình */}
+      <div className="fixed inset-x-0 bottom-0 z-30 bg-[#0f1a2e]/95 backdrop-blur border-t border-[#2a3d60] px-4 sm:px-6 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <div className="max-w-xl mx-auto">
           {!submitted ? (
             <button
               disabled={!isAnswered}
               onClick={isUnsupportedQuestion ? handleContinue : handleCheck}
-              className={`w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 ${
+              className={`w-full py-3.5 sm:py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 ${
                 isAnswered
                   ? 'bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] focus-visible:ring-2 focus-visible:ring-[#ffd23f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1a2e]'
                   : 'bg-gray-800 text-gray-500 cursor-not-allowed'
@@ -891,14 +932,14 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
           ) : (
             <button
               onClick={handleContinue}
-              className="w-full py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] focus-visible:ring-2 focus-visible:ring-[#ffd23f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1a2e]"
+              className="w-full py-3.5 sm:py-4 rounded-2xl font-bold transition-all focus:outline-none flex items-center justify-center gap-2 bg-[#ffd23f] hover:bg-[#ffdc66] text-[#2a2100] focus-visible:ring-2 focus-visible:ring-[#ffd23f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f1a2e]"
             >
               <span>{currentIdx === questions.length - 1 ? 'Nộp Bài & Hoàn Thành' : 'Tiếp Tục'}</span>
               <Icon name="chevron" size={18} />
             </button>
           )}
         </div>
-      </main>
+      </div>
     </div>
   );
 }

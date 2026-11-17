@@ -1,0 +1,660 @@
+{
+  "id": "PRN232-A",
+  "title": "PRN232 — Đề A (SU26 FE)",
+  "questions": [
+    {
+      "id": "PRN232-A-01",
+      "type": "choice",
+      "prompt": "A controller action needs to return a \"Not Found\" response when a resource does not exist. Which of the following is the best way to achieve this?",
+      "code": "[HttpGet(\"{id}\")]\npublic ActionResult<Product> GetProduct(int id)\n{\n    var product = _productService.GetById(id);\n    if (product == null)\n    {\n        return ???; // What should be here?\n    }\n    return product;\n}",
+      "options": [
+        "Ok()",
+        "NotFound()",
+        "BadRequest()",
+        "NoContent()"
+      ],
+      "correct": 1,
+      "explanation": "NotFound() trả về HTTP 404, đúng ý nghĩa \"không tìm thấy resource\". Ok() là 200, BadRequest() là 400 (request sai), NoContent() là 204 (thành công nhưng không có body)."
+    },
+    {
+      "id": "PRN232-A-02",
+      "type": "choice",
+      "prompt": "The following controller action is intended to update an existing product. Which HTTP verb is most appropriate for this action?",
+      "code": "[HttpPut(\"{id}\")]\npublic IActionResult UpdateProduct(int id, [FromBody] Product product)\n{\n    // Logic to update the product\n    return NoContent();\n}",
+      "options": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE"
+      ],
+      "correct": 2,
+      "explanation": "PUT dùng để cập nhật (thay thế) một resource đã có, và action cũng đã gắn [HttpPut(\"{id}\")]. GET để đọc, POST để tạo mới, DELETE để xóa."
+    },
+    {
+      "id": "PRN232-A-03",
+      "type": "choice",
+      "prompt": "What does \"Statelessness\" in REST mean?",
+      "options": [
+        "The server does not store any information about the client's state between requests.",
+        "The client does not need to maintain any state about the server.",
+        "The communication protocol does not support sessions.",
+        "The server encrypts all state information."
+      ],
+      "correct": 0,
+      "explanation": "Stateless nghĩa là server không lưu trạng thái của client giữa các request; mỗi request phải tự mang đủ thông tin (ví dụ token xác thực) để server xử lý."
+    },
+    {
+      "id": "PRN232-A-04",
+      "type": "choice",
+      "prompt": "What is the primary purpose of the HTTP protocol?",
+      "options": [
+        "To securely encrypt data transmissions.",
+        "To transfer hypertext documents across the internet.",
+        "To manage and query databases.",
+        "To define the structure of a web page."
+      ],
+      "correct": 1,
+      "explanation": "HTTP (HyperText Transfer Protocol) sinh ra để truyền tài liệu hypertext giữa client và server qua internet. Mã hóa là việc của TLS (HTTPS), cấu trúc trang là việc của HTML."
+    },
+    {
+      "id": "PRN232-A-05",
+      "type": "choice",
+      "prompt": "In an ASP.NET Core Web API, which attribute is used to decorate an action method that should respond to HTTP POST requests?",
+      "options": [
+        "[HttpGet]",
+        "[HttpPost]",
+        "[HttpPut]",
+        "[HttpDelete]"
+      ],
+      "correct": 1,
+      "explanation": "[HttpPost] đánh dấu action xử lý request có method POST (thường dùng để tạo resource mới)."
+    },
+    {
+      "id": "PRN232-A-06",
+      "type": "choice",
+      "prompt": "What is \"Server Push\" in HTTP/2?",
+      "options": [
+        "The ability for the client to push data to the server's cache.",
+        "A security feature that pushes updates to the client.",
+        "The ability for the server to send resources to the client that it anticipates the client will need, without the client explicitly requesting them.",
+        "A mechanism for streaming video content."
+      ],
+      "correct": 2,
+      "explanation": "Server Push cho phép server chủ động gửi kèm các resource (CSS, JS...) mà nó đoán client sẽ cần, trước khi client kịp request, giúp giảm số vòng request."
+    },
+    {
+      "id": "PRN232-A-07",
+      "type": "choice",
+      "prompt": "How do you create a gRPC client in a .NET 8 console application?",
+      "options": [
+        "var client = new HttpClient();",
+        "var channel = GrpcChannel.ForAddress(\"https://localhost:5001\");\nvar client = new Greeter.GreeterClient(channel);",
+        "var client = new Greeter.GreeterStub(\"https://localhost:5001\");",
+        "var client = GrpcClient.Create<GreeterClient>(\"https://localhost:5001\");"
+      ],
+      "correct": 1,
+      "explanation": "Trong .NET, gRPC client được tạo bằng cách mở một GrpcChannel tới địa chỉ server (GrpcChannel.ForAddress), rồi truyền channel vào class client được generate từ file .proto (Greeter.GreeterClient). Không có GreeterStub hay GrpcClient.Create trong .NET."
+    },
+    {
+      "id": "PRN232-A-08",
+      "type": "choice",
+      "prompt": "To create a new gRPC service project in .NET 8, which project template should you use?",
+      "options": [
+        "ASP.NET Core Web API",
+        "Worker Service",
+        "gRPC Service",
+        "Class Library"
+      ],
+      "correct": 2,
+      "explanation": ".NET có sẵn template \"gRPC Service\" (dotnet new grpc), tạo sẵn file .proto, service mẫu và cấu hình Kestrel chạy HTTP/2."
+    },
+    {
+      "id": "PRN232-A-09",
+      "type": "choice",
+      "prompt": "What is a primary advantage of using Protocol Buffers (Protobuf) over JSON?",
+      "options": [
+        "Protobuf is a human-readable text format, making it easier to debug.",
+        "Protobuf uses a binary serialization format, which is typically smaller and faster to parse than text-based JSON.",
+        "Protobuf is natively supported by all web browsers without any libraries.",
+        "Protobuf has a more flexible schema that can be changed by the client at will."
+      ],
+      "correct": 1,
+      "explanation": "Protobuf serialize dạng nhị phân nên payload nhỏ hơn và parse nhanh hơn JSON dạng text. Đổi lại nó không dễ đọc bằng mắt, trình duyệt không hỗ trợ sẵn, và schema được định nghĩa cứng trong file .proto."
+    },
+    {
+      "id": "PRN232-A-10",
+      "type": "choice",
+      "prompt": "gRPC is built on top of which underlying transport protocol?",
+      "options": [
+        "TCP/IP directly",
+        "HTTP/1.1",
+        "UDP",
+        "HTTP/2"
+      ],
+      "correct": 3,
+      "explanation": "gRPC chạy trên HTTP/2, tận dụng multiplexing (nhiều stream trên một kết nối), nén header và streaming hai chiều."
+    },
+    {
+      "id": "PRN232-A-11",
+      "type": "choice",
+      "prompt": "What is the fundamental syntax for selecting an HTML element and applying an action in jQuery?",
+      "options": [
+        "element.action()",
+        "$(selector).action()",
+        "jQuery(action).selector()",
+        "select(element).do(action)"
+      ],
+      "correct": 1,
+      "explanation": "Cú pháp cơ bản của jQuery là $(selector).action(): $ chọn phần tử theo selector CSS, rồi gọi hành động lên phần tử đó (ví dụ $(\"p\").hide())."
+    },
+    {
+      "id": "PRN232-A-12",
+      "type": "choice",
+      "prompt": "Which HTTP method is commonly used in JavaScript to retrieve data from a Web API?",
+      "options": [
+        "POST",
+        "PUT",
+        "GET",
+        "DELETE"
+      ],
+      "correct": 2,
+      "explanation": "GET dùng để đọc/lấy dữ liệu và không làm thay đổi trạng thái server."
+    },
+    {
+      "id": "PRN232-A-13",
+      "type": "choice",
+      "prompt": "Given a .NET 8 Web API endpoint at https://api.example.com/products/12, what does the following jQuery code do?",
+      "code": "$.ajax({\n    url: \"https://api.example.com/products/12\",\n    type: \"GET\",\n    success: function(data) {\n        console.log(data);\n    },\n    error: function(xhr) {\n        console.error(\"Error fetching data: \" + xhr.statusText);\n    }\n});",
+      "options": [
+        "It updates product 12 with new data.",
+        "It deletes product 12.",
+        "It attempts to retrieve the data for product 12 and logs it to the console on success.",
+        "It creates a new product with an ID of 12."
+      ],
+      "correct": 2,
+      "explanation": "type: \"GET\" nghĩa là lấy dữ liệu của product 12; nếu thành công thì callback success in dữ liệu ra console, nếu lỗi thì error in thông báo lỗi."
+    },
+    {
+      "id": "PRN232-A-14",
+      "type": "choice",
+      "prompt": "Which JavaScript object is commonly used to send AJAX requests to a Web API?",
+      "options": [
+        "XMLHttpRequest",
+        "JSON",
+        "WebSocket",
+        "FormData"
+      ],
+      "correct": 0,
+      "explanation": "XMLHttpRequest là object kinh điển để gửi AJAX request (jQuery $.ajax cũng dùng nó bên dưới). JSON chỉ là định dạng dữ liệu, WebSocket là kênh hai chiều riêng, FormData chỉ để đóng gói dữ liệu form."
+    },
+    {
+      "id": "PRN232-A-15",
+      "type": "choice",
+      "prompt": "How would you select all <p> elements that are descendants of a <div> element?",
+      "options": [
+        "$(\"div > p\")",
+        "$(\"div p\")",
+        "$(\"div + p\")",
+        "$(\"div ~ p\")"
+      ],
+      "correct": 1,
+      "explanation": "Dấu cách là descendant selector: \"div p\" chọn mọi <p> nằm bên trong <div> ở bất kỳ cấp nào. \"div > p\" chỉ chọn con trực tiếp, \"+\" là anh em liền kề, \"~\" là các anh em phía sau."
+    },
+    {
+      "id": "PRN232-A-16",
+      "type": "choice",
+      "prompt": "What is the opposite of a microservices architecture?",
+      "options": [
+        "A serverless architecture",
+        "A monolithic architecture",
+        "A service-oriented architecture (SOA)",
+        "A distributed architecture"
+      ],
+      "correct": 1,
+      "explanation": "Monolithic là toàn bộ ứng dụng gói trong một khối deploy duy nhất, đối lập với microservices chia thành nhiều service nhỏ deploy độc lập."
+    },
+    {
+      "id": "PRN232-A-17",
+      "type": "choice",
+      "prompt": "What is the main principle of Microservices Architecture?",
+      "options": [
+        "Building one large monolithic application",
+        "Breaking an application into small, independent services",
+        "Using a single database for all features",
+        "Avoiding cloud deployment"
+      ],
+      "correct": 1,
+      "explanation": "Nguyên lý chính của microservices là chia ứng dụng thành các service nhỏ, độc lập, mỗi service lo một nghiệp vụ và có thể deploy, scale riêng."
+    },
+    {
+      "id": "PRN232-A-18",
+      "type": "choice",
+      "prompt": "In Microservices, each service usually has its own:",
+      "options": [
+        "Database",
+        "Shared configuration file",
+        "Monolithic deployment",
+        "UI layer"
+      ],
+      "correct": 0,
+      "explanation": "Theo pattern database-per-service, mỗi microservice sở hữu database riêng để giảm phụ thuộc lẫn nhau; service khác chỉ truy cập dữ liệu qua API của nó."
+    },
+    {
+      "id": "PRN232-A-19",
+      "type": "choice",
+      "prompt": "To containerize an ASP.NET Core microservice for deployment, what technology is most commonly used?",
+      "options": [
+        "Virtual Machines (VMs)",
+        "Docker",
+        "WebDeploy",
+        "FTP"
+      ],
+      "correct": 1,
+      "explanation": "Docker là công nghệ phổ biến nhất để đóng gói (containerize) microservice: image chứa sẵn runtime và ứng dụng, chạy giống nhau ở mọi môi trường. VM nặng hơn nhiều; WebDeploy và FTP chỉ là cách copy file lên server."
+    },
+    {
+      "id": "PRN232-A-20",
+      "type": "choice",
+      "prompt": "Which communication protocol is often chosen for high-performance, internal, service-to-service communication due to its use of HTTP/2 and binary serialization?",
+      "options": [
+        "SOAP",
+        "REST over HTTP/1.1 with JSON",
+        "gRPC",
+        "FTP"
+      ],
+      "correct": 2,
+      "explanation": "gRPC chạy trên HTTP/2 và serialize nhị phân bằng Protobuf nên nhanh, nhẹ, rất hợp cho giao tiếp nội bộ giữa các service. SOAP và REST/JSON dùng định dạng text nặng hơn."
+    },
+    {
+      "id": "PRN232-A-21",
+      "type": "choice",
+      "prompt": "In a controller decorated with [ApiController], what happens automatically if ModelState.IsValid is false?",
+      "options": [
+        "The action method still executes as normal.",
+        "An HTTP 500 Internal Server Error is returned.",
+        "The request is automatically rejected with an HTTP 400 Bad Request response containing details of the validation errors.",
+        "The application logs the error and returns an HTTP 200 OK."
+      ],
+      "correct": 2,
+      "explanation": "[ApiController] bật cơ chế automatic HTTP 400: nếu model validation thất bại, framework trả ngay 400 Bad Request kèm ValidationProblemDetails, action không được chạy."
+    },
+    {
+      "id": "PRN232-A-22",
+      "type": "choice",
+      "prompt": "To bind a parameter to a request header, which attribute is used?",
+      "options": [
+        "[FromHeader]",
+        "[FromHead]",
+        "[BindHeader]",
+        "[InHeader]"
+      ],
+      "correct": 0,
+      "explanation": "[FromHeader] lấy giá trị tham số từ HTTP header. Các binding source khác: [FromQuery], [FromRoute], [FromBody], [FromForm], [FromServices]. Ba phương án còn lại không tồn tại."
+    },
+    {
+      "id": "PRN232-A-23",
+      "type": "choice",
+      "prompt": "How would you access a query string parameter named sort in a controller action?",
+      "options": [
+        "[HttpGet] public IActionResult Get([FromRoute] string sort) { /*...*/ }",
+        "[HttpGet] public IActionResult Get([FromBody] string sort) { /*...*/ }",
+        "[HttpGet] public IActionResult Get([FromHeader] string sort) { /*...*/ }",
+        "[HttpGet] public IActionResult Get([FromQuery] string sort) { /*...*/ }"
+      ],
+      "correct": 3,
+      "explanation": "[FromQuery] bind tham số từ query string, ví dụ /products?sort=price. [FromRoute] lấy từ đoạn path, [FromBody] từ body, [FromHeader] từ header."
+    },
+    {
+      "id": "PRN232-A-24",
+      "type": "choice",
+      "prompt": "By default, where does the model binder attempt to get the data for a complex type parameter (like a class or record) in an [ApiController] action?",
+      "options": [
+        "From the query string.",
+        "From the request body.",
+        "From the route data.",
+        "From the request headers."
+      ],
+      "correct": 1,
+      "explanation": "Với [ApiController], tham số kiểu complex (class, record) được suy luận là [FromBody], tức đọc từ request body. Kiểu đơn giản (int, string) mặc định lấy từ route hoặc query string."
+    },
+    {
+      "id": "PRN232-A-25",
+      "type": "choice",
+      "prompt": "What happens when model validation fails in an ASP.NET Core Web API action?",
+      "options": [
+        "The API automatically returns 200 OK",
+        "The API automatically returns 400 Bad Request",
+        "The API automatically returns 404 Not Found",
+        "The API automatically retries the request"
+      ],
+      "correct": 1,
+      "explanation": "Khi controller có [ApiController] mà model validation thất bại, API tự động trả về 400 Bad Request kèm chi tiết lỗi."
+    },
+    {
+      "id": "PRN232-A-26",
+      "type": "choice",
+      "prompt": "Which trio summarizes WCF endpoint definition (ABC)?",
+      "options": [
+        "Address, Binding, Contract",
+        "Authentication, Binding, Channel",
+        "Address, Behavior, Channel",
+        "Adapter, Broker, Contract"
+      ],
+      "correct": 0,
+      "explanation": "Endpoint WCF gồm ABC: Address (ở đâu), Binding (giao tiếp bằng cách nào: giao thức, encoding, bảo mật) và Contract (cung cấp những gì)."
+    },
+    {
+      "id": "PRN232-A-27",
+      "type": "choice",
+      "prompt": "Which attribute in WCF specifies that a method can be invoked via HTTP GET or POST in REST style?",
+      "options": [
+        "[WebGet]/[WebInvoke]",
+        "[HttpPost]",
+        "[Authorize]",
+        "[Route]"
+      ],
+      "correct": 0,
+      "explanation": "Trong WCF REST (webHttpBinding), [WebGet] cho phép gọi operation bằng HTTP GET, [WebInvoke] cho các method khác như POST, PUT, DELETE. [HttpPost], [Authorize], [Route] là attribute của ASP.NET Core."
+    },
+    {
+      "id": "PRN232-A-28",
+      "type": "choice",
+      "prompt": "In WCF, which attribute is used to mark an interface as a service contract?",
+      "options": [
+        "[Service]",
+        "[WebContract]",
+        "[WcfContract]",
+        "[ServiceContract]"
+      ],
+      "correct": 3,
+      "explanation": "[ServiceContract] đánh dấu interface là service contract; từng method bên trong được đánh dấu [OperationContract]."
+    },
+    {
+      "id": "PRN232-A-29",
+      "type": "choice",
+      "prompt": "If you want a property within a [DataContract] class to be included in the data exchange, which attribute must you apply to it?",
+      "options": [
+        "[Include]",
+        "[DataMember]",
+        "[ExposeProperty]",
+        "[ContractProperty]"
+      ],
+      "correct": 1,
+      "explanation": "Trong class gắn [DataContract], chỉ những member gắn [DataMember] mới được serialize khi trao đổi dữ liệu (cơ chế opt-in)."
+    },
+    {
+      "id": "PRN232-A-30",
+      "type": "choice",
+      "prompt": "What does WCF stand for in the context of .NET?",
+      "options": [
+        "Windows Communication Framework",
+        "Windows Communication Foundation",
+        "Web Communication Framework",
+        "Web Control Foundation"
+      ],
+      "correct": 1,
+      "explanation": "WCF là Windows Communication Foundation, framework của .NET Framework để xây dựng ứng dụng hướng dịch vụ (service-oriented)."
+    },
+    {
+      "id": "PRN232-A-31",
+      "type": "choice",
+      "prompt": "In a .NET 9 application using EF Core, you've defined the following DbContext. How does EF Core know which classes to include in the database model?",
+      "code": "public class ApplicationDbContext : DbContext\n{\n    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }\n\n    public DbSet<Product> Products { get; set; }\n    public DbSet<Category> Categories { get; set; }\n}",
+      "options": [
+        "It scans the entire assembly for public classes.",
+        "Through the DbSet<T> properties defined in the DbContext.",
+        "It relies on XML configuration files.",
+        "You must manually register each class using builder.Services.AddTransient<Product>()."
+      ],
+      "correct": 1,
+      "explanation": "EF Core xây dựng model từ các property DbSet<T> khai báo trong DbContext (cùng các entity liên quan qua navigation property và cấu hình trong OnModelCreating). Nó không quét toàn bộ assembly, cũng không dùng XML hay đăng ký DI."
+    },
+    {
+      "id": "PRN232-A-32",
+      "type": "choice",
+      "prompt": "In ASP.NET Core Web API, what is the main purpose of a Model?",
+      "options": [
+        "To define the URL routes for controllers",
+        "To represent the data and business objects",
+        "To configure middleware components",
+        "To format HTTP response headers"
+      ],
+      "correct": 1,
+      "explanation": "Model biểu diễn dữ liệu và các business object mà API nhận vào hoặc trả ra. Route thuộc về controller/routing, middleware cấu hình trong Program.cs."
+    },
+    {
+      "id": "PRN232-A-33",
+      "type": "choice",
+      "prompt": "What is the \"Repository Pattern\" commonly used for in ASP.NET Core data access?",
+      "options": [
+        "To automatically generate API documentation.",
+        "To abstract the data access logic, making the application more modular and testable.",
+        "To handle user authentication and authorization.",
+        "To define the routing rules for API endpoints."
+      ],
+      "correct": 1,
+      "explanation": "Repository Pattern tách logic truy cập dữ liệu ra sau một interface (ví dụ IProductRepository), giúp tầng nghiệp vụ không phụ thuộc trực tiếp vào EF Core, dễ thay đổi và dễ viết unit test bằng mock."
+    },
+    {
+      "id": "PRN232-A-34",
+      "type": "choice",
+      "prompt": "After defining your DbContext and model classes in a Code-First approach, what is the next step to create the database schema?",
+      "options": [
+        "Manually write CREATE TABLE scripts in SQL.",
+        "Run the application, and the database will be created automatically on the first run.",
+        "Use EF Core migration commands like dotnet ef migrations add and dotnet ef database update.",
+        "The database is created when the project is compiled."
+      ],
+      "correct": 2,
+      "explanation": "Với Code-First, bạn tạo migration bằng dotnet ef migrations add <Tên>, rồi áp migration vào database bằng dotnet ef database update. Database không tự sinh khi build hay chạy (trừ khi tự gọi EnsureCreated/Migrate)."
+    },
+    {
+      "id": "PRN232-A-35",
+      "type": "choice",
+      "prompt": "In ASP.NET Core Web API, model validation errors are stored in which property of the Controller?",
+      "options": [
+        "ModelState",
+        "HttpContext",
+        "TempData",
+        "ActionResult"
+      ],
+      "correct": 0,
+      "explanation": "Lỗi binding và validation được lưu trong ModelState (kiểu ModelStateDictionary); kiểm tra bằng ModelState.IsValid."
+    },
+    {
+      "id": "PRN232-A-36",
+      "type": "choice",
+      "prompt": "What is the main purpose of OData in ASP.NET Core Web API?",
+      "options": [
+        "To provide authentication and authorization features",
+        "To enable querying and manipulation of data over HTTP using standard conventions",
+        "To configure middleware components for logging",
+        "To handle static file serving"
+      ],
+      "correct": 1,
+      "explanation": "OData (Open Data Protocol) là chuẩn cho phép client truy vấn và thao tác dữ liệu qua HTTP bằng các quy ước chung như $filter, $select, $expand, $orderby."
+    },
+    {
+      "id": "PRN232-A-37",
+      "type": "choice",
+      "prompt": "To delete a product with an ID of 123, which OData request is correct?",
+      "options": [
+        "POST /Products?$filter=Id eq 123",
+        "DELETE /Products(123)",
+        "GET /Products(123)?action=delete",
+        "REMOVE /Products/123"
+      ],
+      "correct": 1,
+      "explanation": "OData xác định một entity theo key bằng cú pháp /Products(123) và dùng đúng HTTP verb: DELETE để xóa. Không dùng POST/GET để xóa, và REMOVE không phải HTTP method."
+    },
+    {
+      "id": "PRN232-A-38",
+      "type": "choice",
+      "prompt": "The metadata of an OData service, which describes its data model, is typically exposed via which endpoint?",
+      "options": [
+        "/$metadata",
+        "/$help",
+        "/$schema",
+        "/$info"
+      ],
+      "correct": 0,
+      "explanation": "OData công bố mô hình dữ liệu (EDM: entity type, property, relationship) tại endpoint /$metadata dưới dạng CSDL XML."
+    },
+    {
+      "id": "PRN232-A-39",
+      "type": "choice",
+      "prompt": "To retrieve a single Category entity and all of its related Product entities in one request, which query would you use?",
+      "options": [
+        "GET /Categories(1)?$select=Products",
+        "GET /Categories(1)?$expand=Products",
+        "GET /Categories(1),/Products",
+        "GET /Categories(1)/Products?$fetch=all"
+      ],
+      "correct": 1,
+      "explanation": "$expand nạp kèm các entity liên quan (navigation property) trong cùng response, tương tự Include trong EF Core. $select chỉ chọn trường, còn $fetch không tồn tại."
+    },
+    {
+      "id": "PRN232-A-40",
+      "type": "choice",
+      "prompt": "Which OData query option narrows the set of fields returned?",
+      "options": [
+        "$expand",
+        "$select",
+        "$filter",
+        "$orderby"
+      ],
+      "correct": 1,
+      "explanation": "$select giới hạn các field (cột) được trả về. $filter lọc bản ghi (dòng), $orderby sắp xếp, $expand nạp entity liên quan."
+    },
+    {
+      "id": "PRN232-A-41",
+      "type": "choice",
+      "prompt": "What architectural characteristic of RESTful services is most crucial for enabling horizontal scaling?",
+      "options": [
+        "Stateful",
+        "Statelessness",
+        "Tight coupling between client and server",
+        "Use of XML as the only data format"
+      ],
+      "correct": 1,
+      "explanation": "Vì server không giữ trạng thái client, bất kỳ server nào sau load balancer cũng xử lý được bất kỳ request nào, nên chỉ cần thêm server là scale ngang được."
+    },
+    {
+      "id": "PRN232-A-42",
+      "type": "choice",
+      "prompt": "After a client successfully authenticates and receives a JWT, how must it present the token for subsequent requests to protected endpoints?",
+      "options": [
+        "In the request body of every request.",
+        "As a query string parameter named jwt_token.",
+        "In the Authorization HTTP header, typically prefixed with \"Bearer \".",
+        "In a cookie named X-JWT-Token."
+      ],
+      "correct": 2,
+      "explanation": "Chuẩn là gửi token trong header Authorization: Bearer <token>. Middleware JwtBearer của ASP.NET Core đọc token từ header này."
+    },
+    {
+      "id": "PRN232-A-43",
+      "type": "choice",
+      "prompt": "Which of the following HTTP status codes indicates \"Unauthorized\" access?",
+      "options": [
+        "200",
+        "400",
+        "401",
+        "403"
+      ],
+      "correct": 2,
+      "explanation": "401 Unauthorized nghĩa là chưa xác thực (thiếu hoặc sai token). 403 Forbidden là đã xác thực nhưng không đủ quyền. 400 là request sai, 200 là thành công."
+    },
+    {
+      "id": "PRN232-A-44",
+      "type": "choice",
+      "prompt": "What is a \"load balancer\" in the context of scaling a web service?",
+      "options": [
+        "A tool that validates the data load of a JSON request.",
+        "A server or service that distributes incoming network traffic across multiple backend servers.",
+        "A database feature that balances data across multiple tables.",
+        "A client-side library for managing application load times."
+      ],
+      "correct": 1,
+      "explanation": "Load balancer phân phối lưu lượng request đến nhiều server backend để chia tải, tăng khả năng chịu tải và sẵn sàng (một server chết thì các server khác vẫn phục vụ)."
+    },
+    {
+      "id": "PRN232-A-45",
+      "type": "choice",
+      "prompt": "What does applying [Authorize] without any parameters to a controller or action do?",
+      "options": [
+        "It allows anonymous access.",
+        "It denies all access, regardless of who the user is.",
+        "It requires that the user be authenticated, but does not check for any specific roles or policies.",
+        "It defaults to requiring the \"Admin\" role."
+      ],
+      "correct": 2,
+      "explanation": "[Authorize] không tham số chỉ yêu cầu user đã đăng nhập (authenticated), không kiểm tra role hay policy nào. Muốn giới hạn thêm thì dùng Roles = \"...\" hoặc Policy = \"...\". Cho phép ẩn danh là [AllowAnonymous]."
+    },
+    {
+      "id": "PRN232-A-46",
+      "type": "choice",
+      "prompt": "Which of the following is a valid JSON object?",
+      "options": [
+        "{ 'name': 'John Doe', \"age\": 30 }",
+        "{ name: \"John Doe\", age: 30 }",
+        "{ \"name\": \"John Doe\", \"age\": 30, }",
+        "{ \"name\": \"John Doe\", \"age\": 30 }"
+      ],
+      "correct": 3,
+      "explanation": "JSON bắt buộc key và chuỗi dùng nháy kép, không cho dấu phẩy thừa ở cuối. A dùng nháy đơn, B thiếu nháy ở key, C thừa dấu phẩy cuối."
+    },
+    {
+      "id": "PRN232-A-47",
+      "type": "choice",
+      "prompt": "You want to create a custom input formatter for the text/csv media type. Which base class should you inherit from?",
+      "options": [
+        "CsvFormatter",
+        "TextOutputFormatter",
+        "TextInputFormatter",
+        "OutputFormatter"
+      ],
+      "correct": 2,
+      "explanation": "Input formatter đọc dữ liệu từ request body, nên kế thừa TextInputFormatter (cho dữ liệu dạng text như CSV) và override ReadRequestBodyAsync. TextOutputFormatter/OutputFormatter dùng để ghi response; CsvFormatter không có sẵn."
+    },
+    {
+      "id": "PRN232-A-48",
+      "type": "choice",
+      "prompt": "What is a key difference in how web browsers and non-browser HTTP clients (like a C# HttpClient or Postman) typically set the Accept header?",
+      "options": [
+        "Non-browser clients never send an Accept header.",
+        "Browsers often send a very broad Accept header (e.g., text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*;q=0.8) because they can handle many types.",
+        "Browsers only accept text/html.",
+        "Non-browser clients are required to accept application/json only."
+      ],
+      "correct": 1,
+      "explanation": "Trình duyệt xử lý được nhiều loại nội dung nên gửi Accept rất rộng, có trọng số q. Vì vậy ASP.NET Core mặc định bỏ qua Accept của trình duyệt (RespectBrowserAcceptHeader = false) để tránh trả XML ngoài ý muốn. Client như HttpClient/Postman thường gửi Accept cụ thể hoặc không gửi."
+    },
+    {
+      "id": "PRN232-A-49",
+      "type": "choice",
+      "prompt": "By default, ASP.NET Core Web API uses which formatter for output?",
+      "options": [
+        "XML Formatter",
+        "JSON Formatter",
+        "Binary Formatter",
+        "CSV Formatter"
+      ],
+      "correct": 1,
+      "explanation": "Mặc định Web API trả dữ liệu dạng JSON (dùng System.Text.Json). XML formatter phải tự bật bằng AddXmlSerializerFormatters()."
+    },
+    {
+      "id": "PRN232-A-50",
+      "type": "choice",
+      "prompt": "Which data types are supported in JSON?",
+      "options": [
+        "String, Number, Boolean, Array, Object, null",
+        "String, Integer, Float, Date, Array, Hashtable",
+        "Text, Decimal, Bit, List, Dictionary, null",
+        "Varchar, Number, Boolean, Collection, Object, undefined"
+      ],
+      "correct": 0,
+      "explanation": "JSON chỉ có 6 kiểu: string, number, boolean, array, object và null. JSON không có kiểu Date (thường lưu dạng string) và không có undefined."
+    }
+  ]
+}
