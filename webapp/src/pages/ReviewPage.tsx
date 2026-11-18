@@ -63,6 +63,7 @@ import prn222TopicAsync from '../content/prn222/prn222-topic-07-async.json';
 // Quiz môn PRN232 — 2 đề FE SU26 (đề A: SU26 - FE, đề B: SU26 - B5 - FE)
 import prn232DeA from '../content/prn232/prn232-de-a.json';
 import prn232DeB from '../content/prn232/prn232-de-b.json';
+import prn232Sp26 from '../content/prn232/prn232-sp26.json';
 
 // Quiz môn PMG201c (Project Management) — 3 đề thi thật + trộn 3 đề + chia theo chủ đề
 import pmg201cD1 from '../content/pmg201c/pmg201c-d1.json';
@@ -241,16 +242,18 @@ export const mln122Map: Record<string, any> = {
 export const prn232Map: Record<string, any> = {
   'de-a': prn232DeA,
   'de-b': prn232DeB,
+  'sp26': prn232Sp26,
 };
 
-// Đề trộn PRN232: 25 câu random từ mỗi đề, trộn thứ tự — KHÔNG đảo vị trí đáp án trong câu.
+// Đề trộn PRN232: 50 câu random từ 3 đề (17 + 17 + 16), trộn thứ tự — KHÔNG đảo vị trí đáp án trong câu.
 function buildPrn232Mix() {
-  const pool1 = shuffleArray(prn232DeA.questions).slice(0, 25);
-  const pool2 = shuffleArray(prn232DeB.questions).slice(0, 25);
+  const pool1 = shuffleArray(prn232DeA.questions).slice(0, 17);
+  const pool2 = shuffleArray(prn232DeB.questions).slice(0, 17);
+  const pool3 = shuffleArray(prn232Sp26.questions).slice(0, 16);
   return {
     id: 'PRN232-MIX',
-    title: 'PRN232 — Đề Trộn (50 câu, mix Đề A + Đề B)',
-    questions: shuffleArray([...pool1, ...pool2]),
+    title: 'PRN232 — Đề Trộn (50 câu, mix Đề A + Đề B + SP26)',
+    questions: shuffleArray([...pool1, ...pool2, ...pool3]),
   };
 }
 

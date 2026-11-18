@@ -20,7 +20,7 @@ type Subject = {
 
 const SUBJECTS: Subject[] = [
   { to: '/prn232', code: 'PRN232', name: '.NET Web API — REST, gRPC, OData, WCF', icon: 'globe', mark: 2,
-    total: countOf(prn232Map['de-a']) + countOf(prn232Map['de-b']) },
+    total: countOf(prn232Map['de-a']) + countOf(prn232Map['de-b']) + countOf(prn232Map['sp26']) },
   { to: '/mln122', code: 'MLN122', name: 'Kinh tế chính trị Mác-Lênin', icon: 'coins', mark: 1,
     total: countOf(mln122Map['full']) + countOf(mln122Map['extra']) },
   { to: '/mln111', code: 'MLN111', name: 'Triết học Mác-Lênin', icon: 'compass', mark: 3,

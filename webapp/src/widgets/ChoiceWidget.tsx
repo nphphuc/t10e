@@ -67,7 +67,7 @@ export default function ChoiceWidget({
               <span className="flex-shrink-0 w-6 h-6 rounded-full border border-current flex items-center justify-center font-bold text-xs uppercase">
                 {String.fromCharCode(65 + idx)}
               </span>
-              <span>{option}</span>
+              <span className="whitespace-pre-line">{option}</span>
               {isSubmitted && isCorrect && isSelected && <SuccessBurst />}
             </motion.button>
           );
