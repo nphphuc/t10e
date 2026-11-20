@@ -1,0 +1,656 @@
+{
+  "id": "PRM393-FE",
+  "title": "PRM393 — Đề FE",
+  "questions": [
+    {
+      "id": "PRM393-FE-01",
+      "type": "choice",
+      "prompt": "Which Dart feature supports object-oriented programming?",
+      "options": [
+        "Widgets",
+        "Classes and objects",
+        "Hot reload",
+        "Layout builders"
+      ],
+      "correct": 1,
+      "explanation": "Dart hỗ trợ OOP qua class và object (kế thừa, mixin, interface ngầm định). Widget là khái niệm của Flutter; hot reload là tính năng của công cụ phát triển."
+    },
+    {
+      "id": "PRM393-FE-02",
+      "type": "choice",
+      "prompt": "Which method retrieves data from SharedPreferences?",
+      "options": [
+        "get()",
+        "read()",
+        "fetch()",
+        "load()"
+      ],
+      "correct": 0,
+      "explanation": "SharedPreferences đọc dữ liệu bằng các hàm get: get(key) tổng quát, hoặc getString, getInt, getBool… Ghi thì dùng setString, setInt… read(), fetch() và load() không phải API của SharedPreferences."
+    },
+    {
+      "id": "PRM393-FE-03",
+      "type": "choice",
+      "prompt": "What is Flutter primarily used for?",
+      "options": [
+        "Designing databases for mobile apps",
+        "Creating native applications from a single codebase",
+        "Developing server-side applications only",
+        "Building operating systems for mobile devices"
+      ],
+      "correct": 1,
+      "explanation": "Flutter là UI toolkit của Google, dùng để build app biên dịch native cho Android, iOS, web và desktop từ một codebase Dart."
+    },
+    {
+      "id": "PRM393-FE-04",
+      "type": "choice",
+      "prompt": "Why should state be kept as local as possible?",
+      "options": [
+        "Better animations",
+        "Reduce unnecessary rebuilds",
+        "Simplify UI",
+        "Improve navigation"
+      ],
+      "correct": 1,
+      "explanation": "Khi state nằm ở widget thấp nhất cần nó, setState chỉ rebuild nhánh nhỏ đó thay vì cả cây widget lớn, nên app nhẹ hơn và code dễ hiểu hơn."
+    },
+    {
+      "id": "PRM393-FE-05",
+      "type": "choice",
+      "prompt": "Which command builds a release APK?",
+      "options": [
+        "flutter run",
+        "flutter build apk",
+        "flutter doctor",
+        "flutter clean"
+      ],
+      "correct": 1,
+      "explanation": "flutter build apk build bản release mặc định (file app-release.apk). flutter run chạy app ở chế độ debug, flutter doctor kiểm tra môi trường, flutter clean xóa thư mục build."
+    },
+    {
+      "id": "PRM393-FE-06",
+      "type": "choice",
+      "prompt": "What happens after successful login?",
+      "options": [
+        "App closes",
+        "User session starts",
+        "Theme changes",
+        "Navigation resets"
+      ],
+      "correct": 1,
+      "explanation": "Đăng nhập thành công thì phiên người dùng bắt đầu: app lưu token hoặc session (thường bằng secure storage) rồi chuyển người dùng vào màn hình chính."
+    },
+    {
+      "id": "PRM393-FE-07",
+      "type": "choice",
+      "prompt": "Which widget is an example of implicit animation?",
+      "options": [
+        "AnimatedContainer",
+        "AnimationController",
+        "Tween",
+        "Ticker"
+      ],
+      "correct": 0,
+      "explanation": "Implicit animation (các widget Animated…) tự chạy animation khi property thay đổi, không cần controller. AnimationController, Tween và Ticker là thành phần của explicit animation, phải tự điều khiển."
+    },
+    {
+      "id": "PRM393-FE-08",
+      "type": "choice",
+      "prompt": "What is the primary responsibility of the setState() method?",
+      "options": [
+        "Persist data",
+        "Trigger widget rebuild",
+        "Navigate screens",
+        "Handle async tasks"
+      ],
+      "correct": 1,
+      "explanation": "setState() báo cho framework biết state của State object đã đổi, để build() được gọi lại và UI cập nhật. Nó không lưu dữ liệu xuống bộ nhớ và không tự xử lý tác vụ async."
+    },
+    {
+      "id": "PRM393-FE-09",
+      "type": "choice",
+      "prompt": "Why is clean architecture beneficial?",
+      "options": [
+        "Fewer files",
+        "Easier maintenance and testing",
+        "Better UI",
+        "Faster builds"
+      ],
+      "correct": 1,
+      "explanation": "Clean architecture tách presentation, domain và data thành các lớp phụ thuộc qua abstraction, nên dễ test từng lớp và dễ bảo trì. Đổi lại thường phải có nhiều file hơn."
+    },
+    {
+      "id": "PRM393-FE-10",
+      "type": "choice",
+      "prompt": "What is Dart primarily designed for in the Flutter ecosystem?",
+      "options": [
+        "Database management",
+        "User interface development",
+        "General-purpose programming with UI focus",
+        "Network security"
+      ],
+      "correct": 2,
+      "explanation": "Dart là ngôn ngữ đa dụng (general-purpose), được Google tối ưu cho phía client/UI (client-optimized): hỗ trợ hot reload, biên dịch AOT/JIT. Nó không chỉ dùng để làm UI."
+    },
+    {
+      "id": "PRM393-FE-11",
+      "type": "choice",
+      "prompt": "What does the build() method return in a widget?",
+      "options": [
+        "A screen",
+        "A widget tree describing the UI",
+        "Application state",
+        "Rendered pixels"
+      ],
+      "correct": 1,
+      "explanation": "build() trả về một Widget, tức một cây widget mô tả UI. Engine của Flutter mới là phần biến mô tả đó thành pixel; build() không tự vẽ."
+    },
+    {
+      "id": "PRM393-FE-12",
+      "type": "choice",
+      "prompt": "Which Flutter test focuses on UI components?",
+      "options": [
+        "Unit test",
+        "Widget test",
+        "Integration test",
+        "Load test"
+      ],
+      "correct": 1,
+      "explanation": "Widget test (dùng testWidgets, WidgetTester) kiểm tra một widget hay một phần UI trong môi trường giả lập. Unit test kiểm tra logic thuần; integration test chạy cả app trên thiết bị hoặc emulator."
+    },
+    {
+      "id": "PRM393-FE-13",
+      "type": "choice",
+      "prompt": "What causes unnecessary widget rebuilds?",
+      "options": [
+        "State changes",
+        "Overusing setState()",
+        "Using Provider",
+        "Using const widgets"
+      ],
+      "correct": 1,
+      "explanation": "Gọi setState() quá nhiều hoặc ở widget quá cao khiến cả cây con build lại dù phần lớn không đổi. Ngược lại, const widget giúp tránh rebuild."
+    },
+    {
+      "id": "PRM393-FE-14",
+      "type": "choice",
+      "prompt": "What happens if a non-nullable variable is not initialized in Dart?",
+      "options": [
+        "The app runs normally",
+        "A runtime exception occurs",
+        "A compile-time error occurs",
+        "The value becomes null automatically"
+      ],
+      "correct": 2,
+      "explanation": "Với sound null safety, biến non-nullable phải được gán trước khi dùng, nếu không trình biên dịch báo lỗi ngay. Riêng biến khai báo late mà đọc trước khi gán thì mới lỗi lúc runtime (LateInitializationError)."
+    },
+    {
+      "id": "PRM393-FE-15",
+      "type": "choice",
+      "prompt": "Why is separating UI and state logic recommended?",
+      "options": [
+        "Reduce code size",
+        "Improve maintainability",
+        "Faster execution",
+        "Better animations"
+      ],
+      "correct": 1,
+      "explanation": "Tách UI khỏi logic (Provider, BLoC, Riverpod…) giúp mỗi phần dễ đọc, dễ test và dễ sửa độc lập, tức là tăng khả năng bảo trì. Nó không nhằm giảm số dòng code."
+    },
+    {
+      "id": "PRM393-FE-16",
+      "type": "choice",
+      "prompt": "Why should architecture be decided early?",
+      "options": [
+        "Avoid UI work",
+        "Reduce refactoring cost",
+        "Improve animations",
+        "Change theme"
+      ],
+      "correct": 1,
+      "explanation": "Chọn kiến trúc (cấu trúc thư mục, cách quản lý state) từ đầu giúp tránh phải đập đi viết lại khi app lớn lên, vì refactor muộn tốn công hơn nhiều."
+    },
+    {
+      "id": "PRM393-FE-17",
+      "type": "choice",
+      "prompt": "What does golden testing verify?",
+      "options": [
+        "API responses",
+        "UI appearance consistency",
+        "Database state",
+        "Authentication"
+      ],
+      "correct": 1,
+      "explanation": "Golden test chụp ảnh widget rồi so pixel với ảnh \"golden\" đã lưu (matchesGoldenFile), để phát hiện UI bị thay đổi ngoài ý muốn."
+    },
+    {
+      "id": "PRM393-FE-18",
+      "type": "choice",
+      "prompt": "Which Flutter tool helps debug network requests?",
+      "options": [
+        "DevTools",
+        "Inspector",
+        "Emulator",
+        "Hot reload"
+      ],
+      "correct": 0,
+      "explanation": "Flutter DevTools có tab Network để xem request/response HTTP, bên cạnh CPU profiler, memory… Inspector chỉ là một phần của DevTools, dùng để xem cây widget."
+    },
+    {
+      "id": "PRM393-FE-19",
+      "type": "choice",
+      "prompt": "Which platforms can Flutter applications target using a single codebase?",
+      "options": [
+        "Android only",
+        "iOS only",
+        "Android, iOS, web, and desktop",
+        "Web servers only"
+      ],
+      "correct": 2,
+      "explanation": "Flutter hỗ trợ Android, iOS, web và desktop (Windows, macOS, Linux) từ cùng một codebase."
+    },
+    {
+      "id": "PRM393-FE-20",
+      "type": "choice",
+      "prompt": "Which widget reacts to async data from local storage?",
+      "options": [
+        "FutureBuilder",
+        "StreamBuilder",
+        "ListView",
+        "Provider"
+      ],
+      "correct": 0,
+      "explanation": "Đọc local storage (SharedPreferences, sqflite) trả về một Future, nên dùng FutureBuilder để hiển thị trạng thái loading, có dữ liệu hay lỗi. StreamBuilder dành cho dòng dữ liệu liên tục (Stream)."
+    },
+    {
+      "id": "PRM393-FE-21",
+      "type": "choice",
+      "prompt": "Why are widgets lightweight in Flutter?",
+      "options": [
+        "They manage system resources",
+        "They are immutable descriptions",
+        "They store UI state",
+        "They handle rendering directly"
+      ],
+      "correct": 1,
+      "explanation": "Widget chỉ là bản mô tả cấu hình UI, bất biến (immutable) nên tạo và hủy rất rẻ. Việc vẽ thật do Element và RenderObject đảm nhận; state mutable nằm trong State object."
+    },
+    {
+      "id": "PRM393-FE-22",
+      "type": "choice",
+      "prompt": "What problem does state hoisting address?",
+      "options": [
+        "API delay",
+        "State duplication",
+        "Theme conflict",
+        "Navigation error"
+      ],
+      "correct": 1,
+      "explanation": "State hoisting (lifting state up) đưa state lên widget cha chung, để nhiều widget con dùng một nguồn sự thật thay vì mỗi con giữ một bản sao dễ lệch nhau."
+    },
+    {
+      "id": "PRM393-FE-23",
+      "type": "choice",
+      "prompt": "What happens when setState() is called in a StatefulWidget?",
+      "options": [
+        "The app restarts",
+        "The widget tree is rebuilt",
+        "Data is saved permanently",
+        "Navigation occurs"
+      ],
+      "correct": 1,
+      "explanation": "setState() đánh dấu State là \"dirty\", và ở frame kế tiếp build() chạy lại, cây widget của nó được dựng lại để phản ánh state mới."
+    },
+    {
+      "id": "PRM393-FE-24",
+      "type": "choice",
+      "prompt": "Which pattern is commonly used for scalable state management?",
+      "options": [
+        "MVC",
+        "BLoC",
+        "Singleton",
+        "Factory"
+      ],
+      "correct": 1,
+      "explanation": "BLoC (Business Logic Component) tách logic khỏi UI qua event → state bằng Stream, rất phổ biến cho app Flutter lớn. Singleton và Factory là pattern tạo đối tượng, không phải giải pháp quản lý state."
+    },
+    {
+      "id": "PRM393-FE-25",
+      "type": "choice",
+      "prompt": "Which input type improves user experience for emails?",
+      "options": [
+        "TextInputType.number",
+        "TextInputType.emailAddress",
+        "TextInputType.text",
+        "TextInputType.url"
+      ],
+      "correct": 1,
+      "explanation": "keyboardType: TextInputType.emailAddress mở bàn phím có sẵn phím @ và dấu chấm, giúp nhập email nhanh hơn."
+    },
+    {
+      "id": "PRM393-FE-26",
+      "type": "choice",
+      "prompt": "Which widget allows both scrolling and app bars to interact?",
+      "options": [
+        "ListView",
+        "CustomScrollView",
+        "GridView",
+        "Stack"
+      ],
+      "correct": 1,
+      "explanation": "CustomScrollView kết hợp các sliver như SliverAppBar và SliverList, cho app bar co giãn hay ẩn hiện theo thao tác cuộn."
+    },
+    {
+      "id": "PRM393-FE-27",
+      "type": "choice",
+      "prompt": "Which method resets all form fields?",
+      "options": [
+        "clear()",
+        "reset()",
+        "dispose()",
+        "remove()"
+      ],
+      "correct": 1,
+      "explanation": "Gọi formKey.currentState!.reset() để đưa mọi FormField về giá trị ban đầu. clear() là của TextEditingController (xóa một ô); dispose() giải phóng tài nguyên."
+    },
+    {
+      "id": "PRM393-FE-28",
+      "type": "choice",
+      "prompt": "Why is secure authentication critical in mobile apps?",
+      "options": [
+        "UI quality",
+        "Protect user data",
+        "Reduce code",
+        "Improve speed"
+      ],
+      "correct": 1,
+      "explanation": "Xác thực an toàn (token lưu bằng secure storage, HTTPS, không hardcode key) giúp bảo vệ tài khoản và dữ liệu cá nhân của người dùng khỏi truy cập trái phép."
+    },
+    {
+      "id": "PRM393-FE-29",
+      "type": "choice",
+      "prompt": "Which HTTP method is used to send new data to a server?",
+      "options": [
+        "GET",
+        "DELETE",
+        "POST",
+        "HEAD"
+      ],
+      "correct": 2,
+      "explanation": "POST gửi dữ liệu mới để server tạo resource. GET đọc dữ liệu, DELETE xóa, HEAD giống GET nhưng chỉ lấy header."
+    },
+    {
+      "id": "PRM393-FE-30",
+      "type": "choice",
+      "prompt": "What is the main goal of performance optimization in Flutter apps?",
+      "options": [
+        "Improve UI colors",
+        "Ensure smooth and responsive UI",
+        "Reduce code size",
+        "Add features"
+      ],
+      "correct": 1,
+      "explanation": "Mục tiêu là UI mượt (khoảng 60–120 fps, không jank) và phản hồi nhanh: giảm rebuild thừa, dùng const, lazy list, đẩy việc nặng sang isolate."
+    },
+    {
+      "id": "PRM393-FE-31",
+      "type": "choice",
+      "prompt": "Which widget pattern protects authenticated routes?",
+      "options": [
+        "Navigator",
+        "Guard",
+        "Route protection",
+        "Middleware"
+      ],
+      "correct": 1,
+      "explanation": "Route guard kiểm tra trạng thái đăng nhập trước khi cho vào route, chưa đăng nhập thì chuyển hướng sang màn login (vd hàm redirect của go_router hoặc AuthGuard của auto_route). Navigator chỉ điều hướng. Lưu ý: đề không có bảng đáp án, \"Route protection\" là cách diễn đạt chung, còn \"Guard\" là tên pattern."
+    },
+    {
+      "id": "PRM393-FE-32",
+      "type": "choice",
+      "prompt": "What does the final keyword indicate in Dart?",
+      "options": [
+        "The variable can be reassigned later",
+        "The variable value is fixed after assignment",
+        "The variable is global",
+        "The variable is private"
+      ],
+      "correct": 1,
+      "explanation": "Biến final chỉ được gán một lần, giá trị được xác định lúc runtime. const thì phải biết giá trị ngay lúc compile. Private trong Dart được đánh dấu bằng dấu _ ở đầu tên."
+    },
+    {
+      "id": "PRM393-FE-33",
+      "type": "choice",
+      "prompt": "What does status code 200 indicate?",
+      "options": [
+        "Client error",
+        "Server error",
+        "Success",
+        "Redirect"
+      ],
+      "correct": 2,
+      "explanation": "200 OK nghĩa là request thành công. 3xx là redirect, 4xx lỗi phía client, 5xx lỗi phía server."
+    },
+    {
+      "id": "PRM393-FE-34",
+      "type": "choice",
+      "prompt": "Why is immutability important in BLoC states?",
+      "options": [
+        "UI speed",
+        "Predictable state changes",
+        "Memory usage",
+        "Theme control"
+      ],
+      "correct": 1,
+      "explanation": "State bất biến buộc mỗi thay đổi phải tạo một state mới (copyWith), nên luồng thay đổi rõ ràng, dễ debug, và BLoC so sánh state cũ/mới chính xác (thường kết hợp Equatable)."
+    },
+    {
+      "id": "PRM393-FE-35",
+      "type": "choice",
+      "prompt": "What does crossAxisAlignment control?",
+      "options": [
+        "Vertical alignment in Column",
+        "Horizontal alignment in Column",
+        "Child order",
+        "Widget size"
+      ],
+      "correct": 1,
+      "explanation": "Trục chính của Column là trục dọc, nên trục phụ (cross axis) là trục ngang: crossAxisAlignment căn con theo chiều ngang. Với Row thì ngược lại."
+    },
+    {
+      "id": "PRM393-FE-36",
+      "type": "choice",
+      "prompt": "What is the role of v-sync in Flutter?",
+      "options": [
+        "Sync data",
+        "Optimize animation resources",
+        "Control layout",
+        "Handle navigation"
+      ],
+      "correct": 1,
+      "explanation": "vsync (TickerProvider, vd SingleTickerProviderStateMixin) đồng bộ animation với tần số làm tươi màn hình và dừng ticker khi widget không hiển thị, nhờ vậy animation không tốn CPU hay pin vô ích."
+    },
+    {
+      "id": "PRM393-FE-37",
+      "type": "choice",
+      "prompt": "What is the main goal of testing in Flutter apps?",
+      "options": [
+        "Improve UI design",
+        "Ensure app quality and correctness",
+        "Speed up builds",
+        "Manage state"
+      ],
+      "correct": 1,
+      "explanation": "Unit test, widget test và integration test nhằm đảm bảo app chạy đúng, phát hiện lỗi và regression sớm, tức là giữ chất lượng app."
+    },
+    {
+      "id": "PRM393-FE-38",
+      "type": "choice",
+      "prompt": "Why is understanding the widget lifecycle important?",
+      "options": [
+        "Improve API performance",
+        "Manage UI updates correctly",
+        "Deploy apps faster",
+        "Reduce file size"
+      ],
+      "correct": 1,
+      "explanation": "Nắm vòng đời (initState → didChangeDependencies → build → didUpdateWidget → dispose) giúp khởi tạo, cập nhật và giải phóng tài nguyên đúng chỗ, như hủy controller trong dispose, nên UI cập nhật chính xác và không rò rỉ bộ nhớ."
+    },
+    {
+      "id": "PRM393-FE-39",
+      "type": "choice",
+      "prompt": "Why are forms important in mobile applications?",
+      "options": [
+        "UI decoration",
+        "User data collection",
+        "State management",
+        "Navigation"
+      ],
+      "correct": 1,
+      "explanation": "Form (cùng TextFormField và validator) là cách chính để thu thập và kiểm tra dữ liệu người dùng nhập, như đăng nhập, đăng ký hay thanh toán."
+    },
+    {
+      "id": "PRM393-FE-40",
+      "type": "choice",
+      "prompt": "Which Flutter plugin provides SQLite support?",
+      "options": [
+        "hive",
+        "moor",
+        "sqflite",
+        "shared_preferences"
+      ],
+      "correct": 2,
+      "explanation": "sqflite là plugin SQLite chính thức hay dùng nhất. hive là NoSQL key-value; shared_preferences lưu cặp key-value đơn giản. moor (nay là drift) cũng dựa trên SQLite nhưng là thư viện ORM chạy bên trên, nên đáp án chuẩn là sqflite."
+    },
+    {
+      "id": "PRM393-FE-41",
+      "type": "choice",
+      "prompt": "When is it most appropriate to customize themes in a Flutter app?",
+      "options": [
+        "After API integration",
+        "During UI/UX design phase",
+        "Only at deployment",
+        "Only for testing"
+      ],
+      "correct": 1,
+      "explanation": "Theme (màu, font, style dùng chung trong ThemeData) nên được định nghĩa ngay ở giai đoạn thiết kế UI/UX, để các màn hình dùng thống nhất từ đầu."
+    },
+    {
+      "id": "PRM393-FE-42",
+      "type": "choice",
+      "prompt": "Which HTTP header is commonly used for authorization?",
+      "options": [
+        "Content-Type",
+        "Accept",
+        "Authorization",
+        "Cache-Control"
+      ],
+      "correct": 2,
+      "explanation": "Header Authorization mang thông tin xác thực, vd \"Authorization: Bearer <token>\". Content-Type mô tả định dạng body, Accept là định dạng client muốn nhận, Cache-Control điều khiển cache."
+    },
+    {
+      "id": "PRM393-FE-43",
+      "type": "choice",
+      "prompt": "Why is passing context important in navigation?",
+      "options": [
+        "Access theme",
+        "Access Navigator",
+        "Access state",
+        "Access layout"
+      ],
+      "correct": 1,
+      "explanation": "Navigator.of(context) / Navigator.push(context, …) dùng BuildContext để tìm Navigator gần nhất phía trên trong cây widget. Thiếu context đúng thì không điều hướng được."
+    },
+    {
+      "id": "PRM393-FE-44",
+      "type": "choice",
+      "prompt": "What is the main benefit of Flutter’s widget-based architecture?",
+      "options": [
+        "Widgets are only used for layout design",
+        "Widgets allow code reuse across platforms",
+        "Widgets automatically manage databases",
+        "Widgets replace backend services"
+      ],
+      "correct": 1,
+      "explanation": "Mọi thứ đều là widget và có thể ghép lại (composition), nên một bộ widget tái sử dụng được trên nhiều nền tảng và nhiều màn hình. Widget không chỉ dùng cho layout, cũng không thay thế database hay backend."
+    },
+    {
+      "id": "PRM393-FE-45",
+      "type": "choice",
+      "prompt": "Which Dart data structure is best suited for storing an ordered collection of items?",
+      "options": [
+        "Set",
+        "Map",
+        "List",
+        "Queue"
+      ],
+      "correct": 2,
+      "explanation": "List là tập hợp có thứ tự, truy cập theo index. Set không trùng lặp và không đảm bảo thứ tự theo index; Map lưu cặp key-value; Queue dùng cho thao tác hai đầu."
+    },
+    {
+      "id": "PRM393-FE-46",
+      "type": "choice",
+      "prompt": "Which Flutter widget reacts to authentication state changes?",
+      "options": [
+        "FutureBuilder",
+        "StreamBuilder",
+        "ListView",
+        "Form"
+      ],
+      "correct": 1,
+      "explanation": "Trạng thái đăng nhập thay đổi liên tục, vd FirebaseAuth.authStateChanges() trả về một Stream, nên dùng StreamBuilder để UI tự cập nhật mỗi khi có sự kiện mới. FutureBuilder chỉ nhận kết quả một lần."
+    },
+    {
+      "id": "PRM393-FE-47",
+      "type": "choice",
+      "prompt": "Which widget rebuilds automatically during animation?",
+      "options": [
+        "AnimatedBuilder",
+        "FutureBuilder",
+        "StreamBuilder",
+        "LayoutBuilder"
+      ],
+      "correct": 0,
+      "explanation": "AnimatedBuilder lắng nghe một Animation/AnimationController và gọi builder lại ở mỗi tick, chỉ rebuild phần cần animate."
+    },
+    {
+      "id": "PRM393-FE-48",
+      "type": "choice",
+      "prompt": "What is the main purpose of the Container widget?",
+      "options": [
+        "Navigation",
+        "Layout, styling, and positioning",
+        "State management",
+        "Network requests"
+      ],
+      "correct": 1,
+      "explanation": "Container gộp padding, margin, kích thước, màu, decoration (bo góc, viền, bóng) và căn chỉnh, tức là lo layout, style và vị trí cho child."
+    },
+    {
+      "id": "PRM393-FE-49",
+      "type": "choice",
+      "prompt": "Which step is required before running a Flutter app for the first time?",
+      "options": [
+        "Publishing the app",
+        "Setting up the Flutter SDK",
+        "Configuring a database",
+        "Writing backend APIs"
+      ],
+      "correct": 1,
+      "explanation": "Phải cài Flutter SDK (cộng Android SDK hoặc Xcode, emulator) và chạy flutter doctor để kiểm tra môi trường. Database hay backend không bắt buộc."
+    },
+    {
+      "id": "PRM393-FE-50",
+      "type": "choice",
+      "prompt": "Which practice improves API security?",
+      "options": [
+        "Hardcoding keys",
+        "Using HTTPS",
+        "Ignoring errors",
+        "Using globals"
+      ],
+      "correct": 1,
+      "explanation": "HTTPS mã hóa dữ liệu trên đường truyền. Hardcode API key trong app là lỗ hổng, vì key có thể bị lấy ra khi decompile app."
+    }
+  ]
+}

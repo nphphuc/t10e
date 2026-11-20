@@ -11,6 +11,7 @@ import Pmg201cLanding from './pages/Pmg201cLanding';
 import Mln111Landing from './pages/Mln111Landing';
 import Mln122Landing from './pages/Mln122Landing';
 import Prn232Landing from './pages/Prn232Landing';
+import Prm393Landing from './pages/Prm393Landing';
 import PracticePage from './pages/PracticePage';
 import ClassDiagramBuilderPage from './pages/ClassDiagramBuilderPage';
 import ActivityBuilderPage from './pages/ActivityBuilderPage';
@@ -54,6 +55,9 @@ function AnimatedRoutes() {
         <Route path="/mln122" element={<PageTransition><Mln122Landing /></PageTransition>} />
         <Route path="/mln122/mix" element={<PageTransition><ReviewPage isMln122Mix={true} /></PageTransition>} />
         <Route path="/mln122/:levelId" element={<PageTransition><ReviewPage isMln122={true} /></PageTransition>} />
+        <Route path="/prm393" element={<PageTransition><Prm393Landing /></PageTransition>} />
+        <Route path="/prm393/mix" element={<PageTransition><ReviewPage isPrm393Mix={true} /></PageTransition>} />
+        <Route path="/prm393/:levelId" element={<PageTransition><ReviewPage isPrm393={true} /></PageTransition>} />
         <Route path="/prn232" element={<PageTransition><Prn232Landing /></PageTransition>} />
         <Route path="/prn232/mix" element={<PageTransition><ReviewPage isPrn232Mix={true} /></PageTransition>} />
         <Route path="/prn232/:levelId" element={<PageTransition><ReviewPage isPrn232={true} /></PageTransition>} />

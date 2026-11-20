@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import Icon, { type IconName } from '../ui/Icon';
 import { countOf } from '../ui/SubjectPage';
 import '../ui/sheet.css';
-import { pru213Map, prn222Map, prn232Map, pmg201cMap, mln111Map, mln122Map } from './ReviewPage';
+import { pru213Map, prn222Map, prn232Map, prm393Map, pmg201cMap, mln111Map, mln122Map } from './ReviewPage';
 
 // Ẩn khu SWD392 (Bài học / Ôn thi PE / Ôn thi FE). Đổi thành true để hiện lại —
 // các route /home, /pe-review, /term-bank vẫn hoạt động bình thường.
@@ -19,6 +19,8 @@ type Subject = {
 };
 
 const SUBJECTS: Subject[] = [
+  { to: '/prm393', code: 'PRM393', name: 'Mobile — Flutter & Dart', icon: 'phone', mark: 3,
+    total: countOf(prm393Map['fe']) },
   { to: '/prn232', code: 'PRN232', name: '.NET Web API — REST, gRPC, OData, WCF', icon: 'globe', mark: 2,
     total: countOf(prn232Map['de-a']) + countOf(prn232Map['de-b']) + countOf(prn232Map['sp26']) },
   { to: '/mln122', code: 'MLN122', name: 'Kinh tế chính trị Mác-Lênin', icon: 'coins', mark: 1,

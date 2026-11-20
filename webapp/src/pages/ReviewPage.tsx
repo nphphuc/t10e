@@ -64,6 +64,7 @@ import prn222TopicAsync from '../content/prn222/prn222-topic-07-async.json';
 import prn232DeA from '../content/prn232/prn232-de-a.json';
 import prn232DeB from '../content/prn232/prn232-de-b.json';
 import prn232Sp26 from '../content/prn232/prn232-sp26.json';
+import prm393Fe from '../content/prm393/prm393-fe.json';
 
 // Quiz môn PMG201c (Project Management) — 3 đề thi thật + trộn 3 đề + chia theo chủ đề
 import pmg201cD1 from '../content/pmg201c/pmg201c-d1.json';
@@ -257,6 +258,19 @@ function buildPrn232Mix() {
   };
 }
 
+export const prm393Map: Record<string, any> = {
+  'fe': prm393Fe,
+};
+
+// Đề trộn PRM393: toàn bộ câu của đề FE, trộn thứ tự — KHÔNG đảo vị trí đáp án trong câu.
+function buildPrm393Mix() {
+  return {
+    id: 'PRM393-MIX',
+    title: 'PRM393 — Đề Trộn (đảo thứ tự câu)',
+    questions: shuffleArray(prm393Fe.questions),
+  };
+}
+
 // Đề trộn MLN122: 60 câu random từ toàn bộ ngân hàng (gồm cả phần câu lẫn trong MLN111),
 // trộn thứ tự xuất hiện — KHÔNG đảo vị trí đáp án bên trong mỗi câu.
 function buildMln122Mix() {
@@ -439,7 +453,7 @@ const MISCONCEPTION_INFO: Record<string, { title: string; desc: string; advice: 
 
 const SUPPORTED_REVIEW_TYPES = new Set(['choice', 'multi', 'truefalse', 'order', 'match']);
 
-export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, isMln122 = false, isMln122Mix = false, isPrn232 = false, isPrn232Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; isMln122?: boolean; isMln122Mix?: boolean; isPrn232?: boolean; isPrn232Mix?: boolean; levelIdOverride?: string }) {
+export default function ReviewPage({ isPeReview = false, isTermBank = false, isMockExam = false, isPru213 = false, isPrn222 = false, isPrn222Mix = false, isPmg201c = false, isPmg201cMix = false, isMln111 = false, isMln111Mix = false, isMln122 = false, isMln122Mix = false, isPrn232 = false, isPrn232Mix = false, isPrm393 = false, isPrm393Mix = false, levelIdOverride }: { isPeReview?: boolean; isTermBank?: boolean; isMockExam?: boolean; isPru213?: boolean; isPrn222?: boolean; isPrn222Mix?: boolean; isPmg201c?: boolean; isPmg201cMix?: boolean; isMln111?: boolean; isMln111Mix?: boolean; isMln122?: boolean; isMln122Mix?: boolean; isPrn232?: boolean; isPrn232Mix?: boolean; isPrm393?: boolean; isPrm393Mix?: boolean; levelIdOverride?: string }) {
   const { levelId } = useParams<{ levelId: string }>();
   const resolvedLevelId = levelIdOverride ?? levelId;
   const navigate = useNavigate();
@@ -452,6 +466,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [mln111MixData, setMln111MixData] = useState<any>(() => (isMln111Mix ? buildMln111Mix() : null));
   const [mln122MixData, setMln122MixData] = useState<any>(() => (isMln122Mix ? buildMln122Mix() : null));
   const [prn232MixData, setPrn232MixData] = useState<any>(() => (isPrn232Mix ? buildPrn232Mix() : null));
+  const [prm393MixData, setPrm393MixData] = useState<any>(() => (isPrm393Mix ? buildPrm393Mix() : null));
 
   let reviewData = null;
   let reviewLessonId: string | null = null;
@@ -466,6 +481,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = mln111MixData;
   } else if (isMln122Mix) {
     reviewData = mln122MixData;
+  } else if (isPrm393Mix) {
+    reviewData = prm393MixData;
   } else if (isPrn232Mix) {
     reviewData = prn232MixData;
   } else if (isPeReview) {
@@ -482,6 +499,8 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     reviewData = resolvedLevelId ? mln111Map[resolvedLevelId] : null;
   } else if (isMln122) {
     reviewData = resolvedLevelId ? mln122Map[resolvedLevelId] : null;
+  } else if (isPrm393) {
+    reviewData = resolvedLevelId ? prm393Map[resolvedLevelId] : null;
   } else if (isPrn232) {
     reviewData = resolvedLevelId ? prn232Map[resolvedLevelId] : null;
   } else if (levelId) {
@@ -500,7 +519,7 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
   const [isFinished, setIsFinished] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isMln122 || isMln122Mix) ? '/mln122' : (isPrn232 || isPrn232Mix) ? '/prn232' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
+  const exitPath = isPeReview ? '/pe-review' : (isPru213 ? '/pru213' : (isPrn222 || isPrn222Mix) ? '/prn222' : (isPmg201c || isPmg201cMix) ? '/pmg201c' : (isMln111 || isMln111Mix) ? '/mln111' : (isMln122 || isMln122Mix) ? '/mln122' : (isPrn232 || isPrn232Mix) ? '/prn232' : (isPrm393 || isPrm393Mix) ? '/prm393' : (isTermBank || isMockExam) ? '/term-bank' : '/home');
 
   if (!reviewData) {
     return (
@@ -669,6 +688,9 @@ export default function ReviewPage({ isPeReview = false, isTermBank = false, isM
     // Đề trộn PRN232: mỗi lần "Làm Lại" ra một bộ 50 câu random mới
     if (isPrn232Mix) {
       setPrn232MixData(buildPrn232Mix());
+    }
+    if (isPrm393Mix) {
+      setPrm393MixData(buildPrm393Mix());
     }
   };
 

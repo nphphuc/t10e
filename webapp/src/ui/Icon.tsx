@@ -148,6 +148,12 @@ const PATHS = {
       <path d="M5.6 6.6a9 9 0 000 12.8M18.4 6.6a9 9 0 010 12.8" />
     </>
   ),
+  phone: (
+    <>
+      <rect x="6.5" y="2.5" width="11" height="19" rx="2.5" />
+      <path d="M10.5 18.5h3" />
+    </>
+  ),
   globe: (
     <>
       <circle cx="12" cy="12" r="8.5" />
