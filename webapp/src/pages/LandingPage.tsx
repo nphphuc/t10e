@@ -20,7 +20,7 @@ type Subject = {
 
 const SUBJECTS: Subject[] = [
   { to: '/prm393', code: 'PRM393', name: 'Mobile — Flutter & Dart', icon: 'phone', mark: 3,
-    total: countOf(prm393Map['fe']) },
+    total: countOf(prm393Map['fe']) + countOf(prm393Map['re']) + countOf(prm393Map['b5']) },
   { to: '/prn232', code: 'PRN232', name: '.NET Web API — REST, gRPC, OData, WCF', icon: 'globe', mark: 2,
     total: countOf(prn232Map['de-a']) + countOf(prn232Map['de-b']) + countOf(prn232Map['sp26']) },
   { to: '/mln122', code: 'MLN122', name: 'Kinh tế chính trị Mác-Lênin', icon: 'coins', mark: 1,

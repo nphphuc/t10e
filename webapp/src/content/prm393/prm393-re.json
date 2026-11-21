@@ -1,0 +1,656 @@
+{
+  "id": "PRM393-RE",
+  "title": "PRM393 — Đề SU26 RE",
+  "questions": [
+    {
+      "id": "PRM393-RE-01",
+      "type": "choice",
+      "prompt": "What does a Dart class primarily represent?",
+      "options": [
+        "A UI widget only",
+        "A blueprint for creating objects",
+        "A database table",
+        "A network request"
+      ],
+      "correct": 1,
+      "explanation": "Class là bản thiết kế (blueprint) mô tả thuộc tính và phương thức; từ một class tạo ra nhiều object (instance). Widget cũng chỉ là một class, nhưng class không chỉ dùng để làm widget."
+    },
+    {
+      "id": "PRM393-RE-02",
+      "type": "choice",
+      "prompt": "What type of data is SharedPreferences best suited for?",
+      "options": [
+        "Large datasets",
+        "Simple primitive values",
+        "Images",
+        "Complex objects"
+      ],
+      "correct": 1,
+      "explanation": "SharedPreferences lưu cặp key-value nhỏ, kiểu nguyên thủy: bool, int, double, String, List<String> (vd cài đặt, cờ đã đăng nhập). Dữ liệu lớn hoặc có quan hệ nên dùng sqflite hay Hive."
+    },
+    {
+      "id": "PRM393-RE-03",
+      "type": "choice",
+      "prompt": "What is the main purpose of app architecture?",
+      "options": [
+        "UI design",
+        "Organize code structure",
+        "Improve animations",
+        "Handle API"
+      ],
+      "correct": 1,
+      "explanation": "Kiến trúc app (clean architecture, MVVM, BLoC…) tổ chức code thành các lớp hoặc module có trách nhiệm rõ ràng, để dễ bảo trì, mở rộng và test."
+    },
+    {
+      "id": "PRM393-RE-04",
+      "type": "choice",
+      "prompt": "Which component is required to run and test Flutter applications on a local machine?",
+      "options": [
+        "A cloud hosting service",
+        "A physical server",
+        "An emulator or physical device",
+        "A database management system"
+      ],
+      "correct": 2,
+      "explanation": "Để chạy và test app Flutter trên máy cần một thiết bị đích: Android emulator, iOS simulator hoặc điện thoại thật cắm vào (với web/desktop thì có thể dùng trình duyệt hoặc chính máy tính)."
+    },
+    {
+      "id": "PRM393-RE-05",
+      "type": "choice",
+      "prompt": "What does REST stand for?",
+      "options": [
+        "Remote State Transfer",
+        "Representational State Transfer",
+        "Reactive Service Transport",
+        "Request State Transfer"
+      ],
+      "correct": 1,
+      "explanation": "REST = Representational State Transfer, phong cách kiến trúc API dựa trên resource và các HTTP method (GET, POST, PUT, DELETE)."
+    },
+    {
+      "id": "PRM393-RE-06",
+      "type": "choice",
+      "prompt": "What is pagination used for?",
+      "options": [
+        "UI animation",
+        "Handling large datasets efficiently",
+        "Theme management",
+        "Authentication"
+      ],
+      "correct": 1,
+      "explanation": "Pagination chia dữ liệu lớn thành từng trang (vd ?page=2&limit=20) để tải dần khi người dùng cuộn (infinite scroll), giúp tiết kiệm băng thông và bộ nhớ."
+    },
+    {
+      "id": "PRM393-RE-07",
+      "type": "choice",
+      "prompt": "What does Navigator.pop() do?",
+      "options": [
+        "Open a new screen",
+        "Close current screen",
+        "Restart app",
+        "Clear stack"
+      ],
+      "correct": 1,
+      "explanation": "Navigator.pop(context) lấy route trên cùng ra khỏi stack, tức đóng màn hiện tại để quay lại màn trước, và có thể kèm kết quả trả về. Mở màn mới là push(); xóa stack là pushAndRemoveUntil()."
+    },
+    {
+      "id": "PRM393-RE-08",
+      "type": "choice",
+      "prompt": "What is rebuild scope optimization in Flutter?",
+      "options": [
+        "Reducing widget tree depth",
+        "Limiting rebuild to affected widgets",
+        "Caching API responses",
+        "Using global state"
+      ],
+      "correct": 1,
+      "explanation": "Tối ưu phạm vi rebuild nghĩa là chỉ rebuild đúng các widget bị ảnh hưởng: tách widget nhỏ, dùng const, dùng Consumer/Selector hay BlocBuilder ở chỗ thấp nhất cần thiết."
+    },
+    {
+      "id": "PRM393-RE-09",
+      "type": "choice",
+      "prompt": "Which pattern separates storage logic from UI?",
+      "options": [
+        "MVC",
+        "Repository pattern",
+        "Singleton",
+        "Factory"
+      ],
+      "correct": 1,
+      "explanation": "Repository pattern che giấu chi tiết lưu trữ (API, SQLite, cache) sau một interface. UI hay BLoC chỉ gọi repository mà không cần biết dữ liệu đến từ đâu."
+    },
+    {
+      "id": "PRM393-RE-10",
+      "type": "choice",
+      "prompt": "What is the purpose of building a release version of a Flutter app?",
+      "options": [
+        "Debug code",
+        "Prepare app for distribution",
+        "Test UI",
+        "Change theme"
+      ],
+      "correct": 1,
+      "explanation": "Bản release được biên dịch AOT, tối ưu tốc độ và kích thước, tắt công cụ debug, sẵn sàng phát hành lên Google Play hay App Store (flutter build apk/appbundle/ipa)."
+    },
+    {
+      "id": "PRM393-RE-11",
+      "type": "choice",
+      "prompt": "Why should navigation logic be well-structured?",
+      "options": [
+        "Reduce UI size",
+        "Improve maintainability",
+        "Increase speed",
+        "Avoid widgets"
+      ],
+      "correct": 1,
+      "explanation": "Gom định nghĩa route vào một chỗ (named routes, go_router) giúp dễ đọc, dễ sửa luồng màn hình, dễ thêm guard và deep link, tức là dễ bảo trì."
+    },
+    {
+      "id": "PRM393-RE-12",
+      "type": "choice",
+      "prompt": "Why is logout functionality important?",
+      "options": [
+        "Free memory",
+        "End user session securely",
+        "Improve UI",
+        "Change theme"
+      ],
+      "correct": 1,
+      "explanation": "Logout kết thúc phiên an toàn: xóa token hay session đã lưu, reset state và đưa người dùng về màn đăng nhập, để người khác dùng chung máy không vào được tài khoản."
+    },
+    {
+      "id": "PRM393-RE-13",
+      "type": "choice",
+      "prompt": "Which widget animates between two widgets?",
+      "options": [
+        "AnimatedSwitcher",
+        "AnimatedOpacity",
+        "AnimatedAlign",
+        "AnimatedSize"
+      ],
+      "correct": 0,
+      "explanation": "AnimatedSwitcher tạo hiệu ứng chuyển (mặc định là fade) khi child đổi từ widget này sang widget khác, nhận biết qua key. Ba widget kia chỉ animate một thuộc tính của cùng một child."
+    },
+    {
+      "id": "PRM393-RE-14",
+      "type": "choice",
+      "prompt": "Which method is used to update the UI when state changes?",
+      "options": [
+        "build()",
+        "setState()",
+        "initState()",
+        "dispose()"
+      ],
+      "correct": 1,
+      "explanation": "Gọi setState() để báo state thay đổi; framework sẽ gọi lại build(). Ta không tự gọi build(); initState() và dispose() là các hàm vòng đời."
+    },
+    {
+      "id": "PRM393-RE-15",
+      "type": "choice",
+      "prompt": "Which programming language is used to develop Flutter applications?",
+      "options": [
+        "Kotlin",
+        "Swift",
+        "Dart",
+        "JavaScript"
+      ],
+      "correct": 2,
+      "explanation": "Flutter dùng Dart. Kotlin và Swift chỉ xuất hiện khi viết code native trong platform channel."
+    },
+    {
+      "id": "PRM393-RE-16",
+      "type": "choice",
+      "prompt": "Why is the widget tree considered immutable?",
+      "options": [
+        "Widgets cannot be removed",
+        "Widgets are recreated instead of modified",
+        "Widgets are stored permanently",
+        "Widgets cannot contain data"
+      ],
+      "correct": 1,
+      "explanation": "Widget là immutable: khi UI đổi, Flutter tạo widget mới thay vì sửa widget cũ, rồi so sánh với Element và RenderObject để cập nhật phần khác biệt."
+    },
+    {
+      "id": "PRM393-RE-17",
+      "type": "choice",
+      "prompt": "Why are const widgets recommended?",
+      "options": [
+        "They improve readability",
+        "They reduce rebuild cost",
+        "They add state",
+        "They handle navigation"
+      ],
+      "correct": 1,
+      "explanation": "Const widget được tạo một lần lúc compile và tái sử dụng; khi cha rebuild, Flutter bỏ qua cây con const, nên rebuild rẻ hơn."
+    },
+    {
+      "id": "PRM393-RE-18",
+      "type": "choice",
+      "prompt": "Which feature of Dart helps prevent null reference errors at compile time?",
+      "options": [
+        "Dynamic typing",
+        "Hot reload",
+        "Null safety",
+        "Asynchronous execution"
+      ],
+      "correct": 2,
+      "explanation": "Sound null safety phân biệt kiểu non-nullable (String) và nullable (String?), nên trình biên dịch bắt được lỗi null ngay từ lúc build."
+    },
+    {
+      "id": "PRM393-RE-19",
+      "type": "choice",
+      "prompt": "When should you prefer Provider over setState()?",
+      "options": [
+        "For simple UI updates",
+        "For global or shared state",
+        "For animations",
+        "For navigation"
+      ],
+      "correct": 1,
+      "explanation": "setState đủ cho state cục bộ trong một widget. Khi nhiều màn hoặc nhiều widget cần dùng chung state (giỏ hàng, user đăng nhập) thì nên dùng Provider."
+    },
+    {
+      "id": "PRM393-RE-20",
+      "type": "choice",
+      "prompt": "What advantage does a single codebase provide in Flutter development?",
+      "options": [
+        "Higher memory usage",
+        "Simpler UI customization",
+        "Reduced development and maintenance effort",
+        "Automatic database synchronization"
+      ],
+      "correct": 2,
+      "explanation": "Viết một lần chạy nhiều nền tảng nên giảm công phát triển, sửa lỗi và bảo trì, thay vì phải duy trì riêng code Android và code iOS."
+    },
+    {
+      "id": "PRM393-RE-21",
+      "type": "choice",
+      "prompt": "Which widget is commonly used as the root of a Flutter app?",
+      "options": [
+        "Scaffold",
+        "MaterialApp",
+        "Container",
+        "Column"
+      ],
+      "correct": 1,
+      "explanation": "runApp(MaterialApp(...)): MaterialApp là gốc của app, cấu hình theme, route, localization. Scaffold là khung của từng màn hình (AppBar, body…)."
+    },
+    {
+      "id": "PRM393-RE-22",
+      "type": "choice",
+      "prompt": "Why should setState() be called sparingly?",
+      "options": [
+        "It increases app size",
+        "It may trigger unnecessary rebuilds",
+        "It blocks UI thread",
+        "It causes memory leaks"
+      ],
+      "correct": 1,
+      "explanation": "Mỗi lần setState() là build() của widget đó chạy lại cùng cả cây con, nên gọi thừa hoặc ở widget quá cao gây rebuild không cần thiết."
+    },
+    {
+      "id": "PRM393-RE-23",
+      "type": "choice",
+      "prompt": "What triggers a rebuild of a widget?",
+      "options": [
+        "Navigation only",
+        "Calling setState()",
+        "Restarting the IDE",
+        "Changing the SDK"
+      ],
+      "correct": 1,
+      "explanation": "setState() đánh dấu widget dirty để build lại. Ngoài ra widget cũng rebuild khi InheritedWidget nó phụ thuộc thay đổi hoặc khi widget cha truyền cấu hình mới."
+    },
+    {
+      "id": "PRM393-RE-24",
+      "type": "choice",
+      "prompt": "What does BLoC stand for?",
+      "options": [
+        "Business Logic Component",
+        "Backend Logic Controller",
+        "Build Logic Component",
+        "Basic Logic Controller"
+      ],
+      "correct": 0,
+      "explanation": "BLoC = Business Logic Component: nhận Event, xử lý business logic và phát ra State cho UI."
+    },
+    {
+      "id": "PRM393-RE-25",
+      "type": "choice",
+      "prompt": "Which widget can hide user input text when configured for password entry?",
+      "options": [
+        "TextField",
+        "ObscureText",
+        "SecureInput",
+        "PasswordField"
+      ],
+      "correct": 0,
+      "explanation": "Dùng TextField (hoặc TextFormField) với obscureText: true để ẩn ký tự khi nhập mật khẩu. \"obscureText\" là một thuộc tính chứ không phải widget; SecureInput và PasswordField không có sẵn trong Flutter."
+    },
+    {
+      "id": "PRM393-RE-26",
+      "type": "choice",
+      "prompt": "Which sliver is commonly used to display a scrolling list?",
+      "options": [
+        "SliverGrid",
+        "SliverList",
+        "SliverAppBar",
+        "SliverFillRemaining"
+      ],
+      "correct": 1,
+      "explanation": "SliverList hiển thị danh sách cuộn bên trong CustomScrollView. SliverGrid dành cho dạng lưới, SliverAppBar là app bar co giãn, SliverFillRemaining lấp phần còn lại."
+    },
+    {
+      "id": "PRM393-RE-27",
+      "type": "choice",
+      "prompt": "What happens if form validation fails?",
+      "options": [
+        "Form submits",
+        "Error messages are shown",
+        "App crashes",
+        "Data is saved"
+      ],
+      "correct": 1,
+      "explanation": "formKey.currentState!.validate() trả về false và mỗi field có validator trả về chuỗi lỗi sẽ hiện thông báo đó (errorText) ngay dưới ô nhập; form không được submit."
+    },
+    {
+      "id": "PRM393-RE-28",
+      "type": "choice",
+      "prompt": "Which HTTP method is typically used to retrieve data?",
+      "options": [
+        "POST",
+        "PUT",
+        "GET",
+        "DELETE"
+      ],
+      "correct": 2,
+      "explanation": "GET dùng để lấy dữ liệu. POST tạo mới, PUT cập nhật hoặc thay thế, DELETE xóa."
+    },
+    {
+      "id": "PRM393-RE-29",
+      "type": "choice",
+      "prompt": "Why should authentication state be centralized?",
+      "options": [
+        "Reduce UI code",
+        "Ensure consistent access control",
+        "Improve animations",
+        "Simplify layout"
+      ],
+      "correct": 1,
+      "explanation": "Đặt trạng thái đăng nhập ở một nơi (AuthProvider hay AuthBloc) giúp mọi màn hình và route guard dùng chung một nguồn sự thật, nên kiểm soát quyền truy cập nhất quán."
+    },
+    {
+      "id": "PRM393-RE-30",
+      "type": "choice",
+      "prompt": "Which Dart keyword is used to define a constant value at compile time?",
+      "options": [
+        "final",
+        "static",
+        "const",
+        "var"
+      ],
+      "correct": 2,
+      "explanation": "const là hằng số lúc compile. final chỉ gán một lần nhưng giá trị có thể tính lúc runtime; static thuộc về class; var để suy luận kiểu."
+    },
+    {
+      "id": "PRM393-RE-31",
+      "type": "choice",
+      "prompt": "Which status code indicates resource not found?",
+      "options": [
+        "200",
+        "301",
+        "404",
+        "500"
+      ],
+      "correct": 2,
+      "explanation": "404 Not Found. 200 là OK, 301 là Moved Permanently (redirect), 500 là Internal Server Error."
+    },
+    {
+      "id": "PRM393-RE-32",
+      "type": "choice",
+      "prompt": "What represents the output of a BLoC?",
+      "options": [
+        "Events",
+        "Widgets",
+        "States",
+        "Controllers"
+      ],
+      "correct": 2,
+      "explanation": "BLoC nhận Event (đầu vào) và phát ra State (đầu ra). UI lắng nghe State bằng BlocBuilder hoặc BlocListener."
+    },
+    {
+      "id": "PRM393-RE-33",
+      "type": "choice",
+      "prompt": "Which widget is most commonly used to arrange children vertically?",
+      "options": [
+        "Row",
+        "Stack",
+        "Column",
+        "Expanded"
+      ],
+      "correct": 2,
+      "explanation": "Column xếp con theo chiều dọc, Row theo chiều ngang, Stack chồng các con lên nhau. Expanded chỉ chia không gian bên trong Row hoặc Column."
+    },
+    {
+      "id": "PRM393-RE-34",
+      "type": "choice",
+      "prompt": "Which curve creates a bounce effect?",
+      "options": [
+        "linear",
+        "easeIn",
+        "bounceOut",
+        "decelerate"
+      ],
+      "correct": 2,
+      "explanation": "Curves.bounceOut tạo hiệu ứng nảy ở cuối animation. linear chạy đều; easeIn và decelerate chỉ tăng hoặc giảm tốc mượt."
+    },
+    {
+      "id": "PRM393-RE-35",
+      "type": "choice",
+      "prompt": "Which test runs fastest?",
+      "options": [
+        "Integration test",
+        "Widget test",
+        "Unit test",
+        "Manual test"
+      ],
+      "correct": 2,
+      "explanation": "Unit test chỉ kiểm tra một hàm hay class, không cần dựng UI hay thiết bị, nên nhanh nhất. Thứ tự tốc độ: unit > widget > integration > manual."
+    },
+    {
+      "id": "PRM393-RE-36",
+      "type": "choice",
+      "prompt": "What is the main purpose of hot reload in Flutter?",
+      "options": [
+        "Improve runtime performance",
+        "Instantly reflect code changes in UI",
+        "Publish apps faster",
+        "Reduce memory usage"
+      ],
+      "correct": 1,
+      "explanation": "Hot reload nạp code vừa sửa vào app đang chạy (Dart VM, chế độ debug) và giữ nguyên state, nên thấy thay đổi UI gần như ngay lập tức."
+    },
+    {
+      "id": "PRM393-RE-37",
+      "type": "choice",
+      "prompt": "Why should database operations be asynchronous?",
+      "options": [
+        "Simplify syntax",
+        "Avoid blocking UI thread",
+        "Reduce code",
+        "Improve theme"
+      ],
+      "correct": 1,
+      "explanation": "Đọc ghi database tốn thời gian. Dùng async/await (Future) để UI isolate không bị chặn, nhờ đó app không bị đứng hay giật."
+    },
+    {
+      "id": "PRM393-RE-38",
+      "type": "choice",
+      "prompt": "What is the primary purpose of ThemeData in Flutter?",
+      "options": [
+        "Manage navigation",
+        "Define application-wide visual styles",
+        "Handle state changes",
+        "Control animations"
+      ],
+      "correct": 1,
+      "explanation": "ThemeData (truyền vào MaterialApp.theme) định nghĩa màu, font, style của nút và chữ dùng chung toàn app; widget lấy ra bằng Theme.of(context)."
+    },
+    {
+      "id": "PRM393-RE-39",
+      "type": "choice",
+      "prompt": "Why should API responses be mapped to models?",
+      "options": [
+        "Reduce JSON size",
+        "Ensure type safety",
+        "Speed up UI",
+        "Improve theme"
+      ],
+      "correct": 1,
+      "explanation": "Chuyển JSON (Map<String, dynamic>) sang class model (fromJson/toJson) giúp truy cập field có kiểu rõ ràng, IDE gợi ý được và bắt lỗi khi compile, thay vì dùng key chuỗi dễ gõ sai."
+    },
+    {
+      "id": "PRM393-RE-40",
+      "type": "choice",
+      "prompt": "How can data be passed to a new screen?",
+      "options": [
+        "Using global variables",
+        "Via constructor arguments",
+        "Using ThemeData",
+        "Using Scaffold"
+      ],
+      "correct": 1,
+      "explanation": "Cách chuẩn là truyền qua constructor của màn mới: Navigator.push(context, MaterialPageRoute(builder: (_) => DetailPage(item: item))). Biến global dễ gây lỗi và khó test."
+    },
+    {
+      "id": "PRM393-RE-41",
+      "type": "choice",
+      "prompt": "What role does the Flutter framework play in application development?",
+      "options": [
+        "It manages database servers",
+        "It provides UI components and rendering logic",
+        "It replaces the operating system",
+        "It runs backend business logic"
+      ],
+      "correct": 1,
+      "explanation": "Flutter cung cấp bộ widget, hệ thống layout và engine render (Skia/Impeller) để vẽ UI. Database hay backend nằm ngoài phạm vi của nó."
+    },
+    {
+      "id": "PRM393-RE-42",
+      "type": "choice",
+      "prompt": "What is the main benefit of using Maps in Dart?",
+      "options": [
+        "Storing values without keys",
+        "Storing key-value pairs",
+        "Rendering UI components",
+        "Managing asynchronous tasks"
+      ],
+      "correct": 1,
+      "explanation": "Map lưu cặp key-value và tra cứu nhanh theo key, vd {\"name\": \"An\", \"age\": 20}; dữ liệu JSON khi decode cũng ra Map."
+    },
+    {
+      "id": "PRM393-RE-43",
+      "type": "choice",
+      "prompt": "Which Flutter service simplifies authentication implementation?",
+      "options": [
+        "sqflite",
+        "Firebase Authentication",
+        "Provider",
+        "http"
+      ],
+      "correct": 1,
+      "explanation": "Firebase Authentication có sẵn đăng nhập email/mật khẩu, Google, số điện thoại… và quản lý session, nên giảm nhiều code tự viết. sqflite là database, Provider quản lý state, http gửi request."
+    },
+    {
+      "id": "PRM393-RE-44",
+      "type": "choice",
+      "prompt": "Why should animations be disposed properly?",
+      "options": [
+        "Improve UI",
+        "Prevent memory leaks",
+        "Speed up builds",
+        "Fix layout"
+      ],
+      "correct": 1,
+      "explanation": "AnimationController giữ Ticker; nếu không gọi controller.dispose() trong dispose() thì ticker vẫn chạy và chiếm bộ nhớ dù widget đã bị gỡ, gây memory leak."
+    },
+    {
+      "id": "PRM393-RE-45",
+      "type": "choice",
+      "prompt": "Which widget is best used to add fixed empty space?",
+      "options": [
+        "Padding",
+        "Expanded",
+        "SizedBox",
+        "Container"
+      ],
+      "correct": 2,
+      "explanation": "SizedBox(height: 16) hoặc SizedBox(width: 8) tạo khoảng trống cố định, nhẹ hơn Container. Expanded chiếm không gian co giãn; Padding chỉ thêm lề quanh child."
+    },
+    {
+      "id": "PRM393-RE-46",
+      "type": "choice",
+      "prompt": "What is the purpose of the Flutter SDK?",
+      "options": [
+        "To store application data permanently",
+        "To provide tools and libraries for Flutter development",
+        "To deploy applications directly to app stores",
+        "To replace the operating system of a device"
+      ],
+      "correct": 1,
+      "explanation": "Flutter SDK gồm framework, engine, Dart SDK và công cụ CLI (flutter run, build, doctor…) để phát triển app."
+    },
+    {
+      "id": "PRM393-RE-47",
+      "type": "choice",
+      "prompt": "What is the main goal of performance optimization in Flutter apps?",
+      "options": [
+        "Improve UI colors",
+        "Ensure smooth and responsive UI",
+        "Reduce code size",
+        "Add features"
+      ],
+      "correct": 1,
+      "explanation": "Mục tiêu là UI mượt, giữ đủ 60–120 fps không jank, và phản hồi nhanh với thao tác của người dùng."
+    },
+    {
+      "id": "PRM393-RE-48",
+      "type": "choice",
+      "prompt": "Which widget is suitable for displaying items in a grid layout?",
+      "options": [
+        "ListView",
+        "Column",
+        "GridView",
+        "Stack"
+      ],
+      "correct": 2,
+      "explanation": "GridView (vd GridView.builder hay GridView.count) xếp các item theo hàng và cột, có cuộn. ListView là danh sách một chiều."
+    },
+    {
+      "id": "PRM393-RE-49",
+      "type": "choice",
+      "prompt": "Which platforms can Flutter applications target using a single codebase?",
+      "options": [
+        "Android only",
+        "iOS only",
+        "Android, iOS, web, and desktop",
+        "Web servers only"
+      ],
+      "correct": 2,
+      "explanation": "Flutter hỗ trợ Android, iOS, web và desktop (Windows, macOS, Linux) từ cùng một codebase."
+    },
+    {
+      "id": "PRM393-RE-50",
+      "type": "choice",
+      "prompt": "Which Flutter plugin provides SQLite support?",
+      "options": [
+        "hive",
+        "moor",
+        "sqflite",
+        "shared_preferences"
+      ],
+      "correct": 2,
+      "explanation": "sqflite là plugin SQLite phổ biến nhất. hive là NoSQL key-value; moor (nay là drift) là ORM chạy trên SQLite; shared_preferences lưu key-value đơn giản."
+    }
+  ]
+}

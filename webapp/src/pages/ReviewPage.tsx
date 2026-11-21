@@ -65,6 +65,8 @@ import prn232DeA from '../content/prn232/prn232-de-a.json';
 import prn232DeB from '../content/prn232/prn232-de-b.json';
 import prn232Sp26 from '../content/prn232/prn232-sp26.json';
 import prm393Fe from '../content/prm393/prm393-fe.json';
+import prm393Re from '../content/prm393/prm393-re.json';
+import prm393B5 from '../content/prm393/prm393-b5.json';
 
 // Quiz môn PMG201c (Project Management) — 3 đề thi thật + trộn 3 đề + chia theo chủ đề
 import pmg201cD1 from '../content/pmg201c/pmg201c-d1.json';
@@ -260,14 +262,23 @@ function buildPrn232Mix() {
 
 export const prm393Map: Record<string, any> = {
   'fe': prm393Fe,
+  're': prm393Re,
+  'b5': prm393B5,
 };
 
-// Đề trộn PRM393: toàn bộ câu của đề FE, trộn thứ tự — KHÔNG đảo vị trí đáp án trong câu.
+// Đề trộn PRM393: gộp 3 đề, bỏ câu trùng (cùng đề bài), lấy ngẫu nhiên 50 câu — KHÔNG đảo vị trí đáp án.
 function buildPrm393Mix() {
+  const seen = new Set<string>();
+  const pool = [...prm393Fe.questions, ...prm393Re.questions, ...prm393B5.questions].filter((q: any) => {
+    const key = q.prompt.trim().toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
   return {
     id: 'PRM393-MIX',
-    title: 'PRM393 — Đề Trộn (đảo thứ tự câu)',
-    questions: shuffleArray(prm393Fe.questions),
+    title: 'PRM393 — Đề Trộn (50 câu từ 3 đề)',
+    questions: shuffleArray(pool).slice(0, 50),
   };
 }
 
